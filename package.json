@@ -1,13 +1,13 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Eddort @Eddort",
   "devDependencies": {
     "@babel/cli": "^7.12.13",
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
-    "@quarkly/sdk": "^0.5.1",
+    "@quarkly/sdk": "^0.5.2",
     "rimraf": "3.0.2"
   },
   "engines": {
