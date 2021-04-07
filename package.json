@@ -1,6 +1,6 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Eddort @Eddort",
   "devDependencies": {
     "@babel/cli": "^7.12.13",
