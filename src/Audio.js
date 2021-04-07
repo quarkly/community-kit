@@ -1,11 +1,23 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import atomize from '@quarkly/atomize';
+import { useOverrides } from '@quarkly/components';
 
 import ComponentNotice from './ComponentNotice';
 
+const overrides = {
+  'Audio Tag': {
+    kind: 'Audio Tag',
+    props: {
+      'width': '100%',
+      'height': '0px',
+      'min-height': '48px',
+    }
+  }
+}
+
 const Audio = atomize.audio();
+const Wrapper = atomize.div();
 const Content = atomize.div();
-const Empty = atomize.div();
 
 const AudioComponent = ({
   src,
@@ -16,41 +28,43 @@ const AudioComponent = ({
   children,
   ...props
 }) => {
-  const contentRef = useRef(null);
-  const [isEmpty, setEmpty] = useState(false);
+  const { override, rest } = useOverrides(props, overrides);
   
-  const srcVal = src.trim();
+  const [isEmpty, setEmpty] = useState(false);
+  const contentRef = useRef(null);
+  
+  const srcVal = useMemo(() => src.trim(), [src]);
+  const showNotice = useMemo(() => (
+    isEmpty && !srcVal
+  ), [isEmpty, srcVal]);
   
   useEffect(() => {
     setEmpty(contentRef.current?.innerHTML === '<!--child placeholder-->');
   }, [children]);
   
-  const Wrapper = !isEmpty || srcVal ? Audio : Empty;
-  
   return (
-    <Wrapper
-      width='100%'
-      height='auto'
-      min-height="48px"
-      
-      src={srcVal}
-      autoPlay={autoPlay}
-      controls={controls}
-      muted={muted}
-      loop={loop}
-      
-      {...props}
-    >
-      <Content ref={contentRef}>
-        {React.Children.map(children, child =>
-          React.isValidElement(child) &&
-            React.cloneElement(child, {
-              container: 'audio'
-            })
-        )}
-      </Content>
-      
-      { (isEmpty && !srcVal) &&
+    <Wrapper {...rest}>
+      <Audio
+        src={srcVal}
+        autoPlay={autoPlay}
+        controls={controls}
+        muted={muted}
+        loop={loop}
+        
+        {...override('Audio Tag')}
+        
+        display={showNotice && 'none'}
+      >
+        <Content ref={contentRef}>
+          {React.Children.map(children, child =>
+            React.isValidElement(child) &&
+              React.cloneElement(child, {
+                container: 'audio'
+              })
+          )}
+        </Content>
+      </Audio>
+      { showNotice &&
         <ComponentNotice
           message={'Добавьте свойство SRC или перетащите сюда компонент "Source"'}
         />
@@ -116,6 +130,8 @@ const propInfo = {
 const defaultProps = {
   src: '',
   controls: true,
+  
+  display: 'flex',
 }
 
 export default atomize(AudioComponent)(
@@ -126,6 +142,7 @@ export default atomize(AudioComponent)(
       ru: 'Контейнер для встраивания аудио контента',
     },
     propInfo,
+    overrides,
   },
   defaultProps
 );
