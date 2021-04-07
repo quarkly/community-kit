@@ -114,6 +114,7 @@ const propInfo = {
 };
 
 const defaultProps = {
+  src: '',
   controls: true,
 }
 
