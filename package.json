@@ -1,13 +1,13 @@
 {
-  "name": "ui-kit",
+  "name": "@quarkly/community-kit",
   "version": "0.0.0",
   "author": "Eddort @Eddort",
-  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.12.13",
     "@babel/core": "^7.12.13",
     "@babel/preset-env": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
+    "@quarkly/sdk": "^0.5.1",
     "rimraf": "3.0.2"
   },
   "engines": {
@@ -22,15 +22,17 @@
   },
   "quarklyInfo": {
     "components": {
-      "Slider": "Slider"
+      "Slider": "Slider",
+      "Test": "Test"
     }
   },
-  "repository": "https://github.com/quarkly/ui-kit",
+  "repository": "https://github.com/quarkly/community-kit",
   "scripts": {
     "build": "npm run clean && npm run build:cjs && cp package.json ./build && cp README.md ./build && npm run copy_readme",
     "build:cjs": "NODE_ENV=cjs babel src --out-dir build --ignore '**/*.test.js'",
     "clean": "rimraf build/*",
-    "copy_readme": "cd ./src && find . -name '*.md' -exec cp --parents {} ../build \\;"
+    "copy_readme": "cd ./src && find . -name '*.md' -exec cp --parents {} ../build \\;",
+    "create:component": "quarkly-sdk component $1"
   },
   "sideEffects": false
 }
