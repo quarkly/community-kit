@@ -23,7 +23,8 @@
   "quarklyInfo": {
     "components": {
       "Slider": "Slider",
-      "Test": "Test"
+      "Test": "Test",
+      "Audio": "Audio"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
