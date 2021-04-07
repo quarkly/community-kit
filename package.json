@@ -20,6 +20,11 @@
     "react": "^16.13.0",
     "styled-components": "^5.0.1"
   },
+  "quarklyInfo": {
+    "components": {
+      "Slider": "Slider"
+    }
+  },
   "repository": "https://github.com/quarkly/ui-kit",
   "scripts": {
     "build": "npm run clean && npm run build:cjs && cp package.json ./build && cp README.md ./build && npm run copy_readme",
