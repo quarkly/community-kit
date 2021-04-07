@@ -1,0 +1,6 @@
+*-debug.log
+*-error.log
+/tmp
+node_modules
+quarkly-sdk.json
+src
