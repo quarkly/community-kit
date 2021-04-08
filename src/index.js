@@ -3,3 +3,4 @@
 export { default as Slider } from "./Slider";
 export { default as Test } from "./Test";
 export { default as Audio } from "./Audio";
+export { default as DisqusComment } from "./DisqusComment";

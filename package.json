@@ -24,7 +24,8 @@
     "components": {
       "Slider": "Slider",
       "Test": "Test",
-      "Audio": "Audio"
+      "Audio": "Audio",
+      "DisqusComment": "DisqusComment"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
