@@ -1,7 +1,10 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Eddort @Eddort",
+  "dependencies": {
+    "disqus-react": "^1.0.11"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.13",
     "@babel/core": "^7.12.13",
@@ -38,8 +41,5 @@
     "copy_readme": "cd ./src && find . -name '*.md' -exec cp --parents {} ../build \\;",
     "create:component": "quarkly-sdk component $1"
   },
-  "sideEffects": false,
-  "dependencies": {
-    "disqus-react": "^1.0.11"
-  }
+  "sideEffects": false
 }
