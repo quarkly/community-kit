@@ -8,6 +8,7 @@
     "@babel/preset-env": "^7.12.13",
     "@babel/preset-react": "^7.12.13",
     "@quarkly/sdk": "^0.5.2",
+    "prettier": "2.2.1",
     "rimraf": "3.0.2"
   },
   "engines": {
@@ -25,7 +26,8 @@
       "Slider": "Slider",
       "Test": "Test",
       "Audio": "Audio",
-      "DisqusComment": "DisqusComment"
+      "DisqusComment": "DisqusComment",
+      "Disqus": "Disqus"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
@@ -36,5 +38,8 @@
     "copy_readme": "cd ./src && find . -name '*.md' -exec cp --parents {} ../build \\;",
     "create:component": "quarkly-sdk component $1"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "dependencies": {
+    "disqus-react": "^1.0.11"
+  }
 }
