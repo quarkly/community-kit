@@ -8,18 +8,16 @@ const DisqusComment = ({
     widthProp,
     heightProp,
     ...props
-}) => {
-    return (
-        <Box width="100%" max-height="298px" {...props}>
-            <CommentEmbed
-                commentId={commentIDProp}
-                showParentComment={showParrent}
-                width={widthProp}
-                height={heightProp}
-            />
-        </Box>
-    );
-};
+}) => (
+    <Box width="100%" max-height="298px" {...props}>
+        <CommentEmbed
+            commentId={commentIDProp}
+            showParentComment={showParrent}
+            width={widthProp}
+            height={heightProp}
+        />
+    </Box>
+);
 
 const propInfo = {
     commentIDProp: {
