@@ -3,5 +3,6 @@
 export { default as Slider } from "./Slider";
 export { default as Test } from "./Test";
 export { default as Audio } from "./Audio";
-export { default as Disqus } from "./Disqus";
 export { default as DisqusComment } from "./DisqusComment";
+export { default as Disqus } from "./Disqus";
+export { default as Vimeo } from "./Vimeo";
