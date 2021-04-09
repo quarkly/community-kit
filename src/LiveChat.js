@@ -1,22 +1,55 @@
 import React from 'react';
-import atomize from "@quarkly/atomize";
+import LiveChat from 'react-livechat';
+import { Box } from '@quarkly/widgets';
 
-const LiveChat = props => <div {...props}>Say hello LiveChat</div>
+const LiveChatComp = ({ license, group, chatBetweenGroups, ...props }) => {
+    return (
+        <Box {...props}>
+            <LiveChat
+                license={license}
+                group={group}
+                chatBetweenGroups={chatBetweenGroups === 'enable'}
+            />
+        </Box>
+    );
+};
 
-export default atomize(LiveChat)({
-  name: "LiveChat",
-  effects: {
-    hover: ":hover"
-  },
-  description: {
-    // paste here description for your component
-    en:
-      "LiveChat — my awesome component",
-  },
-  propInfo: {
-    // paste here props description for your component
-    yourCustomProps: {
-      control: "input"
-    }
-  }
+const propInfo = {
+    license: {
+        title: 'License ID:',
+        control: 'number',
+        type: 'number',
+        category: 'Main',
+        weight: 1,
+    },
+    group: {
+        title: 'Group number:',
+        control: 'number',
+        type: 'number',
+        category: 'Main',
+        weight: 1,
+    },
+    chatBetweenGroups: {
+        title: 'Chat sessions between groups:',
+        control: 'radio-group',
+        variants: ['enable', 'disable'],
+        type: 'text',
+        category: 'Main',
+        weight: 1,
+    },
+};
+
+const defaultProps = {
+    license: '',
+    group: '',
+    chatBetweenGroups: '',
+};
+
+export default Object.assign(LiveChatComp, {
+    title: 'LiveChat',
+    description: {
+        en: 'LiveChat widget for your application',
+    },
+    propInfo,
+    defaultProps,
 });
