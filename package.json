@@ -1,10 +1,12 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "author": "Eddort @Eddort",
   "dependencies": {
+    "@react-hook/resize-observer": "^1.2.0",
     "@u-wave/react-vimeo": "^0.9.4",
-    "disqus-react": "^1.0.11"
+    "disqus-react": "^1.0.11",
+    "react-yandex-maps": "^4.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.13",
@@ -54,7 +56,10 @@
       "Timer": "Timer",
       "BeforeAfterImage": "BeforeAfterImage",
       "BgImageParallax": "BgImageParallax",
-      "Gallery": "Gallery"
+      "Gallery": "Gallery",
+      "SoundCloud": "SoundCloud",
+      "SvgShape": "SvgShape",
+      "YandexMap": "YandexMap"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
