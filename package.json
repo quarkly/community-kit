@@ -3,8 +3,10 @@
   "version": "0.0.8",
   "author": "Eddort @Eddort",
   "dependencies": {
+    "@react-hook/resize-observer": "^1.2.0",
+    "disqus-react": "^1.0.11",
     "@u-wave/react-vimeo": "^0.9.4",
-    "disqus-react": "^1.0.11"
+    "react-yandex-maps": "^4.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.13",
@@ -43,7 +45,9 @@
       "DisqusComment": "DisqusComment",
       "Disqus": "Disqus",
       "Vimeo": "Vimeo",
-      "SoundCloud": "SoundCloud"
+      "SoundCloud": "SoundCloud",
+      "SvgShape": "SvgShape",
+      "YandexMap": "YandexMap"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
