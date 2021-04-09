@@ -52,7 +52,8 @@
       "LiveChat": "LiveChat",
       "YouTube": "YouTube",
       "LightBoxImage": "LightBoxImage",
-      "LightBoxMap": "LightBoxMap"
+      "LightBoxMap": "LightBoxMap",
+      "LightBoxVideo": "LightBoxVideo"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
