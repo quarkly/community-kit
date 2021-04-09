@@ -45,7 +45,8 @@
       "Vimeo": "Vimeo",
       "Video": "Video",
       "Picture": "Picture",
-      "Source": "Source"
+      "Source": "Source",
+      "Track": "Track"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",

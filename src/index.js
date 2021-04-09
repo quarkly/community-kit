@@ -9,3 +9,4 @@ export { default as Vimeo } from "./Vimeo";
 export { default as Video } from "./Video";
 export { default as Picture } from "./Picture";
 export { default as Source } from "./Source";
+export { default as Track } from "./Track";
