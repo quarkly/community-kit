@@ -51,7 +51,8 @@
       "Table": "Table",
       "Timeline": "Timeline",
       "Tooltip": "Tooltip",
-      "Timer": "Timer"
+      "Timer": "Timer",
+      "BeforeAfterImage": "BeforeAfterImage"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",

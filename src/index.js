@@ -15,3 +15,4 @@ export { default as Table } from "./Table";
 export { default as Timeline } from "./Timeline";
 export { default as Tooltip } from "./Tooltip";
 export { default as Timer } from "./Timer";
+export { default as BeforeAfterImage } from "./BeforeAfterImage";
