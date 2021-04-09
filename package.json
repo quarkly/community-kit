@@ -41,7 +41,8 @@
       "Audio": "Audio",
       "DisqusComment": "DisqusComment",
       "Disqus": "Disqus",
-      "Vimeo": "Vimeo"
+      "Vimeo": "Vimeo",
+      "YandexMap": "YandexMap"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
