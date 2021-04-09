@@ -3,7 +3,8 @@
   "version": "0.0.8",
   "author": "Eddort @Eddort",
   "dependencies": {
-    "disqus-react": "^1.0.11"
+    "disqus-react": "^1.0.11",
+    "react-yandex-maps": "^4.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.13",
