@@ -50,7 +50,8 @@
       "SvgShape": "SvgShape",
       "YandexMap": "YandexMap",
       "LiveChat": "LiveChat",
-      "YouTube": "YouTube"
+      "YouTube": "YouTube",
+      "LightBoxImage": "LightBoxImage"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
