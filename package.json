@@ -4,6 +4,7 @@
   "author": "Eddort @Eddort",
   "dependencies": {
     "disqus-react": "^1.0.11",
+    "@u-wave/react-vimeo": "^0.9.4",
     "react-yandex-maps": "^4.6.0"
   },
   "devDependencies": {
