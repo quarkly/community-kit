@@ -1,22 +1,32 @@
 import React from 'react';
-import atomize from "@quarkly/atomize";
+import atomize from '@quarkly/atomize';
 
-const Notice = props => <div {...props}>Say hello Notice</div>
+const Message = atomize.div();
 
-export default atomize(Notice)({
-  name: "Notice",
-  effects: {
-    hover: ":hover"
-  },
-  description: {
-    // paste here description for your component
-    en:
-      "Notice — my awesome component",
-  },
-  propInfo: {
-    // paste here props description for your component
-    yourCustomProps: {
-      control: "input"
-    }
-  }
+const ComponentNotice = ({ message, ...props }) => (
+    <Message
+        padding="16px"
+        width="100%"
+        font="--font-base"
+        font-style="italic"
+        color="--color-grey"
+        background-color="--color-light"
+        border="1px dashed --color-lightD2"
+        box-sizing="border-box"
+        {...props}
+    >
+        {message || 'Some Text'}
+    </Message>
+);
+
+export default atomize(ComponentNotice)({
+    name: 'Component Notice',
+    propInfo: {
+        message: {
+            title: 'Message',
+            control: 'input',
+            type: 'text',
+            weight: 1,
+        },
+    },
 });
