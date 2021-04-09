@@ -51,7 +51,8 @@
       "YandexMap": "YandexMap",
       "LiveChat": "LiveChat",
       "YouTube": "YouTube",
-      "LightBoxImage": "LightBoxImage"
+      "LightBoxImage": "LightBoxImage",
+      "LightBoxMap": "LightBoxMap"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
