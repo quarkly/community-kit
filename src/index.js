@@ -14,3 +14,4 @@ export { default as YouTube } from "./YouTube";
 export { default as LightBoxImage } from "./LightBoxImage";
 export { default as LightBoxMap } from "./LightBoxMap";
 export { default as LightBoxVideo } from "./LightBoxVideo";
+export { default as Notice } from "./Notice";
