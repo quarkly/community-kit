@@ -3,6 +3,7 @@
   "version": "0.0.8",
   "author": "Eddort @Eddort",
   "dependencies": {
+    "@u-wave/react-vimeo": "^0.9.4",
     "disqus-react": "^1.0.11"
   },
   "devDependencies": {
