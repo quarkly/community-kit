@@ -6,4 +6,5 @@ export { default as Audio } from './Audio';
 export { default as DisqusComment } from './DisqusComment';
 export { default as Disqus } from './Disqus';
 export { default as Vimeo } from './Vimeo';
+export { default as SvgShape } from './SvgShape';
 export { default as YandexMap } from './YandexMap';
