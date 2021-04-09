@@ -43,7 +43,8 @@
       "DisqusComment": "DisqusComment",
       "Disqus": "Disqus",
       "Vimeo": "Vimeo",
-      "Video": "Video"
+      "Video": "Video",
+      "Picture": "Picture"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
