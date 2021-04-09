@@ -53,7 +53,8 @@
       "Tooltip": "Tooltip",
       "Timer": "Timer",
       "BeforeAfterImage": "BeforeAfterImage",
-      "BgImageParallax": "BgImageParallax"
+      "BgImageParallax": "BgImageParallax",
+      "Gallery": "Gallery"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
