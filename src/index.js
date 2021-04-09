@@ -13,3 +13,4 @@ export { default as Track } from "./Track";
 export { default as Collapse } from "./Collapse";
 export { default as Table } from "./Table";
 export { default as Timeline } from "./Timeline";
+export { default as Tooltip } from "./Tooltip";
