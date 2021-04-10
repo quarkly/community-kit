@@ -21,3 +21,4 @@ export { default as Gallery } from "./Gallery";
 export { default as SoundCloud } from './SoundCloud';
 export { default as SvgShape } from './SvgShape';
 export { default as YandexMap } from './YandexMap';
+export { default as LiveChat } from './LiveChat';
