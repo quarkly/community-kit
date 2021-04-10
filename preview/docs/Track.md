@@ -1,36 +1,50 @@
 ## 📖 Detailed overview
-Why does the user need this component? How will it benefit the user?
 
+Используйте, чтобы указать текстовую дорожку для видео или аудио. Является дочерним элементом компонентов `Video` и `Audio`. Такая дорожка обычно содержит субтитры на разных языках, комментарии, заголовки и др.
 
 ## 🎬 Live Demo
-[Live demo link]()
+
+[Live demo link](https://quarkly-ui-components.netlify.app/video/)
 
 ## ⚙️ Usage
-Detailed instructions on how to get the most out of your component
+
+Добавьте внутрь компонента `Video` или `Audio`.
+
+### Default
+
+Путь к дорожке задается в поле `Src`. Текстовая дорожка должна иметь формат (.vtt).
+
+### Default
+
+Параметр `Default` указывает, что данная дорожка предпочтительна и должна быть выбрана по умолчанию. Только одна дорожка может иметь default.
 
 ## 🧩 Components and Props
 
-### Track
-Description of the component and explanation of why it is needed
-
-|  Props Name  |    Type    |  Description  |  Default  |   Example   |
-| ------------ | :--------: | :-----------: | :-------: | :---------: |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
+| Props Name |   Type   |   Default   | Description                                                         |
+| :--------- | :------: | :---------: | :------------------------------------------------------------------ |
+| Src        | `string` |     `-`     | Путь к файлу с текстовой дорожкой                                   |
+| Default    |  `bool`  |   `false`   | Дорожка по умолчанию                                                |
+| SrcLang    | `string` |    `en`     | Язык дорожки                                                        |
+| Kind       |  `enum`  | `subtitles` | Тип дорожки (subtitles, captions, descriptions, chapters, metadata) |
+| Label      | `string` |   `none`    | Отображаемое название дорожки                                       |
 
 ## 🗓 Changelog
-- 01/03/2021 (v1.0)
-  - Some changes
-  - Some changes
-  - Some changes
+
+    - 09/04/2021 (v1.0)
+    - Первая версия
 
 ## 📮 Feedback
-If you want other features or find any errors, please contact me!
-In addition, I was wondering if you send me what you've built.
 
-Find me on Twitter: @author
-[author@contact.mail](mailto:author@contact.mail)
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+
+[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+
+[We're on Discord](https://discord.gg/f9KhSMGX)
+
+[Our Twitter](https://twitter.com/quarklyapp)
+
+[dev@quarkly.io](mailto:dev@quarkly.io)
 
 ## 📝 License
+
 Licensed under the [MIT License](./LICENSE).
