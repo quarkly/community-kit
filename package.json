@@ -61,7 +61,8 @@
       "SoundCloud": "SoundCloud",
       "SvgShape": "SvgShape",
       "YandexMap": "YandexMap",
-      "LiveChat": "LiveChat"
+      "LiveChat": "LiveChat",
+      "YouTube": "YouTube"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
