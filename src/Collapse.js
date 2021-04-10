@@ -218,4 +218,4 @@ Object.assign(CollapseComponent, {
   defaultProps,
 });
 
-export default Collapse;
+export default CollapseComponent;
