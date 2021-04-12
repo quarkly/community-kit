@@ -1,6 +1,6 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "author": "Eddort @Eddort",
   "dependencies": {
     "@react-hook/resize-observer": "^1.2.0",
@@ -66,8 +66,7 @@
       "LightBoxImage": "LightBoxImage",
       "LightBoxMap": "LightBoxMap",
       "LightBoxVideo": "LightBoxVideo",
-      "Notice": "Notice",
-      "Video": "Video"
+      "Notice": "Notice"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
