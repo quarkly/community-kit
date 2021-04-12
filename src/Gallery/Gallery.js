@@ -60,14 +60,14 @@ const overrides = {
     },
 };
 
-const loadImage = url =>
-    new Promise(resolve => {
+const loadImage = (url) =>
+    new Promise((resolve) => {
         const img = document.createElement('img');
         img.addEventListener('load', () => resolve(img));
         img.src = url;
     });
 
-const strToNumb = str => {
+const strToNumb = (str) => {
     const reg = /^[\d.,]+$/;
     const newStr = str.replace(/\s/g, '');
     if (reg.test(newStr)) return `${parseInt(newStr, 10)}px`;
@@ -149,7 +149,7 @@ const Gallery = ({
     }, []);
 
     const getItemWidth = useCallback(
-        galleryWidth =>
+        (galleryWidth) =>
             (galleryWidth - (columnsCountProp - 1) * borderWidthProp) /
             columnsCountProp,
         [
@@ -163,7 +163,7 @@ const Gallery = ({
     );
 
     const handleResize = useCallback(
-        el => {
+        (el) => {
             throttledEffect(() => {
                 const galleryWidth = el[0].contentRect.width;
                 const imageWidth = getItemWidth(galleryWidth);
@@ -194,7 +194,7 @@ const Gallery = ({
     );
 
     const getItemCountOnView = useCallback(
-        galleryWidth => {
+        (galleryWidth) => {
             const visibleSpace = window.innerHeight * windowHeightVisible;
             const visibleRows = Math.ceil(
                 visibleSpace / getItemWidth(galleryWidth)
@@ -216,7 +216,7 @@ const Gallery = ({
     );
 
     const loadMore = useCallback(
-        type => {
+        (type) => {
             const galleryRect = galleryRef.current.getBoundingClientRect();
             const itemsCount = getItemCountOnView(galleryRect.width);
             let newItems;
