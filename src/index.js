@@ -9,7 +9,7 @@ export { default as Picture } from './Picture';
 export { default as Source } from './Source';
 export { default as Track } from './Track';
 export { default as Collapse } from './Collapse';
-export { default as Table } from './Table';
+export { default as Popup } from './Popup';
 export { default as Timeline } from './Timeline';
 export { default as Tooltip } from './Tooltip';
 export { default as Timer } from './Timer';
