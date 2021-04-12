@@ -26,3 +26,4 @@ export { default as LightBoxMap } from './LightBoxMap';
 export { default as LightBoxVideo } from './LightBoxVideo';
 export { default as Notice } from './Notice';
 export { default as Table } from './Table';
+export { default as VkPage } from './VkPage';
