@@ -1,36 +1,42 @@
 ## 📖 Detailed overview
-Why does the user need this component? How will it benefit the user?
 
+Компонент показывает видео в попапе. Состоит из двух частей: скрытое видео и элемент-триггер. При клике на элемент-триггер показывается видео. 
 
 ## 🎬 Live Demo
-[Live demo link]()
+
+[Live demo link](https://quarkly-ui-components.netlify.app/lightbox/)
 
 ## ⚙️ Usage
-Detailed instructions on how to get the most out of your component
+
+Добавьте компонент на страницу, переместите в него любой другой компонент, например, Icon и посмотрите как он работает в режиме превью.
+
+### Заменить видео Lightbox
+
+Чтобы заменить видео, выберите встроенный компонент `Video` и поменяйте значение свойства `Src`.
 
 ## 🧩 Components and Props
 
-### LightBoxVideo
-Description of the component and explanation of why it is needed
+| Props Name              |  Type  |                      Description                      | Default | Example |
+| ----------------------- | :----: | :---------------------------------------------------: | :-----: | :-----: |
+| Показать видео          | `bool` |                Показать видео Lightbox                | `false` | `true`  |
+| Отключить скролл        | `bool` | Запретить возможность прокрутки при открытии Lightbox | `false` | `true`  |
+| Деактивировать Lightbox | `bool` |              Запретить открытие Lightbox              | `false` | `true`  |
 
-|  Props Name  |    Type    |  Description  |  Default  |   Example   |
-| ------------ | :--------: | :-----------: | :-------: | :---------: |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-
-## 🗓 Changelog
-- 01/03/2021 (v1.0)
-  - Some changes
-  - Some changes
-  - Some changes
+- 09/04/2021 (v1.0)
+  - Первая версия
 
 ## 📮 Feedback
-If you want other features or find any errors, please contact me!
-In addition, I was wondering if you send me what you've built.
 
-Find me on Twitter: @author
-[author@contact.mail](mailto:author@contact.mail)
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+
+[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+
+[We're on Discord](https://discord.gg/f9KhSMGX)
+
+[Our Twitter](https://twitter.com/quarklyapp)
+
+[dev@quarkly.io](mailto:dev@quarkly.io)
 
 ## 📝 License
+
 Licensed under the [MIT License](./LICENSE).
