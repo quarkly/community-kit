@@ -146,14 +146,15 @@ const TooltipBlock = ({
     arrowStatusProp,
     override,
 }) => {
-    const wrapperPositionStyles = useMemo(
-        () =>
-            getWrapperPosition[tooltipPosition]({
-                arrowOffsetNumb,
-                arrowSizeNumb,
-            }),
-        [tooltipPosition, arrowOffsetNumb, arrowSizeNumb]
-    );
+    const wrapperPositionStyles = useMemo(() => {
+        const position =
+            getWrapperPosition[tooltipPosition] || getWrapperPosition.top;
+
+        return position({
+            arrowOffsetNumb,
+            arrowSizeNumb,
+        });
+    }, [tooltipPosition, arrowOffsetNumb, arrowSizeNumb]);
     const wrapperShowStyles = useMemo(
         () => ({
             visibility:

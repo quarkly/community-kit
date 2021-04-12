@@ -5,6 +5,7 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
+        'jest/globals': true,
     },
     extends: [
         'airbnb',
@@ -18,7 +19,7 @@ module.exports = {
         ecmaVersion: 12,
         sourceType: 'module',
     },
-    plugins: ['react'],
+    plugins: ['react', 'jest'],
     rules: {
         'prettier/prettier': 'error',
         'import/no-unresolved': [

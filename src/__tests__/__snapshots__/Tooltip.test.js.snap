@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tooltip component renders correctly without params 1`] = `
+<div
+  className="sc-eCImvq gIpXVq"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <div
+    className="sc-eCImvq bbiifI"
+    display="flex"
+    height="100%"
+    width="100%"
+  >
+    <div
+      className="sc-eCImvq dBvtEa"
+      data-qkind="Box"
+      data-qoverride="Wrapper"
+      display="flex"
+      opacity={1}
+      visibility="visible "
+      width="max-content"
+    >
+      <div
+        className="sc-dkPtyc gXTJfF"
+        color="white"
+        data-qkind="Text"
+        data-qoverride="Title"
+      >
+        Some text
+      </div>
+      <div
+        className="sc-eCImvq eeLsie"
+        data-qkind="Box"
+        data-qoverride="Arrow"
+        opacity={1}
+        visibility="visible "
+      />
+    </div>
+  </div>
+  <div
+    className="sc-eCImvq kDnecC"
+    data-qkind="Box"
+    data-qoverride="Content"
+    width="100%"
+  />
+</div>
+`;
