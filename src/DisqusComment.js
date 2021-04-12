@@ -1,69 +1,91 @@
 import React from 'react';
-import { Box } from '@quarkly/widgets';
 import { CommentEmbed } from 'disqus-react';
+import { useOverrides } from '@quarkly/components';
+import atomize from '@quarkly/atomize';
 
-const DisqusComment = ({
+import ComponentNotice from './ComponentNotice';
+
+const overrides = {
+    'Disqus Content': {
+        kind: 'Disqus Content',
+        props: {
+            width: '100%',
+            height: 'auto',
+        },
+    },
+};
+
+const Wrapper = atomize.div();
+const Content = atomize.div();
+
+const DisqusCommentComponent = ({
     commentIDProp,
     showParrent,
     widthProp,
     heightProp,
     ...props
-}) => (
-    <Box width="100%" max-height="298px" {...props}>
-        <CommentEmbed
-            commentId={commentIDProp}
-            showParentComment={showParrent}
-            width={widthProp}
-            height={heightProp}
-        />
-    </Box>
-);
+}) => {
+    const { override, rest } = useOverrides(props, overrides);
+
+    return (
+        <Wrapper width="100%" {...rest}>
+            <Content
+                {...override('Disqus Content')}
+                display={!commentIDProp && 'none'}
+            >
+                <CommentEmbed
+                    commentId={commentIDProp}
+                    showParentComment={showParrent}
+                    width={widthProp}
+                    height={heightProp}
+                />
+            </Content>
+
+            {!commentIDProp && (
+                <ComponentNotice message="Добавьте ID комментария на панели Props" />
+            )}
+        </Wrapper>
+    );
+};
 
 const propInfo = {
     commentIDProp: {
-        title: 'ID Комментария',
-        description: {
-            en: 'ID Комментария',
-        },
+        title: 'Идентификатор комментария',
         control: 'input',
-        weight: 0.5,
+        type: 'text',
+        weight: 1,
     },
     showParrent: {
-        title: 'Show Parrent Comment',
-        description: {
-            en: 'Show Parrent Comment',
-        },
+        title: 'Показать родительский комментарий',
         control: 'checkbox',
-        weight: 0.5,
+        type: 'text',
+        weight: 1,
     },
     widthProp: {
         title: 'Ширина блока',
-        description: {
-            en: 'Ширина блока',
-        },
         control: 'input',
+        type: 'text',
         weight: 0.5,
     },
     heightProp: {
         title: 'Высота блока',
-        description: {
-            en: 'Высота блока',
-        },
         control: 'input',
+        type: 'text',
         weight: 0.5,
     },
 };
 
 const defaultProps = {
-    commentIDProp: '5306141969',
+    commentIDProp: '',
     showParrent: false,
     widthProp: '100%',
     heightProp: '200px',
 };
 
-Object.assign(DisqusComment, {
+Object.assign(DisqusCommentComponent, {
     propInfo,
     defaultProps,
+    overrides,
 });
 
-export default DisqusComment;
+export default DisqusCommentComponent;
