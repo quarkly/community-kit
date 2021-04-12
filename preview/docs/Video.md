@@ -1,41 +1,3 @@
-## 📖 Detailed overview
-<<<<<<< HEAD
-Why does the user need this component? How will it benefit the user?
-
-
-## 🎬 Live Demo
-[Live demo link]()
-
-## ⚙️ Usage
-Detailed instructions on how to get the most out of your component
-
-## 🧩 Components and Props
-
-### Video
-Description of the component and explanation of why it is needed
-
-|  Props Name  |    Type    |  Description  |  Default  |   Example   |
-| ------------ | :--------: | :-----------: | :-------: | :---------: |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-
-## 🗓 Changelog
-- 01/03/2021 (v1.0)
-  - Some changes
-  - Some changes
-  - Some changes
-
-## 📮 Feedback
-If you want other features or find any errors, please contact me!
-In addition, I was wondering if you send me what you've built.
-
-Find me on Twitter: @author
-[author@contact.mail](mailto:author@contact.mail)
-
-## 📝 License
-=======
-
 Видеопроигрыватель. Используйте его для встраивания видео контента на сайте.
 
 ## 🎬 Live Demo
@@ -89,5 +51,4 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 ## 📝 License
 
->>>>>>> 755d3ebdbba93e16a684479ab043f48132d41e4c
 Licensed under the [MIT License](./LICENSE).
