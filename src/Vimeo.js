@@ -67,13 +67,9 @@ const VimeoComponent = ({
             align-items="center"
             justify-content="center"
             display="flex"
-            
             {...rest}
         >
-            <Content
-                {...override('Vimeo Content')}
-                display={!video && 'none'}
-            >
+            <Content {...override('Vimeo Content')} display={!video && 'none'}>
                 <StyledVimeo
                     key={key}
                     start={dStart}
