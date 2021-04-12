@@ -18,7 +18,7 @@ const overrides = {
 const Wrapper = atomize.div();
 const Content = atomize.div();
 
-const Disqus = ({
+const DisqusComponent = ({
   shortnameProp,
   languageProp,
   identifierProp,
@@ -43,7 +43,7 @@ const Disqus = ({
   return (
     <Wrapper
       width="100%"
-      {...props}
+      {...rest}
     >
       <Content
         {...override('Disqus Content')}
@@ -66,59 +66,50 @@ const Disqus = ({
 
 const propInfo = {
   identifierProp: {
-    title: 'Идентификатор обсуждения', 
-    description: {
-      en: 'Уникальный идентификатор обсуждения',
-    },
+    title: 'Идентификатор обсуждения',
     control: 'input',
-    category: 'Discussions params',
+    type: 'text',
+    category: 'Discussions',
     weight: 1 
   },
   urlProp: {
-    title: 'URL-адрес обсуждения', 
-    description: {
-      en: 'URL-адрес обсуждения',
-    },
+    title: 'URL-адрес обсуждения',
     control: 'input',
-    category: 'Discussions params',
+    type: 'text',
+    category: 'Discussions',
     weight: 1 
   },
   titleProp: {
-    title: 'Заголовок обсуждения', 
-    description: {
-      en: 'Заголовок обсуждения (Создается и сохраняется при первом комментарии. Далее не изменяется).',
-    },
+    title: 'Заголовок обсуждения',
     control: 'input',
-    category: 'Discussions params',
+    type: 'text',
+    category: 'Discussions',
     weight: 1 
   },
   shortnameProp: {
-    title: 'Shortname', 
-    description: {
-      en: 'Имя вашей ленты. Узнать можно здесь: https://disqus.com/admin/settings/general/',
-    },
+    title: 'Имя вашей ленты',
     control: 'input',
+    type: 'text',
+    category: 'General',
     weight: .5
   },
   languageProp: {
-    title: 'Language', 
-    description: {
-      en: 'Выберите язык',
-    },
-    control: 'select',
-    variants: ['ru', 'en', 'zh', 'fr', 'de'],
+    title: 'Укажите язык',
+    control: 'input',
+    variants: ['en', 'de', 'fr', 'ru'],
+    type: 'text',
     weight: .5
   },
 };
 
 const defaultProps = {
-  shortnameProp: 'my-test-project',
-  languageProp: 'ru',
+  languageProp: 'en',
 }; 
 
-Object.assign(Disqus, { 
+Object.assign(DisqusComponent, { 
   propInfo,
-  defaultProps
+  defaultProps,
+  overrides,
 });
 
-export default Disqus;
+export default DisqusComponent;

@@ -18,7 +18,7 @@ const overrides = {
 const Wrapper = atomize.div();
 const Content = atomize.div();
 
-const DisqusComment = ({
+const DisqusCommentComponent = ({
   commentIDProp,
   showParrent,
   widthProp,
@@ -55,35 +55,27 @@ const DisqusComment = ({
 
 const propInfo = {
   commentIDProp: {
-    title: 'ID Комментария',
-    description: {
-      en: 'ID Комментария',
-    },
+    title: 'Идентификатор комментария',
     control: 'input',
-    weight: 0.5,
+    type: 'text',
+    weight: 1,
   },
   showParrent: {
-    title: 'Show Parrent Comment',
-    description: {
-      en: 'Show Parrent Comment',
-    },
+    title: 'Показать родительский комментарий',
     control: 'checkbox',
-    weight: 0.5,
+    type: 'text',
+    weight: 1,
   },
   widthProp: {
     title: 'Ширина блока',
-    description: {
-      en: 'Ширина блока',
-    },
     control: 'input',
+    type: 'text',
     weight: 0.5,
   },
   heightProp: {
     title: 'Высота блока',
-    description: {
-      en: 'Высота блока',
-    },
     control: 'input',
+    type: 'text',
     weight: 0.5,
   },
 };
@@ -95,9 +87,10 @@ const defaultProps = {
   heightProp: '200px',
 };
 
-Object.assign(DisqusComment, {
+Object.assign(DisqusCommentComponent, {
   propInfo,
   defaultProps,
+  overrides,
 });
 
-export default DisqusComment;
+export default DisqusCommentComponent;
