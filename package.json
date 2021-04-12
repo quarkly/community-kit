@@ -79,7 +79,8 @@
       "LightBoxVideo": "LightBoxVideo",
       "Notice": "Notice",
       "Table": "Table",
-      "VkPage": "VkPage"
+      "VkPage": "VkPage",
+      "VkComments": "VkComments"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
