@@ -1,37 +1,36 @@
 ## 📖 Detailed overview
-Why does the user need this component? How will it benefit the user?
 
+Компонент представляет собой всплывающее окно, которое появляется при клике на кнопку. В это окно можно поместить, например, форму для подписки на рассылку или уведомления.
 
 ## 🎬 Live Demo
-[Live demo link]()
+
+[Live demo link](https://quarkly-ui-components.netlify.app/popup/)
 
 ## ⚙️ Usage
-Detailed instructions on how to get the most out of your component
 
-## 🧩 Components and Props
+Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
 
-### Table
-Description of the component and explanation of why it is needed
+### Текст кнопки
 
-|  Props Name  |    Type    |  Description  |  Default  |   Example   |
-| ------------ | :--------: | :-----------: | :-------: | :---------: |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
+Чтобы изменить текст кнопки, дважды кликните на нее с зажатой клавишей cmd(ctrl).
 
 ## 🗓 Changelog
-- 01/03/2021 (v1.0)
-  - Some changes
-  - Some changes
-  - Some changes
+
+- 09/04/2021 (v1.0)
+  - Первая версия
 
 ## 📮 Feedback
-If you want other features or find any errors, please contact me!
-In addition, I was wondering if you send me what you've built.
 
-Find me on Twitter: @author
-[author@contact.mail](mailto:author@contact.mail)
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+
+[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+
+[We're on Discord](https://discord.gg/f9KhSMGX)
+
+[Our Twitter](https://twitter.com/quarklyapp)
+
+[dev@quarkly.io](mailto:dev@quarkly.io)
 
 ## 📝 License
-Licensed under the [MIT License](./LICENSE).
 
+Licensed under the [MIT License](./LICENSE).
