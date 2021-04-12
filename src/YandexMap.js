@@ -34,8 +34,6 @@ const YandexMap = ({
     searchControl,
     geolocationControl,
     fullscreenControl,
-    height,
-    width,
     ...props
 }) => {
     const dapiKey = useDebounce(apikey, 2000);
@@ -49,8 +47,8 @@ const YandexMap = ({
             <YMaps key={dapiKey} query={{ apikey: dapiKey }}>
                 <Map
                     key={key}
-                    height={height}
-                    width={width}
+                    height="100%"
+                    width="100%"
                     defaultState={{
                         center: [
                             parseFloat(latitudeCenter),
