@@ -7,6 +7,7 @@
     "@u-wave/react-vimeo": "^0.9.4",
     "disqus-react": "^1.0.11",
     "react-livechat": "^1.1.1",
+    "react-vk": "^5.0.2",
     "react-yandex-maps": "^4.6.0",
     "use-deep-compare-effect": "^1.6.1"
   },
@@ -79,7 +80,8 @@
       "LightBoxVideo": "LightBoxVideo",
       "Notice": "Notice",
       "Table": "Table",
-      "VkPage": "VkPage"
+      "VkPage": "VkPage",
+      "VkComments": "VkComments"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",

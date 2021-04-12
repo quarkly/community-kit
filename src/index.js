@@ -27,3 +27,4 @@ export { default as LightBoxVideo } from './LightBoxVideo';
 export { default as Notice } from './Notice';
 export { default as Table } from './Table';
 export { default as VkPage } from './VkPage';
+export { default as VkComments } from './VkComments';
