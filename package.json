@@ -40,8 +40,6 @@
   },
   "quarklyInfo": {
     "components": {
-      "Slider": "Slider",
-      "Test": "Test",
       "Audio": "Audio",
       "DisqusComment": "DisqusComment",
       "Disqus": "Disqus",
@@ -71,10 +69,9 @@
   },
   "repository": "https://github.com/quarkly/community-kit",
   "scripts": {
-    "build": "npm run clean && npm run build:cjs && cp package.json ./build && cp README.md ./build && npm run copy_readme",
+    "build": "npm run clean && npm run build:cjs && cp package.json ./build && cp README.md ./build",
     "build:cjs": "NODE_ENV=cjs babel src --out-dir build --ignore '**/*.test.js'",
     "clean": "rimraf build/*",
-    "copy_readme": "cd ./src && find . -name '*.md' -exec cp --parents {} ../build \\;",
     "create:component": "quarkly-sdk component $1",
     "lint": "eslint .",
     "lint:fix": "eslint --fix ."
