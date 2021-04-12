@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { useOverrides } from '@quarkly/components';
-import { Box, Icon, Image } from '@quarkly/widgets';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useOverrides, GoogleMap } from '@quarkly/components';
+import { Box, Icon } from '@quarkly/widgets';
 import scroll from './scrollblock';
 
 const overrides = {
@@ -57,19 +57,18 @@ const overrides = {
             'transition-duration': '.7s',
         },
     },
-    'Lightbox image': {
-        kind: 'Image',
+    'Lightbox map': {
+        kind: 'GoogleMap',
         props: {
             margin: '0 auto',
             'max-width': '80%',
             'max-height': '80%',
             'min-height': 0,
             'min-weight': 0,
-            src: 'http://placehold.it/800',
         },
     },
-    'Lightbox image:open': {
-        kind: 'Image',
+    'Lightbox map:open': {
+        kind: 'GoogleMap',
         props: {
             opacity: 1,
             'z-index': 110,
@@ -81,8 +80,8 @@ const overrides = {
             'transition-timing-function': 'ease-in-out',
         },
     },
-    'Lightbox image:close': {
-        kind: 'Image',
+    'Lightbox map:close': {
+        kind: 'GoogleMap',
         props: {
             opacity: 0,
             'z-index': -1,
@@ -92,22 +91,6 @@ const overrides = {
                 'opacity, visibility, z-index, transform, max-height, max-width',
             'transition-duration': '.7s',
             'transition-timing-function': 'ease-in-out',
-        },
-    },
-    'Lightbox image zoom:in': {
-        kind: 'Image',
-        props: {
-            'max-width': '100%',
-            'max-height': '100%',
-            cursor: 'zoom-out',
-        },
-    },
-    'Lightbox image zoom:out': {
-        kind: 'Image',
-        props: {
-            'max-width': '80%',
-            'max-height': '80%',
-            cursor: 'zoom-in',
         },
     },
     'Icon close': {
@@ -126,29 +109,13 @@ const overrides = {
     },
 };
 
-// Остановка слушателя для дочерих элементов
-const stopEventClick = (e) => {
-    e.stopPropagation();
-    e.cancelBubble = true; // для IE
-};
-
-const getNaturalSize = (elem) => {
-    return {
-        width: elem.naturalWidth,
-        height: elem.naturalHeight,
-    };
-};
-
-const LightboxImage = ({
+const LightboxMap = ({
     showImageProp,
     offScrollProp,
     offLightboxProp,
     ...props
 }) => {
     const [isOpen, setOpen] = useState(showImageProp);
-    const [isBigSize, setBigSize] = useState(false);
-    const [isZoom, setZoom] = useState(false);
-    const imageRef = useRef();
 
     useEffect(() => {
         setOpen(showImageProp);
@@ -160,16 +127,11 @@ const LightboxImage = ({
 
     const openLightbox = useCallback(() => {
         if (offLightboxProp) return;
-
         setOpen(true);
         if (offScrollProp) scroll.disable();
 
-        const naturalSizeImage = getNaturalSize(imageRef.current);
-        if (naturalSizeImage.width > window.innerWidth) setBigSize(true);
-
         window.addEventListener('keydown', (e) => {
             if (e.keyCode === 27) {
-                setZoom(false);
                 setOpen(false);
             }
         });
@@ -178,19 +140,8 @@ const LightboxImage = ({
     const closeLightbox = useCallback(() => {
         if (offLightboxProp) return;
         setOpen(false);
-        setZoom(false);
         if (offScrollProp) scroll.enable();
     }, [offLightboxProp, offScrollProp, isOpen]);
-
-    // Фукция зума
-    const zoomImage = useCallback(
-        (e) => {
-            stopEventClick(e);
-            const naturalSizeImage = getNaturalSize(imageRef.current);
-            if (naturalSizeImage.width > window.innerWidth) setZoom(!isZoom);
-        },
-        [isZoom]
-    );
 
     const { override, children, rest } = useOverrides(props, overrides, {});
 
@@ -215,15 +166,10 @@ const LightboxImage = ({
                 )}
             >
                 <Icon onClick={closeLightbox} {...override('Icon close')} />
-                <Image
-                    ref={imageRef}
-                    onClick={(e) => zoomImage(e)}
+                <GoogleMap
                     {...override(
-                        'Lightbox image',
-                        `Lightbox image${isOpen ? ':open' : ':close'}`,
-                        `Lightbox image zoom${
-                            isZoom ? isBigSize && ':in' : isBigSize && ':out'
-                        }`
+                        'Lightbox map',
+                        `Lightbox map${isOpen ? ':open' : ':close'}`
                     )}
                 />
             </Box>
@@ -233,9 +179,9 @@ const LightboxImage = ({
 
 const propInfo = {
     showImageProp: {
-        title: 'Показать изображение',
+        title: 'Показать карту',
         description: {
-            ru: 'Показать полное изображение',
+            ru: 'Показать карту',
         },
         control: 'checkbox',
         category: 'Main',
@@ -244,7 +190,7 @@ const propInfo = {
     offScrollProp: {
         title: 'Отключить скролл',
         description: {
-            ru: 'Отключить скролл при показе полного изображения',
+            ru: 'Отключить скролл при показе карты',
         },
         control: 'checkbox',
         category: 'Main',
@@ -253,7 +199,7 @@ const propInfo = {
     offLightboxProp: {
         title: 'Деактивировать Lightbox',
         description: {
-            ru: 'Отключить показ изображения при клике',
+            ru: 'Отключить показ карты при клике',
         },
         control: 'checkbox',
         category: 'Main',
@@ -267,10 +213,10 @@ const defaultProps = {
     offLightboxProp: false,
 };
 
-Object.assign(LightboxImage, {
+Object.assign(LightboxMap, {
     overrides,
     propInfo,
     defaultProps,
 });
 
-export default LightboxImage;
+export default LightboxMap;
