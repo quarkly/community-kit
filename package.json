@@ -64,7 +64,8 @@
       "LightBoxImage": "LightBoxImage",
       "LightBoxMap": "LightBoxMap",
       "LightBoxVideo": "LightBoxVideo",
-      "Notice": "Notice"
+      "Notice": "Notice",
+      "Table": "Table"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
