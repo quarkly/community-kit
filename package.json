@@ -81,7 +81,8 @@
       "Notice": "Notice",
       "Table": "Table",
       "VkPage": "VkPage",
-      "VkComments": "VkComments"
+      "VkComments": "VkComments",
+      "FbLike": "FbLike"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
