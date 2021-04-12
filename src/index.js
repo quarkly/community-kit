@@ -25,3 +25,6 @@ export { default as LightBoxImage } from './LightBoxImage';
 export { default as LightBoxMap } from './LightBoxMap';
 export { default as LightBoxVideo } from './LightBoxVideo';
 export { default as Table } from './Table';
+export { default as VkPage } from './VkPage';
+export { default as VkComments } from './VkComments';
+export { default as FbLike } from './FbLike';
