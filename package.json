@@ -1,6 +1,6 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "author": "Eddort @Eddort",
   "dependencies": {
     "@react-hook/resize-observer": "^1.2.0",
@@ -84,6 +84,10 @@
       "VkComments": "VkComments",
       "FbLike": "FbLike",
       "FbComment": "FbComment",
+      "Accordion": "Accordion",
+      "AccordionItem": "AccordionItem",
+      "AccordionItemSummary": "AccordionItemSummary",
+      "AccordionItemDetails": "AccordionItemDetails"
       "SimpleTabsList": "SimpleTabsList",
       "SimpleTabsItem": "SimpleTabsItem"
     }
