@@ -29,3 +29,5 @@ export { default as VkPage } from './VkPage';
 export { default as VkComments } from './VkComments';
 export { default as FbLike } from './FbLike';
 export { default as FbComment } from './FbComment';
+export { default as SimpleTabsList } from './SimpleTabsList';
+export { default as SimpleTabsItem } from './SimpleTabsItem';
