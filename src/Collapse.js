@@ -101,6 +101,7 @@ const CollapseComponent = ({
     }, [params.isOpen, params.isEmpty]);
 
     useEffect(() => {
+        // падает тест, нет ResizeObserver
         const observer = new ResizeObserver(() => {
             updateParams({
                 isOpen: params.isOpen,

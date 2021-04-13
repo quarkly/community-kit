@@ -63,6 +63,8 @@ const BgImageParallax = ({
     }, [scrollInertiaProp]);
 
     const updateParallaxTop = () => {
+        // падает тест
+        // нет проверки на undefined в рефе
         const { top, height } = wrapperRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const isInViewport = top < windowHeight && top + height >= 0;

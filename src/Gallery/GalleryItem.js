@@ -156,6 +156,8 @@ const GalleryItem = ({
     );
 
     useEffect(() => {
+        // ошибка, падает тест
+        // нет проверки на null в рефе
         const itemSize = boxRef.current.getBoundingClientRect();
         changeAspectRatio(aspectRatioProp, itemSize);
     }, [

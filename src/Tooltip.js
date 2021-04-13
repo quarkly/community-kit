@@ -256,6 +256,7 @@ const TooltipComponent = ({
 
     // Изменение положения тултипа при нехватке пространства
     useEffect(() => {
+        // нет проверки на current в рефе
         const componentRect = componentRef.current.getBoundingClientRect();
         const wrapperRect = wrapperRef.current.getBoundingClientRect();
 
