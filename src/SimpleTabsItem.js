@@ -1,22 +1,39 @@
-import React from 'react';
-import atomize from "@quarkly/atomize";
+import atomize from '@quarkly/atomize';
+import { Box } from '@quarkly/widgets';
+import React, { useEffect, useRef } from 'react';
+import { useTabs } from './SimpleTabsList';
 
-const SimpleTabsItem = props => <div {...props}>Say hello SimpleTabsItem</div>
+const SimpleTab = ({ index, ...props }) => {
+    const ref = useRef();
+    const { addTab, currentTab, removeTab } = useTabs();
 
-export default atomize(SimpleTabsItem)({
-  name: "SimpleTabsItem",
-  effects: {
-    hover: ":hover"
-  },
-  description: {
-    // paste here description for your component
-    en:
-      "SimpleTabsItem — my awesome component",
-  },
-  propInfo: {
-    // paste here props description for your component
-    yourCustomProps: {
-      control: "input"
-    }
-  }
+    const tabId = props.tabId || props['data-qid'];
+
+    useEffect(() => {
+        addTab({ tabId, index });
+        return () => removeTab({ tabId, index });
+    }, [tabId, index]);
+
+    const isHidden = currentTab !== tabId;
+
+    return <Box ref={ref} role="tabpanel" hidden={isHidden} {...props} />;
+};
+
+const propInfo = {
+    tabId: {
+        title: 'Tab ID',
+        description: {
+            en: 'The ID of the TabPanel to show when clicked.',
+        },
+        control: 'input',
+    },
+};
+
+export default atomize(SimpleTab)({
+    name: 'SimpleTab',
+    description: {
+        en:
+            'Контейнер для ресурсов связанных с вкладкой. Должен располагаться внутри SimpleTabs',
+    },
+    propInfo,
 });
