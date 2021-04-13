@@ -30,5 +30,6 @@ export { default as VkComments } from './VkComments';
 export { default as FbLike } from './FbLike';
 export { default as FbComment } from './FbComment';
 export { default as BackToTop } from './BackToTop';
+export { default as Counter } from './Counter';
 export { default as SimpleTabsList } from './SimpleTabsList';
 export { default as SimpleTabsItem } from './SimpleTabsItem';
