@@ -156,6 +156,7 @@ const GalleryItem = ({
     );
 
     useEffect(() => {
+        if (!boxRef.current) return;
         const itemSize = boxRef.current.getBoundingClientRect();
         changeAspectRatio(aspectRatioProp, itemSize);
     }, [

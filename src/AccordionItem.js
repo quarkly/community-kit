@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Box } from '@quarkly/widgets';
 
 const AccordionItem = ({
     open,
     disabled,
-    openItems,
-    onToggleOpen,
+    openItems = [],
+    onToggleOpen = () => {},
     children,
     ...rest
 }) => {
-    const [idx] = useState(`${Date.now() + Math.random()}`);
-    const openIdx = openItems.includes(idx);
+    const idxRef = useRef(`${Date.now() + Math.random()}`);
+    const openIdx = openItems.includes(idxRef.current);
 
     useEffect(() => {
         if (open) {
-            onToggleOpen({ idx, open: !open, disabled });
+            onToggleOpen({ idx: idxRef.current, open: !open, disabled });
         }
     }, []);
 
@@ -23,7 +23,7 @@ const AccordionItem = ({
             {React.Children.map(children, (child) =>
                 React.isValidElement(child)
                     ? React.cloneElement(child, {
-                          idx,
+                          idx: idxRef.current,
                           open: openIdx,
                           disabled,
                           onToggleOpen,

@@ -180,6 +180,7 @@ const Gallery = ({
     );
 
     useEffect(() => {
+        if (!galleryRef.current) return;
         const resizer = new ResizeObserver(handleResize);
         resizer.observe(galleryRef.current);
 
@@ -217,6 +218,7 @@ const Gallery = ({
 
     const loadMore = useCallback(
         (type) => {
+            if (!galleryRef.current) return;
             const galleryRect = galleryRef.current.getBoundingClientRect();
             const itemsCount = getItemCountOnView(galleryRect.width);
             let newItems;
@@ -236,10 +238,11 @@ const Gallery = ({
                 setButtonVisible(false);
             }
         },
-        [galleryItemNumbProp]
+        [galleryRef.current, galleryItemNumbProp]
     );
 
     const loadOnClick = useCallback(() => {
+        if (!galleryRect.current) return;
         const galleryRect = galleryRef.current.getBoundingClientRect();
 
         if (galleryRect.bottom - window.innerHeight / 2 < window.innerHeight) {
@@ -248,6 +251,7 @@ const Gallery = ({
     }, [galleryRef.current]);
 
     const loadOnScroll = useCallback(() => {
+        if (!galleryRect.current) return;
         const galleryRect = galleryRef.current.getBoundingClientRect();
         const itemsCount = getItemCountOnView(galleryRect.width);
         const newItems = itemsCount + itemsCount * scrollLoadCountRef.current;
@@ -264,6 +268,7 @@ const Gallery = ({
     }, [galleryRef.current, scrollLoadCountRef.current]);
 
     useEffect(() => {
+        if (!galleryRef.current) return;
         const galleryRect = galleryRef.current.getBoundingClientRect();
         const itemsCount = getItemCountOnView(galleryRect.width);
         const { mode } = getAPI();
@@ -297,6 +302,7 @@ const Gallery = ({
             window.removeEventListener('orientationchange', loadOnScroll);
         };
     }, [
+        galleryRef.current,
         galleryItemNumbProp,
         columnsCountProp,
         borderWidthProp,
