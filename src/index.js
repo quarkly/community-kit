@@ -32,3 +32,5 @@ export { default as FbComment } from './FbComment';
 export { default as BackToTop } from './BackToTop';
 export { default as Counter } from './Counter';
 export { default as LoopText } from './LoopText';
+export { default as SimpleTabsList } from './SimpleTabsList';
+export { default as SimpleTabsItem } from './SimpleTabsItem';
