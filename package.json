@@ -83,7 +83,8 @@
       "VkPage": "VkPage",
       "VkComments": "VkComments",
       "FbLike": "FbLike",
-      "FbComment": "FbComment"
+      "FbComment": "FbComment",
+      "SimpleTabsList": "SimpleTabsList"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
