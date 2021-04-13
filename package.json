@@ -9,8 +9,10 @@
     "easy-scroll": "^0.7.0",
     "react-facebook": "^8.1.4",
     "react-livechat": "^1.1.1",
+    "react-text-loop": "^2.3.0",
     "react-vk": "^5.0.2",
     "react-yandex-maps": "^4.6.0",
+    "react-youtube": "^7.13.1",
     "use-deep-compare-effect": "^1.6.1"
   },
   "devDependencies": {
@@ -85,8 +87,9 @@
       "VkComments": "VkComments",
       "FbLike": "FbLike",
       "FbComment": "FbComment",
-      "LoopText": "LoopText",
       "Counter": "Counter",
+      "ScrollIndicator": "ScrollIndicator",
+      "LoopText": "LoopText",
       "BackToTop": "BackToTop",
       "Accordion": "Accordion",
       "AccordionItem": "AccordionItem",
