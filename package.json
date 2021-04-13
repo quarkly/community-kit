@@ -6,6 +6,7 @@
     "@react-hook/resize-observer": "^1.2.0",
     "@u-wave/react-vimeo": "^0.9.4",
     "disqus-react": "^1.0.11",
+    "easy-scroll": "^0.7.0",
     "react-facebook": "^8.1.4",
     "react-livechat": "^1.1.1",
     "react-vk": "^5.0.2",
@@ -84,6 +85,7 @@
       "VkComments": "VkComments",
       "FbLike": "FbLike",
       "FbComment": "FbComment",
+      "BackToTop": "BackToTop"
       "Accordion": "Accordion",
       "AccordionItem": "AccordionItem",
       "AccordionItemSummary": "AccordionItemSummary",
