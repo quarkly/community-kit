@@ -1,6 +1,6 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "author": "Eddort @Eddort",
   "dependencies": {
     "@react-hook/resize-observer": "^1.2.0",
@@ -87,8 +87,14 @@
       "FbComment": "FbComment",
       "BackToTop": "BackToTop",
       "Counter": "Counter",
+      "ScrollIndicator": "ScrollIndicator",
       "LoopText": "LoopText",
-      "ScrollIndicator": "ScrollIndicator"
+      "Accordion": "Accordion",
+      "AccordionItem": "AccordionItem",
+      "AccordionItemSummary": "AccordionItemSummary",
+      "AccordionItemDetails": "AccordionItemDetails",
+      "SimpleTabsList": "SimpleTabsList",
+      "SimpleTabsItem": "SimpleTabsItem"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
