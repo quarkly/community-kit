@@ -88,6 +88,8 @@
       "AccordionItem": "AccordionItem",
       "AccordionItemSummary": "AccordionItemSummary",
       "AccordionItemDetails": "AccordionItemDetails"
+      "SimpleTabsList": "SimpleTabsList",
+      "SimpleTabsItem": "SimpleTabsItem"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
