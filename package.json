@@ -85,7 +85,8 @@
       "VkComments": "VkComments",
       "FbLike": "FbLike",
       "FbComment": "FbComment",
-      "BackToTop": "BackToTop"
+      "BackToTop": "BackToTop",
+      "Counter": "Counter"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
