@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+
 import React, {
     useLayoutEffect,
     useEffect,
@@ -15,10 +17,8 @@ const useSize = (target) => {
         height: 1,
     });
     useLayoutEffect(() => {
-        if (!target.current) return;
-
         setSize(target.current.getBoundingClientRect());
-    }, [target.current]);
+    }, [target]);
     useResizeObserver(target, (entry) => setSize(entry.contentRect));
     return size;
 };
@@ -26,7 +26,7 @@ const useSize = (target) => {
 const SVG = atomize.svg();
 
 const shapes = {
-    Square: forwardRef(function Square({ offset, size, ...props }, ref) {
+    Square: forwardRef(({ offset, size, ...props }, ref) => {
         const side = Math.min(size.width, size.height);
 
         return (
@@ -40,7 +40,7 @@ const shapes = {
             />
         );
     }),
-    Line: forwardRef(function Line({ offset, size, ...props }, ref) {
+    Line: forwardRef(({ offset, size, ...props }, ref) => {
         if (props.strokeLinecap === 'butt') {
             offset = 0;
         }
@@ -55,7 +55,7 @@ const shapes = {
             />
         );
     }),
-    Rectangle: forwardRef(function Rectangle({ offset, size, ...props }, ref) {
+    Rectangle: forwardRef(({ offset, size, ...props }, ref) => {
         return (
             <rect
                 ref={ref}
@@ -67,7 +67,7 @@ const shapes = {
             />
         );
     }),
-    Ellipse: forwardRef(function Ellipse({ offset, size, ...props }, ref) {
+    Ellipse: forwardRef(({ offset, size, ...props }, ref) => {
         return (
             <ellipse
                 ref={ref}
@@ -79,7 +79,7 @@ const shapes = {
             />
         );
     }),
-    Circle: forwardRef(function Circle({ offset, size, ...props }, ref) {
+    Circle: forwardRef(({ offset, size, ...props }, ref) => {
         const diameter = Math.min(size.width, size.height);
         return (
             <circle
@@ -135,17 +135,16 @@ const SVGShape = ({
     };
 
     useEffect(() => {
-        if (!shapeRef.current) return;
         const computedWidth = getComputedStyle(shapeRef.current).strokeWidth;
 
-        const computedOffset = getOffset({ computedWidth, size });
-        setOffset(computedOffset);
-    }, [strokeWidth, type, size, shapeRef.current]);
+        const newOffset = getOffset({ computedWidth, size });
+        setOffset(newOffset);
+    }, [strokeWidth, type, size]);
 
     return (
         <Box
             position="relative"
-            height="100%"
+            height="200px"
             width="100%"
             ref={mainRef}
             {...props}
@@ -246,11 +245,12 @@ const propInfo = {
 };
 
 const defaultProps = {
-    type: 'Rectangle',
+    type: 'Circle',
     stroke: '#000000',
-    strokeWidth: '1',
+    strokeWidth: '8',
     strokeOpacity: '1',
-    strokeLinecap: 'butt',
+    strokeLinecap: 'round',
+    strokeDasharray: '30',
     fill: '--color-primary',
     fillOpacity: '1',
 };
