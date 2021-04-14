@@ -28,7 +28,7 @@ const useDebounce = (value, timeout) => {
     return state;
 };
 
-const convertToVolume = x => {
+const convertToVolume = (x) => {
     const v = parseFloat(x);
     if (typeof v === 'undefined') return 1;
     if (v < 0 || v > 1) return 1;
