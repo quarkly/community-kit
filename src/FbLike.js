@@ -3,6 +3,8 @@ import atomize from '@quarkly/atomize';
 import { Box } from '@quarkly/widgets';
 import { FacebookProvider, Like } from 'react-facebook';
 
+import ComponentNotice from './ComponentNotice';
+
 const languageConverter = {
     English: 'en_US',
     Русский: 'ru_RU',
@@ -37,7 +39,7 @@ const FacebookLike = ({
                     <Like {...props} />
                 </FacebookProvider>
             ) : (
-                'Add your Facebook App ID in the props panel.'
+                <ComponentNotice message="Add your Facebook App ID in the props panel." />
             )}
         </Box>
     );

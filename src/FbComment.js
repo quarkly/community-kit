@@ -2,6 +2,7 @@ import React from 'react';
 import atomize from '@quarkly/atomize';
 import { Box } from '@quarkly/widgets';
 import { FacebookProvider, Comments } from 'react-facebook';
+import ComponentNotice from './ComponentNotice';
 
 const languageConverter = {
     English: 'en_US',
@@ -11,13 +12,17 @@ const languageConverter = {
 const FacebookComments = ({ appId, language, href, ...rest }) => {
     return (
         <Box {...rest}>
-            <FacebookProvider
-                appId={appId}
-                key={appId + languageConverter[language]}
-                language={languageConverter[language]}
-            >
-                <Comments href={href} />
-            </FacebookProvider>
+            {appId && href ? (
+                <FacebookProvider
+                    appId={appId}
+                    key={appId + languageConverter[language]}
+                    language={languageConverter[language]}
+                >
+                    <Comments href={href} />
+                </FacebookProvider>
+            ) : (
+                <ComponentNotice message="Add your Facebook App ID and href in the props panel." />
+            )}
         </Box>
     );
 };
