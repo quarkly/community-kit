@@ -256,6 +256,7 @@ const TooltipComponent = ({
 
     // Изменение положения тултипа при нехватке пространства
     useEffect(() => {
+        if (!componentRef.current || !wrapperRef.current) return;
         const componentRect = componentRef.current.getBoundingClientRect();
         const wrapperRect = wrapperRef.current.getBoundingClientRect();
 
@@ -277,6 +278,8 @@ const TooltipComponent = ({
             setTooltipDirection(tooltipPositionProp);
         }
     }, [
+        componentRef.current,
+        wrapperRef.current,
         tooltipPositionProp,
         tooltipOffsetProp,
         tooltipAutoChangeProp,

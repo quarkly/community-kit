@@ -8,6 +8,8 @@ import React, {
 import { Box } from '@quarkly/widgets';
 
 const elementInViewport = (el) => {
+    if (!el) return false;
+
     let top = el.offsetTop;
     let left = el.offsetLeft;
     const width = el.offsetWidth;

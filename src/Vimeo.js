@@ -28,7 +28,7 @@ const useDebounce = (value, timeout) => {
     return state;
 };
 
-const convertToVolume = (x) => {
+const convertToVolume = x => {
     const v = parseFloat(x);
     if (typeof v === 'undefined') return 1;
     if (v < 0 || v > 1) return 1;
@@ -70,26 +70,28 @@ const VimeoComponent = ({
             {...rest}
         >
             <Content {...override('Vimeo Content')} display={!video && 'none'}>
-                <StyledVimeo
-                    key={key}
-                    start={dStart}
-                    background={playBackground}
-                    video={video}
-                    width={width}
-                    height={height}
-                    autopause={autopause}
-                    autoplay={autoplay}
-                    showByline={showByline}
-                    color={color}
-                    controls={controls}
-                    loop={loop}
-                    showPortrait={showPortrait}
-                    showTitle={showTitle}
-                    muted={muted}
-                    responsive={responsive}
-                    volume={!muted && convertToVolume(volume)}
-                    {...props}
-                />
+                {video && (
+                    <StyledVimeo
+                        key={key}
+                        start={dStart}
+                        background={playBackground}
+                        video={video}
+                        width={width}
+                        height={height}
+                        autopause={autopause}
+                        autoplay={autoplay}
+                        showByline={showByline}
+                        color={color}
+                        controls={controls}
+                        loop={loop}
+                        showPortrait={showPortrait}
+                        showTitle={showTitle}
+                        muted={muted}
+                        responsive={responsive}
+                        volume={!muted && convertToVolume(volume)}
+                        {...props}
+                    />
+                )}
             </Content>
 
             {!video && (

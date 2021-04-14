@@ -63,6 +63,7 @@ const BgImageParallax = ({
     }, [scrollInertiaProp]);
 
     const updateParallaxTop = () => {
+        if (!wrapperRef.current) return;
         const { top, height } = wrapperRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
         const isInViewport = top < windowHeight && top + height >= 0;
@@ -78,6 +79,7 @@ const BgImageParallax = ({
     };
 
     const setParallaxHeight = useCallback(() => {
+        if (!wrapperRef.current) return;
         const { height } = wrapperRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
