@@ -2,14 +2,20 @@ import React from 'react';
 import LiveChat from 'react-livechat';
 import { Box } from '@quarkly/widgets';
 
+import ComponentNotice from './ComponentNotice';
+
 const LiveChatComp = ({ license, group, chatBetweenGroups, ...props }) => {
     return (
         <Box {...props}>
-            <LiveChat
-                license={license}
-                group={group}
-                chatBetweenGroups={chatBetweenGroups === 'enable'}
-            />
+            {license ? (
+                <LiveChat
+                    license={license}
+                    group={group}
+                    chatBetweenGroups={chatBetweenGroups === 'enable'}
+                />
+            ) : (
+                <ComponentNotice message="Добавьте license на панели Props" />
+            )}
         </Box>
     );
 };
