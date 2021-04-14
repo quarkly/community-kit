@@ -29,19 +29,19 @@ const DisqusCommentComponent = ({
 
     return (
         <Wrapper width="100%" {...rest}>
-            <Content
-                {...override('Disqus Content')}
-                display={!commentIDProp && 'none'}
-            >
-                <CommentEmbed
-                    commentId={commentIDProp}
-                    showParentComment={showParrent}
-                    width={widthProp}
-                    height={heightProp}
-                />
-            </Content>
-
-            {!commentIDProp && (
+            {commentIDProp ? (
+                <Content
+                    {...override('Disqus Content')}
+                    display={!commentIDProp && 'none'}
+                >
+                    <CommentEmbed
+                        commentId={commentIDProp}
+                        showParentComment={showParrent}
+                        width={widthProp}
+                        height={heightProp}
+                    />
+                </Content>
+            ) : (
                 <ComponentNotice message="Добавьте ID комментария на панели Props" />
             )}
         </Wrapper>
