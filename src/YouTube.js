@@ -43,11 +43,20 @@ const overrides = {
     },
 };
 
-const YouTubeComponent = ({ videoId, ...props }) => {
+export function youtubeLinkParser(url) {
+    if (typeof url !== 'string') return false;
+    const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    const match = url.match(regExp);
+    return match && match[7].length === 11 ? match[7] : false;
+}
+
+const YouTubeComponent = ({ url, ...props }) => {
     const [isReady, setReady] = useState(false);
     const [isPlay, setPlay] = useState(false);
     const playerRef = useRef(null);
     const { override, rest } = useOverrides(props, overrides);
+
+    const videoId = youtubeLinkParser(url);
 
     const playVideo = () => {
         setPlay(true);
@@ -77,18 +86,20 @@ const YouTubeComponent = ({ videoId, ...props }) => {
             {...rest}
         >
             <Box {...override('YouTube Content')} display={!videoId && 'none'}>
-                <YouTube
-                    ref={playerRef}
-                    videoId={videoId}
-                    opts={{
-                        width: '100%',
-                        height: '100%',
-                        playerVars: {
-                            autoplay: 0,
-                        },
-                    }}
-                    onReady={onReady}
-                />
+                {videoId && (
+                    <YouTube
+                        ref={playerRef}
+                        videoId={videoId}
+                        opts={{
+                            width: '100%',
+                            height: '100%',
+                            playerVars: {
+                                autoplay: 0,
+                            },
+                        }}
+                        onReady={onReady}
+                    />
+                )}
             </Box>
             <Box
                 {...override('YouTube Button')}
@@ -98,15 +109,15 @@ const YouTubeComponent = ({ videoId, ...props }) => {
                 <Icon {...override('YouTube Button Icon')} />
             </Box>
 
-            {!videoId && (
-                <ComponentNotice message="Добавьте ID видео на панели Props" />
+            {(!url || !videoId) && (
+                <ComponentNotice message="Добавьте URL видео на панели Props" />
             )}
         </Box>
     );
 };
 
 const propInfo = {
-    videoId: {
+    url: {
         control: 'input',
         weight: 1,
     },
