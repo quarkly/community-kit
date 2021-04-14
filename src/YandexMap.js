@@ -43,7 +43,7 @@ const YandexMap = ({
     );
 
     return (
-        <Box d="inline-block" {...props}>
+        <Box d="block" {...props}>
             <YMaps key={dapiKey} query={{ apikey: dapiKey }}>
                 <Map
                     key={key}
