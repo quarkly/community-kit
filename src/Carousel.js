@@ -356,12 +356,12 @@ const CarouselComponent = ({
     const { override, rest } = useOverrides(props, overrides);
 
     const sliderRef = useRef(null);
-    const [{ width, height }, setSizeState] = useState({
+    const [{ width, height }, setSize] = useState({
         width: 'auto',
         height: 'auto',
     });
 
-    const [{ active, position, animate, lock }, setPositionState] = useState({
+    const [{ active, position, animate, lock }, setSlide] = useState({
         active: 1,
         position: 100,
         animate: true,
@@ -382,12 +382,6 @@ const CarouselComponent = ({
         [slides]
     );
 
-    const setSize = useCallback((width, height) => {
-        setSizeState({ width, height });
-    }, []);
-    const setSlide = useCallback((active, position, animate, lock) => {
-        setPositionState({ active, position, animate, lock });
-    }, []);
 
     const handleResize = useCallback(
         (el) => {
@@ -397,11 +391,17 @@ const CarouselComponent = ({
                     : el[0].contentRect.width;
 
             if (aspectRatio === 'auto') {
-                setSize(`${sliderWidth}px`, 'auto');
+                setSize({
+                    width: `${sliderWidth}px`,
+                    height: 'auto'
+                });
             } else {
                 const [aspectWidth, aspectHeight] = aspectRatio.split(':');
                 const sliderHeight = (sliderWidth / aspectWidth) * aspectHeight;
-                setSize(`${sliderWidth}px`, `${sliderHeight}px`);
+                setSize({
+                    width: `${sliderWidth}px`,
+                    height: `${sliderHeight}px`
+                });
             }
         },
         [aspectRatio]
@@ -422,13 +422,28 @@ const CarouselComponent = ({
         const newActive = active > 1 ? active - 1 : slides;
 
         if (newActive === slides) {
-            setSlide(newActive, 0, true, true);
+            setSlide({
+                active: newActive,
+                position: 0,
+                animate: true,
+                lock: true
+            });
             clearTimeout(animateTimer);
             animateTimer = setTimeout(() => {
-                setSlide(newActive, 100 * slides, false, false);
+                setSlide({
+                    active: newActive,
+                    position: 100 * slides,
+                    animate: false,
+                    lock: false
+                });
             }, duration);
         } else {
-            setSlide(newActive, 100 * newActive, true, false);
+            setSlide({
+                active: newActive,
+                position: 100 * newActive,
+                animate: true,
+                lock: false
+            });
         }
     }, [active, position, animate, lock]);
 
@@ -438,21 +453,41 @@ const CarouselComponent = ({
         const newActive = active < slides ? active + 1 : 1;
 
         if (newActive === 1) {
-            setSlide(newActive, 100 * (slides + 1), true, true);
+            setSlide({
+                active: newActive,
+                position: 100 * (slides + 1),
+                animate: true,
+                lock: true
+            });
             clearTimeout(animateTimer);
             animateTimer = setTimeout(() => {
-                setSlide(newActive, 100, false, false);
+                setSlide({
+                    active: newActive,
+                    position: 100,
+                    animate: false,
+                    lock: false
+                });
             }, duration);
         } else {
-            setSlide(newActive, 100 * newActive, true, false);
+            setSlide({
+                active: newActive,
+                position: 100 * newActive,
+                animate: true,
+                lock: false
+            });
         }
-    }, [active, position, animate]);
+    }, [active, position, animate, lock]);
 
     const clickNumb = useCallback(
         (newActive) => {
             if (lock) return;
 
-            setSlide(newActive, 100 * newActive, true, false);
+            setSlide({
+                active: newActive,
+                position: 100 * newActive,
+                animate: true,
+                lock: false
+            });
         },
         [active, position, animate, lock]
     );
@@ -468,7 +503,7 @@ const CarouselComponent = ({
             >
                 {list.map((numb, index) => (
                     <Slide
-                        key={`slide-${index}`}
+                        key={`${rest['data-qid']}-slide-${index}`}
                         index={index}
                         slides={slides}
                         numb={numb}
