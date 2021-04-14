@@ -62,7 +62,7 @@ Object.assign(ScrollIndicator, {
     description: {
         en: 'Page scroll indicator',
     },
-    propsInfo: {},
+    propInfo: {},
     overrides,
 });
 
