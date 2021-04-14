@@ -46,68 +46,88 @@ const overrides = {
     },
 };
 
-const CollapseComponent = ({
-    minDuration,
-    maxDuration,
-    animFunction,
-    ...props
-}) => {
+let toggleTimeout;
+
+const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
     const { override, children, rest } = useOverrides(props, overrides);
 
     const contentRef = useRef(null);
-    const [params, setParams] = useState({
+    const [
+        { isOpen, isEmpty, height, duration, transition, isLock },
+        setParams,
+    ] = useState({
         isOpen: false,
         isEmpty: false,
         height: 0,
         duration: 0,
         transition: 'none',
+        isLock: false,
     });
 
-    const updateParams = useCallback(({ isOpen, isEmpty }) => {
-        const { offsetHeight } = contentRef.current;
-        const emptyHeight = isEmpty ? 'auto' : 0;
-        const height = isOpen && !isEmpty ? offsetHeight : emptyHeight;
-        let duration = parseFloat(minDuration) + offsetHeight / 4000;
+    const updateParams = useCallback(
+        ({ open, empty }) => {
+            if (isLock) return;
 
-        if (duration > maxDuration) {
-            duration = maxDuration;
-        }
+            const { offsetHeight } = contentRef.current;
+            let newDuration = parseFloat(minDuration) + offsetHeight / 4000;
+            let newHeight = open && !empty ? offsetHeight : 0;
 
-        setParams({
-            isOpen,
-            isEmpty,
-            height,
-            duration,
+            if (newDuration > maxDuration) {
+                newDuration = maxDuration;
+            }
+            if (empty) {
+                newHeight = 'auto';
+            }
 
-            transition: isOpen
-                ? `
-        max-height ${duration}s ${animFunction} 0s,
-        visibility 0s ${animFunction} 0s,
-        opacity ${duration}s ${animFunction} 0s
-      `
-                : `
-        max-height ${duration}s ${animFunction} 0s,
-        visibility 0s ${animFunction} ${duration}s,
-        opacity ${duration}s ${animFunction} 0s
-      `,
-        });
-    }, []);
+            const newParams = {
+                isOpen: open,
+                isEmpty: empty,
+                height: newHeight,
+                duration: newDuration,
+
+                transition: open
+                    ? `
+				max-height ${newDuration}s ${animFunction} 0s,
+				visibility 0s ${animFunction} 0s,
+				opacity ${newDuration}s ${animFunction} 0s
+			`
+                    : `
+				max-height ${newDuration}s ${animFunction} 0s,
+				visibility 0s ${animFunction} ${newDuration}s,
+				opacity ${newDuration}s ${animFunction} 0s
+			`,
+            };
+
+            setParams({
+                ...newParams,
+                isLock: true,
+            });
+
+            clearTimeout(toggleTimeout);
+            toggleTimeout = setTimeout(() => {
+                setParams({
+                    ...newParams,
+                    isLock: false,
+                });
+            }, duration * 1000);
+        },
+        [isOpen, isEmpty, isLock]
+    );
 
     const toggleOpen = useCallback(() => {
         updateParams({
-            isOpen: !params.isOpen,
-            isEmpty: params.isEmpty,
+            open: !isOpen,
+            empty: isEmpty,
         });
-    }, [params.isOpen, params.isEmpty]);
+    }, [isOpen, isEmpty, isLock]);
 
     useEffect(() => {
         const observer = new ResizeObserver(() => {
             updateParams({
-                isOpen: params.isOpen,
-                isEmpty: params.isEmpty,
+                open: isOpen,
+                empty: isEmpty,
             });
         });
-
         observer.observe(contentRef.current);
 
         return function cleanup() {
@@ -119,12 +139,12 @@ const CollapseComponent = ({
     useEffect(() => {
         if (!contentRef.current) return;
 
-        const isEmpty =
+        const empty =
             contentRef.current?.innerHTML === '<!--child placeholder-->';
 
         updateParams({
-            isOpen: params.isOpen || isEmpty,
-            isEmpty,
+            open: isOpen || empty,
+            empty,
         });
     }, [children.length]);
 
@@ -133,22 +153,20 @@ const CollapseComponent = ({
             <Button
                 {...override('Button')}
                 onPointerDown={toggleOpen}
-                disabled={params.isEmpty}
+                disabled={isEmpty}
             />
             <Box
                 {...override(
                     'Wrapper',
-                    `Wrapper ${params.isOpen ? ':open' : ':close'}`
+                    `Wrapper ${isOpen ? ':open' : ':close'}`
                 )}
-                max-height={params.height}
-                transition={params.transition}
+                max-height={height}
+                transition={transition}
             >
                 <Box {...override('Content')} ref={contentRef}>
                     {children}
                 </Box>
-                {params.isEmpty && (
-                    <ComponentNotice message="Drag component here" />
-                )}
+                {isEmpty && <ComponentNotice message="Drag component here" />}
             </Box>
         </Box>
     );
@@ -199,7 +217,7 @@ const defaultProps = {
     'border-radius': '4px',
 };
 
-Object.assign(CollapseComponent, {
+Object.assign(Collapse, {
     title: 'Collapse',
     description: {
         en: 'Collapse component',
@@ -209,4 +227,4 @@ Object.assign(CollapseComponent, {
     defaultProps,
 });
 
-export default CollapseComponent;
+export default Collapse;
