@@ -38,7 +38,7 @@ const TextLoop = ({
     const list = slides.length > 0 ? slides.split(',').reverse() : [];
 
     return (
-        <Box {...rest} margin="40px 0" font="--headline2">
+        <Box {...rest} padding="40px 0" font="--headline2">
             <Text {...override('Before Text')}>
                 {override('Before Text').children || 'The'}
             </Text>{' '}
