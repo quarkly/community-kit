@@ -369,7 +369,7 @@ const CarouselComponent = ({
     });
 
     const slides = useMemo(
-        () => (parseInt(slidesProp) > 0 ? parseInt(slidesProp) : 1),
+        () => (parseInt(slidesProp, 10) > 0 ? parseInt(slidesProp, 10) : 1),
         [slidesProp]
     );
     const duration = useMemo(
@@ -382,7 +382,6 @@ const CarouselComponent = ({
         [slides]
     );
 
-
     const handleResize = useCallback(
         (el) => {
             const sliderWidth =
@@ -393,14 +392,14 @@ const CarouselComponent = ({
             if (aspectRatio === 'auto') {
                 setSize({
                     width: `${sliderWidth}px`,
-                    height: 'auto'
+                    height: 'auto',
                 });
             } else {
                 const [aspectWidth, aspectHeight] = aspectRatio.split(':');
                 const sliderHeight = (sliderWidth / aspectWidth) * aspectHeight;
                 setSize({
                     width: `${sliderWidth}px`,
-                    height: `${sliderHeight}px`
+                    height: `${sliderHeight}px`,
                 });
             }
         },
@@ -426,7 +425,7 @@ const CarouselComponent = ({
                 active: newActive,
                 position: 0,
                 animate: true,
-                lock: true
+                lock: true,
             });
             clearTimeout(animateTimer);
             animateTimer = setTimeout(() => {
@@ -434,7 +433,7 @@ const CarouselComponent = ({
                     active: newActive,
                     position: 100 * slides,
                     animate: false,
-                    lock: false
+                    lock: false,
                 });
             }, duration);
         } else {
@@ -442,7 +441,7 @@ const CarouselComponent = ({
                 active: newActive,
                 position: 100 * newActive,
                 animate: true,
-                lock: false
+                lock: false,
             });
         }
     }, [active, position, animate, lock]);
@@ -457,7 +456,7 @@ const CarouselComponent = ({
                 active: newActive,
                 position: 100 * (slides + 1),
                 animate: true,
-                lock: true
+                lock: true,
             });
             clearTimeout(animateTimer);
             animateTimer = setTimeout(() => {
@@ -465,7 +464,7 @@ const CarouselComponent = ({
                     active: newActive,
                     position: 100,
                     animate: false,
-                    lock: false
+                    lock: false,
                 });
             }, duration);
         } else {
@@ -473,7 +472,7 @@ const CarouselComponent = ({
                 active: newActive,
                 position: 100 * newActive,
                 animate: true,
-                lock: false
+                lock: false,
             });
         }
     }, [active, position, animate, lock]);
@@ -486,7 +485,7 @@ const CarouselComponent = ({
                 active: newActive,
                 position: 100 * newActive,
                 animate: true,
-                lock: false
+                lock: false,
             });
         },
         [active, position, animate, lock]
@@ -503,7 +502,7 @@ const CarouselComponent = ({
             >
                 {list.map((numb, index) => (
                     <Slide
-                        key={`${rest['data-qid']}-slide-${index}`}
+                        key={`${rest['data-qid']}-slide-${numb}-${index}`} // eslint-disable-line
                         index={index}
                         slides={slides}
                         numb={numb}
@@ -535,7 +534,7 @@ const CarouselComponent = ({
                 <Box {...override('Points')}>
                     {list.slice(1, -1).map((numb, idx) => (
                         <Point
-                            key={`point-${idx}`}
+                            key={`point-${idx}`} // eslint-disable-line
                             numb={numb}
                             active={active}
                             clickFunc={clickNumb}
