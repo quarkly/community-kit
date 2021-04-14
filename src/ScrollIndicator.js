@@ -58,6 +58,11 @@ const ScrollIndicator = (props) => {
 };
 
 Object.assign(ScrollIndicator, {
+    title: 'ScrollIndicator',
+    description: {
+        en: 'Page scroll indicator',
+    },
+    propInfo: {},
     overrides,
 });
 
