@@ -40,17 +40,17 @@ const DisqusComponent = ({
 
     return (
         <Wrapper width="100%" {...rest}>
-            <Content
-                {...override('Disqus Content')}
-                display={!identifierProp && 'none'}
-            >
-                <DiscussionEmbed
-                    shortname={shortnameProp}
-                    config={commentsParams}
-                />
-            </Content>
-
-            {!identifierProp && (
+            {identifierProp ? (
+                <Content
+                    {...override('Disqus Content')}
+                    display={!identifierProp && 'none'}
+                >
+                    <DiscussionEmbed
+                        shortname={shortnameProp}
+                        config={commentsParams}
+                    />
+                </Content>
+            ) : (
                 <ComponentNotice message="Добавьте ID обсуждения на панели Props" />
             )}
         </Wrapper>
