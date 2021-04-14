@@ -1,6 +1,6 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "author": "Eddort @Eddort",
   "dependencies": {
     "@react-hook/resize-observer": "^1.2.0",
