@@ -63,9 +63,6 @@
       "Disqus": "Disqus",
       "Vimeo": "Vimeo",
       "Video": "Video",
-      "Picture": "Picture",
-      "Source": "Source",
-      "Track": "Track",
       "Collapse": "Collapse",
       "Popup": "Popup",
       "Timeline": "Timeline",
@@ -79,9 +76,6 @@
       "YandexMap": "YandexMap",
       "LiveChat": "LiveChat",
       "YouTube": "YouTube",
-      "LightBoxImage": "LightBoxImage",
-      "LightBoxMap": "LightBoxMap",
-      "LightBoxVideo": "LightBoxVideo",
       "Table": "Table",
       "VkPage": "VkPage",
       "VkComments": "VkComments",
@@ -90,11 +84,21 @@
       "Counter": "Counter",
       "ScrollIndicator": "ScrollIndicator",
       "LoopText": "LoopText",
-      "BackToTop": "BackToTop",
+      "BackToTop": "BackToTop"
+    }
+  },
+  "quarklyInfoDeleted": {
+    "components": {
+      "Picture": "Picture",
+      "Source": "Source",
+      "Track": "Track",
       "Accordion": "Accordion",
       "AccordionItem": "AccordionItem",
       "AccordionItemSummary": "AccordionItemSummary",
       "AccordionItemDetails": "AccordionItemDetails",
+      "LightBoxImage": "LightBoxImage",
+      "LightBoxMap": "LightBoxMap",
+      "LightBoxVideo": "LightBoxVideo",
       "SimpleTabsList": "SimpleTabsList",
       "SimpleTabsItem": "SimpleTabsItem"
     }
