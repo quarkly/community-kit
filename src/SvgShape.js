@@ -1,5 +1,3 @@
-/* eslint-disable react/display-name */
-
 import React, {
     useLayoutEffect,
     useEffect,
@@ -26,7 +24,7 @@ const useSize = (target) => {
 const SVG = atomize.svg();
 
 const shapes = {
-    Square: forwardRef(({ offset, size, ...props }, ref) => {
+    Square: forwardRef(function Square({ offset, size, ...props }, ref) {
         const side = Math.min(size.width, size.height);
 
         return (
@@ -40,7 +38,7 @@ const shapes = {
             />
         );
     }),
-    Line: forwardRef(({ offset, size, ...props }, ref) => {
+    Line: forwardRef(function Line({ offset, size, ...props }, ref) {
         if (props.strokeLinecap === 'butt') {
             offset = 0;
         }
@@ -55,7 +53,7 @@ const shapes = {
             />
         );
     }),
-    Rectangle: forwardRef(({ offset, size, ...props }, ref) => {
+    Rectangle: forwardRef(function Rectangle({ offset, size, ...props }, ref) {
         return (
             <rect
                 ref={ref}
@@ -67,7 +65,7 @@ const shapes = {
             />
         );
     }),
-    Ellipse: forwardRef(({ offset, size, ...props }, ref) => {
+    Ellipse: forwardRef(function Ellipse({ offset, size, ...props }, ref) {
         return (
             <ellipse
                 ref={ref}
@@ -79,7 +77,7 @@ const shapes = {
             />
         );
     }),
-    Circle: forwardRef(({ offset, size, ...props }, ref) => {
+    Circle: forwardRef(function Circle({ offset, size, ...props }, ref) {
         const diameter = Math.min(size.width, size.height);
         return (
             <circle
