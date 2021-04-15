@@ -15,8 +15,9 @@ const useSize = (target) => {
         height: 1,
     });
     useLayoutEffect(() => {
+        if (!target.current) return;
         setSize(target.current.getBoundingClientRect());
-    }, [target]);
+    }, [target.current]);
     useResizeObserver(target, (entry) => setSize(entry.contentRect));
     return size;
 };
@@ -133,6 +134,7 @@ const SVGShape = ({
     };
 
     useEffect(() => {
+        if (!shapeRef.current) return;
         const computedWidth = getComputedStyle(shapeRef.current).strokeWidth;
 
         const newOffset = getOffset({ computedWidth, size });
