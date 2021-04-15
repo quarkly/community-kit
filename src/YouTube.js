@@ -111,6 +111,8 @@ const YouTubeComponent = ({ url, ...props }) => {
     };
 
     const clickButton = useCallback(() => {
+        if (!playerRef.current) return;
+
         playerRef.current.internalPlayer.playVideo();
         setPlay(true);
     }, []);
@@ -125,13 +127,13 @@ const YouTubeComponent = ({ url, ...props }) => {
     return (
         <Box
             padding-top={videoId ? '56.25%' : '0'}
-            min-height={videoId && '0'}
-            height={videoId && '0'}
+            min-height={videoId ? '0' : undefined}
+            height={videoId ? '0' : undefined}
             {...rest}
         >
             <Box
                 {...override('YouTube Content')}
-                display={(!videoId || !isReady) && 'none'}
+                display={(!videoId || !isReady) ? undefined : 'none'}
             >
                 {videoId && (
                     <YouTube
