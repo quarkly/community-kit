@@ -27,5 +27,6 @@ export { default as Counter } from './Counter';
 export { default as ScrollIndicator } from './ScrollIndicator';
 export { default as LoopText } from './LoopText';
 export { default as BackToTop } from './BackToTop';
-export { default as Carousel } from './Carousel';
 export { default as YoomoneyDonateForm } from './YoomoneyDonateForm';
+export { default as Carousel } from './Carousel';
+export { default as Animation } from './Animation';
