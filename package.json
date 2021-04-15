@@ -1,6 +1,6 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "author": "Eddort @Eddort",
   "dependencies": {
     "@react-hook/resize-observer": "^1.2.0",
@@ -115,7 +115,6 @@
     "create:component": "quarkly-sdk component $1",
     "lint": "eslint src",
     "lint:fix": "eslint --fix src",
-    "prepare": "husky install",
     "test": "jest"
   },
   "sideEffects": false
