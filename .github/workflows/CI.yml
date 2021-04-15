@@ -4,7 +4,6 @@ on:
     push:
         branches:
             - master
-            - ci
     pull_request:
         branches:
             - "*"
@@ -18,10 +17,11 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
-            - name: Use Node.js 12 version
-              uses: actions/setup-node@v1
+            - name: Use Node.js 14 version
+              uses: actions/setup-node@v2
               with:
-                node-version: 12
+                node-version: 14
+                check-latest: true
 
             - name: Install, test
               run: |
@@ -37,10 +37,12 @@ jobs:
 
         steps:
             - uses: actions/checkout@v2
-            - name: Use Node.js 12 version
-              uses: actions/setup-node@v1
+            - name: Use Node.js 14 version
+              uses: actions/setup-node@v2
               with:
-                node-version: 12
+                node-version: 14
+                check-latest: true
+
             - name: Install, lint
               run: |
                 npm install
