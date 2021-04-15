@@ -69,6 +69,8 @@ const Animation = ({
     );
 
     const onAboveEvent = (e) => {
+        if (!wrapperRef.current) return;
+
         const { componentRect, scrollBottom } = getParams(
             e,
             wrapperRef.current
@@ -88,6 +90,8 @@ const Animation = ({
     };
 
     const onBelowEvent = (e) => {
+        if (!wrapperRef.current) return;
+
         const { windowHeight, componentRect, scrollBottom } = getParams(
             e,
             wrapperRef.current
@@ -106,6 +110,8 @@ const Animation = ({
     };
 
     useEffect(() => {
+        if (!wrapperRef.current) return;
+
         const { windowHeight, componentRect } = getParams(
             null,
             wrapperRef.current
@@ -130,6 +136,8 @@ const Animation = ({
     }, [wrapperRef.current, trigger]);
 
     useEffect(() => {
+        if (!wrapperRef.current) return;
+
         wrapperRef.current.trigered = test;
         togglePlay(test);
     }, [trigger, animation, iteration, duration, delay, test]);
