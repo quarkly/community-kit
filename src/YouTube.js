@@ -89,7 +89,16 @@ export function youtubeLinkParser(url) {
     return match && match[7].length === 11 ? match[7] : false;
 }
 
-const YouTubeComponent = ({ url, ...props }) => {
+const YouTubeComponent = ({
+    url,
+    autoplay,
+    controls,
+    disablekb,
+    fs,
+    loop,
+    modestbranding,
+    ...props
+}) => {
     const [isReady, setReady] = useState(false);
     const [isPlay, setPlay] = useState(false);
     const playerRef = useRef(null);
@@ -143,7 +152,14 @@ const YouTubeComponent = ({ url, ...props }) => {
                             width: '100%',
                             height: '100%',
                             playerVars: {
-                                autoplay: 0,
+                                // autoplay property is boolean but YouTube component requires number
+                                // controls property is boolean but YouTube component requires number
+                                autoplay: autoplay ? 1 : 0,
+                                controls: controls ? 1 : 0,
+                                disablekb: disablekb ? 1 : 0,
+                                fs: fs ? 1 : 0,
+                                loop: loop ? 1 : 0,
+                                modestbranding: modestbranding ? 1 : 0,
                             },
                         }}
                         onReady={readyVideo}
@@ -178,10 +194,57 @@ const propInfo = {
         control: 'input',
         weight: 1,
     },
+    autoplay: {
+        control: 'checkbox',
+        description: {
+            en:
+                'Autoplay - specifies whether the initial video will automatically start to play when the player loads',
+        },
+    },
+    controls: {
+        control: 'checkbox',
+        description: {
+            en:
+                'Controls - specifies whether the video player controls are displayed',
+        },
+    },
+    disablekb: {
+        control: 'checkbox',
+        description: {
+            en:
+                'Disablekb - specifies whether the player responds to keyboard controls',
+        },
+    },
+    fs: {
+        control: 'checkbox',
+        description: {
+            en: 'fs - specifies whether the player shows fullscreen button',
+        },
+    },
+    loop: {
+        control: 'checkbox',
+        description: {
+            en:
+                'loop - causes the player to play the initial video again and again',
+        },
+    },
+    modestbranding: {
+        control: 'checkbox',
+        description: {
+            en:
+                'modestbranding - This parameter lets you use a YouTube player that does not show a YouTube logo',
+        },
+    },
 };
 
 const defaultProps = {
     position: 'relative',
+    autoplay: false,
+    controls: true,
+    disablekb: false,
+    fs: true,
+    loop: false,
+    modestbranding: false,
 };
 
 Object.assign(YouTubeComponent, {
