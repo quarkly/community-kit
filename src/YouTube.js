@@ -133,7 +133,7 @@ const YouTubeComponent = ({ url, ...props }) => {
         >
             <Box
                 {...override('YouTube Content')}
-                display={(!videoId || !isReady) ? undefined : 'none'}
+                display={!videoId || !isReady ? undefined : 'none'}
             >
                 {videoId && (
                     <YouTube
