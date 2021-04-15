@@ -1,9 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import YouTube from 'react-youtube';
 import { useOverrides } from '@quarkly/components';
 import { Box, Icon } from '@quarkly/widgets';
 
 import ComponentNotice from './ComponentNotice';
+
+const duration = 300;
 
 const overrides = {
     'YouTube Content': {
@@ -16,18 +18,55 @@ const overrides = {
             position: 'absolute',
         },
     },
-    'YouTube Button': {
+    'YouTube Button Overlay': {
         kind: 'Box',
         props: {
-            top: 'calc(50% - 45px)',
-            left: 'calc(50% - 45px)',
-            width: '90px',
-            height: '90px',
-            'background-color': '--color-primary',
-            'border-radius': '100%',
+            top: '0',
+            left: '0',
+            width: '100%',
+            height: '100%',
             'align-items': 'center',
             'justify-content': 'center',
             position: 'absolute',
+            display: 'flex',
+
+            'background-color': 'transparent',
+            'hover-background-color': 'rgba(255,255,255,.01)',
+        },
+    },
+    'YouTube Button Overlay :play': {
+        props: {
+            transition: `
+            background-color ${duration}ms ease,
+            visibility ${duration}ms step-end,
+            opacity ${duration}ms ease-in-out
+        `,
+            visibility: 'hidden',
+            opacity: '0',
+        },
+    },
+    'YouTube Button Overlay :pause': {
+        props: {
+            transition: `
+            background-color ${duration}ms ease,
+            visibility ${duration}ms step-start,
+            opacity ${duration}ms ease-in-out
+        `,
+            visibility: 'visible',
+            opacity: '1',
+        },
+    },
+    'YouTube Button': {
+        kind: 'Box',
+        props: {
+            width: '90px',
+            height: '90px',
+            'align-items': 'center',
+            'justify-content': 'center',
+            'background-color': '--color-primary',
+            'border-radius': '100%',
+            display: 'flex',
+            cursor: 'pointer',
         },
     },
     'YouTube Button Icon': {
@@ -58,12 +97,7 @@ const YouTubeComponent = ({ url, ...props }) => {
 
     const videoId = youtubeLinkParser(url);
 
-    const playVideo = () => {
-        setPlay(true);
-        playerRef.current.internalPlayer.playVideo();
-    };
-
-    const onReady = ({ target }) => {
+    const readyVideo = ({ target }) => {
         const checkIframe = (value) =>
             value instanceof HTMLElement && value.tagName === 'IFRAME';
         const iframe = Object.values(target).find((value) =>
@@ -76,16 +110,31 @@ const YouTubeComponent = ({ url, ...props }) => {
         setReady(true);
     };
 
+    const clickButton = useCallback(() => {
+        if (!playerRef.current) return;
+
+        playerRef.current.internalPlayer.playVideo();
+        setPlay(true);
+    }, []);
+
+    const playVideo = useCallback(() => {
+        setPlay(true);
+    }, []);
+    const pauseVideo = useCallback(() => {
+        setPlay(false);
+    }, []);
+
     return (
         <Box
             padding-top={videoId ? '56.25%' : '0'}
-            min-height={videoId && '0'}
-            height={videoId && '0'}
-            transition="opacity 0s initial .5s"
-            opacity={isReady ? '1' : '0'}
+            min-height={videoId ? '0' : undefined}
+            height={videoId ? '0' : undefined}
             {...rest}
         >
-            <Box {...override('YouTube Content')} display={!videoId && 'none'}>
+            <Box
+                {...override('YouTube Content')}
+                display={!videoId || !isReady ? undefined : 'none'}
+            >
                 {videoId && (
                     <YouTube
                         ref={playerRef}
@@ -97,16 +146,24 @@ const YouTubeComponent = ({ url, ...props }) => {
                                 autoplay: 0,
                             },
                         }}
-                        onReady={onReady}
+                        onReady={readyVideo}
+                        onPlay={playVideo}
+                        onPause={pauseVideo}
                     />
                 )}
             </Box>
             <Box
-                {...override('YouTube Button')}
-                display={isPlay || !videoId ? 'none' : 'flex'}
-                onClick={playVideo}
+                {...override(
+                    'YouTube Button Overlay',
+                    `YouTube Button Overlay ${
+                        videoId && !isPlay ? ':pause' : ':play'
+                    }`
+                )}
+                onClick={clickButton}
             >
-                <Icon {...override('YouTube Button Icon')} />
+                <Box {...override('YouTube Button')}>
+                    <Icon {...override('YouTube Button Icon')} />
+                </Box>
             </Box>
 
             {(!url || !videoId) && (
