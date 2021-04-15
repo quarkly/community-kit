@@ -173,7 +173,7 @@ const TimerComponent = ({
                 showList.map(
                     (item) =>
                         item.show && (
-                            <Box {...override('Item')}>
+                            <Box key={item.key} {...override('Item')}>
                                 <Text
                                     {...override('Value', `Value ${item.name}`)}
                                 >
