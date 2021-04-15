@@ -16,7 +16,6 @@ const useSize = (target) => {
     });
     useLayoutEffect(() => {
         if (!target.current) return;
-
         setSize(target.current.getBoundingClientRect());
     }, [target.current]);
     useResizeObserver(target, (entry) => setSize(entry.contentRect));
@@ -138,14 +137,14 @@ const SVGShape = ({
         if (!shapeRef.current) return;
         const computedWidth = getComputedStyle(shapeRef.current).strokeWidth;
 
-        const computedOffset = getOffset({ computedWidth, size });
-        setOffset(computedOffset);
-    }, [strokeWidth, type, size, shapeRef.current]);
+        const newOffset = getOffset({ computedWidth, size });
+        setOffset(newOffset);
+    }, [strokeWidth, type, size]);
 
     return (
         <Box
             position="relative"
-            height="100%"
+            height="200px"
             width="100%"
             ref={mainRef}
             {...props}
@@ -246,11 +245,12 @@ const propInfo = {
 };
 
 const defaultProps = {
-    type: 'Rectangle',
+    type: 'Circle',
     stroke: '#000000',
-    strokeWidth: '1',
+    strokeWidth: '8',
     strokeOpacity: '1',
-    strokeLinecap: 'butt',
+    strokeLinecap: 'round',
+    strokeDasharray: '30',
     fill: '--color-primary',
     fillOpacity: '1',
 };
