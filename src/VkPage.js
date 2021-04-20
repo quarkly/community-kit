@@ -4,6 +4,7 @@ import { Box, Text } from '@quarkly/widgets';
 import { useTheme } from 'styled-components';
 import VK, { Group } from 'react-vk';
 import useDeepCompareEffect from 'use-deep-compare-effect';
+import ComponentNotice from './ComponentNotice';
 
 const useDebounce = (value, timeout, deep) => {
     const [state, setState] = useState(value);
@@ -91,7 +92,7 @@ const Page = ({
                     />
                 </VK>
             ) : (
-                <Text>Insert correct group id in props panel</Text>
+                <ComponentNotice message="Insert correct group id in props panel" />
             )}
         </Box>
     );
