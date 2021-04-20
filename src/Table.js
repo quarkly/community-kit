@@ -198,6 +198,7 @@ const defaultProps = {
     colsProp: 8,
     rowsProp: 4,
 
+    display: 'block',
     'background-color': '--white',
     border: '1px solid #E4E8EC',
     'border-collapse': 'collapse',
