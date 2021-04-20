@@ -321,8 +321,9 @@ const MobileSidePanel = ({
         [breakpoint, menuPosition, animDuration, animFunction]
     );
 
-    const statusOpen = (isOpen || isEmpty) ? ':open' : ':closed';
-    const statusButtonOpen = (menuPosition === 'near' && (isOpen || isEmpty)) ? ':open' : ':closed';
+    const statusOpen = isOpen || isEmpty ? ':open' : ':closed';
+    const statusButtonOpen =
+        menuPosition === 'near' && (isOpen || isEmpty) ? ':open' : ':closed';
     const childrenLength = Array.isArray(children) ? children.length : 0;
 
     useEffect(() => {
@@ -331,7 +332,7 @@ const MobileSidePanel = ({
         const empty = childrenRef.current?.innerHTML.endsWith(
             '<!--child placeholder-->'
         );
-        
+
         setOpen(isOpen || empty);
         setEmpty(empty);
     }, [childrenLength]);
