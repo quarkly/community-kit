@@ -31,3 +31,4 @@ export { default as YoomoneyDonateForm } from './YoomoneyDonateForm';
 export { default as Carousel } from './Carousel';
 export { default as Animation } from './Animation';
 export { default as MobileSidePanel } from './MobileSidePanel';
+export { default as CardFlip } from './CardFlip';

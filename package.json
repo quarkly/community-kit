@@ -1,6 +1,6 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.26",
+  "version": "0.0.28",
   "author": "Eddort @Eddort",
   "dependencies": {
     "@react-hook/resize-observer": "^1.2.0",
@@ -89,7 +89,8 @@
       "YoomoneyDonateForm": "YoomoneyDonateForm",
       "Carousel": "Carousel",
       "Animation": "Animation",
-      "MobileSidePanel": "MobileSidePanel"
+      "MobileSidePanel": "MobileSidePanel",
+      "CardFlip": "CardFlip"
     }
   },
   "quarklyInfoDeleted": {
