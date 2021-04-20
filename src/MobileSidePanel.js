@@ -11,7 +11,7 @@ import { Box, Text, Icon } from '@quarkly/widgets';
 import ComponentNotice from './ComponentNotice';
 
 // There are several icons in the component
-// to less duplicate wrote separately
+// Brought out separately, so that there is less duplication
 const iconProps = {
     normal: {
         category: 'fi',
@@ -69,8 +69,8 @@ const overrides = {
     },
 };
 
-// Design styles differ 50/50,
-// to less duplicate wrote separately
+// Design styles differ 50/50
+// Brought out separately, so that there is less duplication
 const getContentStyles = ({
     breakpoint,
     menuPosition,
@@ -321,17 +321,9 @@ const MobileSidePanel = ({
         [breakpoint, menuPosition, animDuration, animFunction]
     );
 
-    const statusOpen = useMemo(
-        () => (isOpen || isEmpty ? ':open' : ':closed'),
-        [isOpen, isEmpty]
-    );
-    const statusButtonOpen = useMemo(
-        () =>
-            menuPosition === 'near' && (isOpen || isEmpty)
-                ? ':open'
-                : ':closed',
-        [isOpen, menuPosition, isEmpty]
-    );
+    const statusOpen = (isOpen || isEmpty) ? ':open' : ':closed';
+    const statusButtonOpen = (menuPosition === 'near' && (isOpen || isEmpty)) ? ':open' : ':closed';
+    const childrenLength = Array.isArray(children) ? children.length : 0;
 
     useEffect(() => {
         if (!childrenRef.current) return;
@@ -339,9 +331,10 @@ const MobileSidePanel = ({
         const empty = childrenRef.current?.innerHTML.endsWith(
             '<!--child placeholder-->'
         );
-
+        
+        setOpen(isOpen || empty);
         setEmpty(empty);
-    }, [children.length]);
+    }, [childrenLength]);
 
     return (
         <Box {...rest}>
