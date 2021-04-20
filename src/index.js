@@ -30,3 +30,4 @@ export { default as BackToTop } from './BackToTop';
 export { default as YoomoneyDonateForm } from './YoomoneyDonateForm';
 export { default as Carousel } from './Carousel';
 export { default as Animation } from './Animation';
+export { default as CardFlip } from './CardFlip';
