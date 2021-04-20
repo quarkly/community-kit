@@ -646,6 +646,7 @@ const defaultProps = {
     showLink: true,
 
     position: 'relative',
+    alignSelf: 'normal',
 };
 
 Object.assign(CarouselComponent, {
