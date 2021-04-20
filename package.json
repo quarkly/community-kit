@@ -3,6 +3,7 @@
   "version": "0.0.28",
   "author": "Eddort @Eddort",
   "dependencies": {
+    "@reach/router": "^1.3.4",
     "@react-hook/resize-observer": "^1.2.0",
     "@u-wave/react-vimeo": "^0.9.4",
     "disqus-react": "^1.0.11",
@@ -89,8 +90,9 @@
       "YoomoneyDonateForm": "YoomoneyDonateForm",
       "Carousel": "Carousel",
       "Animation": "Animation",
-      "MobileSidePanel": "MobileSidePanel",
-      "CardFlip": "CardFlip"
+      "CardFlip": "CardFlip",
+      "MenuWithGroups": "MenuWithGroups",
+      "MobileSidePanel": "MobileSidePanel"
     }
   },
   "quarklyInfoDeleted": {
