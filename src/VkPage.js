@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import atomize from '@quarkly/atomize';
-import { Box, Text } from '@quarkly/widgets';
+import { Box } from '@quarkly/widgets';
 import { useTheme } from 'styled-components';
 import VK, { Group } from 'react-vk';
 import useDeepCompareEffect from 'use-deep-compare-effect';
