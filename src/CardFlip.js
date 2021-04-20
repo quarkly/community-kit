@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Image } from '@quarkly/widgets';
 
@@ -86,25 +86,19 @@ const FlipCard = ({
 
     const [isFlipped, setFlipped] = useState(isFlippedProp);
 
-    const flipTrigger = useMemo(() => flipTriggerProp === 'Click', [
-        flipTriggerProp,
-    ]);
+    const flipTrigger = flipTriggerProp === 'Click';
 
     const flipDuration = useMemo(() => flipDurationProp.replace(/\s+/g, ''), [
         flipDurationProp,
     ]);
 
-    const currentStyles = useMemo(() => flipStyles[flipDirectionProp], [
-        flipDirectionProp,
-    ]);
-
     const onClickFlip = useCallback(() => {
-        if (flipTrigger) setFlipped(!isFlipped);
-    }, [isFlipped]);
+        if (flipTrigger) setFlipped((prevFlipped) => !prevFlipped);
+    }, [flipTrigger]);
 
     const onHoverFlip = useCallback(() => {
-        if (!flipTrigger) setFlipped(!isFlipped);
-    }, [isFlipped]);
+        if (!flipTrigger) setFlipped((prevFlipped) => !prevFlipped);
+    }, [flipTrigger]);
 
     useEffect(() => {
         setFlipped(isFlippedProp);
@@ -121,7 +115,7 @@ const FlipCard = ({
             <Box
                 transition={`transform ${flipDuration}ms ${timingFunctionProp}`}
                 {...override('Flip Card Content')}
-                {...(isFlipped && currentStyles)}
+                {...(isFlipped && flipStyles[flipDirectionProp])}
                 padding-top={
                     aspectRatioProp !== 'auto'
                         ? cardHeights[aspectRatioProp]
@@ -134,7 +128,7 @@ const FlipCard = ({
                 </Box>
                 <Box
                     {...override(`Flip Card Item`, `Flip Card Item Back`)}
-                    {...currentStyles}
+                    {...flipStyles[flipDirectionProp]}
                 >
                     {children}
                 </Box>
