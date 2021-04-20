@@ -89,7 +89,7 @@ export function youtubeLinkParser(url) {
     return match && match[7].length === 11 ? match[7] : false;
 }
 
-const YouTubeComponent = ({ url, ...props }) => {
+const YouTubeComponent = ({ url, showOverlay, ...props }) => {
     const [isReady, setReady] = useState(false);
     const [isPlay, setPlay] = useState(false);
     const playerRef = useRef(null);
@@ -152,19 +152,21 @@ const YouTubeComponent = ({ url, ...props }) => {
                     />
                 )}
             </Box>
-            <Box
-                {...override(
-                    'YouTube Button Overlay',
-                    `YouTube Button Overlay ${
-                        videoId && !isPlay ? ':pause' : ':play'
-                    }`
-                )}
-                onClick={clickButton}
-            >
-                <Box {...override('YouTube Button')}>
-                    <Icon {...override('YouTube Button Icon')} />
+            {showOverlay && (
+                <Box
+                    {...override(
+                        'YouTube Button Overlay',
+                        `YouTube Button Overlay ${
+                            videoId && !isPlay ? ':pause' : ':play'
+                        }`
+                    )}
+                    onClick={clickButton}
+                >
+                    <Box {...override('YouTube Button')}>
+                        <Icon {...override('YouTube Button Icon')} />
+                    </Box>
                 </Box>
-            </Box>
+            )}
 
             {(!url || !videoId) && (
                 <ComponentNotice message="Добавьте URL видео на панели Props" />
@@ -178,10 +180,14 @@ const propInfo = {
         control: 'input',
         weight: 1,
     },
+    showOverlay: {
+        control: 'checkbox',
+    },
 };
 
 const defaultProps = {
     position: 'relative',
+    showOverlay: true,
 };
 
 Object.assign(YouTubeComponent, {
