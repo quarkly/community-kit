@@ -92,7 +92,8 @@
       "Animation": "Animation",
       "CardFlip": "CardFlip",
       "MenuWithGroups": "MenuWithGroups",
-      "MobileSidePanel": "MobileSidePanel"
+      "MobileSidePanel": "MobileSidePanel",
+      "Formspree": "Formspree"
     }
   },
   "quarklyInfoDeleted": {
