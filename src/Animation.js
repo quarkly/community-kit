@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import atomize from '@quarkly/atomize';
 import styles, { css } from 'styled-components';
-import { isEmptyChildren } from './utils';
+import utils from './utils';
 import presets from './AnimationPresets';
 import ComponentNotice from './ComponentNotice';
 
@@ -70,9 +70,9 @@ const Animation = ({
         [trigger, isPlay]
     );
 
-    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
+    const isEmpty = useMemo(() => utils.isEmptyChildren(children), [children]);
 
-    const onAboveEvent = e => {
+    const onAboveEvent = (e) => {
         if (!wrapperRef.current) return;
 
         const { componentRect, scrollBottom } = getParams(
@@ -93,7 +93,7 @@ const Animation = ({
         wrapperRef.current.previousTop = componentRect.top;
     };
 
-    const onBelowEvent = e => {
+    const onBelowEvent = (e) => {
         if (!wrapperRef.current) return;
 
         const { windowHeight, componentRect, scrollBottom } = getParams(
