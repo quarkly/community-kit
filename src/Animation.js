@@ -169,44 +169,44 @@ export default atomize(Animation)(
             trigger: {
                 title: {
                     en: 'Триггер анимации',
-                    ru: 'Триггер анимации'
+                    ru: 'Триггер анимации',
                 },
                 control: 'select',
                 variants: [
                     {
                         title: {
                             en: 'При загрузке',
-                            ru: 'При загрузке'
+                            ru: 'При загрузке',
                         },
-                        value: 'onload'
+                        value: 'onload',
                     },
                     {
                         title: {
                             en: 'По клику',
-                            ru: 'По клику'
+                            ru: 'По клику',
                         },
-                        value: 'click'
+                        value: 'click',
                     },
                     {
                         title: {
                             en: 'По навадению',
-                            ru: 'По наведению'
+                            ru: 'По наведению',
                         },
-                        value: 'hover'
+                        value: 'hover',
                     },
                     {
                         title: {
                             en: 'Появление сверху',
-                            ru: 'Появление сверху'
+                            ru: 'Появление сверху',
                         },
-                        value: 'above'
+                        value: 'above',
                     },
                     {
                         title: {
                             en: 'Появление снизу',
-                            ru: 'Появление снизу'
+                            ru: 'Появление снизу',
                         },
-                        value: 'below'
+                        value: 'below',
                     },
                 ],
                 category: 'Animation',
@@ -222,7 +222,7 @@ export default atomize(Animation)(
                     {
                         label: {
                             en: 'Appear & Disappear',
-                            ru: 'Появление и скрытие'
+                            ru: 'Появление и скрытие',
                         },
                         options: [
                             'Fade In',
@@ -244,7 +244,7 @@ export default atomize(Animation)(
                     {
                         label: {
                             en: 'Slide',
-                            ru: 'Перемещение'
+                            ru: 'Перемещение',
                         },
                         options: [
                             '→ Slide In',
@@ -260,7 +260,7 @@ export default atomize(Animation)(
                     {
                         label: {
                             en: 'Emphasis',
-                            ru: 'Акцент'
+                            ru: 'Акцент',
                         },
                         options: [
                             'Pop',
@@ -274,7 +274,7 @@ export default atomize(Animation)(
                     {
                         label: {
                             en: 'Continuous',
-                            ru: 'Непрерывный'
+                            ru: 'Непрерывный',
                         },
                         options: [
                             'Rotate',
@@ -293,24 +293,24 @@ export default atomize(Animation)(
             iteration: {
                 title: {
                     en: 'Количество итераций',
-                    ru: 'Количество итераций'
+                    ru: 'Количество итераций',
                 },
                 control: 'radio-group',
                 variants: [
                     {
                         title: {
                             en: 'Один раз',
-                            ru: 'Один раз'
+                            ru: 'Один раз',
                         },
-                        value: 'once'
+                        value: 'once',
                     },
                     {
                         title: {
                             en: 'Бесконечно',
-                            ru: 'Бесконечно'
+                            ru: 'Бесконечно',
                         },
-                        value: 'infinite'
-                    }
+                        value: 'infinite',
+                    },
                 ],
                 category: 'Animation',
                 weight: 0.5,
@@ -318,7 +318,7 @@ export default atomize(Animation)(
             timingFunction: {
                 title: {
                     en: 'Функция сглаживания анимации',
-                    ru: 'Функция сглаживания анимации'
+                    ru: 'Функция сглаживания анимации',
                 },
                 control: 'input',
                 variants: [
@@ -356,7 +356,7 @@ export default atomize(Animation)(
             test: {
                 title: {
                     en: 'Включить анимацию принудительно',
-                    ru: 'Включить анимацию принудительно'
+                    ru: 'Включить анимацию принудительно',
                 },
                 control: 'checkbox',
                 category: 'Test',

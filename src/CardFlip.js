@@ -145,17 +145,17 @@ const propInfo = {
             {
                 title: {
                     en: 'По клику',
-                    ru: 'По клику'
+                    ru: 'По клику',
                 },
-                value: 'click'
+                value: 'click',
             },
             {
                 title: {
                     en: 'По наведению',
-                    ru: 'По наведению'
+                    ru: 'По наведению',
                 },
-                value: 'hover'
-            }
+                value: 'hover',
+            },
         ],
         category: 'Main',
         weight: 0.5,
@@ -167,30 +167,30 @@ const propInfo = {
             {
                 title: {
                     en: 'Вправо',
-                    ru: 'Вправо'
+                    ru: 'Вправо',
                 },
-                value: 'toRight'
+                value: 'toRight',
             },
             {
                 title: {
                     en: 'Влево',
-                    ru: 'Влево'
+                    ru: 'Влево',
                 },
-                value: 'toLeft'
+                value: 'toLeft',
             },
             {
                 title: {
                     en: 'Вверх',
-                    ru: 'Вверх'
+                    ru: 'Вверх',
                 },
-                value: 'toUp'
+                value: 'toUp',
             },
             {
                 title: {
                     en: 'Вниз',
-                    ru: 'Вниз'
+                    ru: 'Вниз',
                 },
-                value: 'toDown'
+                value: 'toDown',
             },
         ],
         category: 'Main',
@@ -205,9 +205,13 @@ const propInfo = {
                     en: 'Вручную',
                     ru: 'Вручную',
                 },
-                value: 'auto'
+                value: 'auto',
             },
-            '16:9', '4:3', '1:1', '3:4', '9:16'
+            '16:9',
+            '4:3',
+            '1:1',
+            '3:4',
+            '9:16',
         ],
         category: 'Main',
         weight: 0.5,

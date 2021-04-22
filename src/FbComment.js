@@ -42,12 +42,12 @@ const propInfo = {
         variants: [
             {
                 title: 'English',
-                value: 'en_US'
+                value: 'en_US',
             },
             {
                 title: 'Русский',
-                value: 'ru_RU'
-            }
+                value: 'ru_RU',
+            },
         ],
         category: 'Main',
         weight: 1,
@@ -56,12 +56,12 @@ const propInfo = {
 
 const defaultProps = {
     language: 'en_US',
-}
+};
 
 Object.assign(FacebookComments, {
     title: 'FbComments Component',
     propInfo,
-    defaultProps
-})
+    defaultProps,
+});
 
 export default FacebookComments;

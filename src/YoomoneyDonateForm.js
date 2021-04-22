@@ -15,7 +15,7 @@ const YoomoneyDonateForm = ({
     comment,
     hint,
     sum,
-    fixedTarget,
+    writer,
     payment,
     mobilePayment,
     targets,
@@ -43,14 +43,14 @@ const YoomoneyDonateForm = ({
 
     const height = useMemo(() => {
         const conditions = [
-            [fixedTarget === 'seller', 7],
-            [fixedTarget === 'buyer' && targets !== '', 12],
+            [writer === 'seller', 7],
+            [writer === 'buyer' && targets !== '', 12],
             [comment, 79],
             [hint, 12],
         ];
 
         return conditions.reduce((acc, [c, v]) => acc + (Boolean(c) && v), 215);
-    }, [fixedTarget, targets, comment, hint]);
+    }, [writer, targets, comment, hint]);
 
     return (
         <Box width="100%" height={height} {...props}>
@@ -86,17 +86,17 @@ const propInfo = {
             {
                 title: {
                     en: 'Продавец',
-                    ru: 'Продавец'
+                    ru: 'Продавец',
                 },
-                value: 'seller'
+                value: 'seller',
             },
             {
                 title: {
                     en: 'Покупатель',
-                    ru: 'Покупатель'
+                    ru: 'Покупатель',
                 },
-                value: 'buyer'
-            }
+                value: 'buyer',
+            },
         ],
         category: 'Main',
         weight: 1,
@@ -141,7 +141,8 @@ const propInfo = {
     payment: {
         title: 'Использовать банковскую карту',
         description: {
-            ru: 'Возможность перевода через банковскую карту (может взиматься дополнительная комиссия)',
+            ru:
+                'Возможность перевода через банковскую карту (может взиматься дополнительная комиссия)',
         },
         control: 'checkbox',
         category: 'Main',

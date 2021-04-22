@@ -101,8 +101,7 @@ const Sub = ({ common, item, other }) => {
 
     useEffect(() => {
         const subOpenForce =
-            tabState === 'keepExpanded' ||
-            tabState === 'expandAll';
+            tabState === 'keepExpanded' || tabState === 'expandAll';
         const subCloseForce = tabState === 'collapseAll';
 
         setSubOpen((expanded && !subCloseForce) || subOpenForce);
@@ -340,30 +339,30 @@ const propInfo = {
             {
                 title: {
                     en: 'Свернуть все группы',
-                    ru: 'Свернуть все группы'
+                    ru: 'Свернуть все группы',
                 },
-                value: 'collapseAll'
+                value: 'collapseAll',
             },
             {
                 title: {
                     en: 'Раскрыть перед активным пунктом',
-                    ru: 'Раскрыть перед активным пунктом'
+                    ru: 'Раскрыть перед активным пунктом',
                 },
-                value: 'expandActive'
+                value: 'expandActive',
             },
             {
                 title: {
                     en: 'Раскрыть все группы',
-                    ru: 'Раскрыть все группы'
+                    ru: 'Раскрыть все группы',
                 },
-                value: 'expandAll'
+                value: 'expandAll',
             },
             {
                 title: {
                     en: 'Держать все вкладки раскрытыми',
-                    ru: 'Держать все вкладки раскрытыми'
+                    ru: 'Держать все вкладки раскрытыми',
                 },
-                value: 'keepExpanded'
+                value: 'keepExpanded',
             },
         ],
         weight: 1,

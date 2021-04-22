@@ -118,14 +118,14 @@ const propInfo = {
                     en: 'Возрастание',
                     ru: 'Возрастание',
                 },
-                value: 'normal'
+                value: 'normal',
             },
             {
                 title: {
                     en: 'Убывание',
                     ru: 'Убывание',
                 },
-                value: 'reverse'
+                value: 'reverse',
             },
         ],
         category: 'Main',
