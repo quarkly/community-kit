@@ -93,12 +93,9 @@
       "CardFlip": "CardFlip",
       "MenuWithGroups": "MenuWithGroups",
       "MobileSidePanel": "MobileSidePanel",
-<<<<<<< HEAD
-      "GoogleMap": "GoogleMap"
-=======
+      "GoogleMap": "GoogleMap",
       "Track": "Track",
       "Source": "Source"
->>>>>>> d5a2d0d5e806d009dad895099a1169b23f16431a
     }
   },
   "quarklyInfoDeleted": {
