@@ -86,7 +86,7 @@ const FlipCard = ({
 
     const [isFlipped, setFlipped] = useState(isFlippedProp);
 
-    const flipTrigger = flipTriggerProp === 'Click';
+    const flipTrigger = flipTriggerProp === 'click';
 
     const flipDuration = useMemo(() => flipDurationProp.replace(/\s+/g, ''), [
         flipDurationProp,
@@ -139,67 +139,108 @@ const FlipCard = ({
 
 const propInfo = {
     flipTriggerProp: {
-        title: 'Flip Trigger',
-        description: {
-            en: 'Способ активации анимации',
-        },
+        title: 'Триггер переворота',
         control: 'radio-group',
-        variants: ['Click', 'Hover'],
+        variants: [
+            {
+                title: {
+                    en: 'По клику',
+                    ru: 'По клику',
+                },
+                value: 'click',
+            },
+            {
+                title: {
+                    en: 'По наведению',
+                    ru: 'По наведению',
+                },
+                value: 'hover',
+            },
+        ],
         category: 'Main',
         weight: 0.5,
     },
     flipDirectionProp: {
-        title: 'Flip Direction',
-        description: {
-            en: 'Напрвление поворота',
-        },
+        title: 'Напраление переворота',
         control: 'select',
-        variants: ['toRight', 'toLeft', 'toUp', 'toDown'],
+        variants: [
+            {
+                title: {
+                    en: 'Вправо',
+                    ru: 'Вправо',
+                },
+                value: 'toRight',
+            },
+            {
+                title: {
+                    en: 'Влево',
+                    ru: 'Влево',
+                },
+                value: 'toLeft',
+            },
+            {
+                title: {
+                    en: 'Вверх',
+                    ru: 'Вверх',
+                },
+                value: 'toUp',
+            },
+            {
+                title: {
+                    en: 'Вниз',
+                    ru: 'Вниз',
+                },
+                value: 'toDown',
+            },
+        ],
         category: 'Main',
         weight: 0.5,
     },
     aspectRatioProp: {
-        title: 'Aspect Ratio',
-        description: {
-            en: 'Формат разрешения',
-        },
+        title: 'Соотношение сторон',
         control: 'select',
-        variants: ['auto', '16:9', '4:3', '1:1', '3:4', '9:16'],
+        variants: [
+            {
+                title: {
+                    en: 'Вручную',
+                    ru: 'Вручную',
+                },
+                value: 'auto',
+            },
+            '16:9',
+            '4:3',
+            '1:1',
+            '3:4',
+            '9:16',
+        ],
         category: 'Main',
         weight: 0.5,
     },
     flipDurationProp: {
-        title: 'Flip Duration',
-        description: {
-            en: 'Продолжительность анимации',
-        },
+        title: 'Длительность анимации',
         control: 'input',
-        category: 'Animation params',
+        variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
+        type: 'text',
+        category: 'Animation',
         weight: 0.5,
     },
     timingFunctionProp: {
-        title: 'Timing Function',
-        description: {
-            en: 'Скорость течения анимации',
-        },
+        title: 'Функция сглаживания анимации',
         control: 'input',
         variants: [
+            'linear',
             'ease',
             'ease-in',
             'ease-out',
             'ease-in-out',
-            'linear',
             'step-start',
             'step-end',
         ],
-        category: 'Animation params',
+        category: 'Animation',
         weight: 0.5,
     },
     isFlippedProp: {
         title: 'Перевернуть карточку',
-        description: {
-            en: 'Перевернуть карточку для теста',
-        },
         control: 'checkbox',
         category: 'Test',
         weight: 1,
@@ -207,7 +248,7 @@ const propInfo = {
 };
 
 const defaultProps = {
-    flipTriggerProp: 'Click',
+    flipTriggerProp: 'click',
     flipDirectionProp: 'toRight',
     aspectRatioProp: 'auto',
     flipDurationProp: '1000',
@@ -215,12 +256,14 @@ const defaultProps = {
     isFlippedProp: false,
 
     width: '400px',
-    position: 'relative',
     perspective: '600px',
+    position: 'relative',
 };
 
-export default Object.assign(FlipCard, {
-    overrides,
+Object.assign(FlipCard, {
     propInfo,
     defaultProps,
+    overrides,
 });
+
+export default FlipCard;
