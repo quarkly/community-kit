@@ -92,14 +92,14 @@
       "Animation": "Animation",
       "CardFlip": "CardFlip",
       "MenuWithGroups": "MenuWithGroups",
-      "MobileSidePanel": "MobileSidePanel"
+      "MobileSidePanel": "MobileSidePanel",
+      "Track": "Track",
+      "Source": "Source"
     }
   },
   "quarklyInfoDeleted": {
     "components": {
       "Picture": "Picture",
-      "Source": "Source",
-      "Track": "Track",
       "Accordion": "Accordion",
       "AccordionItem": "AccordionItem",
       "AccordionItemSummary": "AccordionItemSummary",

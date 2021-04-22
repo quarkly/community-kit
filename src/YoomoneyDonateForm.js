@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { Box } from '@quarkly/widgets';
 
+import ComponentNotice from './ComponentNotice';
+
 const yoomoneyUrl = new URL('https://yoomoney.ru/quickpay/shop-widget');
 
 const YoomoneyDonateForm = ({
@@ -65,7 +67,7 @@ const YoomoneyDonateForm = ({
                     height={height}
                 />
             ) : (
-                'Insert account id in props panel'
+                <ComponentNotice message="Insert account id in props panel" />
             )}
         </Box>
     );
