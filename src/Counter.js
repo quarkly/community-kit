@@ -31,7 +31,7 @@ const elementInViewport = (el) => {
 const Counter = ({
     startingNumber,
     endingNumber,
-    revers,
+    direction,
     duration,
     numberSuffix,
     numberPrefix,
@@ -40,7 +40,7 @@ const Counter = ({
     const refCounter = useRef(null);
     const [onView, setOnView] = useState(false);
     const [currentNumber, setCurrentNumber] = useState(
-        revers ? endingNumber : startingNumber
+        direction === 'reverse' ? endingNumber : startingNumber
     );
 
     const getDurationOneStep = useMemo(
@@ -68,7 +68,7 @@ const Counter = ({
     useEffect(() => {
         const updateCount = setInterval(() => {
             if (onView) {
-                if (revers) {
+                if (direction === 'reverse') {
                     if (currentNumber > startingNumber) {
                         setCurrentNumber(parseInt(currentNumber, 10) - 1);
                     } else {
@@ -85,7 +85,7 @@ const Counter = ({
         return () => {
             clearInterval(updateCount);
         };
-    }, [revers, currentNumber, onView, startingNumber, endingNumber]);
+    }, [direction, currentNumber, onView, startingNumber, endingNumber]);
 
     return (
         <Box text-align="center" font-size="58px" {...props} ref={refCounter}>
@@ -96,65 +96,68 @@ const Counter = ({
 
 const propInfo = {
     startingNumber: {
-        title: 'Starting Number',
-        description: {
-            en: 'Начальное число',
-        },
+        title: 'Начальное число',
         control: 'input',
+        type: 'text',
         category: 'Main',
         weight: 0.5,
     },
     endingNumber: {
-        title: 'Ending Number',
-        description: {
-            en: 'Конечное число',
-        },
+        title: 'Конечное число',
         control: 'input',
+        type: 'text',
         category: 'Main',
         weight: 0.5,
     },
-    revers: {
-        title: 'Revers',
-        description: {
-            en: 'Возврастание / Убывание',
-        },
-        control: 'checkbox',
+    direction: {
+        title: 'Направление отсчёта',
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Возрастание',
+                    ru: 'Возрастание',
+                },
+                value: 'normal',
+            },
+            {
+                title: {
+                    en: 'Убывание',
+                    ru: 'Убывание',
+                },
+                value: 'reverse',
+            },
+        ],
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     duration: {
-        title: 'Duration Animation',
-        description: {
-            en: 'Продолжительность анимации',
-        },
+        title: 'Длительность отсчёта',
         control: 'input',
+        type: 'number',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     numberSuffix: {
-        title: 'Number Suffix',
-        description: {
-            en: 'Символ после числа',
-        },
+        title: 'Текст после числа',
         control: 'input',
+        type: 'text',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     numberPrefix: {
-        title: 'Number Prefix',
-        description: {
-            en: 'Символ перед числом',
-        },
+        title: 'Текст перед числом',
         control: 'input',
+        type: 'text',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
 };
 
 const defaultProps = {
     startingNumber: '0',
     endingNumber: 100,
-    revers: false,
+    direction: 'normal',
     duration: 2000,
     numberSuffix: '',
     numberPrefix: '',

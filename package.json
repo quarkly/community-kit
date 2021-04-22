@@ -93,14 +93,17 @@
       "CardFlip": "CardFlip",
       "MenuWithGroups": "MenuWithGroups",
       "MobileSidePanel": "MobileSidePanel",
-      "Menu": "Menu"
+      "Menu": "Menu",
+      "Formspree": "Formspree",
+      "SocialMedia": "SocialMedia",
+      "GoogleMap": "GoogleMap",
+      "Track": "Track",
+      "Source": "Source"
     }
   },
   "quarklyInfoDeleted": {
     "components": {
       "Picture": "Picture",
-      "Source": "Source",
-      "Track": "Track",
       "Accordion": "Accordion",
       "AccordionItem": "AccordionItem",
       "AccordionItemSummary": "AccordionItemSummary",

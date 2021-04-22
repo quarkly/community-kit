@@ -598,7 +598,7 @@ const propInfo = {
         weight: 0.5,
     },
     functionProp: {
-        title: 'Функция анимации',
+        title: 'Функция сглаживания анимации',
         control: 'input',
         variants: [
             'linear',
