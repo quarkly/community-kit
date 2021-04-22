@@ -15,7 +15,7 @@ const YoomoneyDonateForm = ({
     comment,
     hint,
     sum,
-    fixedTarget,
+    writer,
     payment,
     mobilePayment,
     targets,
@@ -37,20 +37,20 @@ const YoomoneyDonateForm = ({
         phone: phone ? 'on' : 'off',
         address: address ? 'on' : 'off',
         comment: comment ? 'on' : 'off',
-        writer: fixedTarget ? 'seller' : 'buyer',
+        writer,
         quickpay: 'shop',
     });
 
     const height = useMemo(() => {
         const conditions = [
-            [fixedTarget, 7],
-            [!fixedTarget && targets !== '', 12],
+            [writer === 'seller', 7],
+            [writer === 'buyer' && targets !== '', 12],
             [comment, 79],
             [hint, 12],
         ];
 
         return conditions.reduce((acc, [c, v]) => acc + (Boolean(c) && v), 215);
-    }, [fixedTarget, targets, comment, hint]);
+    }, [writer, targets, comment, hint]);
 
     return (
         <Box width="100%" height={height} {...props}>
@@ -73,25 +73,49 @@ const YoomoneyDonateForm = ({
 
 const propInfo = {
     account: {
-        title: 'Account',
-        category: 'Main',
-        description: {
-            en: 'Yoomoney account ID',
-        },
-        weight: 1,
+        title: 'ID кошелька Yoomoney',
         control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
+    },
+    writer: {
+        title: 'Кто указывает назначение перевода',
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Продавец',
+                    ru: 'Продавец',
+                },
+                value: 'seller',
+            },
+            {
+                title: {
+                    en: 'Покупатель',
+                    ru: 'Покупатель',
+                },
+                value: 'buyer',
+            },
+        ],
+        category: 'Main',
+        weight: 1,
     },
     targets: {
-        title: 'Targets',
-        category: 'Main',
-        description: {
-            en: 'Purpose of transfer',
-        },
+        title: 'Назначение перевода',
         control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
+    },
+    sum: {
+        title: 'Сумма перевода',
+        category: 'Main',
+        control: 'input',
+        weight: 1,
     },
     buttonText: {
-        title: 'Text',
-        category: 'Button appearance',
+        title: 'Текст на кнопке',
         control: 'select',
         variants: [
             {
@@ -111,106 +135,81 @@ const propInfo = {
                 value: '14',
             },
         ],
-    },
-    fixedTarget: {
-        title: 'Fixed target',
         category: 'Main',
-        control: 'checkbox',
-    },
-    sum: {
-        title: 'Sum',
-        category: 'Main',
-        description: {
-            en: 'Transfer amount',
-        },
-        control: 'input',
-    },
-    fio: {
-        title: 'Full name',
-        category: 'Info',
-        description: {
-            en: 'Request full name at the time of transfer',
-        },
-        control: 'checkbox',
-    },
-    email: {
-        title: 'Email',
-        category: 'Info',
-        description: {
-            en: 'Request email at the time of transfer',
-        },
-        control: 'checkbox',
-    },
-    phone: {
-        title: 'Phone',
-        category: 'Info',
-        description: {
-            en: 'Request phone at the time of transfer',
-        },
-        control: 'checkbox',
-    },
-    address: {
-        title: 'Address',
-        category: 'Info',
-        description: {
-            en: 'Request address at the time of transfer',
-        },
-        control: 'checkbox',
-    },
-    comment: {
-        title: 'Comment',
-        category: 'Info',
-        description: {
-            en: 'Request comment at the time of transfer',
-        },
-        control: 'checkbox',
-    },
-    hint: {
-        title: 'Comment Hint',
-        category: 'Info',
-        description: {
-            en: 'Request comment at the time of transfer',
-        },
-        control: 'input',
-    },
-    successURL: {
-        title: 'Redirect URL',
-        category: 'Main',
-        description: {
-            en: 'Redirect after transfer',
-        },
-        control: 'input',
+        weight: 1,
     },
     payment: {
-        title: 'Use bank card',
+        title: 'Использовать банковскую карту',
         description: {
-            en: 'Purpose of transfer',
+            ru:
+                'Возможность перевода через банковскую карту (может взиматься дополнительная комиссия)',
         },
         control: 'checkbox',
+        category: 'Main',
+        weight: 1,
+    },
+    fio: {
+        title: 'Запросить полное имя у отправителя',
+        control: 'checkbox',
+        category: 'Info',
+        weight: 1,
+    },
+    email: {
+        title: 'Запросить эл. почту у отправителя',
+        control: 'checkbox',
+        category: 'Info',
+        weight: 1,
+    },
+    phone: {
+        title: 'Запросить номер телефона у отправителя',
+        control: 'checkbox',
+        category: 'Info',
+        weight: 1,
+    },
+    address: {
+        title: 'Запросить адрес у отправителя',
+        control: 'checkbox',
+        category: 'Info',
+        weight: 1,
+    },
+    comment: {
+        title: 'Запросить комментарий у отправителя',
+        control: 'checkbox',
+        category: 'Info',
+        weight: 1,
+    },
+    hint: {
+        title: 'Подсказка для отправителя',
+        control: 'input',
+        category: 'Info',
+        weight: 1,
+    },
+    successURL: {
+        title: 'После перевода перейти на страницу',
+        control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
     },
     mobilePayment: {
-        title: 'Use mobile payment',
-        description: {
-            en: 'Purpose of transfer',
-        },
+        title: 'Использовать мобильную версию',
         control: 'checkbox',
+        category: 'Main',
+        weight: 1,
     },
 };
 
 const defaultProps = {
+    writer: 'seller',
     targets: 'Помочь проекту',
+    sum: '0',
     buttonText: 11,
     successURL: '',
-    sum: '0',
-    fixedTarget: true,
     hint: '',
 };
 
 Object.assign(YoomoneyDonateForm, {
     title: 'YoomoneyDonateForm',
-    description: {
-        ru: 'Форма поможет собрать деньги на кошелек Yoomoney',
-    },
     propInfo,
     defaultProps,
 });
