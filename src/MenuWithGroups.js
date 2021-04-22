@@ -86,10 +86,10 @@ const Sub = ({ common, item, other }) => {
     const { id, name, pageUrl } = item;
     const { pagePath, href, match, expanded } = other;
 
-    const isClickable = tabState !== 'Keep all tabs expanded';
+    const isClickable = tabState !== 'keepExpanded';
     const isSubOpenForce =
-        tabState === 'Keep all tabs expanded' || tabState === 'Expand all tabs';
-    const isSubCloseForce = tabState === 'Collapse all tabs';
+        tabState === 'keepExpanded' || tabState === 'expandAll';
+    const isSubCloseForce = tabState === 'collapseAll';
 
     const [isSubOpen, setSubOpen] = useState(
         (expanded && !isSubCloseForce) || isSubOpenForce
@@ -101,9 +101,9 @@ const Sub = ({ common, item, other }) => {
 
     useEffect(() => {
         const subOpenForce =
-            tabState === 'Keep all tabs expanded' ||
-            tabState === 'Expand all tabs';
-        const subCloseForce = tabState === 'Collapse all tabs';
+            tabState === 'keepExpanded' ||
+            tabState === 'expandAll';
+        const subCloseForce = tabState === 'collapseAll';
 
         setSubOpen((expanded && !subCloseForce) || subOpenForce);
     }, [tabState]);
@@ -196,7 +196,7 @@ const Item = ({ path, common, item }) => {
     const { name, pageUrl, children } = item;
 
     const hasSub = !!(children && children.length && level < depth);
-    const expand = tabState === 'Expand before active item';
+    const expand = tabState === 'expandActive';
 
     const pagePath = [
         ...path,
@@ -284,7 +284,7 @@ const List = ({
     );
 };
 
-const Menu = ({ depth, rootId, expand, tabState, ...props }) => {
+const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
     const { override, rest } = useOverrides(props, overrides, defaultProps);
     const pages = getAPI().pages || {};
 
@@ -320,25 +320,51 @@ const Menu = ({ depth, rootId, expand, tabState, ...props }) => {
 
 const propInfo = {
     depth: {
-        title: 'Depth',
+        title: 'Максимальная вложенность',
         control: 'input',
+        type: 'text',
         category: 'Main',
         weight: 1,
     },
     rootId: {
-        title: 'Root ID',
+        title: 'ID корневой страницы',
         control: 'input',
+        type: 'text',
         category: 'Main',
         weight: 1,
     },
     tabState: {
-        title: 'Tab state by default',
+        title: 'Состояние групп по умолчанию',
         control: 'select',
         variants: [
-            'Collapse all tabs',
-            'Expand before active item',
-            'Expand all tabs',
-            'Keep all tabs expanded',
+            {
+                title: {
+                    en: 'Свернуть все группы',
+                    ru: 'Свернуть все группы'
+                },
+                value: 'collapseAll'
+            },
+            {
+                title: {
+                    en: 'Раскрыть перед активным пунктом',
+                    ru: 'Раскрыть перед активным пунктом'
+                },
+                value: 'expandActive'
+            },
+            {
+                title: {
+                    en: 'Раскрыть все группы',
+                    ru: 'Раскрыть все группы'
+                },
+                value: 'expandAll'
+            },
+            {
+                title: {
+                    en: 'Держать все вкладки раскрытыми',
+                    ru: 'Держать все вкладки раскрытыми'
+                },
+                value: 'keepExpanded'
+            },
         ],
         weight: 1,
     },
@@ -346,12 +372,14 @@ const propInfo = {
 
 const defaultProps = {
     rootId: 'root',
-    depth: 1,
-    tabState: 'Expand before active item',
+    depth: 10,
+    tabState: 'expandActive',
 };
 
-export default Object.assign(Menu, {
+Object.assign(MenuWithGroups, {
     propInfo,
     defaultProps,
     overrides,
 });
+
+export default MenuWithGroups;

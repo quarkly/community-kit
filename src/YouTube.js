@@ -175,7 +175,9 @@ const YouTubeComponent = ({ url, ...props }) => {
 
 const propInfo = {
     url: {
+        title: 'Ссылка на видео в YouTube',
         control: 'input',
+        type: 'text',
         weight: 1,
     },
 };

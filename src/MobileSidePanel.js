@@ -451,7 +451,7 @@ const propInfo = {
         weight: 1,
     },
     animFunction: {
-        title: 'Функция анимации появления и скрытия',
+        title: 'Функция сглаживания анимации',
         control: 'input',
         variants: [
             'linear',
@@ -484,7 +484,6 @@ const defaultProps = {
 };
 
 Object.assign(MobileSidePanel, {
-    title: 'Mobile Side Panel',
     propInfo,
     defaultProps,
     overrides,

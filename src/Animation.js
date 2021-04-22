@@ -52,19 +52,19 @@ const Animation = ({
     children,
     ...props
 }) => {
-    const [isPlay, togglePlay] = useState(trigger === 'Onload' || test);
+    const [isPlay, togglePlay] = useState(trigger === 'onload' || test);
     const wrapperRef = useRef({});
 
     const onEnterEvent = useMemo(
-        () => (trigger === 'Hover' ? () => togglePlay(true) : undefined),
+        () => (trigger === 'hover' ? () => togglePlay(true) : undefined),
         [trigger]
     );
     const onLeaveEvent = useMemo(
-        () => (trigger === 'Hover' ? () => togglePlay(false) : undefined),
+        () => (trigger === 'hover' ? () => togglePlay(false) : undefined),
         [trigger]
     );
     const onClickEvent = useCallback(
-        () => trigger === 'Click' && togglePlay(!isPlay),
+        () => trigger === 'click' && togglePlay(!isPlay),
         [trigger, isPlay]
     );
 
@@ -122,9 +122,9 @@ const Animation = ({
         if (!inViewport) {
             wrapperRef.current.previousTop = componentRect.top;
 
-            if (trigger === 'Appearance from above') {
+            if (trigger === 'above') {
                 window.addEventListener('scroll', onAboveEvent);
-            } else if (trigger === 'Appearance from below') {
+            } else if (trigger === 'below') {
                 window.addEventListener('scroll', onBelowEvent);
             }
         }
@@ -167,23 +167,63 @@ export default atomize(Animation)(
     {
         propInfo: {
             trigger: {
-                title: 'Trigger',
-                control: 'select',
-                variants: [
-                    'Onload',
-                    'Click',
-                    'Hover',
-                    'Appearance from above',
-                    'Appearance from below',
-                ],
-                weight: 1,
-            },
-            animation: {
-                title: 'Animation Type',
+                title: {
+                    en: 'Триггер анимации',
+                    ru: 'Триггер анимации'
+                },
                 control: 'select',
                 variants: [
                     {
-                        label: 'Appear & Disappear',
+                        title: {
+                            en: 'При загрузке',
+                            ru: 'При загрузке'
+                        },
+                        value: 'onload'
+                    },
+                    {
+                        title: {
+                            en: 'По клику',
+                            ru: 'По клику'
+                        },
+                        value: 'click'
+                    },
+                    {
+                        title: {
+                            en: 'По навадению',
+                            ru: 'По наведению'
+                        },
+                        value: 'hover'
+                    },
+                    {
+                        title: {
+                            en: 'Появление сверху',
+                            ru: 'Появление сверху'
+                        },
+                        value: 'above'
+                    },
+                    {
+                        title: {
+                            en: 'Появление снизу',
+                            ru: 'Появление снизу'
+                        },
+                        value: 'below'
+                    },
+                ],
+                category: 'Animation',
+                weight: 1,
+            },
+            animation: {
+                title: {
+                    en: 'Тип анимации',
+                    ru: 'Тип анимации',
+                },
+                control: 'select',
+                variants: [
+                    {
+                        label: {
+                            en: 'Appear & Disappear',
+                            ru: 'Появление и скрытие'
+                        },
                         options: [
                             'Fade In',
                             'Fade Out',
@@ -202,7 +242,10 @@ export default atomize(Animation)(
                         ],
                     },
                     {
-                        label: 'Slide',
+                        label: {
+                            en: 'Slide',
+                            ru: 'Перемещение'
+                        },
                         options: [
                             '→ Slide In',
                             '↓ Slide In',
@@ -215,7 +258,10 @@ export default atomize(Animation)(
                         ],
                     },
                     {
-                        label: 'Emphasis',
+                        label: {
+                            en: 'Emphasis',
+                            ru: 'Акцент'
+                        },
                         options: [
                             'Pop',
                             'Juggle',
@@ -226,7 +272,10 @@ export default atomize(Animation)(
                         ],
                     },
                     {
-                        label: 'Continuous',
+                        label: {
+                            en: 'Continuous',
+                            ru: 'Непрерывный'
+                        },
                         options: [
                             'Rotate',
                             'Vibrate 1',
@@ -238,16 +287,39 @@ export default atomize(Animation)(
                         ],
                     },
                 ],
+                category: 'Animation',
                 weight: 0.5,
             },
             iteration: {
-                title: 'Iteration Count',
+                title: {
+                    en: 'Количество итераций',
+                    ru: 'Количество итераций'
+                },
                 control: 'radio-group',
-                variants: ['once', 'infinite'],
+                variants: [
+                    {
+                        title: {
+                            en: 'Один раз',
+                            ru: 'Один раз'
+                        },
+                        value: 'once'
+                    },
+                    {
+                        title: {
+                            en: 'Бесконечно',
+                            ru: 'Бесконечно'
+                        },
+                        value: 'infinite'
+                    }
+                ],
+                category: 'Animation',
                 weight: 0.5,
             },
             timingFunction: {
-                title: 'Timing function',
+                title: {
+                    en: 'Функция сглаживания анимации',
+                    ru: 'Функция сглаживания анимации'
+                },
                 control: 'input',
                 variants: [
                     'linear',
@@ -258,31 +330,45 @@ export default atomize(Animation)(
                     'step-start',
                     'step-end',
                 ],
+                category: 'Animation',
                 weight: 1,
             },
             duration: {
-                title: 'Duration',
+                title: {
+                    en: 'Длительность появления и скрытия',
+                    ru: 'Длительность появления и скрытия',
+                },
                 control: 'input',
                 variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
-                weight: 0.5,
+                category: 'Animation',
+                weight: 1,
             },
             delay: {
-                title: 'Delay before start',
+                title: {
+                    en: 'Задержка перед началом анимации',
+                    ru: 'Задержка перед началом анимации',
+                },
                 control: 'input',
                 variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
-                weight: 0.5,
+                category: 'Animation',
+                weight: 1,
             },
             test: {
-                title: 'Play animation (не забывай снимать галочку!)',
+                title: {
+                    en: 'Включить анимацию принудительно',
+                    ru: 'Включить анимацию принудительно'
+                },
                 control: 'checkbox',
+                category: 'Test',
                 weight: 1,
             },
         },
     },
     {
-        trigger: 'hover',
+        trigger: 'onload',
         animation: 'Fade Out',
         iteration: 'infinite',
+        timingFunction: 'linear',
         duration: '1s',
         delay: '0s',
     }
