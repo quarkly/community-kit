@@ -34,3 +34,5 @@ export { default as CardFlip } from './CardFlip';
 export { default as MenuWithGroups } from './MenuWithGroups';
 export { default as MobileSidePanel } from './MobileSidePanel';
 export { default as GoogleMap } from './GoogleMap';
+export { default as Track } from './Track';
+export { default as Source } from './Source';

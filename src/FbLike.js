@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import atomize from '@quarkly/atomize';
 import { Box } from '@quarkly/widgets';
 import { FacebookProvider, Like } from 'react-facebook';
 
@@ -22,24 +21,39 @@ const useDebounce = (value, timeout = 1000) => {
 const FacebookLike = ({
     appId,
     language,
+    colorScheme,
+    share,
+    href,
+    layout,
+    size,
+    action,
+    kidDirectedSite,
+    referral,
     children,
-    'data-qid': qid,
     ...props
 }) => {
     const dAppID = useDebounce(appId);
 
     return (
-        <Box data-qid={qid}>
+        <Box {...props}>
             {dAppID ? (
                 <FacebookProvider
                     key={dAppID + languageConverter[language]}
                     appId={dAppID}
                     language={languageConverter[language]}
+                    colorScheme={colorScheme}
+                    share={share}
+                    href={href}
+                    layout={layout}
+                    size={size}
+                    action={action}
+                    kidDirectedSite={kidDirectedSite}
+                    referral={referral}
                 >
-                    <Like {...props} />
+                    <Like />
                 </FacebookProvider>
             ) : (
-                <ComponentNotice message="Add your Facebook App ID in the props panel." />
+                <ComponentNotice message="Add your Facebook App ID in the props panel" />
             )}
         </Box>
     );
@@ -152,15 +166,13 @@ const defaultProps = {
     language: 'English',
 };
 
-export default atomize(FacebookLike)(
-    {
-        name: 'FacebookLike',
-        description: {
-            // past here description for your component
-            en:
-                'This enables FB users to like your materials without having to register on your site.',
-        },
-        propInfo,
+export default Object.assign(FacebookLike, {
+    title: 'FacebookLike',
+    description: {
+        // past here description for your component
+        en:
+            'This enables FB users to like your materials without having to register on your site.',
     },
-    defaultProps
-);
+    propInfo,
+    defaultProps,
+});
