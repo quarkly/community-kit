@@ -4,6 +4,8 @@ import { Box, Text } from '@quarkly/widgets';
 
 import ComponentNotice from './ComponentNotice';
 
+const DEFAULT_OFFSET = 4;
+
 const overrides = {
     Content: {
         kind: 'Box',
@@ -240,9 +242,7 @@ const TooltipComponent = ({
     }, [arrowStatusProp, arrowSizeProp]);
 
     const arrowOffsetNumb = useMemo(() => {
-        const isShowArrow =
-            arrowStatusProp && !Number.isNaN(parseInt(arrowOffsetProp, 10));
-        return isShowArrow ? parseInt(arrowOffsetProp, 10) : 0;
+        return parseInt(arrowOffsetProp, 10) || DEFAULT_OFFSET;
     }, [arrowStatusProp, arrowOffsetProp]);
 
     const componentRef = useRef(null);
@@ -272,7 +272,7 @@ const TooltipComponent = ({
                         arrowSizeNumb,
                         arrowOffsetNumb,
                     })
-                )
+                ) || 'top'
             );
         } else {
             setTooltipDirection(tooltipPositionProp);
@@ -469,7 +469,7 @@ const defaultProps = {
     tooltipOffsetProp: '0',
     tooltipStatusProp: 'always',
     arrowSizeProp: '8px',
-    arrowOffsetProp: '4px',
+    arrowOffsetProp: `${DEFAULT_OFFSET}px`,
     arrowStatusProp: true,
 };
 

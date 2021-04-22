@@ -111,7 +111,7 @@ const overrides = {
 const PopupComponent = ({ animDuration, animFunction, ...props }) => {
     const { override, children, rest } = useOverrides(props, overrides);
 
-    const [isOpen, setOpen] = useState(true);
+    const [isOpen, setOpen] = useState(false);
     const [isEmpty, setEmpty] = useState(false);
     const contentRef = useRef(null);
 

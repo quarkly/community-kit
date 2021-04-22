@@ -168,8 +168,8 @@ const propInfo = {
 
 const defaultProps = {
     zoomValue: 9,
-    latitudeCenter: 55.751574,
-    longitudeCenter: 37.573856,
+    latitudeCenter: 40.714599,
+    longitudeCenter: -74.002791,
     height: '250px',
 };
 

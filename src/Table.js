@@ -160,33 +160,33 @@ const TableComponent = ({
 
 const propInfo = {
     colsProp: {
-        title: 'Columns',
+        title: 'Количесво колонок',
         control: 'input',
         type: 'number',
         category: 'Size',
         weight: 0.5,
     },
     rowsProp: {
-        title: 'Rows',
+        title: 'Количесво строк',
         control: 'input',
         type: 'number',
         category: 'Size',
         weight: 0.5,
     },
     showHeader: {
-        title: 'Show Header',
+        title: 'Отображать шапку',
         control: 'checkbox',
         category: 'Groups',
         weight: 0.5,
     },
     showFooter: {
-        title: 'Show Footer',
+        title: 'Отображать подвал',
         control: 'checkbox',
         category: 'Groups',
         weight: 0.5,
     },
     summary: {
-        title: 'Short Description',
+        title: 'Короткое описание',
         control: 'input',
         type: 'text',
         category: 'SEO',
@@ -198,6 +198,7 @@ const defaultProps = {
     colsProp: 8,
     rowsProp: 4,
 
+    display: 'block',
     'background-color': '--white',
     border: '1px solid #E4E8EC',
     'border-collapse': 'collapse',
