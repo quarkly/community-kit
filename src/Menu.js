@@ -1,0 +1,199 @@
+import React from 'react';
+import atomize from '@quarkly/atomize';
+import { useRouteMatch } from 'react-router-dom';
+import { useMatch } from '@reach/router';
+import { Link } from '@quarkly/widgets';
+import { useOverrides } from '@quarkly/components';
+
+const Ul = atomize.ul();
+const Li = atomize.li();
+const getAPI = () => {
+    if (typeof window !== 'undefined') {
+        return window.QAPI || {};
+    }
+    if (typeof global !== 'undefined') {
+        return global.QAPI || {};
+    }
+    return {};
+};
+
+const defaultProps = {
+    depth: 1,
+    rootId: 'root',
+    padding: '6px',
+    margin: '0px',
+    'list-style': 'none',
+    'exact-active-match': true,
+};
+
+const propInfo = {
+    depth: {
+        weight: 1,
+        category: 'Main',
+        control: 'input',
+    },
+    rootId: {
+        weight: 1,
+        category: 'Main',
+        control: 'input',
+    },
+    'exact-active-match': {
+        weight: 1,
+        category: 'Main',
+        control: 'checkbox',
+    },
+};
+
+const overrides = {
+    item: {
+        props: {
+            padding: '6px 12px',
+            margin: '0px 0px',
+        },
+    },
+    sub: {
+        props: {
+            padding: '6px 6px',
+            margin: '0px 0px',
+            'list-style': 'none',
+        },
+    },
+    'item-404': {
+        props: {
+            display: 'none',
+        },
+    },
+    'item-active': {},
+    link: {
+        kind: 'Link',
+        props: {
+            color: '--primary',
+        },
+    },
+    'link-active': {
+        kind: 'Link',
+        props: {
+            color: '--dark',
+        },
+    },
+};
+
+const Item = ({
+    id,
+    name,
+    pageUrl,
+    path = [],
+    children = [],
+    pages,
+    exact = false,
+    depth = 0,
+    level = 0,
+    override,
+}) => {
+    const hasSub = !!(children.length && level < depth);
+    const common = { pages, depth, override, level };
+
+    const { mode, projectType } = getAPI() || {};
+
+    const pagePath = [
+        ...path,
+        mode === 'production' && pageUrl === 'index' ? '' : pageUrl,
+    ];
+    const href = `/${pagePath.join('/')}`;
+
+    let match = null;
+
+    if (projectType === 'gatsby') {
+        match = useMatch(href) || null;
+    } else {
+        match = useRouteMatch({ path: href, exact }) || null;
+    }
+
+    const linkProps = override(
+        'link',
+        match && 'link-active',
+        `link-${pageUrl}`
+    );
+
+    return (
+        <Li {...override('item', match && 'item-active', `item-${pageUrl}`)}>
+            <Link href={href} {...linkProps}>
+                {linkProps.children || name}
+            </Link>
+            {hasSub && (
+                <Wrapper
+                    rootId={id}
+                    path={[...path, pageUrl]}
+                    {...common}
+                    {...override('sub', `sub-${pageUrl}`)}
+                />
+            )}
+        </Li>
+    );
+};
+
+const Wrapper = ({
+    pages,
+    rootId,
+    override,
+    depth,
+    level = 0,
+    path,
+    exact,
+    ...rest
+}) => {
+    const rootPage = pages?.[rootId];
+    const common = { pages, override, depth, path, exact };
+    const list = rootPage?.children?.map((id) => pages[id]) ?? [];
+
+    return (
+        <Ul {...rest}>
+            {list.map((item) => (
+                <Item key={item.id} {...item} {...common} level={level + 1} />
+            ))}
+        </Ul>
+    );
+};
+
+const getParent = (pages, pageId) => {
+    if (!pageId || !pages[pageId]) return null;
+
+    return Object.values(pages).find(({ children = [] }) => {
+        return children && Array.isArray(children) && children.includes(pageId);
+    });
+};
+
+const Menu = ({ rootId, depth, 'exact-active-match': exact, ...props }) => {
+    const { override, rest } = useOverrides(props, overrides, defaultProps);
+    const pages = getAPI().pages || {};
+    let path = [];
+
+    if (rootId !== 'root') {
+        let parent = pages[rootId];
+
+        while (parent && parent.id !== 'root') {
+            path = [parent.pageUrl, ...path];
+            parent = getParent(pages, parent?.id);
+        }
+    }
+
+    return (
+        <Wrapper
+            rootId={rootId}
+            path={path}
+            pages={pages}
+            depth={depth}
+            exact={exact}
+            override={override}
+            {...rest}
+        />
+    );
+};
+
+Object.assign(Menu, {
+    defaultProps,
+    overrides,
+    propInfo,
+});
+
+export default Menu;

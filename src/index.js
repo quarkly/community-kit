@@ -33,6 +33,7 @@ export { default as Animation } from './Animation';
 export { default as CardFlip } from './CardFlip';
 export { default as MenuWithGroups } from './MenuWithGroups';
 export { default as MobileSidePanel } from './MobileSidePanel';
+export { default as Menu } from './Menu';
 export { default as Formspree } from './Formspree';
 export { default as SocialMedia } from './SocialMedia';
 export { default as GoogleMap } from './GoogleMap';
