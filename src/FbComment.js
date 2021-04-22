@@ -24,9 +24,6 @@ const FacebookComments = ({ appId, language, href, ...rest }) => {
 const propInfo = {
     appId: {
         title: 'ID приложения Facebook',
-        description: {
-            en: 'ID приложения Facebook. Вы можете создать своё приложение по этой ссылке: https://developers.facebook.com/apps/',
-        },
         control: 'input',
         type: 'text',
         category: 'Main',
