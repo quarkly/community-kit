@@ -148,7 +148,7 @@ const propInfo = {
 
 const defaultProps = {
     slides: 'coolest,fastest,easiest',
-    intervalProp: '3000',
+    intervalProp: '1500',
     delayProp: '0',
     adjustingSpeedProp: '150',
     fade: true,
