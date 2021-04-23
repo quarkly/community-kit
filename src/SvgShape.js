@@ -171,76 +171,58 @@ const SVGShape = ({
 
 const propInfo = {
     type: {
-        category: 'Main',
-        title: 'Type',
-        description: {
-            en: 'Variant of svg shape.',
-        },
+        title: 'Тип формы',
         control: 'select',
         variants: ['Line', 'Ellipse', 'Circle', 'Rectangle', 'Square'],
+        category: 'Main',
+        weight: 1,
     },
     stroke: {
-        category: 'SVG Styles',
-        title: 'Stroke',
-        description: {
-            en:
-                'The stroke property defines the color of a line, text or outline of an element.',
-        },
+        title: 'Цвет обводки',
         control: 'color',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     strokeWidth: {
-        category: 'SVG Styles',
-        title: 'Stroke width',
-        description: {
-            en:
-                'The stroke-width property defines the thickness of a line, text or outline of an element.',
-        },
+        title: 'Толщина обводки',
         control: 'input',
+        type: 'text',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     strokeOpacity: {
-        category: 'SVG Styles',
-        title: 'Stroke opacity',
-        description: {
-            en:
-                'The stroke-opacity attribute is a presentation attribute defining the opacity of the paint color.',
-        },
+        title: 'Прозрачность обводки',
         control: 'input',
+        type: 'text',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     strokeLinecap: {
-        category: 'SVG Styles',
-        title: 'Stroke Linecap',
-        description: {
-            en:
-                'The stroke-linecap property defines different types of endings to an open path.',
-        },
+        title: 'Форма обводки',
         control: 'select',
         variants: ['butt', 'round', 'square'],
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     strokeDasharray: {
-        category: 'SVG Styles',
-        title: 'Stroke Dasharrray',
-        description: {
-            en: 'The stroke-dasharray property is used to create dashed lines.',
-        },
+        title: 'Пунктирная обводка',
         control: 'input',
+        type: 'text',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     fill: {
-        category: 'SVG Styles',
-        title: 'Fill',
-        description: {
-            en:
-                'The fill attribute is a presentation attribute that defines the color used to paint the element',
-        },
+        title: 'Цвет фигуры',
         control: 'color',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     fillOpacity: {
-        category: 'SVG Styles',
-        title: 'Fill Opacity',
-        description: {
-            en:
-                'The fill-opacity attribute is a presentation attribute defining the opacity of the paint.',
-        },
+        title: 'Прозрачность фигуры',
         control: 'input',
+        type: 'text',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
 };
 
@@ -255,17 +237,10 @@ const defaultProps = {
     fillOpacity: '1',
 };
 
-export default atomize(SVGShape)(
-    {
-        name: 'SVGShape',
-        effects: {
-            hover: ':hover',
-        },
-        description: {
-            en:
-                'This component displays a SVG shape (square, rectangle, circle, etc.)',
-        },
-        propInfo,
-    },
-    defaultProps
-);
+Object.assign(SVGShape, {
+    title: 'SVGShape Component',
+    propInfo,
+    defaultProps,
+});
+
+export default SVGShape;

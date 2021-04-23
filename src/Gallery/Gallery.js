@@ -390,50 +390,33 @@ const Gallery = ({
 const propInfo = {
     galleryItemNumbProp: {
         title: 'Количество изображений',
-        description: {
-            en: 'Количество изображений галереи',
-            ru: 'Количество изображений галереи',
-        },
         control: 'input',
+        type: 'text',
         category: 'Gallery',
         weight: 1,
     },
     columnsCountProp: {
         title: 'Количество столбцов',
-        description: {
-            en: 'Укажите количество столбцов для изображений',
-            ru: 'Укажите количество столбцов для изображений',
-        },
         control: 'input',
+        type: 'text',
         category: 'Gallery',
         weight: 1,
     },
     borderWidthProp: {
         title: 'Ширина отступов',
-        description: {
-            en: 'Укажите ширину отступов',
-            ru: 'Укажите ширину отступов',
-        },
         control: 'input',
+        type: 'text',
         category: 'Gallery',
         weight: 1,
     },
     autoFillInProp: {
-        title: 'Атоматиечски заполнять свободные места',
-        description: {
-            en: 'Если есть свободное пространство, заполнить его изображением',
-            ru: 'Если есть свободное пространство, заполнить его изображением',
-        },
+        title: 'Автоматически заполнять свободные места',
         control: 'checkbox',
         category: 'Gallery',
         weight: 1,
     },
     loaderFormatProp: {
-        title: 'Варианты загрузки изображений',
-        description: {
-            en: 'Как загружать изображения?',
-            ru: 'Как загружать изображения?',
-        },
+        title: 'Загрузка изображений',
         control: 'radio-group',
         variants: [
             {
@@ -445,8 +428,8 @@ const propInfo = {
             },
             {
                 title: {
-                    en: 'При скроле',
-                    ru: 'При скроле',
+                    en: 'При прокрутке',
+                    ru: 'При прокрутке',
                 },
                 value: 'scroll',
             },
@@ -458,15 +441,11 @@ const propInfo = {
                 value: 'click',
             },
         ],
-        category: 'images',
+        category: 'Images',
         weight: 1,
     },
     aspectRatioProp: {
-        title: 'Соотношение сторон',
-        description: {
-            en: 'Выберите соотношение сторон изображений',
-            ru: 'Выберите соотношение сторон изображений',
-        },
+        title: 'Соотношение сторон изображений',
         control: 'select',
         variants: [
             {
@@ -484,55 +463,37 @@ const propInfo = {
             '3:4',
             '9:16',
         ],
-        category: 'images',
+        category: 'Images',
         weight: 1,
     },
     imagesMaxWidthProp: {
         title: 'Максимальная ширина изображений',
-        description: {
-            ru: 'Укажите максимальную ширину изображений',
-            en: 'Укажите максимальную ширину изображений',
-        },
         control: 'input',
-        category: 'images',
+        type: 'text',
+        category: 'Images',
         weight: 1,
     },
     imagesMinWidthProp: {
         title: 'Минимальная ширина изображений',
-        description: {
-            en: 'Укажите минимальную ширину изображений',
-            ru: 'Укажите минимальную ширину изображений',
-        },
         control: 'input',
-        category: 'images',
+        type: 'text',
+        category: 'Images',
         weight: 1,
     },
     hideLoaderPreviewImage: {
         title: 'Отключить лоадер для превью',
-        description: {
-            en: 'Отключить лоадер для превью изображений',
-            ru: 'Отключить лоадер для превью изображений',
-        },
         control: 'checkbox',
-        category: 'images',
+        category: 'Images',
         weight: 1,
     },
     offScrollProp: {
-        title: 'Отключить скролл',
-        description: {
-            en: 'Отключить скролл при показе полного изображения',
-            ru: 'Отключить скролл при показе полного изображения',
-        },
+        title: 'Отключить прокрутку',
         control: 'checkbox',
         category: 'Lightbox',
         weight: 1,
     },
     hideLoaderFullImage: {
-        title: 'Отключить лоадер для полной картинки',
-        description: {
-            en: 'Отключить лоадер для полной картинки',
-            ru: 'Отключить лоадер для полной картинки',
-        },
+        title: 'Отключить лоадер для лайтбокса',
         control: 'checkbox',
         category: 'Lightbox',
         weight: 1,

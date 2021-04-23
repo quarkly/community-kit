@@ -76,30 +76,31 @@ const SoundCloud = ({ type, url, ...props }) => {
     );
 };
 
-export default atomize(SoundCloud)(
-    {
-        name: 'SoundCloud',
-        normalize: true,
-        mixins: true,
-        propInfo: {
-            type: {
-                description: {
-                    en: 'SoundCloud',
-                },
-                control: 'radio-group',
-                variants: ['standart', 'visual'],
-                weight: 1,
-            },
-            url: {
-                description: {
-                    en: 'Track url',
-                },
-                control: 'input',
-                weight: 1,
-            },
-        },
+const propInfo = {
+    type: {
+        title: 'Тип проигрывателя',
+        control: 'radio-group',
+        variants: ['standart', 'visual'],
+        category: 'Main',
+        weight: 1,
     },
-    {
-        type: 'standart',
-    }
-);
+    url: {
+        title: 'Ссылка на трек',
+        control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
+    },
+};
+
+const defaultProps = {
+    type: 'standart',
+};
+
+Object.assign(SoundCloud, {
+    title: 'SoundCloud Component',
+    propInfo,
+    defaultProps,
+});
+
+export default SoundCloud;

@@ -10,8 +10,8 @@ const LiveChatComp = ({ license, group, chatBetweenGroups, ...props }) => {
             {license ? (
                 <LiveChat
                     license={license}
-                    group={group}
-                    chatBetweenGroups={chatBetweenGroups === 'enable'}
+                    group={group || ''}
+                    chatBetweenGroups={chatBetweenGroups}
                 />
             ) : (
                 <ComponentNotice message="Добавьте license на панели Props" />
@@ -22,33 +22,32 @@ const LiveChatComp = ({ license, group, chatBetweenGroups, ...props }) => {
 
 const propInfo = {
     license: {
-        title: 'License ID:',
-        control: 'number',
+        title: {
+            en: 'License ID',
+            ru: 'ID лицензии',
+        },
+        control: 'input',
         type: 'number',
         category: 'Main',
         weight: 1,
     },
     group: {
-        title: 'Group number:',
-        control: 'number',
+        title: 'Номер группы',
+        control: 'input',
         type: 'number',
         category: 'Main',
         weight: 1,
     },
     chatBetweenGroups: {
-        title: 'Chat sessions between groups:',
-        control: 'radio-group',
-        variants: ['enable', 'disable'],
-        type: 'text',
+        title: 'Сессии чатов между группами',
+        control: 'checkbox',
         category: 'Main',
         weight: 1,
     },
 };
 
 const defaultProps = {
-    license: '',
-    group: '',
-    chatBetweenGroups: '',
+    chatBetweenGroups: false,
 };
 
 export default Object.assign(LiveChatComp, {
