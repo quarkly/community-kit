@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import atomize from '@quarkly/atomize';
 import { Box } from '@quarkly/widgets';
 import { FacebookProvider, Like } from 'react-facebook';
 
 import ComponentNotice from './ComponentNotice';
-
-const languageConverter = {
-    English: 'en_US',
-    Русский: 'ru_RU',
-};
 
 const useDebounce = (value, timeout = 1000) => {
     const [state, setState] = useState(value);
@@ -21,22 +15,39 @@ const useDebounce = (value, timeout = 1000) => {
 
 const FacebookLike = ({
     appId,
+    href,
     language,
-    children,
-    'data-qid': qid,
+    colorScheme,
+    showShare,
+    showFaces,
+    layout,
+    size,
+    action,
+    kidDirectedSite,
+    referral,
     ...props
 }) => {
     const dAppID = useDebounce(appId);
 
     return (
-        <Box data-qid={qid}>
+        <Box {...props}>
             {dAppID ? (
                 <FacebookProvider
-                    key={dAppID + languageConverter[language]}
+                    key={dAppID + language}
                     appId={dAppID}
-                    language={languageConverter[language]}
+                    language={language}
                 >
-                    <Like {...props} />
+                    <Like
+                        colorScheme={colorScheme}
+                        share={showShare === 'show'}
+                        showFaces={showFaces}
+                        href={href}
+                        layout={layout}
+                        size={size}
+                        action={action}
+                        kidDirectedSite={kidDirectedSite}
+                        referral={referral}
+                    />
                 </FacebookProvider>
             ) : (
                 <ComponentNotice message="Add your Facebook App ID in the props panel." />
@@ -47,120 +58,197 @@ const FacebookLike = ({
 
 const propInfo = {
     appId: {
-        title: 'Facebook App ID',
-        description: {
-            en:
-                'ID of Facebook App. You can create your app on this url: developers.facebook.com/apps',
-        },
+        title: 'ID приложения Facebook',
         control: 'input',
-        category: 'System',
+        type: 'text',
+        category: ' Main',
+        weight: 1,
+    },
+    href: {
+        title: 'Ссылка на страницу, которая будет лайкнута',
+        control: 'input',
+        type: 'text',
+        category: ' Main',
         weight: 1,
     },
     language: {
-        title: 'Language',
-        description: {
-            en: 'Language of the Like Button. Page update required!',
-        },
-        category: 'System',
+        title: 'Язык загружаемого компонента',
         control: 'select',
-        variants: ['English', 'Русский'],
+        variants: [
+            {
+                title: 'English',
+                value: 'en_US',
+            },
+            {
+                title: 'Русский',
+                value: 'ru_RU',
+            },
+        ],
+        category: ' Main',
+        weight: 1,
     },
     colorScheme: {
-        title: 'Color scheme',
-        description: {
-            en:
-                'The color scheme used by the plugin for any text outside of the button itself.',
-        },
-        category: 'Button',
+        title: 'Цветовая схема',
         control: 'select',
-        variants: ['light', 'dark'],
-    },
-    share: {
-        title: 'Share',
-        description: {
-            en:
-                'Specifies whether to include a share button beside the Like button.',
-        },
+        variants: [
+            {
+                title: {
+                    en: 'Light',
+                    ru: 'Светлая',
+                },
+                value: 'light',
+            },
+            {
+                title: {
+                    en: 'Dark',
+                    ru: 'Тёмная',
+                },
+                value: 'dark',
+            },
+        ],
         category: 'Button',
-        control: 'checkbox',
+        weight: 1,
     },
-    href: {
-        title: 'URL',
-        description: {
-            en:
-                'The URL of the webpage that will be liked (current url default).',
-        },
+    showShare: {
+        title: 'Кнопка "Поделиться"',
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Показать',
+                    ru: 'Показать',
+                },
+                value: 'show',
+            },
+            {
+                title: {
+                    en: 'Скрыть',
+                    ru: 'Скрыть',
+                },
+                value: 'hide',
+            },
+        ],
         category: 'Button',
-        control: 'input',
+        weight: 1,
     },
     layout: {
-        title: 'Layout',
-        description: {
-            en:
-                'Selects one of the different layouts that are available for the plugin.',
-        },
-        category: 'Button',
+        title: 'Макет',
         control: 'select',
-        variants: ['standard', 'box_count', 'button_count', 'button'],
+        variants: [
+            {
+                title: {
+                    en: 'Стандартный вид',
+                    ru: 'Стандартный вид',
+                },
+                value: 'standard',
+            },
+            {
+                title: {
+                    en: 'Контейнер со счётчиком',
+                    ru: 'Контейнер со счётчиком',
+                },
+                value: 'box_count',
+            },
+            {
+                title: {
+                    en: 'Кнопка со счётчиком',
+                    ru: 'Кнопка со счётчиком',
+                },
+                value: 'button_count',
+            },
+            {
+                title: {
+                    en: 'Простая кнопка',
+                    ru: 'Простая кнопка',
+                },
+                value: 'button',
+            },
+        ],
+        category: 'Button',
+        weight: 1,
     },
     size: {
-        title: 'Size',
-        description: {
-            en: 'Button size',
-        },
-        category: 'Button',
+        title: 'Размер кнопки',
         control: 'select',
-        variants: ['small', 'large'],
+        variants: [
+            {
+                title: {
+                    en: 'Маленькая',
+                    ru: 'Маленькая',
+                },
+                value: 'small',
+            },
+            {
+                title: {
+                    en: 'Большая',
+                    ru: 'Большая',
+                },
+                value: 'large',
+            },
+        ],
+        category: 'Button',
+        weight: 1,
     },
     action: {
-        title: 'Action',
-        description: {
-            en: 'The verb to display on the button.',
-        },
-        category: 'Button',
+        title: 'Действие по клику',
         control: 'select',
-        variants: ['like', 'recommend'],
+        variants: [
+            {
+                title: {
+                    en: 'Like',
+                    ru: 'Like',
+                },
+                value: 'like',
+            },
+            {
+                title: {
+                    en: 'Recommend',
+                    ru: 'Recommend',
+                },
+                value: 'recommend',
+            },
+        ],
+        category: 'Button',
+        weight: 1,
     },
     kidDirectedSite: {
-        title: 'Kid directed site',
+        title: 'Сайт для детей',
         description: {
-            en:
-                'If your website or online service, or a portion of your service, is directed to children under 13 you must select this.',
+            ru:
+                'Выберите этот пункт, если ваш сайт предназначен для детей младше 13 лет',
         },
-        category: 'Button',
         control: 'checkbox',
+        category: 'Advanced',
+        weight: 1,
     },
     referral: {
-        title: 'Referal',
+        title: 'UTM-метка',
         description: {
-            en:
-                'A label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_). Check developers.facebook.com/docs/plugins/faqs#ref for more details.',
+            ru:
+                'Метка для отслеживания переходов. Длина не должна превышать 50 символов, состоять из буквенно-цифровых символов и знаков препинания ( +/=-.:_ )',
         },
+        control: 'input',
+        type: 'text',
         category: 'Advanced',
-        control: 'Input',
+        weight: 1,
     },
 };
 
 const defaultProps = {
-    action: 'like',
+    language: 'en_US',
+    colorScheme: 'light',
+    showShare: 'hide',
     layout: 'standard',
     size: 'small',
-    colorScheme: 'light',
-    showFaces: false,
-    share: false,
+    action: 'like',
     kidDirectedSite: false,
-    language: 'English',
+    showFaces: false,
 };
 
-export default atomize(FacebookLike)(
-    {
-        name: 'FacebookLike',
-        description: {
-            // past here description for your component
-            en:
-                'This enables FB users to like your materials without having to register on your site.',
-        },
-        propInfo,
-    },
-    defaultProps
-);
+Object.assign(FacebookLike, {
+    title: 'FacebookLike Component',
+    propInfo,
+    defaultProps,
+});
+
+export default FacebookLike;

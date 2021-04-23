@@ -141,7 +141,7 @@ const BgImageParallax = ({
 
 const propInfo = {
     imageURL: {
-        title: 'Ссылка на изображение',
+        title: 'Изображение',
         control: 'image',
         category: 'Image',
         weight: 1,
