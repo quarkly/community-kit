@@ -1,10 +1,10 @@
 ## 📖 Detailed overview
 
-Компонент представляет из себя SVG фигуру. Подходит для создания простых фигур с индивидуальным размером, цветом и т.п.
+Компонент для создания простых SVG фигур.
 
 ## 🎬 Live Demo
 
-[Live demo link](https://quarkly-ui-components.netlify.app/svgshape/)
+[Live demo link](https://quarkly-catalog.netlify.app/svgshape/)
 
 ## ⚙️ Usage
 
@@ -12,37 +12,37 @@
 
 ### Тип фигуры
 
-В параметрах компонента можно поменять фигуру. За это отвечает свойство `Type`, в которой доступны следующие фигуры:
+В свойствах компонента можно изменить тип фигуры:
 
--   rectangle - Прямоугольник
--   line - Линия
--   ellipse - Эллипс
--   circle - Круг
--   square - Квадрат
+-   Прямоугольник
+-   Линия
+-   Эллипс
+-   Круг
+-   Квадрат
 
 ## 🧩 Components and Props
 
-| Props Name       |   Type   |      Default      | Description                                          |
-| :--------------- | :------: | :---------------: | :--------------------------------------------------- |
-| Type             | `enum `  |   `rectangle `    | Тип формы (rectangle, line, ellipse, circle, square) |
-| Stroke           | `string` |      `#000`       | Цвет рамки                                           |
-| Srtoke Width     | `number` |        `1`        | Толщина рамки (в px)                                 |
-| Stroke Ppacity   | `number` |        `1`        | Прозрачность рамки                                   |
-| Stroke Linecap   |  `enum`  |      `butt`       | Форма рамки (butt, round, square)                    |
-| Stroke Dasharray | `string` |      `none`       | Заполненность рамки                                  |
-| Fill             | `string` | `--color-primary` | Цвет фигуры                                          |
-| Fill Opacity     | `number` |        `1`        | Прозрачность фигуры                                  |
+| Названия свойств     |   Type   |      Default      |
+| :------------------- | :------: | :---------------: |
+| Тип формы            | `enum `  |    `rectangle`    |
+| Цвет обводки         | `string` |     `#000000`     |
+| Толщина обводки      | `number` |        `1`        |
+| Прозрачность обводки | `number` |        `1`        |
+| Форма обводки        |  `enum`  |      `butt`       |
+| Пунктирная обводка   | `string` |      `none`       |
+| Цвет фигуры          | `string` | `--color-primary` |
+| Прозрачность фигуры  | `number` |        `1`        |
 
 ## 🗓 Changelog
 
-    - 09/04/2021 (v1.0)
-    - Первая версия
+-   21/04/2021 (v1.0)
+-   Первая версия
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
 [We're on Discord](https://discord.gg/f9KhSMGX)
 
