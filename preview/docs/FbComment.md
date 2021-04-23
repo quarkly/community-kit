@@ -14,7 +14,7 @@
 
 ### Приложение FaceBook
 
-Для работы компонента, трубуется создание приложения FaceBook. Сделать это можно по этой ссылке: [FaceBook APP](https://developers.facebook.com/apps)
+Для работы компонента требуется создание приложения FaceBook. Сделать это можно по этой ссылке: [FaceBook APP](https://developers.facebook.com/apps)
 
 ### Изменение свойств в конструкторе
 
