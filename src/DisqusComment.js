@@ -62,16 +62,16 @@ const propInfo = {
         weight: 1,
     },
     widthProp: {
-        title: 'Ширина блока',
+        title: 'Ширина блока с комментарием',
         control: 'input',
         type: 'text',
-        weight: 0.5,
+        weight: 1,
     },
     heightProp: {
-        title: 'Высота блока',
+        title: 'Высота блока с комментарием',
         control: 'input',
         type: 'text',
-        weight: 0.5,
+        weight: 1,
     },
 };
 
@@ -79,10 +79,11 @@ const defaultProps = {
     commentIDProp: '',
     showParrent: false,
     widthProp: '100%',
-    heightProp: '200px',
+    heightProp: '200px'
 };
 
 Object.assign(DisqusCommentComponent, {
+    title: 'DisqusComment Component',
     propInfo,
     defaultProps,
     overrides,
