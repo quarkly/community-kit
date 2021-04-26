@@ -7,9 +7,23 @@ import { Box } from '@quarkly/widgets';
 const overrides = {
     Bground: {
         kind: 'Bground',
+        props: {
+            'top': '0',
+            'right': '0',
+            'bottom': '0',
+            'left': '0',
+            'width': '100%',
+            'height': '100%',
+            'position': 'absolute',
+            'z-index': '1'
+        }
     },
     Content: {
         kind: 'Content',
+        props: {
+            'position': 'relative',
+            'z-index': '2'
+        }
     },
 };
 
@@ -118,21 +132,13 @@ const BgImageParallax = ({
     });
 
     return (
-        <Box ref={wrapperRef} overflow="hidden" position="relative" {...rest}>
+        <Box ref={wrapperRef} {...rest}>
             <Bground
                 ref={bgroundRef}
-                top="0"
-                right="0"
-                bottom="0"
-                left="0"
-                width="100%"
-                height="100%"
-                position="absolute"
-                z-index="1"
                 background={`transparent url(${imageURL}) ${imagePosition} top/${imageSize} ${imageRepeat}`}
                 {...override('Bground')}
             />
-            <Content position="relative" z-index="2" {...override('Content')}>
+            <Content {...override('Content')}>
                 {children}
             </Content>
         </Box>
@@ -198,6 +204,9 @@ const defaultProps = {
     scrollSpeedProp: '0.5',
     scrollInertiaProp: '1',
     // scrollDirection: 'normal',
+
+    'position': 'relative',
+    'overflow': 'hidden'
 };
 
 export default Object.assign(BgImageParallax, {
