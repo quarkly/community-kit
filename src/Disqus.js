@@ -87,7 +87,7 @@ const propInfo = {
         weight: 0.5,
     },
     languageProp: {
-        title: 'Укажите язык',
+        title: 'Язык виджета',
         control: 'input',
         variants: ['en', 'de', 'fr', 'ru'],
         type: 'text',
@@ -100,6 +100,7 @@ const defaultProps = {
 };
 
 Object.assign(DisqusComponent, {
+    title: 'Disqus Component',
     propInfo,
     defaultProps,
     overrides,
