@@ -12,7 +12,7 @@
 
 ### ID чата
 
-Получить уникальный `License ID` можно после регистрации на сайте [LiveChat](https://developers.facebook.com/apps).
+Получить уникальный `License ID` можно после регистрации на сайте [LiveChat](https://www.livechat.com/help/install-livechat).
 
 ### Сессии чатов
 
