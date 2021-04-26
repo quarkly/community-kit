@@ -200,54 +200,51 @@ const TimerComponent = ({
 
 const propInfo = {
     toDate: {
-        title: 'До даты',
+        title: 'Дата окончания',
         description: {
-            ru: 'Отсчёт до определенной даты',
-            en: 'Отсчёт до определенной даты',
+            ru: 'Дата окончания таймера (в формате дд-мм-гггг)',
+            en: 'Дата окончания таймера (в формате дд-мм-гггг)',
         },
         control: 'input',
         category: 'Main',
         weight: 0.5,
     },
     toTime: {
-        title: 'До времени',
+        title: 'Время окончания',
         description: {
-            ru: 'Отсчёт до определенного времени',
-            en: 'Отсчёт до определенного времени',
+            ru: 'Время окончания таймера (в формате чч:мм)',
+            en: 'Время окончания таймера (в формате чч:мм)',
         },
         control: 'input',
         category: 'Main',
         weight: 0.5,
     },
     showDays: {
-        title: 'Показать дни',
+        title: 'Показать \'Дни\'',
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showHours: {
-        title: 'Показать часы',
+        title: 'Показать \'Часы\'',
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showMinutes: {
-        title: 'Показать минуты',
+        title: 'Показать \'Минуты\'',
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showSeconds: {
-        title: 'Показать секунды',
+        title: 'Показать \'Секунды\'',
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showTextDone: {
-        title: 'Показывать текст',
-        description: {
-            en: 'Показать текст после окончания таймера',
-        },
+        title: 'Когда показывать сообщение',
         control: 'radio-group',
         variants: [
             {
@@ -277,11 +274,12 @@ const propInfo = {
     },
 };
 
+const defaultDate = `${addZero(date.getDate() + 1)}.${addZero(date.getMonth() + 1)}.${addZero(date.getFullYear())}`;
+const defaultTime = `${addZero(date.getHours())}:${addZero(date.getMinutes())}`;
+
 const defaultProps = {
-    toDate: `${addZero(date.getDate() + 1)}.${addZero(
-        date.getMonth() + 1
-    )}.${addZero(date.getFullYear())}`,
-    toTime: `${addZero(date.getHours())}:${addZero(date.getMinutes())}`,
+    toDate: defaultDate,
+    toTime: defaultTime,
     showDays: true,
     showHours: true,
     showMinutes: true,
