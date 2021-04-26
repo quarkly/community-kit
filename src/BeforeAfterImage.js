@@ -254,7 +254,7 @@ const BeforeAfterImage = ({
 
 const propInfo = {
     activationType: {
-        title: 'Способ активации',
+        title: 'Способ взаимодействия',
         control: 'radio-group',
         variants: [
             {
@@ -305,13 +305,7 @@ const defaultProps = {
 };
 
 Object.assign(BeforeAfterImage, {
-    title: 'BeforeAfterImage',
-    description: {
-        en:
-            'Слайдер "до" и "после" позволяет легко выделить различия между двумя изображениями.',
-        ru:
-            'Слайдер "до" и "после" позволяет легко выделить различия между двумя изображениями.',
-    },
+    title: 'BeforeAfterImage Component',
     propInfo,
     defaultProps,
     overrides,
