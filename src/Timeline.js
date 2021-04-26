@@ -265,14 +265,14 @@ const Timeline = ({
 
 const propInfo = {
     itemsProp: {
-        title: 'Количество карточек',
+        title: 'Количество элементов',
         control: 'input',
         type: 'number',
         category: 'Main',
         weight: 1,
     },
     alignDesktop: {
-        title: 'Выравнивание карточек на десктопе',
+        title: 'Выравнивание на десктопе',
         control: 'select',
         variants: [
             {
@@ -308,7 +308,7 @@ const propInfo = {
         weight: 1,
     },
     alignMobile: {
-        title: 'Выравнивание карточек на мобильных',
+        title: 'Выравнивание на мобильных',
         control: 'select',
         variants: [
             {
