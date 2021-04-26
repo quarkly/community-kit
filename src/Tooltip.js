@@ -58,25 +58,25 @@ const checkDirections = {
         prop.wrapperRect.height +
             prop.arrowSizeNumb +
             prop.tooltipOffsetNumb +
-            prop.arrowOffsetNumb <=
+            prop.contentOffsetNumb <=
         prop.componentRect.top,
     right: (prop) =>
         prop.wrapperRect.width +
             prop.arrowSizeNumb +
             prop.tooltipOffsetNumb +
-            prop.arrowOffsetNumb <=
+            prop.contentOffsetNumb <=
         window.innerWidth - prop.componentRect.width - prop.componentRect.left,
     bottom: (prop) =>
         prop.wrapperRect.height +
             prop.arrowSizeNumb +
             prop.tooltipOffsetNumb +
-            prop.arrowOffsetNumb <=
+            prop.contentOffsetNumb <=
         window.innerHeight - prop.componentRect.height - prop.componentRect.top,
     left: (prop) =>
         prop.wrapperRect.width +
             prop.arrowSizeNumb +
             prop.tooltipOffsetNumb +
-            prop.arrowOffsetNumb <=
+            prop.contentOffsetNumb <=
         prop.componentRect.left,
 };
 
@@ -91,16 +91,16 @@ const orderDirections = {
 // Варианты положения тултипа
 const getWrapperPosition = {
     top: (props) => ({
-        bottom: `calc(100% + ${props.arrowOffsetNumb}px + ${props.arrowSizeNumb}px)`,
+        bottom: `calc(100% + ${props.contentOffsetNumb}px + ${props.arrowSizeNumb}px)`,
     }),
     right: (props) => ({
-        left: `calc(100% + ${props.arrowOffsetNumb}px + ${props.arrowSizeNumb}px)`,
+        left: `calc(100% + ${props.contentOffsetNumb}px + ${props.arrowSizeNumb}px)`,
     }),
     bottom: (props) => ({
-        top: `calc(100% + ${props.arrowOffsetNumb}px + ${props.arrowSizeNumb}px)`,
+        top: `calc(100% + ${props.contentOffsetNumb}px + ${props.arrowSizeNumb}px)`,
     }),
     left: (props) => ({
-        right: `calc(100% + ${props.arrowOffsetNumb}px + ${props.arrowSizeNumb}px)`,
+        right: `calc(100% + ${props.contentOffsetNumb}px + ${props.arrowSizeNumb}px)`,
     }),
 };
 
@@ -142,7 +142,7 @@ const TooltipBlock = ({
     tooltipStatusShow,
     tooltipColorProp,
     arrowSizeNumb,
-    arrowOffsetNumb,
+    contentOffsetNumb,
     arrowStatusProp,
     override,
 }) => {
@@ -151,10 +151,10 @@ const TooltipBlock = ({
             getWrapperPosition[tooltipPosition] || getWrapperPosition.top;
 
         return position({
-            arrowOffsetNumb,
+            contentOffsetNumb,
             arrowSizeNumb,
         });
-    }, [tooltipPosition, arrowOffsetNumb, arrowSizeNumb]);
+    }, [tooltipPosition, contentOffsetNumb, arrowSizeNumb]);
     const wrapperShowStyles = useMemo(
         () => ({
             visibility:
@@ -222,7 +222,7 @@ const TooltipComponent = ({
     tooltipStatusProp,
     tooltipAutoChangeProp,
     arrowSizeProp,
-    arrowOffsetProp,
+    contentOffsetProp,
     arrowStatusProp,
     ...props
 }) => {
@@ -239,11 +239,11 @@ const TooltipComponent = ({
         return isShowArrow ? parseInt(arrowSizeProp, 10) : 0;
     }, [arrowStatusProp, arrowSizeProp]);
 
-    const arrowOffsetNumb = useMemo(() => {
+    const contentOffsetNumb = useMemo(() => {
         const isShowArrow =
-            arrowStatusProp && !Number.isNaN(parseInt(arrowOffsetProp, 10));
-        return isShowArrow ? parseInt(arrowOffsetProp, 10) : 0;
-    }, [arrowStatusProp, arrowOffsetProp]);
+            arrowStatusProp && !Number.isNaN(parseInt(contentOffsetProp, 10));
+        return isShowArrow ? parseInt(contentOffsetProp, 10) : 0;
+    }, [arrowStatusProp, contentOffsetProp]);
 
     const componentRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -270,7 +270,7 @@ const TooltipComponent = ({
                         wrapperRect,
                         tooltipOffsetNumb,
                         arrowSizeNumb,
-                        arrowOffsetNumb,
+                        contentOffsetNumb,
                     })
                 )
             );
@@ -283,7 +283,7 @@ const TooltipComponent = ({
         tooltipPositionProp,
         tooltipOffsetProp,
         tooltipAutoChangeProp,
-        arrowOffsetProp,
+        contentOffsetProp,
         arrowSizeNumb,
     ]);
 
@@ -310,7 +310,7 @@ const TooltipComponent = ({
         tooltipStatusShow,
         tooltipColorProp,
         arrowSizeNumb,
-        arrowOffsetNumb,
+        contentOffsetNumb,
         arrowStatusProp,
     };
 
@@ -336,11 +336,30 @@ const TooltipComponent = ({
 };
 
 const propInfo = {
+    tooltipStatusProp: {
+        title: 'Показывать Tooltip',
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Всегда',
+                    ru: 'Всегда',
+                },
+                value: 'always',
+            },
+            {
+                title: {
+                    en: 'При наведении',
+                    ru: 'При наведении',
+                },
+                value: 'hover',
+            },
+        ],
+        category: 'Tooltip',
+        weight: 1,
+    },
     tooltipPositionProp: {
         title: 'Положение Tooltip',
-        description: {
-            ru: 'С какой стороны должен располагаться Tooltip',
-        },
         control: 'select',
         variants: [
             {
@@ -386,47 +405,30 @@ const propInfo = {
         category: 'Tooltip',
         weight: 0.5,
     },
-    tooltipColorProp: {
-        title: 'Цвет Tooltip',
+    contentOffsetProp: {
+        title: 'Отступ от контента',
         description: {
-            ru: 'Выберите цвет для Tooltip',
+            ru: 'Отступ до края компонента в пикселях',
         },
+        control: 'input',
+        variants: ['0px', '4px', '8px', '12px', '16px'],
+        type: 'text',
+        category: 'Tooltip',
+        weight: 0.5,
+    },
+    tooltipColorProp: {
+        title: 'Цвет фона Tooltip',
         control: 'color',
         category: 'Tooltip',
         weight: 1,
     },
-    tooltipStatusProp: {
-        title: 'Показывать Tooltip',
+    arrowStatusProp: {
+        title: 'Показать стрелочку',
         description: {
-            ru: 'Показывать Tooltip. Всегда или только при наведении',
-        },
-        control: 'radio-group',
-        variants: [
-            {
-                title: {
-                    en: 'Всегда',
-                    ru: 'Всегда',
-                },
-                value: 'always',
-            },
-            {
-                title: {
-                    en: 'При наведении',
-                    ru: 'При наведении',
-                },
-                value: 'hover',
-            },
-        ],
-        category: 'Tooltip',
-        weight: 1,
-    },
-    tooltipAutoChangeProp: {
-        title: 'Автоматическая смена положения Tooltip',
-        description: {
-            ru: 'Автоматически изменять положение Tooltip при нехватке места',
+            ru: 'Показать/Скрыть стрелочку',
         },
         control: 'checkbox',
-        category: 'Tooltip',
+        category: 'Arrow',
         weight: 1,
     },
     arrowSizeProp: {
@@ -440,41 +442,27 @@ const propInfo = {
         category: 'Arrow',
         weight: 0.5,
     },
-    arrowOffsetProp: {
-        title: 'Отступ до края (px)',
-        description: {
-            ru: 'Отступ до края компонента в пикселях',
-        },
-        control: 'input',
-        variants: ['0px', '4px', '8px', '12px', '16px'],
-        type: 'text',
-        category: 'Arrow',
-        weight: 0.5,
-    },
-    arrowStatusProp: {
-        title: 'Показать стрелочку',
-        description: {
-            ru: 'Показать/Скрыть стрелочку',
-        },
+    tooltipAutoChangeProp: {
+        title: 'Автоматическая смена положения',
         control: 'checkbox',
-        category: 'Arrow',
+        category: 'Tooltip',
         weight: 1,
     },
 };
 
 const defaultProps = {
-    tooltipPositionProp: 'top',
-    tooltipColorProp: '--color-dark',
-    tooltipAutoChangeProp: true,
-    tooltipOffsetProp: '0',
     tooltipStatusProp: 'always',
-    arrowSizeProp: '8px',
-    arrowOffsetProp: '4px',
+    tooltipPositionProp: 'top',
+    tooltipOffsetProp: '0',
+    contentOffsetProp: '4px',
+    tooltipColorProp: '--color-dark',
     arrowStatusProp: true,
+    arrowSizeProp: '8px',
+    tooltipAutoChangeProp: true,
 };
 
 Object.assign(TooltipComponent, {
-    title: 'Tooltip',
+    title: 'Tooltip Component',
     propInfo,
     defaultProps,
     overrides,
