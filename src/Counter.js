@@ -26,7 +26,7 @@ class StepTimer extends EventTarget {
 
     start() {
         if (this.timeoutId || this.intervalId) {
-            console.warn('Timer is already running. Stop it first');
+            console.warn('Timer is already running. Stop it first'); // eslint-disable-line
             return;
         }
 
@@ -118,7 +118,6 @@ function useCallOnPageLoad(cb) {
 
 function useCounter(direction, startingNumber, endingNumber) {
     const [number, setNumber] = useState(0);
-
     const step = useCallback(
         () =>
             setNumber((currentNumber) => {
@@ -157,6 +156,8 @@ const Counter = ({
     numberPrefix,
     ...props
 }) => {
+    startingNumber = parseInt(startingNumber, 10) || 0;
+    endingNumber = parseInt(endingNumber, 10) || 10;
     const useSignal = startOnHooks[startOn] || startOnHooks.onScreen;
 
     const [currentNumber, step] = useCounter(
@@ -172,7 +173,12 @@ const Counter = ({
 
         stepTimer.addEventListener('step', () => step());
 
-        return [() => stepTimer.start(), () => stepTimer.stop()];
+        return [
+            () => {
+                stepTimer.start();
+            },
+            () => stepTimer.stop(),
+        ];
     }, [duration, endingNumber, startingNumber, delay, step]);
 
     const refCounter = useRef(null);
@@ -193,14 +199,14 @@ const propInfo = {
     startingNumber: {
         title: 'Начальное число',
         control: 'input',
-        type: 'text',
+        type: 'number',
         category: 'Main',
         weight: 0.5,
     },
     endingNumber: {
         title: 'Конечное число',
         control: 'input',
-        type: 'text',
+        type: 'number',
         category: 'Main',
         weight: 0.5,
     },
