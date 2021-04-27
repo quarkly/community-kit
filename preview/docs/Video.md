@@ -1,49 +1,43 @@
 ## 📖 Detailed overview
 
-Видеопроигрыватель. Используйте его для встраивания видео контента на сайте.
+Компонент для встраивания видеопроигрывателя на сайт.
 
 ## 🎬 Live Demo
 
-[Live demo link](https://quarkly-ui-components.netlify.app/video/)
+[Live demo link](https://quarkly-catalog.netlify.app/video/)
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
+1.  Добавьте компонент на страницу
+2.  Укажите `Ссылку на видео-файл` на панели Props
+3.  Посмотрите как он работает в режиме превью
 
-### Вложенность
+### Использование Source и Track
 
-Компонент `Video` может содержать в себе компоненты `Source` и `Track`
-
-### Заменить видео
-
-Чтобы заменить видеофайл, задайте новое значение для свойства `Src`.
-
-### Постер
-
-Значение для свойства `Poster` можно оставить пустым, тогда постер будет сгенерирован автоматически из видео.
+Компонент Video может содержать компоненты `Source` и `Track`.
 
 ## 🧩 Components and Props
 
-| Props Name    |   Type    | Default | Description                                        |
-| :------------ | :-------: | :-----: | :------------------------------------------------- |
-| Loop          |  `bool`   | `false` | Воспроизводить видео с начала после его завершения |
-| Show controls |  `bool`   | `true`  | Показать элементы управления                       |
-| Muted         |  `bool`   | `false` | Отключить звук                                     |
-| Autoplay      |  `bool`   | `false` | Автоматическое воспроизведение видео               |
-| Poster        | `string`  |   `-`   | Ссылка на изображение постера                      |
-| Src           | `string ` |   `-`   | Прямая ссылка на видеофайл                         |
-| PlayOnHover   |  `bool `  | `false` | Воспроизводить при наведении на видео              |
+| Названия свойств               |   Type    | Default |
+| :----------------------------- | :-------: | :-----: |
+| Ссылка на видео-файл           | `string ` |   `-`   |
+| Изображение для превью         | `string`  |   `-`   |
+| Автоматическое воспроизведение |  `bool`   | `false` |
+| Показывать элементы управления |  `bool`   | `true`  |
+| Отключить звук                 |  `bool`   | `false` |
+| Зациклить воспроизведение      |  `bool`   | `false` |
+| Воспроизведение при наведении  |  `bool `  | `false` |
 
 ## 🗓 Changelog
 
-    - 09/04/2021 (v1.0)
-    - Первая версия
+-   21/04/2021 (v1.0)
+-   Первая версия
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
 [We're on Discord](https://discord.gg/f9KhSMGX)
 

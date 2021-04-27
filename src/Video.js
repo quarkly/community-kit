@@ -43,30 +43,31 @@ const VideoComponent = ({
 
     return (
         <Wrapper {...rest}>
-            <Video
-                src={srcVal}
-                poster={poster}
-                autoPlay={autoPlay}
-                controls={controls}
-                muted={muted}
-                loop={loop}
-                onMouseEnter={playOnHover ? (e) => e.target.play() : undefined}
-                onMouseLeave={playOnHover ? (e) => e.target.pause() : undefined}
-                {...override('Video Tag')}
-                display={showNotice && 'none'}
-            >
-                <Content ref={contentRef}>
-                    {React.Children.map(
-                        children,
-                        (child) =>
-                            React.isValidElement(child) &&
-                            React.cloneElement(child, {
-                                container: 'video',
-                            })
-                    )}
-                </Content>
-            </Video>
-
+            {srcVal && (
+                <Video
+                    src={srcVal}
+                    poster={poster}
+                    autoPlay={autoPlay}
+                    controls={controls}
+                    muted={muted}
+                    loop={loop}
+                    onMouseEnter={playOnHover ? (e) => e.target.play() : undefined}
+                    onMouseLeave={playOnHover ? (e) => e.target.pause() : undefined}
+                    {...override('Video Tag')}
+                    display={showNotice && 'none'}
+                >
+                    <Content ref={contentRef}>
+                        {React.Children.map(
+                            children,
+                            (child) =>
+                                React.isValidElement(child) &&
+                                React.cloneElement(child, {
+                                    container: 'video',
+                                })
+                        )}
+                    </Content>
+                </Video>
+            )}
             {showNotice && (
                 <ComponentNotice
                     message={
@@ -80,79 +81,48 @@ const VideoComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Src',
-        description: {
-            en: 'Video file address',
-            ru: 'Адрес видео файла',
-        },
+        title: 'Ссылка на видео-файл',
         control: 'input',
-        type: 'string',
+        type: 'text',
         category: 'Main',
         weight: 1,
     },
     poster: {
-        title: 'Poster',
-        description: {
-            en: 'The Image URL that will be used while the video is loading',
-            ru:
-                'Адрес избражения, которое будет использовано, пока загружается видео',
-        },
-        control: 'input',
-        type: 'string',
+        title: 'Изображение для превью',
+        control: 'image',
         category: 'Main',
         weight: 1,
     },
     autoPlay: {
-        title: 'Autoplay',
-        description: {
-            en: 'Video autoplay when it’s available',
-            ru:
-                'Автоматическое воспроизведение видео, как только это будет возможно',
-        },
+        title: 'Автоматическое воспроизведение',
         control: 'checkbox',
         type: 'boolean',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     controls: {
-        title: 'Show controls',
-        description: {
-            en: 'Display video playback controls',
-            ru: 'Отображение элементов управления воспроизведения видео',
-        },
+        title: 'Показывать элементы управления',
         control: 'checkbox',
         type: 'boolean',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     muted: {
-        title: 'Mute',
-        description: {
-            en: 'Turn off playback track',
-            ru: 'Отключение воспроизведения аудиодорожки',
-        },
+        title: 'Отключить звук',
         control: 'checkbox',
         type: 'boolean',
         category: 'Main',
         weight: 0.5,
     },
     loop: {
-        title: 'Loop',
-        description: {
-            en: 'Play video from the beginning to the end',
-            ru: 'Воспроизведение видео с начала по окончании проигрывания',
-        },
+        title: 'Зациклить воспроизведение',
         control: 'checkbox',
         type: 'boolean',
         category: 'Main',
         weight: 0.5,
     },
     playOnHover: {
-        title: 'Play on hover',
-        description: {
-            en: 'Video playback on hover',
-            ru: 'Воспроизведение видео при наведении',
-        },
+        title: 'Воспроизведение при наведении',
         control: 'checkbox',
         type: 'boolean',
         category: 'Actions',
@@ -161,8 +131,6 @@ const propInfo = {
 };
 
 const defaultProps = {
-    src: '',
-    poster: '',
     controls: true,
 };
 
