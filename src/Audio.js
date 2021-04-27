@@ -75,53 +75,32 @@ const AudioComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Src',
-        description: {
-            en: 'Audio file address',
-            ru: 'Адрес аудио файла',
-        },
+        title: 'Ссылка на аудио-файл',
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     autoPlay: {
-        title: 'Autoplay',
-        description: {
-            en: 'Audio autoplay when it’s available',
-            ru:
-                'Автоматическое воспроизведение аудио, как только это будет возможно',
-        },
+        title: 'Автоматическое воспроизведение',
         control: 'checkbox',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     controls: {
-        title: 'Show controls',
-        description: {
-            en: 'Display audio playback controls',
-            ru: 'Отображение элементов управления воспроизведения аудио',
-        },
+        title: 'Показывать элементы управления',
         control: 'checkbox',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     muted: {
-        title: 'Mute',
-        description: {
-            en: 'Turn off playback track',
-            ru: 'Отключение воспроизведения аудиодорожки',
-        },
+        title: 'Отключить звук',
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     loop: {
-        title: 'Loop',
-        description: {
-            en: 'Play audio from the beginning to the end',
-            ru: 'Воспроизведение аудио с начала по окончании проигрывания',
-        },
+        title: 'Зациклить воспроизведение',
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
