@@ -34,43 +34,27 @@ const TrackComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Src',
-        description: {
-            en: 'Address of the track (.vtt file)',
-            ru: 'Адрес файла текстовой дорожки (.vtt файл)',
-        },
+        title: 'Ссылка на файл',
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     isDefault: {
-        title: 'Default',
-        description: {
-            en: 'Use this track as default',
-            ru: 'Использовать эту дорожку по умолчанию',
-        },
+        title: 'Использовать по умолчанию',
         control: 'checkbox',
         category: 'Main',
         weight: 1,
     },
     srclang: {
-        title: 'SrcLang',
-        description: {
-            en: 'Language of the track text data',
-            ru: 'Язык текстовых данных трека',
-        },
+        title: 'Язык дорожки',
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     kind: {
-        title: 'Kind',
-        description: {
-            en: 'How the text track is meant to be used',
-            ru: 'Как текстовый трек должен быть использован',
-        },
+        title: 'Назначение дорожки',
         control: 'select',
         variants: [
             {
@@ -113,11 +97,7 @@ const propInfo = {
         weight: 1,
     },
     label: {
-        title: 'Label',
-        description: {
-            en: 'A user-readable title of the text track',
-            ru: 'Видимый пользователю заголовок текстовой дорожки',
-        },
+        title: 'Отображаемое название',
         control: 'input',
         type: 'text',
         category: 'Main',
@@ -126,7 +106,6 @@ const propInfo = {
 };
 
 const defaultProps = {
-    src: 'https://uploads.quarkly.io/molecules/subtitles_en.vtt',
     srclang: 'en',
     kind: 'subtitles',
 };
