@@ -174,7 +174,7 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
 
 const propInfo = {
     minDuration: {
-        title: 'Min animation duration (in seconds)',
+        title: 'Минимальная длительность анимации',
         control: 'input',
         variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
         type: 'text',
@@ -182,7 +182,7 @@ const propInfo = {
         weight: 1,
     },
     maxDuration: {
-        title: 'Max animation duration (in seconds)',
+        title: 'Максимальная длительность анимации',
         control: 'input',
         variants: ['1s', '1.5s', '2s', '2.5s', '3s', '4s', '5s'],
         type: 'text',
@@ -190,7 +190,7 @@ const propInfo = {
         weight: 1,
     },
     animFunction: {
-        title: 'Animation function',
+        title: 'Функция сглаживания анимации',
         control: 'input',
         variants: [
             'linear',
@@ -219,9 +219,6 @@ const defaultProps = {
 
 Object.assign(Collapse, {
     title: 'Collapse',
-    description: {
-        en: 'Collapse component',
-    },
     overrides,
     propInfo,
     defaultProps,
