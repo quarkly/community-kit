@@ -8,22 +8,22 @@ const overrides = {
     Bground: {
         kind: 'Bground',
         props: {
-            'top': '0',
-            'right': '0',
-            'bottom': '0',
-            'left': '0',
-            'width': '100%',
-            'height': '100%',
-            'position': 'absolute',
-            'z-index': '1'
-        }
+            top: '0',
+            right: '0',
+            bottom: '0',
+            left: '0',
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            'z-index': '1',
+        },
     },
     Content: {
         kind: 'Content',
         props: {
-            'position': 'relative',
-            'z-index': '2'
-        }
+            position: 'relative',
+            'z-index': '2',
+        },
     },
 };
 
@@ -138,9 +138,7 @@ const BgImageParallax = ({
                 background={`transparent url(${imageURL}) ${imagePosition} top/${imageSize} ${imageRepeat}`}
                 {...override('Bground')}
             />
-            <Content {...override('Content')}>
-                {children}
-            </Content>
+            <Content {...override('Content')}>{children}</Content>
         </Box>
     );
 };
@@ -205,8 +203,8 @@ const defaultProps = {
     scrollInertiaProp: '1',
     // scrollDirection: 'normal',
 
-    'position': 'relative',
-    'overflow': 'hidden'
+    position: 'relative',
+    overflow: 'hidden',
 };
 
 export default Object.assign(BgImageParallax, {

@@ -50,7 +50,7 @@ const FacebookLike = ({
                     />
                 </FacebookProvider>
             ) : (
-                <ComponentNotice message="Add your Facebook App ID in the props panel." />
+                <ComponentNotice message="Add your Facebook App ID in the props panel" />
             )}
         </Box>
     );

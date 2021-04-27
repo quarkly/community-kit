@@ -18,6 +18,7 @@ describe('YouTube component', () => {
         ['http://www.youtube.com/embed/0zM3nApSvMg?rel=0', '0zM3nApSvMg'],
         ['http://www.youtube.com/watch?v=0zM3nApSvMg', '0zM3nApSvMg'],
         ['http://youtu.be/0zM3nApSvMg', '0zM3nApSvMg'],
+        ['https://www.youtube.com/watch?v=Of_ncEWRd2E', 'Of_ncEWRd2E'],
     ])('parse url %s correctly', async (url, videoId) => {
         const r = youtubeLinkParser(url);
         expect(r).toBe(videoId);

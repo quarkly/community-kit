@@ -34,7 +34,7 @@ const VideoComponent = ({
     const [isEmpty, setEmpty] = useState(false);
     const contentRef = useRef(null);
 
-    const srcVal = useMemo(() => src.trim(), [src]);
+    const srcVal = useMemo(() => src?.trim() || '', [src]);
     const showNotice = useMemo(() => isEmpty && !srcVal, [isEmpty, srcVal]);
 
     useEffect(() => {
@@ -51,8 +51,12 @@ const VideoComponent = ({
                     controls={controls}
                     muted={muted}
                     loop={loop}
-                    onMouseEnter={playOnHover ? (e) => e.target.play() : undefined}
-                    onMouseLeave={playOnHover ? (e) => e.target.pause() : undefined}
+                    onMouseEnter={
+                        playOnHover ? (e) => e.target.play() : undefined
+                    }
+                    onMouseLeave={
+                        playOnHover ? (e) => e.target.pause() : undefined
+                    }
                     {...override('Video Tag')}
                     display={showNotice && 'none'}
                 >

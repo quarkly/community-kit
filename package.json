@@ -1,6 +1,6 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "author": "Eddort @Eddort",
   "dependencies": {
     "@reach/router": "^1.3.4",
@@ -92,14 +92,18 @@
       "Animation": "Animation",
       "CardFlip": "CardFlip",
       "MenuWithGroups": "MenuWithGroups",
-      "MobileSidePanel": "MobileSidePanel"
+      "MobileSidePanel": "MobileSidePanel",
+      "Menu": "Menu",
+      "Formspree": "Formspree",
+      "SocialMedia": "SocialMedia",
+      "GoogleMap": "GoogleMap",
+      "Track": "Track",
+      "Source": "Source"
     }
   },
   "quarklyInfoDeleted": {
     "components": {
       "Picture": "Picture",
-      "Source": "Source",
-      "Track": "Track",
       "Accordion": "Accordion",
       "AccordionItem": "AccordionItem",
       "AccordionItemSummary": "AccordionItemSummary",

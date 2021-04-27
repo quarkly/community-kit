@@ -7,7 +7,9 @@ import React, {
 } from 'react';
 import atomize from '@quarkly/atomize';
 import styles, { css } from 'styled-components';
+import utils from './utils';
 import presets from './AnimationPresets';
+import ComponentNotice from './ComponentNotice';
 
 const getAnimationStyle = ({
     animation,
@@ -67,6 +69,8 @@ const Animation = ({
         () => trigger === 'click' && togglePlay(!isPlay),
         [trigger, isPlay]
     );
+
+    const isEmpty = useMemo(() => utils.isEmptyChildren(children), [children]);
 
     const onAboveEvent = (e) => {
         if (!wrapperRef.current) return;
@@ -157,7 +161,11 @@ const Animation = ({
                 duration={duration}
                 delay={delay}
             >
-                {children}
+                {isEmpty ? (
+                    <ComponentNotice message="Add child component to make animation work" />
+                ) : (
+                    children
+                )}
             </Content>
         </Wrapper>
     );

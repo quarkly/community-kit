@@ -156,8 +156,8 @@ const propInfo = {
 };
 
 const defaultProps = {
-    latitudeCenter: 55.751574,
-    longitudeCenter: 37.573856,
+    latitudeCenter: 40.714599,
+    longitudeCenter: -74.002791,
     zoomValue: 9,
     height: '250px',
 };

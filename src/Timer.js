@@ -220,25 +220,25 @@ const propInfo = {
         weight: 0.5,
     },
     showDays: {
-        title: 'Показать \'Дни\'',
+        title: "Показать 'Дни'",
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showHours: {
-        title: 'Показать \'Часы\'',
+        title: "Показать 'Часы'",
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showMinutes: {
-        title: 'Показать \'Минуты\'',
+        title: "Показать 'Минуты'",
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showSeconds: {
-        title: 'Показать \'Секунды\'',
+        title: "Показать 'Секунды'",
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
@@ -274,12 +274,16 @@ const propInfo = {
     },
 };
 
-const defaultDate = `${addZero(date.getDate() + 1)}.${addZero(date.getMonth() + 1)}.${addZero(date.getFullYear())}`;
-const defaultTime = `${addZero(date.getHours())}:${addZero(date.getMinutes())}`;
+const defaultDateProp = `${addZero(date.getDate() + 1)}.${addZero(
+    date.getMonth() + 1
+)}.${addZero(date.getFullYear())}`;
+const defaultTimeProp = `${addZero(date.getHours())}:${addZero(
+    date.getMinutes()
+)}`;
 
 const defaultProps = {
-    toDate: defaultDate,
-    toTime: defaultTime,
+    toDate: defaultDateProp,
+    toTime: defaultTimeProp,
     showDays: true,
     showHours: true,
     showMinutes: true,

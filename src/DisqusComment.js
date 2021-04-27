@@ -79,7 +79,7 @@ const defaultProps = {
     commentIDProp: '',
     showParrent: false,
     widthProp: '100%',
-    heightProp: '200px'
+    heightProp: '200px',
 };
 
 Object.assign(DisqusCommentComponent, {

@@ -107,7 +107,7 @@ const propInfo = {
         control: 'input',
         type: 'text',
         category: 'Video',
-        weight: 1
+        weight: 1,
     },
     start: {
         title: 'Начало воспроизведения (в сек.)',
@@ -116,13 +116,13 @@ const propInfo = {
         },
         control: 'input',
         category: 'Video',
-        weight: 1
+        weight: 1,
     },
     loop: {
         title: 'Зациклить воспроизведение',
         control: 'checkbox',
         category: 'Video',
-        weight: 1
+        weight: 1,
     },
     autoplay: {
         title: 'Автоматическое воспроизведение',
@@ -131,7 +131,7 @@ const propInfo = {
         },
         control: 'checkbox',
         category: 'Player',
-        weight: 1
+        weight: 1,
     },
     autopause: {
         title: 'Автоматическая пауза',
@@ -140,19 +140,19 @@ const propInfo = {
         },
         control: 'checkbox',
         category: 'Player',
-        weight: 1
+        weight: 1,
     },
     controls: {
         title: 'Показывать элементы управления',
         control: 'checkbox',
         category: 'Controls',
-        weight: 1
+        weight: 1,
     },
     color: {
         title: 'Цвет элементов управления',
         control: 'color',
         category: 'Controls',
-        weight: 1
+        weight: 1,
     },
     responsive: {
         title: 'По ширине родителя',
@@ -161,43 +161,43 @@ const propInfo = {
         },
         control: 'checkbox',
         category: 'Player',
-        weight: 1
+        weight: 1,
     },
     showTitle: {
         title: 'Показывать название видео',
         control: 'checkbox',
         category: 'Player',
-        weight: 1
+        weight: 1,
     },
     showPortrait: {
         title: 'Показывать превью видео',
         control: 'checkbox',
         category: 'Player',
-        weight: 1
+        weight: 1,
     },
     showByline: {
         title: 'Показывать имя владельца',
         control: 'checkbox',
         category: 'Player',
-        weight: 1
+        weight: 1,
     },
     volume: {
         title: 'Громкость звука (от 0 до 1)',
         control: 'input',
         category: 'Video',
-        weight: 1
+        weight: 1,
     },
     muted: {
         title: 'Отключить звук',
         control: 'checkbox',
         category: 'Video',
-        weight: 1
+        weight: 1,
     },
     playBackground: {
         title: 'Воспроизведение в фоновом режиме',
         control: 'checkbox',
         category: 'Video',
-        weight: 1
+        weight: 1,
     },
 };
 
@@ -215,7 +215,7 @@ const defaultProps = {
     volume: 1,
     muted: false,
     playBackground: false,
-    
+
     width: '100%',
     height: '100%',
 };
