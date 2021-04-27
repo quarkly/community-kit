@@ -49,22 +49,14 @@ const SourceComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Src',
-        description: {
-            en: 'Audio/video file address',
-            ru: 'Адрес аудио/видео файла',
-        },
+        title: 'Ссылка на аудио или видео файл',
         control: 'input',
         type: 'text',
         category: 'Audio / Video',
         weight: 1,
     },
     typeMedia: {
-        title: 'Type',
-        description: {
-            en: 'MIME content type',
-            ru: 'MIME-тип контента',
-        },
+        title: 'MIME-тип аудио или видео контента',
         control: 'input',
         variants: [
             'video/mp4',
@@ -80,10 +72,10 @@ const propInfo = {
         weight: 1,
     },
     codecs: {
-        title: 'Codecs',
+        title: 'Аудио или видео кодеки',
         description: {
-            en: 'Video and audio codecs (comma-separated, optional)',
-            ru: 'Видео и аудиокодеки (через запятую, опционально)',
+            en: 'Audio and video codecs (comma-separated, optional)',
+            ru: 'Аудио и видео кодеки (через запятую, опционально)',
         },
         control: 'input',
         type: 'text',
@@ -91,7 +83,7 @@ const propInfo = {
         weight: 1,
     },
     srcSet: {
-        title: 'Srcset',
+        title: 'Источники изображений',
         description: {
             en: 'One or more image sources with descriptors',
             ru: 'Один или несколько источников изображений с дескрипторами',
@@ -102,7 +94,7 @@ const propInfo = {
         weight: 1,
     },
     sizes: {
-        title: 'Sizes',
+        title: 'Размеры контейнера',
         description: {
             en: 'Image slot sizes from srcSet for different breakpoints',
             ru:
@@ -114,7 +106,7 @@ const propInfo = {
         weight: 1,
     },
     mediaSelect: {
-        title: 'Device',
+        title: 'Категория устройства',
         description: {
             en: 'General category of the device',
             ru: 'Общая категория устройства',
@@ -154,10 +146,10 @@ const propInfo = {
         weight: 0.4,
     },
     mediaInput: {
-        title: 'Media query',
+        title: 'Медиа запрос для вывода изображения',
         description: {
             en: "Media query of the resource's intended media",
-            ru: 'Медиа-запрос, согласно которому будет выводиться изображение',
+            ru: 'Медиа запрос, согласно которому будет выводиться изображение',
         },
         control: 'input',
         type: 'text',
@@ -165,7 +157,7 @@ const propInfo = {
         weight: 0.6,
     },
     typePicture: {
-        title: 'Type',
+        title: 'MIME-тип изображения',
         description: {
             en: 'MIME image type',
             ru: 'MIME-тип изображения',
