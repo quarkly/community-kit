@@ -180,7 +180,7 @@ const PopupComponent = ({ animDuration, animFunction, ...props }) => {
 
 const propInfo = {
     animDuration: {
-        title: 'Animation duration (in seconds)',
+        title: 'Длительность появления и скрытия',
         control: 'input',
         variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
         type: 'text',
@@ -188,7 +188,7 @@ const propInfo = {
         weight: 1,
     },
     animFunction: {
-        title: 'Animation function',
+        title: 'Функция сглаживания анимации',
         control: 'input',
         variants: [
             'linear',
