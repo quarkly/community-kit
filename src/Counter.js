@@ -1,5 +1,58 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, {
+    useState,
+    useEffect,
+    useRef,
+    useCallback,
+    useMemo,
+} from 'react';
 import { Box } from '@quarkly/widgets';
+
+class StepTimer extends EventTarget {
+    constructor(delay, interval, steps) {
+        super();
+
+        this.delay = delay || 0;
+        this.interval = interval || 1000;
+        this.steps = steps || 10;
+        this.currentStep = 0;
+
+        this.intervalId = null;
+        this.timeoutId = null;
+    }
+
+    get isRunning() {
+        return this.timeoutId !== null || this.intervalId !== null;
+    }
+
+    start() {
+        if (this.timeoutId || this.intervalId) {
+            console.warn('Timer is already running. Stop it first');
+            return;
+        }
+
+        this.timeoutId = setTimeout(() => {
+            this.intervalId = setInterval(() => {
+                if (this.currentStep <= this.steps) {
+                    this.currentStep += 1;
+                    const event = new CustomEvent('step', {
+                        detail: this.currentStep,
+                    });
+                    this.dispatchEvent(event);
+                } else {
+                    this.stop();
+                }
+            }, this.interval);
+        }, this.delay);
+    }
+
+    stop() {
+        clearTimeout(this.timeoutId);
+        clearInterval(this.intervalId);
+        this.timeoutId = null;
+        this.intervalId = null;
+        this.currentStep = 0;
+    }
+}
 
 const elementInViewport = (el) => {
     if (!el) return false;
@@ -63,17 +116,39 @@ function useCallOnPageLoad(cb) {
     });
 }
 
+function useCounter(direction, startingNumber, endingNumber) {
+    const [number, setNumber] = useState(0);
+
+    const step = useCallback(
+        () =>
+            setNumber((currentNumber) => {
+                if (direction === 'reverse' && currentNumber > startingNumber) {
+                    return currentNumber - 1;
+                }
+                if (currentNumber < endingNumber) {
+                    return currentNumber + 1;
+                }
+
+                return currentNumber;
+            }),
+        [direction, startingNumber, endingNumber]
+    );
+
+    useEffect(() => {
+        setNumber(direction === 'reverse' ? endingNumber : startingNumber);
+    }, [direction, startingNumber, endingNumber]);
+
+    return [number, step];
+}
+
 const startOnHooks = {
     onScreen: useCallOnScreenIntersection,
     onLoad: useCallOnPageLoad,
 };
 
-function getDurationOneStep(duration, endingNumber, startingNumber) {
-    return duration / (endingNumber - startingNumber);
-}
-
 const Counter = ({
     startOn,
+    delay,
     startingNumber,
     endingNumber,
     direction,
@@ -83,44 +158,29 @@ const Counter = ({
     ...props
 }) => {
     const useSignal = startOnHooks[startOn] || startOnHooks.onScreen;
-    const refCounter = useRef(null);
-    const [start, setStart] = useState(false);
-    const [currentNumber, setCurrentNumber] = useState(
-        direction === 'reverse' ? endingNumber : startingNumber
+
+    const [currentNumber, step] = useCounter(
+        direction,
+        startingNumber,
+        endingNumber
     );
 
-    const setStartCb = useCallback(() => setStart(true), []);
+    const [startCount, stopCount] = useMemo(() => {
+        const interval = Math.abs(duration / (endingNumber - startingNumber));
+        const steps = Math.abs(endingNumber - startingNumber);
+        const stepTimer = new StepTimer(delay, interval, steps);
 
-    useSignal(setStartCb, refCounter);
+        stepTimer.addEventListener('step', () => step());
+
+        return [() => stepTimer.start(), () => stepTimer.stop()];
+    }, [duration, endingNumber, startingNumber, delay, step]);
+
+    const refCounter = useRef(null);
+    useSignal(startCount, refCounter);
 
     useEffect(() => {
-        const updateCount = setInterval(() => {
-            if (start) {
-                if (direction === 'reverse') {
-                    if (currentNumber > startingNumber) {
-                        setCurrentNumber(parseInt(currentNumber, 10) - 1);
-                    } else {
-                        clearInterval(updateCount);
-                    }
-                } else if (currentNumber < endingNumber) {
-                    setCurrentNumber(parseInt(currentNumber, 10) + 1);
-                } else {
-                    clearInterval(updateCount);
-                }
-            }
-        }, getDurationOneStep(duration, endingNumber, startingNumber));
-
-        return () => {
-            clearInterval(updateCount);
-        };
-    }, [
-        duration,
-        direction,
-        currentNumber,
-        start,
-        startingNumber,
-        endingNumber,
-    ]);
+        return () => stopCount();
+    }, [stopCount]);
 
     return (
         <Box text-align="center" font-size="58px" {...props} ref={refCounter}>
@@ -195,6 +255,13 @@ const propInfo = {
         category: 'Main',
         weight: 1,
     },
+    delay: {
+        title: 'Задержка отсчёта',
+        control: 'input',
+        type: 'number',
+        category: 'Main',
+        weight: 1,
+    },
     numberSuffix: {
         title: 'Текст после числа',
         control: 'input',
@@ -213,12 +280,13 @@ const propInfo = {
 
 const defaultProps = {
     startOn: 'onScreen',
-    startingNumber: '0',
+    startingNumber: 0,
     endingNumber: 100,
     direction: 'normal',
     duration: 2000,
     numberSuffix: '',
     numberPrefix: '',
+    delay: 0,
 };
 
 Object.assign(Counter, {
