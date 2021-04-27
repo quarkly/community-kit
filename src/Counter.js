@@ -1,10 +1,4 @@
-import React, {
-    useState,
-    useEffect,
-    useMemo,
-    useRef,
-    useCallback,
-} from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Box } from '@quarkly/widgets';
 
 const elementInViewport = (el) => {
@@ -28,7 +22,58 @@ const elementInViewport = (el) => {
     );
 };
 
+function useCallOnScreenIntersection(cb, elementRef) {
+    const isCalled = useRef(false);
+
+    const checkOnView = useCallback(() => {
+        if (!isCalled.current && elementInViewport(elementRef.current)) {
+            isCalled.current = true;
+            cb();
+            window.removeEventListener('scroll', checkOnView);
+        }
+    }, [cb, elementRef]);
+
+    useEffect(() => {
+        checkOnView();
+        window.addEventListener('scroll', checkOnView);
+        return () => {
+            window.removeEventListener('scroll', checkOnView);
+        };
+    }, [checkOnView]);
+}
+
+function useCallOnPageLoad(cb) {
+    const isCalled = useRef(false);
+
+    useEffect(() => {
+        if (isCalled.current) return;
+
+        if (document.readyState === 'complete') {
+            isCalled.current = true;
+            cb();
+            return;
+        }
+        const t = () => {
+            isCalled.current = true;
+            cb();
+        };
+
+        document.addEventListener('load', t);
+        return () => document.removeEventListener('load', t);
+    });
+}
+
+const startOnHooks = {
+    onScreen: useCallOnScreenIntersection,
+    onLoad: useCallOnPageLoad,
+};
+
+function getDurationOneStep(duration, endingNumber, startingNumber) {
+    return duration / (endingNumber - startingNumber);
+}
+
 const Counter = ({
+    startOn,
     startingNumber,
     endingNumber,
     direction,
@@ -37,37 +82,20 @@ const Counter = ({
     numberPrefix,
     ...props
 }) => {
+    const useSignal = startOnHooks[startOn] || startOnHooks.onScreen;
     const refCounter = useRef(null);
-    const [onView, setOnView] = useState(false);
+    const [start, setStart] = useState(false);
     const [currentNumber, setCurrentNumber] = useState(
         direction === 'reverse' ? endingNumber : startingNumber
     );
 
-    const getDurationOneStep = useMemo(
-        () => duration / (endingNumber - startingNumber),
-        [duration, endingNumber, startingNumber]
-    );
+    const setStartCb = useCallback(() => setStart(true), []);
 
-    const checkOnView = useCallback(() => {
-        if (!onView) {
-            if (elementInViewport(refCounter.current)) {
-                setOnView(true);
-                window.removeEventListener('scroll', checkOnView);
-            }
-        }
-    }, [onView]);
-
-    useEffect(() => {
-        checkOnView();
-        window.addEventListener('scroll', checkOnView);
-        return () => {
-            window.removeEventListener('scroll', checkOnView);
-        };
-    }, [refCounter.current]);
+    useSignal(setStartCb, refCounter);
 
     useEffect(() => {
         const updateCount = setInterval(() => {
-            if (onView) {
+            if (start) {
                 if (direction === 'reverse') {
                     if (currentNumber > startingNumber) {
                         setCurrentNumber(parseInt(currentNumber, 10) - 1);
@@ -80,12 +108,19 @@ const Counter = ({
                     clearInterval(updateCount);
                 }
             }
-        }, getDurationOneStep);
+        }, getDurationOneStep(duration, endingNumber, startingNumber));
 
         return () => {
             clearInterval(updateCount);
         };
-    }, [direction, currentNumber, onView, startingNumber, endingNumber]);
+    }, [
+        duration,
+        direction,
+        currentNumber,
+        start,
+        startingNumber,
+        endingNumber,
+    ]);
 
     return (
         <Box text-align="center" font-size="58px" {...props} ref={refCounter}>
@@ -131,6 +166,28 @@ const propInfo = {
         category: 'Main',
         weight: 1,
     },
+    startOn: {
+        title: 'Начало отсчёта',
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'On screen intersection',
+                    ru: 'При пересечении экрана',
+                },
+                value: 'onScreen',
+            },
+            {
+                title: {
+                    en: 'On page load',
+                    ru: 'При загрузке страницы',
+                },
+                value: 'onLoad',
+            },
+        ],
+        category: 'Main',
+        weight: 1,
+    },
     duration: {
         title: 'Длительность отсчёта',
         control: 'input',
@@ -155,6 +212,7 @@ const propInfo = {
 };
 
 const defaultProps = {
+    startOn: 'onScreen',
     startingNumber: '0',
     endingNumber: 100,
     direction: 'normal',
