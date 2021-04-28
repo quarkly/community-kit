@@ -255,7 +255,8 @@ const defaultProps = {
     timingFunctionProp: 'cubic-bezier(.50,-0.35,.50,1.65)',
     isFlippedProp: false,
 
-    width: '400px',
+    width: '100%',
+    'max-width': '400px',
     perspective: '600px',
     position: 'relative',
 };

@@ -1,11 +1,58 @@
 import React, {
     useState,
     useEffect,
-    useMemo,
     useRef,
     useCallback,
+    useMemo,
 } from 'react';
 import { Box } from '@quarkly/widgets';
+
+class StepTimer extends EventTarget {
+    constructor(delay, interval, steps) {
+        super();
+
+        this.delay = delay || 0;
+        this.interval = interval || 1000;
+        this.steps = steps || 10;
+        this.currentStep = 0;
+
+        this.intervalId = null;
+        this.timeoutId = null;
+    }
+
+    get isRunning() {
+        return this.timeoutId !== null || this.intervalId !== null;
+    }
+
+    start() {
+        if (this.timeoutId || this.intervalId) {
+            console.warn('Timer is already running. Stop it first'); // eslint-disable-line
+            return;
+        }
+
+        this.timeoutId = setTimeout(() => {
+            this.intervalId = setInterval(() => {
+                if (this.currentStep <= this.steps) {
+                    this.currentStep += 1;
+                    const event = new CustomEvent('step', {
+                        detail: this.currentStep,
+                    });
+                    this.dispatchEvent(event);
+                } else {
+                    this.stop();
+                }
+            }, this.interval);
+        }, this.delay);
+    }
+
+    stop() {
+        clearTimeout(this.timeoutId);
+        clearInterval(this.intervalId);
+        this.timeoutId = null;
+        this.intervalId = null;
+        this.currentStep = 0;
+    }
+}
 
 const elementInViewport = (el) => {
     if (!el) return false;
@@ -28,7 +75,79 @@ const elementInViewport = (el) => {
     );
 };
 
+function useCallOnScreenIntersection(cb, elementRef) {
+    const isCalled = useRef(false);
+
+    const checkOnView = useCallback(() => {
+        if (!isCalled.current && elementInViewport(elementRef.current)) {
+            isCalled.current = true;
+            cb();
+            window.removeEventListener('scroll', checkOnView);
+        }
+    }, [cb, elementRef]);
+
+    useEffect(() => {
+        checkOnView();
+        window.addEventListener('scroll', checkOnView);
+        return () => {
+            window.removeEventListener('scroll', checkOnView);
+        };
+    }, [checkOnView]);
+}
+
+function useCallOnPageLoad(cb) {
+    const isCalled = useRef(false);
+
+    useEffect(() => {
+        if (isCalled.current) return;
+
+        if (document.readyState === 'complete') {
+            isCalled.current = true;
+            cb();
+            return;
+        }
+        const t = () => {
+            isCalled.current = true;
+            cb();
+        };
+
+        document.addEventListener('load', t);
+        return () => document.removeEventListener('load', t);
+    });
+}
+
+function useCounter(direction, startingNumber, endingNumber) {
+    const [number, setNumber] = useState(0);
+    const step = useCallback(
+        () =>
+            setNumber((currentNumber) => {
+                if (direction === 'reverse' && currentNumber > startingNumber) {
+                    return currentNumber - 1;
+                }
+                if (currentNumber < endingNumber) {
+                    return currentNumber + 1;
+                }
+
+                return currentNumber;
+            }),
+        [direction, startingNumber, endingNumber]
+    );
+
+    useEffect(() => {
+        setNumber(direction === 'reverse' ? endingNumber : startingNumber);
+    }, [direction, startingNumber, endingNumber]);
+
+    return [number, step];
+}
+
+const startOnHooks = {
+    onScreen: useCallOnScreenIntersection,
+    onLoad: useCallOnPageLoad,
+};
+
 const Counter = ({
+    startOn,
+    delay,
     startingNumber,
     endingNumber,
     direction,
@@ -37,55 +156,37 @@ const Counter = ({
     numberPrefix,
     ...props
 }) => {
+    startingNumber = parseInt(startingNumber, 10) || 0;
+    endingNumber = parseInt(endingNumber, 10) || 10;
+    const useSignal = startOnHooks[startOn] || startOnHooks.onScreen;
+
+    const [currentNumber, step] = useCounter(
+        direction,
+        startingNumber,
+        endingNumber
+    );
+
+    const [startCount, stopCount] = useMemo(() => {
+        const interval = Math.abs(duration / (endingNumber - startingNumber));
+        const steps = Math.abs(endingNumber - startingNumber);
+        const stepTimer = new StepTimer(delay, interval, steps);
+
+        stepTimer.addEventListener('step', () => step());
+
+        return [
+            () => {
+                stepTimer.start();
+            },
+            () => stepTimer.stop(),
+        ];
+    }, [duration, endingNumber, startingNumber, delay, step]);
+
     const refCounter = useRef(null);
-    const [onView, setOnView] = useState(false);
-    const [currentNumber, setCurrentNumber] = useState(
-        direction === 'reverse' ? endingNumber : startingNumber
-    );
-
-    const getDurationOneStep = useMemo(
-        () => duration / (endingNumber - startingNumber),
-        [duration, endingNumber, startingNumber]
-    );
-
-    const checkOnView = useCallback(() => {
-        if (!onView) {
-            if (elementInViewport(refCounter.current)) {
-                setOnView(true);
-                window.removeEventListener('scroll', checkOnView);
-            }
-        }
-    }, [onView]);
+    useSignal(startCount, refCounter);
 
     useEffect(() => {
-        checkOnView();
-        window.addEventListener('scroll', checkOnView);
-        return () => {
-            window.removeEventListener('scroll', checkOnView);
-        };
-    }, [refCounter.current]);
-
-    useEffect(() => {
-        const updateCount = setInterval(() => {
-            if (onView) {
-                if (direction === 'reverse') {
-                    if (currentNumber > startingNumber) {
-                        setCurrentNumber(parseInt(currentNumber, 10) - 1);
-                    } else {
-                        clearInterval(updateCount);
-                    }
-                } else if (currentNumber < endingNumber) {
-                    setCurrentNumber(parseInt(currentNumber, 10) + 1);
-                } else {
-                    clearInterval(updateCount);
-                }
-            }
-        }, getDurationOneStep);
-
-        return () => {
-            clearInterval(updateCount);
-        };
-    }, [direction, currentNumber, onView, startingNumber, endingNumber]);
+        return () => stopCount();
+    }, [stopCount]);
 
     return (
         <Box text-align="center" font-size="58px" {...props} ref={refCounter}>
@@ -98,14 +199,14 @@ const propInfo = {
     startingNumber: {
         title: 'Начальное число',
         control: 'input',
-        type: 'text',
+        type: 'number',
         category: 'Main',
         weight: 0.5,
     },
     endingNumber: {
         title: 'Конечное число',
         control: 'input',
-        type: 'text',
+        type: 'number',
         category: 'Main',
         weight: 0.5,
     },
@@ -131,8 +232,37 @@ const propInfo = {
         category: 'Main',
         weight: 1,
     },
+    startOn: {
+        title: 'Начало отсчёта',
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'On screen intersection',
+                    ru: 'При пересечении экрана',
+                },
+                value: 'onScreen',
+            },
+            {
+                title: {
+                    en: 'On page load',
+                    ru: 'При загрузке страницы',
+                },
+                value: 'onLoad',
+            },
+        ],
+        category: 'Main',
+        weight: 1,
+    },
     duration: {
         title: 'Длительность отсчёта',
+        control: 'input',
+        type: 'number',
+        category: 'Main',
+        weight: 1,
+    },
+    delay: {
+        title: 'Задержка отсчёта',
         control: 'input',
         type: 'number',
         category: 'Main',
@@ -155,12 +285,14 @@ const propInfo = {
 };
 
 const defaultProps = {
-    startingNumber: '0',
+    startOn: 'onScreen',
+    startingNumber: 0,
     endingNumber: 100,
     direction: 'normal',
     duration: 2000,
     numberSuffix: '',
     numberPrefix: '',
+    delay: 0,
 };
 
 Object.assign(Counter, {
