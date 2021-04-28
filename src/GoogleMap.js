@@ -30,11 +30,16 @@ const GoogleMap = atomize(Map)(
         name: 'GoogleMap',
         propInfo: {
             apiKey: {
+                title: 'API Ключ',
                 control: 'input',
+                type: 'text',
                 category: 'Main',
+                weight: 1
             },
             query: {
+                title: 'Место для выделения',
                 control: 'input',
+                type: 'text',
                 category: 'Main',
             },
         },
