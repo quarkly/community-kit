@@ -4,7 +4,6 @@ import { Box } from '@quarkly/widgets';
 
 const overrides = {
     'Wrapper Indicator': {
-        kind: 'Box',
         props: {
             width: '100%',
             height: '5px',
@@ -24,6 +23,7 @@ const overrides = {
             'min-width': '0',
             'min-height': '0',
             background: 'rgba(76, 89, 175, 1);',
+            transition: 'width .6s ease',
         },
     },
 };

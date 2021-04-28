@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Box } from '@quarkly/widgets';
 
 import {
@@ -22,6 +22,10 @@ const useDebounce = (value, timeout) => {
     return state;
 };
 
+const mapOptions = {
+    autoFitToViewport: 'allways',
+};
+
 const YandexMap = ({
     apikey,
     zoomValue,
@@ -36,14 +40,28 @@ const YandexMap = ({
     fullscreenControl,
     ...props
 }) => {
+    const ymapRef = useRef(null);
+    const containerRef = useRef(null);
     const dapiKey = useDebounce(apikey, 2000);
     const key = useDebounce(
         `yandexmap${zoomValue}${latitudeCenter}${longitudeCenter}`,
         2000
     );
 
+    useEffect(() => {
+        if (!ymapRef.current || !containerRef.current) return;
+
+        const resizeObserver = new ResizeObserver(() => {
+            ymapRef.current.container.fitToViewport();
+        });
+
+        resizeObserver.observe(containerRef.current);
+
+        return () => resizeObserver.disconnect();
+    });
+
     return (
-        <Box display="block" {...props}>
+        <Box display="block" {...props} ref={containerRef}>
             <YMaps key={dapiKey} query={{ apikey: dapiKey }}>
                 <Map
                     key={key}
@@ -56,6 +74,9 @@ const YandexMap = ({
                         ],
                         zoom: parseInt(zoomValue, 10),
                     }}
+                    options={mapOptions}
+                    defaultOptions={mapOptions}
+                    instanceRef={ymapRef}
                 >
                     {fullscreenControl && <FullscreenControl />}
                     {geolocationControl && <GeolocationControl />}
