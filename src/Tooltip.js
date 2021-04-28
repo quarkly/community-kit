@@ -453,6 +453,7 @@ const propInfo = {
 const defaultProps = {
     tooltipStatusProp: 'always',
     tooltipPositionProp: 'top',
+    tooltipColorProp: '#000000',
     tooltipOffsetProp: '0',
     contentOffsetProp: `${DEFAULT_OFFSET}px`,
     arrowStatusProp: true,
