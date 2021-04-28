@@ -23,24 +23,24 @@ import {
 import { useOverrides } from '@quarkly/components';
 
 const social = [
-    { icon: FaFacebook, propName: 'facebook' },
-    { icon: FaWhatsapp, propName: 'whatsapp' },
-    { icon: FaTumblr, propName: 'tumblr' },
-    { icon: FaInstagram, propName: 'instagram' },
-    { icon: FaTwitter, propName: 'twitter' },
-    { icon: FaGooglePlus, propName: 'google-plus' },
-    { icon: FaViber, propName: 'viber' },
-    { icon: FaSnapchat, propName: 'snapchat' },
-    { icon: FaVk, propName: 'vkontakte' },
-    { icon: FaPinterest, propName: 'pinterest' },
-    { icon: FaLinkedinIn, propName: 'linked-in' },
-    { icon: FaTelegram, propName: 'telegram' },
-    { icon: FaReddit, propName: 'reddit' },
-    { icon: FaYoutube, propName: 'youtube' },
-    { icon: FaFlickr, propName: 'flikr' },
-    { icon: FaFoursquare, propName: 'foursquare' },
-    { icon: FaDiscord, propName: 'discord' },
-    { icon: FaGithubAlt, propName: 'github' },
+    { icon: FaFacebook, propName: 'facebook', title: 'Facebook' },
+    { icon: FaWhatsapp, propName: 'whatsapp', title: 'WhatsApp' },
+    { icon: FaTumblr, propName: 'tumblr', title: 'Tumblr' },
+    { icon: FaInstagram, propName: 'instagram', title: 'Instagram' },
+    { icon: FaTwitter, propName: 'twitter', title: 'Twitter' },
+    { icon: FaGooglePlus, propName: 'google-plus', title: 'Google+' },
+    { icon: FaViber, propName: 'viber', title: 'Viber' },
+    { icon: FaSnapchat, propName: 'snapchat', title: 'Snapchat' },
+    { icon: FaVk, propName: 'vkontakte', title: 'VKontakte' },
+    { icon: FaPinterest, propName: 'pinterest', title: 'Pinterest' },
+    { icon: FaLinkedinIn, propName: 'linked-in', title: 'LinkedIn' },
+    { icon: FaTelegram, propName: 'telegram', title: 'Telegram' },
+    { icon: FaReddit, propName: 'reddit', title: 'Reddit' },
+    { icon: FaYoutube, propName: 'youtube', title: 'YouTube' },
+    { icon: FaFlickr, propName: 'flikr', title: 'Flickr' },
+    { icon: FaFoursquare, propName: 'foursquare', title: 'Foursquare' },
+    { icon: FaDiscord, propName: 'discord', title: 'Discord' },
+    { icon: FaGithubAlt, propName: 'github', title: 'GitHub' },
 ];
 
 const socialProps = social.reduce(
@@ -119,11 +119,13 @@ const propInfo = {
     },
 };
 
-social.forEach(({ propName }) => {
+social.forEach(({ propName, title }) => {
     propInfo[propName] = {
-        weight: 1,
+        title,
         control: 'input',
+        type: 'text',
         category: 'Social Links',
+        weight: 1,
     };
 });
 
