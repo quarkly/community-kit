@@ -34,7 +34,7 @@ const GoogleMap = atomize(Map)(
                 control: 'input',
                 type: 'text',
                 category: 'Main',
-                weight: 1
+                weight: 1,
             },
             query: {
                 title: 'Место для выделения',
