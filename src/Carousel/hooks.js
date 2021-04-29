@@ -1,4 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { useReducerAsync } from 'use-reducer-async';
+import { initialState, rootReducer, asyncActionsHandlers } from './store';
 
 export function useResizeObserver(containerRef, resizeHandler) {
     useEffect(() => {
@@ -47,4 +49,20 @@ export function useSliderResize(aspectRatio) {
     useResizeObserver(sliderRef, handleResize);
 
     return [sliderRef, width, height];
+}
+
+export function useRootState({ slidesProp, durationProp }) {
+    const [state, dispatch] = useReducerAsync(
+        rootReducer,
+        initialState,
+        asyncActionsHandlers
+    );
+
+    useEffect(() => {
+        dispatch({ type: 'INIT', slidesProp, durationProp });
+
+        return () => dispatch({ type: 'DEINIT' });
+    }, [dispatch, slidesProp, durationProp]);
+
+    return [state, dispatch];
 }

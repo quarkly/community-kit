@@ -3,12 +3,8 @@ import React, { useCallback } from 'react';
 import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 
-import Arrow from './Arrow';
-import Point from './Point';
-import Slide from './Slide';
-import useRootState from './rootState';
-
-import { useSliderResize } from './hooks';
+import { Arrow, Point, Slide } from './components';
+import { useSliderResize, useRootState } from './hooks';
 
 const overrides = {
     Slides: {
