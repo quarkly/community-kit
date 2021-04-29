@@ -4,7 +4,7 @@ import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 
 import { Arrow, Point, Slide } from './components';
-import { useSliderResize, useRootState } from './hooks';
+import { useSliderResize, useRootState, useKeyboardArrows } from './hooks';
 
 const overrides = {
     Slides: {
@@ -270,6 +270,8 @@ const CarouselComponent = ({
     const clickNext = useCallback(() => {
         dispatch({ type: 'CHANGE_NEXT_SLIDE' });
     }, [dispatch]);
+
+    useKeyboardArrows(sliderRef, clickNext, clickPrev);
 
     return (
         <Box {...rest} ref={sliderRef} overflow="hidden">

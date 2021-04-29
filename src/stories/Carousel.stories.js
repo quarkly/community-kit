@@ -8,6 +8,6 @@ export default {
     },
 };
 
-export const Story1 = () => <Carousel autoChange autoChangeType="infinite" />;
+export const Story1 = () => <Carousel />;
 
 Story1.storyName = 'Базовое использование';
