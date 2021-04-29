@@ -10,8 +10,9 @@ export default {
 
     animationTimerId: null,
 
-    autoChangeSlides: false,
-    animationType: 'infinite',
+    autoPlay: false,
+    autoPlayBehavior: 'infinite',
+    autoPlayDuration: 1000,
 
     autoChangeIntervalId: null,
 };

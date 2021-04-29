@@ -1,6 +1,6 @@
 export function init(
     state,
-    { slidesProp, durationProp, autoChange, autoChangeType }
+    { slidesProp, durationProp, autoPlay, autoPlayBehavior, autoPlayDuration }
 ) {
     const slides = parseInt(slidesProp, 10) > 0 ? parseInt(slidesProp, 10) : 1;
     const duration =
@@ -16,8 +16,9 @@ export function init(
         slides,
         duration,
         list,
-        autoChange,
-        autoChangeType,
+        autoPlay,
+        autoPlayBehavior,
+        autoPlayDuration,
     };
 }
 

@@ -54,8 +54,9 @@ export function useSliderResize(aspectRatio) {
 export function useRootState({
     slidesProp,
     durationProp,
-    autoChange,
-    autoChangeType,
+    autoPlay,
+    autoPlayBehavior,
+    autoPlayDuration,
 }) {
     const [state, dispatch] = useReducerAsync(
         rootReducer,
@@ -68,17 +69,26 @@ export function useRootState({
             type: 'INIT',
             slidesProp,
             durationProp,
-            autoChange,
-            autoChangeType,
+            autoPlay,
+            autoPlayBehavior,
+            autoPlayDuration,
         });
         dispatch({
             type: 'ASYNC_INIT',
-            autoChange,
-            autoChangeType,
+            autoPlay,
+            autoPlayBehavior,
+            autoPlayDuration,
         });
 
         return () => dispatch({ type: 'DEINIT' });
-    }, [dispatch, slidesProp, durationProp, autoChange, autoChangeType]);
+    }, [
+        dispatch,
+        slidesProp,
+        durationProp,
+        autoPlay,
+        autoPlayBehavior,
+        autoPlayDuration,
+    ]);
 
     return [state, dispatch];
 }

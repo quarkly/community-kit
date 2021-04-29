@@ -237,8 +237,9 @@ const CarouselComponent = ({
     showHead,
     showText,
     showLink,
-    autoChange,
-    autoChangeType,
+    autoPlay,
+    autoPlayBehavior,
+    autoPlayDuration,
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
@@ -250,8 +251,9 @@ const CarouselComponent = ({
     ] = useRootState({
         slidesProp,
         durationProp,
-        autoChange,
-        autoChangeType,
+        autoPlay,
+        autoPlayBehavior,
+        autoPlayDuration,
     });
 
     const clickNumb = useCallback(
@@ -414,15 +416,20 @@ const propInfo = {
         category: 'Content',
         weight: 0.5,
     },
-    autoChange: {
+    autoPlay: {
         title: 'Авто-переключение слайдов',
         control: 'checkbox',
         category: 'Animation',
     },
-    autoChangeType: {
+    autoPlayBehavior: {
         title: 'Тип авто-переключения',
         control: 'input',
         variants: ['infinite', 'range'],
+        type: 'text',
+    },
+    autoPlayDuration: {
+        title: 'Время авто-переключения',
+        control: 'input',
         type: 'text',
     },
 };
@@ -438,8 +445,9 @@ const defaultProps = {
     showText: true,
     showLink: true,
 
-    autoChange: false,
-    autoChangeType: 'infinite',
+    autoPlay: false,
+    autoPlayBehavior: 'infinite',
+    autoPlayDuration: 1000,
 
     position: 'relative',
     'align-self': 'normal',

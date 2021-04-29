@@ -1,22 +1,23 @@
 export const init = ({ dispatch, getState }) => async ({
-    autoChange,
-    autoChangeType,
+    autoPlay,
+    autoPlayBehavior,
+    autoPlayDuration,
 }) => {
     const changeNextSlideFunc = changeNextSlide({ dispatch, getState });
 
-    if (!autoChange) return;
+    if (!autoPlay) return;
 
     const autoChangeIntervalId = setInterval(() => {
         const { active, slides } = getState();
 
-        if (autoChangeType === 'range' && active >= slides) {
+        if (autoPlayBehavior === 'range' && active >= slides) {
             clearInterval(autoChangeIntervalId);
             dispatch({ type: 'SET_DATA', autoChangeIntervalId: null });
             return;
         }
 
         changeNextSlideFunc();
-    }, 1000);
+    }, parseInt(autoPlayDuration, 10) || 1000);
 
     dispatch({ type: 'SET_DATA', autoChangeIntervalId });
 };
