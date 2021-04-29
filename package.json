@@ -14,7 +14,8 @@
     "react-vk": "^5.0.2",
     "react-yandex-maps": "^4.6.0",
     "react-youtube": "^7.13.1",
-    "use-deep-compare-effect": "^1.6.1"
+    "use-deep-compare-effect": "^1.6.1",
+    "use-reducer-async": "^2.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.13",
