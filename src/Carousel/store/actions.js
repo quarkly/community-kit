@@ -1,4 +1,7 @@
-export function init(state, { slidesProp, durationProp }) {
+export function init(
+    state,
+    { slidesProp, durationProp, autoChange, autoChangeType }
+) {
     const slides = parseInt(slidesProp, 10) > 0 ? parseInt(slidesProp, 10) : 1;
     const duration =
         parseFloat(durationProp) > 0 ? parseFloat(durationProp) * 1000 : 0;
@@ -13,6 +16,8 @@ export function init(state, { slidesProp, durationProp }) {
         slides,
         duration,
         list,
+        autoChange,
+        autoChangeType,
     };
 }
 
@@ -38,6 +43,19 @@ export function clickNumb(state, { active }) {
     };
 }
 
-export function setParam(state, { param, value }) {
-    return { ...state, [param]: value };
+export function setData(state, { type, ...params }) {
+    return { ...state, ...params };
+}
+
+export function deinit(state) {
+    const { animationTimerId, autoChangeIntervalId } = state;
+
+    clearTimeout(animationTimerId);
+    clearInterval(autoChangeIntervalId);
+
+    return {
+        ...state,
+        animationTimerId: null,
+        autoChangeIntervalId: null,
+    };
 }

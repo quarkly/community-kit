@@ -9,4 +9,9 @@ export default {
     list: [],
 
     animationTimerId: null,
+
+    autoChangeSlides: false,
+    animationType: 'infinite',
+
+    autoChangeIntervalId: null,
 };

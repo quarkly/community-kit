@@ -23,7 +23,7 @@ export function useSliderResize(aspectRatio) {
     });
 
     const handleResize = useCallback(
-        (el) => {
+        el => {
             const sliderWidth =
                 el instanceof Element
                     ? el.offsetWidth
@@ -51,7 +51,12 @@ export function useSliderResize(aspectRatio) {
     return [sliderRef, width, height];
 }
 
-export function useRootState({ slidesProp, durationProp }) {
+export function useRootState({
+    slidesProp,
+    durationProp,
+    autoChange,
+    autoChangeType,
+}) {
     const [state, dispatch] = useReducerAsync(
         rootReducer,
         initialState,
@@ -59,10 +64,21 @@ export function useRootState({ slidesProp, durationProp }) {
     );
 
     useEffect(() => {
-        dispatch({ type: 'INIT', slidesProp, durationProp });
+        dispatch({
+            type: 'INIT',
+            slidesProp,
+            durationProp,
+            autoChange,
+            autoChangeType,
+        });
+        dispatch({
+            type: 'ASYNC_INIT',
+            autoChange,
+            autoChangeType,
+        });
 
         return () => dispatch({ type: 'DEINIT' });
-    }, [dispatch, slidesProp, durationProp]);
+    }, [dispatch, slidesProp, durationProp, autoChange, autoChangeType]);
 
     return [state, dispatch];
 }

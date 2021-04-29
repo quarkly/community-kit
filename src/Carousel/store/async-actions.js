@@ -1,3 +1,26 @@
+export const init = ({ dispatch, getState }) => async ({
+    autoChange,
+    autoChangeType,
+}) => {
+    const changeNextSlideFunc = changeNextSlide({ dispatch, getState });
+
+    if (!autoChange) return;
+
+    const autoChangeIntervalId = setInterval(() => {
+        const { active, slides } = getState();
+
+        if (autoChangeType === 'range' && active >= slides) {
+            clearInterval(autoChangeIntervalId);
+            dispatch({ type: 'SET_DATA', autoChangeIntervalId: null });
+            return;
+        }
+
+        changeNextSlideFunc();
+    }, 1000);
+
+    dispatch({ type: 'SET_DATA', autoChangeIntervalId });
+};
+
 export const changePrevSlide = ({ dispatch, getState }) => async () => {
     const { lock, active, slides, duration, animationTimerId } = getState();
 
@@ -26,7 +49,7 @@ export const changePrevSlide = ({ dispatch, getState }) => async () => {
             });
         }, duration);
 
-        dispatch({ type: 'SET_PARAM', param: 'animationTimerId', value: tId });
+        dispatch({ type: 'SET_DATA', animationTimerId: tId });
     } else {
         dispatch({
             type: 'SET_SLIDE',
@@ -54,6 +77,7 @@ export const changeNextSlide = ({ dispatch, getState }) => async () => {
             lock: true,
         });
         clearTimeout(animationTimerId);
+
         const tId = setTimeout(() => {
             dispatch({
                 type: 'SET_SLIDE',
@@ -63,7 +87,7 @@ export const changeNextSlide = ({ dispatch, getState }) => async () => {
                 lock: false,
             });
         }, duration);
-        dispatch({ type: 'SET_PARAM', param: 'animationTimerId', value: tId });
+        dispatch({ type: 'SET_DATA', animationTimerId: tId });
     } else {
         dispatch({
             type: 'SET_SLIDE',
