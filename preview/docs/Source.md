@@ -1,7 +1,7 @@
 ## 📖 Detailed overview
 
-Компонент для добавления нескольких медиа-ресурсов. Является дочерним компонентом для `Audio`, `Video` и `Picture`.
-Позволяет браузеру выбрать один из предложенных, в зависимости от того какой он кодек или носитель он поддерживает.
+This component helps you add multiple media sources. It's a child component for the `Audio`, `Video` and `Picture` components.
+It allows the browser to select one of the given sources depending on which codec or media it supports.
 
 ## 🎬 Live Demo
 
@@ -9,31 +9,31 @@
 
 ## ⚙️ Usage
 
-1.  Добавьте внутрь компонента `Audio`, `Video` или `Picture`
-2.  Укажите `Ссылку на аудио или видео файл` или `Источники изображений` на панели Props
-3.  Посмотрите как он работает в режиме превью
+1.  Add the component to the `Audio`, `Video`, or `Picture` components
+2.  Specify `Audio or video file link` or `Image sources` on the Props panel
+3.  Check how it works in the preview mode
 
-### Источники изображений и размеры контейнера
+### Image sources and container size
 
-Свойства `Источники изображений` и `Размеры контейнера` позволяют явно определить изображение и его размер, которые должны быть использованы, в зависимости от условий `Медиа запроса для вывода изображения`. Подробнее об этом можно прочитать здесь: [developer.mozilla.org](https://developer.mozilla.org/ru/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
+The `Image sources` and `Container size` props allow you to explicitly define the image and its size to be used depending on the `Media query for image download` conditions. You can read more about it here: [developer.mozilla.org](https://developer.mozilla.org/ru/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
 
 ## 🧩 Components and Props
 
-| Названия свойств                    |   Type   | Default |
-| :---------------------------------- | :------: | :-----: |
-| Ссылка на аудио или видео файл      | `string` |   `-`   |
-| MIME-тип аудио или видео контента   |  `enum`  | `none`  |
-| Аудио и видео кодеки                | `string` | `none`  |
-| Источники изображений               | `string` | `none`  |
-| Размеры контейнера                  | `string` | `none`  |
-| Категория устройства                |  `enum`  |  `all`  |
-| Медиа запрос для вывода изображения | `string` | `none`  |
-| MIME-тип изображения                |  `enum`  | `none`  |
+| Prop Name                      |   Type   | Default |
+| :----------------------------- | :------: | :-----: |
+| Audio or video file link       | `string` |   `-`   |
+| MIME type audio or video       |  `enum`  | `none`  |
+| Audio and video codecs         | `string` | `none`  |
+| Image sources                  | `string` | `none`  |
+| Container size                 | `string` | `none`  |
+| Device category                |  `enum`  |  `all`  |
+| Media query for image download | `string` | `none`  |
+| MIME type image                |  `enum`  | `none`  |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
