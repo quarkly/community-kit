@@ -56,7 +56,7 @@ const SoundCloud = ({ type, url, ...props }) => {
                 setErrorText('');
             })
             .catch(() => {
-                setErrorText('Неверная ссылка');
+                setErrorText('Invalid URL');
             });
     }
 
@@ -78,14 +78,20 @@ const SoundCloud = ({ type, url, ...props }) => {
 
 const propInfo = {
     type: {
-        title: 'Тип проигрывателя',
+        title: {
+            en: 'Player type',
+            ru: 'Тип проигрывателя',
+        },
         control: 'radio-group',
         variants: ['standart', 'visual'],
         category: 'Main',
         weight: 1,
     },
     url: {
-        title: 'Ссылка на трек',
+        title: {
+            en: 'Link to the track',
+            ru: 'Ссылка на трек',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
@@ -98,7 +104,11 @@ const defaultProps = {
 };
 
 Object.assign(SoundCloud, {
-    title: 'SoundCloud Component',
+    title: 'SoundCloud',
+    description: {
+        en: 'This component allows you to add the SoundCloud audio player',
+        ru: 'Компонент для добавления аудиопроигрыватель сервиса SoundCloud',
+    },
     propInfo,
     defaultProps,
 });

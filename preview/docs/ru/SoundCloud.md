@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This component allows you to add the SoundCloud audio player
+Компонент для добавления аудиопроигрыватель сервиса SoundCloud
 
 ## 🎬 Live Demo
 
@@ -8,19 +8,19 @@ This component allows you to add the SoundCloud audio player
 
 ## ⚙️ Usage
 
-Add the component to the page, enter the `Link to the track`, and check how it works in the preview mode.
+Добавьте компонент на страницу, укажите `Ссылку на трек` и посмотрите как он работает в режиме превью.
 
 ## 🧩 Components and Props
 
 | Props Name        |   Type   |  Default   |
 | :---------------- | :------: | :--------: |
-| Player type       | `enum `  | `standart` |
-| Link to the track | `string` |    `-`     |
+| Тип проигрывателя | `enum `  | `standart` |
+| Ссылка на трек    | `string` |    `-`     |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   First version
+-   Первая версия
 
 ## 📮 Feedback
 
