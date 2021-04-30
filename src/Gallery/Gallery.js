@@ -389,53 +389,68 @@ const Gallery = ({
 
 const propInfo = {
     galleryItemNumbProp: {
-        title: 'Количество изображений',
+        title: {
+            en: 'Number of images',
+            ru: 'Количество изображений',
+        },
         control: 'input',
         type: 'text',
         category: 'Gallery',
         weight: 1,
     },
     columnsCountProp: {
-        title: 'Количество столбцов',
+        title: {
+            en: 'Number of columns',
+            ru: 'Количество столбцов',
+        },
         control: 'input',
         type: 'text',
         category: 'Gallery',
         weight: 1,
     },
     borderWidthProp: {
-        title: 'Ширина отступов',
+        title: {
+            en: 'Indent width',
+            ru: 'Ширина отступов',
+        },
         control: 'input',
         type: 'text',
         category: 'Gallery',
         weight: 1,
     },
     autoFillInProp: {
-        title: 'Автоматически заполнять свободные места',
+        title: {
+            en: 'Fill the gaps automatically',
+            ru: 'Автоматически заполнять свободные места',
+        },
         control: 'checkbox',
         category: 'Gallery',
         weight: 1,
     },
     loaderFormatProp: {
-        title: 'Загрузка изображений',
+        title: {
+            en: 'Images loading',
+            ru: 'Загрузка изображений',
+        },
         control: 'radio-group',
         variants: [
             {
                 title: {
-                    en: 'Все сразу',
+                    en: 'All',
                     ru: 'Все сразу',
                 },
                 value: 'all',
             },
             {
                 title: {
-                    en: 'При прокрутке',
+                    en: 'On scroll',
                     ru: 'При прокрутке',
                 },
                 value: 'scroll',
             },
             {
                 title: {
-                    en: 'По кнопке',
+                    en: 'On click',
                     ru: 'По кнопке',
                 },
                 value: 'click',
@@ -445,7 +460,10 @@ const propInfo = {
         weight: 1,
     },
     aspectRatioProp: {
-        title: 'Соотношение сторон изображений',
+        title: {
+            en: 'Image aspect ratio',
+            ru: 'Соотношение сторон изображений',
+        },
         control: 'select',
         variants: [
             {
@@ -467,33 +485,48 @@ const propInfo = {
         weight: 1,
     },
     imagesMaxWidthProp: {
-        title: 'Максимальная ширина изображений',
+        title: {
+            en: 'Minimum width of images',
+            ru: 'Максимальная ширина изображений',
+        },
         control: 'input',
         type: 'text',
         category: 'Images',
         weight: 1,
     },
     imagesMinWidthProp: {
-        title: 'Минимальная ширина изображений',
+        title: {
+            en: 'Maximum width of images',
+            ru: 'Минимальная ширина изображений',
+        },
         control: 'input',
         type: 'text',
         category: 'Images',
         weight: 1,
     },
     hideLoaderPreviewImage: {
-        title: 'Отключить лоадер для превью',
+        title: {
+            en: 'Disable loader for preview',
+            ru: 'Отключить лоадер для превью',
+        },
         control: 'checkbox',
         category: 'Images',
         weight: 1,
     },
     offScrollProp: {
-        title: 'Отключить прокрутку',
+        title: {
+            en: 'Disable scroll',
+            ru: 'Отключить прокрутку',
+        },
         control: 'checkbox',
         category: 'Lightbox',
         weight: 1,
     },
     hideLoaderFullImage: {
-        title: 'Отключить лоадер для лайтбокса',
+        title: {
+            en: 'Disable loader for lightbox',
+            ru: 'Отключить лоадер для лайтбокса',
+        },
         control: 'checkbox',
         category: 'Lightbox',
         weight: 1,
@@ -516,6 +549,11 @@ const defaultProps = {
 };
 
 Object.assign(Gallery, {
+    title: 'Gallery',
+    description: {
+        en: 'This component contains images and can be used to show a portfolio, services, or products',
+        ru: 'Компонент для демонстрации портфолио, иллюстрации услуг и товаров',
+    },
     overrides,
     propInfo,
     defaultProps,
