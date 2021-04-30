@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This container component provides an optimized image version for different screen sizes.
+Компонент-контейнер для обеспечения оптимальной версии изображения для различных размеров экрана.
 
 ## 🎬 Live Demo
 
@@ -8,12 +8,12 @@ This container component provides an optimized image version for different scree
 
 ## ⚙️ Usage
 
-Add the component to the page, put the `Image` and `Source` (optional) components in it, and see how it works in the preview mode.
+Добавьте компонент на страницу, поместите в него компоненты `Image` и `Source` (опционально), затем посмотрите как он работает в режиме превью.
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   First version
+-   Первая версия
 
 ## 📮 Feedback
 
