@@ -145,41 +145,74 @@ const BgImageParallax = ({
 
 const propInfo = {
     imageURL: {
-        title: 'Изображение',
+        title: {
+            en: 'Image',
+            ru: 'Изображение',
+        },
         control: 'image',
         category: 'Image',
         weight: 1,
     },
     imageSize: {
-        title: 'Размер изображения',
+        title: {
+            en: 'Image size',
+            ru: 'Размер изображения',
+        },
         control: 'input',
         variants: ['cover', '100%', '150%', '200%', '250%'],
         category: 'Image',
         weight: 0.5,
     },
     imagePosition: {
-        title: 'Выравнивание изображения',
+        title: {
+            en: 'Image alignment',
+            ru: 'Выравнивание изображения',
+        },
         control: 'radio-group',
         variants: ['left', 'center', 'right'],
         category: 'Image',
         weight: 0.5,
     },
     imageRepeat: {
-        title: 'Повтор изображения',
+        title: {
+            en: 'Repeat image',
+            ru: 'Повтор изображения',
+        },
         control: 'radio-group',
-        variants: ['repeat', 'no-repeat'],
+        variants: [
+            {
+                title: {
+                    en: 'Repeat',
+                    ru: 'Повторять',
+                },
+                value: 'repeat'
+            },
+            {
+                title: {
+                    en: 'Don\'t repeat',
+                    ru: 'Не повторять',
+                },
+                value: 'no-repeat'
+            }
+        ],
         category: 'Image',
         weight: 1,
     },
     scrollSpeedProp: {
-        title: 'Скорость прокрутки',
+        title: {
+            en: 'Scroll speed',
+            ru: 'Скорость прокрутки',
+        },
         control: 'input',
         variants: ['0', '0.25', '0.5', '0.75', '1', '2', '5', '10'],
         category: 'Scroll',
         weight: 0.5,
     },
     scrollInertiaProp: {
-        title: 'Инерция прокрутки',
+        title: {
+            en: 'Scroll inertia',
+            ru: 'Инерция прокрутки',
+        },
         control: 'input',
         variants: ['1', '2', '5', '10'],
         category: 'Scroll',
@@ -207,8 +240,15 @@ const defaultProps = {
     overflow: 'hidden',
 };
 
-export default Object.assign(BgImageParallax, {
+Object.assign(BgImageParallax, {
+    title: 'Background image Parallax',
+    description: {
+        en: 'Use this component to create parallax effect',
+        ru: 'Компонент для создания эффекта "параллакс" фонового изображения',
+    },
     propInfo,
     defaultProps,
     overrides,
 });
+
+export default BgImageParallax;
