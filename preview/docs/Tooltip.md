@@ -18,8 +18,8 @@ If the `Auto position change` prop is enabled, the tooltip will automatically ch
 
 | Prop name                |   Type   |    Default     |
 | :----------------------- | :------: | :------------: |
-| Show Tooltip             |  `enum`  |    `Всегда`    |
-| Tooltip position         |  `enum`  |    `Сверху`    |
+| Show Tooltip             |  `enum`  |    `Always`    |
+| Tooltip position         |  `enum`  |     `Top`      |
 | Edges indent             | `string` |      `0`       |
 | Content indent           |  `bool`  |     `4px`      |
 | Tooltip background color | `string` | `--color-dark` |
