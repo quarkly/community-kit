@@ -388,7 +388,7 @@ const MobileSidePanel = ({
                         {children}
                     </Box>
                     {isEmpty && (
-                        <ComponentNotice message="Drag component here" />
+                        <ComponentNotice message="Drag any component here" />
                     )}
                 </Box>
             </Box>
@@ -398,7 +398,10 @@ const MobileSidePanel = ({
 
 const propInfo = {
     breakpoint: {
-        title: 'Переключать мобильный вид на breakpoint',
+        title: {
+            en: 'Switch mobile view on breakpoint',
+            ru: 'Переключать мобильный вид на breakpoint',
+        },
         control: 'input',
         type: 'text',
         variants: ['all', 'sm', 'md', 'lg'],
@@ -406,33 +409,36 @@ const propInfo = {
         weight: 1,
     },
     menuPosition: {
-        title: 'Положение панели в мобильном виде',
+        title: {
+            en: 'Panel position in mobile view',
+            ru: 'Положение панели в мобильном виде',
+        },
         control: 'select',
         variants: [
             {
                 title: {
-                    en: 'На весь экран',
+                    en: 'Fullscreen',
                     ru: 'На весь экран',
                 },
                 value: 'full',
             },
             {
                 title: {
-                    en: 'По левому краю',
+                    en: 'Align Left',
                     ru: 'По левому краю',
                 },
                 value: 'left',
             },
             {
                 title: {
-                    en: 'По правому краю',
+                    en: 'Align Right',
                     ru: 'По правому краю',
                 },
                 value: 'right',
             },
             {
                 title: {
-                    en: 'Возле кнопки',
+                    en: 'Near the button',
                     ru: 'Возле кнопки',
                 },
                 value: 'near',
@@ -443,7 +449,10 @@ const propInfo = {
         weight: 1,
     },
     animDuration: {
-        title: 'Длительность появления и скрытия',
+        title: {
+            en: 'Duration of show/hide',
+            ru: 'Длительность появления и скрытия',
+        },
         control: 'input',
         type: 'text',
         variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
@@ -451,7 +460,10 @@ const propInfo = {
         weight: 1,
     },
     animFunction: {
-        title: 'Функция сглаживания анимации',
+        title: {
+            en: 'Animation timing function',
+            ru: 'Функция сглаживания анимации',
+        },
         control: 'input',
         variants: [
             'linear',
@@ -484,6 +496,11 @@ const defaultProps = {
 };
 
 Object.assign(MobileSidePanel, {
+    title: 'Mobile side panel',
+    description: {
+        en: 'Container to hide menu or any other content in the mobile version of the site',
+        ru: 'Контейнер для скрытия меню или любого другого контента в мобильной версии сайта',
+    },
     propInfo,
     defaultProps,
     overrides,
