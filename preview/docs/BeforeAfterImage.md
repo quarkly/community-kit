@@ -1,7 +1,7 @@
 ## 📖 Detailed overview
 
-Компонент позволяет легко выделить различия между двумя изображениями 'до' и 'после' простым перемещением по ним.
-Например, можно показать автомобиль до и после покраски, комнату до и после ремонта, мебель до и после восстановления, и т.д.
+This component allows you to easily identify the differences between two 'before' and 'after' images simply by moving around them.
+For example, you can show a car before and after painting, a room before and after repair, furniture before and after restoration, etc.
 
 ## 🎬 Live Demo
 
@@ -9,23 +9,23 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
+Add the component to the page and check how it works in the preview mode.
 
-### Изменение изображений
+### Image changing
 
-Чтобы добавить своё изображение, выберете соответствующее в компоненте и укажите на панели `Props` значение для свойства `src`.
+To add a custom image, select it in the component and set the value to the `src` prop on the `Props` panel.
 
 ## 🧩 Components and Props
 
-| Названия свойств      |  Type  |    Example     |
-| :-------------------- | :----: | :------------: |
-| Соотношение сторон    | `enum` |     `4:3`      |
-| Способ взаимодействия | `enum` | `При движении` |
+| Prop name          |  Type  |       Example        |
+| :----------------- | :----: | :------------------: |
+| Aspect ratio       | `enum` |        `4:3`         |
+| Interaction method | `enum` | `When moving around` |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
