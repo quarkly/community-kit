@@ -85,7 +85,7 @@ const VKComments = ({
                     />
                 </VK>
             ) : (
-                <ComponentNotice message="Добавьте ID вашего приложения VK на панели props" />
+                <ComponentNotice message="Add your VK app ID in the Props panel" />
             )}
         </Box>
     );
@@ -93,71 +93,104 @@ const VKComments = ({
 
 const propInfo = {
     apiId: {
-        title: 'ID приложения VK',
+        title: {
+            en: 'VK app ID',
+            ru: 'ID приложения VK',
+        },
         control: 'input',
         type: 'text',
         category: ' Main',
         weight: 1,
     },
     pageId: {
-        title: 'ID страницы VK',
+        title: {
+            en: 'VK page ID',
+            ru: 'ID страницы VK',
+        },
         control: 'input',
         type: 'text',
         category: ' Main',
         weight: 1,
     },
     limit: {
-        title: 'Макс. комментариев',
+        title: {
+            en: 'Max. comments',
+            ru: 'Макс. комментариев',
+        },
         control: 'input',
         type: 'text',
         category: 'Advanced',
         weight: 0.5,
     },
     autoPublish: {
-        title: 'Автопубликация',
+        title: {
+            en: 'Auto publishing',
+            ru: 'Автопубликация',
+        },
         control: 'checkbox',
         category: 'Advanced',
         weight: 0.5,
     },
     realtime: {
-        title: 'Обновлять в реальном времени',
+        title: {
+            en: 'Update in real time',
+            ru: 'Обновлять в реальном времени',
+        },
         control: 'checkbox',
         category: 'Advanced',
         weight: 0.5,
     },
     pageUrl: {
-        title: 'Ссылка на страницу с виджетом',
+        title: {
+            en: 'Link to the page with the widget',
+            ru: 'Ссылка на страницу с виджетом',
+        },
         control: 'input',
         type: 'text',
         category: 'Advanced',
         weight: 0.5,
     },
     attachGraffiti: {
-        title: 'Добавлять граффити',
+        title: {
+            en: 'Add graffiti',
+            ru: 'Добавлять граффити',
+        },
         control: 'checkbox',
         category: 'Attach',
         weight: 0.5,
     },
     attachPhoto: {
-        title: 'Добавлять фотографии',
+        title: {
+            en: 'Add photo',
+            ru: 'Добавлять фотографии',
+        },
         control: 'checkbox',
         category: 'Attach',
         weight: 0.5,
     },
     attachAudio: {
-        title: 'Добавлять аудио',
+        title: {
+            en: 'Add audio',
+            ru: 'Добавлять аудио',
+        },
         control: 'checkbox',
         category: 'Attach',
         weight: 0.5,
     },
     attachVideo: {
-        title: 'Добавлять видео',
+        title: {
+            en: 'Add video',
+            ru: 'Добавлять видео',
+        },
         control: 'checkbox',
         category: 'Attach',
         weight: 0.5,
     },
     attachLink: {
-        title: 'Добавлять ссылки',
+        title: {
+            en: 'Add link',
+            ru: 'Добавлять ссылки',
+        },
         control: 'checkbox',
         category: 'Attach',
         weight: 0.5,
@@ -181,6 +214,11 @@ const defaultProps = {
 };
 
 Object.assign(VKComments, {
+    title: 'VK Comments',
+    description: {
+        en: 'This component shows a form with VK community comments',
+        ru: 'Компонент показывает форму с комментариями сообщества VK',
+    },
     propInfo,
     defaultProps,
 });

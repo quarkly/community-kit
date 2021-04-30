@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент показывает форму с комментариями сообщества VK.
+This component shows a form with VK community comments.
 
 ## 🎬 Live Demo
 
@@ -8,36 +8,35 @@
 
 ## ⚙️ Usage
 
- 1. Добавьте компонент на страницу
- 2. Укажите ваш `ID приложения VK` и `ID страницы VK`
- 3. Посмотрите как он работает в режиме превью
+1.  Add the component to the page
+2.  Enter the `VK app ID` and `VK page ID`
+3.  See how it works in the preview mode
 
-### Приложение VK
+### VK app
 
-Для работы компонента необходимо создать виджет комментария на сайте VK.
-Сделать это можно по ссылке [VK Comment](https://vk.com/dev/comments)
-
+For the component to work, create a comment widget on the VK site.
+To do it, follow the link [VK Comment](https://vk.com/dev/comments)
 
 ## 🧩 Components and Props
 
-| Названия свойств              |   Type    | Default |  Example  |
-| :---------------------------- | :-------: | :-----: | :-------: |
-| ID приложения VK              | `string`  | `none`  | `1234567` |
-| ID страницы VK                | `string`  | `none`  | `some_id` |
-| Макс. комментариев            | `number`  |   `5`   |   `20`    |
-| Автопубликация                | `boolean` | `false` |  `true`   |
-| Обновлять в реальном времени  | `boolean` | `true`  |  `false`  |
-| Ссылка на страницу с виджетом | `string`  |   `-`   |    `-`    |
-| Добавлять граффити            | `boolean` | `true`  |  `false`  |
-| Добавлять фотографии          | `boolean` | `true`  |  `false`  |
-| Добавлять аудио               | `boolean` | `true`  |  `false`  |
-| Добавлять видео               | `boolean` | `true`  |  `false`  |
-| Добавлять ссылки              | `boolean` | `true`  |  `false`  |
+| Prop Name                        |   Type    | Default |  Example  |
+| :------------------------------- | :-------: | :-----: | :-------: |
+| VK app ID                        | `string`  | `none`  | `1234567` |
+| VK page ID                       | `string`  | `none`  | `some_id` |
+| Max. comments                    | `number`  |   `5`   |   `20`    |
+| Auto publishing                  | `boolean` | `false` |  `true`   |
+| Update in real time              | `boolean` | `true`  |  `false`  |
+| Link to the page with the widget | `string`  |   `-`   |    `-`    |
+| Add graffiti                     | `boolean` | `true`  |  `false`  |
+| Add photo                        | `boolean` | `true`  |  `false`  |
+| Add audio                        | `boolean` | `true`  |  `false`  |
+| Add video                        | `boolean` | `true`  |  `false`  |
+| Add link                         | `boolean` | `true`  |  `false`  |
 
 ## 🗓 Changelog
 
- - 21/04/2021 (v1.0)
- - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
