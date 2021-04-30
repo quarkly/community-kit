@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This component allows you to add links to your social media profiles or communities to your page.
+Набор ссылок на ваши страницы профилей или группы в социальных сетях.
 
 ## 🎬 Live Demo
 
@@ -8,11 +8,11 @@ This component allows you to add links to your social media profiles or communit
 
 ## ⚙️ Usage
 
-Add the component to the page, enter the `Links to accounts`, and check how it works in the preview mode.
+Добавьте компонент на страницу, укажите `Ссылки на страницы профиля` и посмотрите как он работает в режиме превью.
 
-### Social media
+### Социальные сети
 
-The following social media are available for the component:
+В компоненте доступны следующие социальные сети:
 
 -   Facebook
 -   WhatsApp
@@ -35,14 +35,14 @@ The following social media are available for the component:
 
 ## 🧩 Components and Props
 
-| Prop Name         |   Type   | Default |
-| :---------------- | :------: | :-----: |
-| Links to accounts | `string` |   `-`   |
+| Названия свойств           |   Type   | Default |
+| :------------------------- | :------: | :-----: |
+| Ссылки на страницы профиля | `string` |   `-`   |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   First version
+-   Первая версия
 
 ## 📮 Feedback
 

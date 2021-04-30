@@ -130,9 +130,14 @@ social.forEach(({ propName, title }) => {
 });
 
 Object.assign(SocialMedia, {
+    title: 'SocialMedia',
+    description: {
+        en: 'This component allows you to add links to your social media profiles or communities to your page',
+        ru: 'Набор ссылок на ваши страницы профилей или группы в социальных сетях',
+    },
+    propInfo,
     defaultProps,
     overrides,
-    propInfo,
 });
 
 export default SocialMedia;
