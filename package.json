@@ -107,7 +107,8 @@
       "Formspree": "Formspree",
       "GoogleMap": "GoogleMap",
       "Track": "Track",
-      "Source": "Source"
+      "Source": "Source",
+      "SocialMedia": "SocialMedia"
     }
   },
   "quarklyInfoDeleted": {
@@ -121,8 +122,7 @@
       "LightBoxMap": "LightBoxMap",
       "LightBoxVideo": "LightBoxVideo",
       "SimpleTabsList": "SimpleTabsList",
-      "SimpleTabsItem": "SimpleTabsItem",
-      "SocialMedia": "SocialMedia"
+      "SimpleTabsItem": "SimpleTabsItem"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
