@@ -549,14 +549,28 @@ const CarouselComponent = ({
 
 const propInfo = {
     slidesProp: {
-        title: 'Количество слайдов',
+        title: {
+            en: 'Number of slides',
+            ru: 'Количество слайдов',
+        },
+        description: {
+            en: 'Number of slides',
+            ru: 'Количество слайдов',
+        },
         control: 'input',
         type: 'text',
         category: 'Slides',
         weight: 0.5,
     },
     aspectRatio: {
-        title: 'Соотношение сторон',
+        title: {
+            en: 'Aspect ratio',
+            ru: 'Соотношение сторон',
+        },
+        description: {
+            en: 'Fix slider aspect ratio to a specific value',
+            ru: 'Фиксировать соотношение сторон слайдера',
+        },
         control: 'select',
         variants: [
             {
@@ -578,19 +592,40 @@ const propInfo = {
         weight: 0.5,
     },
     showArrows: {
-        title: 'Показывать стрелки',
+        title: {
+            en: 'Show arrows',
+            ru: 'Показывать стрелки',
+        },
+        description: {
+            en: 'Show arrow for slider navigation',
+            ru: 'Отображать стрелки навигации по слайдам',
+        },
         control: 'checkbox',
         category: 'Slider',
         weight: 0.5,
     },
     showDots: {
-        title: 'Показывать точки',
+        title: {
+            en: 'Show dots',
+            ru: 'Показывать точки',
+        },
+        description: {
+            en: 'Show dots for slider navigation',
+            ru: 'Отображать точки навигации по слайдам',
+        },
         control: 'checkbox',
         category: 'Slider',
         weight: 0.5,
     },
     durationProp: {
-        title: 'Длительность анимации',
+        title: {
+            en: 'Animation duration',
+            ru: 'Длительность анимации',
+        },
+        description: {
+            en: 'How fast slides change/rotate',
+            ru: 'Скорость смены слайдов',
+        },
         control: 'input',
         variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
         type: 'text',
@@ -598,7 +633,14 @@ const propInfo = {
         weight: 0.5,
     },
     functionProp: {
-        title: 'Функция сглаживания анимации',
+        title: {
+            en: 'Animation timing function',
+            ru: 'Функция сглаживания анимации',
+        },
+        description: {
+            en: 'Animation timing function',
+            ru: 'Функция сглаживания анимации',
+        },
         control: 'input',
         variants: [
             'linear',
@@ -615,19 +657,40 @@ const propInfo = {
     },
 
     showHead: {
-        title: 'Показывать заголовок',
+        title: {
+            en: 'Show title',
+            ru: 'Показывать заголовок',
+        },
+        description: {
+            en: 'Show component with slide title',
+            ru: 'Отображать компонент с заголовком слайда',
+        },
         control: 'checkbox',
         category: 'Content',
         weight: 0.5,
     },
     showText: {
-        title: 'Показывать описание',
+        title: {
+            en: 'Show description',
+            ru: 'Показывать описание',
+        },
+        description: {
+            en: 'Show component with slide description',
+            ru: 'Отображать компонент с описанием слайда',
+        },
         control: 'checkbox',
         category: 'Content',
         weight: 0.5,
     },
     showLink: {
-        title: 'Показывать кнопку',
+        title: {
+            en: 'Show button',
+            ru: 'Показывать кнопку',
+        },
+        description: {
+            en: 'Show component with the button link',
+            ru: 'Отображать компонент со ссылкой',
+        },
         control: 'checkbox',
         category: 'Content',
         weight: 0.5,
@@ -651,6 +714,10 @@ const defaultProps = {
 
 Object.assign(CarouselComponent, {
     title: 'Carousel',
+    description: {
+        en: 'Slider with images that can be scrolled by pressing the arrows or dots buttons',
+        ru: 'Лента с изображениями, которую можно листать нажатием на стрелки или точки',
+    },
     propInfo,
     defaultProps,
     overrides,

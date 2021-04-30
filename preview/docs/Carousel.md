@@ -1,7 +1,7 @@
 ## 📖 Detailed overview
 
-Лента с изображениями, которую можно листать нажатием на стрелки или точки.
-Для изображений можно показывать заголовок, описание и ссылку на страницу.
+Slider with images that can be scrolled by pressing the arrows or dots buttons.
+For images, you can show title, description, and page link.
 
 ## 🎬 Live Demo
 
@@ -9,26 +9,26 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
+Add the component to the page and see how it works in the preview mode.
 
 ## 🧩 Components and Props
 
-| Props Name                   |   Type   | Default  | Description                              |
-| :--------------------------- | :------: | :------: | :--------------------------------------- |
-| Количество слайдов           | `number` |   `4`    | Количество слайдов                       |
-| Соотношение сторон           |  `enum`  |  `16:9`  | Фиксировать соотношение сторон слайдера  |
-| Показать стрелки             |  `bool`  |  `true`  | Отображать стрелки навигации по слайдам  |
-| Показать точки               |  `bool`  |  `true`  | Отображать точки навигации по слайдам    |
-| Функция сглаживания анимации | `string` | `linear` | Функция сглаживания анимации             |
-| Длительность анимации        | `string` |  `0.5s`  | Скорость смены слайдов                   |
-| Показать заголовок           |  `bool`  |  `true`  | Отображать компонент с заголовком слайда |
-| Показать описание            |  `bool`  |  `true`  | Отображать компонент с описанием слайда  |
-| Показать кнопку              |  `bool`  |  `true`  | Отображать компонент со ссылкой          |
+| Prop Name                 |   Type   | Default  | Description                                 |
+| :------------------------ | :------: | :------: | :------------------------------------------ |
+| Number of slides          | `number` |   `4`    | Number of slides                            |
+| Aspect ratio              |  `enum`  |  `16:9`  | Fix slider aspect ratio to a specific value |
+| Show arrows               |  `bool`  |  `true`  | Show arrow for slider navigation            |
+| Show dots                 |  `bool`  |  `true`  | Show dots for slider navigation             |
+| Animation duration        | `string` |  `0.5s`  | How fast slides change/rotate               |
+| Animation timing function | `string` | `linear` | Animation timing function                   |
+| Show title                |  `bool`  |  `true`  | Show component with slide title             |
+| Show description          |  `bool`  |  `true`  | Show component with slide description       |
+| Show button               |  `bool`  |  `true`  | Show component with the button link         |
 
 ## 🗓 Changelog
 
- - 21/04/2021 (v1.0)
- - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
