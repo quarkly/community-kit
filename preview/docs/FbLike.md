@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для добавления кнопки «Нравится» Facebook.
+Use this component to add a "Like" button on Facebook.
 
 ## 🎬 Live Demo
 
@@ -8,45 +8,46 @@
 
 ## ⚙️ Usage
 
- 1. Добавьте компонент на страницу
- 2. Укажите ID вашего приложения Facebook
- 3. Укажите ссылку на вашу страницу
+1.  Add the component to the page
+2.  Specify your Facebook app ID
+3.  Specify the link to your page
 
-### Приложение FaceBook
+### FaceBook app
 
-Для работы компонента требуется создание приложения FaceBook. Сделать это можно по этой ссылке: [FaceBook APP](https://developers.facebook.com/apps)
+For the component to work, create a FaceBook application. To do this, follow the link: [FaceBook APP](https://developers.facebook.com/apps)
 
-### Контент для детей
+### Made for kids content
 
-Если ваш веб-сайт или онлайн-сервис содержит контент для детей до 13 лет, активируйте параметр `Сайт для детей`.
-Подробнее об этом можно почитать на странице [FaceBook Kid](https://developers.facebook.com/docs/plugins/restrictions).
+If your website or online service is made for childer under 13 years old, activate the `Made for kids` option.
+Read more about it on [FaceBook Kid](https://developers.facebook.com/docs/plugins/restrictions).
 
-### UTM-метка
+### UTM tag
 
-Название UTM-метки должно:
- - иметь длину не более 50 символов;
- - состоять из буквенно-цифровых символов
- - содержать только символы +/=-.:_
+The UTM tag name must:
+
+-   contain not more than 50 characters
+-   contain letters and numbers
+-   contain only +/=-.:\_ characters
 
 ## 🧩 Components and Props
 
-| Названия свойств             | Type      | Default           | Example                   |
-| :--------------------------- | :-------: | :---------------: | :-----------------------: |
-| ID приложения Facebook       | `number`  |        `-`        |        `1234567890`       |
-| Ссылка на страницу           | `string`  |        `-`        | `https://yourdomain.name` |
-| Язык загружаемого компонента |  `enum`   |     `English`     |         `Русский`         |
-| Цветовая схема               |  `enum`   |      `Light`      |           `Dark`          |
-| Кнопка "Поделиться"          |  `enum`   |      `Hide`       |           `Show`          |
-| Макет                        |  `enum`   | `Стандартный вид` |      `Простая кнопка`     |
-| Размер кнопки                |  `enum`   |      `Small`      |          `Large`          |
-| Действие по клику            |  `enum`   |      `Like`       |        `Recommend`        |
-| Сайт для детей               | `boolean` |      `false`      |           `true`          |
-| UTM-метка                    | `string`  |        `-`        |         `utm12345`        |
+| Prop Name          |   Type    |      Default      |          Example          |
+| :----------------- | :-------: | :---------------: | :-----------------------: |
+| Facebook app ID    | `number`  |        `-`        |       `1234567890`        |
+| Link to the page   | `string`  |        `-`        | `https://yourdomain.name` |
+| Component language |  `enum`   |     `English`     |         `Русский`         |
+| Color scheme       |  `enum`   |      `Light`      |          `Dark`           |
+| "Share" button     |  `enum`   |      `Hide`       |          `Show`           |
+| Layout             |  `enum`   | `Стандартный вид` |     `Простая кнопка`      |
+| Button size        |  `enum`   |      `Small`      |          `Large`          |
+| On click action    |  `enum`   |      `Like`       |        `Recommend`        |
+| Site for kids      | `boolean` |      `false`      |          `true`           |
+| UTM tag            | `string`  |        `-`        |        `utm12345`         |
 
 ## 🗓 Changelog
 
- - 21/04/2021 (v1.0)
- - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 

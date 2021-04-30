@@ -50,7 +50,7 @@ const FacebookLike = ({
                     />
                 </FacebookProvider>
             ) : (
-                <ComponentNotice message="Add your Facebook App ID in the props panel" />
+                <ComponentNotice message="Add your Facebook App ID in the Props panel" />
             )}
         </Box>
     );
@@ -58,21 +58,30 @@ const FacebookLike = ({
 
 const propInfo = {
     appId: {
-        title: 'ID приложения Facebook',
+        title: {
+            en: 'Facebook app ID',
+            ru: 'ID приложения Facebook',
+        },
         control: 'input',
         type: 'text',
         category: ' Main',
         weight: 1,
     },
     href: {
-        title: 'Ссылка на страницу, которая будет лайкнута',
+        title: {
+            en: 'Link to the page',
+            ru: 'Ссылка на страницу',
+        },
         control: 'input',
         type: 'text',
         category: ' Main',
         weight: 1,
     },
     language: {
-        title: 'Язык загружаемого компонента',
+        title: {
+            en: 'Widget language',
+            ru: 'Язык загружаемого виджета',
+        },
         control: 'select',
         variants: [
             {
@@ -88,7 +97,10 @@ const propInfo = {
         weight: 1,
     },
     colorScheme: {
-        title: 'Цветовая схема',
+        title: {
+            en: 'Color scheme',
+            ru: 'Цветовая схема',
+        },
         control: 'select',
         variants: [
             {
@@ -110,7 +122,10 @@ const propInfo = {
         weight: 1,
     },
     showShare: {
-        title: 'Кнопка "Поделиться"',
+        title: {
+            en: '\'Share\' button',
+            ru: 'Кнопка "Поделиться"',
+        },
         control: 'radio-group',
         variants: [
             {
@@ -132,7 +147,10 @@ const propInfo = {
         weight: 1,
     },
     layout: {
-        title: 'Макет',
+        title: {
+            en: 'Layout',
+            ru: 'Макет',
+        },
         control: 'select',
         variants: [
             {
@@ -168,7 +186,10 @@ const propInfo = {
         weight: 1,
     },
     size: {
-        title: 'Размер кнопки',
+        title: {
+            en: 'Button size',
+            ru: 'Размер кнопки',
+        },
         control: 'select',
         variants: [
             {
@@ -190,7 +211,10 @@ const propInfo = {
         weight: 1,
     },
     action: {
-        title: 'Действие по клику',
+        title: {
+            en: 'On click action',
+            ru: 'Действие по клику',
+        },
         control: 'select',
         variants: [
             {
@@ -212,20 +236,18 @@ const propInfo = {
         weight: 1,
     },
     kidDirectedSite: {
-        title: 'Сайт для детей',
-        description: {
-            ru:
-                'Выберите этот пункт, если ваш сайт предназначен для детей младше 13 лет',
+        title: {
+            en: 'Site for kids',
+            ru: 'Сайт для детей',
         },
         control: 'checkbox',
         category: 'Advanced',
         weight: 1,
     },
     referral: {
-        title: 'UTM-метка',
-        description: {
-            ru:
-                'Метка для отслеживания переходов. Длина не должна превышать 50 символов, состоять из буквенно-цифровых символов и знаков препинания ( +/=-.:_ )',
+        title: {
+            en: 'UTM tag',
+            ru: 'UTM-метка',
         },
         control: 'input',
         type: 'text',
@@ -246,7 +268,11 @@ const defaultProps = {
 };
 
 Object.assign(FacebookLike, {
-    title: 'FacebookLike Component',
+    title: 'Facebook Like',
+    description: {
+        en: 'Use this component to add a "Like" button on Facebook',
+        ru: 'Компонент для добавления кнопки «Нравится» Facebook',
+    },
     propInfo,
     defaultProps,
 });
