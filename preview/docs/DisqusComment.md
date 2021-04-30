@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для встраивания виджета с конкретным комментарием Disqus.
+This component allows you to add the Disqus widget with a specific comment.
 
 ## 🎬 Live Demo
 
@@ -8,29 +8,29 @@
 
 ## ⚙️ Usage
 
-1.  Добавьте компонент на страницу
-2.  Укажите `Идентификатор комментария` на панели Props
-3.  Посмотрите как компонент работает в режиме превью
+1.  Add the component to the page
+2.  Specify the `Comment identifier` on the Props panel
+3.  Check how it works in the preview mode
 
-### Идентификатор комментария
+### Comment identifier
 
-Получить идентификатор комментария можно, например, перейдя по ссылке `Поделиться`.
+You can get the Получить comment identifier, for example, by following the `Share` link.
 
-![Получить ID Комментария](https://test-upl.quarkly.io/60474504627982001eb71a51/images/3.png?v=2021-04-22T09:46:00.296Z)
+![Get the comment identifier](https://test-upl.quarkly.io/60474504627982001eb71a51/images/3.png?v=2021-04-22T09:46:00.296Z)
 
 ## 🧩 Components and Props
 
-| Props Name                        |   Type   | Default |
-| :-------------------------------- | :------: | :-----: |
-| Идентификатор комментария         | `string` |   `-`   |
-| Показать родительский комментарий |  `bool`  | `false` |
-| Ширина блока с комментарием       | `string` | `100%`  |
-| Высота Блока с комментарием       | `string` | `200px` |
+| Prop Name            |   Type   | Default |
+| :------------------- | :------: | :-----: |
+| Comment identifier   | `string` |   `-`   |
+| Show parent comment  |  `bool`  | `false` |
+| Comment block width  | `string` | `100%`  |
+| Comment block height | `string` | `200px` |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
