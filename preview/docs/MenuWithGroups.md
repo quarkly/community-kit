@@ -18,7 +18,7 @@ For example, the page ID of the URL `https://quarkly.io/project/12345/page/67890
 
 ## 🧩 Components and Props
 
-| Названия свойств               |   Type   |    Default     |   Example   |
+| Prop name                      |   Type   |    Default     |   Example   |
 | :----------------------------- | :------: | :------------: | :---------: |
 | Maximum nesting                | `number` |      `10`      |     `5`     |
 | Root page ID                   | `string` |     `root`     |   `67890`   |
