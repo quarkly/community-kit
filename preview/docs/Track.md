@@ -1,7 +1,7 @@
 ## 📖 Detailed overview
 
-Компонент для добавления синхронизированной текстовой дорожки. Является дочерним компонентом для `Audio` и `Video`.
-Текстовая дорожка обычно содержит субтитры на разных языках, комментарии, заголовки и т.д.
+This component allows you to add a synchronized text track. It's a child component of the `Audio` and `Video` components.
+The text track usually contains subtitles in different languages, comments, titles, etc.
 
 ## 🎬 Live Demo
 
@@ -9,33 +9,33 @@
 
 ## ⚙️ Usage
 
-1.  Добавьте внутрь компонента `Audio` или `Video`
-2.  Укажите `Ссылку на файл` на панели Props
-3.  Посмотрите как он работает в режиме превью
+1.  Add this component to the `Audio` or `Video` components
+2.  Specify the `File link` on the Props panel
+3.  Check how it works in the preview mode
 
-### Расширение файла
+### File extension
 
-Файл с текстовой дорожкой должен иметь расширение `.vtt`
+The file with the text track must have the `.vtt` extension.
 
-### Дорожка по умолчанию
+### Default track
 
-Свойство `Использовать по умолчанию` указывает, что текущая дорожка предпочтительна.
-Только для одной дорожки можно применить это свойство.
+The `Set default` prop indicates that the current track is preferred.
+This property can be applied to only one track.
 
 ## 🧩 Components and Props
 
-| Названия свойств          |   Type   |   Default   |
-| :------------------------ | :------: | :---------: |
-| Ссылка на файл            | `string` |     `-`     |
-| Использовать по умолчанию |  `bool`  |   `false`   |
-| Язык дорожки              | `string` |    `en`     |
-| Назначение дорожки        |  `enum`  | `subtitles` |
-| Отображаемое название     | `string` |   `none`    |
+| Prop Name       |   Type   |   Default   |
+| :-------------- | :------: | :---------: |
+| File link       | `string` |     `-`     |
+| Set default     |  `bool`  |   `false`   |
+| Track language  | `string` |    `en`     |
+| Track purpose   |  `enum`  | `subtitles` |
+| Displayed title | `string` |   `none`    |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 

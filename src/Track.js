@@ -26,7 +26,7 @@ const TrackComponent = ({
         />
     ) : (
         <ComponentNotice
-            message={'Этот компонент должен быть внутри "Audio" или "Video"'}
+            message={'This component should be inside Audio or Video'}
             {...props}
         />
     );
@@ -34,27 +34,39 @@ const TrackComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Ссылка на файл',
+        title: {
+            en: 'File link',
+            ru: 'Ссылка на файл',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     isDefault: {
-        title: 'Использовать по умолчанию',
+        title: {
+            en: 'Set default',
+            ru: 'Использовать по умолчанию',
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 1,
     },
     srclang: {
-        title: 'Язык дорожки',
+        title: {
+            en: 'Track language',
+            ru: 'Язык дорожки',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     kind: {
-        title: 'Назначение дорожки',
+        title: {
+            en: 'Track purpose',
+            ru: 'Назначение дорожки',
+        },
         control: 'select',
         variants: [
             {
@@ -97,7 +109,10 @@ const propInfo = {
         weight: 1,
     },
     label: {
-        title: 'Отображаемое название',
+        title: {
+            en: 'Displayed title',
+            ru: 'Отображаемое название',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
@@ -110,15 +125,14 @@ const defaultProps = {
     kind: 'subtitles',
 };
 
-export default atomize(TrackComponent)(
-    {
-        name: 'Track',
-        description: {
-            en: 'Indicates timed text tracks for Video, and Audio components',
-            ru:
-                'Указывает синхронизированные текстовые дорожки для компонентов Video и Audio',
-        },
-        propInfo,
+Object.assign(TrackComponent, {
+    title: 'Track',
+    description: {
+        en: 'This component allows you to add a synchronized text track',
+        ru: 'Компонент для добавления синхронизированной текстовой дорожки',
     },
-    defaultProps
-);
+    propInfo,
+    defaultProps,
+})
+
+export default TrackComponent;
