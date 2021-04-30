@@ -3,7 +3,7 @@ import atomize from '@quarkly/atomize';
 
 import ComponentNotice from './ComponentNotice';
 
-const Map = ({ query = 'New York', apiKey, ...props }) => (
+const GoogleMap = ({ query = 'New York', apiKey, ...props }) => (
     <div {...props}>
         {apiKey ? (
             <iframe
@@ -20,35 +20,55 @@ const Map = ({ query = 'New York', apiKey, ...props }) => (
                 src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${query}`}
             />
         ) : (
-            <ComponentNotice message="Add API key in properties panel" />
+            <ComponentNotice message="Add API key in Props panel" />
         )}
     </div>
 );
 
-const GoogleMap = atomize(Map)(
-    {
-        name: 'GoogleMap',
-        propInfo: {
-            apiKey: {
-                title: 'API Ключ',
-                control: 'input',
-                type: 'text',
-                category: 'Main',
-                weight: 1,
-            },
-            query: {
-                title: 'Место для выделения',
-                control: 'input',
-                type: 'text',
-                category: 'Main',
-            },
+const propInfo = {
+    apiKey: {
+        title: {
+            en: 'API key',
+            ru: 'API Ключ',
         },
+        description: {
+            en: 'You can get the \'API key\' from the link in the component description',
+            ru: 'Получить "API Ключ" можно по ссылке в описании компонента',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
     },
-    {
-        width: '100%',
-        height: '450px',
-        position: 'relative',
-    }
-);
+    query: {
+        title: {
+            en: 'Select place',
+            ru: 'Место для выделения',
+        },
+        description: {
+            en: 'Name of place, address or latitude and longitude coordinates, separated by commas',
+            ru: 'Название места, адрес или координаты широты и долготы через запятую',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Main',
+    },
+};
+
+const defaultProps = {
+    width: '100%',
+    height: '450px',
+    position: 'relative',
+}
+
+Object.assign(GoogleMap, {
+    title: 'Google Map',
+    description: {
+        en: 'Use this component to add maps from \'Google Maps\'',
+        ru: 'Компонент для добавления карты сервиса "Google Maps"',
+    },
+    propInfo,
+    defaultProps,
+});
 
 export default GoogleMap;

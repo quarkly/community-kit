@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для добавления карты сервиса "Google Maps"
+Use this component to add maps from "Google Maps"
 
 ## 🎬 Live Demo
 
@@ -8,23 +8,23 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу, укажите `API Ключ` и посмотрите как он работает в режиме превью.
+Add the component to the page, enter `API key`, and check how it works in the preview mode.
 
 ### ApiKey
 
-Получить `API Ключ` можно по [инструкции](https://developers.google.com/maps/documentation/javascript/get-api-key).
+To get the `API key`, follow the [instructions](https://developers.google.com/maps/documentation/javascript/get-api-key).
 
 ## 🧩 Components and Props
 
-| Названия свойств    |   Type   |  Default   | Description                                                         |
-| :------------------ | :------: | :--------: | :------------------------------------------------------------------ |
-| API Ключ            | `string` |    `-`     | Получить `API Ключ` можно по ссылке в описании компонента           |
-| Место для выделения | `string` | `New York` | Название места, адрес или координаты широты и долготы через запятую |
+| Prop Name    |   Type   |  Default   | Description                                                                       |
+| :----------- | :------: | :--------: | :-------------------------------------------------------------------------------- |
+| API key      | `string` |    `-`     | You can get the `API key` from the link in the component description              |
+| Select place | `string` | `New York` | Name of place, address or latitude and longitude coordinates, separated by commas |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
