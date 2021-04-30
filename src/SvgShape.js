@@ -121,7 +121,7 @@ const SVGShape = ({
     const size = useSize(mainRef);
     const [offset, setOffset] = useState(0);
 
-    const Shape = shapes[type];
+    const Shape = shapes[type.toLowerCase()];
 
     const shapeProps = {
         stroke,
