@@ -4,7 +4,7 @@ import { Box } from '@quarkly/widgets';
 
 import ComponentNotice from './ComponentNotice';
 
-const LiveChatComp = ({ license, group, chatBetweenGroups, ...props }) => {
+const LiveChatComponent = ({ license, group, chatBetweenGroups, ...props }) => {
     return (
         <Box {...props}>
             {license ? (
@@ -14,7 +14,7 @@ const LiveChatComp = ({ license, group, chatBetweenGroups, ...props }) => {
                     chatBetweenGroups={chatBetweenGroups}
                 />
             ) : (
-                <ComponentNotice message="Добавьте license на панели Props" />
+                <ComponentNotice message="Add your License ID in the Props panel" />
             )}
         </Box>
     );
@@ -32,14 +32,20 @@ const propInfo = {
         weight: 1,
     },
     group: {
-        title: 'Номер группы',
+        title: {
+            en: 'Group number',
+            ru: 'Номер группы',
+        },
         control: 'input',
         type: 'number',
         category: 'Main',
         weight: 1,
     },
     chatBetweenGroups: {
-        title: 'Сессии чатов между группами',
+        title: {
+            en: 'Chat sessions between groups',
+            ru: 'Сессии чатов между группами',
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 1,
@@ -50,11 +56,14 @@ const defaultProps = {
     chatBetweenGroups: false,
 };
 
-export default Object.assign(LiveChatComp, {
+Object.assign(LiveChatComponent, {
     title: 'LiveChat',
     description: {
-        en: 'LiveChat widget for your application',
+        en: 'This component is for adding the LiveChat widget',
+        ru: 'Компонент для добавления виджета LiveChat',
     },
     propInfo,
     defaultProps,
 });
+
+export default LiveChatComponent;

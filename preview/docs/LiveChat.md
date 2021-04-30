@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для добавления виджета LiveChat.
+This component is for adding the LiveChat widget.
 
 ## 🎬 Live Demo
 
@@ -8,28 +8,28 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу, укажите ID лицензии и посмотрите как он работает в режиме превью.
+Add the component to the page, specify the license ID, and check how it works in the preview mode.
 
-### ID чата
+### Chat ID
 
-Получить уникальный `License ID` можно после регистрации на сайте [LiveChat](https://www.livechat.com/help/install-livechat).
+You can get the `License ID` after signup on the website [LiveChat](https://www.livechat.com/help/install-livechat).
 
-### Сессии чатов
+### Chat sessions
 
-Свойство `Сессии чатов между группами` позволяет установить одну сессию для нескольких чатов из разных групп.
+The `Chat sessions between groups` allows you to set one session for several chats from different groups.
 
 ## 🧩 Components and Props
 
-| Названия свойств            |   Type    | Default |   Example   |
-| --------------------------- | :-------: | :-----: | :---------: |
-| ID лицензии                 | `string`  | `none`  | `123456789` |
-| Номер группы                | `string`  | `none`  |     `1`     |
-| Сессии чатов между группами | `boolean` | `false` |   `true`    |
+| Prop name                    |   Type    | Default |   Example   |
+| ---------------------------- | :-------: | :-----: | :---------: |
+| License ID                   | `string`  | `none`  | `123456789` |
+| Group number                 | `string`  | `none`  |     `1`     |
+| Chat sessions between groups | `boolean` | `false` |   `true`    |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
