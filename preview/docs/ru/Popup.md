@@ -1,7 +1,7 @@
 ## 📖 Detailed overview
 
-This is a pop-up window that appears when clicking on a button.
-Any other components can be placed inside.
+Всплывающее окно, которое появляется по клику на кнопку.
+Внутрь можно поместить любые другие компоненты.
 
 ## 🎬 Live Demo
 
@@ -9,19 +9,19 @@ Any other components can be placed inside.
 
 ## ⚙️ Usage
 
-Add the component to the page and check how it works in the preview mode.
+Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
 
 ## 🧩 Components and Props
 
-| Prop Name                 |   Type   | Default  |
-| :------------------------ | :------: | :------: |
-| Show/hide duration        | `string` | `0.15s`  |
-| Animation timing function | `number` | `linear` |
+| Названия свойств                 |   Type   | Default  |
+| :------------------------------- | :------: | :------: |
+| Длительность появления и скрытия | `string` | `0.15s`  |
+| Функция сглаживания анимации     | `number` | `linear` |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   First version
+-   Первая версия
 
 ## 📮 Feedback
 
