@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для создания простых SVG фигур.
+This component helps you create simple SVG shapes.
 
 ## 🎬 Live Demo
 
@@ -8,35 +8,35 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите как он работает.
+Add the component to the page and check how it works in the preview mode.
 
-### Тип фигуры
+### Shape types
 
-В свойствах компонента можно изменить тип фигуры:
+In the component props you can change the shape type:
 
--   Прямоугольник
--   Линия
--   Эллипс
--   Круг
--   Квадрат
+-   Rectangle
+-   Line
+-   Ellipsis
+-   Circle
+-   Square
 
 ## 🧩 Components and Props
 
-| Названия свойств     |   Type   |      Default      |
-| :------------------- | :------: | :---------------: |
-| Тип формы            | `enum `  |    `rectangle`    |
-| Цвет обводки         | `string` |     `#000000`     |
-| Толщина обводки      | `number` |        `1`        |
-| Прозрачность обводки | `number` |        `1`        |
-| Форма обводки        |  `enum`  |      `butt`       |
-| Пунктирная обводка   | `string` |      `none`       |
-| Цвет фигуры          | `string` | `--color-primary` |
-| Прозрачность фигуры  | `number` |        `1`        |
+| Prop name        |   Type   |      Default      |
+| :--------------- | :------: | :---------------: |
+| Shape type       | `enum `  |    `rectangle`    |
+| Stroke color     | `string` |     `#000000`     |
+| Stroke thickness | `number` |        `1`        |
+| Stroke opacity   | `number` |        `1`        |
+| Stroke shape     |  `enum`  |      `butt`       |
+| Dashed stroke    | `string` |      `none`       |
+| Shape color      | `string` | `--color-primary` |
+| Shape opacity    | `number` |        `1`        |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
