@@ -35,19 +35,19 @@ In the builder:
 
 ## 🧩 Components and Props
 
-| Props Name                  |   Type    |   Default   |
-| :-------------------------- | :-------: | :---------: |
-| Number of images            | `number`  |     `8`     |
-| Number of columns           | `number`  |     `4`     |
-| Indent width                | `string`  |    `10`     |
-| Fill the gaps automatically | `boolean` |   `true`    |
-| Images loading              |  `enum`   | `Все сразу` |
-| Image aspect ratio          |  `enum`   |   `auto`    |
-| Minimum width of images     | `string`  |    `80`     |
-| Maximum width of images     | `string`  |    `1fr`    |
-| Disable loader for preview  | `boolean` |   `false`   |
-| Disable scroll              | `string`  |   `true`    |
-| Disable loader for lightbox | `boolean` |   `false`   |
+| Props Name                  |   Type    | Default |
+| :-------------------------- | :-------: | :-----: |
+| Number of images            | `number`  |   `8`   |
+| Number of columns           | `number`  |   `4`   |
+| Indent width                | `string`  |  `10`   |
+| Fill the gaps automatically | `boolean` | `true`  |
+| Images loading              |  `enum`   |  `All`  |
+| Image aspect ratio          |  `enum`   | `auto`  |
+| Minimum width of images     | `string`  |  `80`   |
+| Maximum width of images     | `string`  |  `1fr`  |
+| Disable loader for preview  | `boolean` | `false` |
+| Disable scroll              | `string`  | `true`  |
+| Disable loader for lightbox | `boolean` | `false` |
 
 ## 🗓 Changelog
 
