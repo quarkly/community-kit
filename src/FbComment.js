@@ -15,7 +15,7 @@ const FacebookComments = ({ appId, language, href, ...rest }) => {
                     <Comments href={href} />
                 </FacebookProvider>
             ) : (
-                <ComponentNotice message="Add your Facebook App ID and href in the props panel." />
+                <ComponentNotice message="Add your Facebook App ID and 'Link to coments' in the Props panel" />
             )}
         </Box>
     );
@@ -23,21 +23,30 @@ const FacebookComments = ({ appId, language, href, ...rest }) => {
 
 const propInfo = {
     appId: {
-        title: 'ID приложения Facebook',
+        title: {
+            en: 'Facebook app ID',
+            ru: 'ID приложения Facebook',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     href: {
-        title: 'Ссылка на комментарии',
+        title: {
+            en: 'Link to comments',
+            ru: 'Ссылка на комментарии',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     language: {
-        title: 'Язык загружаемого компонента',
+        title: {
+            en: 'The language of the widget',
+            ru: 'Язык загружаемого виджета',
+        },
         control: 'select',
         variants: [
             {
@@ -59,7 +68,11 @@ const defaultProps = {
 };
 
 Object.assign(FacebookComments, {
-    title: 'FbComments Component',
+    title: 'Facebook Comments',
+    description: {
+        en: 'This component allows you to add a comment form for Facebook',
+        ru: 'Компонент для добавления формы комментариев Facebook',
+    },
     propInfo,
     defaultProps,
 });

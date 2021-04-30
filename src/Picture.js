@@ -46,7 +46,7 @@ const PictureComponent = ({ children, ...props }) => {
             {isEmpty && (
                 <ComponentNotice
                     message={
-                        'Перетащите сюда компоненты "Image" и "Source" (опционально)'
+                        'Drag the Image and Source components here (optional)'
                     }
                 />
             )}

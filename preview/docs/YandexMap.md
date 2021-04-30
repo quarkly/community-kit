@@ -1,45 +1,45 @@
 ## 📖 Detailed overview
 
-Карта сервиса Яндекс.Карты.
+This component is for adding maps from "Yandex.Maps"
 
 ## 🎬 Live Demo
 
-[Live demo link](https://quarkly-ui-components.netlify.app/yandexmap/)
+[Live demo link](https://quarkly-catalog.netlify.app/yandexmap/)
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
+Add the component to the page, specify the `API Key`, and check how it works in the preview mode.
 
 ### ApiKey
 
-Получить индивидуальный ключ можно по инструкции: [Ссылка](https://yandex.ru/blog/mapsapi/novye-pravila-dostupa-k-api-kart)
+To get `API Key`, follow the [instructions](https://yandex.ru/blog/mapsapi/novye-pravila-dostupa-k-api-kart).
 
 ## 🧩 Components and Props
 
-| Props Name          |   Type    | Default | Description                         |
-| :------------------ | :-------: | :-----: | :---------------------------------- |
-| Zoom                | `string ` |   `9`   | Масштаб карты                       |
-| Latitude            | `string`  |   `-`   | Широта                              |
-| Longitude           | `string`  |   `-`   | Долгота                             |
-| Search Control      | `string`  | `false` | Показать инструмент поиска          |
-| Fullscreen Control  | `string`  | `false` | Показать инструмент полного экрана  |
-| Geolocation Control | `string`  | `false` | Показать инструмент геопозиции      |
-| Zoom Control        | `string`  | `false` | Показать инструмент масштабирования |
-| Traffic             | `string`  | `false` | Показать пробки                     |
-| Ruler               | `string`  | `false` | Показать линейку                    |
-| Type Selector       | `string`  | `false` | Показать варианты слоев             |
-| API Key             | `string`  |   `-`   | Индивидуальный ключ API             |
+| Prop name        |   Type    | Default |
+| :--------------- | :-------: | :-----: |
+| API key          | `string`  |   `-`   |
+| Map scale        | `string ` |   `9`   |
+| Latitude         | `string`  |   `-`   |
+| Longitude        | `string`  |   `-`   |
+| Search           | `string`  | `false` |
+| Full screen view | `string`  | `false` |
+| Geo              | `string`  | `false` |
+| Scale            | `string`  | `false` |
+| Traffic          | `string`  | `false` |
+| Ruler            | `string`  | `false` |
+| Layers options   | `string`  | `false` |
 
 ## 🗓 Changelog
 
-    - 09/04/2021 (v1.0)
-    - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
 [We're on Discord](https://discord.gg/f9KhSMGX)
 

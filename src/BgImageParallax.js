@@ -7,9 +7,23 @@ import { Box } from '@quarkly/widgets';
 const overrides = {
     Bground: {
         kind: 'Bground',
+        props: {
+            top: '0',
+            right: '0',
+            bottom: '0',
+            left: '0',
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            'z-index': '1',
+        },
     },
     Content: {
         kind: 'Content',
+        props: {
+            position: 'relative',
+            'z-index': '2',
+        },
     },
 };
 
@@ -118,64 +132,87 @@ const BgImageParallax = ({
     });
 
     return (
-        <Box ref={wrapperRef} overflow="hidden" position="relative" {...rest}>
+        <Box ref={wrapperRef} {...rest}>
             <Bground
                 ref={bgroundRef}
-                top="0"
-                right="0"
-                bottom="0"
-                left="0"
-                width="100%"
-                height="100%"
-                position="absolute"
-                z-index="1"
                 background={`transparent url(${imageURL}) ${imagePosition} top/${imageSize} ${imageRepeat}`}
                 {...override('Bground')}
             />
-            <Content position="relative" z-index="2" {...override('Content')}>
-                {children}
-            </Content>
+            <Content {...override('Content')}>{children}</Content>
         </Box>
     );
 };
 
 const propInfo = {
     imageURL: {
-        title: 'Ссылка на изображение',
+        title: {
+            en: 'Image',
+            ru: 'Изображение',
+        },
         control: 'image',
         category: 'Image',
         weight: 1,
     },
     imageSize: {
-        title: 'Размер изображения',
+        title: {
+            en: 'Image size',
+            ru: 'Размер изображения',
+        },
         control: 'input',
         variants: ['cover', '100%', '150%', '200%', '250%'],
         category: 'Image',
         weight: 0.5,
     },
     imagePosition: {
-        title: 'Выравнивание изображения',
+        title: {
+            en: 'Image alignment',
+            ru: 'Выравнивание изображения',
+        },
         control: 'radio-group',
         variants: ['left', 'center', 'right'],
         category: 'Image',
         weight: 0.5,
     },
     imageRepeat: {
-        title: 'Повтор изображения',
+        title: {
+            en: 'Repeat image',
+            ru: 'Повтор изображения',
+        },
         control: 'radio-group',
-        variants: ['repeat', 'no-repeat'],
+        variants: [
+            {
+                title: {
+                    en: 'Repeat',
+                    ru: 'Повторять',
+                },
+                value: 'repeat',
+            },
+            {
+                title: {
+                    en: "Don't repeat",
+                    ru: 'Не повторять',
+                },
+                value: 'no-repeat',
+            },
+        ],
         category: 'Image',
         weight: 1,
     },
     scrollSpeedProp: {
-        title: 'Скорость прокрутки',
+        title: {
+            en: 'Scroll speed',
+            ru: 'Скорость прокрутки',
+        },
         control: 'input',
         variants: ['0', '0.25', '0.5', '0.75', '1', '2', '5', '10'],
         category: 'Scroll',
         weight: 0.5,
     },
     scrollInertiaProp: {
-        title: 'Инерция прокрутки',
+        title: {
+            en: 'Scroll inertia',
+            ru: 'Инерция прокрутки',
+        },
         control: 'input',
         variants: ['1', '2', '5', '10'],
         category: 'Scroll',
@@ -198,10 +235,20 @@ const defaultProps = {
     scrollSpeedProp: '0.5',
     scrollInertiaProp: '1',
     // scrollDirection: 'normal',
+
+    position: 'relative',
+    overflow: 'hidden',
 };
 
-export default Object.assign(BgImageParallax, {
+Object.assign(BgImageParallax, {
+    title: 'Background image Parallax',
+    description: {
+        en: 'Use this component to create parallax effect',
+        ru: 'Компонент для создания эффекта "параллакс" фонового изображения',
+    },
     propInfo,
     defaultProps,
     overrides,
 });
+
+export default BgImageParallax;

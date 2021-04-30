@@ -42,7 +42,7 @@ const DisqusCommentComponent = ({
                     />
                 </Content>
             ) : (
-                <ComponentNotice message="Добавьте ID комментария на панели Props" />
+                <ComponentNotice message="Add your comment ID in the Props panel" />
             )}
         </Wrapper>
     );
@@ -50,28 +50,40 @@ const DisqusCommentComponent = ({
 
 const propInfo = {
     commentIDProp: {
-        title: 'Идентификатор комментария',
+        title: {
+            en: 'Comment identifier',
+            ru: 'Идентификатор комментария',
+        },
         control: 'input',
         type: 'text',
         weight: 1,
     },
     showParrent: {
-        title: 'Показать родительский комментарий',
+        title: {
+            en: 'Show parent comment',
+            ru: 'Показать родительский комментарий',
+        },
         control: 'checkbox',
         type: 'text',
         weight: 1,
     },
     widthProp: {
-        title: 'Ширина блока',
+        title: {
+            en: 'Comment block width',
+            ru: 'Ширина блока с комментарием',
+        },
         control: 'input',
         type: 'text',
-        weight: 0.5,
+        weight: 1,
     },
     heightProp: {
-        title: 'Высота блока',
+        title: {
+            en: 'Comment block height',
+            ru: 'Высота блока с комментарием',
+        },
         control: 'input',
         type: 'text',
-        weight: 0.5,
+        weight: 1,
     },
 };
 
@@ -83,6 +95,13 @@ const defaultProps = {
 };
 
 Object.assign(DisqusCommentComponent, {
+    title: 'Disqus Comment',
+    description: {
+        en:
+            'This component allows you to add the Disqus widget with a specific comment',
+        ru:
+            'Компонент для встраивания виджета с конкретным комментарием Disqus',
+    },
     propInfo,
     defaultProps,
     overrides,

@@ -5,45 +5,6 @@ import { useMatch } from '@reach/router';
 import { Link } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 
-const Ul = atomize.ul();
-const Li = atomize.li();
-const getAPI = () => {
-    if (typeof window !== 'undefined') {
-        return window.QAPI || {};
-    }
-    if (typeof global !== 'undefined') {
-        return global.QAPI || {};
-    }
-    return {};
-};
-
-const defaultProps = {
-    depth: 1,
-    rootId: 'root',
-    padding: '6px',
-    margin: '0px',
-    'list-style': 'none',
-    'exact-active-match': true,
-};
-
-const propInfo = {
-    depth: {
-        weight: 1,
-        category: 'Main',
-        control: 'input',
-    },
-    rootId: {
-        weight: 1,
-        category: 'Main',
-        control: 'input',
-    },
-    'exact-active-match': {
-        weight: 1,
-        category: 'Main',
-        control: 'checkbox',
-    },
-};
-
 const overrides = {
     item: {
         props: {
@@ -76,6 +37,18 @@ const overrides = {
             color: '--dark',
         },
     },
+};
+
+const Ul = atomize.ul();
+const Li = atomize.li();
+const getAPI = () => {
+    if (typeof window !== 'undefined') {
+        return window.QAPI || {};
+    }
+    if (typeof global !== 'undefined') {
+        return global.QAPI || {};
+    }
+    return {};
 };
 
 const Item = ({
@@ -190,7 +163,51 @@ const Menu = ({ rootId, depth, 'exact-active-match': exact, ...props }) => {
     );
 };
 
+const propInfo = {
+    depth: {
+        title: {
+            en: 'Maximum nesting',
+            ru: 'Максимальная вложенность',
+        },
+        control: 'input',
+        category: 'Main',
+        weight: 1,
+    },
+    rootId: {
+        title: {
+            en: 'Root page ID',
+            ru: 'ID корневой страницы',
+        },
+        control: 'input',
+        category: 'Main',
+        weight: 1,
+    },
+    'exact-active-match': {
+        title: {
+            en: 'Mark parent active items',
+            ru: 'Выделять родительские активные пункты',
+        },
+        control: 'checkbox',
+        category: 'Main',
+        weight: 1,
+    },
+};
+
+const defaultProps = {
+    depth: 1,
+    rootId: 'root',
+    padding: '6px',
+    margin: '0px',
+    'list-style': 'none',
+    'exact-active-match': true,
+};
+
 Object.assign(Menu, {
+    title: '',
+    description: {
+        en: 'Use this component to add a simple menu to your website',
+        ru: 'Простое меню для вашего сайта',
+    },
     defaultProps,
     overrides,
     propInfo,

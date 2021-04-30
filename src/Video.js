@@ -34,7 +34,7 @@ const VideoComponent = ({
     const [isEmpty, setEmpty] = useState(false);
     const contentRef = useRef(null);
 
-    const srcVal = useMemo(() => src.trim(), [src]);
+    const srcVal = useMemo(() => src?.trim() || '', [src]);
     const showNotice = useMemo(() => isEmpty && !srcVal, [isEmpty, srcVal]);
 
     useEffect(() => {
@@ -43,34 +43,39 @@ const VideoComponent = ({
 
     return (
         <Wrapper {...rest}>
-            <Video
-                src={srcVal}
-                poster={poster}
-                autoPlay={autoPlay}
-                controls={controls}
-                muted={muted}
-                loop={loop}
-                onMouseEnter={playOnHover ? (e) => e.target.play() : undefined}
-                onMouseLeave={playOnHover ? (e) => e.target.pause() : undefined}
-                {...override('Video Tag')}
-                display={showNotice && 'none'}
-            >
-                <Content ref={contentRef}>
-                    {React.Children.map(
-                        children,
-                        (child) =>
-                            React.isValidElement(child) &&
-                            React.cloneElement(child, {
-                                container: 'video',
-                            })
-                    )}
-                </Content>
-            </Video>
-
+            {srcVal && (
+                <Video
+                    src={srcVal}
+                    poster={poster}
+                    autoPlay={autoPlay}
+                    controls={controls}
+                    muted={muted}
+                    loop={loop}
+                    onMouseEnter={
+                        playOnHover ? (e) => e.target.play() : undefined
+                    }
+                    onMouseLeave={
+                        playOnHover ? (e) => e.target.pause() : undefined
+                    }
+                    {...override('Video Tag')}
+                    display={showNotice && 'none'}
+                >
+                    <Content ref={contentRef}>
+                        {React.Children.map(
+                            children,
+                            (child) =>
+                                React.isValidElement(child) &&
+                                React.cloneElement(child, {
+                                    container: 'video',
+                                })
+                        )}
+                    </Content>
+                </Video>
+            )}
             {showNotice && (
                 <ComponentNotice
                     message={
-                        'Добавьте свойство SRC или перетащите сюда компонент "Source"'
+                        'Add the SRC property or add the Source component here'
                     }
                 />
             )}
@@ -80,56 +85,48 @@ const VideoComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Src',
-        description: {
-            en: 'Video file address',
-            ru: 'Адрес видео файла',
+        title: {
+            en: 'Link to video file',
+            ru: 'Ссылка на видео-файл',
         },
         control: 'input',
-        type: 'string',
+        type: 'text',
         category: 'Main',
         weight: 1,
     },
     poster: {
-        title: 'Poster',
-        description: {
-            en: 'The Image URL that will be used while the video is loading',
-            ru:
-                'Адрес избражения, которое будет использовано, пока загружается видео',
+        title: {
+            en: 'Image for preview',
+            ru: 'Изображение для превью',
         },
-        control: 'input',
-        type: 'string',
+        control: 'image',
         category: 'Main',
         weight: 1,
     },
     autoPlay: {
-        title: 'Autoplay',
-        description: {
-            en: 'Video autoplay when it’s available',
-            ru:
-                'Автоматическое воспроизведение видео, как только это будет возможно',
+        title: {
+            en: 'Auto playback',
+            ru: 'Автоматическое воспроизведение',
         },
         control: 'checkbox',
         type: 'boolean',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     controls: {
-        title: 'Show controls',
-        description: {
-            en: 'Display video playback controls',
-            ru: 'Отображение элементов управления воспроизведения видео',
+        title: {
+            en: 'Show controls',
+            ru: 'Показывать элементы управления',
         },
         control: 'checkbox',
         type: 'boolean',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     muted: {
-        title: 'Mute',
-        description: {
-            en: 'Turn off playback track',
-            ru: 'Отключение воспроизведения аудиодорожки',
+        title: {
+            en: 'Sound off',
+            ru: 'Отключить звук',
         },
         control: 'checkbox',
         type: 'boolean',
@@ -137,10 +134,9 @@ const propInfo = {
         weight: 0.5,
     },
     loop: {
-        title: 'Loop',
-        description: {
-            en: 'Play video from the beginning to the end',
-            ru: 'Воспроизведение видео с начала по окончании проигрывания',
+        title: {
+            en: 'Loop playback',
+            ru: 'Зациклить воспроизведение',
         },
         control: 'checkbox',
         type: 'boolean',
@@ -148,10 +144,9 @@ const propInfo = {
         weight: 0.5,
     },
     playOnHover: {
-        title: 'Play on hover',
-        description: {
-            en: 'Video playback on hover',
-            ru: 'Воспроизведение видео при наведении',
+        title: {
+            en: 'Hover playback',
+            ru: 'Воспроизведение при наведении',
         },
         control: 'checkbox',
         type: 'boolean',
@@ -161,8 +156,6 @@ const propInfo = {
 };
 
 const defaultProps = {
-    src: '',
-    poster: '',
     controls: true,
 };
 
@@ -170,8 +163,8 @@ export default atomize(VideoComponent)(
     {
         name: 'Video',
         description: {
-            en: 'Container for embedding video content',
-            ru: 'Контейнер для встраивания видео контента',
+            en: 'This component helps you add a video player to your website',
+            ru: 'Компонент для встраивания видеопроигрывателя на сайт',
         },
         propInfo,
     },

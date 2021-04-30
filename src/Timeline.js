@@ -265,40 +265,46 @@ const Timeline = ({
 
 const propInfo = {
     itemsProp: {
-        title: 'Количество карточек',
+        title: {
+            en: 'Number of elements',
+            ru: 'Количество элементов',
+        },
         control: 'input',
         type: 'number',
         category: 'Main',
         weight: 1,
     },
     alignDesktop: {
-        title: 'Выравнивание карточек на десктопе',
+        title: {
+            en: 'Alignment on desktop',
+            ru: 'Выравнивание на десктопе',
+        },
         control: 'select',
         variants: [
             {
                 title: {
-                    en: 'Начиная с левой стороны',
+                    en: 'From left (staggered)',
                     ru: 'Начиная с левой стороны',
                 },
                 value: 'fromLeft',
             },
             {
                 title: {
-                    en: 'Начиная с правой стороны',
+                    en: 'From right (staggered)',
                     ru: 'Начиная с правой стороны',
                 },
                 value: 'fromRight',
             },
             {
                 title: {
-                    en: 'По левой стороне',
+                    en: 'Left',
                     ru: 'По левой стороне',
                 },
                 value: 'toLeft',
             },
             {
                 title: {
-                    en: 'По правой стороне',
+                    en: 'Right',
                     ru: 'По правой стороне',
                 },
                 value: 'toRight',
@@ -308,19 +314,22 @@ const propInfo = {
         weight: 1,
     },
     alignMobile: {
-        title: 'Выравнивание карточек на мобильных',
+        title: {
+            en: 'Alignment on mobile',
+            ru: 'Выравнивание на мобильных',
+        },
         control: 'select',
         variants: [
             {
                 title: {
-                    en: 'По левой стороне',
+                    en: 'Left',
                     ru: 'По левой стороне',
                 },
                 value: 'toLeft',
             },
             {
                 title: {
-                    en: 'По правой стороне',
+                    en: 'Right',
                     ru: 'По правой стороне',
                 },
                 value: 'toRight',
@@ -330,7 +339,10 @@ const propInfo = {
         weight: 1,
     },
     breakpoint: {
-        title: 'Мобильный вид начинается с breakpoint',
+        title: {
+            en: 'Mobile view start with breakpoint',
+            ru: 'Мобильный вид начинается с breakpoint',
+        },
         control: 'input',
         variants: ['sm', 'md', 'lg'],
         type: 'text',
@@ -357,6 +369,12 @@ const defaultProps = {
 
 export default Object.assign(Timeline, {
     title: 'Timeline',
+    description: {
+        en:
+            'Timeline is one of the best ways of showig an action sequence in a compact and understandable way',
+        ru:
+            'Таймлайн — это один из лучших способов отображения хронологии в компактном и понятном виде',
+    },
     overrides,
     propInfo,
     defaultProps,

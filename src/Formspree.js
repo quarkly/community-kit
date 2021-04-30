@@ -102,33 +102,53 @@ const Formspree = (props) => {
     return <Wrapper {...rest}>{completeText}</Wrapper>;
 };
 
-export default atomize(Formspree)(
-    {
-        name: 'Formspree',
-        description: {
-            en: 'Formspree — supercharge your forms',
+const propInfo = {
+    endpoint: {
+        title: {
+            en: 'Endpoint',
+            ru: 'Endpoint',
         },
-        propInfo: {
-            endpoint: {
-                weight: 1,
-                category: 'Main',
-                control: 'input',
-            },
-            completeText: {
-                weight: 1,
-                category: 'Main',
-                control: 'input',
-            },
-            errorMessage: {
-                weight: 1,
-                category: 'Main',
-                control: 'input',
-            },
-        },
+        control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
     },
-    {
-        endpoint: '',
-        errorMessage: 'Something went wrong',
-        completeText: 'Success',
-    }
-);
+    completeText: {
+        title: {
+            en: 'Success message',
+            ru: 'Сообщение об успешной отправке',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
+    },
+    errorMessage: {
+        title: {
+            en: 'Error message',
+            ru: 'Сообщение в случае ошибки',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
+    },
+};
+
+const defaultProps = {
+    endpoint: '',
+    errorMessage: 'Something went wrong',
+    completeText: 'Success',
+};
+
+Object.assign(Formspree, {
+    title: 'Formspree',
+    description: {
+        en: 'This component allows you to add a form with the Formspree widget',
+        ru: 'Компонент для встраивания виджета с формой сервиса Formspree',
+    },
+    propInfo,
+    defaultProps,
+});
+
+export default Formspree;

@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Простая таблица с текстовыми ячейками.
+This component is a simple table with text cells.
 
 ## 🎬 Live Demo
 
@@ -8,27 +8,27 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и вносите данные в таблицу.
+Add the content to the page and enter data to the table.
 
-### Описание таблицы
+### Table description
 
-Свойство `Short Description` предназначен для краткого описания таблицы или указания ее предназначения.
-Оно никак не отображается и в браузере не выводится, однако может использоваться поисковыми системами или речевыми браузерами.
+The `Short Description` prop allows you to add a shor description of the table or specify its purpose.
+It's not displayed anywhere including a browser but can be used by search engines or screen readers.
 
 ## 🧩 Components and Props
 
-| Названия свойств  |   Type    | Default |
+| Prop name         |   Type    | Default |
 | :---------------- | :-------: | :-----: |
-| Количесво колонок | `number`  |   `8`   |
-| Количесво строк   | `number`  |   `4`   |
-| Отображать шапку  | `boolean` | `false` |
-| Отображать подвал | `boolean` | `false` |
-| Короткое описание | `string`  |   `-`   |
+| Number of columns | `number`  |   `8`   |
+| Number of rows    | `number`  |   `4`   |
+| Display header    | `boolean` | `false` |
+| Display footer    | `boolean` | `false` |
+| Short description | `string`  |   `-`   |
 
 ## 🗓 Changelog
 
- - 21/04/2021 (v1.0)
- - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 

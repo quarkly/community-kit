@@ -389,83 +389,80 @@ const Gallery = ({
 
 const propInfo = {
     galleryItemNumbProp: {
-        title: 'Количество изображений',
-        description: {
-            en: 'Количество изображений галереи',
-            ru: 'Количество изображений галереи',
+        title: {
+            en: 'Number of images',
+            ru: 'Количество изображений',
         },
         control: 'input',
+        type: 'text',
         category: 'Gallery',
         weight: 1,
     },
     columnsCountProp: {
-        title: 'Количество столбцов',
-        description: {
-            en: 'Укажите количество столбцов для изображений',
-            ru: 'Укажите количество столбцов для изображений',
+        title: {
+            en: 'Number of columns',
+            ru: 'Количество столбцов',
         },
         control: 'input',
+        type: 'text',
         category: 'Gallery',
         weight: 1,
     },
     borderWidthProp: {
-        title: 'Ширина отступов',
-        description: {
-            en: 'Укажите ширину отступов',
-            ru: 'Укажите ширину отступов',
+        title: {
+            en: 'Indent width',
+            ru: 'Ширина отступов',
         },
         control: 'input',
+        type: 'text',
         category: 'Gallery',
         weight: 1,
     },
     autoFillInProp: {
-        title: 'Атоматиечски заполнять свободные места',
-        description: {
-            en: 'Если есть свободное пространство, заполнить его изображением',
-            ru: 'Если есть свободное пространство, заполнить его изображением',
+        title: {
+            en: 'Fill the gaps automatically',
+            ru: 'Автоматически заполнять свободные места',
         },
         control: 'checkbox',
         category: 'Gallery',
         weight: 1,
     },
     loaderFormatProp: {
-        title: 'Варианты загрузки изображений',
-        description: {
-            en: 'Как загружать изображения?',
-            ru: 'Как загружать изображения?',
+        title: {
+            en: 'Images loading',
+            ru: 'Загрузка изображений',
         },
         control: 'radio-group',
         variants: [
             {
                 title: {
-                    en: 'Все сразу',
+                    en: 'All',
                     ru: 'Все сразу',
                 },
                 value: 'all',
             },
             {
                 title: {
-                    en: 'При скроле',
-                    ru: 'При скроле',
+                    en: 'On scroll',
+                    ru: 'При прокрутке',
                 },
                 value: 'scroll',
             },
             {
                 title: {
-                    en: 'По кнопке',
+                    en: 'On click',
                     ru: 'По кнопке',
                 },
                 value: 'click',
             },
         ],
-        category: 'images',
+        category: 'Images',
         weight: 1,
     },
     aspectRatioProp: {
-        title: 'Соотношение сторон',
-        description: {
-            en: 'Выберите соотношение сторон изображений',
-            ru: 'Выберите соотношение сторон изображений',
+        title: {
+            en: 'Image aspect ratio',
+            ru: 'Соотношение сторон изображений',
         },
         control: 'select',
         variants: [
@@ -484,54 +481,51 @@ const propInfo = {
             '3:4',
             '9:16',
         ],
-        category: 'images',
+        category: 'Images',
         weight: 1,
     },
     imagesMaxWidthProp: {
-        title: 'Максимальная ширина изображений',
-        description: {
-            ru: 'Укажите максимальную ширину изображений',
-            en: 'Укажите максимальную ширину изображений',
+        title: {
+            en: 'Minimum width of images',
+            ru: 'Максимальная ширина изображений',
         },
         control: 'input',
-        category: 'images',
+        type: 'text',
+        category: 'Images',
         weight: 1,
     },
     imagesMinWidthProp: {
-        title: 'Минимальная ширина изображений',
-        description: {
-            en: 'Укажите минимальную ширину изображений',
-            ru: 'Укажите минимальную ширину изображений',
+        title: {
+            en: 'Maximum width of images',
+            ru: 'Минимальная ширина изображений',
         },
         control: 'input',
-        category: 'images',
+        type: 'text',
+        category: 'Images',
         weight: 1,
     },
     hideLoaderPreviewImage: {
-        title: 'Отключить лоадер для превью',
-        description: {
-            en: 'Отключить лоадер для превью изображений',
-            ru: 'Отключить лоадер для превью изображений',
+        title: {
+            en: 'Disable loader for preview',
+            ru: 'Отключить лоадер для превью',
         },
         control: 'checkbox',
-        category: 'images',
+        category: 'Images',
         weight: 1,
     },
     offScrollProp: {
-        title: 'Отключить скролл',
-        description: {
-            en: 'Отключить скролл при показе полного изображения',
-            ru: 'Отключить скролл при показе полного изображения',
+        title: {
+            en: 'Disable scroll',
+            ru: 'Отключить прокрутку',
         },
         control: 'checkbox',
         category: 'Lightbox',
         weight: 1,
     },
     hideLoaderFullImage: {
-        title: 'Отключить лоадер для полной картинки',
-        description: {
-            en: 'Отключить лоадер для полной картинки',
-            ru: 'Отключить лоадер для полной картинки',
+        title: {
+            en: 'Disable loader for lightbox',
+            ru: 'Отключить лоадер для лайтбокса',
         },
         control: 'checkbox',
         category: 'Lightbox',
@@ -555,6 +549,12 @@ const defaultProps = {
 };
 
 Object.assign(Gallery, {
+    title: 'Gallery',
+    description: {
+        en:
+            'This component contains images and can be used to show a portfolio, services, or products',
+        ru: 'Компонент для демонстрации портфолио, иллюстрации услуг и товаров',
+    },
     overrides,
     propInfo,
     defaultProps,

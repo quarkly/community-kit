@@ -254,7 +254,10 @@ const BeforeAfterImage = ({
 
 const propInfo = {
     activationType: {
-        title: 'Способ активации',
+        title: {
+            en: 'Interaction method',
+            ru: 'Способ взаимодействия',
+        },
         control: 'radio-group',
         variants: [
             {
@@ -276,7 +279,10 @@ const propInfo = {
         weight: 1,
     },
     aspectRatio: {
-        title: 'Соотношение сторон',
+        title: {
+            en: 'Aspect ratio',
+            ru: 'Соотношение сторон',
+        },
         control: 'select',
         variants: [
             {
@@ -308,9 +314,9 @@ Object.assign(BeforeAfterImage, {
     title: 'BeforeAfterImage',
     description: {
         en:
-            'Слайдер "до" и "после" позволяет легко выделить различия между двумя изображениями.',
+            "This component allows you to easily identify the differences between two 'before' and 'after' images simply by moving around them",
         ru:
-            'Слайдер "до" и "после" позволяет легко выделить различия между двумя изображениями.',
+            "Компонент позволяет легко выделить различия между двумя изображениями 'до' и 'после' простым перемещением по ним",
     },
     propInfo,
     defaultProps,

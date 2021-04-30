@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import atomize from '@quarkly/atomize';
 import { Box } from '@quarkly/widgets';
+
 import {
     YMaps,
     Map,
@@ -61,7 +61,7 @@ const YandexMap = ({
     });
 
     return (
-        <Box d="block" {...props} ref={containerRef}>
+        <Box display="block" {...props} ref={containerRef}>
             <YMaps key={dapiKey} query={{ apikey: dapiKey }}>
                 <Map
                     key={key}
@@ -97,116 +97,128 @@ const YandexMap = ({
 
 const propInfo = {
     apikey: {
-        title: 'API Key',
-        weight: 1,
-        category: 'Settings',
-        description: {
-            en:
-                'API key. Needed for some functions to work. Check yandex.ru/dev/maps/jsapi for more info.',
+        title: {
+            en: 'API Key',
+            ru: 'API Ключ',
         },
+        control: 'input',
+        type: 'text',
+        category: ' Main',
+        weight: 1,
     },
     zoomValue: {
-        title: 'Zoom',
-        category: 'Center',
+        title: {
+            en: 'Map scale',
+            ru: 'Масштаб карты',
+        },
         description: {
-            en: 'Zoom level. Valid values ​​are from 0 (worldwide) to 19.',
+            en: 'Map scale. Available values from 0 to 19',
+            ru: 'Масштаб карты. Доступны значения от 0 до 19',
         },
         control: 'input',
-    },
-    searchControl: {
-        title: 'Search control',
-        category: 'Controls',
-        description: {
-            en: 'Display search control.',
-        },
-        control: 'checkbox',
-    },
-    fullscreenControl: {
-        title: 'Fullscreen control',
-        category: 'Controls',
-        description: {
-            en: 'Display fullscreen control.',
-        },
-        control: 'checkbox',
-    },
-    geolocationControl: {
-        title: 'Geolocation control',
-        category: 'Controls',
-        description: {
-            en: 'Display geolocation control.',
-        },
-        control: 'checkbox',
-    },
-    zoomControl: {
-        title: 'Zoom control',
-        category: 'Controls',
-        description: {
-            en: 'Display zoom control.',
-        },
-        control: 'checkbox',
-    },
-    trafficControl: {
-        title: 'Traffic',
-        category: 'Controls',
-        description: {
-            en: 'Display traffic control.',
-        },
-        control: 'checkbox',
-    },
-    rulerControl: {
-        title: 'Ruler',
-        category: 'Controls',
-        description: {
-            en: 'Display a ruler control.',
-        },
-        control: 'checkbox',
-    },
-    typeSelectorContol: {
-        title: 'TypeSelector',
-        category: 'Controls',
-        description: {
-            en: 'Display a map type control.',
-        },
-        control: 'checkbox',
+        type: 'number',
+        weight: 1,
     },
     latitudeCenter: {
-        title: 'Latitude',
-        category: 'Center',
-        description: {
-            en: 'Center latitude.',
+        title: {
+            en: 'Latitude',
+            ru: 'Широта',
         },
         control: 'input',
+        type: 'text',
+        category: 'Center',
+        weight: 0.5,
     },
     longitudeCenter: {
-        title: 'Longitude',
-        category: 'Center',
-        description: {
-            en: 'Center longitude.',
+        title: {
+            en: 'Longitude',
+            ru: 'Долгота',
         },
         control: 'input',
+        type: 'text',
+        category: 'Center',
+        weight: 0.5,
+    },
+    searchControl: {
+        title: {
+            en: 'Search',
+            ru: 'Поиск',
+        },
+        control: 'checkbox',
+        category: 'Controls',
+        weight: 0.5,
+    },
+    fullscreenControl: {
+        title: {
+            en: 'Full screen view',
+            ru: 'Полноэкранный вид',
+        },
+        control: 'checkbox',
+        category: 'Controls',
+        weight: 0.5,
+    },
+    geolocationControl: {
+        title: {
+            en: 'Geo',
+            ru: 'Геопозиция',
+        },
+        control: 'checkbox',
+        category: 'Controls',
+        weight: 0.5,
+    },
+    zoomControl: {
+        title: {
+            en: 'Scale',
+            ru: 'Масштабирование',
+        },
+        control: 'checkbox',
+        category: 'Controls',
+        weight: 0.5,
+    },
+    trafficControl: {
+        title: {
+            en: 'Traffic',
+            ru: 'Показывать пробки',
+        },
+        control: 'checkbox',
+        category: 'Controls',
+        weight: 0.5,
+    },
+    rulerControl: {
+        title: {
+            en: 'Ruler',
+            ru: 'Показывать линейку',
+        },
+        control: 'checkbox',
+        category: 'Controls',
+        weight: 0.5,
+    },
+    typeSelectorContol: {
+        title: {
+            en: 'Layers options',
+            ru: 'Показывать варианты слоев',
+        },
+        control: 'checkbox',
+        category: 'Controls',
+        weight: 0.5,
     },
 };
 
 const defaultProps = {
-    zoomValue: 9,
     latitudeCenter: 40.714599,
     longitudeCenter: -74.002791,
+    zoomValue: 9,
     height: '250px',
 };
 
-export default atomize(YandexMap)(
-    {
-        name: 'YandexMap',
-        effects: {
-            hover: ':hover',
-        },
-        normalize: true,
-        mixins: true,
-        description: {
-            // past here description for your component
-            en: 'YandexMap — my awesome component',
-        },
-        propInfo,
+Object.assign(YandexMap, {
+    title: 'Yandex Map',
+    description: {
+        en: "This component is for adding maps from 'Yandex.Maps'",
+        ru: 'Компонент для добавления карты сервиса "Яндекс.Карты"',
     },
-    defaultProps
-);
+    propInfo,
+    defaultProps,
+});
+
+export default YandexMap;

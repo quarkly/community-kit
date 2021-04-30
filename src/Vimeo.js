@@ -95,7 +95,7 @@ const VimeoComponent = ({
             </Content>
 
             {!video && (
-                <ComponentNotice message="Добавьте ID видео на панели Props" />
+                <ComponentNotice message="Add your Video link or ID in the Props panel" />
             )}
         </Wrapper>
     );
@@ -103,142 +103,167 @@ const VimeoComponent = ({
 
 const propInfo = {
     video: {
-        title: 'Video ID or URL',
-        description: {
-            en: 'A Vimeo video ID or URL.',
+        title: {
+            en: 'Video link or ID',
+            ru: 'Ссылка или идентификатор видео',
         },
         control: 'input',
+        type: 'text',
         category: 'Video',
+        weight: 1,
     },
     start: {
-        title: 'Start',
-        description: {
-            en: 'The time in seconds at which to start playing the video.',
+        title: {
+            en: 'Playback start time (in sec.)',
+            ru: 'Начало воспроизведения (в сек.)',
         },
         control: 'input',
         category: 'Video',
+        weight: 1,
     },
-    autopause: {
-        title: 'Autopause',
-        description: {
-            en: 'Pause this video automatically when another one plays.',
+    loop: {
+        title: {
+            en: 'Loop playback',
+            ru: 'Зациклить воспроизведение',
         },
         control: 'checkbox',
-        category: 'Player',
+        category: 'Video',
+        weight: 1,
     },
     autoplay: {
-        title: 'Autoplay',
+        title: {
+            en: 'Auto playback',
+            ru: 'Автоматическое воспроизведение',
+        },
         description: {
-            en:
-                'Automatically start playback of the video. Note that this won’t work on some devices.',
+            en: 'Automatically plays the video when the page loads',
+            ru: 'Автоматическое воспроизведение видео при загрузке страницы',
         },
         control: 'checkbox',
         category: 'Player',
+        weight: 1,
+    },
+    autopause: {
+        title: {
+            en: 'Auto pause',
+            ru: 'Автоматическая пауза',
+        },
+        description: {
+            en: 'Automatically pause the video when playing another one',
+            ru: 'Автоматически останавливать видео при воспроизведении другого',
+        },
+        control: 'checkbox',
+        category: 'Player',
+        weight: 1,
+    },
+    controls: {
+        title: {
+            en: 'Show controls',
+            ru: 'Показывать элементы управления',
+        },
+        control: 'checkbox',
+        category: 'Controls',
+        weight: 1,
     },
     color: {
-        title: 'Color',
-        description: {
-            en: 'Specify the color of the video controls.',
+        title: {
+            en: 'Controls color',
+            ru: 'Цвет элементов управления',
         },
         control: 'color',
         category: 'Controls',
+        weight: 1,
     },
-    controls: {
-        title: 'Enable',
-        description: {
-            en:
-                'Hide or enable all elements in the player (play bar, sharing buttons, etc).',
-        },
-        control: 'checkbox',
-        category: 'Controls',
-    },
-    loop: {
-        title: 'Loop',
-        description: {
-            en: 'Play the video again when it reaches the end.',
-        },
-        control: 'checkbox',
-        category: 'Video',
-    },
-    showPortrait: {
-        title: 'Show portrait',
-        description: {
-            en: 'Show the portrait on the video.',
+    responsive: {
+        title: {
+            en: 'By the width of the parent',
+            ru: 'По ширине родителя',
         },
         control: 'checkbox',
         category: 'Player',
+        weight: 1,
     },
     showTitle: {
-        title: 'Show title',
-        description: {
-            en: 'Show the title on the video.',
+        title: {
+            en: 'Show video title',
+            ru: 'Показывать название видео',
         },
         control: 'checkbox',
         category: 'Player',
+        weight: 1,
+    },
+    showPortrait: {
+        title: {
+            en: 'Show video preview',
+            ru: 'Показывать превью видео',
+        },
+        control: 'checkbox',
+        category: 'Player',
+        weight: 1,
     },
     showByline: {
-        title: 'Show byline',
-        description: {
-            en: 'Show the byline on the video.',
+        title: {
+            en: 'Show owner name',
+            ru: 'Показывать имя владельца',
         },
         control: 'checkbox',
         category: 'Player',
-    },
-    muted: {
-        title: 'Muted',
-        description: {
-            en: 'Starts in a muted state to help with autoplay',
-        },
-        control: 'checkbox',
-        category: 'Video',
-    },
-    playBackground: {
-        title: 'Background',
-        description: {
-            en:
-                'Starts in a background state with no controls to help with autoplay',
-        },
-        control: 'checkbox',
-        category: 'Video',
+        weight: 1,
     },
     volume: {
-        title: 'Volume',
-        description: {
-            en: 'The playback volume as a number between 0 and 1.',
+        title: {
+            en: 'Sound volume (from 0 to 1)',
+            ru: 'Громкость звука (от 0 до 1)',
         },
         control: 'input',
         category: 'Video',
+        weight: 1,
     },
-    responsive: {
-        title: 'Responsive',
-        description: {
-            en:
-                'Enable responsive mode and resize according to parent element (experimental)',
+    muted: {
+        title: {
+            en: 'Sound off',
+            ru: 'Отключить звук',
         },
         control: 'checkbox',
-        category: 'Player',
+        category: 'Video',
+        weight: 1,
+    },
+    playBackground: {
+        title: {
+            en: 'Play in the background',
+            ru: 'Воспроизведение в фоновом режиме',
+        },
+        control: 'checkbox',
+        category: 'Video',
+        weight: 1,
     },
 };
 
 const defaultProps = {
-    width: '100%',
-    height: '100%',
-    volume: 1,
     start: 0,
-    autopause: true,
-    autoplay: false,
-    showByline: true,
-    color: '#00ADEF',
-    controls: true,
     loop: false,
-    showPortrait: true,
+    autoplay: false,
+    autopause: true,
+    controls: true,
+    color: '#00ADEF',
+    responsive: true,
     showTitle: true,
+    showPortrait: true,
+    showByline: true,
+    volume: 1,
     muted: false,
     playBackground: false,
-    responsive: true,
+
+    width: '100%',
+    height: '100%',
 };
 
 Object.assign(VimeoComponent, {
+    title: '',
+    description: {
+        en: 'Use this component to add the Vimeo video player',
+        ru: 'Компонент для встраивания видеопроигрывателя сервиса Vimeo',
+    },
     propInfo,
     defaultProps,
     overrides,

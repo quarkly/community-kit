@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для добавления формы комментариев Facebook.
+This component allows you to add a comment form for Facebook.
 
 ## 🎬 Live Demo
 
@@ -8,30 +8,30 @@
 
 ## ⚙️ Usage
 
- 1. Добавьте компонент на страницу
- 2. Укажите ID вашего приложения Facebook
- 3. Укажите ссылку на комментарии
+1.  Add the component to the page
+2.  Specify your Facebook app ID
+3.  Specify the link to comments
 
-### Приложение FaceBook
+### FaceBook app
 
-Для работы компонента, трубуется создание приложения FaceBook. Сделать это можно по этой ссылке: [FaceBook APP](https://developers.facebook.com/apps)
+For the component to work, create a FaceBook application. To do this, follow the link: [FaceBook APP](https://developers.facebook.com/apps)
 
-### Изменение свойств в конструкторе
+### Changing props in the builder
 
-При изменении свойств компонента в конструкторе может потребоваться обновление холста или всей страницы.
+If you change the component properties in the builder, you may need to update the layout or the entire page.
 
 ## 🧩 Components and Props
 
-| Названия свойств             |   Type   |  Default  |
-| :--------------------------- | :------: | :-------: |
-| ID приложения Facebook       | `number` |    `-`    |
-| Ссылка на комментарии        | `number` |    `-`    |
-| Язык загружаемого компонента |  `enum`  | `English` |
+| Prop Name                     |   Type   |  Default  |
+| :---------------------------- | :------: | :-------: |
+| Facebook app ID               | `number` |    `-`    |
+| Link to comments              | `number` |    `-`    |
+| The language of the component |  `enum`  | `English` |
 
 ## 🗓 Changelog
 
- - 21/04/2021 (v1.0)
- - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 

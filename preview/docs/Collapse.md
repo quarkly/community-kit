@@ -1,33 +1,41 @@
 ## 📖 Detailed overview
 
-Компонент включает в себя контейнер, который можно сворачивать и разворачивать. В этот контейнер можно помещать другие компоненты.
+This component allows you to collapse the content smoothly.
+You can drag and drop any component into it.
 
-## 🎬 Live Democollapse
+## 🎬 Live Demo
 
-[Live demo link](https://quarkly-ui-components.netlify.app/collapse/)
+[Live demo link](https://quarkly-catalog.netlify.app/collapse/)
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и вложите в него другой компонент, например, `Text`. Затем, посмотрите как он работает в режиме превью.
+1.  Add the component to the page
+2.  Drag and drop any component into it
+3.  Check how it works in the preview mode
+
+### Animation duration
+
+The duration of the opening and closing animation depends on the height of the content.
+You can set the limits in the `Minimum animation duration` and `Maximum animation duration` props.
 
 ## 🧩 Components and Props
 
-| Props Name             |   Type    | Default  | Description                                     |
-| :--------------------- | :-------: | :------: | :---------------------------------------------- |
-| Min Animation Duration | `string ` |  `0.1s`  | Минимальная продолжительность анимации (в сек)  |
-| Max Animation Duration | `string ` |   `1s`   | Максимальная продолжительность анимации (в сек) |
-| Animation Function     | `string`  | `linear` | Cкорость течения анимации                       |
+| Prop Name                  |   Type    | Default  |
+| :------------------------- | :-------: | :------: |
+| Minimum animation duration | `string ` |  `0.1s`  |
+| Maximum animation duration | `string ` |   `1s`   |
+| Smooth animation           | `string`  | `linear` |
 
 ## 🗓 Changelog
 
-    - 09/04/2021 (v1.0)
-    - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
 [We're on Discord](https://discord.gg/f9KhSMGX)
 

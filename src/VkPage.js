@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import atomize from '@quarkly/atomize';
-import { Box } from '@quarkly/widgets';
+import useDeepCompareEffect from 'use-deep-compare-effect';
 import { useTheme } from 'styled-components';
 import VK, { Group } from 'react-vk';
-import useDeepCompareEffect from 'use-deep-compare-effect';
+import { Box } from '@quarkly/widgets';
+
 import ComponentNotice from './ComponentNotice';
 
 const useDebounce = (value, timeout, deep) => {
@@ -17,31 +17,22 @@ const useDebounce = (value, timeout, deep) => {
     return state;
 };
 
-const isCssVar = (x) => x.substring(0, 2) === '--';
 const hexColor = new RegExp(/^#[0-9A-F]{6}$/, 'i');
-
-const modeConverter = {
-    'Only name': 1,
-    Members: 3,
-    News: 4,
-};
-
 const useColor = (theme) => (rawColor, defaultColor) =>
     useMemo(() => {
-        let color = rawColor;
-        if (isCssVar(rawColor)) {
-            color = theme.color[rawColor.substring(2)];
-        }
-        // return parse(color)?.hex?.substring(1) || defaultColor
+        const isVariable = rawColor.substring(0, 2) === '--';
+        const color = isVariable
+            ? theme.color[rawColor.substring(2)]
+            : rawColor;
         return hexColor.test(color) ? color.substring(1) : defaultColor;
     }, [theme, rawColor, defaultColor]);
 
-const Page = ({
+const VkPageComponent = ({
     background,
-    viewMode,
-    bgc,
-    color,
-    buttonColor,
+    mode,
+    colorBground,
+    colorPrimary,
+    colorAccent,
     elementId,
     groupId,
     width,
@@ -53,10 +44,9 @@ const Page = ({
     const theme = useTheme();
     const getColor = useColor(theme);
 
-    const color1 = getColor(bgc, 'FFF');
-    const color2 = getColor(color, '000');
-    const color3 = getColor(buttonColor, '5181B8');
-    const mode = modeConverter[viewMode];
+    const color1 = getColor(colorBground, 'FFFFFF');
+    const color2 = getColor(colorPrimary, '000000');
+    const color3 = getColor(colorAccent, '5181B8');
 
     const dOpt = useDebounce(
         {
@@ -92,101 +82,126 @@ const Page = ({
                     />
                 </VK>
             ) : (
-                <ComponentNotice message="Insert correct group id in props panel" />
+                <ComponentNotice message="Add your VK community ID in the Props panel" />
             )}
         </Box>
     );
 };
 
 const propInfo = {
-    elementId: {
-        title: 'Element ID',
-        control: 'input',
-        category: 'System',
-        description: {
-            en: 'Unique id of html element.',
-        },
-    },
     groupId: {
-        title: 'Group ID',
-        type: 'number',
+        title: {
+            en: 'VK community ID',
+            ru: 'Идентификатор сообщества',
+        },
         control: 'input',
-        category: 'Widget',
-        description: {
-            en:
-                'Numeric group ID. Сheck vk.com/dev/Community for more information',
-        },
+        type: 'text',
+        category: ' Main',
+        weight: 1,
     },
-    bgc: {
-        title: 'Background color',
+    elementId: {
+        title: {
+            en: 'Widget container ID',
+            ru: 'Идентификатор контейнера',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Widget',
+        weight: 1,
+    },
+    colorBground: {
+        title: {
+            en: 'Widget background color',
+            ru: 'Цвет фона виджета',
+        },
         control: 'color',
         category: 'Widget',
-        description: {
-            en: 'Background color of widget',
-        },
+        weight: 1,
     },
-    color: {
-        title: 'Color',
+    colorPrimary: {
+        title: {
+            en: 'Widget text color',
+            ru: 'Цвет текста виджета',
+        },
         control: 'color',
         category: 'Widget',
-        description: {
-            en: 'Text color',
-        },
+        weight: 1,
     },
-    buttonColor: {
-        title: 'Color',
+    colorAccent: {
+        title: {
+            en: 'Widget link color',
+            ru: 'Цвет ссылок виджета',
+        },
         control: 'color',
         category: 'Button',
-        description: {
-            en: 'Color of subscribe button and some other links',
-        },
+        weight: 1,
     },
-    viewMode: {
-        title: 'View',
-        control: 'select',
-        category: 'Widget',
-        variants: ['Members', 'News', 'Only name'],
-        description: {
-            en: 'View mode of widget (what information will be displayed).',
+    mode: {
+        title: {
+            en: 'What to display in the widget',
+            ru: 'Что отображать в виджете',
         },
+        control: 'select',
+        variants: [
+            {
+                title: {
+                    en: 'Display the community members',
+                    ru: 'Члены сообщества',
+                },
+                value: 3,
+            },
+            {
+                title: {
+                    en: 'Display the community wall',
+                    ru: 'Новости',
+                },
+                value: 4,
+            },
+            {
+                title: {
+                    en: 'Display only the community name',
+                    ru: 'Только название',
+                },
+                value: 1,
+            },
+        ],
+        category: 'Widget',
+        weight: 1,
     },
     noCover: {
-        title: "Don't use cover",
+        title: {
+            en: "Don't display the community cover photo",
+            ru: 'Не отображать обложки сообщества',
+        },
         control: 'checkbox',
         category: 'Widget',
-        description: {
-            en: 'Disable cover-image of group.',
-        },
+        weight: 1,
     },
     wide: {
-        title: 'Extended mode',
+        title: {
+            en: 'Enable advanced mode',
+            ru: 'Включить расширенный режим',
+        },
         control: 'checkbox',
         category: 'Widget',
-        description: {
-            en: 'Extended display mode of widget (only for news).',
-        },
+        weight: 1,
     },
 };
 
 const defaultProps = {
-    width: 'auto',
-    groupId: 175635117,
     elementId: 'vk_groups',
-    bgc: '#fff',
-    color: '#000',
-    buttonColor: '#5181B8',
-    viewMode: 'Members',
+    colorBground: '#FFFFFF',
+    colorPrimary: '#000000',
+    colorAccent: '#5181B8',
+    mode: 3,
     noCover: false,
     wide: false,
+    width: 'auto',
 };
 
-export default atomize(Page)(
-    {
-        description: {
-            en:
-                'A Community widget links your site with your VK community. Your users will be able to subscribe to your VK feed without leaving the page.',
-        },
-        propInfo,
-    },
-    defaultProps
-);
+Object.assign(VkPageComponent, {
+    propInfo,
+    defaultProps,
+});
+
+export default VkPageComponent;
