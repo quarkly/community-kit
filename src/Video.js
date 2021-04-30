@@ -50,12 +50,8 @@ const VideoComponent = ({
                 controls={controls}
                 muted={muted}
                 loop={loop}
-                onMouseEnter={
-                    playOnHover ? (e) => e.target.play() : undefined
-                }
-                onMouseLeave={
-                    playOnHover ? (e) => e.target.pause() : undefined
-                }
+                onMouseEnter={playOnHover ? (e) => e.target.play() : undefined}
+                onMouseLeave={playOnHover ? (e) => e.target.pause() : undefined}
                 {...override('Video Tag')}
                 display={showNotice && 'none'}
             >
