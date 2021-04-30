@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для анимирования одного или нескольких элементов.
+Use this component to animate one or several elements.
 
 ## 🎬 Live Demo
 
@@ -8,28 +8,28 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и поместите в него любой другой компонент, который необходимо анимировать.
+Add the component to the page, then add the component that you want to animate inside it.
 
-### Включить анимацию
+### Switch on animation
 
-Если активировать свойство `Включить анимацию принудительно`, анимация будет проигрываться автоматически.
+If you activate prop `Force animations`, animation will play out automatically.
 
 ## 🧩 Components and Props
 
-| Названия свойств                     |   Type   |  Default   |  Example  |
-| :----------------------------------- | :------: | :--------: | :-------: |
-| Триггер анимации                     |  `enum`  |  `onload`  |  `hover`  |
-| Тип анимации                         |  `enum`  | `Fade Out` | `Fade In` |
-| Количество итераций                  |  `enum`  | `infinity` |  `once`   |
-| Функция сглаживания анимации         | `string` |  `linear`  |  `ease`   |
-| Длительность появления и скрытия     | `string` |    `1s`    |   `3s`    |
-| Задержка перед началом анимации      | `string` |    `0s`    |   `1s`    |
-| Включить анимацию принудительно      |  `bool`  |  `false`   |  `true`   |
+| Props Name                    |   Type   |  Default   |  Example  |
+| :---------------------------- | :------: | :--------: | :-------: |
+| Animation trigger             |  `enum`  |  `onload`  |  `hover`  |
+| Animation type                |  `enum`  | `Fade Out` | `Fade In` |
+| Number of iterations          |  `enum`  | `infinity` |  `once`   |
+| Animation timing function     | `string` |  `linear`  |  `ease`   |
+| Duration of show/hide         | `string` |    `1s`    |   `3s`    |
+| Delay before animation starts | `string` |    `0s`    |   `1s`    |
+| Force animation               |  `bool`  |  `false`   |  `true`   |
 
 ## 🗓 Changelog
 
- - 21/04/2021 (v1.0)
- - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
