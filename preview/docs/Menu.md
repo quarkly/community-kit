@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Простое меню для вашего сайта.
+Use this component to add a simple menu to your website.
 
 ## 🎬 Live Demo
 
@@ -8,26 +8,26 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и измените значение свойства `Максимальная вложенность` при необходимости.
+Add the component to the page and change the value of the `Maximum nesting` prop if needed.
 
-### Изменение корневой страницы
+### Changing the root page
 
-Cвойство `ID корневой страницы` позволяет указать страницу, для которой будет формироваться меню.
-ID текущей страницы можно скопировать из адресной строки.
-Например, для URL-адреса `https://quarkly.io/project/12345/page/67890`, ID страницы указан в конце и равен `67890`.
+The `Root page ID` prop allows you to specify the page for which the menu will be generated.
+You can copy the ID of the current page in the address bar.
+For example, the page ID of the URL `https://quarkly.io/project/12345/page/67890` is at the end of the URL, i.e. `67890`.
 
 ## 🧩 Components and Props
 
-| Названия свойств                      |   Type    | Default | Example |
-| :------------------------------------ | :-------: | :-----: | :-----: |
-| Максимальная вложенность              | `number`  |   `1`   |   `5`   |
-| ID корневой страницы                  | `string`  | `root`  | `67890` |
-| Выделять родительские активные пункты | `boolean` | `false` | `true`  |
+| Prop Name                |   Type    | Default | Example |
+| :----------------------- | :-------: | :-----: | :-----: |
+| Maximum nesting          | `number`  |   `1`   |   `5`   |
+| Root page ID             | `string`  | `root`  | `67890` |
+| Mark parent active items | `boolean` | `false` | `true`  |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
