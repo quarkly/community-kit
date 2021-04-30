@@ -133,6 +133,6 @@ Object.assign(TrackComponent, {
     },
     propInfo,
     defaultProps,
-})
+});
 
 export default TrackComponent;

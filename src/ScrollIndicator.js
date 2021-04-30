@@ -60,8 +60,10 @@ const ScrollIndicator = (props) => {
 Object.assign(ScrollIndicator, {
     title: 'Scroll Indicator',
     description: {
-        ru: 'Индикатор в верхней части страницы, который показывает, какую её часть уже прокрутили',
-        en: 'This component is an idicator at the top of the page that shows how much of it has been already scrolled',
+        ru:
+            'Индикатор в верхней части страницы, который показывает, какую её часть уже прокрутили',
+        en:
+            'This component is an idicator at the top of the page that shows how much of it has been already scrolled',
     },
     overrides,
 });

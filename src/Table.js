@@ -222,8 +222,8 @@ const defaultProps = {
 Object.assign(TableComponent, {
     title: 'Table',
     description: {
-      en: 'This component is a simple table with text cells',
-      ru: 'Простая таблица с текстовыми ячейками',  
+        en: 'This component is a simple table with text cells',
+        ru: 'Простая таблица с текстовыми ячейками',
     },
     propInfo,
     defaultProps,

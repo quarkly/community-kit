@@ -313,8 +313,10 @@ const defaultProps = {
 Object.assign(BeforeAfterImage, {
     title: 'BeforeAfterImage',
     description: {
-        en: 'This component allows you to easily identify the differences between two \'before\' and \'after\' images simply by moving around them',
-        ru: 'Компонент позволяет легко выделить различия между двумя изображениями \'до\' и \'после\' простым перемещением по ним',
+        en:
+            "This component allows you to easily identify the differences between two 'before' and 'after' images simply by moving around them",
+        ru:
+            "Компонент позволяет легко выделить различия между двумя изображениями 'до' и 'после' простым перемещением по ним",
     },
     propInfo,
     defaultProps,

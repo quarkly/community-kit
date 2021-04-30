@@ -322,8 +322,10 @@ const defaultProps = {
 Object.assign(Counter, {
     title: 'Counter',
     description: {
-        en: 'This component is a counter that increases or decreases to a certain value',
-        ru: 'Компонент представляет из себя счетчик, который увеличивается или уменьшается до определенного значения',
+        en:
+            'This component is a counter that increases or decreases to a certain value',
+        ru:
+            'Компонент представляет из себя счетчик, который увеличивается или уменьшается до определенного значения',
     },
     propInfo,
     defaultProps,

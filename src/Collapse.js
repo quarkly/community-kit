@@ -166,7 +166,9 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
                 <Box {...override('Content')} ref={contentRef}>
                     {children}
                 </Box>
-                {isEmpty && <ComponentNotice message="Drag any component here" />}
+                {isEmpty && (
+                    <ComponentNotice message="Drag any component here" />
+                )}
             </Box>
         </Box>
     );
@@ -230,7 +232,8 @@ Object.assign(Collapse, {
     title: 'Collapse',
     description: {
         en: 'This component allows you to collapse the content smoothly',
-        ru: 'Компонент для плавного переключания видимости содержимого с изменением высоты',
+        ru:
+            'Компонент для плавного переключания видимости содержимого с изменением высоты',
     },
     overrides,
     propInfo,

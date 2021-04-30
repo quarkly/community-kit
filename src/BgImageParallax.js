@@ -185,15 +185,15 @@ const propInfo = {
                     en: 'Repeat',
                     ru: 'Повторять',
                 },
-                value: 'repeat'
+                value: 'repeat',
             },
             {
                 title: {
-                    en: 'Don\'t repeat',
+                    en: "Don't repeat",
                     ru: 'Не повторять',
                 },
-                value: 'no-repeat'
-            }
+                value: 'no-repeat',
+            },
         ],
         category: 'Image',
         weight: 1,

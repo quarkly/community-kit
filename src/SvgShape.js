@@ -182,36 +182,36 @@ const propInfo = {
                     en: 'Line',
                     ru: 'Линия',
                 },
-                value: 'line'
-            }, 
+                value: 'line',
+            },
             {
                 title: {
                     en: 'Ellipse',
                     ru: 'Овал',
                 },
                 value: 'ellipse',
-            }, 
+            },
             {
                 title: {
                     en: 'Circle',
                     ru: 'Круг',
                 },
                 value: 'circle',
-            }, 
+            },
             {
                 title: {
                     en: 'Rectangle',
                     ru: 'Прямоугольник',
                 },
                 value: 'rectangle',
-            }, 
+            },
             {
                 title: {
                     en: 'Square',
                     ru: 'Квадрат',
                 },
-                value: 'square'
-            }
+                value: 'square',
+            },
         ],
         category: 'Main',
         weight: 1,

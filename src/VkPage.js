@@ -170,7 +170,7 @@ const propInfo = {
     },
     noCover: {
         title: {
-            en: 'Don\'t display the community cover photo',
+            en: "Don't display the community cover photo",
             ru: 'Не отображать обложки сообщества',
         },
         control: 'checkbox',

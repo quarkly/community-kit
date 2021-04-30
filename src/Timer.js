@@ -319,8 +319,10 @@ const defaultProps = {
 Object.assign(TimerComponent, {
     title: 'Timer',
     description: {
-        en: 'Timer lets you site visitor know about the start and the end of an event',
-        ru: 'Счетчик обратного отсчета проинформирует посетителя об оставшемся времени до начала или окончания события',
+        en:
+            'Timer lets you site visitor know about the start and the end of an event',
+        ru:
+            'Счетчик обратного отсчета проинформирует посетителя об оставшемся времени до начала или окончания события',
     },
     propInfo,
     defaultProps,

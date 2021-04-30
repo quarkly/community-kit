@@ -123,7 +123,8 @@ const propInfo = {
             ru: 'Длительность изменения ширины',
         },
         description: {
-            en: 'Duration (in ms) of the container width change around each slide',
+            en:
+                'Duration (in ms) of the container width change around each slide',
             ru:
                 'Длительность (в мс) изменения ширины контейнера вокруг каждого слайда',
         },
@@ -165,7 +166,7 @@ const propInfo = {
             ru: 'Запретить перенос текста',
         },
         description: {
-            en: 'The line can\'t be broken. Used to calculate the width',
+            en: "The line can't be broken. Used to calculate the width",
             ru: 'Запретить перенос текста, используется для вычисления ширины',
         },
         control: 'checkbox',

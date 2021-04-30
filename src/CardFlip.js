@@ -283,7 +283,8 @@ Object.assign(CardFlip, {
     title: 'Card Flip',
     description: {
         en: 'Card flip with image. Rotation either on click or on mouseover',
-        ru: 'Вращающаяся карточка с изображением. Вращается по клику или наведению курсора',
+        ru:
+            'Вращающаяся карточка с изображением. Вращается по клику или наведению курсора',
     },
     propInfo,
     defaultProps,

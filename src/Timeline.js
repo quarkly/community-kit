@@ -370,8 +370,10 @@ const defaultProps = {
 export default Object.assign(Timeline, {
     title: 'Timeline',
     description: {
-        en: 'Timeline is one of the best ways of showig an action sequence in a compact and understandable way',
-        ru: 'Таймлайн — это один из лучших способов отображения хронологии в компактном и понятном виде',
+        en:
+            'Timeline is one of the best ways of showig an action sequence in a compact and understandable way',
+        ru:
+            'Таймлайн — это один из лучших способов отображения хронологии в компактном и понятном виде',
     },
     overrides,
     propInfo,

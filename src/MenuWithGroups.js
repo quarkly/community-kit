@@ -387,8 +387,10 @@ const defaultProps = {
 Object.assign(MenuWithGroups, {
     title: 'Menu with groups',
     description: {
-        en: 'Multi-level menu, in which subpages are combined into a named group',
-        ru: 'Многоуровневое меню, в котором вложенные страницы объединяются в именованную группу',
+        en:
+            'Multi-level menu, in which subpages are combined into a named group',
+        ru:
+            'Многоуровневое меню, в котором вложенные страницы объединяются в именованную группу',
     },
     propInfo,
     defaultProps,

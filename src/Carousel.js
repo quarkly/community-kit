@@ -715,8 +715,10 @@ const defaultProps = {
 Object.assign(CarouselComponent, {
     title: 'Carousel',
     description: {
-        en: 'Slider with images that can be scrolled by pressing the arrows or dots buttons',
-        ru: 'Лента с изображениями, которую можно листать нажатием на стрелки или точки',
+        en:
+            'Slider with images that can be scrolled by pressing the arrows or dots buttons',
+        ru:
+            'Лента с изображениями, которую можно листать нажатием на стрелки или точки',
     },
     propInfo,
     defaultProps,

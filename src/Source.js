@@ -39,9 +39,7 @@ const SourceComponent = ({
         />
     ) : (
         <ComponentNotice
-            message={
-                'This component should be inside Picture, Audio or Video'
-            }
+            message={'This component should be inside Picture, Audio or Video'}
             {...props}
         />
     );
@@ -201,6 +199,6 @@ Object.assign(SourceComponent, {
     },
     propInfo,
     defaultProps,
-})
+});
 
 export default SourceComponent;

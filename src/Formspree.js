@@ -139,7 +139,7 @@ const defaultProps = {
     endpoint: '',
     errorMessage: 'Something went wrong',
     completeText: 'Success',
-}
+};
 
 Object.assign(Formspree, {
     title: 'Formspree',
@@ -149,6 +149,6 @@ Object.assign(Formspree, {
     },
     propInfo,
     defaultProps,
-})
+});
 
 export default Formspree;

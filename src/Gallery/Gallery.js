@@ -551,7 +551,8 @@ const defaultProps = {
 Object.assign(Gallery, {
     title: 'Gallery',
     description: {
-        en: 'This component contains images and can be used to show a portfolio, services, or products',
+        en:
+            'This component contains images and can be used to show a portfolio, services, or products',
         ru: 'Компонент для демонстрации портфолио, иллюстрации услуг и товаров',
     },
     overrides,

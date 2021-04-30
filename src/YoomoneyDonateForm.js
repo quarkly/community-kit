@@ -124,7 +124,8 @@ const propInfo = {
         },
         description: {
             en: 'Transfer reason (required field, is `Seller` is selected)',
-            ru: 'Назначение перевода (обязательное поле, если выбрано "Продавец")',
+            ru:
+                'Назначение перевода (обязательное поле, если выбрано "Продавец")',
         },
         control: 'input',
         type: 'text',
@@ -186,7 +187,8 @@ const propInfo = {
         },
         description: {
             en: 'Transfer fnds via a credit card (extra fee may be charged)',
-            ru: 'Возможность перевода через банковскую карту (может взиматься дополнительная комиссия)',
+            ru:
+                'Возможность перевода через банковскую карту (может взиматься дополнительная комиссия)',
         },
         control: 'checkbox',
         category: 'Main',
@@ -194,12 +196,14 @@ const propInfo = {
     },
     fio: {
         title: {
-            en: 'Request sender\'s full name',
+            en: "Request sender's full name",
             ru: 'Запросить полное имя у отправителя',
         },
         description: {
-            en: 'Request sender\'s full name during the transfer and then email it',
-            ru: 'Запросить полное имя у отправителя в момент перевода и после отправить в письме',
+            en:
+                "Request sender's full name during the transfer and then email it",
+            ru:
+                'Запросить полное имя у отправителя в момент перевода и после отправить в письме',
         },
         control: 'checkbox',
         category: 'Info',
@@ -207,12 +211,14 @@ const propInfo = {
     },
     email: {
         title: {
-            en: 'Request sender\'s email',
+            en: "Request sender's email",
             ru: 'Запросить эл. почту у отправителя',
         },
         description: {
-            en: 'Request sender\'s email address during the transfer and then email it',
-            ru: 'Запросить эл. почту у отправителя в момент перевода и после отправить в письме',
+            en:
+                "Request sender's email address during the transfer and then email it",
+            ru:
+                'Запросить эл. почту у отправителя в момент перевода и после отправить в письме',
         },
         control: 'checkbox',
         category: 'Info',
@@ -220,12 +226,14 @@ const propInfo = {
     },
     phone: {
         title: {
-            en: 'Request sender\'s phone number',
+            en: "Request sender's phone number",
             ru: 'Запросить номер телефона у отправителя',
         },
         description: {
-            en: 'Request sender\'s phone number during the transfer and then email it',
-            ru: 'Запросить номер телефона у отправителя в момент перевода и после отправить в письме',
+            en:
+                "Request sender's phone number during the transfer and then email it",
+            ru:
+                'Запросить номер телефона у отправителя в момент перевода и после отправить в письме',
         },
         control: 'checkbox',
         category: 'Info',
@@ -233,12 +241,14 @@ const propInfo = {
     },
     address: {
         title: {
-            en: 'Request sender\'s address',
+            en: "Request sender's address",
             ru: 'Запросить адрес у отправителя',
         },
         description: {
-            en: 'Request sender\'s address during the transfer and then email it',
-            ru: 'Запросить адрес для доставки у отправителя в момент перевода и после отправить в письме',
+            en:
+                "Request sender's address during the transfer and then email it",
+            ru:
+                'Запросить адрес для доставки у отправителя в момент перевода и после отправить в письме',
         },
         control: 'checkbox',
         category: 'Info',
@@ -246,12 +256,14 @@ const propInfo = {
     },
     comment: {
         title: {
-            en: 'Request sender\'s comments',
+            en: "Request sender's comments",
             ru: 'Запросить комментарий у отправителя',
         },
         description: {
-            en: 'Request sender\'s comments during the transfer and then email it',
-            ru: 'Запросить комментарий у отправителя в момент перевода и после отправить в письме',
+            en:
+                "Request sender's comments during the transfer and then email it",
+            ru:
+                'Запросить комментарий у отправителя в момент перевода и после отправить в письме',
         },
         control: 'checkbox',
         category: 'Info',
@@ -290,8 +302,10 @@ const propInfo = {
             ru: 'Мобильная версия',
         },
         description: {
-            en: 'Check the form on a big screen: widget may stretch to the full width of the page',
-            ru: 'Проверьте форму на большом экране: виджет может растянуться на всю ширину страницы',
+            en:
+                'Check the form on a big screen: widget may stretch to the full width of the page',
+            ru:
+                'Проверьте форму на большом экране: виджет может растянуться на всю ширину страницы',
         },
         control: 'checkbox',
         category: 'Main',

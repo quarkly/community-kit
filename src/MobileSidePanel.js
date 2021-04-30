@@ -498,8 +498,10 @@ const defaultProps = {
 Object.assign(MobileSidePanel, {
     title: 'Mobile side panel',
     description: {
-        en: 'Container to hide menu or any other content in the mobile version of the site',
-        ru: 'Контейнер для скрытия меню или любого другого контента в мобильной версии сайта',
+        en:
+            'Container to hide menu or any other content in the mobile version of the site',
+        ru:
+            'Контейнер для скрытия меню или любого другого контента в мобильной версии сайта',
     },
     propInfo,
     defaultProps,

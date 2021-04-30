@@ -123,7 +123,7 @@ const propInfo = {
     },
     showShare: {
         title: {
-            en: '\'Share\' button',
+            en: "'Share' button",
             ru: 'Кнопка "Поделиться"',
         },
         control: 'radio-group',

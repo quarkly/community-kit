@@ -476,8 +476,10 @@ const defaultProps = {
 Object.assign(TooltipComponent, {
     title: 'Tooltip',
     description: {
-        en: 'The container component shows a text tooltip when you mouse over the content',
-        ru: 'Компонент-контейнер показывает текстовую подсказку при наведении курсора на содержимое',
+        en:
+            'The container component shows a text tooltip when you mouse over the content',
+        ru:
+            'Компонент-контейнер показывает текстовую подсказку при наведении курсора на содержимое',
     },
     propInfo,
     defaultProps,

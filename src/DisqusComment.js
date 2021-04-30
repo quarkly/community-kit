@@ -97,8 +97,10 @@ const defaultProps = {
 Object.assign(DisqusCommentComponent, {
     title: 'Disqus Comment',
     description: {
-        en: 'This component allows you to add the Disqus widget with a specific comment',
-        ru: 'Компонент для встраивания виджета с конкретным комментарием Disqus',
+        en:
+            'This component allows you to add the Disqus widget with a specific comment',
+        ru:
+            'Компонент для встраивания виджета с конкретным комментарием Disqus',
     },
     propInfo,
     defaultProps,

@@ -214,7 +214,7 @@ const defaultProps = {
 Object.assign(YandexMap, {
     title: 'Yandex Map',
     description: {
-        en: 'This component is for adding maps from \'Yandex.Maps\'',
+        en: "This component is for adding maps from 'Yandex.Maps'",
         ru: 'Компонент для добавления карты сервиса "Яндекс.Карты"',
     },
     propInfo,

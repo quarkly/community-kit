@@ -149,7 +149,7 @@ const propInfo = {
         },
         control: 'text',
         category: 'Button',
-        weight: 1
+        weight: 1,
     },
     showAlways: {
         title: {
@@ -158,7 +158,7 @@ const propInfo = {
         },
         control: 'checkbox',
         category: 'Button',
-        weight: 1
+        weight: 1,
     },
     duration: {
         title: {
@@ -167,7 +167,7 @@ const propInfo = {
         },
         control: 'text',
         category: 'Animation',
-        weight: 1
+        weight: 1,
     },
     easingPreset: {
         title: {
@@ -191,7 +191,7 @@ const propInfo = {
             'easeInOutQuint',
         ],
         category: 'Animation',
-        weight: 1
+        weight: 1,
     },
 };
 
@@ -205,8 +205,10 @@ const defaultProps = {
 export default Object.assign(ScrollToTop, {
     title: 'Scroll to Top',
     description: {
-        en: 'Help users easily return to the top of the long page with a single click',
-        ru: 'Помогите пользователям легко вернуться к началу страницы одним кликом мыши',
+        en:
+            'Help users easily return to the top of the long page with a single click',
+        ru:
+            'Помогите пользователям легко вернуться к началу страницы одним кликом мыши',
     },
     propInfo,
     defaultProps,
