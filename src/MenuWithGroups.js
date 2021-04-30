@@ -319,21 +319,30 @@ const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
 
 const propInfo = {
     depth: {
-        title: 'Максимальная вложенность',
+        title: {
+            en: 'Maximum nesting',
+            ru: 'Максимальная вложенность',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     rootId: {
-        title: 'ID корневой страницы',
+        title: {
+            en: 'Root page ID',
+            ru: 'ID корневой страницы',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     tabState: {
-        title: 'Состояние групп по умолчанию',
+        title: {
+            en: 'Condition of groups by default',
+            ru: 'Состояние групп по умолчанию',
+        },
         control: 'select',
         variants: [
             {
@@ -376,6 +385,11 @@ const defaultProps = {
 };
 
 Object.assign(MenuWithGroups, {
+    title: 'Menu with groups',
+    description: {
+        en: 'Multi-level menu, in which subpages are combined into a named group',
+        ru: 'Многоуровневое меню, в котором вложенные страницы объединяются в именованную группу',
+    },
     propInfo,
     defaultProps,
     overrides,
