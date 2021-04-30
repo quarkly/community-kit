@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для встраивания виджета с формой сервиса Formspree.
+This component allows you to add a form with the Formspree widget.
 
 ## 🎬 Live Demo
 
@@ -8,24 +8,24 @@
 
 ## ⚙️ Usage
 
-1. Зарегистрируйтесь на сайте [Formspree](https://formspree.io/)
-2. Создайте новую форму и в разделе `Integration` вашей формы скопируйте `Endpoint`
-3. Добавьте компонент на страницу
-4. Вставьте скопированный `Endpoint` на панели Props
-5. Посмотрите как компонент работает в режиме превью
+1. Sign up for the website [Formspree](https://formspree.io/)
+2. Create a form and copy `Endpoint` in the `Integration` section
+3. Add the component to the page
+4. Paste the copied `Endpoint` on the Props panel
+5. Check how it works in the preview mode
 
 ## 🧩 Components and Props
 
-| Названия свойств               |   Type   | Default |
-| :----------------------------- | :------: | :-----: |
-| Endpoint                       | `string` |   `-`   |
-| Сообщение об успешной отправке | `string` |   `-`   |
-| Сообщение в случае ошибки      | `string` |   `-`   |
+| Prop Name       |   Type   | Default |
+| :-------------- | :------: | :-----: |
+| Endpoint        | `string` |   `-`   |
+| Success message | `string` |   `-`   |
+| Error message   | `string` |   `-`   |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
