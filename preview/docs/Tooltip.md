@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент-контейнер показывает текстовую подсказку при наведении курсора на содержимое.
+The container component shows a text tooltip when you mouse over the content.
 
 ## 🎬 Live Demo
 
@@ -8,29 +8,29 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и поместите в него любой другой компонент, например, `Text`. Затем, посмотрите как он работает в режиме превью.
+Add the component to the page and place another component, for example, `Text`, into it. Then check how it works in the preview mode.
 
-### Автоматическая смена положения
+### Auto position change
 
-Если свойство `Автоматическая смена положения` активно, всплывающая подсказка автоматически будет менять свое положение в случае нехватки места. При этом будут учитываться все имеющиеся отступы.
+If the `Auto position change` prop is enabled, the tooltip will automatically change its position if there's not enough space. All indents will be taken into account.
 
 ## 🧩 Components and Props
 
-| Названия свойств               |   Type   |    Default     |
-| :----------------------------- | :------: | :------------: |
-| Показывать Tooltip             |  `enum`  |    `Всегда`    |
-| Положение Tooltip              |  `enum`  |    `Сверху`    |
-| Отступ от краев                | `string` |      `0`       |
-| Отступ от контента             |  `bool`  |     `4px`      |
-| Цвет фона Tooltip              | `string` | `--color-dark` |
-| Показать стрелочку             |  `bool`  |     `true`     |
-| Размер стрелочки (px)          | `string` |     `8px`      |
-| Автоматическая смена положения |  `bool`  |     `true`     |
+| Prop name                |   Type   |    Default     |
+| :----------------------- | :------: | :------------: |
+| Show Tooltip             |  `enum`  |    `Всегда`    |
+| Tooltip position         |  `enum`  |    `Сверху`    |
+| Edges indent             | `string` |      `0`       |
+| Content indent           |  `bool`  |     `4px`      |
+| Tooltip background color | `string` | `--color-dark` |
+| Show the arrow           |  `bool`  |     `true`     |
+| Arrow size (px)          | `string` |     `8px`      |
+| Auto position change     |  `bool`  |     `true`     |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 

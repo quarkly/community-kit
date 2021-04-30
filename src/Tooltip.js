@@ -330,26 +330,29 @@ const TooltipComponent = ({
             <Box ref={contentRef} {...override('Content')}>
                 {children}
             </Box>
-            {isEmpty && <ComponentNotice message={'Drag component here'} />}
+            {isEmpty && <ComponentNotice message={'Drag any component here'} />}
         </Box>
     );
 };
 
 const propInfo = {
     tooltipStatusProp: {
-        title: 'Показывать Tooltip',
+        title: {
+            en: 'Show Tooltip',
+            ru: 'Показывать Tooltip',
+        },
         control: 'radio-group',
         variants: [
             {
                 title: {
-                    en: 'Всегда',
+                    en: 'Always',
                     ru: 'Всегда',
                 },
                 value: 'always',
             },
             {
                 title: {
-                    en: 'При наведении',
+                    en: 'On hover',
                     ru: 'При наведении',
                 },
                 value: 'hover',
@@ -359,33 +362,36 @@ const propInfo = {
         weight: 1,
     },
     tooltipPositionProp: {
-        title: 'Положение Tooltip',
+        title: {
+            en: 'Tooltip position',
+            ru: 'Положение Tooltip',
+        },
         control: 'select',
         variants: [
             {
                 title: {
-                    en: 'Сверху',
+                    en: 'Top',
                     ru: 'Сверху',
                 },
                 value: 'top',
             },
             {
                 title: {
-                    en: 'Справа',
+                    en: 'Right',
                     ru: 'Справа',
                 },
                 value: 'right',
             },
             {
                 title: {
-                    en: 'Снизу',
+                    en: 'Bottom',
                     ru: 'Снизу',
                 },
                 value: 'bottom',
             },
             {
                 title: {
-                    en: 'Слева',
+                    en: 'Left',
                     ru: 'Слева',
                 },
                 value: 'left',
@@ -395,9 +401,9 @@ const propInfo = {
         weight: 0.5,
     },
     tooltipOffsetProp: {
-        title: 'Отступ от краев',
-        description: {
-            ru: 'Укажите отступ Tooltip относительно краев окна',
+        title: {
+            en: 'Window border indent',
+            ru: 'Отступ от границ окна',
         },
         control: 'input',
         variants: ['0px', '4px', '8px', '16px', '24px'],
@@ -406,9 +412,9 @@ const propInfo = {
         weight: 0.5,
     },
     contentOffsetProp: {
-        title: 'Отступ от контента',
-        description: {
-            ru: 'Отступ до края компонента в пикселях',
+        title: {
+            en: 'Content border indent',
+            ru: 'Отступ от границы контента',
         },
         control: 'input',
         variants: ['0px', '4px', '8px', '12px', '16px'],
@@ -417,24 +423,27 @@ const propInfo = {
         weight: 0.5,
     },
     tooltipColorProp: {
-        title: 'Цвет фона Tooltip',
+        title: {
+            en: 'Tooltip background color',
+            ru: 'Цвет фона Tooltip',
+        },
         control: 'color',
         category: 'Tooltip',
         weight: 1,
     },
     arrowStatusProp: {
-        title: 'Показать стрелочку',
-        description: {
-            ru: 'Показать/Скрыть стрелочку',
+        title: {
+            en: 'Show the arrow',
+            ru: 'Показать стрелочку',
         },
         control: 'checkbox',
         category: 'Arrow',
         weight: 1,
     },
     arrowSizeProp: {
-        title: 'Размер стрелочки (px)',
-        description: {
-            ru: 'Укажите размер стрелочки в пикселях',
+        title: {
+            en: 'Arrow size (px)',
+            ru: 'Размер стрелочки (px)',
         },
         control: 'input',
         variants: ['0px', '4px', '8px', '12px', '16px'],
@@ -443,7 +452,10 @@ const propInfo = {
         weight: 0.5,
     },
     tooltipAutoChangeProp: {
-        title: 'Автоматическая смена положения',
+        title: {
+            en: 'Auto position change',
+            ru: 'Автоматическая смена положения',
+        },
         control: 'checkbox',
         category: 'Tooltip',
         weight: 1,
@@ -462,7 +474,11 @@ const defaultProps = {
 };
 
 Object.assign(TooltipComponent, {
-    title: 'Tooltip Component',
+    title: 'Tooltip',
+    description: {
+        en: 'The container component shows a text tooltip when you mouse over the content',
+        ru: 'Компонент-контейнер показывает текстовую подсказку при наведении курсора на содержимое',
+    },
     propInfo,
     defaultProps,
     overrides,
