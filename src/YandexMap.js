@@ -97,16 +97,23 @@ const YandexMap = ({
 
 const propInfo = {
     apikey: {
-        title: 'API Key',
+        title: {
+            en: 'API Key',
+            ru: 'API Ключ',
+        },
         control: 'input',
         type: 'text',
         category: ' Main',
         weight: 1,
     },
     zoomValue: {
-        title: 'Масштаб карты',
+        title: {
+            en: 'Map scale',
+            ru: 'Масштаб карты',
+        },
         description: {
-            en: 'Масштаб карты. Доступны значения от 0 до 19',
+            en: 'Map scale. Available values from 0 to 19',
+            ru: 'Масштаб карты. Доступны значения от 0 до 19',
         },
         control: 'input',
         type: 'number',
@@ -133,43 +140,64 @@ const propInfo = {
         weight: 0.5,
     },
     searchControl: {
-        title: 'Поиск',
+        title: {
+            en: 'Search',
+            ru: 'Поиск',
+        },
         control: 'checkbox',
         category: 'Controls',
         weight: 0.5,
     },
     fullscreenControl: {
-        title: 'Полноэкранный вид',
+        title: {
+            en: 'Full screen view',
+            ru: 'Полноэкранный вид',
+        },
         control: 'checkbox',
         category: 'Controls',
         weight: 0.5,
     },
     geolocationControl: {
-        title: 'Геопозиция',
+        title: {
+            en: 'Geo',
+            ru: 'Геопозиция',
+        },
         control: 'checkbox',
         category: 'Controls',
         weight: 0.5,
     },
     zoomControl: {
-        title: 'Масштабирование',
+        title: {
+            en: 'Scale',
+            ru: 'Масштабирование',
+        },
         control: 'checkbox',
         category: 'Controls',
         weight: 0.5,
     },
     trafficControl: {
-        title: 'Показывать пробки',
+        title: {
+            en: 'Traffic',
+            ru: 'Показывать пробки',
+        },
         control: 'checkbox',
         category: 'Controls',
         weight: 0.5,
     },
     rulerControl: {
-        title: 'Показывать линейку',
+        title: {
+            en: 'Ruler',
+            ru: 'Показывать линейку',
+        },
         control: 'checkbox',
         category: 'Controls',
         weight: 0.5,
     },
     typeSelectorContol: {
-        title: 'Показывать варианты слоев',
+        title: {
+            en: 'Layers options',
+            ru: 'Показывать варианты слоев',
+        },
         control: 'checkbox',
         category: 'Controls',
         weight: 0.5,
@@ -184,7 +212,11 @@ const defaultProps = {
 };
 
 Object.assign(YandexMap, {
-    title: 'YandexMap Component',
+    title: 'Yandex Map',
+    description: {
+        en: 'This component is for adding maps from \'Yandex.Maps\'',
+        ru: 'Компонент для добавления карты сервиса "Яндекс.Карты"',
+    },
     propInfo,
     defaultProps,
 });

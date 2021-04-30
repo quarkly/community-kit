@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для добавления карты сервиса "Яндекс.Карты"
+This component is for adding maps from "Yandex.Maps"
 
 ## 🎬 Live Demo
 
@@ -8,32 +8,32 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу, укажите `API Key` и посмотрите как он работает в режиме превью.
+Add the component to the page, specify the `API Key`, and check how it works in the preview mode.
 
 ### ApiKey
 
-Получить `API Key` можно по [инструкции](https://yandex.ru/blog/mapsapi/novye-pravila-dostupa-k-api-kart).
+To get `API Key`, follow the [instructions](https://yandex.ru/blog/mapsapi/novye-pravila-dostupa-k-api-kart).
 
 ## 🧩 Components and Props
 
-| Названия свойств  |   Type    | Default | Description                                 |
-| :---------------- | :-------: | :-----: | :------------------------------------------ |
-| API Ключ          | `string`  |   `-`   |                                             |
-| Масштаб карты     | `string ` |   `9`   | Масштаб карты. Доступны значения от 0 до 19 |
-| Широта            | `string`  |   `-`   |                                             |
-| Долгота           | `string`  |   `-`   |                                             |
-| Поиск             | `string`  | `false` |                                             |
-| Полноэкранный вид | `string`  | `false` |                                             |
-| Геопозиция        | `string`  | `false` |                                             |
-| Масштабирование   | `string`  | `false` |                                             |
-| Пробки            | `string`  | `false` |                                             |
-| Линейка           | `string`  | `false` |                                             |
-| Варианты слоев    | `string`  | `false` |                                             |
+| Prop name        |   Type    | Default |
+| :--------------- | :-------: | :-----: |
+| API key          | `string`  |   `-`   |
+| Map scale        | `string ` |   `9`   |
+| Latitude         | `string`  |   `-`   |
+| Longitude        | `string`  |   `-`   |
+| Search           | `string`  | `false` |
+| Full screen view | `string`  | `false` |
+| Geo              | `string`  | `false` |
+| Scale            | `string`  | `false` |
+| Traffic          | `string`  | `false` |
+| Ruler            | `string`  | `false` |
+| Layers options   | `string`  | `false` |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
