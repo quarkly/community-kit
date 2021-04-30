@@ -160,33 +160,48 @@ const TableComponent = ({
 
 const propInfo = {
     colsProp: {
-        title: 'Количесво колонок',
+        title: {
+            en: 'Number of columns',
+            ru: 'Количесво колонок',
+        },
         control: 'input',
         type: 'number',
         category: 'Size',
         weight: 0.5,
     },
     rowsProp: {
-        title: 'Количесво строк',
+        title: {
+            en: 'Number of rows',
+            ru: 'Количесво строк',
+        },
         control: 'input',
         type: 'number',
         category: 'Size',
         weight: 0.5,
     },
     showHeader: {
-        title: 'Отображать шапку',
+        title: {
+            en: 'Display header',
+            ru: 'Отображать шапку',
+        },
         control: 'checkbox',
         category: 'Groups',
         weight: 0.5,
     },
     showFooter: {
-        title: 'Отображать подвал',
+        title: {
+            en: 'Display footer',
+            ru: 'Отображать подвал',
+        },
         control: 'checkbox',
         category: 'Groups',
         weight: 0.5,
     },
     summary: {
-        title: 'Короткое описание',
+        title: {
+            en: 'Short description',
+            ru: 'Короткое описание',
+        },
         control: 'input',
         type: 'text',
         category: 'SEO',
@@ -205,6 +220,11 @@ const defaultProps = {
 };
 
 Object.assign(TableComponent, {
+    title: 'Table',
+    description: {
+      en: 'This component is a simple table with text cells',
+      ru: 'Простая таблица с текстовыми ячейками',  
+    },
     propInfo,
     defaultProps,
     overrides,
