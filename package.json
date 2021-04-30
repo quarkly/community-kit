@@ -105,7 +105,6 @@
       "MobileSidePanel": "MobileSidePanel",
       "Menu": "Menu",
       "Formspree": "Formspree",
-      "SocialMedia": "SocialMedia",
       "GoogleMap": "GoogleMap",
       "Track": "Track",
       "Source": "Source"
@@ -122,7 +121,8 @@
       "LightBoxMap": "LightBoxMap",
       "LightBoxVideo": "LightBoxVideo",
       "SimpleTabsList": "SimpleTabsList",
-      "SimpleTabsItem": "SimpleTabsItem"
+      "SimpleTabsItem": "SimpleTabsItem",
+      "SocialMedia": "SocialMedia"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",
