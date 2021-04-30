@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Индикатор в верхней части страницы, который показывает, какую её часть уже прокрутили.
+This component is an idicator at the top of the page that shows how much of it has been already scrolled.
 
 ## 🎬 Live Demo
 
@@ -8,21 +8,21 @@
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите в режиме превью.
+Add the component to the page and previre it.
 
-### Проверить в конструкторе
+### Check in the builder
 
-Чтобы проверить работу компонента в конструкторе, укажите в настройках холста ограничение по высоте, например 1024px.
+To check how the component works in the builder, go to the page settings and set the height limit, for example, to 1024px.
 
-### Изменить цвет прокрутки
+### Change the scroll indicator color
 
-Чтобы изменить цвет фона полосы прокрутки, в стилях компонента измените значение свойства `background`.
-Чтобы изменить цвет полосы прокрутки, в стилях вложенного компонента `Box` измените значение этого же свойства.
+To change the background color of the scroll indicator, change the value of the `background` style in the component styles.
+To change the scroll indicator color, change the value of the `background` style in the styles of the nested `Box` component.
 
 ## 🗓 Changelog
 
- - 21/04/2021 (v1.0)
- - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
