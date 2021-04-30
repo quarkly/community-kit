@@ -1,6 +1,6 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "author": "quarkly-team",
   "dependencies": {
     "@reach/router": "^1.3.4",
@@ -128,14 +128,14 @@
   "repository": "https://github.com/quarkly/community-kit",
   "scripts": {
     "build": "npm run clean && npm run build:cjs && cp package.json ./build && cp README.md ./build",
+    "build-storybook": "build-storybook",
     "build:cjs": "NODE_ENV=cjs babel src --out-dir build --ignore src/**/*.stories.js,src/**/*.test.js",
     "clean": "rimraf build/*",
     "create:component": "quarkly-sdk component $1",
     "lint": "eslint src",
     "lint:fix": "eslint --fix src",
-    "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "test": "jest"
   },
   "sideEffects": false
 }
