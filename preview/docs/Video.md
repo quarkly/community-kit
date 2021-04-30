@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для встраивания видеопроигрывателя на сайт.
+This component helps you add a video player to your website.
 
 ## 🎬 Live Demo
 
@@ -8,30 +8,30 @@
 
 ## ⚙️ Usage
 
-1.  Добавьте компонент на страницу
-2.  Укажите `Ссылку на видео-файл` на панели Props
-3.  Посмотрите как он работает в режиме превью
+1.  Add the component to the page
+2.  Specify the `Link to video file` on the Props panel
+3.  Check how it works in the preview mode
 
-### Использование Source и Track
+### Usage of Source and Track
 
-Компонент Video может содержать компоненты `Source` и `Track`.
+The Video component can contain the `Source` and `Track` components.
 
 ## 🧩 Components and Props
 
-| Названия свойств               |   Type    | Default |
-| :----------------------------- | :-------: | :-----: |
-| Ссылка на видео-файл           | `string ` |   `-`   |
-| Изображение для превью         | `string`  |   `-`   |
-| Автоматическое воспроизведение |  `bool`   | `false` |
-| Показывать элементы управления |  `bool`   | `true`  |
-| Отключить звук                 |  `bool`   | `false` |
-| Зациклить воспроизведение      |  `bool`   | `false` |
-| Воспроизведение при наведении  |  `bool `  | `false` |
+| Prop Name          |   Type    | Default |
+| :----------------- | :-------: | :-----: |
+| Link to video file | `string ` |   `-`   |
+| Image for preview  | `string`  |   `-`   |
+| Auto playback      |  `bool`   | `false` |
+| Show controls      |  `bool`   | `true`  |
+| Sound off          |  `bool`   | `false` |
+| Loop playback      |  `bool`   | `false` |
+| Hover playback     |  `bool `  | `false` |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 

@@ -75,7 +75,7 @@ const VideoComponent = ({
             {showNotice && (
                 <ComponentNotice
                     message={
-                        'Добавьте свойство SRC или перетащите сюда компонент "Source"'
+                        'Add the SRC property or add the Source component here'
                     }
                 />
             )}
@@ -85,48 +85,69 @@ const VideoComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Ссылка на видео-файл',
+        title: {
+            en: 'Link to video file',
+            ru: 'Ссылка на видео-файл',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     poster: {
-        title: 'Изображение для превью',
+        title: {
+            en: 'Image for preview',
+            ru: 'Изображение для превью',
+        },
         control: 'image',
         category: 'Main',
         weight: 1,
     },
     autoPlay: {
-        title: 'Автоматическое воспроизведение',
+        title: {
+            en: 'Auto playback',
+            ru: 'Автоматическое воспроизведение',
+        },
         control: 'checkbox',
         type: 'boolean',
         category: 'Main',
         weight: 1,
     },
     controls: {
-        title: 'Показывать элементы управления',
+        title: {
+            en: 'Show controls',
+            ru: 'Показывать элементы управления',
+        },
         control: 'checkbox',
         type: 'boolean',
         category: 'Main',
         weight: 1,
     },
     muted: {
-        title: 'Отключить звук',
+        title: {
+            en: 'Sound off',
+            ru: 'Отключить звук',
+        },
         control: 'checkbox',
         type: 'boolean',
         category: 'Main',
         weight: 0.5,
     },
     loop: {
-        title: 'Зациклить воспроизведение',
+        title: {
+            en: 'Loop playback',
+            ru: 'Зациклить воспроизведение',
+        },
         control: 'checkbox',
         type: 'boolean',
         category: 'Main',
         weight: 0.5,
     },
     playOnHover: {
-        title: 'Воспроизведение при наведении',
+        title: {
+            en: 'Hover playback',
+            ru: 'Воспроизведение при наведении',
+        },
         control: 'checkbox',
         type: 'boolean',
         category: 'Actions',
@@ -142,8 +163,8 @@ export default atomize(VideoComponent)(
     {
         name: 'Video',
         description: {
-            en: 'Container for embedding video content',
-            ru: 'Контейнер для встраивания видео контента',
+            en: 'This component helps you add a video player to your website',
+            ru: 'Компонент для встраивания видеопроигрывателя на сайт',
         },
         propInfo,
     },
