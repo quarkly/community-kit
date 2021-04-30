@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This component plays videos from Youtube.
+Компонент, для воспроизведения видео из YouTube.
 
 ## 🎬 Live Demo
 
@@ -8,18 +8,18 @@ This component plays videos from Youtube.
 
 ## ⚙️ Usage
 
-Add the component to the page and specify the video URL in the `Link to the video on YouTube` prop.
+Добавьте компонент на страницу и в свойстве `Ссылка на видео в YouTube` укажите URL-адрес видео.
 
 ## 🧩 Components and Props
 
-| Prop name                    |   Type   | Default |
-| :--------------------------- | :------: | :-----: |
-| Link to the video on YouTube | `string` |   `-`   |
+| Названия свойств          |   Type   | Default |
+| :------------------------ | :------: | :-----: |
+| Ссылка на видео в YouTube | `string` |   `-`   |
 
 ## 🗓 Changelog
 
--   21/04/2021 (v1.0)
--   First version
+ - 21/04/2021 (v1.0)
+ - Первая версия
 
 ## 📮 Feedback
 
