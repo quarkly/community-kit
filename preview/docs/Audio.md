@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для встраивания аудиопроигрывателя на сайт.
+This component helps you add an audio player to your website.
 
 ## 🎬 Live Demo
 
@@ -8,28 +8,28 @@
 
 ## ⚙️ Usage
 
-1.  Добавьте компонент на страницу
-2.  Укажите `Ссылку на аудио-файл` на панели Props
-3.  Посмотрите как он работает в режиме превью
+1.  Add the component to the page
+2.  Specify the `Link to audio file` on the Props panel
+3.  Check how it works in the preview mode
 
-### Использование Source и Track
+### Usage of Source and Track
 
-Компонент Audio может содержать компоненты `Source` и `Track`.
+The Audio component can contain the `Source` and `Track` components.
 
 ## 🧩 Components and Props
 
-| Названия свойств               |   Type    | Example |
-| :----------------------------- | :-------: | :-----: |
-| Ссылка на аудио-файл           | `string`  |   `-`   |
-| Автоматическое воспроизведение | `boolean` | `false` |
-| Показывать элементы управления | `boolean` | `true`  |
-| Отключить звук                 | `boolean` | `false` |
-| Зациклить воспроизведение      | `boolean` | `false` |
+| Prop Name          |   Type    | Example |
+| :----------------- | :-------: | :-----: |
+| Link to audio file | `string`  |   `-`   |
+| Auto playback      | `boolean` | `false` |
+| Show controls      | `boolean` | `true`  |
+| Sound off          | `boolean` | `false` |
+| Loop playback      | `boolean` | `false` |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 

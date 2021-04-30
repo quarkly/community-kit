@@ -65,7 +65,7 @@ const AudioComponent = ({
             {showNotice && (
                 <ComponentNotice
                     message={
-                        'Добавьте свойство SRC или перетащите сюда компонент "Source"'
+                        'Add the SRC property or add the Source component here'
                     }
                 />
             )}
@@ -75,32 +75,47 @@ const AudioComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Ссылка на аудио-файл',
+        title: {
+            en: 'Link to audio file',
+            ru: 'Ссылка на аудио-файл',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     autoPlay: {
-        title: 'Автоматическое воспроизведение',
+        title: {
+            en: 'Auto playback',
+            ru: 'Автоматическое воспроизведение',
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 1,
     },
     controls: {
-        title: 'Показывать элементы управления',
+        title: {
+            en: 'Show controls',
+            ru: 'Показывать элементы управления',
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 1,
     },
     muted: {
-        title: 'Отключить звук',
+        title: {
+            en: 'Sound off',
+            ru: 'Отключить звук',
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     loop: {
-        title: 'Зациклить воспроизведение',
+        title: {
+            en: 'Loop playback',
+            ru: 'Зациклить воспроизведение',
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
