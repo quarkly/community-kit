@@ -31,7 +31,7 @@ You can choose them with the `Button text` property using their IDs:
 -   `13` - "Give away"
 -   `14` - "Donate"
 
-### Collecting info Сбор during the transfer
+### Collecting info during the transfer
 
 During the transfer, you can ask the sender (full name, email, phone number, address).
 To request all this, enable the corresponding properties from the `"INFO"` category.
