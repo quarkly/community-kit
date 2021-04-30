@@ -67,7 +67,7 @@ const YoomoneyDonateForm = ({
                     height={height}
                 />
             ) : (
-                <ComponentNotice message="Insert account id in props panel" />
+                <ComponentNotice message="Add your wallet ID in the Props panel" />
             )}
         </Box>
     );
@@ -75,26 +75,40 @@ const YoomoneyDonateForm = ({
 
 const propInfo = {
     account: {
-        title: 'ID кошелька Yoomoney',
+        title: {
+            en: 'Yoomoney wallet ID',
+            ru: 'ID кошелька Yoomoney',
+        },
+        description: {
+            en: 'Yoomoney wallet ID (required field)',
+            ru: 'ID кошелька Yoomoney (обязательное поле)',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     writer: {
-        title: 'Кто указывает назначение перевода',
+        title: {
+            en: 'Who specifies the transfer reason',
+            ru: 'Кто указывает назначение перевода',
+        },
+        description: {
+            en: 'Who specifies the transfer reason (required field)',
+            ru: 'Кто указывает назначение перевода (обязательное поле)',
+        },
         control: 'radio-group',
         variants: [
             {
                 title: {
-                    en: 'Продавец',
+                    en: 'Seller',
                     ru: 'Продавец',
                 },
                 value: 'seller',
             },
             {
                 title: {
-                    en: 'Покупатель',
+                    en: 'Buyer',
                     ru: 'Покупатель',
                 },
                 value: 'buyer',
@@ -104,36 +118,61 @@ const propInfo = {
         weight: 1,
     },
     targets: {
-        title: 'Назначение перевода',
+        title: {
+            en: 'Transfer reason',
+            ru: 'Назначение перевода',
+        },
+        description: {
+            en: 'Transfer reason (required field, is `Seller` is selected)',
+            ru: 'Назначение перевода (обязательное поле, если выбрано "Продавец")',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     sum: {
-        title: 'Сумма перевода',
+        title: {
+            en: 'Transfer amount by default',
+            ru: 'Сумма перевода по умолчанию',
+        },
         category: 'Main',
         control: 'input',
         weight: 1,
     },
     buttonText: {
-        title: 'Текст на кнопке',
+        title: {
+            en: 'Button text',
+            ru: 'Текст на кнопке',
+        },
         control: 'select',
         variants: [
             {
-                title: 'Перевести',
+                title: {
+                    en: 'Transfer',
+                    ru: 'Перевести',
+                },
                 value: '11',
             },
             {
-                title: 'Отправить',
+                title: {
+                    en: 'Send',
+                    ru: 'Отправить',
+                },
                 value: '12',
             },
             {
-                title: 'Подарить',
+                title: {
+                    en: 'Give away',
+                    ru: 'Подарить',
+                },
                 value: '13',
             },
             {
-                title: 'Пожертвовать',
+                title: {
+                    en: 'Donate',
+                    ru: 'Пожертвовать',
+                },
                 value: '14',
             },
         ],
@@ -141,60 +180,119 @@ const propInfo = {
         weight: 1,
     },
     payment: {
-        title: 'Использовать банковскую карту',
+        title: {
+            en: 'Use credit card',
+            ru: 'Использовать банковскую карту',
+        },
         description: {
-            ru:
-                'Возможность перевода через банковскую карту (может взиматься дополнительная комиссия)',
+            en: 'Transfer fnds via a credit card (extra fee may be charged)',
+            ru: 'Возможность перевода через банковскую карту (может взиматься дополнительная комиссия)',
         },
         control: 'checkbox',
         category: 'Main',
         weight: 1,
     },
     fio: {
-        title: 'Запросить полное имя у отправителя',
+        title: {
+            en: 'Request sender\'s full name',
+            ru: 'Запросить полное имя у отправителя',
+        },
+        description: {
+            en: 'Request sender\'s full name during the transfer and then email it',
+            ru: 'Запросить полное имя у отправителя в момент перевода и после отправить в письме',
+        },
         control: 'checkbox',
         category: 'Info',
         weight: 1,
     },
     email: {
-        title: 'Запросить эл. почту у отправителя',
+        title: {
+            en: 'Request sender\'s email',
+            ru: 'Запросить эл. почту у отправителя',
+        },
+        description: {
+            en: 'Request sender\'s email address during the transfer and then email it',
+            ru: 'Запросить эл. почту у отправителя в момент перевода и после отправить в письме',
+        },
         control: 'checkbox',
         category: 'Info',
         weight: 1,
     },
     phone: {
-        title: 'Запросить номер телефона у отправителя',
+        title: {
+            en: 'Request sender\'s phone number',
+            ru: 'Запросить номер телефона у отправителя',
+        },
+        description: {
+            en: 'Request sender\'s phone number during the transfer and then email it',
+            ru: 'Запросить номер телефона у отправителя в момент перевода и после отправить в письме',
+        },
         control: 'checkbox',
         category: 'Info',
         weight: 1,
     },
     address: {
-        title: 'Запросить адрес у отправителя',
+        title: {
+            en: 'Request sender\'s address',
+            ru: 'Запросить адрес у отправителя',
+        },
+        description: {
+            en: 'Request sender\'s address during the transfer and then email it',
+            ru: 'Запросить адрес для доставки у отправителя в момент перевода и после отправить в письме',
+        },
         control: 'checkbox',
         category: 'Info',
         weight: 1,
     },
     comment: {
-        title: 'Запросить комментарий у отправителя',
+        title: {
+            en: 'Request sender\'s comments',
+            ru: 'Запросить комментарий у отправителя',
+        },
+        description: {
+            en: 'Request sender\'s comments during the transfer and then email it',
+            ru: 'Запросить комментарий у отправителя в момент перевода и после отправить в письме',
+        },
         control: 'checkbox',
         category: 'Info',
         weight: 1,
     },
     hint: {
-        title: 'Подсказка для отправителя',
+        title: {
+            en: 'Tip for sender',
+            ru: 'Подсказка для отправителя',
+        },
+        description: {
+            en: 'Tip for the sender on what to specify in the form',
+            ru: 'Подсказка для отправителя, что нужно указать в форме',
+        },
         control: 'input',
         category: 'Info',
         weight: 1,
     },
     successURL: {
-        title: 'После перевода перейти на страницу',
+        title: {
+            en: 'Go to the URL after transfer',
+            ru: 'После перевода перейти на страницу',
+        },
+        description: {
+            en: 'After transfer, go to the specified URL',
+            ru: 'После перевода перейти на указанную страницу',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     mobilePayment: {
-        title: 'Использовать мобильную версию',
+        title: {
+            en: 'Mobile version',
+            ru: 'Мобильная версия',
+        },
+        description: {
+            en: 'Check the form on a big screen: widget may stretch to the full width of the page',
+            ru: 'Проверьте форму на большом экране: виджет может растянуться на всю ширину страницы',
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 1,
@@ -211,7 +309,11 @@ const defaultProps = {
 };
 
 Object.assign(YoomoneyDonateForm, {
-    title: 'YoomoneyDonateForm',
+    title: 'YoomoneyDonate Form',
+    description: {
+        en: 'Form for accepting payments to YooMoney',
+        ru: 'Форма для приёма платежей на кошелек Yoomoney',
+    },
     propInfo,
     defaultProps,
 });

@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Форма для приёма платежей на кошелек Yoomoney. 
+Form for accepting payments to YooMoney.
 
 ## 🎬 Live Demo
 
@@ -8,56 +8,59 @@
 
 ## ⚙️ Usage
 
- 1. Добавьте компонент на страницу
- 2. Укажите ID кошелька Yoomoney
- 3. Добавьте сумму и комментарий
- 4. Выберите внешний вид
- 5. Проверьте работу в режиме превью
+1.  Add the component to the page
+2.  Specify the Yoomoney wallet ID
+3.  Add the amount and comments
+4.  Select the button text
+5.  Preview to check how it works
 
-### Как начать
-Обязательно добавьте идентификатор кошелька Yoomoney в свойстве `ID кошелька Yoomoney`.
-Узнать идентификатор своего кошелька можно на странице [https://yoomoney.ru/start](https://yoomoney.ru/start).
-Если в свойстве `Кто указывает назначение перевода` выбрано `Продавец`, необходимо указать `Назначение перевода` в соответствующем поле ввода.
-Укажите `Сумму перевода` по умолчанию, пользователь сможет её изменить в процессе оплаты.
+### Getting started
 
-### Текст на кнопке
-В стандартной форме Yoomoney доступно 4 варианта текста на кнопке: `Перевести`, `Отправить`, `Подарить`, `Пожертвовать`.
-Выбрать их можно с помощью свойства `Текст на кнопке`, используя их ID:
- - `11` - "Перевести"
- - `12` - "Отправить"
- - `13` - "Подарить"
- - `14` - "Пожертвовать"
+Add the Yoomoney wallet ID to the `Yoomoney wallet ID` property.
+To learn the ID, click here [https://yoomoney.ru/start](https://yoomoney.ru/start).
+If `Seller` is selected in the `Who specifies the transfer reason` property, specify the `Transfer reason` in the corresponding input field.
+Specify the default `Amount`. The user can change it during the payment.
 
-### Сбор информации во время перевода
-Во время перевода можно попросить у отправителя (ФИО, эл.почта, мобильный телефон, адрес). 
-Чтобы запросить всё это, нужно включить соответстующие свойства из категории `«INFO»`.
+### Button text
 
+By default, there are 4 button text options in the Yoomoney form: `Transfer`, `Send`, `Give away`, `Donate`.
+You can choose them with the `Button text` property using their IDs:
+
+-   `11` - "Transfer"
+-   `12` - "Send"
+-   `13` - "Give away"
+-   `14` - "Donate"
+
+### Collecting info Сбор during the transfer
+
+During the transfer, you can ask the sender (full name, email, phone number, address).
+To request all this, enable the corresponding properties from the `"INFO"` category.
 
 ## 🧩 Components and Props
 
 ### YoomoneyDonateForm
 
-| Названия свойств                       |   Type    | Description                                                                             | Default          | Example                        |
-| :------------------------------------- | :-------: | :-------------------------------------------------------------------------------------- | :--------------: | :----------------------------: |
-| ID кошелька Yoomoney                   | `string`  | Идентификатор кошелька Yoomoney (обязательное поле)                                     | `undefined`      | `1234567890`                   |
-| Кто указывает назначение перевода      | `string`  | Кто указывает назначение перевода (обязательное поле)                                   | `seller`         | `buyer`                        |
-| Назначение перевода                    | `string`  | Назначение перевода (обязательное поле, если выбрано `seller`)                          | `Помочь проекту` | `На хостинг сайта`             |
-| Сумма перевода                         | `string`  | Сумма перевода по умолчанию                                                             | `0`              | `250`                          |
-| Текст на кнопке                        |  `enum`   | Текст кнопки { `11`: Перевести, `12`: Отправить, `13`: Подарить, `14`: Пожертвовать }   | `11`             | `14`                           |
-| Использовать банковскую карту          | `boolean` | Возможность перевода через банковскую карту (может взиматься дополнительная комиссия)   | `false`          | `true`                         |
-| Запросить полное имя у отправителя     | `boolean` | Запросить полное имя у отправителя в момент перевода и после отправить в письме         | `false`          | `true`                         |
-| Запросить эл. почту у отправителя      | `boolean` | Запросить эл. почту у отправителя в момент перевода и после отправить в письме          | `false`          | `true`                         |
-| Запросить номер телефона у отправителя | `boolean` | Запросить номер телефона у отправителя в момент перевода и после отправить в письме     | `false`          | `true`                         |
-| Запросить адрес у отправителя          | `boolean` | Запросить адрес для доставки у отправителя в момент перевода и после отправить в письме | `false`          | `true`                         |
-| Запросить комментарий у отправителя    | `boolean` | Запросить комментарий у отправителя в момент перевода и после отправить в письме        | `false`          | `true`                         |
-| Подсказка для отправителя              | `string`  | Подсказка для отправителя, что нужно указать                                            | `-`              | `Ваши пожелания и предложения` |
-| После перевода перейти на страницу     | `string`  | После перевода перейти на указанную страницу                                            | `-`              | `https://yourdomain.name`      |
-| Использовать мобильную версию          | `boolean` | Проверьте форму на большом экране: может растянуться на всю ширину страницы             | `false`          | `true`                         |
+| Prop name                         |   Type    | Description                                                                  |      Default       |             Example             |
+| :-------------------------------- | :-------: | :--------------------------------------------------------------------------- | :----------------: | :-----------------------------: |
+| Yoomoney wallet ID                | `string`  | Yoomoney wallet ID (required field)                                          |    `undefined`     |          `1234567890`           |
+| Who specifies the transfer reason | `string`  | Who specifies the transfer reason (required field)                           |      `seller`      |             `buyer`             |
+| Transfer reason                   | `string`  | Transfer reason (required field, is `Seller` is selected)                    | `Help the project` |     `For the site hosting`      |
+| Amount                            | `string`  | Transfer amount by default                                                   |        `0`         |              `250`              |
+| Button text                       |  `enum`   | v { `11`: Transfer, `12`: Send, `13`: Give away, `14`: Donate }              |        `11`        |              `14`               |
+| Use credit card                   | `boolean` | Transfer fnds via a credit card (extra fee may be charged)                   |      `false`       |             `true`              |
+| Request sender's full name        | `boolean` | Request sender's full name during the transfer and then email it             |      `false`       |             `true`              |
+| Request sender's email            | `boolean` | Request sender's email address during the transfer and then email it         |      `false`       |             `true`              |
+| Request sender's phone number     | `boolean` | Request sender's phone number during the transfer and then email it          |      `false`       |             `true`              |
+| Request sender's address          | `boolean` | Request sender's address during the transfer and then email it               |      `false`       |             `true`              |
+| Request sender's comments         | `boolean` | Request sender's comments during the transfer and then email it              |      `false`       |             `true`              |
+| Tip for sender                    | `string`  | Tips for the sender on what to specify in the form                           |        `-`         | `Your comments and suggestions` |
+| Go to the page after transfer     | `string`  | After transfer, go to the specified page                                     |        `-`         |    `https://yourdomain.name`    |
+| Mobile version                    | `boolean` | Check the form on a big screen: it may stretch to the full width of the page |      `false`       |             `true`              |
 
 ## 🗓 Changelog
 
- - 21/04/2021 (v1.0)
- - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
