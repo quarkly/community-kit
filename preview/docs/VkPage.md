@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для добавления виджета сообщества VK.
+This component allows you to add the VK widget.
 
 ## 🎬 Live Demo
 
@@ -8,39 +8,39 @@
 
 ## ⚙️ Usage
 
-1.  Добавьте компонент на страницу
-2.  Укажите ваш `Идентификатор сообщества` и `Идентификатор контейнера`
-3.  Посмотрите как он работает в режиме превью
+1.  Add the component to the page
+2.  Enter your `Community identifier` and `Container identifier`
+3.  See how it works in the preview mode
 
-### Режимы отображения
+### Display modes
 
-Свойство `View` отвечает за режим отображения содержимого виджета. Доступно три варианта:
+The `View` property is responsible for the display mode of the widget contents. Three options are available:
 
--   Отображать участников сообщества
--   Отображать стену сообщества
--   Отображать только название сообщества
+-   Display the community members
+-   Display the community wall
+-   Display only the community name
 
-### Расширенный режим
+### Advanced mode
 
-Если выделить свойство `Включить расширенный режим`, в виджете добавится кнопка 'Мне нравится' и изображение сообщества (только для новостей).
+If you select the `Enable advanced mode` property, a 'Like' button and a community cover photo will be added to the widget (only for news).
 
 ## 🧩 Components and Props
 
-| Названия свойств                 |   Type    |   Default   |   Example   |
-| :------------------------------- | :-------: | :---------: | :---------: |
-| ID сообщества VK                 | `number`  |     `-`     | `123456789` |
-| ID контейнера виджета            | `string`  | `vk_groups` |  `some_id`  |
-| Цвет фона виджета                | `string`  |   `#fff`    |   `blue`    |
-| Цвет текста виджета              | `string`  |   `#000`    |   `#fff`    |
-| Цвет ссылок виджета              | `string`  |  `#5181B8`  |  `#fdfdfd`  |
-| Что отображать в виджете         |  `enum`   |  `Members`  | `Only name` |
-| Не отображать обложки сообщества | `boolean` |   `false`   |   `true`    |
-| Включить расширенный режим       | `boolean` |   `false`   |   `true`    |
+| Prop Name                               |   Type    |   Default   |   Example   |
+| :-------------------------------------- | :-------: | :---------: | :---------: |
+| VK community ID                         | `number`  |     `-`     | `123456789` |
+| Widget container ID                     | `string`  | `vk_groups` |  `some_id`  |
+| Widget background color                 | `string`  |   `#fff`    |   `blue`    |
+| Widget text color                       | `string`  |   `#000`    |   `#fff`    |
+| Widget link color                       | `string`  |  `#5181B8`  |  `#fdfdfd`  |
+| What to display in the widget           |  `enum`   |  `Members`  | `Only name` |
+| Don't display the community cover photo | `boolean` |   `false`   |   `true`    |
+| Enable advanced mode                    | `boolean` |   `false`   |   `true`    |
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 

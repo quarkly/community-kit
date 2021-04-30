@@ -82,7 +82,7 @@ const VkPageComponent = ({
                     />
                 </VK>
             ) : (
-                <ComponentNotice message="Добавьте ID вашего сообщества на панели props" />
+                <ComponentNotice message="Add your VK community ID in the Props panel" />
             )}
         </Box>
     );
@@ -90,58 +90,76 @@ const VkPageComponent = ({
 
 const propInfo = {
     groupId: {
-        title: 'Идентификатор сообщества',
+        title: {
+            en: 'VK community ID',
+            ru: 'Идентификатор сообщества',
+        },
         control: 'input',
         type: 'text',
         category: ' Main',
         weight: 1,
     },
     elementId: {
-        title: 'Идентификатор контейнера',
+        title: {
+            en: 'Widget container ID',
+            ru: 'Идентификатор контейнера',
+        },
         control: 'input',
         type: 'text',
         category: 'Widget',
         weight: 1,
     },
     colorBground: {
-        title: 'Цвет фона виджета',
+        title: {
+            en: 'Widget background color',
+            ru: 'Цвет фона виджета',
+        },
         control: 'color',
         category: 'Widget',
         weight: 1,
     },
     colorPrimary: {
-        title: 'Цвет текста виджета',
+        title: {
+            en: 'Widget text color',
+            ru: 'Цвет текста виджета',
+        },
         control: 'color',
         category: 'Widget',
         weight: 1,
     },
     colorAccent: {
-        title: 'Цвет ссылок виджета',
+        title: {
+            en: 'Widget link color',
+            ru: 'Цвет ссылок виджета',
+        },
         control: 'color',
         category: 'Button',
         weight: 1,
     },
     mode: {
-        title: 'Что отображать в виджете',
+        title: {
+            en: 'What to display in the widget',
+            ru: 'Что отображать в виджете',
+        },
         control: 'select',
         variants: [
             {
                 title: {
-                    en: 'Члены сообщества',
+                    en: 'Display the community members',
                     ru: 'Члены сообщества',
                 },
                 value: 3,
             },
             {
                 title: {
-                    en: 'Новости',
+                    en: 'Display the community wall',
                     ru: 'Новости',
                 },
                 value: 4,
             },
             {
                 title: {
-                    en: 'Только название',
+                    en: 'Display only the community name',
                     ru: 'Только название',
                 },
                 value: 1,
@@ -151,13 +169,19 @@ const propInfo = {
         weight: 1,
     },
     noCover: {
-        title: 'Не отображать обложки сообщества',
+        title: {
+            en: 'Don\'t display the community cover photo',
+            ru: 'Не отображать обложки сообщества',
+        },
         control: 'checkbox',
         category: 'Widget',
         weight: 1,
     },
     wide: {
-        title: 'Включить расширенный режим',
+        title: {
+            en: 'Enable advanced mode',
+            ru: 'Включить расширенный режим',
+        },
         control: 'checkbox',
         category: 'Widget',
         weight: 1,
