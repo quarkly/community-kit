@@ -161,7 +161,7 @@ const Animation = ({
                 duration={duration}
                 delay={delay}
             >
-                { children }
+                {children}
             </Content>
 
             {isEmpty && (
