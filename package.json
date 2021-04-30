@@ -128,7 +128,7 @@
   "repository": "https://github.com/quarkly/community-kit",
   "scripts": {
     "build": "npm run clean && npm run build:cjs && cp package.json ./build && cp README.md ./build",
-    "build:cjs": "NODE_ENV=cjs babel src --out-dir build --ignore '**/*.test.js'",
+    "build:cjs": "NODE_ENV=cjs babel src --out-dir build --ignore src/**/*.stories.js,src/**/*.test.js",
     "clean": "rimraf build/*",
     "create:component": "quarkly-sdk component $1",
     "lint": "eslint src",
