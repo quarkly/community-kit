@@ -161,12 +161,12 @@ const Animation = ({
                 duration={duration}
                 delay={delay}
             >
-                {isEmpty ? (
-                    <ComponentNotice message="Add child component to make animation work" />
-                ) : (
-                    children
-                )}
+                {children}
             </Content>
+
+            {isEmpty && (
+                <ComponentNotice message="Add child component to make animation work" />
+            )}
         </Wrapper>
     );
 };

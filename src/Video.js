@@ -43,35 +43,29 @@ const VideoComponent = ({
 
     return (
         <Wrapper {...rest}>
-            {srcVal && (
-                <Video
-                    src={srcVal}
-                    poster={poster}
-                    autoPlay={autoPlay}
-                    controls={controls}
-                    muted={muted}
-                    loop={loop}
-                    onMouseEnter={
-                        playOnHover ? (e) => e.target.play() : undefined
-                    }
-                    onMouseLeave={
-                        playOnHover ? (e) => e.target.pause() : undefined
-                    }
-                    {...override('Video Tag')}
-                    display={showNotice && 'none'}
-                >
-                    <Content ref={contentRef}>
-                        {React.Children.map(
-                            children,
-                            (child) =>
-                                React.isValidElement(child) &&
-                                React.cloneElement(child, {
-                                    container: 'video',
-                                })
-                        )}
-                    </Content>
-                </Video>
-            )}
+            <Video
+                src={srcVal}
+                poster={poster}
+                autoPlay={autoPlay}
+                controls={controls}
+                muted={muted}
+                loop={loop}
+                onMouseEnter={playOnHover ? (e) => e.target.play() : undefined}
+                onMouseLeave={playOnHover ? (e) => e.target.pause() : undefined}
+                {...override('Video Tag')}
+                display={showNotice && 'none'}
+            >
+                <Content ref={contentRef}>
+                    {React.Children.map(
+                        children,
+                        (child) =>
+                            React.isValidElement(child) &&
+                            React.cloneElement(child, {
+                                container: 'video',
+                            })
+                    )}
+                </Content>
+            </Video>
             {showNotice && (
                 <ComponentNotice
                     message={

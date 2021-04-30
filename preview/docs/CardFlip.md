@@ -21,7 +21,7 @@ If you choose `auto` in the `Aspect ratio` attribute, image size (height & width
 
 ## 🧩 Components and Props
 
-| Названия свойств          |   Type    |    Default     |  Example  |
+| Prop name                 |   Type    |    Default     |  Example  |
 | :------------------------ | :-------: | :------------: | :-------: |
 | Flip trigger              |  `enum`   |    `click`     |  `hover`  |
 | Flip direction            |  `enum`   |   `toRight`    | `toDown`  |

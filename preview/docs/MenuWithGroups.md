@@ -12,17 +12,17 @@ Add component to the page and change the attribute value `Maximum nesting` if th
 
 ### Changing the root page
 
-Property `Root page ID` allows you to set page, for which the menu will be formed.
-ID of the current page you can copy from the address bar.
-Например, для URL-адреса `https://quarkly.io/project/60474504627982001eb71a51/page/6050687c2b962f001e742fad`, ID страницы указан в конце и равен `6050687c2b962f001e742fad`.
+The `Root page ID` prop allows you to specify the page for which the menu will be generated.
+You can copy the ID of the current page in the address bar.
+For example, the page ID of the URL `https://quarkly.io/project/12345/page/67890` is at the end of the URL, i.e. `67890`.
 
 ## 🧩 Components and Props
 
-| Названия свойств               |   Type   |    Default     |          Example           |
-| :----------------------------- | :------: | :------------: | :------------------------: |
-| Maximum nesting                | `number` |      `10`      |            `5`             |
-| Root page ID                   | `string` |     `root`     | `6050687c2b962f001e742fad` |
-| Condition of groups by default |  `enum`  | `expandActive` |        `expandAll`         |
+| Prop name                      |   Type   |    Default     |   Example   |
+| :----------------------------- | :------: | :------------: | :---------: |
+| Maximum nesting                | `number` |      `10`      |     `5`     |
+| Root page ID                   | `string` |     `root`     |   `67890`   |
+| Condition of groups by default |  `enum`  | `expandActive` | `expandAll` |
 
 ## 🗓 Changelog
 

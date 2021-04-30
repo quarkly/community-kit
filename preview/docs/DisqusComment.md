@@ -14,7 +14,7 @@ This component allows you to add the Disqus widget with a specific comment.
 
 ### Comment identifier
 
-You can get the Получить comment identifier, for example, by following the `Share` link.
+You can get the comment identifier, for example, by following the `Share` link.
 
 ![Get the comment identifier](https://test-upl.quarkly.io/60474504627982001eb71a51/images/3.png?v=2021-04-22T09:46:00.296Z)
 
