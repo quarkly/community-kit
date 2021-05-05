@@ -197,33 +197,42 @@ const Counter = ({
 
 const propInfo = {
     startingNumber: {
-        title: 'Начальное число',
+        title: {
+            en: 'Start value',
+            ru: 'Начальное число',
+        },
         control: 'input',
         type: 'number',
         category: 'Main',
         weight: 0.5,
     },
     endingNumber: {
-        title: 'Конечное число',
+        title: {
+            en: 'End value',
+            ru: 'Конечное число',
+        },
         control: 'input',
         type: 'number',
         category: 'Main',
         weight: 0.5,
     },
     direction: {
-        title: 'Направление отсчёта',
+        title: {
+            en: 'Count direction',
+            ru: 'Направление отсчёта',
+        },
         control: 'radio-group',
         variants: [
             {
                 title: {
-                    en: 'Возрастание',
+                    en: 'Normal',
                     ru: 'Возрастание',
                 },
                 value: 'normal',
             },
             {
                 title: {
-                    en: 'Убывание',
+                    en: 'Reverse',
                     ru: 'Убывание',
                 },
                 value: 'reverse',
@@ -233,7 +242,10 @@ const propInfo = {
         weight: 1,
     },
     startOn: {
-        title: 'Начало отсчёта',
+        title: {
+            en: 'Count start',
+            ru: 'Начало отсчёта',
+        },
         control: 'radio-group',
         variants: [
             {
@@ -255,28 +267,40 @@ const propInfo = {
         weight: 1,
     },
     duration: {
-        title: 'Длительность отсчёта',
+        title: {
+            en: 'Count duration',
+            ru: 'Длительность отсчёта',
+        },
         control: 'input',
         type: 'number',
         category: 'Main',
         weight: 1,
     },
     delay: {
-        title: 'Задержка отсчёта',
+        title: {
+            en: 'Count delay',
+            ru: 'Задержка отсчёта',
+        },
         control: 'input',
         type: 'number',
         category: 'Main',
         weight: 1,
     },
     numberSuffix: {
-        title: 'Текст после числа',
+        title: {
+            en: 'Text after value',
+            ru: 'Текст после числа',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
         weight: 1,
     },
     numberPrefix: {
-        title: 'Текст перед числом',
+        title: {
+            en: 'Text before value',
+            ru: 'Текст перед числом',
+        },
         control: 'input',
         type: 'text',
         category: 'Main',
@@ -296,6 +320,13 @@ const defaultProps = {
 };
 
 Object.assign(Counter, {
+    title: 'Counter',
+    description: {
+        en:
+            'This component is a counter that increases or decreases to a certain value',
+        ru:
+            'Компонент представляет из себя счетчик, который увеличивается или уменьшается до определенного значения',
+    },
     propInfo,
     defaultProps,
 });

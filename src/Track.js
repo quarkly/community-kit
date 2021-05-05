@@ -26,7 +26,7 @@ const TrackComponent = ({
         />
     ) : (
         <ComponentNotice
-            message={'Этот компонент должен быть внутри "Audio" или "Video"'}
+            message={'This component should be inside Audio or Video'}
             {...props}
         />
     );
@@ -34,10 +34,9 @@ const TrackComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Src',
-        description: {
-            en: 'Address of the track (.vtt file)',
-            ru: 'Адрес файла текстовой дорожки (.vtt файл)',
+        title: {
+            en: 'File link',
+            ru: 'Ссылка на файл',
         },
         control: 'input',
         type: 'text',
@@ -45,20 +44,18 @@ const propInfo = {
         weight: 1,
     },
     isDefault: {
-        title: 'Default',
-        description: {
-            en: 'Use this track as default',
-            ru: 'Использовать эту дорожку по умолчанию',
+        title: {
+            en: 'Set default',
+            ru: 'Использовать по умолчанию',
         },
         control: 'checkbox',
         category: 'Main',
         weight: 1,
     },
     srclang: {
-        title: 'SrcLang',
-        description: {
-            en: 'Language of the track text data',
-            ru: 'Язык текстовых данных трека',
+        title: {
+            en: 'Track language',
+            ru: 'Язык дорожки',
         },
         control: 'input',
         type: 'text',
@@ -66,10 +63,9 @@ const propInfo = {
         weight: 1,
     },
     kind: {
-        title: 'Kind',
-        description: {
-            en: 'How the text track is meant to be used',
-            ru: 'Как текстовый трек должен быть использован',
+        title: {
+            en: 'Track purpose',
+            ru: 'Назначение дорожки',
         },
         control: 'select',
         variants: [
@@ -113,10 +109,9 @@ const propInfo = {
         weight: 1,
     },
     label: {
-        title: 'Label',
-        description: {
-            en: 'A user-readable title of the text track',
-            ru: 'Видимый пользователю заголовок текстовой дорожки',
+        title: {
+            en: 'Displayed title',
+            ru: 'Отображаемое название',
         },
         control: 'input',
         type: 'text',
@@ -126,20 +121,18 @@ const propInfo = {
 };
 
 const defaultProps = {
-    src: 'https://uploads.quarkly.io/molecules/subtitles_en.vtt',
     srclang: 'en',
     kind: 'subtitles',
 };
 
-export default atomize(TrackComponent)(
-    {
-        name: 'Track',
-        description: {
-            en: 'Indicates timed text tracks for Video, and Audio components',
-            ru:
-                'Указывает синхронизированные текстовые дорожки для компонентов Video и Audio',
-        },
-        propInfo,
+Object.assign(TrackComponent, {
+    title: 'Track',
+    description: {
+        en: 'This component allows you to add a synchronized text track',
+        ru: 'Компонент для добавления синхронизированной текстовой дорожки',
     },
-    defaultProps
-);
+    propInfo,
+    defaultProps,
+});
+
+export default TrackComponent;

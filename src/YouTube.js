@@ -169,7 +169,7 @@ const YouTubeComponent = ({ url, showOverlay, ...props }) => {
             )}
 
             {(!url || !videoId) && (
-                <ComponentNotice message="Добавьте URL видео на панели Props" />
+                <ComponentNotice message="Add your video link in the Props panel" />
             )}
         </Box>
     );
@@ -177,7 +177,7 @@ const YouTubeComponent = ({ url, showOverlay, ...props }) => {
 
 const propInfo = {
     url: {
-        title: 'Ссылка на видео в YouTube',
+        title: 'Link to the video on YouTube',
         control: 'input',
         type: 'text',
         weight: 1,
@@ -194,6 +194,10 @@ const defaultProps = {
 
 Object.assign(YouTubeComponent, {
     title: 'YouTube Player',
+    description: {
+        en: 'This component plays videos from Youtube',
+        ru: 'Компонент, для воспроизведения видео из YouTube',
+    },
     propInfo,
     defaultProps,
     overrides,

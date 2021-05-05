@@ -1,39 +1,41 @@
 ## 📖 Detailed overview
 
-Компонент для добавления виджета с чатом LiveChat. 
+This component is for adding the LiveChat widget.
 
 ## 🎬 Live Demo
 
-[Live demo link](https://quarkly-ui-components.netlify.app/livechat/)
+[Live demo link](https://quarkly-catalog.netlify.app/livechat/)
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу, укажите ID чата и посмотрите как он работает в режиме превью.
+Add the component to the page, specify the license ID, and check how it works in the preview mode.
 
-### ID чата
+### Chat ID
 
-Получить уникальный `License ID` можно после регистрации на сайте [LiveChat](https://developers.facebook.com/apps)
+You can get the `License ID` after signup on the website [LiveChat](https://www.livechat.com/help/install-livechat).
 
-### Сеансы чатов
+### Chat sessions
 
-Свойство `Chat sessions between groups` отвечает за устрановку одного сеанса, в случае, если используются несколько чатов из разных групп.
+The `Chat sessions between groups` allows you to set one session for several chats from different groups.
 
 ## 🧩 Components and Props
 
-| Props Name                   |   Type   |                 Description                  | Default  |   Example   |
-| ---------------------------- | :------: | :------------------------------------------: | :------: | :---------: |
-| License ID                   | `string` |                   ID чата                    |  `none`  | `123456789` |
-| Group number                 | `string` |                 Номер группы                 |  `none`  | `123456789` |
-| Chat sessions between groups |  `enum`  | Сеансы чата между группами [enable, disable] | `enable` |  `disable`  |
+| Prop name                    |   Type    | Default |   Example   |
+| ---------------------------- | :-------: | :-----: | :---------: |
+| License ID                   | `string`  | `none`  | `123456789` |
+| Group number                 | `string`  | `none`  |     `1`     |
+| Chat sessions between groups | `boolean` | `false` |   `true`    |
 
-- 09/04/2021 (v1.0)
-  - Первая версия
+## 🗓 Changelog
+
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
 [We're on Discord](https://discord.gg/f9KhSMGX)
 

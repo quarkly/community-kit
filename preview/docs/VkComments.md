@@ -1,46 +1,48 @@
 ## 📖 Detailed overview
 
-Компонент показывает форму с комментариями сообщества VK.
+This component shows a form with VK community comments.
 
 ## 🎬 Live Demo
 
-[Live demo link](https://quarkly-ui-components.netlify.app/vkcomment/)
+[Live demo link](https://quarkly-catalog.netlify.app/vkcomment/)
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу, укажите ваш `VK App ID` и посмотрите как он работает в режиме превью.
+1.  Add the component to the page
+2.  Enter the `VK app ID` and `VK page ID`
+3.  See how it works in the preview mode
 
-### Приложение FaceBook
+### VK app
 
-Для работы компонента, необходимо сначала создать виджет комментария на сайте VK. Сделать это можно по этой ссылке: [VK Comment](https://vk.com/dev/Comments)
-
+For the component to work, create a comment widget on the VK site.
+To do it, follow the link [VK Comment](https://vk.com/dev/comments)
 
 ## 🧩 Components and Props
 
-| Props Name   |   Type    |                            Description                            | Default |  Example  |
-| ------------ | :-------: | :---------------------------------------------------------------: | :-----: | :-------: |
-| Graffiti     |  `bool`   |                 Возможность прикрепления граффити                 | `true`  |  `false`  |
-| Photo        |  `bool`   |               Возможность прикрепления изображений                | `true`  |  `false`  |
-| Audio        |  `bool`   |                  Возможность прикрепления аудио                   | `true`  |  `false`  |
-| Video        |  `bool`   |                  Возможность прикрепления видео                   | `true`  |  `false`  |
-| Link         |  `bool`   |                  Возможность прикрепления ссылок                  | `true`  |  `false`  |
-| VK App ID    | `string ` |                            ID виджета                             | `none`  | `1234567` |
-| Page ID      | `string ` |                 Внутренний идентификатор страницы                 | `none`  | `some_id` |
-| Limit        | `number`  |  Максимальное число комментариев на странице. (мин: 5, мак: 100)  |   `5`   |   `20`    |
-| Auto Publish |  `bool`   |  Aвтоматически публиковать комментарии на странице пользователя   | `false` |  `true`   |
-| No Realtime  |  `bool`   |     Обновлять ленту комментариев в режиме реального времени.      | `false` |  `true`   |
-| Page URL     | `string`  | URL страницы, ссылка на которую будет прикреплена к комментарtrue | `none`  |    `-`    |
+| Prop Name                        |   Type    | Default |  Example  |
+| :------------------------------- | :-------: | :-----: | :-------: |
+| VK app ID                        | `string`  | `none`  | `1234567` |
+| VK page ID                       | `string`  | `none`  | `some_id` |
+| Max. comments                    | `number`  |   `5`   |   `20`    |
+| Auto publishing                  | `boolean` | `false` |  `true`   |
+| Update in real time              | `boolean` | `true`  |  `false`  |
+| Link to the page with the widget | `string`  |   `-`   |    `-`    |
+| Add graffiti                     | `boolean` | `true`  |  `false`  |
+| Add photo                        | `boolean` | `true`  |  `false`  |
+| Add audio                        | `boolean` | `true`  |  `false`  |
+| Add video                        | `boolean` | `true`  |  `false`  |
+| Add link                         | `boolean` | `true`  |  `false`  |
 
 ## 🗓 Changelog
 
-- 16/03/2021 (v1.0)
-  - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
 [We're on Discord](https://discord.gg/f9KhSMGX)
 

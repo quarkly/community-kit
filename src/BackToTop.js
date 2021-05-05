@@ -143,33 +143,36 @@ const ScrollToTop = ({
 
 const propInfo = {
     showAfter: {
-        title: 'Show button after',
-        description: {
+        title: {
             en: 'Show button after (in px)',
+            ru: 'Показать кнопку через (в px)',
         },
         control: 'text',
         category: 'Button',
+        weight: 1,
     },
     showAlways: {
-        title: 'Show button always',
-        description: {
+        title: {
             en: 'Show button always',
+            ru: 'Показывать кнопку всегда',
         },
         control: 'checkbox',
         category: 'Button',
+        weight: 1,
     },
     duration: {
-        title: 'Animation duration',
-        description: {
+        title: {
             en: 'Animation duration',
+            ru: 'Продолжительность анимации',
         },
         control: 'text',
         category: 'Animation',
+        weight: 1,
     },
     easingPreset: {
-        title: 'Animation easing preset',
-        description: {
-            en: 'Animation easing preset',
+        title: {
+            en: 'Animation timing function',
+            ru: 'Функция сглаживания анимации',
         },
         control: 'select',
         variants: [
@@ -188,6 +191,7 @@ const propInfo = {
             'easeInOutQuint',
         ],
         category: 'Animation',
+        weight: 1,
     },
 };
 
@@ -199,9 +203,12 @@ const defaultProps = {
 };
 
 export default Object.assign(ScrollToTop, {
-    title: 'Scroll To Top Button',
+    title: 'Scroll to Top',
     description: {
-        en: 'Scroll To Top Button',
+        en:
+            'Help users easily return to the top of the long page with a single click',
+        ru:
+            'Помогите пользователям легко вернуться к началу страницы одним кликом мыши',
     },
     propInfo,
     defaultProps,

@@ -39,9 +39,7 @@ const SourceComponent = ({
         />
     ) : (
         <ComponentNotice
-            message={
-                'Этот компонент должен быть внутри "Picture", "Audio" или "Video"'
-            }
+            message={'This component should be inside Picture, Audio or Video'}
             {...props}
         />
     );
@@ -49,10 +47,9 @@ const SourceComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Src',
-        description: {
-            en: 'Audio/video file address',
-            ru: 'Адрес аудио/видео файла',
+        title: {
+            en: 'Audio or video file link',
+            ru: 'Ссылка на аудио или видео файл',
         },
         control: 'input',
         type: 'text',
@@ -60,10 +57,9 @@ const propInfo = {
         weight: 1,
     },
     typeMedia: {
-        title: 'Type',
-        description: {
-            en: 'MIME content type',
-            ru: 'MIME-тип контента',
+        title: {
+            en: 'MIME type audio or video',
+            ru: 'MIME-тип аудио или видео контента',
         },
         control: 'input',
         variants: [
@@ -80,10 +76,13 @@ const propInfo = {
         weight: 1,
     },
     codecs: {
-        title: 'Codecs',
+        title: {
+            en: 'Audio and video codecs',
+            ru: 'Аудио или видео кодеки',
+        },
         description: {
-            en: 'Video and audio codecs (comma-separated, optional)',
-            ru: 'Видео и аудиокодеки (через запятую, опционально)',
+            en: 'Audio and video codecs (comma-separated, optional)',
+            ru: 'Аудио и видео кодеки (через запятую, опционально)',
         },
         control: 'input',
         type: 'text',
@@ -91,7 +90,10 @@ const propInfo = {
         weight: 1,
     },
     srcSet: {
-        title: 'Srcset',
+        title: {
+            en: 'Image sources',
+            ru: 'Источники изображений',
+        },
         description: {
             en: 'One or more image sources with descriptors',
             ru: 'Один или несколько источников изображений с дескрипторами',
@@ -102,7 +104,10 @@ const propInfo = {
         weight: 1,
     },
     sizes: {
-        title: 'Sizes',
+        title: {
+            en: 'Container size',
+            ru: 'Размеры контейнера',
+        },
         description: {
             en: 'Image slot sizes from srcSet for different breakpoints',
             ru:
@@ -114,10 +119,9 @@ const propInfo = {
         weight: 1,
     },
     mediaSelect: {
-        title: 'Device',
-        description: {
-            en: 'General category of the device',
-            ru: 'Общая категория устройства',
+        title: {
+            en: 'Device category',
+            ru: 'Категория устройства',
         },
         control: 'select',
         variants: [
@@ -154,10 +158,9 @@ const propInfo = {
         weight: 0.4,
     },
     mediaInput: {
-        title: 'Media query',
-        description: {
-            en: "Media query of the resource's intended media",
-            ru: 'Медиа-запрос, согласно которому будет выводиться изображение',
+        title: {
+            en: 'Media query for image download',
+            ru: 'Медиа запрос для вывода изображения',
         },
         control: 'input',
         type: 'text',
@@ -165,9 +168,8 @@ const propInfo = {
         weight: 0.6,
     },
     typePicture: {
-        title: 'Type',
-        description: {
-            en: 'MIME image type',
+        title: {
+            en: 'MIME type image',
             ru: 'MIME-тип изображения',
         },
         control: 'input',
@@ -189,16 +191,14 @@ const defaultProps = {
     mediaSelect: 'all',
 };
 
-export default atomize(SourceComponent)(
-    {
-        name: 'Source',
-        description: {
-            en:
-                'Indicates several media resources for Picture, Video, and Audio components',
-            ru:
-                'Указывает несколько медиа-ресурсов для компонентов Picture, Video и Audio',
-        },
-        propInfo,
+Object.assign(SourceComponent, {
+    title: 'Source',
+    description: {
+        en: 'This component helps you add multiple media sources',
+        ru: 'Компонент для добавления нескольких медиа-ресурсов',
     },
-    defaultProps
-);
+    propInfo,
+    defaultProps,
+});
+
+export default SourceComponent;

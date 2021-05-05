@@ -3,7 +3,7 @@ import { useOverrides } from '@quarkly/components';
 import { Box, Image } from '@quarkly/widgets';
 
 const overrides = {
-    'Flip Card Content': {
+    'Card Flip Content': {
         kind: 'Box',
         props: {
             width: '100%',
@@ -14,7 +14,7 @@ const overrides = {
             cursor: 'pointer',
         },
     },
-    'Flip Card Image': {
+    'Card Flip Image': {
         kind: 'Image',
         props: {
             width: '100%',
@@ -25,7 +25,7 @@ const overrides = {
             'object-fit': 'cover',
         },
     },
-    'Flip Card Item': {
+    'Card Flip Item': {
         kind: 'Box',
         props: {
             top: '0',
@@ -36,10 +36,10 @@ const overrides = {
             position: 'absolute',
         },
     },
-    'Flip Card Item Face': {
+    'Card Flip Item Face': {
         kind: 'Box',
     },
-    'Flip Card Item Back': {
+    'Card Flip Item Back': {
         kind: 'Box',
         props: {
             padding: '24px 16px',
@@ -73,7 +73,7 @@ const cardHeights = {
     '9:16': '177.78%',
 };
 
-const FlipCard = ({
+const CardFlip = ({
     flipTriggerProp,
     flipDirectionProp,
     flipDurationProp,
@@ -114,7 +114,7 @@ const FlipCard = ({
         >
             <Box
                 transition={`transform ${flipDuration}ms ${timingFunctionProp}`}
-                {...override('Flip Card Content')}
+                {...override('Card Flip Content')}
                 {...(isFlipped && flipStyles[flipDirectionProp])}
                 padding-top={
                     aspectRatioProp !== 'auto'
@@ -123,11 +123,11 @@ const FlipCard = ({
                 }
                 height={aspectRatioProp !== 'auto' ? '0' : '100%'}
             >
-                <Box {...override(`Flip Card Item`, `Flip Card Item Face`)}>
-                    <Image {...override('Flip Card Image')} />
+                <Box {...override(`Card Flip Item`, `Card Flip Item Face`)}>
+                    <Image {...override('Card Flip Image')} />
                 </Box>
                 <Box
-                    {...override(`Flip Card Item`, `Flip Card Item Back`)}
+                    {...override(`Card Flip Item`, `Card Flip Item Back`)}
                     {...flipStyles[flipDirectionProp]}
                 >
                     {children}
@@ -139,19 +139,22 @@ const FlipCard = ({
 
 const propInfo = {
     flipTriggerProp: {
-        title: 'Триггер переворота',
+        title: {
+            en: 'Flip trigger',
+            ru: 'Триггер переворота',
+        },
         control: 'radio-group',
         variants: [
             {
                 title: {
-                    en: 'По клику',
+                    en: 'On click',
                     ru: 'По клику',
                 },
                 value: 'click',
             },
             {
                 title: {
-                    en: 'По наведению',
+                    en: 'On hover',
                     ru: 'По наведению',
                 },
                 value: 'hover',
@@ -161,33 +164,36 @@ const propInfo = {
         weight: 0.5,
     },
     flipDirectionProp: {
-        title: 'Напраление переворота',
+        title: {
+            en: 'Flip direction',
+            ru: 'Напраление переворота',
+        },
         control: 'select',
         variants: [
             {
                 title: {
-                    en: 'Вправо',
+                    en: 'Right',
                     ru: 'Вправо',
                 },
                 value: 'toRight',
             },
             {
                 title: {
-                    en: 'Влево',
+                    en: 'Left',
                     ru: 'Влево',
                 },
                 value: 'toLeft',
             },
             {
                 title: {
-                    en: 'Вверх',
+                    en: 'Up',
                     ru: 'Вверх',
                 },
                 value: 'toUp',
             },
             {
                 title: {
-                    en: 'Вниз',
+                    en: 'Down',
                     ru: 'Вниз',
                 },
                 value: 'toDown',
@@ -197,12 +203,15 @@ const propInfo = {
         weight: 0.5,
     },
     aspectRatioProp: {
-        title: 'Соотношение сторон',
+        title: {
+            en: 'Aspect ratio',
+            ru: 'Соотношение сторон',
+        },
         control: 'select',
         variants: [
             {
                 title: {
-                    en: 'Вручную',
+                    en: 'Manually',
                     ru: 'Вручную',
                 },
                 value: 'auto',
@@ -217,7 +226,10 @@ const propInfo = {
         weight: 0.5,
     },
     flipDurationProp: {
-        title: 'Длительность анимации',
+        title: {
+            en: 'Animation duration',
+            ru: 'Длительность анимации',
+        },
         control: 'input',
         variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
         type: 'text',
@@ -225,7 +237,10 @@ const propInfo = {
         weight: 0.5,
     },
     timingFunctionProp: {
-        title: 'Функция сглаживания анимации',
+        title: {
+            en: 'Animation timing function',
+            ru: 'Функция сглаживания анимации',
+        },
         control: 'input',
         variants: [
             'linear',
@@ -240,7 +255,10 @@ const propInfo = {
         weight: 0.5,
     },
     isFlippedProp: {
-        title: 'Перевернуть карточку',
+        title: {
+            en: 'Flip a card',
+            ru: 'Перевернуть карточку',
+        },
         control: 'checkbox',
         category: 'Test',
         weight: 1,
@@ -261,10 +279,16 @@ const defaultProps = {
     position: 'relative',
 };
 
-Object.assign(FlipCard, {
+Object.assign(CardFlip, {
+    title: 'Card Flip',
+    description: {
+        en: 'Card flip with image. Rotation either on click or on mouseover',
+        ru:
+            'Вращающаяся карточка с изображением. Вращается по клику или наведению курсора',
+    },
     propInfo,
     defaultProps,
     overrides,
 });
 
-export default FlipCard;
+export default CardFlip;

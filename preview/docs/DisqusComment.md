@@ -1,34 +1,42 @@
 ## 📖 Detailed overview
 
-Компонент, для встраивания конкретного комментария Disqus.
+This component allows you to add the Disqus widget with a specific comment.
 
 ## 🎬 Live Demo
 
-[Live demo link](https://quarkly-ui-components.netlify.app/disquscomment/)
+[Live demo link](https://quarkly-catalog.netlify.app/disquscomment/)
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу, в свойстве `ID Комментария` укажите ID нужного комментария. Затем, посмотрите как компонент работает в режиме превью.
+1.  Add the component to the page
+2.  Specify the `Comment identifier` on the Props panel
+3.  Check how it works in the preview mode
+
+### Comment identifier
+
+You can get the comment identifier, for example, by following the `Share` link.
+
+![Get the comment identifier](https://test-upl.quarkly.io/60474504627982001eb71a51/images/3.png?v=2021-04-22T09:46:00.296Z)
 
 ## 🧩 Components and Props
 
-| Props Name           |   Type   |   Default    | Description                       |
-| :------------------- | :------: | :----------: | :-------------------------------- |
-| ID Комментария       | `string` | `5307041509` | ID конкретного комментария        |
-| Show Parrent Pomment |  `bool`  |   `false`    | Показать родительский комментарий |
-| Ширина Блока         | `string` |    `100%`    | Ширина блока с комментарием       |
-| Высота Блока         | `string` |   `200px`    | Высота Блока с комментарием       |
+| Prop Name            |   Type   | Default |
+| :------------------- | :------: | :-----: |
+| Comment identifier   | `string` |   `-`   |
+| Show parent comment  |  `bool`  | `false` |
+| Comment block width  | `string` | `100%`  |
+| Comment block height | `string` | `200px` |
 
 ## 🗓 Changelog
 
-    - 09/04/2021 (v1.0)
-    - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
 [We're on Discord](https://discord.gg/f9KhSMGX)
 

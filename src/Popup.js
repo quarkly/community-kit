@@ -170,7 +170,7 @@ const PopupComponent = ({ animDuration, animFunction, ...props }) => {
                         {children}
                     </Box>
                     {isEmpty && (
-                        <ComponentNotice message="Drag component here" />
+                        <ComponentNotice message="Drag any component here" />
                     )}
                 </Box>
             </Box>
@@ -180,7 +180,10 @@ const PopupComponent = ({ animDuration, animFunction, ...props }) => {
 
 const propInfo = {
     animDuration: {
-        title: 'Animation duration (in seconds)',
+        title: {
+            en: 'Show/hide duration',
+            ru: 'Длительность появления и скрытия',
+        },
         control: 'input',
         variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
         type: 'text',
@@ -188,7 +191,10 @@ const propInfo = {
         weight: 1,
     },
     animFunction: {
-        title: 'Animation function',
+        title: {
+            en: 'Animation timing function',
+            ru: 'Функция сглаживания анимации',
+        },
         control: 'input',
         variants: [
             'linear',
@@ -211,6 +217,11 @@ const defaultProps = {
 };
 
 Object.assign(PopupComponent, {
+    title: 'Popup',
+    description: {
+        en: 'This is a pop-up window that appears when clicking on a button',
+        ru: 'Всплывающее окно, которое появляется по клику на кнопку',
+    },
     propInfo,
     defaultProps,
     overrides,

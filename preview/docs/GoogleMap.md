@@ -1,36 +1,43 @@
 ## 📖 Detailed overview
-Why does the user need this component? How will it benefit the user?
 
+Use this component to add maps from "Google Maps"
 
 ## 🎬 Live Demo
-[Live demo link]()
+
+[Live demo link](https://quarkly-catalog.netlify.app/googlemap/)
 
 ## ⚙️ Usage
-Detailed instructions on how to get the most out of your component
+
+Add the component to the page, enter `API key`, and check how it works in the preview mode.
+
+### ApiKey
+
+To get the `API key`, follow the [instructions](https://developers.google.com/maps/documentation/javascript/get-api-key).
 
 ## 🧩 Components and Props
 
-### GoogleMap
-Description of the component and explanation of why it is needed
-
-|  Props Name  |    Type    |  Description  |  Default  |   Example   |
-| ------------ | :--------: | :-----------: | :-------: | :---------: |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
-| Name         |  `Stroke`  |   Some text   |  `value`  |  `example`  |
+| Prop Name    |   Type   |  Default   | Description                                                                       |
+| :----------- | :------: | :--------: | :-------------------------------------------------------------------------------- |
+| API key      | `string` |    `-`     | You can get the `API key` from the link in the component description              |
+| Select place | `string` | `New York` | Name of place, address or latitude and longitude coordinates, separated by commas |
 
 ## 🗓 Changelog
-- 01/03/2021 (v1.0)
-  - Some changes
-  - Some changes
-  - Some changes
+
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
-If you want other features or find any errors, please contact me!
-In addition, I was wondering if you send me what you've built.
 
-Find me on Twitter: @author
-[author@contact.mail](mailto:author@contact.mail)
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+
+[Help with components](https://community.quarkly.io/c/requests/11)
+
+[We're on Discord](https://discord.gg/f9KhSMGX)
+
+[Our Twitter](https://twitter.com/quarklyapp)
+
+[dev@quarkly.io](mailto:dev@quarkly.io)
 
 ## 📝 License
+
 Licensed under the [MIT License](./LICENSE).

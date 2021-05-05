@@ -4,17 +4,17 @@ import { Box } from '@quarkly/widgets';
 
 import ComponentNotice from './ComponentNotice';
 
-const LiveChatComp = ({ license, group, chatBetweenGroups, ...props }) => {
+const LiveChatComponent = ({ license, group, chatBetweenGroups, ...props }) => {
     return (
         <Box {...props}>
             {license ? (
                 <LiveChat
                     license={license}
-                    group={group}
-                    chatBetweenGroups={chatBetweenGroups === 'enable'}
+                    group={group || ''}
+                    chatBetweenGroups={chatBetweenGroups}
                 />
             ) : (
-                <ComponentNotice message="Добавьте license на панели Props" />
+                <ComponentNotice message="Add your License ID in the Props panel" />
             )}
         </Box>
     );
@@ -22,40 +22,48 @@ const LiveChatComp = ({ license, group, chatBetweenGroups, ...props }) => {
 
 const propInfo = {
     license: {
-        title: 'License ID:',
-        control: 'number',
+        title: {
+            en: 'License ID',
+            ru: 'ID лицензии',
+        },
+        control: 'input',
         type: 'number',
         category: 'Main',
         weight: 1,
     },
     group: {
-        title: 'Group number:',
-        control: 'number',
+        title: {
+            en: 'Group number',
+            ru: 'Номер группы',
+        },
+        control: 'input',
         type: 'number',
         category: 'Main',
         weight: 1,
     },
     chatBetweenGroups: {
-        title: 'Chat sessions between groups:',
-        control: 'radio-group',
-        variants: ['enable', 'disable'],
-        type: 'text',
+        title: {
+            en: 'Chat sessions between groups',
+            ru: 'Сессии чатов между группами',
+        },
+        control: 'checkbox',
         category: 'Main',
         weight: 1,
     },
 };
 
 const defaultProps = {
-    license: '',
-    group: '',
-    chatBetweenGroups: '',
+    chatBetweenGroups: false,
 };
 
-export default Object.assign(LiveChatComp, {
+Object.assign(LiveChatComponent, {
     title: 'LiveChat',
     description: {
-        en: 'LiveChat widget for your application',
+        en: 'This component is for adding the LiveChat widget',
+        ru: 'Компонент для добавления виджета LiveChat',
     },
     propInfo,
     defaultProps,
 });
+
+export default LiveChatComponent;

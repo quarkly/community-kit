@@ -4,4 +4,5 @@
 /tmp
 node_modules
 quarkly-sdk.json
+.DS_Store
 .idea
