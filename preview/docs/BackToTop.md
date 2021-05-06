@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This component contains a button placed in the bottom right corner of the screen. When you click it, the page will automatically scroll to the beginning.
+This component contains a button placed in the bottom right corner of the screen. When you click it, the page will automatically scroll to the top.
 
 ## 🎬 Live Demo
 
@@ -8,20 +8,20 @@ This component contains a button placed in the bottom right corner of the screen
 
 ## ⚙️ Usage
 
-Add the component to the page. Please note that when you add the component, it won't be visible. To check if the component works in the builder, set a height limit on top in the canvas parameters. You can also publish the site and check the component there.
+Add the component to the page. Please note that when you add the component, it won't be visible. To check if the component works in the builder, set a height limit at the top in the canvas parameters. You can also publish the site and check the component there.
 
 ### Always show button
 
-The `Always show button` prop makes a button always visible on scroll. You may need this property for editing the button.
+The `Show Button Always` prop makes a button always visible on scroll. You may need this property for editing the button.
 
 ## 🧩 Components and Props
 
-| Prop Name               |   Type    |     Default     | Example  |
-| ----------------------- | :-------: | :-------------: | :------: |
-| Show button later       | `number`  |      `100`      |  `200`   |
-| Always show button      |  `bool`   |     `false`     |  `true`  |
-| Animation duration      | `number ` |     `1000`      | `15000`  |
-| Animation easing preset |  `enum`   | `easeInOutQuad` | `linear` |
+| Prop Name               |   Type   |                                    Description                                     |     Default     | Example  |
+| ----------------------- | :------: | :--------------------------------------------------------------------------------: | :-------------: | :------: |
+| Animation duration      | `number` |                             Animation duration (in ms)                             |     `1000`      | `15000`  |
+| Animation easing preset |  `enum`  |                                Auto audio playback                                 | `easeInOutQuad` | `linear` |
+| Show button after       | `number` | Makes a button visible only after scrolling down by the specified number of pixels |      `100`      |  `200`   |
+| Always show button      |  `bool`  |                      Makes a button always visible on scroll                       |     `false`     |  `true`  |
 
 ## 🗓 Changelog
 

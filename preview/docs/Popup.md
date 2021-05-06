@@ -1,7 +1,6 @@
 ## 📖 Detailed overview
 
-This is a pop-up window that appears when clicking on a button.
-Any other components can be placed inside.
+This is a pop-up window that appears when clicking on a button. Any other components can be placed inside.
 
 ## 🎬 Live Demo
 
@@ -13,10 +12,10 @@ Add the component to the page and check how it works in the preview mode.
 
 ## 🧩 Components and Props
 
-| Prop Name                 |   Type   | Default  |
-| :------------------------ | :------: | :------: |
-| Show/hide duration        | `string` | `0.15s`  |
-| Animation timing function | `number` | `linear` |
+| Prop name                    |   Type   | Default  |
+| :--------------------------- | :------: | :------: |
+| Hide/show animation duration | `string` | `0.15s`  |
+| Smooth animation             | `number` | `linear` |
 
 ## 🗓 Changelog
 

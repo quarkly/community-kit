@@ -12,8 +12,7 @@ Add the component to the page and see how it works in the preview mode.
 
 ### Start and end values
 
-The values in `Start value` and `End value` can be set either positive or negative. It's important that the start value is smaller than the end value.
-In case a countdown is required, select `Decrease` in the `Count direction` property, then the start value becomes the end value and the end value becomes the start value.
+The values in `Start value` and `End value` can be set and can be either positive or negative. It's important that the start value is smaller than the end value. If a countdown is required, select `Decrease` in the `Count direction` property, then the start value becomes the end value and the end value becomes the start value.
 
 ### Counter start
 
@@ -21,7 +20,7 @@ The counter will start automatically when it becomes visible in the window.
 
 ## 🧩 Components and Props
 
-| Prop Name         |   Type   | Default  | Example |
+| Prop name         |   Type   | Default  | Example |
 | :---------------- | :------: | :------: | :-----: |
 | Start value       | `number` |   `0`    |  `-43`  |
 | End value         | `number` |  `100`   |  `300`  |

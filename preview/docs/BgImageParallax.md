@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Use this component to create parallax effect.
+Use this component to create a parallax effect for the background image.
 
 ## 🎬 Live Demo
 
@@ -10,7 +10,7 @@ Use this component to create parallax effect.
 
 1.  Add the component to the page
 2.  Set the page height limit in the builder
-3.  Check how it works in the preview mode
+3.  See how it works in the preview mode
 
 ### Display in the builder
 
@@ -18,14 +18,15 @@ For the component to work properly in the builder, set the height limit in the p
 
 ## 🧩 Components and Props
 
-| Prop name       |   Type    |   Default   |
-| :-------------- | :-------: | :---------: |
-| Image           | `number ` |   `none`    |
-| Image size      | `string`  |   `cover`   |
-| Image alignment |  `enum`   |   `left`    |
-| Repeat image    |  `enum`   | `no-repeat` |
-| Scroll speed    | `boolean` |    `0.5`    |
-| Scroll inertia  | `boolean` |     `1`     |
+| Prop name       |   Type   |   Default   |
+| :-------------- | :------: | :---------: |
+| Image           | `number` |   `none`    |
+| Image size      | `string` |   `cover`   |
+| Image alignment |  `enum`  |   `left`    |
+| Image alignment |  `enum`  | `no-repeat` |
+| Repeat image    |  `bool`  |   `false`   |
+| Scroll speed    |  `bool`  |    `0.5`    |
+| Scroll inertia  |  `bool`  |     `1`     |
 
 ## 🗓 Changelog
 

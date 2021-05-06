@@ -1,7 +1,6 @@
 ## 📖 Detailed overview
 
-Container to hide menu or any other content in the mobile version of the site.
-To show content, will need to press a menu button.
+This component is a container for hiding the menu or any other content in the mobile version of the site. To show content, click the menu button.
 
 ## 🎬 Live Demo
 
@@ -9,29 +8,28 @@ To show content, will need to press a menu button.
 
 ## ⚙️ Usage
 
-1.  Add component to the page
-2.  Add any other component inside the first one
-3.  Select breakpoint to switch to mobile view
-4.  Check its work in preview on the chosen breakpoint
+1.  Add the component to the page
+2.  Add any other component inside it
+3.  Select breakpoint to switch to the mobile view
+4.  Check how it works in the preview mode on the chosen breakpoint
 
 ### Panel position
 
-Attribute `Panel position in mobile view` allow you to customize the panel position relative to viewport or menu button.
-You can choose one of the following values:
+The `Panel position in mobile view` prop allows you to customize the panel position relative to the viewport or menu button. You can choose one of the following values:
 
 -   full - Fullscreen;
 -   left - Align Left;
 -   right - Align Right;
--   near - Near the button.
+-   near - Near the menu button.
 
 ## 🧩 Components and Props
 
-| Props values                     |   Type   | Default |  Example  |
+| Prop name                        |   Type   | Default |  Example  |
 | :------------------------------- | :------: | :-----: | :-------: |
 | Switch mobile view on breakpoint | `string` |  `md`   |   `sm`    |
 | Panel position in mobile view    |  `enum`  | `near`  |  `left`   |
-| Animation timing function        |  `enum`  | `ease`  | `ease-in` |
-| Duration of show/hide            | `string` | `0.3s`  |  `0.5s`   |
+| Smooth animation                 |  `enum`  | `ease`  | `ease-in` |
+| Hide/show animation duration     | `string` | `0.3s`  |  `0.5s`   |
 
 ## 🗓 Changelog
 

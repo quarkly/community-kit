@@ -12,7 +12,7 @@ Add the component to the page, enter the `Links to accounts`, and check how it w
 
 ### Social media
 
-The following social media are available for the component:
+The following social media channels are available for the component:
 
 -   Facebook
 -   WhatsApp
@@ -35,7 +35,7 @@ The following social media are available for the component:
 
 ## 🧩 Components and Props
 
-| Prop Name         |   Type   | Default |
+| Prop name         |   Type   | Default |
 | :---------------- | :------: | :-----: |
 | Links to accounts | `string` |   `-`   |
 

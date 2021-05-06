@@ -1,7 +1,6 @@
 ## 📖 Detailed overview
 
-This component helps you add multiple media sources. It's a child component for the `Audio`, `Video` and `Picture` components.
-It allows the browser to select one of the given sources depending on which codec or media it supports.
+This component helps you add multiple media sources. It's a child component of the `Audio`, `Video` фтв `Picture` components. It allows the browser to select one of the given sources depending on which codec or media it supports.
 
 ## 🎬 Live Demo
 
@@ -11,7 +10,7 @@ It allows the browser to select one of the given sources depending on which code
 
 1.  Add the component to the `Audio`, `Video`, or `Picture` components
 2.  Specify `Audio or video file link` or `Image sources` on the Props panel
-3.  Check how it works in the preview mode
+3.  See how it works in the preview mode
 
 ### Image sources and container size
 
@@ -19,7 +18,7 @@ The `Image sources` and `Container size` props allow you to explicitly define th
 
 ## 🧩 Components and Props
 
-| Prop Name                      |   Type   | Default |
+| Prop name                      |   Type   | Default |
 | :----------------------------- | :------: | :-----: |
 | Audio or video file link       | `string` |   `-`   |
 | MIME type audio or video       |  `enum`  | `none`  |

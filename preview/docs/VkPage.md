@@ -26,13 +26,13 @@ If you select the `Enable advanced mode` property, a 'Like' button and a communi
 
 ## 🧩 Components and Props
 
-| Prop Name                               |   Type    |   Default   |   Example   |
+| Prop name                               |   Type    |   Default   |   Example   |
 | :-------------------------------------- | :-------: | :---------: | :---------: |
 | VK community ID                         | `number`  |     `-`     | `123456789` |
 | Widget container ID                     | `string`  | `vk_groups` |  `some_id`  |
 | Widget background color                 | `string`  |   `#fff`    |   `blue`    |
 | Widget text color                       | `string`  |   `#000`    |   `#fff`    |
-| Widget link color                       | `string`  |  `#5181B8`  |  `#fdfdfd`  |
+| Widget libk color                       | `string`  |  `#5181B8`  |  `#fdfdfd`  |
 | What to display in the widget           |  `enum`   |  `Members`  | `Only name` |
 | Don't display the community cover photo | `boolean` |   `false`   |   `true`    |
 | Enable advanced mode                    | `boolean` |   `false`   |   `true`    |
