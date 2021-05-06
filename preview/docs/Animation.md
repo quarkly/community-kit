@@ -8,21 +8,21 @@ Use this component to animate one or several elements.
 
 ## ⚙️ Usage
 
-Add the component to the page, then add the component that you want to animate inside it.
+Add the component to the page, then add a component you want to animate.
 
 ### Switch on animation
 
-If you activate prop `Force animations`, animation will play out automatically.
+If you activate the `Force animation` prop, the animation will start automatically.
 
 ## 🧩 Components and Props
 
-| Props Name                    |   Type   |  Default   |  Example  |
+| Prop name                     |   Type   |  Default   |  Example  |
 | :---------------------------- | :------: | :--------: | :-------: |
 | Animation trigger             |  `enum`  |  `onload`  |  `hover`  |
 | Animation type                |  `enum`  | `Fade Out` | `Fade In` |
 | Number of iterations          |  `enum`  | `infinity` |  `once`   |
-| Animation timing function     | `string` |  `linear`  |  `ease`   |
-| Duration of show/hide         | `string` |    `1s`    |   `3s`    |
+| Smooth animation              | `string` |  `linear`  |  `ease`   |
+| Hide/show animation duration  | `string` |    `1s`    |   `3s`    |
 | Delay before animation starts | `string` |    `0s`    |   `1s`    |
 | Force animation               |  `bool`  |  `false`   |  `true`   |
 
