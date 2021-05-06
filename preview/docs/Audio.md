@@ -10,7 +10,7 @@ This component helps you add an audio player to your website.
 
 1.  Add the component to the page
 2.  Specify the `Link to audio file` on the Props panel
-3.  Check how it works in the preview mode
+3.  See how it works in the preview mode
 
 ### Usage of Source and Track
 
@@ -18,7 +18,7 @@ The Audio component can contain the `Source` and `Track` components.
 
 ## 🧩 Components and Props
 
-| Prop Name          |   Type    | Example |
+| Prop name          |   Type    | Example |
 | :----------------- | :-------: | :-----: |
 | Link to audio file | `string`  |   `-`   |
 | Auto playback      | `boolean` | `false` |
