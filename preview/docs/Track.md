@@ -2,10 +2,6 @@
 
 This component allows you to add a synchronized text track. It's a child component of the `Audio` and `Video` components. The text track usually contains subtitles in different languages, comments, titles, etc.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-catalog.netlify.app/video/)
-
 ## ⚙️ Usage
 
 1.  Add this component to the `Audio` or `Video` components
@@ -41,7 +37,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

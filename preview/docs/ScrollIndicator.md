@@ -2,10 +2,6 @@
 
 This component is an idicator at the top of the page that shows how much of it has been already scrolled.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-catalog.netlify.app/gallery/)
-
 ## ⚙️ Usage
 
 Add the component to the page and previre it.
@@ -30,7 +26,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 
