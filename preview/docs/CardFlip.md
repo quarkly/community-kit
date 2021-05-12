@@ -1,7 +1,6 @@
 ## 📖 Detailed overview
 
-Card flip with image. Rotation either on click or on mouseover.
-You can add any other components to the other side.
+Card flip with an image. Rotation either on click or on mouseover. You can add any other components to the other side.
 
 ## 🎬 Live Demo
 
@@ -9,26 +8,26 @@ You can add any other components to the other side.
 
 ## ⚙️ Usage
 
-And the component to the page and see how it works in preview mode.
+Add the component to the page and see how it works in preview mode.
 
 ### Change card image
 
-To change image card, choose built-in component `Image` and change the link in the `Src` parameter.
+To change the card image, choose the built-in `Image` component and change the link in the `Src` parameter.
 
 ### Image aspect ratio
 
-If you choose `auto` in the `Aspect ratio` attribute, image size (height & width) will equal the component size.
+If you choose `auto` in the `Aspect ratio` prop, the image size (height & width) will equal the component size.
 
 ## 🧩 Components and Props
 
-| Prop name                 |   Type    |    Default     |  Example  |
-| :------------------------ | :-------: | :------------: | :-------: |
-| Flip trigger              |  `enum`   |    `click`     |  `hover`  |
-| Flip direction            |  `enum`   |   `toRight`    | `toDown`  |
-| Aspect ratio              |  `enum`   |     `auto`     |   `1:1`   |
-| Animation duration        | `number`  |     `1000`     |  `2000`   |
-| Animation timing function | `string`  | `cubic-bezier` | `ease-in` |
-| Flip a card               | `boolean` |    `false`     |  `true`   |
+| Prop name          |   Type    | Description                                         |    Default     |  Example  |
+| :----------------- | :-------: | :-------------------------------------------------- | :------------: | :-------: |
+| Flip trigger       |  `enum`   | Action that triggers flip [click, hover]            |    `click`     |  `hover`  |
+| Flip direction     |  `enum`   | Flip direction [toRight, toLeft, ToUp, toDown]      |   `toRight`    | `toDown`  |
+| Aspect ratio       |  `enum`   | Keep proportions [auto, 16:9, 4:3, 1:1, 3:4, 9:16 ] |     `auto`     |   `1:1`   |
+| Smooth animation   | `string`  | Animation smoothing function                        | `cubic-bezier` | `ease-in` |
+| Animation duration | `number`  | Animation duration                                  |     `1000`     |  `2000`   |
+| Flip card          | `boolean` | Flip a card to test it                              |    `false`     |  `true`   |
 
 ## 🗓 Changelog
 

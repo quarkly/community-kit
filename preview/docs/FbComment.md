@@ -12,9 +12,9 @@ This component allows you to add a comment form for Facebook.
 2.  Specify your Facebook app ID
 3.  Specify the link to comments
 
-### FaceBook app
+### Facebook app
 
-For the component to work, create a FaceBook application. To do this, follow the link: [FaceBook APP](https://developers.facebook.com/apps)
+For the component to work, create a Facebook application. To do this, follow the link: [Facebook APP](https://developers.facebook.com/apps)
 
 ### Changing props in the builder
 
@@ -22,7 +22,7 @@ If you change the component properties in the builder, you may need to update th
 
 ## 🧩 Components and Props
 
-| Prop Name                     |   Type   |  Default  |
+| Prop name                     |   Type   |  Default  |
 | :---------------------------- | :------: | :-------: |
 | Facebook app ID               | `number` |    `-`    |
 | Link to comments              | `number` |    `-`    |

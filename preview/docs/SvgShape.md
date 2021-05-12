@@ -8,7 +8,7 @@ This component helps you create simple SVG shapes.
 
 ## ⚙️ Usage
 
-Add the component to the page and check how it works in the preview mode.
+Add the component to the page and see how it works in the preview mode.
 
 ### Shape types
 
@@ -22,16 +22,16 @@ In the component props you can change the shape type:
 
 ## 🧩 Components and Props
 
-| Prop name        |   Type   |      Default      |
-| :--------------- | :------: | :---------------: |
-| Shape type       | `enum `  |    `rectangle`    |
-| Stroke color     | `string` |     `#000000`     |
-| Stroke thickness | `number` |        `1`        |
-| Stroke opacity   | `number` |        `1`        |
-| Stroke shape     |  `enum`  |      `butt`       |
-| Dashed stroke    | `string` |      `none`       |
-| Shape color      | `string` | `--color-primary` |
-| Shape opacity    | `number` |        `1`        |
+| Prop name          |   Type   |      Default      |
+| :----------------- | :------: | :---------------: |
+| Shape type         |  `enum`  |    `rectangle`    |
+| Stroke color       | `string` |     `#000000`     |
+| Stroke thickness   | `number` |        `1`        |
+| Stroke opacity     | `number` |        `1`        |
+| Stroke shape       |  `enum`  |      `butt`       |
+| Dashed stroke      | `string` |      `none`       |
+| Shape type color   | `string` | `--color-primary` |
+| Shape type opacity | `number` |        `1`        |
 
 ## 🗓 Changelog
 

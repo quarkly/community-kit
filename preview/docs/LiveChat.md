@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This component is for adding the LiveChat widget.
+Use this component to add the LiveChat widget.
 
 ## 🎬 Live Demo
 
@@ -8,11 +8,11 @@ This component is for adding the LiveChat widget.
 
 ## ⚙️ Usage
 
-Add the component to the page, specify the license ID, and check how it works in the preview mode.
+Add the component to the page, specify the license ID, and see how it works in the preview mode.
 
 ### Chat ID
 
-You can get the `License ID` after signup on the website [LiveChat](https://www.livechat.com/help/install-livechat).
+You can get the `License ID` after sign-up on [LiveChat](https://www.livechat.com/help/install-livechat).
 
 ### Chat sessions
 

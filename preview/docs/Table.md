@@ -12,8 +12,7 @@ Add the content to the page and enter data to the table.
 
 ### Table description
 
-The `Short Description` prop allows you to add a shor description of the table or specify its purpose.
-It's not displayed anywhere including a browser but can be used by search engines or screen readers.
+The `Short Description` prop allows you to add a short description of the table or specify its purpose. It's not displayed anywhere in the browser but can be used by search engines or screen readers.
 
 ## 🧩 Components and Props
 

@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This component is for adding maps from "Yandex.Maps"
+Use this component to add maps from Yandex.Maps
 
 ## 🎬 Live Demo
 
@@ -8,27 +8,27 @@ This component is for adding maps from "Yandex.Maps"
 
 ## ⚙️ Usage
 
-Add the component to the page, specify the `API Key`, and check how it works in the preview mode.
+Add the component to the page, specify the `API key`, and check how it works in the preview mode.
 
-### ApiKey
+### API key
 
-To get `API Key`, follow the [instructions](https://yandex.ru/blog/mapsapi/novye-pravila-dostupa-k-api-kart).
+To get the `API key`, follow the [instructions](https://yandex.ru/blog/mapsapi/novye-pravila-dostupa-k-api-kart).
 
 ## 🧩 Components and Props
 
-| Prop name        |   Type    | Default |
-| :--------------- | :-------: | :-----: |
-| API key          | `string`  |   `-`   |
-| Map scale        | `string ` |   `9`   |
-| Latitude         | `string`  |   `-`   |
-| Longitude        | `string`  |   `-`   |
-| Search           | `string`  | `false` |
-| Full screen view | `string`  | `false` |
-| Geo              | `string`  | `false` |
-| Scale            | `string`  | `false` |
-| Traffic          | `string`  | `false` |
-| Ruler            | `string`  | `false` |
-| Layers options   | `string`  | `false` |
+| Prop name        |   Type   | Default | Description                              |
+| :--------------- | :------: | :-----: | :--------------------------------------- |
+| API Key          | `string` |   `-`   |                                          |
+| Map scale        | `string` |   `9`   | Map scale. Available values from 0 to 19 |
+| Latitude         | `string` |   `-`   |                                          |
+| Longitude        | `string` |   `-`   |                                          |
+| Search           | `string` | `false` |                                          |
+| Full screen view | `string` | `false` |                                          |
+| Geo              | `string` | `false` |                                          |
+| Scale            | `string` | `false` |                                          |
+| Traffic          | `string` | `false` |                                          |
+| Ruler            | `string` | `false` |                                          |
+| Layers options   | `string` | `false` |                                          |
 
 ## 🗓 Changelog
 

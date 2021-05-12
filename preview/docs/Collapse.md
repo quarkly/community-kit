@@ -1,7 +1,6 @@
 ## 📖 Detailed overview
 
-This component allows you to collapse the content smoothly.
-You can drag and drop any component into it.
+This component allows you to collapse the content smoothly. You can drag and drop any component into it.
 
 ## 🎬 Live Demo
 
@@ -11,20 +10,19 @@ You can drag and drop any component into it.
 
 1.  Add the component to the page
 2.  Drag and drop any component into it
-3.  Check how it works in the preview mode
+3.  See how it works in the preview mode
 
 ### Animation duration
 
-The duration of the opening and closing animation depends on the height of the content.
-You can set the limits in the `Minimum animation duration` and `Maximum animation duration` props.
+The duration of the opening and closing animation depends on the height of the content. You can set the limits in the `Minimum animation duration` and `Maximum animation duration` props.
 
 ## 🧩 Components and Props
 
-| Prop Name                  |   Type    | Default  |
-| :------------------------- | :-------: | :------: |
-| Minimum animation duration | `string ` |  `0.1s`  |
-| Maximum animation duration | `string ` |   `1s`   |
-| Smooth animation           | `string`  | `linear` |
+| Prop name                  |   Type   | Default  |
+| :------------------------- | :------: | :------: |
+| Minimum animation duration | `string` |  `0.1s`  |
+| Maximum animation duration | `string` |   `1s`   |
+| Smooth animation           | `string` | `linear` |
 
 ## 🗓 Changelog
 
