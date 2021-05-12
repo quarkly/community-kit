@@ -2,10 +2,6 @@
 
 This component helps you add multiple media sources. It's a child component of the `Audio`, `Video` фтв `Picture` components. It allows the browser to select one of the given sources depending on which codec or media it supports.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-catalog.netlify.app/source/)
-
 ## ⚙️ Usage
 
 1.  Add the component to the `Audio`, `Video`, or `Picture` components
@@ -40,7 +36,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

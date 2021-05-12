@@ -2,10 +2,6 @@
 
 This component contains images and can be used to show a portfolio, services, or products.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-catalog.netlify.app/gallery/)
-
 ## ⚙️ Usage
 
 1.  Add the component to the page
@@ -59,7 +55,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

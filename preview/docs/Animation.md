@@ -2,10 +2,6 @@
 
 Use this component to animate one or several elements.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-catalog.netlify.app/animation/)
-
 ## ⚙️ Usage
 
 Add the component to the page, then add a component you want to animate.
@@ -37,7 +33,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 
