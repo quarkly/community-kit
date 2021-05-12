@@ -9,22 +9,18 @@ Form for accepting payments to YooMoney.
 ## ⚙️ Usage
 
 1.  Add the component to the page
-2.  Specify the Yoomoney wallet ID
+2.  Specify the YooMoney wallet ID
 3.  Add the amount and comments
 4.  Select the button text
-5.  Preview to check how it works
+5.  See how it works in the preview mode
 
 ### Getting started
 
-Add the Yoomoney wallet ID to the `Yoomoney wallet ID` property.
-To learn the ID, click here [https://yoomoney.ru/start](https://yoomoney.ru/start).
-If `Seller` is selected in the `Who specifies the transfer reason` property, specify the `Transfer reason` in the corresponding input field.
-Specify the default `Amount`. The user can change it during the payment.
+Add the YooMoney wallet ID to the `YooMoney wallet ID` property. To find out the ID, click here [https://yoomoney.ru/start](https://yoomoney.ru/start). If `Seller` is selected in the `specifies the transfer reason` property, specify the `Transfer reason` in the corresponding input field. Specify the default `Amount`. The user can change it during payment.
 
 ### Button text
 
-By default, there are 4 button text options in the Yoomoney form: `Transfer`, `Send`, `Give away`, `Donate`.
-You can choose them with the `Button text` property using their IDs:
+By default, there are 4 button text options in the YooMoney form: `Transfer`, `Send`, `Send`, `Donate`. You can choose them with the `Button text` property using their IDs:
 
 -   `11` - "Transfer"
 -   `12` - "Send"
@@ -33,21 +29,20 @@ You can choose them with the `Button text` property using their IDs:
 
 ### Collecting info during the transfer
 
-During the transfer, you can ask the sender (full name, email, phone number, address).
-To request all this, enable the corresponding properties from the `"INFO"` category.
+During the transfer, you can ask the sender their full name, email, phone number, and address. To request all this, enable the corresponding properties from the `"INFO"` category.
 
 ## 🧩 Components and Props
 
-### YoomoneyDonateForm
+### YooMoneyDonateForm
 
 | Prop name                         |   Type    | Description                                                                  |      Default       |             Example             |
 | :-------------------------------- | :-------: | :--------------------------------------------------------------------------- | :----------------: | :-----------------------------: |
-| Yoomoney wallet ID                | `string`  | Yoomoney wallet ID (required field)                                          |    `undefined`     |          `1234567890`           |
+| YooMoney wallet ID                | `string`  | YooMoney wallet ID (required field)                                          |    `undefined`     |          `1234567890`           |
 | Who specifies the transfer reason | `string`  | Who specifies the transfer reason (required field)                           |      `seller`      |             `buyer`             |
-| Transfer reason                   | `string`  | Transfer reason (required field, is `Seller` is selected)                    | `Help the project` |     `For the site hosting`      |
+| Transfer reason                   | `string`  | Transfer reason (required field, if `Seller` is selected)                    | `Help the project` |     `For the site hosting`      |
 | Amount                            | `string`  | Transfer amount by default                                                   |        `0`         |              `250`              |
-| Button text                       |  `enum`   | v { `11`: Transfer, `12`: Send, `13`: Give away, `14`: Donate }              |        `11`        |              `14`               |
-| Use credit card                   | `boolean` | Transfer fnds via a credit card (extra fee may be charged)                   |      `false`       |             `true`              |
+| Button text                       |  `enum`   | Button text { `11`: Transfer, `12`: Send, `13`: Give away, `14`: Donate}     |        `11`        |              `14`               |
+| Use credit card                   | `boolean` | Transfer funds via a credit card (extra fee may be charged)                  |      `false`       |             `true`              |
 | Request sender's full name        | `boolean` | Request sender's full name during the transfer and then email it             |      `false`       |             `true`              |
 | Request sender's email            | `boolean` | Request sender's email address during the transfer and then email it         |      `false`       |             `true`              |
 | Request sender's phone number     | `boolean` | Request sender's phone number during the transfer and then email it          |      `false`       |             `true`              |

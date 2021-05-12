@@ -10,31 +10,30 @@ Use this component to add the Vimeo video player.
 
 1.  Add the component to the page
 2.  Specify the `Video link or ID` on the Props panel
-3.  Check how it works in the preview mode
+3.  See how it works in the preview mode
 
 ### Playing in the background
 
-If the `Play in the background` prop is enabled, the video will be played in the background.
-In this case, all the controls are hidden, automatic playback is enabled, and the video loops.
+If the `Play in the background` prop is enabled, the video will be played in the background. In this case, all the controls are hidden, automatic playback is enabled, and the video loops.
 
 ## 🧩 Components and Props
 
-| Prop Name                     |   Type    |  Default   | Description                                            |
-| :---------------------------- | :-------: | :--------: | :----------------------------------------------------- |
-| Video link or ID              | `string`  | `12345678` |                                                        |
-| Playback start time (in sec.) | `number`  |   `none`   |                                                        |
-| Auto playback                 | `boolean` |  `false`   | Automatically plays the video when the page loads      |
-| Auto pause                    | `boolean` |   `true`   | Automatically pause the video when playing another one |
-| Show controls                 | `boolean` |   `true`   |                                                        |
-| Controls color                | `string`  | `#00ADEF`  |                                                        |
-| Loop playback                 | `boolean` |  `false`   |                                                        |
-| Show video title              | `boolean` |   `true`   |                                                        |
-| Show video preview            | `boolean` |   `true`   |                                                        |
-| Show owner name               | `boolean` |   `true`   |                                                        |
-| Sound volume (from 0 to 1)    | `number`  |    `1`     |                                                        |
-| Sound off                     | `boolean` |  `false`   |                                                        |
-| Play in the background        | `boolean` |  `false`   |                                                        |
-| By the width of the parent    | `boolean` |   `true`   |                                                        |
+| Prop name                     |   Type    |  Default   | Description                                             |
+| :---------------------------- | :-------: | :--------: | :------------------------------------------------------ |
+| Video link or ID              | `string`  | `12345678` | Video link or ID from Vimeo                             |
+| Playback start time (in sec.) | `number`  |   `none`   | Playback start time in seconds                          |
+| Auto playback                 | `boolean` |  `false`   | Automatically plays the video when the page loads       |
+| Auto pause                    | `boolean` |   `true`   | Automatically pauses the video when playing another one |
+| Show controls                 | `boolean` |   `true`   |                                                         |
+| Controls color                | `string`  | `#00ADEF`  |                                                         |
+| Loop playback                 | `boolean` |  `false`   |                                                         |
+| Show video title              | `boolean` |   `true`   |                                                         |
+| Show video preview            | `boolean` |   `true`   |                                                         |
+| Show owner name               | `boolean` |   `true`   |                                                         |
+| Sound volume (from 0 to 1)    | `number`  |    `1`     |                                                         |
+| Sound off                     | `boolean` |  `false`   |                                                         |
+| Playing in the background     | `boolean` |  `false`   |                                                         |
+| By the width of the parent    | `boolean` |   `true`   |                                                         |
 
 ## 🗓 Changelog
 

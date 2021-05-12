@@ -11,12 +11,11 @@ This component contains images and can be used to show a portfolio, services, or
 1.  Add the component to the page
 2.  Enter the `Number of images` on the Props panel
 3.  Add a link to preview and lightbox (if needed) to each image
-4.  Preview the component to check how it works
+4.  See how it works in the preview mode
 
 ### Gaps between images
 
-If images have different aspect ratio and occupy different number of cells, gaps between them may appear in the gallery grid.
-The `Fill the gaps automatically` prop allows you to fill these gaps with images by changing their order.
+If images have different aspect ratios and occupy different numbers of cells, gaps between them may appear in the gallery grid. The `Fill the gaps automatically` prop allows you to fill these gaps with images by changing their order.
 
 ### Images loading
 
@@ -26,16 +25,16 @@ In the published project:
 
 -   `All` - all images are displayed at once
 -   `On scroll` - images are displayed on scroll
--   `On click` - some images are displayed. At the bottom, a "Show more" button appears
+-   `On click` - some images are displayed. At the bottom, a `Show more` button appears
 
 In the builder:
 
--   `All` и `On scroll` - all images are displayed at once
--   `On click` - some images are displayed. At the bottom, a "Show more" button appears
+-   `All` and `On scroll` - all images are displayed at once
+-   `On click` - some images are displayed. At the bottom, a `Show more` button appears
 
 ## 🧩 Components and Props
 
-| Props Name                  |   Type    | Default |
+| Prop Name                   |   Type    | Default |
 | :-------------------------- | :-------: | :-----: |
 | Number of images            | `number`  |   `8`   |
 | Number of columns           | `number`  |   `4`   |

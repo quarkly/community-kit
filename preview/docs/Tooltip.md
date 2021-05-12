@@ -8,7 +8,7 @@ The container component shows a text tooltip when you mouse over the content.
 
 ## ⚙️ Usage
 
-Add the component to the page and place another component, for example, `Text`, into it. Then check how it works in the preview mode.
+Add the component to the page and drop another component, for example, `Text`, inside it. Then see how it works in the preview mode.
 
 ### Auto position change
 
@@ -19,7 +19,7 @@ If the `Auto position change` prop is enabled, the tooltip will automatically ch
 | Prop name                |   Type   |    Default     |
 | :----------------------- | :------: | :------------: |
 | Show Tooltip             |  `enum`  |    `Always`    |
-| Tooltip position         |  `enum`  |     `Top`      |
+| Tooltip position         |  `enum`  |  `At the top`  |
 | Edges indent             | `string` |      `0`       |
 | Content indent           |  `bool`  |     `4px`      |
 | Tooltip background color | `string` | `--color-dark` |

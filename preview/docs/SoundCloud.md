@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This component allows you to add the SoundCloud audio player
+This component allows you to add the SoundCloud audio player.
 
 ## 🎬 Live Demo
 
@@ -12,9 +12,9 @@ Add the component to the page, enter the `Link to the track`, and check how it w
 
 ## 🧩 Components and Props
 
-| Props Name        |   Type   |  Default   |
+| Prop Name         |   Type   |  Default   |
 | :---------------- | :------: | :--------: |
-| Player type       | `enum `  | `standart` |
+| Player type       |  `enum`  | `standart` |
 | Link to the track | `string` |    `-`     |
 
 ## 🗓 Changelog

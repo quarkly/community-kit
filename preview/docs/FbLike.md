@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Use this component to add a "Like" button on Facebook.
+Use this component to add a <0>Like</0> button on Facebook.
 
 ## 🎬 Live Demo
 
@@ -12,37 +12,36 @@ Use this component to add a "Like" button on Facebook.
 2.  Specify your Facebook app ID
 3.  Specify the link to your page
 
-### FaceBook app
+### Facebook app
 
-For the component to work, create a FaceBook application. To do this, follow the link: [FaceBook APP](https://developers.facebook.com/apps)
+For the component to work, create a Facebook application. To do this, follow the link: [Facebook APP](https://developers.facebook.com/apps)
 
 ### Made for kids content
 
-If your website or online service is made for childer under 13 years old, activate the `Made for kids` option.
-Read more about it on [FaceBook Kid](https://developers.facebook.com/docs/plugins/restrictions).
+If your website or online service is made for children under 13 years old, activate the `Made for kids` option. Read more about it on [Facebook Kid](https://developers.facebook.com/docs/plugins/restrictions).
 
 ### UTM tag
 
 The UTM tag name must:
 
--   contain not more than 50 characters
--   contain letters and numbers
--   contain only +/=-.:\_ characters
+-   contain not more than 50 characters;
+-   contain letters and numbers;
+-   contain only the following special characters: +/=-.:\_
 
 ## 🧩 Components and Props
 
-| Prop Name          |   Type    |      Default      |          Example          |
-| :----------------- | :-------: | :---------------: | :-----------------------: |
-| Facebook app ID    | `number`  |        `-`        |       `1234567890`        |
-| Link to the page   | `string`  |        `-`        | `https://yourdomain.name` |
-| Component language |  `enum`   |     `English`     |         `Русский`         |
-| Color scheme       |  `enum`   |      `Light`      |          `Dark`           |
-| "Share" button     |  `enum`   |      `Hide`       |          `Show`           |
-| Layout             |  `enum`   | `Стандартный вид` |     `Простая кнопка`      |
-| Button size        |  `enum`   |      `Small`      |          `Large`          |
-| On click action    |  `enum`   |      `Like`       |        `Recommend`        |
-| Site for kids      | `boolean` |      `false`      |          `true`           |
-| UTM tag            | `string`  |        `-`        |        `utm12345`         |
+| Prop name          |   Type    |     Default     |          Example          |
+| :----------------- | :-------: | :-------------: | :-----------------------: |
+| Facebook app ID    | `number`  |       `-`       |       `1234567890`        |
+| Link to the page   | `string`  |       `-`       | `https://yourdomain.name` |
+| Component language |  `enum`   |    `English`    |         `Русский`         |
+| Color scheme       |  `enum`   |     `Light`     |          `Dark`           |
+| ´Share´ button     |  `enum`   |     `Hide`      |          `Show`           |
+| Layout             |  `enum`   | `Standard view` |      `Simple button`      |
+| Button size        |  `enum`   |     `Small`     |          `Large`          |
+| On click action    |  `enum`   |     `Like`      |        `Recommend`        |
+| Made for kids      | `boolean` |     `false`     |          `true`           |
+| UTM tag            | `string`  |       `-`       |        `utm12345`         |
 
 ## 🗓 Changelog
 

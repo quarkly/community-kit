@@ -10,13 +10,13 @@ This component allows you to add the Disqus widget with a specific comment.
 
 1.  Add the component to the page
 2.  Specify the `Comment identifier` on the Props panel
-3.  Check how it works in the preview mode
+3.  See how it works in the preview mode
 
 ### Comment identifier
 
-You can get the comment identifier, for example, by following the `Share` link.
+You can get the Получить comment identifier, for example, by following the `Share` link.
 
-![Get the comment identifier](https://test-upl.quarkly.io/60474504627982001eb71a51/images/3.png?v=2021-04-22T09:46:00.296Z)
+![Get the Comment ID](https://test-upl.quarkly.io/60474504627982001eb71a51/images/3.png?v=2021-04-22T09:46:00.296Z)
 
 ## 🧩 Components and Props
 

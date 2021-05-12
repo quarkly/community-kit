@@ -109,12 +109,12 @@
       "GoogleMap": "GoogleMap",
       "Track": "Track",
       "Source": "Source",
-      "SocialMedia": "SocialMedia"
+      "Picture": "Picture"
     }
   },
   "quarklyInfoDeleted": {
     "components": {
-      "Picture": "Picture",
+      "SocialMedia": "SocialMedia",
       "Accordion": "Accordion",
       "AccordionItem": "AccordionItem",
       "AccordionItemSummary": "AccordionItemSummary",

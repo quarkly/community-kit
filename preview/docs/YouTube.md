@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This component plays videos from Youtube.
+This component plays videos from YouTube.
 
 ## 🎬 Live Demo
 
@@ -8,7 +8,7 @@ This component plays videos from Youtube.
 
 ## ⚙️ Usage
 
-Add the component to the page and specify the video URL in the `Link to the video on YouTube` prop.
+Add the component to the page and specify the video URL in the `Link to the video on YouTube` prop. Link to the video on YouTube.
 
 ## 🧩 Components and Props
 

@@ -1,7 +1,6 @@
 ## 📖 Detailed overview
 
-Timer lets you site visitor know about the start and the end of an event.
-You can set the date, time, and text in the Timer settings.
+Timer lets your site visitor know about the start and end of an event. You can set the date, time, and text in the Timer settings.
 
 ## 🎬 Live Demo
 
@@ -21,24 +20,23 @@ In the `End date` prop, you can set the date in the following formats:
 
 ### Message at the end of a timer
 
-The `When display the message` prop allows you to choose when the message about the end of the timer.
-The following options are available:
+The `When to display the message` prop allows you to choose when to display the message about the end of the timer. The following options are available:
 
 -   `always` - the message is always displayed
--   `complete` - the message will be displayed when the timer time runs out
+-   `complete` - the message will be displayed when the timer runs out
 -   `never` - the message is never displayed
 
 ## 🧩 Components and Props
 
-| Prop name                |   Type    |          Default          | Description                               |
-| :----------------------- | :-------: | :-----------------------: | :---------------------------------------- |
-| End date                 | `string`  |            `-`            | Timer end date (in the dd.mm.yyyy.format) |
-| End time                 | `string`  |            `-`            | Timer end time (in the hh:mm format)      |
-| Show 'Days'              | `boolean` |          `true`           |                                           |
-| Show 'Hours'             | `boolean` |          `true`           |                                           |
-| Show 'Minutes'           | `boolean` |          `true`           |                                           |
-| Show 'Seconds'           | `boolean` |          `true`           |                                           |
-| When display the message |  `enum`   | `At the end of the timer` |                                           |
+| Prop name                   |   Type    |   Default    | Description                                |
+| :-------------------------- | :-------: | :----------: | :----------------------------------------- |
+| End date                    | `string`  |     `-`      | Timer end date (in the DD.MM.YYYY. format) |
+| End time                    | `string`  |     `-`      | Timer end time (in the hh:mm format)       |
+| Show 'Days'                 | `boolean` |    `true`    |                                            |
+| Show 'Hours'                | `boolean` |    `true`    |                                            |
+| Show 'Minutes'              | `boolean` |    `true`    |                                            |
+| Show 'Seconds'              | `boolean` |    `true`    |                                            |
+| When to display the message |  `enum`   | `At the end` |                                            |
 
 ## 🗓 Changelog
 

@@ -1,7 +1,6 @@
 ## 📖 Detailed overview
 
-This component allows you to add a synchronized text track. It's a child component of the `Audio` and `Video` components.
-The text track usually contains subtitles in different languages, comments, titles, etc.
+This component allows you to add a synchronized text track. It's a child component of the `Audio` and `Video` components. The text track usually contains subtitles in different languages, comments, titles, etc.
 
 ## 🎬 Live Demo
 
@@ -11,7 +10,7 @@ The text track usually contains subtitles in different languages, comments, titl
 
 1.  Add this component to the `Audio` or `Video` components
 2.  Specify the `File link` on the Props panel
-3.  Check how it works in the preview mode
+3.  See how it works in the preview mode
 
 ### File extension
 
@@ -19,12 +18,11 @@ The file with the text track must have the `.vtt` extension.
 
 ### Default track
 
-The `Set default` prop indicates that the current track is preferred.
-This property can be applied to only one track.
+The `Set default` prop indicates that the current track is preferred. This property can be applied to only one track.
 
 ## 🧩 Components and Props
 
-| Prop Name       |   Type   |   Default   |
+| Prop name       |   Type   |   Default   |
 | :-------------- | :------: | :---------: |
 | File link       | `string` |     `-`     |
 | Set default     |  `bool`  |   `false`   |

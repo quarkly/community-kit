@@ -1,7 +1,6 @@
 ## 📖 Detailed overview
 
-This component allows you to easily identify the differences between two 'before' and 'after' images simply by moving around them.
-For example, you can show a car before and after painting, a room before and after repair, furniture before and after restoration, etc.
+This component allows you to easily identify the differences between two 'before' and 'after' images simply by moving them around. For example, you can show a car before and after painting, a room before and after repair, furniture before and after restoration, etc.
 
 ## 🎬 Live Demo
 
@@ -9,11 +8,11 @@ For example, you can show a car before and after painting, a room before and aft
 
 ## ⚙️ Usage
 
-Add the component to the page and check how it works in the preview mode.
+Add the component to the page and see how it works in the preview mode.
 
 ### Image changing
 
-To add a custom image, select it in the component and set the value to the `src` prop on the `Props` panel.
+To add a custom image, select it in the component and set the value to the `Src` prop on the Props panel.
 
 ## 🧩 Components and Props
 

@@ -1,7 +1,6 @@
 ## 📖 Detailed overview
 
-Slider with images that can be scrolled by pressing the arrows or dots buttons.
-For images, you can show title, description, and page link.
+Slider with images that can be scrolled by pressing the arrows or dot buttons. For images, you can show the title, description, and page link.
 
 ## 🎬 Live Demo
 
@@ -9,21 +8,21 @@ For images, you can show title, description, and page link.
 
 ## ⚙️ Usage
 
-Add the component to the page and see how it works in the preview mode.
+Add the component to the page and see how it works in preview mode.
 
 ## 🧩 Components and Props
 
-| Prop Name                 |   Type   | Default  | Description                                 |
-| :------------------------ | :------: | :------: | :------------------------------------------ |
-| Number of slides          | `number` |   `4`    | Number of slides                            |
-| Aspect ratio              |  `enum`  |  `16:9`  | Fix slider aspect ratio to a specific value |
-| Show arrows               |  `bool`  |  `true`  | Show arrow for slider navigation            |
-| Show dots                 |  `bool`  |  `true`  | Show dots for slider navigation             |
-| Animation duration        | `string` |  `0.5s`  | How fast slides change/rotate               |
-| Animation timing function | `string` | `linear` | Animation timing function                   |
-| Show title                |  `bool`  |  `true`  | Show component with slide title             |
-| Show description          |  `bool`  |  `true`  | Show component with slide description       |
-| Show button               |  `bool`  |  `true`  | Show component with the button link         |
+| Prop Name          |   Type   | Default  | Description                                 |
+| :----------------- | :------: | :------: | :------------------------------------------ |
+| Number of slides   | `number` |   `4`    | Number of slides                            |
+| Aspect ratio       |  `enum`  |  `16:9`  | Fix slider aspect ratio to a specific value |
+| Show arrows        |  `bool`  |  `true`  | Show arrows for slider navigation           |
+| Show dots          |  `bool`  |  `true`  | Show dots for slider navigation             |
+| Smooth animation   | `string` | `linear` | Animation smoothing function                |
+| Animation duration | `string` |  `0.5s`  | Speed of slides change/rotation             |
+| Show title         |  `bool`  |  `true`  | Show component with slide title             |
+| Show description   |  `bool`  |  `true`  | Show component with slide description       |
+| Show button        |  `bool`  |  `true`  | Show component with the button link         |
 
 ## 🗓 Changelog
 
