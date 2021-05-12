@@ -1,4 +1,4 @@
-import { init, setSlide, clickNumb, setData, deinit } from './actions';
+import { init, setSlide, clickNumb, setData, deinit } from './rootActions';
 
 export default function rootReducer(state, action) {
     switch (action.type) {
@@ -10,9 +10,9 @@ export default function rootReducer(state, action) {
             return clickNumb(state, action);
         case 'SET_DATA':
             return setData(state, action);
-        case 'DEINITI':
+        case 'DEINIT':
             return deinit(state, action);
         default:
             return state;
     }
-}
+};

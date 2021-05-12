@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Icon } from '@quarkly/widgets';
 
-const Arrow = ({ direction, clickFunc, override }) => {
+const Arrow = ({ type, clickFunc, override }) => {
     return (
-        <Box {...override('Arrow', `Arrow ${direction}`)} onClick={clickFunc}>
-            <Icon {...override('Arrow Icon', `Arrow Icon ${direction}`)} />
+        <Box {...override('Arrow', `Arrow ${type}`)} onClick={clickFunc}>
+            <Icon {...override('Arrow Icon', `Arrow Icon ${type}`)} />
         </Box>
     );
 };

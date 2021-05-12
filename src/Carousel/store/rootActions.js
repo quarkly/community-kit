@@ -1,24 +1,27 @@
 export function init(
     state,
-    { slidesProp, durationProp, autoPlay, autoPlayBehavior, autoPlayDuration }
+    {
+        slidesProp,
+        durationProp,
+        functionProp,
+    }
 ) {
-    const slides = parseInt(slidesProp, 10) > 0 ? parseInt(slidesProp, 10) : 1;
-    const duration =
-        parseFloat(durationProp) > 0 ? parseFloat(durationProp) * 1000 : 0;
-    const list = [
-        slides,
-        ...Array.from({ length: slides }, (_, i) => i + 1),
+    const slidesNumb = parseInt(slidesProp, 10) > 0 ? parseInt(slidesProp, 10) : 1;
+    const slidesList = [
+        slidesNumb,
+        ...Array.from({ length: slidesNumb }, (_, i) => i + 1),
         1,
     ];
+    const animDuration =
+        parseFloat(durationProp) > 0 ? parseFloat(durationProp) * 1000 : 0;
+    const animFunction = functionProp;
 
     return {
         ...state,
-        slides,
-        duration,
-        list,
-        autoPlay,
-        autoPlayBehavior,
-        autoPlayDuration,
+        slidesNumb,
+        slidesList,
+        animDuration,
+        animFunction,
     };
 }
 

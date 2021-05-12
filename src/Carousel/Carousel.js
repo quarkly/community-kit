@@ -1,14 +1,11 @@
 import React, { useCallback } from 'react';
 
-import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
-
+import { Box } from '@quarkly/widgets';
 import { Arrow, Point, Slide } from './components';
-import { useSliderResize, useRootState, useKeyboardArrows } from './hooks';
 
-import overrides from './overrides';
-import propInfo from './prop-info';
-import defaultProps from './prop-defaults';
+import { useResize, useRootState, useKeyboard } from './hooks';
+import { propInfo, defaultProps, overrides } from './props';
 
 const CarouselComponent = ({
     slidesProp,
@@ -27,13 +24,21 @@ const CarouselComponent = ({
 }) => {
     const { override, rest } = useOverrides(props, overrides);
 
-    const [sliderRef, width, height] = useSliderResize(aspectRatio);
     const [
-        { active, position, animate, slides, duration, list },
+        {
+            slidesNumb,
+            slidesList,
+            animDuration,
+            animFunction,
+            active,
+            position,
+            animate,
+        },
         dispatch,
     ] = useRootState({
         slidesProp,
         durationProp,
+        functionProp,
         autoPlay,
         autoPlayBehavior,
         autoPlayDuration,
@@ -56,10 +61,11 @@ const CarouselComponent = ({
         dispatch({ type: 'CHANGE_NEXT_SLIDE' });
     }, [dispatch]);
 
-    useKeyboardArrows(sliderRef, clickNext, clickPrev);
+    const [sliderRef, width, height] = useResize(aspectRatio);
+    useKeyboard(sliderRef, clickNext, clickPrev);
 
     return (
-        <Box {...rest} ref={sliderRef} overflow="hidden">
+        <Box ref={sliderRef} {...rest}>
             <Box
                 {...override('Slides')}
                 transform={`translateX(-${position}%)`}
@@ -99,9 +105,9 @@ const CarouselComponent = ({
             )}
             {showDots && (
                 <Box {...override('Points')}>
-                    {list.slice(1, -1).map((numb, idx) => (
+                    {list.slice(1, -1).map((numb, index) => (
                         <Point
-                            key={`point-${idx}`} // eslint-disable-line
+                            key={`point-${numb}-${index}`}
                             numb={numb}
                             active={active}
                             clickFunc={clickNumb}

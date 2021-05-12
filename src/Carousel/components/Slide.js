@@ -12,7 +12,8 @@ const Slide = ({
     showLink,
     override,
 }) => {
-    const clearOverrides = useMemo(
+
+    const clearOverride = useMemo(
         () =>
             (index === 0 || index === slides + 1) && {
                 'data-qoverride': undefined,
@@ -20,33 +21,14 @@ const Slide = ({
         [index, slides]
     );
 
-    const slideOverrides = {
-        slide: {
-            ...override('Slide', `Slide ${numb}`),
-            ...clearOverrides,
-        },
-        image: {
-            ...override('Slide Image', `Slide Image ${numb}`),
-            ...clearOverrides,
-        },
-        content: {
-            ...override('Slide Content', `Slide Content ${numb}`),
-            ...clearOverrides,
-        },
-        head: {
-            ...override('Slide Head', `Slide Head ${numb}`),
-            ...clearOverrides,
-        },
-        text: {
-            ...override('Slide Text', `Slide Text ${numb}`),
-            ...clearOverrides,
-        },
-        link: {
-            ...override('Slide Link', `Slide Link ${numb}`),
-            ...clearOverrides,
-        },
-    };
-
+    const getOverride = useMemo(
+        (name) => ({
+            ...override(name, `${name} ${numb}`),
+            ...clearOverride,
+        }),
+        [numb]
+    );
+    
     const widthStyles = useMemo(
         () => ({
             width,
@@ -66,13 +48,13 @@ const Slide = ({
     );
 
     return (
-        <Box {...slideOverrides.slide} {...widthStyles} {...heightStyles}>
-            <Image {...slideOverrides.image} />
+        <Box {...getOverride('Slide')} {...widthStyles} {...heightStyles}>
+            <Image {...getOverride('Slide Image')} />
             {(showHead || showText || showLink) && (
-                <Box {...slideOverrides.content}>
-                    {showHead && <Text {...slideOverrides.head} />}
-                    {showText && <Text {...slideOverrides.text} />}
-                    {showLink && <Link {...slideOverrides.link} />}
+                <Box {...getOverride('Slide Content')}>
+                    {showHead && <Text {...getOverride('Slide Head')} />}
+                    {showText && <Text {...getOverride('Slide Text')} />}
+                    {showLink && <Link {...getOverride('Slide Link')} />}
                 </Box>
             )}
         </Box>
