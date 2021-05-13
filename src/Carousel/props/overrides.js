@@ -153,13 +153,11 @@ export default {
     },
     'Arrow Icon Prev': {
         props: {
-            icon: 'MdKeyboardArrowLeft',
             left: '7.5%',
         },
     },
     'Arrow Icon Next': {
         props: {
-            icon: 'MdKeyboardArrowRight',
             right: '7.5%',
         },
     },
