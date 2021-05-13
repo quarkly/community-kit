@@ -15,4 +15,4 @@ export default function rootReducer(state, action) {
         default:
             return state;
     }
-};
+}

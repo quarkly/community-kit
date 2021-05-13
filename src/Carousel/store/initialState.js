@@ -1,7 +1,7 @@
 export default {
     slidesNumb: 4,
     slidesList: [4, 1, 2, 3, 4, 1],
-    
+
     animDuration: 500,
     animFunction: 'linear',
     animTimerId: null,

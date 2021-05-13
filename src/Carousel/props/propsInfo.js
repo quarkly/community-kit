@@ -155,15 +155,15 @@ export default {
                     en: 'Endless transition',
                     ru: 'Бесконечное переключение',
                 },
-                value: 'infinite'
+                value: 'infinite',
             },
             {
                 title: {
                     en: 'Until the last',
                     ru: 'Остановиться на последнем',
                 },
-                value: 'range'
-            }
+                value: 'range',
+            },
         ],
         category: 'Autoplay',
         weight: 1,

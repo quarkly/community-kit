@@ -12,7 +12,6 @@ const Slide = ({
     showLink,
     override,
 }) => {
-
     const clearOverride = useMemo(
         () =>
             (index === 0 || index === slides + 1) && {
@@ -28,7 +27,7 @@ const Slide = ({
         }),
         [numb]
     );
-    
+
     const widthStyles = useMemo(
         () => ({
             width,

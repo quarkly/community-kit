@@ -42,4 +42,4 @@ export default function useRootState({
     ]);
 
     return [state, dispatch];
-};
+}

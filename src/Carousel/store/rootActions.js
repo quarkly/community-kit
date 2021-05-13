@@ -1,12 +1,6 @@
-export function init(
-    state,
-    {
-        slidesProp,
-        durationProp,
-        functionProp,
-    }
-) {
-    const slidesNumb = parseInt(slidesProp, 10) > 0 ? parseInt(slidesProp, 10) : 1;
+export function init(state, { slidesProp, durationProp, functionProp }) {
+    const slidesNumb =
+        parseInt(slidesProp, 10) > 0 ? parseInt(slidesProp, 10) : 1;
     const slidesList = [
         slidesNumb,
         ...Array.from({ length: slidesNumb }, (_, i) => i + 1),

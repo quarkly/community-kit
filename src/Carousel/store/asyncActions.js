@@ -6,9 +6,9 @@ export const init = ({ dispatch, getState }) => async ({
     autoPlayDuration,
 }) => {
     if (!autoPlay) return;
-    
+
     const changeNextSlide = nextSlide({ dispatch, getState });
-    
+
     const autoPlayIntervalId = setInterval(() => {
         const { slidesNumb, active } = getState();
 

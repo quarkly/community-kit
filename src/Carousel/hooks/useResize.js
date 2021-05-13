@@ -34,7 +34,8 @@ export default function useResize(aspectRatio) {
                 });
             } else {
                 const [aspectWidth, aspectHeight] = aspectRatio.split(':');
-                const containerHeight = (containerWidth / aspectWidth) * aspectHeight;
+                const containerHeight =
+                    (containerWidth / aspectWidth) * aspectHeight;
                 setSize({
                     width: `${containerWidth}px`,
                     height: `${containerHeight}px`,

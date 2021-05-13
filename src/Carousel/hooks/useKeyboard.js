@@ -37,4 +37,4 @@ export default function useKeyboard(containerRef, { next, prev }) {
             window.removeEventListener('click', onKeyDown);
         };
     }, [onKeyDown, onClick]);
-};
+}
