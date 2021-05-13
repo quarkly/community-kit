@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useReducerAsync } from 'use-reducer-async';
-import { initialState, asyncActions, rootReducer } from '../store';
+import { initialState, rootReducer, asyncHandlers } from '../store';
 
-export function useRootState({
+export default function useRootState({
     slidesProp,
     durationProp,
     functionProp,
@@ -13,7 +13,7 @@ export function useRootState({
     const [state, dispatch] = useReducerAsync(
         rootReducer,
         initialState,
-        asyncActions
+        asyncHandlers
     );
 
     useEffect(() => {
@@ -22,9 +22,6 @@ export function useRootState({
             slidesProp,
             durationProp,
             functionProp,
-            autoPlay,
-            autoPlayBehavior,
-            autoPlayDuration,
         });
         dispatch({
             type: 'ASYNC_INIT',

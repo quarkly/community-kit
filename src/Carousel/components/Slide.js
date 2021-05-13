@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Box, Text, Link, Image } from '@quarkly/widgets';
 
 const Slide = ({
@@ -21,7 +21,7 @@ const Slide = ({
         [index, slides]
     );
 
-    const getOverride = useMemo(
+    const getOverride = useCallback(
         (name) => ({
             ...override(name, `${name} ${numb}`),
             ...clearOverride,

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-export function useKeyboard(containerRef, { next, prev }) {
+export default function useKeyboard(containerRef, { next, prev }) {
     const [inFocus, setFocus] = useState(false);
 
     const onClick = useCallback(

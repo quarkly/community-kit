@@ -12,7 +12,7 @@ export function useResizeObserver(containerRef, resizeHandler) {
     }, [containerRef, resizeHandler]);
 }
 
-export function useResize(aspectRatio) {
+export default function useResize(aspectRatio) {
     const containerRef = useRef(null);
 
     const [{ width, height }, setSize] = useState({

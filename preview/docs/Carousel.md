@@ -12,21 +12,25 @@ Add the component to the page and see how it works in preview mode.
 
 ## 🧩 Components and Props
 
-| Prop Name          |   Type   | Default  | Description                                 |
-| :----------------- | :------: | :------: | :------------------------------------------ |
-| Number of slides   | `number` |   `4`    | Number of slides                            |
-| Aspect ratio       |  `enum`  |  `16:9`  | Fix slider aspect ratio to a specific value |
-| Show arrows        |  `bool`  |  `true`  | Show arrows for slider navigation           |
-| Show dots          |  `bool`  |  `true`  | Show dots for slider navigation             |
-| Smooth animation   | `string` | `linear` | Animation smoothing function                |
-| Animation duration | `string` |  `0.5s`  | Speed of slides change/rotation             |
-| Show title         |  `bool`  |  `true`  | Show component with slide title             |
-| Show description   |  `bool`  |  `true`  | Show component with slide description       |
-| Show button        |  `bool`  |  `true`  | Show component with the button link         |
+| Prop Name                          |   Type    |         Default          | Description                                 |
+| :--------------------------------- | :-------: | :----------------------: | :------------------------------------------ |
+| Number of slides                   | `number`  |           `4`            | Number of slides                            |
+| Aspect ratio                       |  `enum`   |          `16:9`          | Fix slider aspect ratio to a specific value |
+| Show arrows                        | `boolean` |          `true`          | Show arrows for slider navigation           |
+| Show dots                          | `boolean` |          `true`          | Show dots for slider navigation             |
+| Smooth animation                   | `string`  |         `linear`         | Animation smoothing function                |
+| Animation duration                 | `string`  |          `0.5s`          | Speed of slides change/rotation             |
+| Show title                         | `boolean` |          `true`          | Show component with slide title             |
+| Show description                   | `boolean` |          `true`          | Show component with slide description       |
+| Show button                        | `boolean` |          `true`          | Show component with the button link         |
+| Automatic slide transition         | `boolean` |          `true`          |                                             |
+| Type of automatic slide transition |  `enum`   | `Stop on the last slide` |                                             |
+| Slide transition interval          | `string`  |           `1s`           |                                             |
 
 ## 🗓 Changelog
 
--   21/04/2021 (v1.0)
+-   12.05.2021 (v1.1)
+-   21.04.2021 (v1.0)
 -   First version
 
 ## 📮 Feedback

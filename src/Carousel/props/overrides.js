@@ -10,8 +10,8 @@ export default {
     Slide: {
         kind: 'Box',
         props: {
-            height: '100px',
             flex: '0 0 100%',
+            height: '100px',
             'box-sizing': 'border-box',
             position: 'relative',
             display: 'block',
@@ -42,8 +42,8 @@ export default {
             height: 'auto',
             'max-width': '100%',
             'max-height': '100%',
-            transform: 'translate(-50%, -50%)',
             'text-align': 'center',
+            transform: 'translate(-50%, -50%)',
             'box-sizing': 'border-box',
             position: 'absolute',
             display: 'block',

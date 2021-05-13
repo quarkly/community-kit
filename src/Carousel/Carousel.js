@@ -54,11 +54,11 @@ const CarouselComponent = ({
     );
 
     const clickPrev = useCallback(() => {
-        dispatch({ type: 'CHANGE_PREV_SLIDE' });
+        dispatch({ type: 'PREV_SLIDE' });
     }, [dispatch]);
 
     const clickNext = useCallback(() => {
-        dispatch({ type: 'CHANGE_NEXT_SLIDE' });
+        dispatch({ type: 'NEXT_SLIDE' });
     }, [dispatch]);
 
     const [sliderRef, width, height] = useResize(aspectRatio);
@@ -70,18 +70,17 @@ const CarouselComponent = ({
                 {...override('Slides')}
                 transform={`translateX(-${position}%)`}
                 transition={`transform ${
-                    animate ? duration : 0
-                }ms ${functionProp}`}
+                    animate ? animDuration : 0
+                }ms ${animFunction}`}
             >
-                {list.map((numb, index) => (
+                {slidesList.map((numb, index) => (
                     <Slide
                         key={`${rest['data-qid']}-slide-${numb}-${index}`} // eslint-disable-line
                         index={index}
-                        slides={slides}
+                        slides={slidesNumb}
                         numb={numb}
                         width={width}
                         height={height}
-                        duration={duration}
                         showHead={showHead}
                         showText={showText}
                         showLink={showLink}
@@ -92,12 +91,12 @@ const CarouselComponent = ({
             {showArrows && (
                 <Box {...override('Arrows')}>
                     <Arrow
-                        direction="Prev"
+                        type="Prev"
                         clickFunc={clickPrev}
                         override={override}
                     />
                     <Arrow
-                        direction="Next"
+                        type="Next"
                         clickFunc={clickNext}
                         override={override}
                     />
@@ -105,9 +104,9 @@ const CarouselComponent = ({
             )}
             {showDots && (
                 <Box {...override('Points')}>
-                    {list.slice(1, -1).map((numb, index) => (
+                    {slidesList.slice(1, -1).map((numb, index) => (
                         <Point
-                            key={`point-${numb}-${index}`}
+                            key={`point-${numb}-${index}`} // eslint-disable-line
                             numb={numb}
                             active={active}
                             clickFunc={clickNumb}

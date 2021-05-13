@@ -15,4 +15,5 @@ export default {
 
     position: 'relative',
     'align-self': 'normal',
+    overflow: 'hidden',
 };

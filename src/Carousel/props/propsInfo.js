@@ -1,13 +1,23 @@
 export default {
     slidesProp: {
-        title: 'Количество слайдов',
+        title: {
+            en: 'Number of slides',
+            ru: 'Количество слайдов',
+        },
         control: 'input',
         type: 'text',
         category: 'Slides',
         weight: 0.5,
     },
     aspectRatio: {
-        title: 'Соотношение сторон',
+        title: {
+            en: 'Aspect ratio',
+            ru: 'Соотношение сторон',
+        },
+        description: {
+            en: 'Fix aspect ratio to a specific value',
+            ru: 'Фиксировать соотношение сторон',
+        },
         control: 'select',
         variants: [
             {
@@ -29,19 +39,36 @@ export default {
         weight: 0.5,
     },
     showArrows: {
-        title: 'Показывать стрелки',
+        title: {
+            en: 'Show arrows',
+            ru: 'Показывать стрелки',
+        },
+        description: {
+            en: 'Show arrow for slider navigation',
+            ru: 'Отображать стрелки навигации по слайдам',
+        },
         control: 'checkbox',
         category: 'Slider',
         weight: 0.5,
     },
     showDots: {
-        title: 'Показывать точки',
+        title: {
+            en: 'Show dots',
+            ru: 'Показывать точки',
+        },
+        description: {
+            en: 'Show dots for slider navigation',
+            ru: 'Отображать точки навигации по слайдам',
+        },
         control: 'checkbox',
         category: 'Slider',
         weight: 0.5,
     },
     durationProp: {
-        title: 'Длительность анимации',
+        title: {
+            en: 'Animation duration',
+            ru: 'Длительность анимации',
+        },
         control: 'input',
         variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
         type: 'text',
@@ -49,7 +76,10 @@ export default {
         weight: 0.5,
     },
     functionProp: {
-        title: 'Функция сглаживания анимации',
+        title: {
+            en: 'Animation timing function',
+            ru: 'Функция сглаживания анимации',
+        },
         control: 'input',
         variants: [
             'linear',
@@ -66,37 +96,86 @@ export default {
     },
 
     showHead: {
-        title: 'Показывать заголовок',
+        title: {
+            en: 'Show title',
+            ru: 'Показывать заголовок',
+        },
+        description: {
+            en: 'Show component with slide title',
+            ru: 'Отображать компонент с заголовком слайда',
+        },
         control: 'checkbox',
         category: 'Content',
         weight: 0.5,
     },
     showText: {
-        title: 'Показывать описание',
+        title: {
+            en: 'Show description',
+            ru: 'Показывать описание',
+        },
+        description: {
+            en: 'Show component with slide description',
+            ru: 'Отображать компонент с описанием слайда',
+        },
         control: 'checkbox',
         category: 'Content',
         weight: 0.5,
     },
     showLink: {
-        title: 'Показывать кнопку',
+        title: {
+            en: 'Show button',
+            ru: 'Показывать кнопку',
+        },
+        description: {
+            en: 'Show component with the button link',
+            ru: 'Отображать компонент со ссылкой',
+        },
         control: 'checkbox',
         category: 'Content',
         weight: 0.5,
     },
     autoPlay: {
-        title: 'Авто-переключение слайдов',
+        title: {
+            en: 'Automatic slide transition',
+            ru: 'Автоматическое переключение слайдов',
+        },
         control: 'checkbox',
-        category: 'Animation',
+        category: 'Autoplay',
+        weight: 1,
     },
     autoPlayBehavior: {
-        title: 'Тип авто-переключения',
-        control: 'input',
-        variants: ['infinite', 'range'],
-        type: 'text',
+        title: {
+            en: 'Type of automatic slide transition',
+            ru: 'Тип автоматического переключения слайдов',
+        },
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Endless transition',
+                    ru: 'Бесконечное переключение',
+                },
+                value: 'infinite'
+            },
+            {
+                title: {
+                    en: 'Until the last',
+                    ru: 'Остановиться на последнем',
+                },
+                value: 'range'
+            }
+        ],
+        category: 'Autoplay',
+        weight: 1,
     },
     autoPlayDuration: {
-        title: 'Время авто-переключения',
+        title: {
+            en: 'Slide transition interval',
+            ru: 'Интервал переключения слайдов',
+        },
         control: 'input',
         type: 'text',
+        category: 'Autoplay',
+        weight: 1,
     },
 };
