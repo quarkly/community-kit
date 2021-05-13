@@ -5,7 +5,7 @@ import slide from './slide';
 
 export default {
     none: {},
-    
+
     ...appear,
     ...continuous,
     ...emphasis,

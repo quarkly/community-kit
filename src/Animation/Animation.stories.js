@@ -1,6 +1,5 @@
 import React from 'react';
 import Animation from './Animation';
-import { Text } from '@quarkly/widgets';
 import { defaultProps } from './props';
 
 export default {
@@ -23,6 +22,6 @@ export default {
     },
 };
 
-export const Story1 = (props) => <Animation {...props}>sdkfsd</Animation>;
+export const Story1 = (props) => <Animation {...props}>Some Text</Animation>;
 
 Story1.storyName = 'Default';

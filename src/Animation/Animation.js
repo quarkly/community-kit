@@ -60,8 +60,6 @@ const Animation = ({
     const [isPlay, togglePlay] = useState(trigger === 'onload' || test);
     const wrapperRef = useRef({});
 
-    console.log(isPlay, trigger)
-
     const onEnterEvent = useMemo(
         () => (trigger === 'hover' ? () => togglePlay(true) : undefined),
         [trigger]
@@ -71,7 +69,7 @@ const Animation = ({
         [trigger]
     );
     const onClickEvent = useCallback(
-        () => trigger === 'click' && togglePlay(play => !play),
+        () => trigger === 'click' && togglePlay((play) => !play),
         [trigger]
     );
 
