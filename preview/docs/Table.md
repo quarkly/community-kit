@@ -2,10 +2,6 @@
 
 This component is a simple table with text cells.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-catalog.netlify.app/table/)
-
 ## ⚙️ Usage
 
 Add the content to the page and enter data to the table.
@@ -35,7 +31,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

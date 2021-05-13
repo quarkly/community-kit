@@ -2,10 +2,6 @@
 
 This component contains a button placed in the bottom right corner of the screen. When you click it, the page will automatically scroll to the top.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-ui-components.netlify.app/backtotop/)
-
 ## ⚙️ Usage
 
 Add the component to the page. Please note that when you add the component, it won't be visible. To check if the component works in the builder, set a height limit at the top in the canvas parameters. You can also publish the site and check the component there.
@@ -34,7 +30,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

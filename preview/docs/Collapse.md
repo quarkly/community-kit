@@ -2,10 +2,6 @@
 
 This component allows you to collapse the content smoothly. You can drag and drop any component into it.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-catalog.netlify.app/collapse/)
-
 ## ⚙️ Usage
 
 1.  Add the component to the page
@@ -35,7 +31,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

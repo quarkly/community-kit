@@ -2,10 +2,6 @@
 
 Slider with images that can be scrolled by pressing the arrows or dot buttons. For images, you can show the title, description, and page link.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-catalog.netlify.app/carousel/)
-
 ## ⚙️ Usage
 
 Add the component to the page and see how it works in preview mode.
@@ -39,7 +35,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

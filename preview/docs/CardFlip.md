@@ -2,10 +2,6 @@
 
 Card flip with an image. Rotation either on click or on mouseover. You can add any other components to the other side.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-catalog.netlify.app/cardflip/)
-
 ## ⚙️ Usage
 
 Add the component to the page and see how it works in preview mode.
@@ -40,7 +36,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

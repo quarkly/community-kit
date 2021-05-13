@@ -2,10 +2,6 @@
 
 Timer lets your site visitor know about the start and end of an event. You can set the date, time, and text in the Timer settings.
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-catalog.netlify.app/timer/)
-
 ## ⚙️ Usage
 
 Add the component to the page and check how it works in the preview mode.
@@ -49,7 +45,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 
