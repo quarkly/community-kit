@@ -8,11 +8,11 @@ import React, {
 import atomize from '@quarkly/atomize';
 import styles, { css } from 'styled-components';
 
-import utils from '../utils';
 import presets from './presets';
 import { propInfo, defaultProps } from './props';
 
 import ComponentNotice from '../ComponentNotice';
+import utils from '../utils';
 
 const getAnimationStyle = ({
     animation,
@@ -117,16 +117,15 @@ const Animation = ({
     };
 
     useEffect(() => {
-        if (!wrapperRef.current) return;
+        if (!wrapperRef.current || (trigger !== 'above' && trigger !== 'below'))
+            return;
 
         const { windowHeight, componentRect } = getParams(
             null,
             wrapperRef.current
         );
-        const inViewport =
-            componentRect.top >= 0 && componentRect.top <= windowHeight;
 
-        if (!inViewport) {
+        if (!(componentRect.top >= 0 && componentRect.top <= windowHeight)) {
             wrapperRef.current.previousTop = componentRect.top;
 
             if (trigger === 'above') {
@@ -146,8 +145,11 @@ const Animation = ({
         if (!wrapperRef.current) return;
 
         wrapperRef.current.trigered = trigger === 'onload' || test;
-        togglePlay(trigger === 'onload' || test);
-    }, [trigger, animation, iteration, duration, delay, test]);
+
+        if (isPlay !== wrapperRef.current.trigered) {
+            togglePlay(wrapperRef.current.trigered);
+        }
+    }, [trigger, test]);
 
     return (
         <Wrapper
