@@ -1,6 +1,6 @@
 import React from 'react';
-import Animation from './Animation';
 import { Box, Text } from '@quarkly/widgets';
+import Animation from './Animation';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
 
@@ -51,29 +51,45 @@ const presets = propInfo.animation.variants.reduce(
 
 export const StoryAppear = (props) => (
     <Box {...wrapperStyles}>
-        {presets['Appear & Disappear'].map((preset, i) => (
-            <AnimationComponent key={`a-${i}`} preset={preset} props={props} />
+        {presets['Appear & Disappear'].map((preset) => (
+            <AnimationComponent
+                key={`a-${preset}`}
+                preset={preset}
+                props={props}
+            />
         ))}
     </Box>
 );
 export const StorySlide = (props) => (
     <Box {...wrapperStyles}>
-        {presets['Slide'].map((preset, i) => (
-            <AnimationComponent key={`a-${i}`} preset={preset} props={props} />
+        {presets.Slide.map((preset) => (
+            <AnimationComponent
+                key={`a-${preset}`}
+                preset={preset}
+                props={props}
+            />
         ))}
     </Box>
 );
 export const StoryEmphasis = (props) => (
     <Box {...wrapperStyles}>
-        {presets['Emphasis'].map((preset, i) => (
-            <AnimationComponent key={`a-${i}`} preset={preset} props={props} />
+        {presets.Emphasis.map((preset) => (
+            <AnimationComponent
+                key={`a-${preset}`}
+                preset={preset}
+                props={props}
+            />
         ))}
     </Box>
 );
 export const StoryContinuous = (props) => (
     <Box {...wrapperStyles}>
-        {presets['Continuous'].map((preset, i) => (
-            <AnimationComponent key={`a-${i}`} preset={preset} props={props} />
+        {presets.Continuous.map((preset) => (
+            <AnimationComponent
+                key={`a-${preset}`}
+                preset={preset}
+                props={props}
+            />
         ))}
     </Box>
 );
