@@ -81,8 +81,8 @@ export default {
     },
     delayProp: {
         title: {
-            en: 'Count delay',
-            ru: 'Задержка отсчёта',
+            en: 'Delay before count starts',
+            ru: 'Задержка перед началом отсчёта',
         },
         control: 'input',
         type: 'text',

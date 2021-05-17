@@ -1,5 +1,5 @@
 export default {
-    startTrigger: 'onViewport',
+    startTrigger: 'On page load',
     startProp: 0,
     endProp: 100,
     direction: 'normal',

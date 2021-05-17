@@ -16,14 +16,16 @@ The counter will start automatically when it becomes visible in the window.
 
 ## 🧩 Components and Props
 
-| Prop name         |   Type   | Default  | Example |
-| :---------------- | :------: | :------: | :-----: |
-| Start value       | `number` |   `0`    |  `-43`  |
-| End value         | `number` |  `100`   |  `300`  |
-| Count direction   |  `enum`  | `normal` | `true`  |
-| Count duration    | `number` |  `2000`  | `3000`  |
-| Text after value  | `string` |   `-`    |   `%`   |
-| Text before value | `string` |   `-`    |   `$`   |
+| Prop name                 |   Type   |    Default     |         Example          |
+| :------------------------ | :------: | :------------: | :----------------------: |
+| Count start               |  `enum`  | `On page load` | `On screen intersection` |
+| Start value               | `number` |      `0`       |          `100`           |
+| End value                 | `number` |     `100`      |          `200`           |
+| Count direction           |  `enum`  |    `Normal`    |        `Reverse`         |
+| Count duration            | `string` |      `2s`      |          `10s`           |
+| Delay before count starts | `string` |      `0s`      |           `1s`           |
+| Text after value          | `string` |      `-`       |           `%`            |
+| Text before value         | `string` |      `-`       |           `$`            |
 
 ## 🗓 Changelog
 
