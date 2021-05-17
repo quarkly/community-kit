@@ -9,7 +9,7 @@ export default function useCounter(startNumb, endNumb, direction) {
                 if (direction === 'reverse' && curNumb > startNumb) {
                     return curNumb - 1;
                 }
-                if (curNumb < endNumb) {
+                if (direction === 'normal' && curNumb < endNumb) {
                     return curNumb + 1;
                 }
 

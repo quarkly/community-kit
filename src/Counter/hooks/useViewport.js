@@ -31,7 +31,7 @@ export default function useViewport(cb, componentRef) {
             cb();
             window.removeEventListener('scroll', checkInViewport);
         }
-    }, [cb, componentRef]);
+    }, [cb, componentRef.current]);
 
     useEffect(() => {
         checkInViewport();

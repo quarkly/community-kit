@@ -75,7 +75,7 @@ const Counter = ({
         current.intervalId = null;
         current.currentStep = 0;
     }, []);
-
+    
     useSignal(() => start(counterRef), componentRef);
 
     useEffect(() => {
