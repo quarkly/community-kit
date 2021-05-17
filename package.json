@@ -27,7 +27,7 @@
     "@quarkly/components": "^0.2.48",
     "@quarkly/sdk": "^0.5.2",
     "@quarkly/theme": "^0.1.3",
-    "@quarkly/widgets": "^0.2.48",
+    "@quarkly/widgets": "^0.2.50",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-knobs": "^6.2.9",
@@ -66,8 +66,8 @@
   "main": "./index.js",
   "peerDependencies": {
     "@quarkly/atomize": "^1.0.8",
-    "@quarkly/components": "^0.2.48",
-    "@quarkly/widgets": "^0.2.48",
+    "@quarkly/components": "^0.2.50",
+    "@quarkly/widgets": "^0.2.50",
     "react": "^16.13.0",
     "styled-components": "^5.0.1"
   },
