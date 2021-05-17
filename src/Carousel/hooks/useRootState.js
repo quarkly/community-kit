@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import 'abort-controller/polyfill';
 import { useReducerAsync } from 'use-reducer-async';
 import { initialState, rootReducer, asyncHandlers } from '../store';
 

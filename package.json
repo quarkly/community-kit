@@ -1,11 +1,12 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "author": "quarkly-team",
   "dependencies": {
     "@reach/router": "^1.3.4",
     "@react-hook/resize-observer": "^1.2.0",
     "@u-wave/react-vimeo": "^0.9.4",
+    "abort-controller": "^3.0.0",
     "disqus-react": "^1.0.11",
     "easy-scroll": "^0.7.0",
     "react-facebook": "^8.1.4",
