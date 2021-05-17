@@ -44,7 +44,7 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    startOn: {
+    startTrigger: {
         title: {
             en: 'Count start',
             ru: 'Начало отсчёта',
@@ -69,7 +69,7 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    duration: {
+    durationProp: {
         title: {
             en: 'Count duration',
             ru: 'Длительность отсчёта',
@@ -79,7 +79,7 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    delay: {
+    delayProp: {
         title: {
             en: 'Count delay',
             ru: 'Задержка отсчёта',

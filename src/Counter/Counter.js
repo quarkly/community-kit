@@ -1,26 +1,35 @@
 import React, { useEffect, useRef, useMemo, useCallback } from 'react';
 import { Box } from '@quarkly/widgets';
+import { parseTime } from '../utils';
 import { useCounter, useViewport, usePageLoad } from './hooks';
 import { propInfo, defaultProps } from './props';
 
-const startOnHooks = {
+``;
+const startTriggerHooks = {
     onViewport: useViewport,
     onPageLoad: usePageLoad,
 };
 
 const Counter = ({
-    startOn,
-    delay,
+    startTrigger,
     startProp,
     endProp,
     direction,
-    duration,
+    durationProp,
+    delayProp,
     textAfter,
     textBefore,
     ...props
 }) => {
-    const startNumb = parseInt(startProp, 10) || 0;
-    const endNumb = parseInt(endProp, 10) || 0;
+    const startNumb = useMemo(() => parseInt(startProp, 10) || 0, [startProp]);
+    const endNumb = useMemo(() => parseInt(endProp, 10) || 0, [endProp]);
+    const duration = useMemo(
+        () => parseTime(durationProp, defaultProps.durationProp),
+        [durationProp]
+    );
+    const delay = useMemo(() => parseTime(delayProp, defaultProps.delayProp), [
+        delayProp,
+    ]);
 
     const componentRef = useRef(null);
     const counterRef = useRef({
@@ -29,7 +38,8 @@ const Counter = ({
 
     const [curNumb, step] = useCounter(startNumb, endNumb, direction);
 
-    const useSignal = startOnHooks[startOn] || startOnHooks.onPageLoad;
+    const useSignal =
+        startTriggerHooks[startTrigger] || startTriggerHooks.onPageLoad;
 
     const steps = useMemo(() => Math.abs(endNumb - startNumb), [
         startNumb,

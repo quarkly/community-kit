@@ -1,10 +1,10 @@
 export default {
-    startOn: 'onViewport',
+    startTrigger: 'onViewport',
     startProp: 0,
     endProp: 100,
     direction: 'normal',
-    duration: 2000,
-    delay: 0,
+    durationProp: '2s',
+    delayProp: '0s',
     textBefore: '',
     textAfter: '',
 };
