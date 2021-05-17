@@ -12,7 +12,7 @@ import presets from './presets';
 import { propInfo, defaultProps } from './props';
 
 import ComponentNotice from '../ComponentNotice';
-import utils from '../utils';
+import { isEmptyChildren } from '../utils';
 
 const getAnimationStyle = ({
     animation,
@@ -73,7 +73,7 @@ const Animation = ({
         [trigger]
     );
 
-    const isEmpty = useMemo(() => utils.isEmptyChildren(children), [children]);
+    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
 
     const onAboveEvent = (e) => {
         if (!wrapperRef.current) return;

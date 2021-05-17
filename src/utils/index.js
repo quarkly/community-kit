@@ -1,3 +1,2 @@
-import isEmptyChildren from './isEmptyChildren';
-
-export default { isEmptyChildren };
+export { default as isEmptyChildren } from './isEmptyChildren';
+export { default as parseTime } from './parseTime';
