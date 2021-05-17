@@ -109,7 +109,8 @@
       "GoogleMap": "GoogleMap",
       "Track": "Track",
       "Source": "Source",
-      "Picture": "Picture"
+      "Picture": "Picture",
+      "Counter": "Counter"
     }
   },
   "quarklyInfoDeleted": {

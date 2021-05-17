@@ -4,7 +4,6 @@ import { parseTime } from '../utils';
 import { useCounter, useViewport, usePageLoad } from './hooks';
 import { propInfo, defaultProps } from './props';
 
-``;
 const startTriggerHooks = {
     onViewport: useViewport,
     onPageLoad: usePageLoad,
