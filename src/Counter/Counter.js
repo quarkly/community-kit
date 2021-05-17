@@ -32,7 +32,7 @@ const Counter = ({
 
     const componentRef = useRef(null);
     const counterRef = useRef({
-        currentStep: direction === 'normal' ? startNumb : endNumb,
+        currentStep: 0,
     });
 
     const [curNumb, step] = useCounter(startNumb, endNumb, direction);
