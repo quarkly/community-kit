@@ -1,4 +1,3 @@
-
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { GoPrimitiveDot } from 'react-icons/go';
 
