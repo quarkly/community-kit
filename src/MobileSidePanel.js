@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Text, Icon } from '@quarkly/widgets';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 import ComponentNotice from './ComponentNotice';
 
@@ -15,17 +16,17 @@ import ComponentNotice from './ComponentNotice';
 const iconProps = {
     normal: {
         category: 'fi',
-        icon: 'FiMenu',
+        defaultIcon: FiMenu,
         size: '24px',
         color: '--dark',
     },
     closed: {
         category: 'fi',
-        icon: 'FiMenu',
+        defaultIcon: FiMenu,
     },
     open: {
         category: 'fi',
-        icon: 'FiX',
+        defaultIcon: FiX,
     },
 };
 

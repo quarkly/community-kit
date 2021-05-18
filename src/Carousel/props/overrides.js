@@ -1,3 +1,6 @@
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import { GoPrimitiveDot } from 'react-icons/go';
+
 export default {
     Slides: {
         kind: 'Box',
@@ -153,11 +156,13 @@ export default {
     },
     'Arrow Icon Prev': {
         props: {
+            defaultIcon: MdKeyboardArrowLeft,
             left: '7.5%',
         },
     },
     'Arrow Icon Next': {
         props: {
+            defaultIcon: MdKeyboardArrowRight,
             right: '7.5%',
         },
     },
@@ -194,7 +199,7 @@ export default {
         kind: 'Icon',
         props: {
             category: 'go',
-            icon: 'GoPrimitiveDot',
+            defaultIcon: GoPrimitiveDot,
             size: '16px',
 
             padding: '1px',

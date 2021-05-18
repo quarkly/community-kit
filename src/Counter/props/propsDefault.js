@@ -1,5 +1,5 @@
 export default {
-    startTrigger: 'On page load',
+    startTrigger: 'onPageLoad',
     startProp: 0,
     endProp: 100,
     direction: 'normal',

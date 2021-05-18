@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box, Text, Icon } from '@quarkly/widgets';
+import { BsDot } from 'react-icons/bs';
 
 const overrides = {
     Line: {
@@ -26,9 +27,9 @@ const overrides = {
     Point: {
         kind: 'Icon',
         props: {
-            size: '40px',
             category: 'bs',
-            icon: 'BsDot',
+            defaultIcon: BsDot,
+            size: '40px',
 
             top: '-8px',
             width: '40px',

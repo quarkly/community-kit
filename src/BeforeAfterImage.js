@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { Box, Text, Icon, Image } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
+import { Box, Text, Icon, Image } from '@quarkly/widgets';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const overrides = {
     Label: {
@@ -79,12 +80,12 @@ const overrides = {
     },
     'Before Arrow': {
         props: {
-            icon: 'MdKeyboardArrowLeft',
+            defaultIcon: MdKeyboardArrowLeft,
         },
     },
     'After Arrow': {
         props: {
-            icon: 'MdKeyboardArrowRight',
+            defaultIcon: MdKeyboardArrowRight,
         },
     },
 };

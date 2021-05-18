@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box, Icon, Button } from '@quarkly/widgets';
+import { FiX } from 'react-icons/fi';
 
 import ComponentNotice from './ComponentNotice';
 
@@ -86,7 +87,7 @@ const overrides = {
         kind: 'Icon',
         props: {
             category: 'fi',
-            icon: 'FiX',
+            defaultIcon: FiX,
             size: '24px',
             color: '--dark',
 

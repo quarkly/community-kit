@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
 import atomize from '@quarkly/atomize';
-import { Box, Text, Link, Icon } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
+import { Box, Text, Link, Icon } from '@quarkly/widgets';
+import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { useRouteMatch } from 'react-router-dom';
 import { useMatch } from '@reach/router';
@@ -138,7 +139,7 @@ const Sub = ({ common, item, other }) => {
                 {isClickable && (
                     <Icon
                         category="md"
-                        icon="MdKeyboardArrowDown"
+                        defaultIcon={MdKeyboardArrowDown}
                         size="16px"
                         {...override(
                             'Sub Head Icon',
