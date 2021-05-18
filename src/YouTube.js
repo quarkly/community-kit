@@ -2,6 +2,7 @@ import React, { useState, useCallback, useRef } from 'react';
 import YouTube from 'react-youtube';
 import { useOverrides } from '@quarkly/components';
 import { Box, Icon } from '@quarkly/widgets';
+import { FaPlay } from 'react-icons/fa';
 
 import ComponentNotice from './ComponentNotice';
 
@@ -74,7 +75,7 @@ const overrides = {
         props: {
             size: '28px',
             category: 'fa',
-            icon: 'FaPlay',
+            defaultIcon: FaPlay,
             color: '#FFFFFF',
 
             margin: '0px -6px 0px 0px',

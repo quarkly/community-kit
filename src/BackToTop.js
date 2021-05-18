@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import easyScroll from 'easy-scroll';
 
-import { Button, Icon, Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
+import { Button, Icon, Box } from '@quarkly/widgets';
+import { MdKeyboardArrowUp } from 'react-icons/md';
 
 const throttle = (fn, wait) => {
     let lastTime = 0;
@@ -132,8 +133,8 @@ const ScrollToTop = ({
             >
                 <Icon
                     size="32px"
+                    defaultIcon={MdKeyboardArrowUp}
                     category="md"
-                    icon="MdKeyboardArrowUp"
                     {...override('Icon')}
                 />
             </Button>

@@ -101,6 +101,7 @@ const SocialMedia = ({ 'icon-size': size, ...props }) => {
                     >
                         <Icon
                             icon={icon}
+                            defaultIcon={icon}
                             size={size}
                             {...override('icon', `icon-${propName}`)}
                         />

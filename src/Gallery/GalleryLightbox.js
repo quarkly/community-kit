@@ -4,6 +4,7 @@ import { Box, Icon, Image } from '@quarkly/widgets';
 
 import { enableScroll, disableScroll } from './GalleryScroll';
 import GalleryLoader from './GalleryLoader';
+import { IoMdClose } from 'react-icons/io';
 
 const overrides = {
     Overlay: {
@@ -61,7 +62,7 @@ const overrides = {
             right: '20px',
             cursor: 'pointer',
             category: 'io',
-            icon: 'IoMdClose',
+            defaultIcon: IoMdClose,
             'z-index': '124',
         },
     },
