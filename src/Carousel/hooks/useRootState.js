@@ -9,7 +9,8 @@ export default function useRootState({
     functionProp,
     autoPlay,
     autoPlayBehavior,
-    autoPlayDuration,
+    autoPlayIntervalProp,
+    autoPlayDelayProp,
 }) {
     const [state, dispatch] = useReducerAsync(
         rootReducer,
@@ -28,10 +29,14 @@ export default function useRootState({
             type: 'ASYNC_INIT',
             autoPlay,
             autoPlayBehavior,
-            autoPlayDuration,
+            autoPlayIntervalProp,
+            autoPlayDelayProp,
         });
 
-        return () => dispatch({ type: 'DEINIT' });
+        return () => {
+            dispatch({ type: 'DEINIT' });
+            dispatch({ type: 'ASYNC_DEINIT' });
+        }
     }, [
         dispatch,
         slidesProp,
@@ -39,7 +44,8 @@ export default function useRootState({
         functionProp,
         autoPlay,
         autoPlayBehavior,
-        autoPlayDuration,
+        autoPlayIntervalProp,
+        autoPlayDelayProp,
     ]);
 
     return [state, dispatch];

@@ -4,12 +4,13 @@ export default {
 
     animDuration: 500,
     animFunction: 'linear',
-    animTimerId: null,
+    animTimeoutId: null,
 
     autoPlay: false,
     autoPlayBehavior: 'infinite',
     autoPlayDuration: 1000,
     autoPlayIntervalId: null,
+    autoPlayTimeoutId: null,
 
     active: 1,
     position: 100,

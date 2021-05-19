@@ -1,7 +1,8 @@
-import { init, prevSlide, nextSlide } from './asyncActions';
+import { init, deinit, prevSlide, nextSlide } from './asyncActions';
 
 const asyncHandlers = {
     ASYNC_INIT: init,
+    ASYNC_DEINIT: deinit,
     PREV_SLIDE: prevSlide,
     NEXT_SLIDE: nextSlide,
 };

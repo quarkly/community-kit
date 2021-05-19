@@ -1,31 +1,71 @@
-import initialState from './initialState';
+import { parseTime } from '../../utils';
+import { defaultProps } from '../props';
 
 export const init = ({ dispatch, getState }) => async ({
     autoPlay,
     autoPlayBehavior,
-    autoPlayDuration,
+    autoPlayIntervalProp,
+    autoPlayDelayProp,
 }) => {
+    deinit({ dispatch, getState });
+
     if (!autoPlay) return;
 
     const changeNextSlide = nextSlide({ dispatch, getState });
 
-    const autoPlayIntervalId = setInterval(() => {
-        const { slidesNumb, active } = getState();
+    const autoPlayInterval = parseTime(
+        autoPlayIntervalProp,
+        defaultProps.autoPlayIntervalProp
+    );
+    const autoPlayDelay = parseTime(
+        autoPlayDelayProp,
+        defaultProps.autoPlayDelayProp
+    );
 
-        if (autoPlayBehavior === 'range' && active >= slidesNumb) {
-            clearInterval(autoPlayIntervalId);
-            dispatch({ type: 'SET_DATA', autoPlayIntervalId: null });
-            return;
-        }
+    const autoPlayTimeoutIdTemp = setTimeout(() => {
+        const autoPlayIntervalIdTemp = setInterval(() => {
+            const { slidesNumb, active } = getState();
 
-        changeNextSlide();
-    }, parseInt(autoPlayDuration, 10) || initialState.autoPlayDuration);
+            if (autoPlayBehavior === 'range' && active >= slidesNumb) {
+                deinit({ dispatch, getState });
+                return;
+            }
 
-    dispatch({ type: 'SET_DATA', autoPlayIntervalId });
+            changeNextSlide();
+        }, autoPlayInterval);
+
+        dispatch({
+            type: 'SET_DATA',
+            autoPlayIntervalId: autoPlayIntervalIdTemp,
+        });
+    }, autoPlayDelay);
+
+    dispatch({
+        type: 'SET_DATA',
+        autoPlayTimeoutId: autoPlayTimeoutIdTemp,
+    });
 };
 
+export function deinit({ dispatch, getState }) {
+    const { autoPlayTimeoutId, autoPlayIntervalId } = getState();
+
+    if (autoPlayTimeoutId || autoPlayIntervalId) {
+        dispatch({
+            type: 'SET_DATA',
+            autoPlayTimeoutId: null,
+            autoPlayIntervalId: null,
+        });
+    }
+}
+
 export const prevSlide = ({ dispatch, getState }) => async () => {
-    const { slidesNumb, animDuration, animTimerId, active, lock } = getState();
+    const {
+        slidesNumb,
+        animDuration,
+        animTimeoutId,
+        active,
+        lock,
+    } = getState();
 
     if (lock) return;
 
@@ -40,7 +80,7 @@ export const prevSlide = ({ dispatch, getState }) => async () => {
             lock: true,
         });
 
-        clearTimeout(animTimerId);
+        clearTimeout(animTimeoutId);
 
         const timerId = setTimeout(() => {
             dispatch({
@@ -52,7 +92,7 @@ export const prevSlide = ({ dispatch, getState }) => async () => {
             });
         }, animDuration);
 
-        dispatch({ type: 'SET_DATA', animTimerId: timerId });
+        dispatch({ type: 'SET_DATA', animTimeoutId: timerId });
     } else {
         dispatch({
             type: 'SET_SLIDE',
@@ -65,7 +105,13 @@ export const prevSlide = ({ dispatch, getState }) => async () => {
 };
 
 export const nextSlide = ({ dispatch, getState }) => async () => {
-    const { slidesNumb, animDuration, animTimerId, active, lock } = getState();
+    const {
+        slidesNumb,
+        animDuration,
+        animTimeoutId,
+        active,
+        lock,
+    } = getState();
 
     if (lock) return;
 
@@ -79,7 +125,7 @@ export const nextSlide = ({ dispatch, getState }) => async () => {
             animate: true,
             lock: true,
         });
-        clearTimeout(animTimerId);
+        clearTimeout(animTimeoutId);
 
         const tId = setTimeout(() => {
             dispatch({
@@ -90,7 +136,7 @@ export const nextSlide = ({ dispatch, getState }) => async () => {
                 lock: false,
             });
         }, animDuration);
-        dispatch({ type: 'SET_DATA', animTimerId: tId });
+        dispatch({ type: 'SET_DATA', animTimeoutId: tId });
     } else {
         dispatch({
             type: 'SET_SLIDE',

@@ -19,7 +19,8 @@ const CarouselComponent = ({
     showLink,
     autoPlay,
     autoPlayBehavior,
-    autoPlayDuration,
+    autoPlayIntervalProp,
+    autoPlayDelayProp,
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
@@ -41,7 +42,8 @@ const CarouselComponent = ({
         functionProp,
         autoPlay,
         autoPlayBehavior,
-        autoPlayDuration,
+        autoPlayIntervalProp,
+        autoPlayDelayProp,
     });
 
     const clickNumb = useCallback(
@@ -65,7 +67,15 @@ const CarouselComponent = ({
     useKeyboard(sliderRef, clickNext, clickPrev);
 
     return (
-        <Box ref={sliderRef} {...rest}>
+        <Box
+            ref={sliderRef}
+
+            position="relative"
+            align-self="normal"
+            overflow="hidden"
+
+            {...rest}
+        >
             <Box
                 {...override('Slides')}
                 transform={`translateX(-${position}%)`}
@@ -121,6 +131,10 @@ const CarouselComponent = ({
 
 Object.assign(CarouselComponent, {
     title: 'Carousel',
+    description: {
+        en: 'Slider with images that can be scrolled by pressing the arrows or dot buttons',
+        ru: 'Лента с изображениями, которую можно листать нажатием на стрелки или точки',
+    },
     propInfo,
     defaultProps,
     overrides,

@@ -11,9 +11,6 @@ export default {
 
     autoPlay: false,
     autoPlayBehavior: 'infinite',
-    autoPlayDuration: 1000,
-
-    position: 'relative',
-    'align-self': 'normal',
-    overflow: 'hidden',
+    autoPlayIntervalProp: '1s',
+    autoPlayDelayProp: '0s',
 };

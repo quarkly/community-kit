@@ -5,7 +5,7 @@ export default {
             ru: 'Количество слайдов',
         },
         control: 'input',
-        type: 'text',
+        type: 'number',
         category: 'Slides',
         weight: 0.5,
     },
@@ -168,10 +168,20 @@ export default {
         category: 'Autoplay',
         weight: 1,
     },
-    autoPlayDuration: {
+    autoPlayIntervalProp: {
         title: {
             en: 'Slide transition interval',
             ru: 'Интервал переключения слайдов',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Autoplay',
+        weight: 1,
+    },
+    autoPlayDelayProp: {
+        title: {
+            en: 'Delay before slide transition starts',
+            ru: 'Задержка перед началом переключения слайдов',
         },
         control: 'input',
         type: 'text',
