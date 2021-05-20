@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
@@ -71,11 +71,9 @@ const CarouselComponent = ({
     return (
         <Box
             ref={sliderRef}
-
             position="relative"
             align-self="normal"
             overflow="hidden"
-
             {...rest}
         >
             <Box
@@ -134,8 +132,10 @@ const CarouselComponent = ({
 Object.assign(CarouselComponent, {
     title: 'Carousel',
     description: {
-        en: 'Slider with images that can be scrolled by pressing the arrows or dot buttons',
-        ru: 'Лента с изображениями, которую можно листать нажатием на стрелки или точки',
+        en:
+            'Slider with images that can be scrolled by pressing the arrows or dot buttons',
+        ru:
+            'Лента с изображениями, которую можно листать нажатием на стрелки или точки',
     },
     propInfo,
     defaultProps,

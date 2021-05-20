@@ -1,8 +1,4 @@
-import {
-    initAutoPlay,
-    clickPrev,
-    clickNext,
-} from './asyncActions';
+import { initAutoPlay, clickPrev, clickNext } from './asyncActions';
 
 const asyncHandlers = {
     INIT_AUTOPLAY: initAutoPlay,

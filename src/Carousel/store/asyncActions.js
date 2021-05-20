@@ -42,11 +42,8 @@ export const initAutoPlay = ({ getState, dispatch }) => async ({
 };
 
 const startAutoPlay = ({ getState, dispatch }) => async (props) => {
-    const {
-        autoPlayBehavior,
-        autoPlayInterval,
-        autoPlayDelay,
-    } = props || getState();
+    const { autoPlayBehavior, autoPlayInterval, autoPlayDelay } =
+        props || getState();
 
     const changeNextSlide = nextSlide({ getState, dispatch });
 
@@ -69,13 +66,8 @@ const startAutoPlay = ({ getState, dispatch }) => async (props) => {
     return autoPlayDelayIdTemp;
 };
 
-const pauseAutoPlay = ({ getState, dispatch }) => async (props) => {
-    const {
-        autoPlay,
-        autoPlayPause,
-        autoPlayPauseId,
-        lock,
-    } = getState();
+const pauseAutoPlay = ({ getState, dispatch }) => async () => {
+    const { autoPlay, autoPlayPause, autoPlayPauseId, lock } = getState();
 
     if (!autoPlay || lock) return;
 

@@ -1,4 +1,8 @@
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdLens } from 'react-icons/md';
+import {
+    MdKeyboardArrowLeft,
+    MdKeyboardArrowRight,
+    MdLens,
+} from 'react-icons/md';
 
 export default {
     Slides: {

@@ -47,7 +47,6 @@ export function setData(state, { type, ...props }) {
     return { ...state, ...props };
 }
 
-
 export function deinitAP(state, { pause }) {
     const { autoPlayIntervalId, autoPlayDelayId, autoPlayPauseId } = state;
 
@@ -57,7 +56,7 @@ export function deinitAP(state, { pause }) {
     const props = {
         autoPlayDelayId: null,
         autoPlayIntervalId: null,
-    }
+    };
 
     if (!pause) {
         clearTimeout(autoPlayPauseId);
@@ -68,7 +67,12 @@ export function deinitAP(state, { pause }) {
 }
 
 export function deinit(state) {
-    const { animTimeoutId, autoPlayIntervalId, autoPlayDelayId, autoPlayPauseId } = state;
+    const {
+        animTimeoutId,
+        autoPlayIntervalId,
+        autoPlayDelayId,
+        autoPlayPauseId,
+    } = state;
 
     clearTimeout(animTimeoutId);
     clearInterval(autoPlayIntervalId);

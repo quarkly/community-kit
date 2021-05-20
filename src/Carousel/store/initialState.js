@@ -11,7 +11,7 @@ export default {
     autoPlayInterval: 1000,
     autoPlayDelay: 5000,
     autoPlayPause: false,
-    
+
     autoPlayIntervalId: null,
     autoPlayDelayId: null,
     autoPlayPauseId: null,

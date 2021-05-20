@@ -33,10 +33,10 @@ export default function useRootState({
             autoPlayDelayProp,
             autoPlayPauseProp,
         });
-        
+
         return () => {
             dispatch({ type: 'DEINIT' });
-        }
+        };
     }, [
         dispatch,
         slidesProp,
