@@ -1,10 +1,13 @@
-import { init, deinit, prevSlide, nextSlide } from './asyncActions';
+import {
+    initAutoPlay,
+    clickPrev,
+    clickNext,
+} from './asyncActions';
 
 const asyncHandlers = {
-    ASYNC_INIT: init,
-    ASYNC_DEINIT: deinit,
-    PREV_SLIDE: prevSlide,
-    NEXT_SLIDE: nextSlide,
+    INIT_AUTOPLAY: initAutoPlay,
+    CLICK_PREV: clickPrev,
+    CLICK_NEXT: clickNext,
 };
 
 export default asyncHandlers;

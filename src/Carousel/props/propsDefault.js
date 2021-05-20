@@ -13,4 +13,5 @@ export default {
     autoPlayBehavior: 'infinite',
     autoPlayIntervalProp: '1s',
     autoPlayDelayProp: '0s',
+    autoPlayPauseProp: '5s',
 };

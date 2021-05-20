@@ -1,4 +1,6 @@
-export function init(state, { slidesProp, durationProp, functionProp }) {
+export function init(state, props) {
+    const { slidesProp, durationProp, functionProp } = props;
+
     const slidesNumb =
         parseInt(slidesProp, 10) > 0 ? parseInt(slidesProp, 10) : 1;
     const slidesList = [
@@ -19,16 +21,6 @@ export function init(state, { slidesProp, durationProp, functionProp }) {
     };
 }
 
-export function setSlide(state, { active, position, animate, lock }) {
-    return {
-        ...state,
-        active,
-        position,
-        animate,
-        lock,
-    };
-}
-
 export function clickNumb(state, { active }) {
     if (state.lock) return state;
 
@@ -41,19 +33,53 @@ export function clickNumb(state, { active }) {
     };
 }
 
-export function setData(state, { type, ...params }) {
-    return { ...state, ...params };
+export function setSlide(state, { active, position, animate, lock }) {
+    return {
+        ...state,
+        active,
+        position,
+        animate,
+        lock,
+    };
+}
+
+export function setData(state, { type, ...props }) {
+    return { ...state, ...props };
+}
+
+
+export function deinitAP(state, { pause }) {
+    const { autoPlayIntervalId, autoPlayDelayId, autoPlayPauseId } = state;
+
+    clearInterval(autoPlayIntervalId);
+    clearTimeout(autoPlayDelayId);
+
+    const props = {
+        autoPlayDelayId: null,
+        autoPlayIntervalId: null,
+    }
+
+    if (!pause) {
+        clearTimeout(autoPlayPauseId);
+        props.autoPlayPauseId = null;
+    }
+
+    return { ...state, ...props };
 }
 
 export function deinit(state) {
-    const { animationTimerId, autoChangeIntervalId } = state;
+    const { animTimeoutId, autoPlayIntervalId, autoPlayDelayId, autoPlayPauseId } = state;
 
-    clearTimeout(animationTimerId);
-    clearInterval(autoChangeIntervalId);
+    clearTimeout(animTimeoutId);
+    clearInterval(autoPlayIntervalId);
+    clearTimeout(autoPlayDelayId);
+    clearTimeout(autoPlayPauseId);
 
     return {
         ...state,
-        animationTimerId: null,
-        autoChangeIntervalId: null,
+        animTimeoutId: null,
+        autoPlayIntervalId: null,
+        autoPlayDelayId: null,
+        autoPlayPauseId: null,
     };
 }

@@ -188,4 +188,14 @@ export default {
         category: 'Autoplay',
         weight: 1,
     },
+    autoPlayPauseProp: {
+        title: {
+            en: 'Пауза переключения слайдов при клике',
+            ru: 'Пауза переключения слайдов при клике',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Autoplay',
+        weight: 1,
+    },
 };

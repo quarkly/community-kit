@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import 'abort-controller/polyfill';
 import { useReducerAsync } from 'use-reducer-async';
 import { initialState, rootReducer, asyncHandlers } from '../store';
 
@@ -11,6 +10,7 @@ export default function useRootState({
     autoPlayBehavior,
     autoPlayIntervalProp,
     autoPlayDelayProp,
+    autoPlayPauseProp,
 }) {
     const [state, dispatch] = useReducerAsync(
         rootReducer,
@@ -26,16 +26,16 @@ export default function useRootState({
             functionProp,
         });
         dispatch({
-            type: 'ASYNC_INIT',
+            type: 'INIT_AUTOPLAY',
             autoPlay,
             autoPlayBehavior,
             autoPlayIntervalProp,
             autoPlayDelayProp,
+            autoPlayPauseProp,
         });
-
+        
         return () => {
             dispatch({ type: 'DEINIT' });
-            dispatch({ type: 'ASYNC_DEINIT' });
         }
     }, [
         dispatch,
@@ -46,6 +46,7 @@ export default function useRootState({
         autoPlayBehavior,
         autoPlayIntervalProp,
         autoPlayDelayProp,
+        autoPlayPauseProp,
     ]);
 
     return [state, dispatch];

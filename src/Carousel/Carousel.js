@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
@@ -21,6 +21,7 @@ const CarouselComponent = ({
     autoPlayBehavior,
     autoPlayIntervalProp,
     autoPlayDelayProp,
+    autoPlayPauseProp,
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
@@ -44,6 +45,7 @@ const CarouselComponent = ({
         autoPlayBehavior,
         autoPlayIntervalProp,
         autoPlayDelayProp,
+        autoPlayPauseProp,
     });
 
     const clickNumb = useCallback(
@@ -56,11 +58,11 @@ const CarouselComponent = ({
     );
 
     const clickPrev = useCallback(() => {
-        dispatch({ type: 'PREV_SLIDE' });
+        dispatch({ type: 'CLICK_PREV' });
     }, [dispatch]);
 
     const clickNext = useCallback(() => {
-        dispatch({ type: 'NEXT_SLIDE' });
+        dispatch({ type: 'CLICK_NEXT' });
     }, [dispatch]);
 
     const [sliderRef, width, height] = useResize(aspectRatio);

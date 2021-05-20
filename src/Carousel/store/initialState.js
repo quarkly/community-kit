@@ -8,9 +8,13 @@ export default {
 
     autoPlay: false,
     autoPlayBehavior: 'infinite',
-    autoPlayDuration: 1000,
+    autoPlayInterval: 1000,
+    autoPlayDelay: 5000,
+    autoPlayPause: false,
+    
     autoPlayIntervalId: null,
-    autoPlayTimeoutId: null,
+    autoPlayDelayId: null,
+    autoPlayPauseId: null,
 
     active: 1,
     position: 100,
