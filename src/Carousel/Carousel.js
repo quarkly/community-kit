@@ -10,6 +10,7 @@ import { propInfo, defaultProps, overrides } from './props';
 const CarouselComponent = ({
     slidesProp,
     aspectRatio,
+    slidesWrapper,
     durationProp,
     functionProp,
     showArrows,
@@ -88,6 +89,7 @@ const CarouselComponent = ({
                         key={`${rest['data-qid']}-slide-${numb}-${index}`} // eslint-disable-line
                         index={index}
                         slides={slidesNumb}
+                        slidesWrapper={slidesWrapper}
                         numb={numb}
                         width={width}
                         height={height}

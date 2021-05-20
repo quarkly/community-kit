@@ -1,6 +1,7 @@
 export default {
     slidesProp: '4',
     aspectRatio: '16:9',
+    slidesWrapper: 'box',
     durationProp: '0.5s',
     functionProp: 'linear',
     showArrows: true,

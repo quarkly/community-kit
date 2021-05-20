@@ -38,6 +38,25 @@ export default {
         category: 'Slides',
         weight: 0.5,
     },
+    slidesWrapper: {
+        title: {
+            en: 'Использовать в качестве слайдов',
+            ru: 'Использовать в качестве слайдов',
+        },
+        control: 'radio-group',
+        variants: [
+            {
+                title: 'Box',
+                value: 'box',
+            },
+            {
+                title: 'Link',
+                value: 'link',
+            },
+        ],
+        category: 'Slides',
+        weight: 0.5,
+    },
     showArrows: {
         title: {
             en: 'Show arrows',
