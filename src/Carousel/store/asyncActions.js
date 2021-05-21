@@ -91,7 +91,6 @@ const pauseAutoPlay = ({ getState, dispatch }) => async () => {
     });
 };
 
-
 export const clickPrev = ({ getState, dispatch }) => async () => {
     pauseAutoPlay({ getState, dispatch })();
     prevSlide({ getState, dispatch })();
@@ -102,54 +101,64 @@ export const clickNext = ({ getState, dispatch }) => async () => {
     nextSlide({ getState, dispatch })();
 };
 
+const getSwipeWidth = (start, touch, sliderRef) => {
+    const slideWidth = sliderRef.current.offsetWidth;
 
-export const touchStart = ({ getState, dispatch }) => async ({
-    // touch,
-    // sliderRef,
-    // slidesRef,
-}) => {
-    // console.log('touchStart', touch, sliderRef, slidesRef);
+    let touchWidth = start - touch.clientX;
 
-    // dispatch({
-    //     type: 'SET_DATA',
-    //     touchStart: touch.clientX,
-    // });
+    if (touchWidth > slideWidth) {
+        touchWidth = slideWidth;
+    }
+    if (touchWidth < -slideWidth) {
+        touchWidth = -slideWidth;
+    }
+
+    return (100 * touchWidth) / slideWidth;
 };
 
-export const touchMove = ({ getState, dispatch }) => async ({
-    // touch,
-    // sliderRef,
-    // slidesRef,
+export const touchStart = ({ dispatch }) => async ({ touch }) => {
+    dispatch({
+        type: 'SET_DATA',
+        touchStartX: touch.clientX,
+    });
+    dispatch({
+        type: 'DEINIT_AUTOPLAY',
+        pause: true,
+    });
+};
+
+export const touchMove = ({ getState }) => async ({
+    touch,
+    sliderRef,
+    slidesRef,
 }) => {
-    // console.log('touchMove', touch, sliderRef, slidesRef);
+    const { touchStartX, position } = getState();
+    const swipeWidth = getSwipeWidth(touchStartX, touch, sliderRef);
 
-    // const slideWidth = sliderRef.current.offsetWidth;
-    // const { touchStart, position, active } = getState();
-    // let touchWidth = touchStart - touch.clientX;
-
-    // if (touchWidth > slideWidth) {
-    //     touchWidth = slideWidth;
-    // } else if (touchWidth < -slideWidth) {
-    //     touchWidth = -slideWidth;
-    // }
-
-    // console.log( Math.round(position), Math.round() )
-
-    // slidesRef.current.style.transform = `translateX(-${100 * active + 100 * touchWidth / slideWidth}%)`
-    // slidesRef.current.style.transition = 'initial';
-
-    // console.log(touchWidth, slideWidth);
+    slidesRef.current.style.transform = `translateX(-${
+        position + swipeWidth
+    }%)`;
+    slidesRef.current.style.transition = 'initial';
 };
 
 export const touchEnd = ({ getState, dispatch }) => async ({
-    // touch,
-    // sliderRef,
-    // slidesRef,
+    touch,
+    sliderRef,
+    slidesRef,
 }) => {
-    // console.log('touchEnd', touch, sliderRef, slidesRef);
+    const { touchStartX } = getState();
+    const swipeWidth = getSwipeWidth(touchStartX, touch, sliderRef);
+
+    slidesRef.current.style.transform = '';
+    slidesRef.current.style.transition = '';
+
+    if (swipeWidth > 10) {
+        nextSlide({ getState, dispatch })();
+    }
+    if (swipeWidth < -10) {
+        prevSlide({ getState, dispatch })();
+    }
 };
-
-
 
 const prevSlide = ({ getState, dispatch }) => async () => {
     const {
