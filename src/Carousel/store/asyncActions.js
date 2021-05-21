@@ -91,6 +91,7 @@ const pauseAutoPlay = ({ getState, dispatch }) => async () => {
     });
 };
 
+
 export const clickPrev = ({ getState, dispatch }) => async () => {
     pauseAutoPlay({ getState, dispatch })();
     prevSlide({ getState, dispatch })();
@@ -100,6 +101,55 @@ export const clickNext = ({ getState, dispatch }) => async () => {
     pauseAutoPlay({ getState, dispatch })();
     nextSlide({ getState, dispatch })();
 };
+
+
+export const touchStart = ({ getState, dispatch }) => async ({
+    // touch,
+    // sliderRef,
+    // slidesRef,
+}) => {
+    // console.log('touchStart', touch, sliderRef, slidesRef);
+
+    // dispatch({
+    //     type: 'SET_DATA',
+    //     touchStart: touch.clientX,
+    // });
+};
+
+export const touchMove = ({ getState, dispatch }) => async ({
+    // touch,
+    // sliderRef,
+    // slidesRef,
+}) => {
+    // console.log('touchMove', touch, sliderRef, slidesRef);
+
+    // const slideWidth = sliderRef.current.offsetWidth;
+    // const { touchStart, position, active } = getState();
+    // let touchWidth = touchStart - touch.clientX;
+
+    // if (touchWidth > slideWidth) {
+    //     touchWidth = slideWidth;
+    // } else if (touchWidth < -slideWidth) {
+    //     touchWidth = -slideWidth;
+    // }
+
+    // console.log( Math.round(position), Math.round() )
+
+    // slidesRef.current.style.transform = `translateX(-${100 * active + 100 * touchWidth / slideWidth}%)`
+    // slidesRef.current.style.transition = 'initial';
+
+    // console.log(touchWidth, slideWidth);
+};
+
+export const touchEnd = ({ getState, dispatch }) => async ({
+    // touch,
+    // sliderRef,
+    // slidesRef,
+}) => {
+    // console.log('touchEnd', touch, sliderRef, slidesRef);
+};
+
+
 
 const prevSlide = ({ getState, dispatch }) => async () => {
     const {

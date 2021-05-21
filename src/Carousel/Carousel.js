@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
@@ -26,6 +26,8 @@ const CarouselComponent = ({
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
+    const [sliderRef, width, height] = useResize(aspectRatio);
+    const slidesRef = useRef(null);
 
     const [
         {
@@ -66,7 +68,43 @@ const CarouselComponent = ({
         dispatch({ type: 'CLICK_NEXT' });
     }, [dispatch]);
 
-    const [sliderRef, width, height] = useResize(aspectRatio);
+    const touchStart = useCallback((e) => {
+        dispatch({
+            type: 'TOUCH_START',
+            touch: e.touches[0],
+            sliderRef,
+            slidesRef,
+        });
+    }, [dispatch]);
+
+    const touchMove = useCallback((e) => {
+        dispatch({
+            type: 'TOUCH_MOVE',
+            touch: e.touches[0],
+            sliderRef,
+            slidesRef,
+        });
+    }, [dispatch]);
+
+    const touchEnd = useCallback((e) => {
+        dispatch({
+            type: 'TOUCH_END',
+            touch: e.touches[0],
+            sliderRef,
+            slidesRef,
+        });
+    }, [dispatch]);
+
+    const touchCancel = useCallback((e) => {
+        dispatch({
+            type: 'TOUCH_END',
+            touch: e.touches[0],
+            slidesRef,
+            width,
+            height,
+        });
+    }, [dispatch]);
+
     useKeyboard(sliderRef, clickNext, clickPrev);
 
     return (
@@ -75,9 +113,16 @@ const CarouselComponent = ({
             position="relative"
             align-self="normal"
             overflow="hidden"
+
+            onTouchStart={touchStart}
+            onTouchMove={touchMove}
+            onTouchEnd={touchEnd}
+            onTouchCancel={touchCancel}
+
             {...rest}
         >
             <Box
+                ref={slidesRef}
                 {...override('Slides')}
                 transform={`translateX(-${position}%)`}
                 transition={`transform ${
