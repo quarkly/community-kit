@@ -110,6 +110,10 @@ const CardFlip = ({
             onMouseEnter={onHoverFlip}
             onMouseLeave={onHoverFlip}
             onClick={onClickFlip}
+            width="100%"
+            max-width="400px"
+            perspective="600px"
+            position="relative"
             {...rest}
         >
             <Box
@@ -272,11 +276,6 @@ const defaultProps = {
     flipDurationProp: '1000',
     timingFunctionProp: 'cubic-bezier(.50,-0.35,.50,1.65)',
     isFlippedProp: false,
-
-    width: '100%',
-    'max-width': '400px',
-    perspective: '600px',
-    position: 'relative',
 };
 
 Object.assign(CardFlip, {

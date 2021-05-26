@@ -61,7 +61,7 @@ const YandexMap = ({
     });
 
     return (
-        <Box display="block" {...props} ref={containerRef}>
+        <Box height="250px" display="block" {...props} ref={containerRef}>
             <YMaps key={dapiKey} query={{ apikey: dapiKey }}>
                 <Map
                     key={key}
@@ -208,7 +208,6 @@ const defaultProps = {
     latitudeCenter: 40.714599,
     longitudeCenter: -74.002791,
     zoomValue: 9,
-    height: '250px',
 };
 
 Object.assign(YandexMap, {

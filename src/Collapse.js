@@ -149,7 +149,12 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
     }, [children.length]);
 
     return (
-        <Box {...rest}>
+        <Box
+            padding="8px"
+            border="1px solid --color-lightD2"
+            border-radius="4px"
+            {...rest}
+        >
             <Button
                 {...override('Button')}
                 onPointerDown={toggleOpen}
@@ -222,10 +227,6 @@ const defaultProps = {
     minDuration: '0.5s',
     maxDuration: '1s',
     animFunction: 'linear',
-
-    padding: '8px',
-    border: '1px solid --color-lightD2',
-    'border-radius': '4px',
 };
 
 Object.assign(Collapse, {

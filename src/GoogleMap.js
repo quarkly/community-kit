@@ -3,7 +3,7 @@ import React from 'react';
 import ComponentNotice from './ComponentNotice';
 
 const GoogleMap = ({ query = 'New York', apiKey, ...props }) => (
-    <div {...props}>
+    <div width="100%" height="450px" position="relative" {...props}>
         {apiKey ? (
             <iframe
                 title={`community-kit-google-map-${query}`}
@@ -57,11 +57,7 @@ const propInfo = {
     },
 };
 
-const defaultProps = {
-    width: '100%',
-    height: '450px',
-    position: 'relative',
-};
+const defaultProps = {};
 
 Object.assign(GoogleMap, {
     title: 'Google Map',

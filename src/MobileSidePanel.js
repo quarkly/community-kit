@@ -339,7 +339,16 @@ const MobileSidePanel = ({
     }, [childrenLength]);
 
     return (
-        <Box {...rest}>
+        <Box
+            min-width="100%"
+            min-height="0"
+            align-items="center"
+            justify-content="flex-end"
+            position="relative"
+            display="flex"
+            z-index="5"
+            {...rest}
+        >
             <Box
                 onPointerDown={menuPosition === 'near' ? onToggle : onOpen}
                 {...styles.Button}
@@ -486,14 +495,6 @@ const defaultProps = {
     menuPosition: 'near',
     animDuration: '.3s',
     animFunction: 'ease',
-
-    'min-width': '100%',
-    'min-height': '0',
-    'align-items': 'center',
-    'justify-content': 'flex-end',
-    position: 'relative',
-    display: 'flex',
-    'z-index': '5',
 };
 
 Object.assign(MobileSidePanel, {

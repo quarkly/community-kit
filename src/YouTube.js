@@ -130,6 +130,7 @@ const YouTubeComponent = ({ url, showOverlay, ...props }) => {
             padding-top={videoId ? '56.25%' : '0'}
             min-height={videoId ? '0' : undefined}
             height={videoId ? '0' : undefined}
+            position="relative"
             {...rest}
         >
             <Box
@@ -189,7 +190,6 @@ const propInfo = {
 };
 
 const defaultProps = {
-    position: 'relative',
     showOverlay: true,
 };
 

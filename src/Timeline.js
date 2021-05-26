@@ -241,7 +241,17 @@ const Timeline = ({
     );
 
     return (
-        <Box {...rest}>
+        <Box
+            width="100%"
+            max-width="100%"
+            flex-direction="column"
+            box-sizing="border-box"
+            position="relative"
+            display="flex"
+            overflow-x="hidden"
+            overflow-y="visible"
+            {...rest}
+        >
             <TimelineLine
                 alignDesktop={alignDesktop}
                 alignMobile={alignMobile}
@@ -357,15 +367,6 @@ const defaultProps = {
     alignDesktop: 'fromLeft',
     alignMobile: 'toLeft',
     breakpoint: 'sm',
-
-    width: '100%',
-    'max-width': '100%',
-    'flex-direction': 'column',
-    'box-sizing': 'border-box',
-    position: 'relative',
-    display: 'flex',
-    'overflow-x': 'hidden',
-    'overflow-y': 'visible',
 };
 
 export default Object.assign(Timeline, {

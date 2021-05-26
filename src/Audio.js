@@ -41,7 +41,7 @@ const AudioComponent = ({
     }, [children]);
 
     return (
-        <Wrapper {...rest}>
+        <Wrapper display="flex" {...rest}>
             <Audio
                 src={srcVal}
                 autoPlay={autoPlay}
@@ -125,8 +125,6 @@ const propInfo = {
 const defaultProps = {
     src: '',
     controls: true,
-
-    display: 'flex',
 };
 
 export default atomize(AudioComponent)(
