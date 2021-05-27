@@ -10,7 +10,7 @@ export default {
     autoPlayBehavior: 'infinite',
     autoPlayInterval: 1000,
     autoPlayDelay: 5000,
-    autoPlayPause: false,
+    autoPlayPause: 1000,
 
     autoPlayIntervalId: null,
     autoPlayDelayId: null,

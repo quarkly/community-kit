@@ -50,55 +50,6 @@ const Component = ({
         dispatch(clickNext());
     }, [dispatch]);
 
-    const touchStart = useCallback(
-        e => {
-            dispatch({
-                type: 'TOUCH_START',
-                touch: e.touches[0],
-                sliderRef,
-                slidesRef,
-            });
-        },
-        [dispatch]
-    );
-
-    const touchMove = useCallback(
-        e => {
-            dispatch({
-                type: 'TOUCH_MOVE',
-                touch: e.touches[0],
-                sliderRef,
-                slidesRef,
-            });
-        },
-        [dispatch]
-    );
-
-    const touchEnd = useCallback(
-        e => {
-            dispatch({
-                type: 'TOUCH_END',
-                touch: e.touches[0],
-                sliderRef,
-                slidesRef,
-            });
-        },
-        [dispatch]
-    );
-
-    const touchCancel = useCallback(
-        e => {
-            dispatch({
-                type: 'TOUCH_END',
-                touch: e.touches[0],
-                slidesRef,
-                width,
-                height,
-            });
-        },
-        [dispatch]
-    );
-
     useKeyboard(sliderRef, onClickNext, onClickPrev);
 
     return (
@@ -107,10 +58,6 @@ const Component = ({
             position="relative"
             align-self="normal"
             overflow="hidden"
-            onTouchStart={touchStart}
-            onTouchMove={touchMove}
-            onTouchEnd={touchEnd}
-            onTouchCancel={touchCancel}
             {...rest}
         >
             <Box

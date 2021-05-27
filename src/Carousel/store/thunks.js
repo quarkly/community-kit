@@ -23,16 +23,6 @@ export function init({
             parseFloat(durationProp) > 0 ? parseFloat(durationProp) * 1000 : 0;
         const animFunction = functionProp;
 
-        dispatch({
-            type: 'SET_DATA',
-            slidesNumb,
-            slidesList,
-            animDuration,
-            animFunction,
-        });
-
-        if (!autoPlay) return;
-
         const autoPlayInterval = parseTime(
             autoPlayIntervalProp,
             defaultProps.autoPlayIntervalProp
@@ -46,22 +36,23 @@ export function init({
             defaultProps.autoPlayPauseProp
         );
 
-        dispatch(
-            startAutoPlay({
-                autoPlayBehavior,
-                autoPlayInterval,
-                autoPlayDelay,
-            })
-        );
-
         dispatch({
             type: 'SET_DATA',
+            slidesNumb,
+            slidesList,
+            animDuration,
+            animFunction,
+
             autoPlay,
             autoPlayBehavior,
             autoPlayInterval,
             autoPlayDelay,
             autoPlayPause,
         });
+
+        if (autoPlay) {
+            dispatch(startAutoPlay());
+        }
     };
 }
 
@@ -75,17 +66,45 @@ export const clickNext = () => (dispatch) => {
     dispatch(nextSlide());
 };
 
-const startAutoPlay = (props) => (dispatch, getState) => {
-    const { autoPlayBehavior, autoPlayInterval, autoPlayDelay } =
-        props || getState();
+const pauseAutoPlay = () => (dispatch, getState) => {
+    const { autoPlay, autoPlayPause, autoPlayPauseId, lock } = getState();
 
+    if (!autoPlay || lock) return;
+
+    clearTimeout(autoPlayPauseId);
+
+    const autoPlayPauseIdTemp = setTimeout(() => {
+        dispatch({
+            type: 'SET_DATA',
+            autoPlayPauseId: null,
+        });
+    }, autoPlayPause);
+
+    dispatch({
+        type: 'SET_DATA',
+        autoPlayPauseId: autoPlayPauseIdTemp,
+    });
+};
+
+const startAutoPlay = () => (dispatch, getState) => {
+    const { autoPlayBehavior, autoPlayInterval, autoPlayDelay } = getState();
+
+    // Delay before auto play starts
     const autoPlayDelayIdTemp = setTimeout(() => {
+        // auto play interval
         const autoPlayIntervalIdTemp = setInterval(() => {
-            const { slidesNumb, active } = getState();
-            if (autoPlayBehavior === 'range' && active >= slidesNumb) {
-                dispatch({ type: 'DEINIT_AUTOPLAY' });
+            const { slidesNumb, active, autoPlayPauseId } = getState();
+
+            // pass when auto play paused
+            if (autoPlayPauseId) {
                 return;
             }
+
+            if (autoPlayBehavior === 'range' && active >= slidesNumb) {
+                dispatch(stopAutoPlay());
+                return;
+            }
+
             dispatch(nextSlide());
         }, autoPlayInterval);
 
@@ -95,28 +114,24 @@ const startAutoPlay = (props) => (dispatch, getState) => {
         });
     }, autoPlayDelay);
 
-    return autoPlayDelayIdTemp;
+    dispatch({
+        type: 'SET_DATA',
+        autoPlayDelayId: autoPlayDelayIdTemp,
+    });
 };
 
-const pauseAutoPlay = () => (dispatch, getState) => {
-    const { autoPlay, autoPlayPause, autoPlayPauseId, lock } = getState();
+const stopAutoPlay = () => (dispatch, getState) => {
+    const { autoPlayDelayId, autoPlayIntervalId, autoPlayPauseId } = getState();
 
-    if (!autoPlay || lock) return;
-
-    dispatch({ type: 'DEINIT_AUTOPLAY', pause: true });
     clearTimeout(autoPlayPauseId);
-
-    const autoPlayPauseIdTemp = setTimeout(() => {
-        dispatch(startAutoPlay());
-        dispatch({
-            type: 'SET_DATA',
-            autoPlayPauseId: null,
-        });
-    }, [autoPlayPause]);
+    clearTimeout(autoPlayDelayId);
+    clearInterval(autoPlayIntervalId);
 
     dispatch({
         type: 'SET_DATA',
-        autoPlayPauseId: autoPlayPauseIdTemp,
+        autoPlayIntervalId: null,
+        autoPlayDelayId: null,
+        autoPlayPauseId: null,
     });
 };
 
