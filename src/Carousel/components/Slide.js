@@ -18,10 +18,9 @@ const Slide = ({
     showLink,
     override,
 }) => {
-    const SlideWrapper = useMemo(
-        () => slidesWrapperList[slidesWrapper],
-        [slidesWrapper]
-    );
+    const SlideWrapper = useMemo(() => slidesWrapperList[slidesWrapper], [
+        slidesWrapper,
+    ]);
 
     const clearOverride = useMemo(
         () =>
