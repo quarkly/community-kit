@@ -1,51 +1,83 @@
 import { parseTime } from '../../utils';
 import { defaultProps } from '../props';
 
-export const initAutoPlay = ({ getState, dispatch }) => async ({
+export function init({
+    slidesProp,
+    durationProp,
+    functionProp,
     autoPlay,
     autoPlayBehavior,
     autoPlayIntervalProp,
     autoPlayDelayProp,
     autoPlayPauseProp,
-}) => {
-    if (!autoPlay) return;
+}) {
+    return function (dispatch) {
+        const slidesNumb =
+            parseInt(slidesProp, 10) > 0 ? parseInt(slidesProp, 10) : 1;
+        const slidesList = [
+            slidesNumb,
+            ...Array.from({ length: slidesNumb }, (_, i) => i + 1),
+            1,
+        ];
+        const animDuration =
+            parseFloat(durationProp) > 0 ? parseFloat(durationProp) * 1000 : 0;
+        const animFunction = functionProp;
 
-    const autoPlayInterval = parseTime(
-        autoPlayIntervalProp,
-        defaultProps.autoPlayIntervalProp
-    );
-    const autoPlayDelay = parseTime(
-        autoPlayDelayProp,
-        defaultProps.autoPlayDelayProp
-    );
-    const autoPlayPause = parseTime(
-        autoPlayPauseProp,
-        defaultProps.autoPlayPauseProp
-    );
+        dispatch({
+            type: 'SET_DATA',
+            slidesNumb,
+            slidesList,
+            animDuration,
+            animFunction,
+        });
 
-    const startAutoPlayFunc = startAutoPlay({ getState, dispatch });
-    const autoPlayDelayId = startAutoPlayFunc({
-        autoPlayBehavior,
-        autoPlayInterval,
-        autoPlayDelay,
-    });
+        if (!autoPlay) return;
 
-    dispatch({
-        type: 'SET_DATA',
-        autoPlay,
-        autoPlayBehavior,
-        autoPlayInterval,
-        autoPlayDelay,
-        autoPlayPause,
-        autoPlayDelayId,
-    });
+        const autoPlayInterval = parseTime(
+            autoPlayIntervalProp,
+            defaultProps.autoPlayIntervalProp
+        );
+        const autoPlayDelay = parseTime(
+            autoPlayDelayProp,
+            defaultProps.autoPlayDelayProp
+        );
+        const autoPlayPause = parseTime(
+            autoPlayPauseProp,
+            defaultProps.autoPlayPauseProp
+        );
+
+        dispatch(
+            startAutoPlay({
+                autoPlayBehavior,
+                autoPlayInterval,
+                autoPlayDelay,
+            })
+        );
+
+        dispatch({
+            type: 'SET_DATA',
+            autoPlay,
+            autoPlayBehavior,
+            autoPlayInterval,
+            autoPlayDelay,
+            autoPlayPause,
+        });
+    };
+}
+
+export const clickPrev = () => (dispatch) => {
+    dispatch(pauseAutoPlay());
+    dispatch(prevSlide());
 };
 
-const startAutoPlay = ({ getState, dispatch }) => async (props) => {
+export const clickNext = () => (dispatch) => {
+    dispatch(pauseAutoPlay());
+    dispatch(nextSlide());
+};
+
+const startAutoPlay = (props) => (dispatch, getState) => {
     const { autoPlayBehavior, autoPlayInterval, autoPlayDelay } =
         props || getState();
-
-    const changeNextSlide = nextSlide({ getState, dispatch });
 
     const autoPlayDelayIdTemp = setTimeout(() => {
         const autoPlayIntervalIdTemp = setInterval(() => {
@@ -54,7 +86,7 @@ const startAutoPlay = ({ getState, dispatch }) => async (props) => {
                 dispatch({ type: 'DEINIT_AUTOPLAY' });
                 return;
             }
-            changeNextSlide();
+            dispatch(nextSlide());
         }, autoPlayInterval);
 
         dispatch({
@@ -66,19 +98,16 @@ const startAutoPlay = ({ getState, dispatch }) => async (props) => {
     return autoPlayDelayIdTemp;
 };
 
-const pauseAutoPlay = ({ getState, dispatch }) => async () => {
+const pauseAutoPlay = () => (dispatch, getState) => {
     const { autoPlay, autoPlayPause, autoPlayPauseId, lock } = getState();
 
     if (!autoPlay || lock) return;
-
-    const startAutoPlayFunc = startAutoPlay({ getState, dispatch });
 
     dispatch({ type: 'DEINIT_AUTOPLAY', pause: true });
     clearTimeout(autoPlayPauseId);
 
     const autoPlayPauseIdTemp = setTimeout(() => {
-        startAutoPlayFunc();
-
+        dispatch(startAutoPlay());
         dispatch({
             type: 'SET_DATA',
             autoPlayPauseId: null,
@@ -91,67 +120,7 @@ const pauseAutoPlay = ({ getState, dispatch }) => async () => {
     });
 };
 
-
-export const clickPrev = ({ getState, dispatch }) => async () => {
-    pauseAutoPlay({ getState, dispatch })();
-    prevSlide({ getState, dispatch })();
-};
-
-export const clickNext = ({ getState, dispatch }) => async () => {
-    pauseAutoPlay({ getState, dispatch })();
-    nextSlide({ getState, dispatch })();
-};
-
-
-export const touchStart = ({ getState, dispatch }) => async ({
-    // touch,
-    // sliderRef,
-    // slidesRef,
-}) => {
-    // console.log('touchStart', touch, sliderRef, slidesRef);
-
-    // dispatch({
-    //     type: 'SET_DATA',
-    //     touchStart: touch.clientX,
-    // });
-};
-
-export const touchMove = ({ getState, dispatch }) => async ({
-    // touch,
-    // sliderRef,
-    // slidesRef,
-}) => {
-    // console.log('touchMove', touch, sliderRef, slidesRef);
-
-    // const slideWidth = sliderRef.current.offsetWidth;
-    // const { touchStart, position, active } = getState();
-    // let touchWidth = touchStart - touch.clientX;
-
-    // if (touchWidth > slideWidth) {
-    //     touchWidth = slideWidth;
-    // } else if (touchWidth < -slideWidth) {
-    //     touchWidth = -slideWidth;
-    // }
-
-    // console.log( Math.round(position), Math.round() )
-
-    // slidesRef.current.style.transform = `translateX(-${100 * active + 100 * touchWidth / slideWidth}%)`
-    // slidesRef.current.style.transition = 'initial';
-
-    // console.log(touchWidth, slideWidth);
-};
-
-export const touchEnd = ({ getState, dispatch }) => async ({
-    // touch,
-    // sliderRef,
-    // slidesRef,
-}) => {
-    // console.log('touchEnd', touch, sliderRef, slidesRef);
-};
-
-
-
-const prevSlide = ({ getState, dispatch }) => async () => {
+const prevSlide = () => (dispatch, getState) => {
     const {
         slidesNumb,
         animDuration,
@@ -197,7 +166,7 @@ const prevSlide = ({ getState, dispatch }) => async () => {
     }
 };
 
-const nextSlide = ({ getState, dispatch }) => async () => {
+const nextSlide = () => (dispatch, getState) => {
     const {
         slidesNumb,
         animDuration,
@@ -245,3 +214,27 @@ const nextSlide = ({ getState, dispatch }) => async () => {
         });
     }
 };
+
+export function deinit() {
+    return function (dispatch, getState) {
+        const {
+            animTimeoutId,
+            autoPlayIntervalId,
+            autoPlayDelayId,
+            autoPlayPauseId,
+        } = getState();
+
+        clearTimeout(animTimeoutId);
+        clearInterval(autoPlayIntervalId);
+        clearTimeout(autoPlayDelayId);
+        clearTimeout(autoPlayPauseId);
+
+        dispatch({
+            type: 'SET_DATA',
+            animTimeoutId: null,
+            autoPlayIntervalId: null,
+            autoPlayDelayId: null,
+            autoPlayPauseId: null,
+        });
+    };
+}

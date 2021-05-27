@@ -1,55 +1,37 @@
 import React, { useCallback, useRef } from 'react';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
 import { Arrow, Point, Slide } from './components';
+import { useResize, useKeyboard } from './hooks';
+import { overrides } from './props';
+import { clickPrev, clickNext } from './store';
 
-import { useResize, useRootState, useKeyboard } from './hooks';
-import { propInfo, defaultProps, overrides } from './props';
-
-const CarouselComponent = ({
-    slidesProp,
+const Component = ({
     aspectRatio,
     slidesWrapper,
-    durationProp,
-    functionProp,
     showArrows,
     showDots,
     showHead,
     showText,
     showLink,
-    autoPlay,
-    autoPlayBehavior,
-    autoPlayIntervalProp,
-    autoPlayDelayProp,
-    autoPlayPauseProp,
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
     const [sliderRef, width, height] = useResize(aspectRatio);
     const slidesRef = useRef(null);
 
-    const [
-        {
-            slidesNumb,
-            slidesList,
-            animDuration,
-            animFunction,
-            active,
-            position,
-            animate,
-        },
-        dispatch,
-    ] = useRootState({
-        slidesProp,
-        durationProp,
-        functionProp,
-        autoPlay,
-        autoPlayBehavior,
-        autoPlayIntervalProp,
-        autoPlayDelayProp,
-        autoPlayPauseProp,
-    });
+    const {
+        slidesNumb,
+        slidesList,
+        animDuration,
+        animFunction,
+        active,
+        position,
+        animate,
+    } = useSelector((state) => state);
+
+    const dispatch = useDispatch();
 
     const clickNumb = useCallback(
         (newActive) =>
@@ -60,52 +42,64 @@ const CarouselComponent = ({
         [dispatch]
     );
 
-    const clickPrev = useCallback(() => {
-        dispatch({ type: 'CLICK_PREV' });
+    const onClickPrev = useCallback(() => {
+        dispatch(clickPrev());
     }, [dispatch]);
 
-    const clickNext = useCallback(() => {
-        dispatch({ type: 'CLICK_NEXT' });
+    const onClickNext = useCallback(() => {
+        dispatch(clickNext());
     }, [dispatch]);
 
-    const touchStart = useCallback((e) => {
-        dispatch({
-            type: 'TOUCH_START',
-            touch: e.touches[0],
-            sliderRef,
-            slidesRef,
-        });
-    }, [dispatch]);
+    const touchStart = useCallback(
+        e => {
+            dispatch({
+                type: 'TOUCH_START',
+                touch: e.touches[0],
+                sliderRef,
+                slidesRef,
+            });
+        },
+        [dispatch]
+    );
 
-    const touchMove = useCallback((e) => {
-        dispatch({
-            type: 'TOUCH_MOVE',
-            touch: e.touches[0],
-            sliderRef,
-            slidesRef,
-        });
-    }, [dispatch]);
+    const touchMove = useCallback(
+        e => {
+            dispatch({
+                type: 'TOUCH_MOVE',
+                touch: e.touches[0],
+                sliderRef,
+                slidesRef,
+            });
+        },
+        [dispatch]
+    );
 
-    const touchEnd = useCallback((e) => {
-        dispatch({
-            type: 'TOUCH_END',
-            touch: e.touches[0],
-            sliderRef,
-            slidesRef,
-        });
-    }, [dispatch]);
+    const touchEnd = useCallback(
+        e => {
+            dispatch({
+                type: 'TOUCH_END',
+                touch: e.touches[0],
+                sliderRef,
+                slidesRef,
+            });
+        },
+        [dispatch]
+    );
 
-    const touchCancel = useCallback((e) => {
-        dispatch({
-            type: 'TOUCH_END',
-            touch: e.touches[0],
-            slidesRef,
-            width,
-            height,
-        });
-    }, [dispatch]);
+    const touchCancel = useCallback(
+        e => {
+            dispatch({
+                type: 'TOUCH_END',
+                touch: e.touches[0],
+                slidesRef,
+                width,
+                height,
+            });
+        },
+        [dispatch]
+    );
 
-    useKeyboard(sliderRef, clickNext, clickPrev);
+    useKeyboard(sliderRef, onClickNext, onClickPrev);
 
     return (
         <Box
@@ -113,12 +107,10 @@ const CarouselComponent = ({
             position="relative"
             align-self="normal"
             overflow="hidden"
-
             onTouchStart={touchStart}
             onTouchMove={touchMove}
             onTouchEnd={touchEnd}
             onTouchCancel={touchCancel}
-
             {...rest}
         >
             <Box
@@ -149,12 +141,12 @@ const CarouselComponent = ({
                 <Box {...override('Arrows')}>
                     <Arrow
                         type="Prev"
-                        clickFunc={clickPrev}
+                        clickFunc={onClickPrev}
                         override={override}
                     />
                     <Arrow
                         type="Next"
-                        clickFunc={clickNext}
+                        clickFunc={onClickNext}
                         override={override}
                     />
                 </Box>
@@ -176,17 +168,4 @@ const CarouselComponent = ({
     );
 };
 
-Object.assign(CarouselComponent, {
-    title: 'Carousel',
-    description: {
-        en:
-            'Slider with images that can be scrolled by pressing the arrows or dot buttons',
-        ru:
-            'Лента с изображениями, которую можно листать нажатием на стрелки или точки',
-    },
-    propInfo,
-    defaultProps,
-    overrides,
-});
-
-export default CarouselComponent;
+export default Component;
