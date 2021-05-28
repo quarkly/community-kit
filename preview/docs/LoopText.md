@@ -1,47 +1,41 @@
 ## 📖 Detailed overview
 
-Компонент показывает текст, часть которого выглядит как карусель. Можно использовать как заголовок, для привлечения внимания.
-
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-ui-components.netlify.app/looptext/)
+This component allows you to loop text in the header.
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
+Add the component to the page and see how it works in the preview mode.
 
-### Свои надписи
+### Edit slides
 
-Чтобы изменить надписи на свои, выберете компонент и измените значения свойства `Список слайдеров`. Для удаления или добавления, воспользуйтесь соответствующими кнопками «+»‎ или «-».‎
+To replace the default text, select a component and change the values of the prop `Slider list` prop. To add or remove slides, use the "+" and "-" buttons.‎
 
-### Скорость смены надписей
-
-Для изменения скорости анимации, задайте новое значение свойству `Интервал смены слайдов`. Значение задается в миллисекундах.
+Please note that the slides can't be removed by default. So just replace the default text.
 
 ## 🧩 Components and Props
 
-| Props Name                      |   Type   |           Description           | Default |      Example      |
-| ------------------------------- | :------: | :-----------------------------: | :-----: | :---------------: |
-| Интервал смены слайдов          | `number` | Интервал смены слайдеров (в мс) | `1500`  |      `2000`       |
-| Задержка между началом анимации | `number` | Задержка между началом анимации |   `0`   |      `1000`       |
-| Скорость смены слайдера         | `number` |                                 |  `150`  |      `1000`       |
-| Анимация появления и скрытия    |  `bool`  |  Анимация появления и скрытия   | `true`  |      `false`      |
-| Скрыть анимации на границе      |  `bool`  |                                 | `true`  |      `false`      |
-| Запретить перенос текста        |  `bool`  |    Запретить перенос текста     | `true`  |      `false`      |
-| Список слайдеров                | `union`  |    Список названий надписей     |  `[]`   | `[first, secont]` |
+| Prop name                                  |   Type   | Description                                                      | Default |      Example      |
+| :----------------------------------------- | :------: | :--------------------------------------------------------------- | :-----: | :---------------: |
+| Slider list                                | `array`  | Use the "+" and "-" buttons to add and remove slides             |  `[]`   | `[first, second]` |
+| Slideshow intervals                        | `number` | The time interval (in ms) between each slide                     | `3000`  |      `1500`       |
+| Delay before animation starts              | `number` | Delay Delay (in ms) before animation starts                      |   `0`   |      `1000`       |
+| Container change duration                  | `number` | Duration (in ms) of the container width change around each slide |  `150`  |       `50`        |
+| Hide/show animation                        |  `bool`  | Enable or disable the hide/show animation                        | `true`  |      `false`      |
+| Hide animation at the container boundaries |  `bool`  | Hide the animation if it exceeds the container boundaries        | `true`  |      `false`      |
+| Forbid line breaking                       |  `bool`  | The line can't be broken. Used to calculate the width            | `true`  |      `false`      |
 
 ## 🗓 Changelog
 
-- 16/03/2021 (v1.0)
-  - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
 If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

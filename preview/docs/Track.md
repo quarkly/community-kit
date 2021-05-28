@@ -1,45 +1,43 @@
 ## 📖 Detailed overview
 
-Используйте, чтобы указать текстовую дорожку для видео или аудио. Является дочерним элементом компонентов `Video` и `Audio`. Такая дорожка обычно содержит субтитры на разных языках, комментарии, заголовки и др.
-
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-ui-components.netlify.app/video/)
+This component allows you to add a synchronized text track. It's a child component of the `Audio` and `Video` components. The text track usually contains subtitles in different languages, comments, titles, etc.
 
 ## ⚙️ Usage
 
-Добавьте внутрь компонента `Video` или `Audio`.
+1.  Add this component to the `Audio` or `Video` components
+2.  Specify the `File link` on the Props panel
+3.  See how it works in the preview mode
 
-### Default
+### File extension
 
-Путь к дорожке задается в поле `Src`. Текстовая дорожка должна иметь формат (.vtt).
+The file with the text track must have the `.vtt` extension.
 
-### Default
+### Default track
 
-Параметр `Default` указывает, что данная дорожка предпочтительна и должна быть выбрана по умолчанию. Только одна дорожка может иметь default.
+The `Set default` prop indicates that the current track is preferred. This property can be applied to only one track.
 
 ## 🧩 Components and Props
 
-| Props Name |   Type   |   Default   | Description                                                         |
-| :--------- | :------: | :---------: | :------------------------------------------------------------------ |
-| Src        | `string` |     `-`     | Путь к файлу с текстовой дорожкой                                   |
-| Default    |  `bool`  |   `false`   | Дорожка по умолчанию                                                |
-| SrcLang    | `string` |    `en`     | Язык дорожки                                                        |
-| Kind       |  `enum`  | `subtitles` | Тип дорожки (subtitles, captions, descriptions, chapters, metadata) |
-| Label      | `string` |   `none`    | Отображаемое название дорожки                                       |
+| Prop name       |   Type   |   Default   |
+| :-------------- | :------: | :---------: |
+| File link       | `string` |     `-`     |
+| Set default     |  `bool`  |   `false`   |
+| Track language  | `string` |    `en`     |
+| Track purpose   |  `enum`  | `subtitles` |
+| Displayed title | `string` |   `none`    |
 
 ## 🗓 Changelog
 
-    - 09/04/2021 (v1.0)
-    - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

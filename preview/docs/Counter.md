@@ -1,46 +1,44 @@
 ## 📖 Detailed overview
 
-Компонент представляет из себя счетчик, который может увеличиваться или уменьшаться до определенного значения.
-
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-ui-components.netlify.app/counter/)
+This component is a counter that increases or decreases to a certain value.
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
+Add the component to the page and see how it works in the preview mode.
 
-### Начальное и конечное значение
+### Start and end values
 
-Значения в параметрах `Starting Number` и `Ending Number` можно задать отрицательными. Главное, чтобы начальное значение было меньше конечного. В случае, если нужен обратный отсчет, активируйте параметр `Revers`, тогда начальное значение станет конечным, а конечное начальным.
+The values in `Start value` and `End value` can be set and can be either positive or negative. It's important that the start value is smaller than the end value. If a countdown is required, select `Decrease` in the `Count direction` property, then the start value becomes the end value and the end value becomes the start value.
 
-### Запуск счетчика
+### Counter start
 
-Счетчик запустится атоматически, как только попадет в поле видимости окна.
+The counter will start automatically when it becomes visible in the window.
 
 ## 🧩 Components and Props
 
-| Props Name         |   Type   |        Description         | Default | Example |
-| ------------------ | :------: | :------------------------: | :-----: | :-----: |
-| Starting Number    | `number` |     Начальное значение     |   `0`   |  `-43`  |
-| Ending Number      | `number` |     Конечное значение      |  `100`  |  `300`  |
-| Revers             |  `bool`  |   Возрастание / Убывание   | `false` | `true`  |
-| Duration Animation | `number` | Продолжительность анимации | `2000`  | `3000`  |
-| Number Suffix      | `string` |     Символ после числа     | `none`  |   `%`   |
-| Number Prefix      |  `enum`  |    Символ перед числом     | `none`  |   `$`   |
+| Prop name                 |   Type   |    Default     |         Example          |
+| :------------------------ | :------: | :------------: | :----------------------: |
+| Count start               |  `enum`  | `On page load` | `On screen intersection` |
+| Start value               | `number` |      `0`       |          `100`           |
+| End value                 | `number` |     `100`      |          `200`           |
+| Count direction           |  `enum`  |    `Normal`    |        `Reverse`         |
+| Count duration            | `string` |      `2s`      |          `10s`           |
+| Delay before count starts | `string` |      `0s`      |           `1s`           |
+| Text after value          | `string` |      `-`       |           `%`            |
+| Text before value         | `string` |      `-`       |           `$`            |
 
 ## 🗓 Changelog
 
-- 16/03/2021 (v1.0)
-  - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

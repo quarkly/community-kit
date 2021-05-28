@@ -2,8 +2,9 @@ import React, { useState, useCallback, useRef } from 'react';
 import YouTube from 'react-youtube';
 import { useOverrides } from '@quarkly/components';
 import { Box, Icon } from '@quarkly/widgets';
+import { FaPlay } from 'react-icons/fa';
 
-import ComponentNotice from './ComponentNotice';
+import ComponentNotice from '../ComponentNotice';
 
 const duration = 300;
 
@@ -74,7 +75,7 @@ const overrides = {
         props: {
             size: '28px',
             category: 'fa',
-            icon: 'FaPlay',
+            defaultIcon: FaPlay,
             color: '#FFFFFF',
 
             margin: '0px -6px 0px 0px',
@@ -97,6 +98,7 @@ const YouTubeComponent = ({
     fs,
     loop,
     modestbranding,
+    showOverlay,
     ...props
 }) => {
     const [isReady, setReady] = useState(false);
@@ -138,11 +140,12 @@ const YouTubeComponent = ({
             padding-top={videoId ? '56.25%' : '0'}
             min-height={videoId ? '0' : undefined}
             height={videoId ? '0' : undefined}
+            position="relative"
             {...rest}
         >
             <Box
                 {...override('YouTube Content')}
-                display={!videoId || !isReady ? undefined : 'none'}
+                display={!videoId || !isReady ? 'none' : undefined}
             >
                 {videoId && (
                     <YouTube
@@ -168,22 +171,24 @@ const YouTubeComponent = ({
                     />
                 )}
             </Box>
-            <Box
-                {...override(
-                    'YouTube Button Overlay',
-                    `YouTube Button Overlay ${
-                        videoId && !isPlay ? ':pause' : ':play'
-                    }`
-                )}
-                onClick={clickButton}
-            >
-                <Box {...override('YouTube Button')}>
-                    <Icon {...override('YouTube Button Icon')} />
+            {showOverlay && (
+                <Box
+                    {...override(
+                        'YouTube Button Overlay',
+                        `YouTube Button Overlay ${
+                            videoId && !isPlay ? ':pause' : ':play'
+                        }`
+                    )}
+                    onClick={clickButton}
+                >
+                    <Box {...override('YouTube Button')}>
+                        <Icon {...override('YouTube Button Icon')} />
+                    </Box>
                 </Box>
-            </Box>
+            )}
 
             {(!url || !videoId) && (
-                <ComponentNotice message="Добавьте URL видео на панели Props" />
+                <ComponentNotice message="Add your video link in the Props panel" />
             )}
         </Box>
     );
@@ -191,10 +196,20 @@ const YouTubeComponent = ({
 
 const propInfo = {
     url: {
+        title: {
+            en: 'Link to the video on YouTube',
+        },
         control: 'input',
+        type: 'text',
         weight: 1,
+        description: {
+            en: '',
+        },
     },
     autoplay: {
+        title: {
+            en: 'autoplay',
+        },
         control: 'checkbox',
         description: {
             en:
@@ -202,6 +217,9 @@ const propInfo = {
         },
     },
     controls: {
+        title: {
+            en: 'controls',
+        },
         control: 'checkbox',
         description: {
             en:
@@ -209,6 +227,9 @@ const propInfo = {
         },
     },
     disablekb: {
+        title: {
+            en: 'disablekb',
+        },
         control: 'checkbox',
         description: {
             en:
@@ -216,12 +237,18 @@ const propInfo = {
         },
     },
     fs: {
+        title: {
+            en: 'fs',
+        },
         control: 'checkbox',
         description: {
             en: 'fs - specifies whether the player shows fullscreen button',
         },
     },
     loop: {
+        title: {
+            en: 'loop',
+        },
         control: 'checkbox',
         description: {
             en:
@@ -229,10 +256,22 @@ const propInfo = {
         },
     },
     modestbranding: {
+        title: {
+            en: 'modestbranding',
+        },
         control: 'checkbox',
         description: {
             en:
                 'modestbranding - This parameter lets you use a YouTube player that does not show a YouTube logo',
+        },
+    },
+    showOverlay: {
+        title: {
+            en: 'showOverlay',
+        },
+        control: 'checkbox',
+        description: {
+            en: 'showOverlay - specifies whether the player shows overlay',
         },
     },
 };
@@ -245,10 +284,15 @@ const defaultProps = {
     fs: true,
     loop: false,
     modestbranding: false,
+    showOverlay: true,
 };
 
 Object.assign(YouTubeComponent, {
     title: 'YouTube Player',
+    description: {
+        en: 'This component plays videos from Youtube',
+        ru: 'Компонент, для воспроизведения видео из YouTube',
+    },
     propInfo,
     defaultProps,
     overrides,

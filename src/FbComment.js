@@ -1,13 +1,7 @@
 import React from 'react';
-import atomize from '@quarkly/atomize';
 import { Box } from '@quarkly/widgets';
 import { FacebookProvider, Comments } from 'react-facebook';
 import ComponentNotice from './ComponentNotice';
-
-const languageConverter = {
-    English: 'en_US',
-    Русский: 'ru_RU',
-};
 
 const FacebookComments = ({ appId, language, href, ...rest }) => {
     return (
@@ -15,56 +9,72 @@ const FacebookComments = ({ appId, language, href, ...rest }) => {
             {appId && href ? (
                 <FacebookProvider
                     appId={appId}
-                    key={appId + languageConverter[language]}
-                    language={languageConverter[language]}
+                    key={appId + language}
+                    language={language}
                 >
                     <Comments href={href} />
                 </FacebookProvider>
             ) : (
-                <ComponentNotice message="Add your Facebook App ID and href in the props panel." />
+                <ComponentNotice message="Add your Facebook App ID and 'Link to coments' in the Props panel" />
             )}
         </Box>
     );
 };
 
-export default atomize(FacebookComments)({
-    name: 'FacebookComments',
-    effects: {
-        hover: ':hover',
+const propInfo = {
+    appId: {
+        title: {
+            en: 'Facebook app ID',
+            ru: 'ID приложения Facebook',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
     },
-    normalize: true,
-    mixins: true,
+    href: {
+        title: {
+            en: 'Link to comments',
+            ru: 'Ссылка на комментарии',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
+    },
+    language: {
+        title: {
+            en: 'The language of the widget',
+            ru: 'Язык загружаемого виджета',
+        },
+        control: 'select',
+        variants: [
+            {
+                title: 'English',
+                value: 'en_US',
+            },
+            {
+                title: 'Русский',
+                value: 'ru_RU',
+            },
+        ],
+        category: 'Main',
+        weight: 1,
+    },
+};
+
+const defaultProps = {
+    language: 'en_US',
+};
+
+Object.assign(FacebookComments, {
+    title: 'Facebook Comments',
     description: {
-        // past here description for your component
-        en: 'FacebookComments — my awesome component',
+        en: 'This component allows you to add a comment form for Facebook',
+        ru: 'Компонент для добавления формы комментариев Facebook',
     },
-    propInfo: {
-        appId: {
-            title: 'Facebook App ID',
-            description: {
-                en:
-                    'ID of Facebook App. You can create your app on this url: developers.facebook.com/apps',
-            },
-            control: 'input',
-            category: 'System',
-            weight: 1,
-        },
-        href: {
-            title: 'href',
-            description: {
-                en: 'Comments link',
-            },
-            category: 'System',
-            control: 'input',
-        },
-        language: {
-            title: 'Language',
-            description: {
-                en: 'Language of the Like Button. Page update required!',
-            },
-            category: 'System',
-            control: 'select',
-            variants: ['English', 'Русский'],
-        },
-    },
+    propInfo,
+    defaultProps,
 });
+
+export default FacebookComments;

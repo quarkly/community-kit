@@ -1,32 +1,28 @@
 ## 📖 Detailed overview
 
-Компонент состоит из кнопки, которая расположена в правом нижнем углу экрана. При нажатии на нее, страница автоматически прокрутится в самое начало.
-
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-ui-components.netlify.app/backtotop/)
+This component contains a button placed in the bottom right corner of the screen. When you click it, the page will automatically scroll to the top.
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу. Отмечу, что при добавлении компонент визуально не отобразится. Чтобы проверить работоспособность компонента в конструкторе, задайте сверху в параметрах холста ограничение по высоте. Также, вы можете опубликовать сайт и проверить там.
+Add the component to the page. Please note that when you add the component, it won't be visible. To check if the component works in the builder, set a height limit at the top in the canvas parameters. You can also publish the site and check the component there.
 
-### Принудительный показ кнопки
+### Always show button
 
-Свойство `Show Button Always` отвечает за принудительный показ кнопки всегда. Свойство может понадобится при редактировании кнопки.
+The `Show Button Always` prop makes a button always visible on scroll. You may need this property for editing the button.
 
 ## 🧩 Components and Props
 
-| Props Name              |   Type    |                           Description                            |     Default     | Example  |
-| ----------------------- | :-------: | :--------------------------------------------------------------: | :-------------: | :------: |
-| Animation Duration      | `number ` |                Продолжительность анимации (в мс)                 |     `1000`      | `15000`  |
-| Animation Easing Preset |  `enum`   |               Автоматическое воспроизведение аудио               | `easeInOutQuad` | `linear` |
-| Show Button After       | `number`  | Показать кнопку, после прокрутки на заданное количество пикселей |      `100`      |  `200`   |
-| Show Button Always      |  `bool`   |                     Показывать кнопку всегда                     |     `false`     |  `true`  |
+| Prop Name               |   Type   |                                    Description                                     |     Default     | Example  |
+| ----------------------- | :------: | :--------------------------------------------------------------------------------: | :-------------: | :------: |
+| Animation duration      | `number` |                             Animation duration (in ms)                             |     `1000`      | `15000`  |
+| Animation easing preset |  `enum`  |                                Auto audio playback                                 | `easeInOutQuad` | `linear` |
+| Show button after       | `number` | Makes a button visible only after scrolling down by the specified number of pixels |      `100`      |  `200`   |
+| Always show button      |  `bool`  |                      Makes a button always visible on scroll                       |     `false`     |  `true`  |
 
 ## 🗓 Changelog
 
-- 16/03/2021 (v1.0)
-  - Первая версия
+-   16/03/2021 (v1.0)
+    -   First version
 
 ## 📮 Feedback
 
@@ -34,7 +30,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

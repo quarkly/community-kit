@@ -2,6 +2,7 @@ import React from 'react';
 import atomize from '@quarkly/atomize';
 import styled, { css, keyframes } from 'styled-components';
 import { Icon } from '@quarkly/widgets';
+import { AiOutlineLoading } from 'react-icons/ai';
 
 const rotate = keyframes`
   0% {
@@ -26,8 +27,8 @@ const Animate = styled(Icon)`
 const Rotate = ({ isLoading = false, children, ...props }) => (
     <Animate
         {...props}
-        icon="AiOutlineLoading"
         category="ai"
+        defaultIcon={AiOutlineLoading}
         size="30px"
         display={isLoading ? 'block' : 'none'}
         top="calc(50% - 15px)"

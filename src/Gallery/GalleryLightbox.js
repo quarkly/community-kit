@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Icon, Image } from '@quarkly/widgets';
 
+import { IoMdClose } from 'react-icons/io';
 import { enableScroll, disableScroll } from './GalleryScroll';
 import GalleryLoader from './GalleryLoader';
 
@@ -61,7 +62,7 @@ const overrides = {
             right: '20px',
             cursor: 'pointer',
             category: 'io',
-            icon: 'IoMdClose',
+            defaultIcon: IoMdClose,
             'z-index': '124',
         },
     },

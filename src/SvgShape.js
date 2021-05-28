@@ -25,7 +25,7 @@ const useSize = (target) => {
 const SVG = atomize.svg();
 
 const shapes = {
-    Square: forwardRef(function Square({ offset, size, ...props }, ref) {
+    square: forwardRef(function square({ offset, size, ...props }, ref) {
         const side = Math.min(size.width, size.height);
 
         return (
@@ -39,7 +39,7 @@ const shapes = {
             />
         );
     }),
-    Line: forwardRef(function Line({ offset, size, ...props }, ref) {
+    line: forwardRef(function line({ offset, size, ...props }, ref) {
         if (props.strokeLinecap === 'butt') {
             offset = 0;
         }
@@ -54,7 +54,7 @@ const shapes = {
             />
         );
     }),
-    Rectangle: forwardRef(function Rectangle({ offset, size, ...props }, ref) {
+    rectangle: forwardRef(function rectangle({ offset, size, ...props }, ref) {
         return (
             <rect
                 ref={ref}
@@ -66,7 +66,7 @@ const shapes = {
             />
         );
     }),
-    Ellipse: forwardRef(function Ellipse({ offset, size, ...props }, ref) {
+    ellipse: forwardRef(function ellipse({ offset, size, ...props }, ref) {
         return (
             <ellipse
                 ref={ref}
@@ -78,7 +78,7 @@ const shapes = {
             />
         );
     }),
-    Circle: forwardRef(function Circle({ offset, size, ...props }, ref) {
+    circle: forwardRef(function circle({ offset, size, ...props }, ref) {
         const diameter = Math.min(size.width, size.height);
         return (
             <circle
@@ -121,7 +121,7 @@ const SVGShape = ({
     const size = useSize(mainRef);
     const [offset, setOffset] = useState(0);
 
-    const Shape = shapes[type];
+    const Shape = shapes[type.toLowerCase()];
 
     const shapeProps = {
         stroke,
@@ -171,81 +171,123 @@ const SVGShape = ({
 
 const propInfo = {
     type: {
-        category: 'Main',
-        title: 'Type',
-        description: {
-            en: 'Variant of svg shape.',
+        title: {
+            en: 'Shape type',
+            ru: 'Тип формы',
         },
         control: 'select',
-        variants: ['Line', 'Ellipse', 'Circle', 'Rectangle', 'Square'],
+        variants: [
+            {
+                title: {
+                    en: 'Line',
+                    ru: 'Линия',
+                },
+                value: 'line',
+            },
+            {
+                title: {
+                    en: 'Ellipse',
+                    ru: 'Овал',
+                },
+                value: 'ellipse',
+            },
+            {
+                title: {
+                    en: 'Circle',
+                    ru: 'Круг',
+                },
+                value: 'circle',
+            },
+            {
+                title: {
+                    en: 'Rectangle',
+                    ru: 'Прямоугольник',
+                },
+                value: 'rectangle',
+            },
+            {
+                title: {
+                    en: 'Square',
+                    ru: 'Квадрат',
+                },
+                value: 'square',
+            },
+        ],
+        category: 'Main',
+        weight: 1,
     },
     stroke: {
-        category: 'SVG Styles',
-        title: 'Stroke',
-        description: {
-            en:
-                'The stroke property defines the color of a line, text or outline of an element.',
+        title: {
+            en: 'Stroke color',
+            ru: 'Цвет обводки',
         },
         control: 'color',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     strokeWidth: {
-        category: 'SVG Styles',
-        title: 'Stroke width',
-        description: {
-            en:
-                'The stroke-width property defines the thickness of a line, text or outline of an element.',
+        title: {
+            en: 'Stroke thickness',
+            ru: 'Толщина обводки',
         },
         control: 'input',
+        type: 'text',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     strokeOpacity: {
-        category: 'SVG Styles',
-        title: 'Stroke opacity',
-        description: {
-            en:
-                'The stroke-opacity attribute is a presentation attribute defining the opacity of the paint color.',
+        title: {
+            en: 'Stroke opacity',
+            ru: 'Прозрачность обводки',
         },
         control: 'input',
+        type: 'text',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     strokeLinecap: {
-        category: 'SVG Styles',
-        title: 'Stroke Linecap',
-        description: {
-            en:
-                'The stroke-linecap property defines different types of endings to an open path.',
+        title: {
+            en: 'Stroke shape',
+            ru: 'Форма обводки',
         },
         control: 'select',
         variants: ['butt', 'round', 'square'],
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     strokeDasharray: {
-        category: 'SVG Styles',
-        title: 'Stroke Dasharrray',
-        description: {
-            en: 'The stroke-dasharray property is used to create dashed lines.',
+        title: {
+            en: 'Dashed stroke',
+            ru: 'Пунктирная обводка',
         },
         control: 'input',
+        type: 'text',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     fill: {
-        category: 'SVG Styles',
-        title: 'Fill',
-        description: {
-            en:
-                'The fill attribute is a presentation attribute that defines the color used to paint the element',
+        title: {
+            en: 'Shape color',
+            ru: 'Цвет фигуры',
         },
         control: 'color',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
     fillOpacity: {
-        category: 'SVG Styles',
-        title: 'Fill Opacity',
-        description: {
-            en:
-                'The fill-opacity attribute is a presentation attribute defining the opacity of the paint.',
+        title: {
+            en: 'Shape opacity',
+            ru: 'Прозрачность фигуры',
         },
         control: 'input',
+        type: 'text',
+        category: 'SVG Styles',
+        weight: 0.5,
     },
 };
 
 const defaultProps = {
-    type: 'Circle',
+    type: 'circle',
     stroke: '#000000',
     strokeWidth: '8',
     strokeOpacity: '1',
@@ -255,17 +297,14 @@ const defaultProps = {
     fillOpacity: '1',
 };
 
-export default atomize(SVGShape)(
-    {
-        name: 'SVGShape',
-        effects: {
-            hover: ':hover',
-        },
-        description: {
-            en:
-                'This component displays a SVG shape (square, rectangle, circle, etc.)',
-        },
-        propInfo,
+Object.assign(SVGShape, {
+    title: 'SVG Shape',
+    description: {
+        en: 'This component helps you create simple SVG shapes',
+        ru: 'Компонент для создания простых SVG фигур',
     },
-    defaultProps
-);
+    propInfo,
+    defaultProps,
+});
+
+export default SVGShape;

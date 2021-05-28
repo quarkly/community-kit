@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box, Text, Icon } from '@quarkly/widgets';
+import { BsDot } from 'react-icons/bs';
 
 const overrides = {
     Line: {
@@ -26,9 +27,9 @@ const overrides = {
     Point: {
         kind: 'Icon',
         props: {
-            size: '40px',
             category: 'bs',
-            icon: 'BsDot',
+            defaultIcon: BsDot,
+            size: '40px',
 
             top: '-8px',
             width: '40px',
@@ -240,7 +241,17 @@ const Timeline = ({
     );
 
     return (
-        <Box {...rest}>
+        <Box
+            width="100%"
+            max-width="100%"
+            flex-direction="column"
+            box-sizing="border-box"
+            position="relative"
+            display="flex"
+            overflow-x="hidden"
+            overflow-y="visible"
+            {...rest}
+        >
             <TimelineLine
                 alignDesktop={alignDesktop}
                 alignMobile={alignMobile}
@@ -265,40 +276,46 @@ const Timeline = ({
 
 const propInfo = {
     itemsProp: {
-        title: 'Количество карточек',
+        title: {
+            en: 'Number of elements',
+            ru: 'Количество элементов',
+        },
         control: 'input',
         type: 'number',
         category: 'Main',
         weight: 1,
     },
     alignDesktop: {
-        title: 'Выравнивание карточек на десктопе',
+        title: {
+            en: 'Alignment on desktop',
+            ru: 'Выравнивание на десктопе',
+        },
         control: 'select',
         variants: [
             {
                 title: {
-                    en: 'Начиная с левой стороны',
+                    en: 'From left (staggered)',
                     ru: 'Начиная с левой стороны',
                 },
                 value: 'fromLeft',
             },
             {
                 title: {
-                    en: 'Начиная с правой стороны',
+                    en: 'From right (staggered)',
                     ru: 'Начиная с правой стороны',
                 },
                 value: 'fromRight',
             },
             {
                 title: {
-                    en: 'По левой стороне',
+                    en: 'Left',
                     ru: 'По левой стороне',
                 },
                 value: 'toLeft',
             },
             {
                 title: {
-                    en: 'По правой стороне',
+                    en: 'Right',
                     ru: 'По правой стороне',
                 },
                 value: 'toRight',
@@ -308,19 +325,22 @@ const propInfo = {
         weight: 1,
     },
     alignMobile: {
-        title: 'Выравнивание карточек на мобильных',
+        title: {
+            en: 'Alignment on mobile',
+            ru: 'Выравнивание на мобильных',
+        },
         control: 'select',
         variants: [
             {
                 title: {
-                    en: 'По левой стороне',
+                    en: 'Left',
                     ru: 'По левой стороне',
                 },
                 value: 'toLeft',
             },
             {
                 title: {
-                    en: 'По правой стороне',
+                    en: 'Right',
                     ru: 'По правой стороне',
                 },
                 value: 'toRight',
@@ -330,7 +350,10 @@ const propInfo = {
         weight: 1,
     },
     breakpoint: {
-        title: 'Мобильный вид начинается с breakpoint',
+        title: {
+            en: 'Mobile view start with breakpoint',
+            ru: 'Мобильный вид начинается с breakpoint',
+        },
         control: 'input',
         variants: ['sm', 'md', 'lg'],
         type: 'text',
@@ -344,19 +367,16 @@ const defaultProps = {
     alignDesktop: 'fromLeft',
     alignMobile: 'toLeft',
     breakpoint: 'sm',
-
-    width: '100%',
-    'max-width': '100%',
-    'flex-direction': 'column',
-    'box-sizing': 'border-box',
-    position: 'relative',
-    display: 'flex',
-    'overflow-x': 'hidden',
-    'overflow-y': 'visible',
 };
 
 export default Object.assign(Timeline, {
     title: 'Timeline',
+    description: {
+        en:
+            'Timeline is one of the best ways of showig an action sequence in a compact and understandable way',
+        ru:
+            'Таймлайн — это один из лучших способов отображения хронологии в компактном и понятном виде',
+    },
     overrides,
     propInfo,
     defaultProps,

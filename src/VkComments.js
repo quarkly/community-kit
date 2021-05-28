@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import atomize from '@quarkly/atomize';
+import useDeepCompareEffect from 'use-deep-compare-effect';
 import VK, { Comments } from 'react-vk';
 import { Box } from '@quarkly/widgets';
-import useDeepCompareEffect from 'use-deep-compare-effect';
+
+import ComponentNotice from './ComponentNotice';
 
 const useDebounce = (value, timeout, deep) => {
     const [state, setState] = useState(value);
@@ -31,7 +32,7 @@ const VKComments = ({
     width,
     height,
     limit,
-    norealtime,
+    realtime,
     autoPublish,
     pageUrl,
     attachGraffiti,
@@ -60,8 +61,8 @@ const VKComments = ({
             height,
             limit,
             attach,
-            autoPublish: +autoPublish,
-            norealtime: +norealtime,
+            autoPublish: autoPublish ? 1 : 0,
+            norealtime: realtime ? 0 : 1,
             pageUrl,
         },
         1000,
@@ -84,7 +85,7 @@ const VKComments = ({
                     />
                 </VK>
             ) : (
-                'Добавьте ваш VK App ID на панели props'
+                <ComponentNotice message="Add your VK app ID in the Props panel" />
             )}
         </Box>
     );
@@ -92,95 +93,107 @@ const VKComments = ({
 
 const propInfo = {
     apiId: {
-        title: 'VK App ID',
-        control: 'input',
-        category: 'System',
-        description: {
-            en:
-                'ID of VK App. You can create your app on this url: vk.com/apps',
+        title: {
+            en: 'VK app ID',
+            ru: 'ID приложения VK',
         },
+        control: 'input',
+        type: 'text',
+        category: ' Main',
+        weight: 1,
     },
     pageId: {
-        title: 'Page ID',
-        control: 'input',
-        category: 'System',
-        description: {
-            en:
-                'ID of the page on your site. A random string of up to 128 characters or a number. Used if one article has several URLs',
+        title: {
+            en: 'VK page ID',
+            ru: 'ID страницы VK',
         },
+        control: 'input',
+        type: 'text',
+        category: ' Main',
+        weight: 1,
     },
     limit: {
-        title: 'Limit',
-        control: 'input',
-        category: 'Widget',
-        description: {
-            en: 'Max number of comments on the page',
+        title: {
+            en: 'Max. comments',
+            ru: 'Макс. комментариев',
         },
+        control: 'input',
+        type: 'text',
+        category: 'Advanced',
+        weight: 0.5,
     },
     autoPublish: {
-        title: 'Auto Publish',
-        control: 'checkbox',
-        category: 'Widget',
-        description: {
-            en: "Automatically publish the comment to the user's VK page",
+        title: {
+            en: 'Auto publishing',
+            ru: 'Автопубликация',
         },
+        control: 'checkbox',
+        category: 'Advanced',
+        weight: 0.5,
     },
-    norealtime: {
-        title: 'No realtime',
-        control: 'checkbox',
-        category: 'Widget',
-        description: {
-            en: 'Disables realtime updates for the comments.',
+    realtime: {
+        title: {
+            en: 'Update in real time',
+            ru: 'Обновлять в реальном времени',
         },
+        control: 'checkbox',
+        category: 'Advanced',
+        weight: 0.5,
     },
     pageUrl: {
-        title: 'Page URL',
-        control: 'input',
-        category: 'Widget',
-        description: {
-            en:
-                "URL of the page, containing the widget. Comments that are automatically posted to the user's VK page link to this URL, if autoPublish is enabled.",
+        title: {
+            en: 'Link to the page with the widget',
+            ru: 'Ссылка на страницу с виджетом',
         },
+        control: 'input',
+        type: 'text',
+        category: 'Advanced',
+        weight: 0.5,
     },
     attachGraffiti: {
-        title: 'Graffiti',
+        title: {
+            en: 'Add graffiti',
+            ru: 'Добавлять граффити',
+        },
         control: 'checkbox',
         category: 'Attach',
-        description: {
-            en: 'User can add graffiti to comment',
-        },
+        weight: 0.5,
     },
     attachPhoto: {
-        title: 'Photo',
+        title: {
+            en: 'Add photo',
+            ru: 'Добавлять фотографии',
+        },
         control: 'checkbox',
         category: 'Attach',
-        description: {
-            en: 'User can add photo to comment',
-        },
+        weight: 0.5,
     },
     attachAudio: {
-        title: 'Audio',
+        title: {
+            en: 'Add audio',
+            ru: 'Добавлять аудио',
+        },
         control: 'checkbox',
         category: 'Attach',
-        description: {
-            en: 'User can add audio to comment',
-        },
+        weight: 0.5,
     },
     attachVideo: {
-        title: 'Video',
+        title: {
+            en: 'Add video',
+            ru: 'Добавлять видео',
+        },
         control: 'checkbox',
         category: 'Attach',
-        description: {
-            en: 'User can add video to comment',
-        },
+        weight: 0.5,
     },
     attachLink: {
-        title: 'Link',
+        title: {
+            en: 'Add link',
+            ru: 'Добавлять ссылки',
+        },
         control: 'checkbox',
         category: 'Attach',
-        description: {
-            en: 'User can add graffiti to comment',
-        },
+        weight: 0.5,
     },
 };
 
@@ -190,7 +203,7 @@ const defaultProps = {
 
     limit: 5,
     autoPublish: false,
-    norealtime: false,
+    realtime: true,
     pageUrl: '',
 
     attachGraffiti: true,
@@ -200,13 +213,14 @@ const defaultProps = {
     attachLink: true,
 };
 
-export default atomize(VKComments)(
-    {
-        description: {
-            en:
-                'This enables VK users to comment on your materials without having to register on your site.',
-        },
-        propInfo,
+Object.assign(VKComments, {
+    title: 'VK Comments',
+    description: {
+        en: 'This component shows a form with VK community comments',
+        ru: 'Компонент показывает форму с комментариями сообщества VK',
     },
-    defaultProps
-);
+    propInfo,
+    defaultProps,
+});
+
+export default VKComments;

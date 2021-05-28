@@ -1,45 +1,38 @@
 ## 📖 Detailed overview
 
-Компонент представляет собой простую таблицу. Его можно использовать, например, для размещения цен на услуги или расписание.
-
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-ui-components.netlify.app/table/)
+This component is a simple table with text cells.
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и вносите данные в таблицу.
+Add the content to the page and enter data to the table.
 
-### Описание таблицы
+### Table description
 
-Значение свойства `Short Description` визуально не отображается. Оно используются поисковыми системами или речевыми браузерами.
+The `Short Description` prop allows you to add a short description of the table or specify its purpose. It's not displayed anywhere in the browser but can be used by search engines or screen readers.
 
 ## 🧩 Components and Props
 
-| Props Name        |   Type   | Default | Description        |
-| :---------------- | :------: | :-----: | :----------------- |
-| Show header       |  `bool`  | `false` | Показать Header    |
-| Show footer       |  `bool`  | `false` | Показать Footer    |
-| Short Description | `string` | `none`  | Описание таблицы   |
-| Cols              | `number` |   `8`   | Количество колонок |
-| Rows              | `number` |   `4`   | Количество строк   |
+| Prop name         |   Type    | Default |
+| :---------------- | :-------: | :-----: |
+| Number of columns | `number`  |   `8`   |
+| Number of rows    | `number`  |   `4`   |
+| Display header    | `boolean` | `false` |
+| Display footer    | `boolean` | `false` |
+| Short description | `string`  |   `-`   |
 
 ## 🗓 Changelog
 
-    - 09/04/2021 (v1.0)
-    - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
 If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
-[Our Twitter](https://twitter.com/quarklyapp)
-
-[dev@quarkly.io](mailto:dev@quarkly.io)
 [Our Twitter](https://twitter.com/quarklyapp)
 
 [dev@quarkly.io](mailto:dev@quarkly.io)

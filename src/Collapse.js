@@ -149,7 +149,12 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
     }, [children.length]);
 
     return (
-        <Box {...rest}>
+        <Box
+            padding="8px"
+            border="1px solid --color-lightD2"
+            border-radius="4px"
+            {...rest}
+        >
             <Button
                 {...override('Button')}
                 onPointerDown={toggleOpen}
@@ -166,7 +171,9 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
                 <Box {...override('Content')} ref={contentRef}>
                     {children}
                 </Box>
-                {isEmpty && <ComponentNotice message="Drag component here" />}
+                {isEmpty && (
+                    <ComponentNotice message="Drag any component here" />
+                )}
             </Box>
         </Box>
     );
@@ -174,7 +181,10 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
 
 const propInfo = {
     minDuration: {
-        title: 'Min animation duration (in seconds)',
+        title: {
+            en: 'Minimum animation duration',
+            ru: 'Минимальная длительность анимации',
+        },
         control: 'input',
         variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
         type: 'text',
@@ -182,7 +192,10 @@ const propInfo = {
         weight: 1,
     },
     maxDuration: {
-        title: 'Max animation duration (in seconds)',
+        title: {
+            en: 'Maximum animation duration',
+            ru: 'Максимальная длительность анимации',
+        },
         control: 'input',
         variants: ['1s', '1.5s', '2s', '2.5s', '3s', '4s', '5s'],
         type: 'text',
@@ -190,7 +203,10 @@ const propInfo = {
         weight: 1,
     },
     animFunction: {
-        title: 'Animation function',
+        title: {
+            en: 'Smooth animation',
+            ru: 'Функция сглаживания анимации',
+        },
         control: 'input',
         variants: [
             'linear',
@@ -211,16 +227,14 @@ const defaultProps = {
     minDuration: '0.5s',
     maxDuration: '1s',
     animFunction: 'linear',
-
-    padding: '8px',
-    border: '1px solid --color-lightD2',
-    'border-radius': '4px',
 };
 
 Object.assign(Collapse, {
     title: 'Collapse',
     description: {
-        en: 'Collapse component',
+        en: 'This component allows you to collapse the content smoothly',
+        ru:
+            'Компонент для плавного переключания видимости содержимого с изменением высоты',
     },
     overrides,
     propInfo,

@@ -168,7 +168,7 @@ const TimerComponent = ({
     }, [toDate, toTime]);
 
     return (
-        <Box {...rest}>
+        <Box width="100%" display="flex" flex-wrap="wrap" {...rest}>
             {!isAlways && !isComplete ? (
                 showList.map(
                     (item) =>
@@ -192,7 +192,7 @@ const TimerComponent = ({
                 <Text {...override('Text')} />
             )}
             {!showList.find((item) => item.show) && (
-                <ComponentNotice message="Вы скрыли все выводимые значения таймера!" />
+                <ComponentNotice message="You hid all the output values of the timer!" />
             )}
         </Box>
     );
@@ -200,73 +200,91 @@ const TimerComponent = ({
 
 const propInfo = {
     toDate: {
-        title: 'До даты',
+        title: {
+            en: 'End date',
+            ru: 'Дата окончания',
+        },
         description: {
-            ru: 'Отсчёт до определенной даты',
-            en: 'Отсчёт до определенной даты',
+            en: 'Timer end date (in the dd.mm.yyyy.format)',
+            ru: 'Дата окончания таймера (в формате дд-мм-гггг)',
         },
         control: 'input',
         category: 'Main',
         weight: 0.5,
     },
     toTime: {
-        title: 'До времени',
+        title: {
+            en: 'End time',
+            ru: 'Время окончания',
+        },
         description: {
-            ru: 'Отсчёт до определенного времени',
-            en: 'Отсчёт до определенного времени',
+            en: 'Timer end time (in the hh:mm format)',
+            ru: 'Время окончания таймера (в формате чч:мм)',
         },
         control: 'input',
         category: 'Main',
         weight: 0.5,
     },
     showDays: {
-        title: 'Показать дни',
+        title: {
+            en: "Show 'Days'",
+            ru: "Показать 'Дни'",
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showHours: {
-        title: 'Показать часы',
+        title: {
+            en: "Show 'Hours'",
+            ru: "Показать 'Часы'",
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showMinutes: {
-        title: 'Показать минуты',
+        title: {
+            en: "Show 'Minutes'",
+            ru: "Показать 'Минуты'",
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showSeconds: {
-        title: 'Показать секунды',
+        title: {
+            en: "Show 'Seconds'",
+            ru: "Показать 'Секунды'",
+        },
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     showTextDone: {
-        title: 'Показывать текст',
-        description: {
-            en: 'Показать текст после окончания таймера',
+        title: {
+            en: 'When display the message',
+            ru: 'Когда показывать сообщение',
         },
         control: 'radio-group',
         variants: [
             {
                 title: {
-                    en: 'Всегда',
+                    en: 'Always',
                     ru: 'Всегда',
                 },
                 value: 'always',
             },
             {
                 title: {
-                    en: 'По завершении',
-                    ru: 'По завершении',
+                    en: 'At the end of the timer',
+                    ru: 'По завершении таймера',
                 },
                 value: 'complete',
             },
             {
                 title: {
-                    en: 'Никогда',
+                    en: 'Never',
                     ru: 'Никогда',
                 },
                 value: 'never',
@@ -277,26 +295,34 @@ const propInfo = {
     },
 };
 
+const defaultDateProp = `${addZero(date.getDate() + 1)}.${addZero(
+    date.getMonth() + 1
+)}.${addZero(date.getFullYear())}`;
+const defaultTimeProp = `${addZero(date.getHours())}:${addZero(
+    date.getMinutes()
+)}`;
+
 const defaultProps = {
-    toDate: `${addZero(date.getDate() + 1)}.${addZero(
-        date.getMonth() + 1
-    )}.${addZero(date.getFullYear())}`,
-    toTime: `${addZero(date.getHours())}:${addZero(date.getMinutes())}`,
+    toDate: defaultDateProp,
+    toTime: defaultTimeProp,
     showDays: true,
     showHours: true,
     showMinutes: true,
     showSeconds: true,
     showTextDone: 'complete',
-
-    width: '100%',
-    display: 'flex',
-    'flex-wrap': 'wrap',
 };
 
 Object.assign(TimerComponent, {
-    overrides,
+    title: 'Timer',
+    description: {
+        en:
+            'Timer lets you site visitor know about the start and the end of an event',
+        ru:
+            'Счетчик обратного отсчета проинформирует посетителя об оставшемся времени до начала или окончания события',
+    },
     propInfo,
     defaultProps,
+    overrides,
 });
 
 export default TimerComponent;

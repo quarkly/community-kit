@@ -41,7 +41,7 @@ const AudioComponent = ({
     }, [children]);
 
     return (
-        <Wrapper {...rest}>
+        <Wrapper display="flex" {...rest}>
             <Audio
                 src={srcVal}
                 autoPlay={autoPlay}
@@ -65,7 +65,7 @@ const AudioComponent = ({
             {showNotice && (
                 <ComponentNotice
                     message={
-                        'Добавьте свойство SRC или перетащите сюда компонент "Source"'
+                        'Add the SRC property or add the Source component here'
                     }
                 />
             )}
@@ -75,10 +75,9 @@ const AudioComponent = ({
 
 const propInfo = {
     src: {
-        title: 'Src',
-        description: {
-            en: 'Audio file address',
-            ru: 'Адрес аудио файла',
+        title: {
+            en: 'Link to audio file',
+            ru: 'Ссылка на аудио-файл',
         },
         control: 'input',
         type: 'text',
@@ -86,41 +85,36 @@ const propInfo = {
         weight: 1,
     },
     autoPlay: {
-        title: 'Autoplay',
-        description: {
-            en: 'Audio autoplay when it’s available',
-            ru:
-                'Автоматическое воспроизведение аудио, как только это будет возможно',
+        title: {
+            en: 'Auto playback',
+            ru: 'Автоматическое воспроизведение',
         },
         control: 'checkbox',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     controls: {
-        title: 'Show controls',
-        description: {
-            en: 'Display audio playback controls',
-            ru: 'Отображение элементов управления воспроизведения аудио',
+        title: {
+            en: 'Show controls',
+            ru: 'Показывать элементы управления',
         },
         control: 'checkbox',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
     muted: {
-        title: 'Mute',
-        description: {
-            en: 'Turn off playback track',
-            ru: 'Отключение воспроизведения аудиодорожки',
+        title: {
+            en: 'Sound off',
+            ru: 'Отключить звук',
         },
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
     },
     loop: {
-        title: 'Loop',
-        description: {
-            en: 'Play audio from the beginning to the end',
-            ru: 'Воспроизведение аудио с начала по окончании проигрывания',
+        title: {
+            en: 'Loop playback',
+            ru: 'Зациклить воспроизведение',
         },
         control: 'checkbox',
         category: 'Main',
@@ -131,8 +125,6 @@ const propInfo = {
 const defaultProps = {
     src: '',
     controls: true,
-
-    display: 'flex',
 };
 
 export default atomize(AudioComponent)(

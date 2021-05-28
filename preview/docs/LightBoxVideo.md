@@ -2,10 +2,6 @@
 
 Компонент показывает видео в попапе. Состоит из двух частей: скрытое видео и элемент-триггер. При клике на элемент-триггер показывается видео. 
 
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-ui-components.netlify.app/lightbox/)
-
 ## ⚙️ Usage
 
 Добавьте компонент на страницу, переместите в него любой другой компонент, например, Icon и посмотрите как он работает в режиме превью.
@@ -31,7 +27,7 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 [Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

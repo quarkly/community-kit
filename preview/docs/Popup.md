@@ -1,31 +1,30 @@
 ## 📖 Detailed overview
 
-Компонент представляет собой всплывающее окно, которое появляется при клике на кнопку. В это окно можно поместить, например, форму для подписки на рассылку или уведомления.
-
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-ui-components.netlify.app/popup/)
+This is a pop-up window that appears when clicking on a button. Any other components can be placed inside.
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
+Add the component to the page and check how it works in the preview mode.
 
-### Текст кнопки
+## 🧩 Components and Props
 
-Чтобы изменить текст кнопки, дважды кликните на нее с зажатой клавишей cmd(ctrl).
+| Prop name                    |   Type   | Default  |
+| :--------------------------- | :------: | :------: |
+| Hide/show animation duration | `string` | `0.15s`  |
+| Smooth animation             | `number` | `linear` |
 
 ## 🗓 Changelog
 
-- 09/04/2021 (v1.0)
-  - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
 If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

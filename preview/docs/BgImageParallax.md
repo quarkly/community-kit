@@ -1,43 +1,41 @@
 ## 📖 Detailed overview
 
-Компонент для создания эффекта «параллакс».
-
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-ui-components.netlify.app/bgimageparallax/)
+Use this component to create a parallax effect for the background image.
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу. Отмечу, что при добавлении компонент визуально не отобразится. Чтобы проверить работоспособность компонента в конструкторе, задайте сверху в параметрах холста ограничение по высоте. Также, вы можете опубликовать сайт и проверить там.
+1.  Add the component to the page
+2.  Set the page height limit in the builder
+3.  See how it works in the preview mode
 
-### Принудительный показ кнопки
+### Display in the builder
 
-Свойство `Show Button Always` отвечает за принудительный показ кнопки всегда. Свойство может понадобится при редактировании кнопки.
+For the component to work properly in the builder, set the height limit in the page parameters.
 
 ## 🧩 Components and Props
 
-| Props Name               |   Type    |   Default   | Description                                                          |
-| :----------------------- | :-------: | :---------: | :------------------------------------------------------------------- |
-| Ссылка на изображение    | `number ` |   `none`    | Прямая ссылка на изображение                                         |
-| Размер изображения       | `string`  |   `cover`   | Размер изображения                                                   |
-| Выравнивание изображения |  `enum`   |   `left`    | Выравнивание изображения (left, center, right)                       |
-| Выравнивание изображения |  `enum`   | `no-repeat` | Повторять изображения по вертикали и горизонтали (repeat, no-repeat) |
-| Повтор изображения       |  `bool`   |   `false`   | Показывать кнопку всегда                                             |
-| Скорость прокрутки       |  `bool`   |    `0.5`    | Скорость прокрутки изображения                                       |
-| Инерция прокрутки        |  `bool`   |     `1`     | Прокрутка, после остановки                                           |
+| Prop name       |   Type   |   Default   |
+| :-------------- | :------: | :---------: |
+| Image           | `number` |   `none`    |
+| Image size      | `string` |   `cover`   |
+| Image alignment |  `enum`  |   `left`    |
+| Image alignment |  `enum`  | `no-repeat` |
+| Repeat image    |  `bool`  |   `false`   |
+| Scroll speed    |  `bool`  |    `0.5`    |
+| Scroll inertia  |  `bool`  |     `1`     |
 
 ## 🗓 Changelog
 
-    - 09/04/2021 (v1.0)
-    - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

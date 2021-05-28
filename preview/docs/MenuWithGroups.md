@@ -1,0 +1,40 @@
+## 📖 Detailed overview
+
+Multi-level menu where subpages are combined into a named group.
+
+## ⚙️ Usage
+
+Add the component to the page and change the attribute value `Maximum nesting` if needed.
+
+### Changing the root page
+
+The `Root page ID` prop allows you to specify the page for which the menu will be generated. You can copy the ID of the current page in the address bar. For example, the page ID of the URL `https://quarkly.io/project/60474504627982001eb71a51/page/6050687c2b962f001e742fad` is at the end of the URL, i.e. `6050687c2b962f001e742fad`.
+
+## 🧩 Components and Props
+
+| Prop name                   |   Type   |    Default     |          Example           |
+| :-------------------------- | :------: | :------------: | :------------------------: |
+| Maximum nesting             | `number` |      `10`      |            `5`             |
+| Root page ID                | `string` |     `root`     | `6050687c2b962f001e742fad` |
+| Groups condition by default |  `enum`  | `expandActive` |        `expandAll`         |
+
+## 🗓 Changelog
+
+-   21/04/2021 (v1.0)
+-   First version
+
+## 📮 Feedback
+
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+
+[Help with components](https://community.quarkly.io/c/requests/11)
+
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
+
+[Our Twitter](https://twitter.com/quarklyapp)
+
+[dev@quarkly.io](mailto:dev@quarkly.io)
+
+## 📝 License
+
+Licensed under the [MIT License](./LICENSE).

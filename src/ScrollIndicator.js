@@ -4,7 +4,6 @@ import { Box } from '@quarkly/widgets';
 
 const overrides = {
     'Wrapper Indicator': {
-        kind: 'Box',
         props: {
             width: '100%',
             height: '5px',
@@ -24,6 +23,7 @@ const overrides = {
             'min-width': '0',
             'min-height': '0',
             background: 'rgba(76, 89, 175, 1);',
+            transition: 'width .6s ease',
         },
     },
 };
@@ -58,11 +58,13 @@ const ScrollIndicator = (props) => {
 };
 
 Object.assign(ScrollIndicator, {
-    title: 'ScrollIndicator',
+    title: 'Scroll Indicator',
     description: {
-        en: 'Page scroll indicator',
+        ru:
+            'Индикатор в верхней части страницы, который показывает, какую её часть уже прокрутили',
+        en:
+            'This component is an idicator at the top of the page that shows how much of it has been already scrolled',
     },
-    propInfo: {},
     overrides,
 });
 

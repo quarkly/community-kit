@@ -50,7 +50,15 @@ const TableComponent = ({
     );
 
     return (
-        <Table cols={cols} summary={summary} {...rest}>
+        <Table
+            cols={cols}
+            summary={summary}
+            background-color="--white"
+            border="1px solid #E4E8EC"
+            border-collapse="collapse"
+            display="block"
+            {...rest}
+        >
             {showHeader && (
                 <THead {...override('THead')}>
                     <Tr {...override('Row', `Row THead`)}>
@@ -160,33 +168,48 @@ const TableComponent = ({
 
 const propInfo = {
     colsProp: {
-        title: 'Columns',
+        title: {
+            en: 'Number of columns',
+            ru: 'Количесво колонок',
+        },
         control: 'input',
         type: 'number',
         category: 'Size',
         weight: 0.5,
     },
     rowsProp: {
-        title: 'Rows',
+        title: {
+            en: 'Number of rows',
+            ru: 'Количесво строк',
+        },
         control: 'input',
         type: 'number',
         category: 'Size',
         weight: 0.5,
     },
     showHeader: {
-        title: 'Show Header',
+        title: {
+            en: 'Display header',
+            ru: 'Отображать шапку',
+        },
         control: 'checkbox',
         category: 'Groups',
         weight: 0.5,
     },
     showFooter: {
-        title: 'Show Footer',
+        title: {
+            en: 'Display footer',
+            ru: 'Отображать подвал',
+        },
         control: 'checkbox',
         category: 'Groups',
         weight: 0.5,
     },
     summary: {
-        title: 'Short Description',
+        title: {
+            en: 'Short description',
+            ru: 'Короткое описание',
+        },
         control: 'input',
         type: 'text',
         category: 'SEO',
@@ -197,13 +220,14 @@ const propInfo = {
 const defaultProps = {
     colsProp: 8,
     rowsProp: 4,
-
-    'background-color': '--white',
-    border: '1px solid #E4E8EC',
-    'border-collapse': 'collapse',
 };
 
 Object.assign(TableComponent, {
+    title: 'Table',
+    description: {
+        en: 'This component is a simple table with text cells',
+        ru: 'Простая таблица с текстовыми ячейками',
+    },
     propInfo,
     defaultProps,
     overrides,

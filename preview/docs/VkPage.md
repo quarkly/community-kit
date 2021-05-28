@@ -1,52 +1,50 @@
 ## 📖 Detailed overview
 
-Компонент для добавления виджета сообщества VK.
-
-## 🎬 Live Demo
-
-[Live demo link](https://quarkly-ui-components.netlify.app/vkpages/)
+This component allows you to add the VK widget.
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
+1.  Add the component to the page
+2.  Enter your `Community identifier` and `Container identifier`
+3.  See how it works in the preview mode
 
-### Режимы отображения
+### Display modes
 
-Свойство `View` отвечает за режим отображения содержимого виджета. Существую три варианта:
+The `View` property is responsible for the display mode of the widget contents. Three options are available:
 
--   `Members` - Отображать участников сообщества;
--   `News` - Отображать стену сообщества;
--   `Only name` - Отображать только название сообщества.
+-   Display the community members
+-   Display the community wall
+-   Display only the community name
 
-### Расширенный режим
+### Advanced mode
 
-Свойство `Extended mode` отвечает за расширенный режим. В этом режиме добавляется кнопка «Мне нравится» и фотография сообщества.
+If you select the `Enable advanced mode` property, a 'Like' button and a community cover photo will be added to the widget (only for news).
 
 ## 🧩 Components and Props
 
-| Props Name       |   Type   |                             Description                              |   Default   |   Example   |
-| ---------------- | :------: | :------------------------------------------------------------------: | :---------: | :---------: |
-| Color Button     | `string` |                             Цвет кнопки                              |  `#5181B8`  |  `#fdfdfd`  |
-| Element ID       | `string` | ID элемента, который будет являться контейнером для блока сообщества | `vk_groups` |  `some_id`  |
-| Group ID         | `number` |                       Идентификатор сообщества                       |     `-`     | `123456789` |
-| Background Color | `string` |                            Фон компонента                            |   `#fff`    |   `blue`    |
-| Color Text       | `string` |                             Цвет текста                              |   `#000`    |   `#fff`    |
-| View             | `enum `  |              Что отображать [Members, News, Only name]               |  `Members`  | `Only name` |
-| Dont use cover   | `bool `  |                   Не отображать обложки сообщества                   |   `false`   |   `true`    |
-| Extended mode    | `bool `  |                      Включает расширенный режим                      |   `false`   |   `true`    |
+| Prop name                               |   Type    |   Default   |   Example   |
+| :-------------------------------------- | :-------: | :---------: | :---------: |
+| VK community ID                         | `number`  |     `-`     | `123456789` |
+| Widget container ID                     | `string`  | `vk_groups` |  `some_id`  |
+| Widget background color                 | `string`  |   `#fff`    |   `blue`    |
+| Widget text color                       | `string`  |   `#000`    |   `#fff`    |
+| Widget libk color                       | `string`  |  `#5181B8`  |  `#fdfdfd`  |
+| What to display in the widget           |  `enum`   |  `Members`  | `Only name` |
+| Don't display the community cover photo | `boolean` |   `false`   |   `true`    |
+| Enable advanced mode                    | `boolean` |   `false`   |   `true`    |
 
 ## 🗓 Changelog
 
--   16/03/2021 (v1.0)
-    -   Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
+[Help with components](https://community.quarkly.io/c/requests/11)
 
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
 
 [Our Twitter](https://twitter.com/quarklyapp)
 

@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useMemo } from 'react';
-import { Box, Text, Icon, Image } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
+import { Box, Text, Icon, Image } from '@quarkly/widgets';
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const overrides = {
     Label: {
@@ -79,12 +80,12 @@ const overrides = {
     },
     'Before Arrow': {
         props: {
-            icon: 'MdKeyboardArrowLeft',
+            defaultIcon: MdKeyboardArrowLeft,
         },
     },
     'After Arrow': {
         props: {
-            icon: 'MdKeyboardArrowRight',
+            defaultIcon: MdKeyboardArrowRight,
         },
     },
 };
@@ -187,7 +188,7 @@ const BeforeAfterImage = ({
     );
 
     return (
-        <Box pos="relative" h="100%" ov="hidden" {...rest}>
+        <Box w="auto" h="100%" pos="relative" ov="hidden" {...rest}>
             <AspectRatioWrapper
                 aspectRatio={aspectRatio}
                 onMouseDown={mouseDown}
@@ -254,7 +255,10 @@ const BeforeAfterImage = ({
 
 const propInfo = {
     activationType: {
-        title: 'Способ активации',
+        title: {
+            en: 'Interaction method',
+            ru: 'Способ взаимодействия',
+        },
         control: 'radio-group',
         variants: [
             {
@@ -276,7 +280,10 @@ const propInfo = {
         weight: 1,
     },
     aspectRatio: {
-        title: 'Соотношение сторон',
+        title: {
+            en: 'Aspect ratio',
+            ru: 'Соотношение сторон',
+        },
         control: 'select',
         variants: [
             {
@@ -300,17 +307,15 @@ const propInfo = {
 const defaultProps = {
     activationType: 'onDrag',
     aspectRatio: '16:9',
-
-    width: 'auto',
 };
 
 Object.assign(BeforeAfterImage, {
     title: 'BeforeAfterImage',
     description: {
         en:
-            'Слайдер "до" и "после" позволяет легко выделить различия между двумя изображениями.',
+            "This component allows you to easily identify the differences between two 'before' and 'after' images simply by moving around them",
         ru:
-            'Слайдер "до" и "после" позволяет легко выделить различия между двумя изображениями.',
+            "Компонент позволяет легко выделить различия между двумя изображениями 'до' и 'после' простым перемещением по ним",
     },
     propInfo,
     defaultProps,

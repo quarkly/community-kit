@@ -1,68 +1,70 @@
-
 ## 📖 Detailed overview
 
-Форма поможет собрать деньги на кошелек Yoomoney. 
-
-## 🎬 Live Demo
-
-[Live demo link]()
+Form for accepting payments to YooMoney.
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и посмотрите как он работает в режиме превью.
+1.  Add the component to the page
+2.  Specify the YooMoney wallet ID
+3.  Add the amount and comments
+4.  Select the button text
+5.  See how it works in the preview mode
 
-### Как начать
-Чтобы начать, нужно ввести новер кошелька Yoomoney в свойство `«account»`.
+### Getting started
 
-### Текст на кнопке
-В стандартной форме Yoomoney достпуно только 4 варианта текста на кнопке: "Перевести", "Отправить", "Подарить", "Пожертвовать". Выбрать их можно с помощью свойства `«buttonText»`, используя их ID.
-- 11 - "Перевести"
-- 12 - "Отправить"
-- 13 - "Подарить"
-- 14 - "Пожертвовать"
-<!-- Здесь можно будет сослаться на кастомную форму  -->
+Add the YooMoney wallet ID to the `YooMoney wallet ID` property. To find out the ID, click here [https://yoomoney.ru/start](https://yoomoney.ru/start). If `Seller` is selected in the `specifies the transfer reason` property, specify the `Transfer reason` in the corresponding input field. Specify the default `Amount`. The user can change it during payment.
 
-### Сбор информации во время перевода
-Во время перевода можно попросить у отправителя (ФИО, эл.почта, мобильный телефон, адрес). 
-Чтобы запросить всё это, нужно включить соответстующие свойства из категории `«INFO»` (`«fio»`, `«email»`, `«address»`, `«comment»`).
+### Button text
 
+By default, there are 4 button text options in the YooMoney form: `Transfer`, `Send`, `Send`, `Donate`. You can choose them with the `Button text` property using their IDs:
+
+-   `11` - "Transfer"
+-   `12` - "Send"
+-   `13` - "Give away"
+-   `14` - "Donate"
+
+### Collecting info during the transfer
+
+During the transfer, you can ask the sender their full name, email, phone number, and address. To request all this, enable the corresponding properties from the `"INFO"` category.
 
 ## 🧩 Components and Props
 
-### YoomoneyDonateForm
+### YooMoneyDonateForm
 
-| Props name    | Type      | Description                               | Default        | Example          |
-| ------------- | --------- | ----------------------------------------- | -------------- | ---------------- |
-| account       | `string`  | Идентификатор кошелька Yoomoney (обязательное поле)                       | undefined      | 412345678998765 |
-| targets       | `string`  | Назначение перевода                       | Помочь проекту | На хостинг сайта  |
-| buttonText    | `enum`    | Текст кнопки { 11: Перевести, 12: Отправить, 13: Подарить, 14: Пожертвовать }                      | 11             | 14 |
-| fixedTarget   | `boolean` | Фиксированная цель перевода                      | true           | true             |
-| sum           | `string`  | Cумма перевода                           | 0              | 250 |
-| fio           | `boolean` | Запрашивать имя в момент перевода | false          | true             |
-| email         | `boolean` | Запрашивать email в момент перевода     | false          | true             |
-| phone         | `boolean` | Запрашивать телефон в момент перевода     | false          | true             |
-| address       | `boolean` | Запрашивать адрес в момент перевода   | false          | true             |
-| comment       | `boolean` | Запрашивать комментарий в момент перевода   | false          | true             |
-| hint          | `string`  | Подсказка для комментария   |                | Ваши пожелания и предложения |
-| successURL    | `string`  | Ссылка для редиректа                  |                | https://google.com |
-| payment       | `boolean` | Возможность перевода через баноквскую карту                       | false          | true             |
-| mobilePayment | `boolean` | Возможность перевода чере cчет телефона Билайн, МТС, Tele2                    | false          | true             |
+| Prop name                         |   Type    | Description                                                                  |      Default       |             Example             |
+| :-------------------------------- | :-------: | :--------------------------------------------------------------------------- | :----------------: | :-----------------------------: |
+| YooMoney wallet ID                | `string`  | YooMoney wallet ID (required field)                                          |    `undefined`     |          `1234567890`           |
+| Who specifies the transfer reason | `string`  | Who specifies the transfer reason (required field)                           |      `seller`      |             `buyer`             |
+| Transfer reason                   | `string`  | Transfer reason (required field, if `Seller` is selected)                    | `Help the project` |     `For the site hosting`      |
+| Amount                            | `string`  | Transfer amount by default                                                   |        `0`         |              `250`              |
+| Button text                       |  `enum`   | Button text { `11`: Transfer, `12`: Send, `13`: Give away, `14`: Donate}     |        `11`        |              `14`               |
+| Use credit card                   | `boolean` | Transfer funds via a credit card (extra fee may be charged)                  |      `false`       |             `true`              |
+| Request sender's full name        | `boolean` | Request sender's full name during the transfer and then email it             |      `false`       |             `true`              |
+| Request sender's email            | `boolean` | Request sender's email address during the transfer and then email it         |      `false`       |             `true`              |
+| Request sender's phone number     | `boolean` | Request sender's phone number during the transfer and then email it          |      `false`       |             `true`              |
+| Request sender's address          | `boolean` | Request sender's address during the transfer and then email it               |      `false`       |             `true`              |
+| Request sender's comments         | `boolean` | Request sender's comments during the transfer and then email it              |      `false`       |             `true`              |
+| Tip for sender                    | `string`  | Tips for the sender on what to specify in the form                           |        `-`         | `Your comments and suggestions` |
+| Go to the page after transfer     | `string`  | After transfer, go to the specified page                                     |        `-`         |    `https://yourdomain.name`    |
+| Mobile version                    | `boolean` | Check the form on a big screen: it may stretch to the full width of the page |      `false`       |             `true`              |
 
 ## 🗓 Changelog
 
-- 12/04/2021 (v1.0)
-  - Первая версия
+-   21/04/2021 (v1.0)
+-   First version
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you can’t stand missing. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-[Help with components](https://feedback.quarkly.io/communities/1-quarkly-forum/categories/7-components/topics)
-[We're on Discord](https://discord.gg/f9KhSMGX)
+[Help with components](https://community.quarkly.io/c/requests/11)
+
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
+
 [Our Twitter](https://twitter.com/quarklyapp)
+
 [dev@quarkly.io](mailto:dev@quarkly.io)
 
 ## 📝 License
 
 Licensed under the [MIT License](./LICENSE).
-

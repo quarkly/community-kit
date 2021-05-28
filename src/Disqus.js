@@ -51,7 +51,7 @@ const DisqusComponent = ({
                     />
                 </Content>
             ) : (
-                <ComponentNotice message="Добавьте ID обсуждения на панели Props" />
+                <ComponentNotice message="Add your discussion ID in the Props panel" />
             )}
         </Wrapper>
     );
@@ -59,35 +59,50 @@ const DisqusComponent = ({
 
 const propInfo = {
     identifierProp: {
-        title: 'Идентификатор обсуждения',
+        title: {
+            en: 'Discussion identifier',
+            ru: 'Идентификатор обсуждения',
+        },
         control: 'input',
         type: 'text',
         category: 'Discussions',
         weight: 1,
     },
     urlProp: {
-        title: 'URL-адрес обсуждения',
+        title: {
+            en: 'Discussion URL',
+            ru: 'URL-адрес обсуждения',
+        },
         control: 'input',
         type: 'text',
         category: 'Discussions',
         weight: 1,
     },
     titleProp: {
-        title: 'Заголовок обсуждения',
+        title: {
+            en: 'Discussion title',
+            ru: 'Заголовок обсуждения',
+        },
         control: 'input',
         type: 'text',
         category: 'Discussions',
         weight: 1,
     },
     shortnameProp: {
-        title: 'Имя вашей ленты',
+        title: {
+            en: 'Your feed name',
+            ru: 'Имя вашей ленты',
+        },
         control: 'input',
         type: 'text',
         category: 'General',
         weight: 0.5,
     },
     languageProp: {
-        title: 'Укажите язык',
+        title: {
+            en: 'Widget language',
+            ru: 'Язык виджета',
+        },
         control: 'input',
         variants: ['en', 'de', 'fr', 'ru'],
         type: 'text',
@@ -100,6 +115,11 @@ const defaultProps = {
 };
 
 Object.assign(DisqusComponent, {
+    title: 'Disqus',
+    description: {
+        en: 'This component allows you to add the Disqus widget',
+        ru: 'Компонент для встраивания виджета с формой комментариев Disqus',
+    },
     propInfo,
     defaultProps,
     overrides,
