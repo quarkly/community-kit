@@ -74,6 +74,7 @@ const GalleryItem = ({
             loading: fullLoading,
         }),
         [
+            previewSrc,
             fullSrc,
             fullSrcSet,
             fullSizes,
@@ -85,21 +86,23 @@ const GalleryItem = ({
         ]
     );
 
-    const correctSrcPreview = useMemo(
-        () => previewSrc || defaultPreviewImageSrc,
-        [previewSrc, isLoadingPreview]
-    );
+    const correctSrcPreview = previewSrc || defaultPreviewImageSrc;
 
     useEffect(() => {
         setPreviewClicked(showFullImage);
         setSomeImageFullParams(fullImageParam);
-    }, [showFullImage]);
+    }, [
+        showFullImage,
+        setPreviewClicked,
+        fullImageParam,
+        setSomeImageFullParams,
+    ]);
 
     useEffect(() => {
         loadImage(correctSrcPreview).then(() => {
             setLoadingPreview(false);
         });
-    }, [hideLoaderPreviewImage]);
+    }, [hideLoaderPreviewImage, correctSrcPreview, loadImage]);
 
     useEffect(() => {
         addImageParams(index, {
@@ -112,12 +115,9 @@ const GalleryItem = ({
             fullObjectPosition,
             fullLoading,
         });
-    }, [index]);
-
-    const openGalleryItem = useCallback(() => {
-        setSomeImageFullParams(fullImageParam);
-        setPreviewClicked(true);
     }, [
+        index,
+        addImageParams,
         fullSrc,
         fullSrcSet,
         fullSizes,
@@ -128,39 +128,34 @@ const GalleryItem = ({
         fullLoading,
     ]);
 
-    const changeAspectRatio = useCallback(
-        (aspectRatio, itemSize) => {
-            const params = {
-                width: itemSize.width,
-                height: itemSize.height,
-            };
+    const openGalleryItem = useCallback(() => {
+        setSomeImageFullParams(fullImageParam);
+        setPreviewClicked(true);
+    }, [fullImageParam, setPreviewClicked, setSomeImageFullParams]);
 
-            if (aspectRatio === 'auto') {
-                params.height = 'auto';
-                params.width = 'auto';
-            } else {
-                const [width, height] = aspectRatio.split(':');
-                params.height = (height * params.width) / width;
-            }
-            setAspectRatioStyles(params);
-        },
-        [
-            aspectRatioProp,
-            columnsCountProp,
-            borderWidthProp,
-            autoFillInProp,
-            galleryItemWidth,
-            imagesMinWidth,
-            imagesMaxWidth,
-        ]
-    );
+    const changeAspectRatio = useCallback((aspectRatio, itemSize) => {
+        const params = {
+            width: itemSize.width,
+            height: itemSize.height,
+        };
+
+        if (aspectRatio === 'auto') {
+            params.height = 'auto';
+            params.width = 'auto';
+        } else {
+            const [width, height] = aspectRatio.split(':');
+            params.height = (height * params.width) / width;
+        }
+        setAspectRatioStyles(params);
+    }, []);
 
     useEffect(() => {
         if (!boxRef.current) return;
         const itemSize = boxRef.current.getBoundingClientRect();
         changeAspectRatio(aspectRatioProp, itemSize);
     }, [
-        boxRef.current,
+        changeAspectRatio,
+        boxRef,
         aspectRatioProp,
         columnsCountProp,
         borderWidthProp,

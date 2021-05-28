@@ -94,11 +94,11 @@ const SimpleTabs = ({ defaultTab, ...props }) => {
             setCurrentTab(tab.tabId);
         }
         setTabs((s) => append(s, tab));
-    });
+    }, []);
 
     const removeTab = useCallback((tab) => {
         setTabs((s) => remove(s, tab));
-    });
+    }, []);
 
     const value = { currentTab, removeTab, addTab };
 
@@ -138,7 +138,7 @@ const SimpleTabs = ({ defaultTab, ...props }) => {
                     </Button>
                 );
             }),
-        [tabs, override]
+        [tabs, override, currentTab, props.qid]
     );
 
     return (

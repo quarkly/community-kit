@@ -35,7 +35,7 @@ const Slide = ({
             ...override(name, `${name} ${numb}`),
             ...clearOverride,
         }),
-        [numb]
+        [numb, clearOverride, override]
     );
 
     const widthStyles = useMemo(

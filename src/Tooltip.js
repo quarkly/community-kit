@@ -243,7 +243,7 @@ const TooltipComponent = ({
 
     const contentOffsetNumb = useMemo(() => {
         return parseInt(contentOffsetProp, 10) || DEFAULT_OFFSET;
-    }, [arrowStatusProp, contentOffsetProp]);
+    }, [contentOffsetProp]);
 
     const componentRef = useRef(null);
     const wrapperRef = useRef(null);
@@ -278,8 +278,7 @@ const TooltipComponent = ({
             setTooltipDirection(tooltipPositionProp);
         }
     }, [
-        componentRef.current,
-        wrapperRef.current,
+        contentOffsetNumb,
         tooltipPositionProp,
         tooltipOffsetProp,
         tooltipAutoChangeProp,

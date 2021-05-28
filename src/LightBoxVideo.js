@@ -135,7 +135,7 @@ const LightboxVideo = ({
         if (!showImageProp) {
             if (offScrollProp) scroll.enable();
         }
-    }, [showImageProp]);
+    }, [showImageProp, offScrollProp]);
 
     const openLightbox = useCallback(() => {
         if (offLightboxProp) return;
@@ -148,14 +148,14 @@ const LightboxVideo = ({
                 videoRef.current.pause();
             }
         });
-    }, [offLightboxProp, offScrollProp, isOpen]);
+    }, [offLightboxProp, offScrollProp]);
 
     const closeLightbox = useCallback(() => {
         if (offLightboxProp) return;
         setOpen(false);
         if (offScrollProp) scroll.enable();
         videoRef.current.pause();
-    }, [offLightboxProp, offScrollProp, isOpen]);
+    }, [offLightboxProp, offScrollProp]);
 
     const { override, children, rest } = useOverrides(props, overrides, {});
 

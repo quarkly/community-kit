@@ -77,9 +77,9 @@ const Item = ({
     let match = null;
 
     if (projectType === 'gatsby') {
-        match = useMatch(href) || null;
+        match = useMatch(href) || null; // eslint-disable-line
     } else {
-        match = useRouteMatch({ path: href, exact }) || null;
+        match = useRouteMatch({ path: href, exact }) || null; // eslint-disable-line
     }
 
     const linkProps = override(

@@ -140,13 +140,20 @@ const Lightbox = ({
             setPreviewClicked(false);
             if (offScrollProp) enableScroll();
         }, 300);
-    }, [offScrollProp, isOpen]);
+    }, [
+        offScrollProp,
+        setBigImage,
+        setOpen,
+        setPreviewClicked,
+        setSomeImageFullParams,
+        setZoom,
+    ]);
 
     const closeImageOnEsc = useCallback(
         (e) => {
             if (e.keyCode === 27) closeLightbox();
         },
-        [isOpen]
+        [closeLightbox]
     );
 
     const zoomImage = useCallback(
@@ -154,7 +161,7 @@ const Lightbox = ({
             stopEventClick(e);
             setZoom(!isZoom);
         },
-        [isZoom]
+        [isZoom, setZoom]
     );
 
     useEffect(() => {
@@ -171,7 +178,17 @@ const Lightbox = ({
             return () => window.removeEventListener('keydown', closeImageOnEsc);
         }
         closeLightbox();
-    }, [isPreviewClicked]);
+    }, [
+        isPreviewClicked,
+        closeImageOnEsc,
+        closeLightbox,
+        defaultFullImageSrc,
+        loadImage,
+        offScrollProp,
+        setBigImage,
+        setOpen,
+        someImageFullParams.src,
+    ]);
 
     const { override, rest } = useOverrides(props, overrides);
 
