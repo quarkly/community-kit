@@ -50,7 +50,15 @@ const TableComponent = ({
     );
 
     return (
-        <Table cols={cols} summary={summary} {...rest}>
+        <Table
+            cols={cols}
+            summary={summary}
+            background-color="--white"
+            border="1px solid #E4E8EC"
+            border-collapse="collapse"
+            display="block"
+            {...rest}
+        >
             {showHeader && (
                 <THead {...override('THead')}>
                     <Tr {...override('Row', `Row THead`)}>
@@ -212,11 +220,6 @@ const propInfo = {
 const defaultProps = {
     colsProp: 8,
     rowsProp: 4,
-
-    display: 'block',
-    'background-color': '--white',
-    border: '1px solid #E4E8EC',
-    'border-collapse': 'collapse',
 };
 
 Object.assign(TableComponent, {

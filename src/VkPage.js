@@ -72,7 +72,7 @@ const VkPageComponent = ({
     }, [dGroupId, dOpt, dElementId]);
 
     return (
-        <Box {...props}>
+        <Box width="auto" {...props}>
             {dGroupId ? (
                 <VK key={key}>
                     <Group
@@ -196,7 +196,6 @@ const defaultProps = {
     mode: 3,
     noCover: false,
     wide: false,
-    width: 'auto',
 };
 
 Object.assign(VkPageComponent, {

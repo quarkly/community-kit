@@ -188,7 +188,7 @@ const BeforeAfterImage = ({
     );
 
     return (
-        <Box pos="relative" h="100%" ov="hidden" {...rest}>
+        <Box w="auto" h="100%" pos="relative" ov="hidden" {...rest}>
             <AspectRatioWrapper
                 aspectRatio={aspectRatio}
                 onMouseDown={mouseDown}
@@ -307,8 +307,6 @@ const propInfo = {
 const defaultProps = {
     activationType: 'onDrag',
     aspectRatio: '16:9',
-
-    width: 'auto',
 };
 
 Object.assign(BeforeAfterImage, {

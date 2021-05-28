@@ -168,7 +168,7 @@ const TimerComponent = ({
     }, [toDate, toTime]);
 
     return (
-        <Box {...rest}>
+        <Box width="100%" display="flex" flex-wrap="wrap" {...rest}>
             {!isAlways && !isComplete ? (
                 showList.map(
                     (item) =>
@@ -310,10 +310,6 @@ const defaultProps = {
     showMinutes: true,
     showSeconds: true,
     showTextDone: 'complete',
-
-    width: '100%',
-    display: 'flex',
-    'flex-wrap': 'wrap',
 };
 
 Object.assign(TimerComponent, {

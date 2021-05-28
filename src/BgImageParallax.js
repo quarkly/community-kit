@@ -132,7 +132,7 @@ const BgImageParallax = ({
     });
 
     return (
-        <Box ref={wrapperRef} {...rest}>
+        <Box position="relative" overflow="hidden" {...rest} ref={wrapperRef}>
             <Bground
                 ref={bgroundRef}
                 background={`transparent url(${imageURL}) ${imagePosition} top/${imageSize} ${imageRepeat}`}
@@ -235,9 +235,6 @@ const defaultProps = {
     scrollSpeedProp: '0.5',
     scrollInertiaProp: '1',
     // scrollDirection: 'normal',
-
-    position: 'relative',
-    overflow: 'hidden',
 };
 
 Object.assign(BgImageParallax, {

@@ -158,6 +158,9 @@ const Menu = ({ rootId, depth, 'exact-active-match': exact, ...props }) => {
             depth={depth}
             exact={exact}
             override={override}
+            padding="6px"
+            margin="0px"
+            list-style="none"
             {...rest}
         />
     );
@@ -196,9 +199,6 @@ const propInfo = {
 const defaultProps = {
     depth: 1,
     rootId: 'root',
-    padding: '6px',
-    margin: '0px',
-    'list-style': 'none',
     'exact-active-match': true,
 };
 
