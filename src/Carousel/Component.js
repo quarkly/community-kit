@@ -1,48 +1,37 @@
-import React, { useCallback } from 'react';
-
+import React, { useCallback, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
 import { Arrow, Point, Slide } from './components';
+import { useResize, useKeyboard } from './hooks';
+import { overrides } from './props';
+import { clickPrev, clickNext } from './store';
 
-import { useResize, useRootState, useKeyboard } from './hooks';
-import { propInfo, defaultProps, overrides } from './props';
-
-const CarouselComponent = ({
-    slidesProp,
+const Component = ({
     aspectRatio,
-    durationProp,
-    functionProp,
+    slidesWrapper,
     showArrows,
     showDots,
     showHead,
     showText,
     showLink,
-    autoPlay,
-    autoPlayBehavior,
-    autoPlayDuration,
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
+    const [sliderRef, width, height] = useResize(aspectRatio);
+    const slidesRef = useRef(null);
 
-    const [
-        {
-            slidesNumb,
-            slidesList,
-            animDuration,
-            animFunction,
-            active,
-            position,
-            animate,
-        },
-        dispatch,
-    ] = useRootState({
-        slidesProp,
-        durationProp,
-        functionProp,
-        autoPlay,
-        autoPlayBehavior,
-        autoPlayDuration,
-    });
+    const {
+        slidesNumb,
+        slidesList,
+        animDuration,
+        animFunction,
+        active,
+        position,
+        animate,
+    } = useSelector((state) => state);
+
+    const dispatch = useDispatch();
 
     const clickNumb = useCallback(
         (newActive) =>
@@ -53,20 +42,26 @@ const CarouselComponent = ({
         [dispatch]
     );
 
-    const clickPrev = useCallback(() => {
-        dispatch({ type: 'PREV_SLIDE' });
+    const onClickPrev = useCallback(() => {
+        dispatch(clickPrev());
     }, [dispatch]);
 
-    const clickNext = useCallback(() => {
-        dispatch({ type: 'NEXT_SLIDE' });
+    const onClickNext = useCallback(() => {
+        dispatch(clickNext());
     }, [dispatch]);
 
-    const [sliderRef, width, height] = useResize(aspectRatio);
-    useKeyboard(sliderRef, clickNext, clickPrev);
+    useKeyboard(sliderRef, onClickNext, onClickPrev);
 
     return (
-        <Box ref={sliderRef} {...rest}>
+        <Box
+            ref={sliderRef}
+            position="relative"
+            align-self="normal"
+            overflow="hidden"
+            {...rest}
+        >
             <Box
+                ref={slidesRef}
                 {...override('Slides')}
                 transform={`translateX(-${position}%)`}
                 transition={`transform ${
@@ -78,6 +73,7 @@ const CarouselComponent = ({
                         key={`${rest['data-qid']}-slide-${numb}-${index}`} // eslint-disable-line
                         index={index}
                         slides={slidesNumb}
+                        slidesWrapper={slidesWrapper}
                         numb={numb}
                         width={width}
                         height={height}
@@ -92,12 +88,12 @@ const CarouselComponent = ({
                 <Box {...override('Arrows')}>
                     <Arrow
                         type="Prev"
-                        clickFunc={clickPrev}
+                        clickFunc={onClickPrev}
                         override={override}
                     />
                     <Arrow
                         type="Next"
-                        clickFunc={clickNext}
+                        clickFunc={onClickNext}
                         override={override}
                     />
                 </Box>
@@ -119,11 +115,4 @@ const CarouselComponent = ({
     );
 };
 
-Object.assign(CarouselComponent, {
-    title: 'Carousel',
-    propInfo,
-    defaultProps,
-    overrides,
-});
-
-export default CarouselComponent;
+export default Component;

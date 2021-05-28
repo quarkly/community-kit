@@ -1,5 +1,8 @@
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
-import { GoPrimitiveDot } from 'react-icons/go';
+import {
+    MdKeyboardArrowLeft,
+    MdKeyboardArrowRight,
+    MdLens,
+} from 'react-icons/md';
 
 export default {
     Slides: {
@@ -183,6 +186,7 @@ export default {
     Point: {
         kind: 'Box',
         props: {
+            padding: '4px',
             'min-width': '0',
             'min-height': '0',
             transition: 'opacity .3s ease',
@@ -199,14 +203,13 @@ export default {
         kind: 'Icon',
         props: {
             category: 'go',
-            defaultIcon: GoPrimitiveDot,
-            size: '16px',
+            defaultIcon: MdLens,
+            size: '10px',
 
-            padding: '1px',
             color: '--color-light',
             transition: 'transform .3s ease',
             transform: 'scale(1)',
-            'hover-transform': 'scale(1.5)',
+            // 'hover-transform': 'scale(1.5)',
         },
     },
     'Point :active': {

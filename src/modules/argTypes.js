@@ -44,10 +44,12 @@ const getArgTypes = (propInfo, defaultProps, hidden) =>
             value.variants[0] !== '0s'
         ) {
             argType.control.type = controls.select;
-            argType.control.options = value.variants;
+            argType.options = value.variants;
         }
         if (value.control === 'radio-group' || value.control === 'select') {
-            argType.control.options = value.variants.map((v) => v.value);
+            argType.options = value.variants.map((v) =>
+                typeof v === 'string' ? v : v.value
+            );
         }
 
         if (Array.isArray(hidden) && hidden.includes(key)) {

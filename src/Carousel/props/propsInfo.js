@@ -5,7 +5,7 @@ export default {
             ru: 'Количество слайдов',
         },
         control: 'input',
-        type: 'text',
+        type: 'number',
         category: 'Slides',
         weight: 0.5,
     },
@@ -34,6 +34,25 @@ export default {
             '2:3',
             '3:4',
             '9:16',
+        ],
+        category: 'Slides',
+        weight: 0.5,
+    },
+    slidesWrapper: {
+        title: {
+            en: 'Использовать в качестве слайдов',
+            ru: 'Использовать в качестве слайдов',
+        },
+        control: 'radio-group',
+        variants: [
+            {
+                title: 'Box',
+                value: 'box',
+            },
+            {
+                title: 'Link',
+                value: 'link',
+            },
         ],
         category: 'Slides',
         weight: 0.5,
@@ -168,10 +187,30 @@ export default {
         category: 'Autoplay',
         weight: 1,
     },
-    autoPlayDuration: {
+    autoPlayIntervalProp: {
         title: {
             en: 'Slide transition interval',
             ru: 'Интервал переключения слайдов',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Autoplay',
+        weight: 1,
+    },
+    autoPlayDelayProp: {
+        title: {
+            en: 'Delay before slide transition starts',
+            ru: 'Задержка перед началом переключения слайдов',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Autoplay',
+        weight: 1,
+    },
+    autoPlayPauseProp: {
+        title: {
+            en: 'Пауза переключения слайдов при клике',
+            ru: 'Пауза переключения слайдов при клике',
         },
         control: 'input',
         type: 'text',

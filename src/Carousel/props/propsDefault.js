@@ -1,6 +1,7 @@
 export default {
     slidesProp: '4',
     aspectRatio: '16:9',
+    slidesWrapper: 'box',
     durationProp: '0.5s',
     functionProp: 'linear',
     showArrows: true,
@@ -11,9 +12,7 @@ export default {
 
     autoPlay: false,
     autoPlayBehavior: 'infinite',
-    autoPlayDuration: 1000,
-
-    position: 'relative',
-    'align-self': 'normal',
-    overflow: 'hidden',
+    autoPlayIntervalProp: '1s',
+    autoPlayDelayProp: '0s',
+    autoPlayPauseProp: '5s',
 };

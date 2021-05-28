@@ -1,27 +1,15 @@
 import React from 'react';
-import Carousel from './Carousel';
-import { defaultProps } from './props';
+import Container from './Container';
+import { propInfo, defaultProps } from './props';
+import { argTypes } from '../modules';
 
 export default {
     title: 'Carousel',
-    component: Carousel,
+    component: Container,
     args: defaultProps,
-    argTypes: {
-        slidesProp: {
-            name: 'slidesProp',
-            description: 'Number of slides',
-            control: {
-                type: 'number',
-            },
-            table: {
-                defaultValue: {
-                    summary: 4,
-                },
-            },
-        },
-    },
+    argTypes: argTypes(propInfo, defaultProps),
 };
 
-export const Story1 = (props) => <Carousel {...props} />;
+export const StoryDefault = (props) => <Container {...props} />;
 
-Story1.storyName = 'Default';
+StoryDefault.storyName = 'Default';
