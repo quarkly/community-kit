@@ -70,4 +70,4 @@ Object.assign(Container, {
     overrides,
 });
 
-export default React.memo(Container);
+export default Container;
