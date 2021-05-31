@@ -178,17 +178,7 @@ const Lightbox = ({
             return () => window.removeEventListener('keydown', closeImageOnEsc);
         }
         closeLightbox();
-    }, [
-        isPreviewClicked,
-        closeImageOnEsc,
-        closeLightbox,
-        defaultFullImageSrc,
-        loadImage,
-        offScrollProp,
-        setBigImage,
-        setOpen,
-        someImageFullParams.src,
-    ]);
+    }, [isPreviewClicked]);
 
     const { override, rest } = useOverrides(props, overrides);
 
