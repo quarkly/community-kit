@@ -46,7 +46,7 @@ const ScrollIndicator = (props) => {
         window.addEventListener('scroll', onScroll);
 
         return () => window.removeEventListener('scroll', onScroll);
-    }, [onScroll]);
+    }, []);
 
     const { override, rest } = useOverrides(props, overrides);
 
