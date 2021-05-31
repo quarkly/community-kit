@@ -106,7 +106,7 @@ const Sub = ({ common, item, other }) => {
         const subCloseForce = tabState === 'collapseAll';
 
         setSubOpen((expanded && !subCloseForce) || subOpenForce);
-    }, [tabState, expanded]);
+    }, [tabState]);
 
     return (
         <>
