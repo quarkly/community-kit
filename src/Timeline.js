@@ -180,7 +180,7 @@ const TimelineItem = ({
 }) => {
     const desktopItemStyles = useMemo(() => {
         return getItemStyles[alignDesktop](numb);
-    }, [alignDesktop]);
+    }, [alignDesktop, numb]);
     const mobileItemStyles = useMemo(() => {
         const styles = getItemStyles[alignMobile](numb);
 
@@ -192,11 +192,11 @@ const TimelineItem = ({
             [`${breakpoint}-align-self`]: styles['align-self'],
             [`${breakpoint}-text-align`]: styles['text-align'],
         };
-    }, [alignMobile, breakpoint]);
+    }, [alignMobile, breakpoint, numb]);
 
     const desktopPointStyles = useMemo(() => {
         return getPointStyles[alignDesktop](numb);
-    }, [alignDesktop]);
+    }, [alignDesktop, numb]);
     const mobilePointStyles = useMemo(() => {
         const styles = getPointStyles[alignMobile](numb);
 
@@ -204,7 +204,7 @@ const TimelineItem = ({
             [`${breakpoint}-left`]: styles.left,
             [`${breakpoint}-right`]: styles.right,
         };
-    }, [alignMobile, breakpoint]);
+    }, [alignMobile, breakpoint, numb]);
 
     const order = useMemo(() => (numb % 2 ? ':odd' : ':even'), [numb]);
 
@@ -260,7 +260,7 @@ const Timeline = ({
             />
             {Array(items)
                 .fill()
-                .map((item, numb) => (
+                .map((_, numb) => (
                     <TimelineItem
                         key={`item-${numb}`} // eslint-disable-line
                         numb={numb}

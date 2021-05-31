@@ -173,14 +173,14 @@ const LightboxImage = ({
                 setOpen(false);
             }
         });
-    }, [offLightboxProp, offScrollProp, isOpen]);
+    }, [offLightboxProp, offScrollProp]);
 
     const closeLightbox = useCallback(() => {
         if (offLightboxProp) return;
         setOpen(false);
         setZoom(false);
         if (offScrollProp) scroll.enable();
-    }, [offLightboxProp, offScrollProp, isOpen]);
+    }, [offLightboxProp, offScrollProp]);
 
     // Фукция зума
     const zoomImage = useCallback(

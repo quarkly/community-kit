@@ -140,13 +140,20 @@ const Lightbox = ({
             setPreviewClicked(false);
             if (offScrollProp) enableScroll();
         }, 300);
-    }, [offScrollProp, isOpen]);
+    }, [
+        offScrollProp,
+        setBigImage,
+        setOpen,
+        setPreviewClicked,
+        setSomeImageFullParams,
+        setZoom,
+    ]);
 
     const closeImageOnEsc = useCallback(
         (e) => {
             if (e.keyCode === 27) closeLightbox();
         },
-        [isOpen]
+        [closeLightbox]
     );
 
     const zoomImage = useCallback(
@@ -154,7 +161,7 @@ const Lightbox = ({
             stopEventClick(e);
             setZoom(!isZoom);
         },
-        [isZoom]
+        [isZoom, setZoom]
     );
 
     useEffect(() => {

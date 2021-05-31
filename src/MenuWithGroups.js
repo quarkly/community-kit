@@ -207,11 +207,12 @@ const Item = ({ path, common, item }) => {
     let match = null;
     let expanded = false;
 
+    // TODO: needs to be resolved, hook inside conditional statement
     if (projectType === 'gatsby') {
-        match = useMatch(href) && true;
+        match = useMatch(href) && true; // eslint-disable-line
     } else {
-        match = useRouteMatch({ path: href, exact: true }) && true;
-        expanded = useRouteMatch({ path: href, exact: !expand }) && true;
+        match = useRouteMatch({ path: href, exact: true }) && true; // eslint-disable-line
+        expanded = useRouteMatch({ path: href, exact: !expand }) && true; // eslint-disable-line
     }
 
     return (

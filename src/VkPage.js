@@ -18,7 +18,7 @@ const useDebounce = (value, timeout, deep) => {
 };
 
 const hexColor = new RegExp(/^#[0-9A-F]{6}$/, 'i');
-const useColor = (theme) => (rawColor, defaultColor) =>
+const useColor = (theme, rawColor, defaultColor) =>
     useMemo(() => {
         const isVariable = rawColor.substring(0, 2) === '--';
         const color = isVariable
@@ -42,11 +42,9 @@ const VkPageComponent = ({
     ...props
 }) => {
     const theme = useTheme();
-    const getColor = useColor(theme);
-
-    const color1 = getColor(colorBground, 'FFFFFF');
-    const color2 = getColor(colorPrimary, '000000');
-    const color3 = getColor(colorAccent, '5181B8');
+    const color1 = useColor(theme, colorBground, 'FFFFFF');
+    const color2 = useColor(theme, colorPrimary, '000000');
+    const color3 = useColor(theme, colorAccent, '5181B8');
 
     const dOpt = useDebounce(
         {
