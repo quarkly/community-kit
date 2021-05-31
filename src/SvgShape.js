@@ -17,7 +17,7 @@ const useSize = (target) => {
     useLayoutEffect(() => {
         if (!target.current) return;
         setSize(target.current.getBoundingClientRect());
-    }, [target]);
+    }, [target.current]);
     useResizeObserver(target, (entry) => setSize(entry.contentRect));
     return size;
 };
