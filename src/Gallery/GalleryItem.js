@@ -91,18 +91,13 @@ const GalleryItem = ({
     useEffect(() => {
         setPreviewClicked(showFullImage);
         setSomeImageFullParams(fullImageParam);
-    }, [
-        showFullImage,
-        setPreviewClicked,
-        fullImageParam,
-        setSomeImageFullParams,
-    ]);
+    }, [showFullImage]);
 
     useEffect(() => {
         loadImage(correctSrcPreview).then(() => {
             setLoadingPreview(false);
         });
-    }, [hideLoaderPreviewImage, correctSrcPreview, loadImage]);
+    }, [hideLoaderPreviewImage]);
 
     useEffect(() => {
         addImageParams(index, {
@@ -116,8 +111,6 @@ const GalleryItem = ({
             fullLoading,
         });
     }, [
-        index,
-        addImageParams,
         fullSrc,
         fullSrcSet,
         fullSizes,
@@ -154,8 +147,7 @@ const GalleryItem = ({
         const itemSize = boxRef.current.getBoundingClientRect();
         changeAspectRatio(aspectRatioProp, itemSize);
     }, [
-        changeAspectRatio,
-        boxRef,
+        boxRef.current,
         aspectRatioProp,
         columnsCountProp,
         borderWidthProp,
