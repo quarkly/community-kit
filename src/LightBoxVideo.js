@@ -135,7 +135,7 @@ const LightboxVideo = ({
         if (!showImageProp) {
             if (offScrollProp) scroll.enable();
         }
-    }, [showImageProp, offScrollProp]);
+    }, [showImageProp]);
 
     const openLightbox = useCallback(() => {
         if (offLightboxProp) return;
