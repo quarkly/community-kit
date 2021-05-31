@@ -18,6 +18,6 @@ export default {
 
     active: 1,
     position: 100,
-    animate: true,
+    animate: false,
     lock: false,
 };
