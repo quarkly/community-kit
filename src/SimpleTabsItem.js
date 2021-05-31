@@ -12,7 +12,7 @@ const SimpleTab = ({ index, ...props }) => {
     useEffect(() => {
         addTab({ tabId, index });
         return () => removeTab({ tabId, index });
-    }, [tabId, index, addTab, removeTab]);
+    }, [tabId, index]);
 
     const isHidden = currentTab !== tabId;
 
