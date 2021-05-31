@@ -278,7 +278,8 @@ const TooltipComponent = ({
             setTooltipDirection(tooltipPositionProp);
         }
     }, [
-        contentOffsetNumb,
+        componentRef.current,
+        wrapperRef.current,
         tooltipPositionProp,
         tooltipOffsetProp,
         tooltipAutoChangeProp,
