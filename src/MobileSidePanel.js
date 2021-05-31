@@ -336,7 +336,7 @@ const MobileSidePanel = ({
 
         setOpen(isOpen || empty);
         setEmpty(empty);
-    }, [childrenLength, isOpen]);
+    }, [childrenLength]);
 
     return (
         <Box {...rest}>
