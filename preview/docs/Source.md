@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This component helps you add multiple media sources. It's a child component of the `Audio`, `Video` фтв `Picture` components. It allows the browser to select one of the given sources depending on which codec or media it supports.
+This component helps you add multiple media sources. It's a child component of the `Audio`, `Video` and `Picture` components. It allows the browser to select one of the given sources depending on which codec or media it supports.
 
 ## ⚙️ Usage
 
