@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Button } from '@quarkly/widgets';
 
-import ComponentNotice from './ComponentNotice';
+import ComponentNotice from '../ComponentNotice';
 
 const overrides = {
     Button: {
@@ -46,42 +46,78 @@ const overrides = {
     },
 };
 
-let toggleTimeout;
-
 const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
     const { override, children, rest } = useOverrides(props, overrides);
 
     const contentRef = useRef(null);
+    const timerRef = useRef(null);
     const [
-        { isOpen, isEmpty, height, duration, transition, isLock },
+        { isOpen, isEmpty, height, realHeight, duration, transition, isLock },
         setParams,
     ] = useState({
         isOpen: false,
         isEmpty: false,
+        realHeight: 0,
         height: 0,
         duration: 0,
         transition: 'none',
         isLock: false,
     });
 
+    const setRealHeight = useCallback(
+        (entries) => {
+            const [entry] = entries;
+            const { borderBoxSize } = entry;
+            const [size] = borderBoxSize;
+            setParams((state) => ({
+                ...state,
+                realHeight: size.blockSize,
+            }));
+        },
+        [setParams]
+    );
+
+    useEffect(() => {
+        clearTimeout(timerRef.current);
+
+        if (!contentRef.current) return;
+
+        const localIsEmpty =
+            contentRef.current?.innerHTML === '<!--child placeholder-->';
+        const currentNode = contentRef.current;
+
+        const observer = new ResizeObserver(setRealHeight);
+        observer.observe(currentNode);
+
+        setParams((state) => ({
+            ...state,
+            isEmpty: localIsEmpty,
+            isLock: false,
+        }));
+
+        return function cleanup() {
+            observer.unobserve(currentNode);
+            observer.disconnect();
+        };
+    }, [children.length, setRealHeight]);
+
     const updateParams = useCallback(
-        ({ open, empty }) => {
+        ({ open }) => {
             if (isLock) return;
 
-            const { offsetHeight } = contentRef.current;
-            let newDuration = parseFloat(minDuration) + offsetHeight / 4000;
-            let newHeight = open && !empty ? offsetHeight : 0;
+            let newDuration = parseFloat(minDuration) + realHeight / 4000;
+            let newHeight = open && !isEmpty ? realHeight : 0;
 
             if (newDuration > maxDuration) {
                 newDuration = maxDuration;
             }
-            if (empty) {
+
+            if (isEmpty) {
                 newHeight = 'auto';
             }
 
             const newParams = {
                 isOpen: open,
-                isEmpty: empty,
                 height: newHeight,
                 duration: newDuration,
 
@@ -98,55 +134,35 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
 			`,
             };
 
-            setParams({
+            setParams((state) => ({
+                ...state,
                 ...newParams,
                 isLock: true,
-            });
+            }));
 
-            clearTimeout(toggleTimeout);
-            toggleTimeout = setTimeout(() => {
-                setParams({
+            clearTimeout(timerRef.current);
+            timerRef.current = setTimeout(() => {
+                setParams((state) => ({
+                    ...state,
                     ...newParams,
                     isLock: false,
-                });
+                }));
             }, duration * 1000);
         },
-        [isOpen, isEmpty, isLock]
+        [
+            isLock,
+            isEmpty,
+            realHeight,
+            animFunction,
+            duration,
+            maxDuration,
+            minDuration,
+        ]
     );
 
     const toggleOpen = useCallback(() => {
-        updateParams({
-            open: !isOpen,
-            empty: isEmpty,
-        });
-    }, [isOpen, isEmpty, isLock]);
-
-    useEffect(() => {
-        const observer = new ResizeObserver(() => {
-            updateParams({
-                open: isOpen,
-                empty: isEmpty,
-            });
-        });
-        observer.observe(contentRef.current);
-
-        return function cleanup() {
-            observer.unobserve(contentRef.current);
-            observer.disconnect();
-        };
-    }, [contentRef.current]);
-
-    useEffect(() => {
-        if (!contentRef.current) return;
-
-        const empty =
-            contentRef.current?.innerHTML === '<!--child placeholder-->';
-
-        updateParams({
-            open: isOpen || empty,
-            empty,
-        });
-    }, [children.length]);
+        updateParams({ open: !isOpen });
+    }, [isOpen, updateParams]);
 
     return (
         <Box
