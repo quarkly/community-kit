@@ -40,7 +40,7 @@ export default {
     },
     slidesWrapper: {
         title: {
-            en: 'Использовать в качестве слайдов',
+            en: 'Use as slides',
             ru: 'Использовать в качестве слайдов',
         },
         control: 'radio-group',
@@ -209,7 +209,7 @@ export default {
     },
     autoPlayPauseProp: {
         title: {
-            en: 'Пауза переключения слайдов при клике',
+            en: 'Pause between switches of slides when clicked',
             ru: 'Пауза переключения слайдов при клике',
         },
         control: 'input',
