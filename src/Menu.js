@@ -166,6 +166,13 @@ const Menu = ({ rootId, depth, 'exact-active-match': exact, ...props }) => {
     );
 };
 
+const pagesList = Object.values(getAPI().pages || {}).map(
+    ({ pageUrl, id }) => ({
+        title: pageUrl,
+        value: id,
+    })
+);
+
 const propInfo = {
     depth: {
         title: {
@@ -173,6 +180,7 @@ const propInfo = {
             ru: 'Максимальная вложенность',
         },
         control: 'input',
+        type: 'number',
         category: 'Main',
         weight: 1,
     },
@@ -181,7 +189,8 @@ const propInfo = {
             en: 'Root page ID',
             ru: 'ID корневой страницы',
         },
-        control: 'input',
+        control: 'select',
+        variants: pagesList,
         category: 'Main',
         weight: 1,
     },
