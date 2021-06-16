@@ -113,7 +113,8 @@
       "Source": "Source",
       "Picture": "Picture",
       "Counter": "Counter",
-      "TwitterFeed": "TwitterFeed"
+      "TwitterFeed": "TwitterFeed",
+      "PayPalDonateButton": "PayPalDonateButton"
     }
   },
   "quarklyInfoDeleted": {
