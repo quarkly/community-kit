@@ -196,9 +196,12 @@ const GalleryItem = ({
 
 const propInfo = {
     columsNumb: {
-        title: 'Ширина в столбцах',
+        title: {
+            ru: 'Ширина в столбцах',
+            en: 'Width in columns',
+        },
         description: {
-            en: 'Количество столбцов, которое должно занимать изображение',
+            en: 'Number of columns an image must use',
             ru: 'Количество столбцов, которое должно занимать изображение',
         },
         control: 'input',
@@ -206,9 +209,12 @@ const propInfo = {
         weight: 0.5,
     },
     rowsNumb: {
-        title: 'Высота в колонках',
+        title: {
+            ru: 'Высота в колонках',
+            en: 'Height in rows',
+        },
         description: {
-            en: 'Количество колонок, которое должно занимать изображение',
+            en: 'Number of rows an image must use',
             ru: 'Количество колонок, которое должно занимать изображение',
         },
         control: 'input',
@@ -216,10 +222,9 @@ const propInfo = {
         weight: 0.5,
     },
     stretchFull: {
-        title: 'Растянуть на всю ширину и высоту',
+        title: 'Stretch an image to container size',
         description: {
-            en:
-                'Растягивать изображения на всю ширину и высоту, если есть свободное пространство',
+            en: "Stretch images to container size if there's free space",
             ru:
                 'Растягивать изображения на всю ширину и высоту, если есть свободное пространство',
         },
@@ -228,9 +233,12 @@ const propInfo = {
         weight: 1,
     },
     showFullImage: {
-        title: 'Показать изображение',
+        title: {
+            ru: 'Показать изображение',
+            en: 'Show image',
+        },
         description: {
-            en: 'Показать полное изображение',
+            en: 'Show full image',
             ru: 'Показать полное изображение',
         },
         control: 'checkbox',
