@@ -112,7 +112,8 @@
       "Track": "Track",
       "Source": "Source",
       "Picture": "Picture",
-      "Counter": "Counter"
+      "Counter": "Counter",
+      "TwitterFeed": "TwitterFeed"
     }
   },
   "quarklyInfoDeleted": {
