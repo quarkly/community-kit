@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, {
+    useState,
+    useEffect,
+    useCallback,
+    useRef,
+    useMemo,
+} from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box, Button } from '@quarkly/widgets';
@@ -51,28 +57,20 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
 
     const contentRef = useRef(null);
     const timerRef = useRef(null);
-    const [
-        { isOpen, isEmpty, height, realHeight, duration, transition, isLock },
-        setParams,
-    ] = useState({
+    const [{ isOpen, isEmpty, isLock, realHeight }, setParams] = useState({
         isOpen: false,
         isEmpty: false,
-        realHeight: 0,
-        height: 0,
-        duration: 0,
-        transition: 'none',
         isLock: false,
+        realHeight: 0,
     });
 
-    const setRealHeight = useCallback(
+    const onResize = useCallback(
         (entries) => {
             const [entry] = entries;
             const { borderBoxSize } = entry;
             const [size] = borderBoxSize;
-            setParams((state) => ({
-                ...state,
-                realHeight: size.blockSize,
-            }));
+
+            setParams((state) => ({ ...state, realHeight: size.blockSize }));
         },
         [setParams]
     );
@@ -86,7 +84,7 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
             contentRef.current?.innerHTML === '<!--child placeholder-->';
         const currentNode = contentRef.current;
 
-        const observer = new ResizeObserver(setRealHeight);
+        const observer = new ResizeObserver(onResize);
         observer.observe(currentNode);
 
         setParams((state) => ({
@@ -99,44 +97,38 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
             observer.unobserve(currentNode);
             observer.disconnect();
         };
-    }, [children.length, setRealHeight]);
+    }, [children.length, onResize]);
+
+    const [height, transition, duration] = useMemo(() => {
+        let newDuration = parseFloat(minDuration) + realHeight / 4000;
+        let newHeight = isOpen && !isEmpty ? realHeight : 0;
+
+        if (newDuration > maxDuration) {
+            newDuration = maxDuration;
+        }
+
+        if (isEmpty) {
+            newHeight = 'auto';
+        }
+
+        const newTransition = isOpen
+            ? `max-height ${newDuration}s ${animFunction} 0s,
+visibility 0s ${animFunction} 0s,
+opacity ${newDuration}s ${animFunction} 0s`
+            : `max-height ${newDuration}s ${animFunction} 0s,
+visibility 0s ${animFunction} ${newDuration}s,
+opacity ${newDuration}s ${animFunction} 0s`;
+
+        return [newHeight, newTransition, newDuration];
+    }, [minDuration, realHeight, animFunction, isOpen, isEmpty, maxDuration]);
 
     const updateParams = useCallback(
         ({ open }) => {
             if (isLock) return;
 
-            let newDuration = parseFloat(minDuration) + realHeight / 4000;
-            let newHeight = open && !isEmpty ? realHeight : 0;
-
-            if (newDuration > maxDuration) {
-                newDuration = maxDuration;
-            }
-
-            if (isEmpty) {
-                newHeight = 'auto';
-            }
-
-            const newParams = {
-                isOpen: open,
-                height: newHeight,
-                duration: newDuration,
-
-                transition: open
-                    ? `
-				max-height ${newDuration}s ${animFunction} 0s,
-				visibility 0s ${animFunction} 0s,
-				opacity ${newDuration}s ${animFunction} 0s
-			`
-                    : `
-				max-height ${newDuration}s ${animFunction} 0s,
-				visibility 0s ${animFunction} ${newDuration}s,
-				opacity ${newDuration}s ${animFunction} 0s
-			`,
-            };
-
             setParams((state) => ({
                 ...state,
-                ...newParams,
+                isOpen: open,
                 isLock: true,
             }));
 
@@ -144,20 +136,11 @@ const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
             timerRef.current = setTimeout(() => {
                 setParams((state) => ({
                     ...state,
-                    ...newParams,
                     isLock: false,
                 }));
             }, duration * 1000);
         },
-        [
-            isLock,
-            isEmpty,
-            realHeight,
-            animFunction,
-            duration,
-            maxDuration,
-            minDuration,
-        ]
+        [isLock, duration]
     );
 
     const toggleOpen = useCallback(() => {
