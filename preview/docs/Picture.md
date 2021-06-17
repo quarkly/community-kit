@@ -4,7 +4,7 @@ This container component provides an optimized image version for different scree
 
 ## ⚙️ Usage
 
-Add the component to the page, put the `Image` and `Source` (optional) components in it, and see how it works in the preview mode.
+Add the component to the page, than add an Image and/or Source components (optionally) to it, and see how it works in the preview mode.
 
 ## 🗓 Changelog
 
