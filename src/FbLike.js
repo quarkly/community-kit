@@ -130,14 +130,14 @@ const propInfo = {
         variants: [
             {
                 title: {
-                    en: 'Показать',
+                    en: 'Show',
                     ru: 'Показать',
                 },
                 value: 'show',
             },
             {
                 title: {
-                    en: 'Скрыть',
+                    en: 'Hide',
                     ru: 'Скрыть',
                 },
                 value: 'hide',
@@ -155,28 +155,28 @@ const propInfo = {
         variants: [
             {
                 title: {
-                    en: 'Стандартный вид',
+                    en: 'Default layout',
                     ru: 'Стандартный вид',
                 },
                 value: 'standard',
             },
             {
                 title: {
-                    en: 'Контейнер со счётчиком',
+                    en: 'Container with counter',
                     ru: 'Контейнер со счётчиком',
                 },
                 value: 'box_count',
             },
             {
                 title: {
-                    en: 'Кнопка со счётчиком',
+                    en: 'Button with counter',
                     ru: 'Кнопка со счётчиком',
                 },
                 value: 'button_count',
             },
             {
                 title: {
-                    en: 'Простая кнопка',
+                    en: 'Simple button',
                     ru: 'Простая кнопка',
                 },
                 value: 'button',
@@ -194,14 +194,14 @@ const propInfo = {
         variants: [
             {
                 title: {
-                    en: 'Маленькая',
+                    en: 'Small',
                     ru: 'Маленькая',
                 },
                 value: 'small',
             },
             {
                 title: {
-                    en: 'Большая',
+                    en: 'Large',
                     ru: 'Большая',
                 },
                 value: 'large',

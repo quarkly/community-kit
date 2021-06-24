@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import atomize from '@quarkly/atomize';
 import { Box, Image } from '@quarkly/widgets';
 
@@ -39,26 +39,28 @@ const SoundCloud = ({ type, url, ...props }) => {
     const [typeUrl, setTypeUrl] = useState('');
     const [errorText, setErrorText] = useState('');
 
-    if (typeof url !== 'undefined') {
-        fetch(
-            `https://soundcloud.com/oembed?format=json&url=${encodeURI(
-                url
-            )}&iframe=true`
-        )
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                const trackIdTemp = data.html.match(/\d{7,}/g)[0];
+    useEffect(() => {
+        if (typeof url !== 'undefined' && typeof fetch === 'function') {
+            fetch(
+                `https://soundcloud.com/oembed?format=json&url=${encodeURI(
+                    url
+                )}&iframe=true`
+            )
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    const trackIdTemp = data.html.match(/\d{7,}/g)[0];
 
-                setTypeUrl(type === 'visual' ? '&visual=true' : '');
-                setTrackId(trackIdTemp);
-                setErrorText('');
-            })
-            .catch(() => {
-                setErrorText('Invalid URL');
-            });
-    }
+                    setTypeUrl(type === 'visual' ? '&visual=true' : '');
+                    setTrackId(trackIdTemp);
+                    setErrorText('');
+                })
+                .catch(() => {
+                    setErrorText('Invalid URL');
+                });
+        }
+    }, [url, type]);
 
     return (
         <Wrapper

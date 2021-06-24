@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Text } from '@quarkly/widgets';
 
-import ComponentNotice from './ComponentNotice';
+import ComponentNotice from '../ComponentNotice';
 
 const DEFAULT_OFFSET = 4;
 
@@ -278,12 +278,11 @@ const TooltipComponent = ({
             setTooltipDirection(tooltipPositionProp);
         }
     }, [
-        componentRef.current,
-        wrapperRef.current,
         tooltipPositionProp,
         tooltipOffsetProp,
         tooltipAutoChangeProp,
         contentOffsetProp,
+        contentOffsetNumb,
         arrowSizeNumb,
     ]);
 

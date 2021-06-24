@@ -88,7 +88,6 @@
       "BgImageParallax": "BgImageParallax",
       "Gallery": "Gallery",
       "SoundCloud": "SoundCloud",
-      "SvgShape": "SvgShape",
       "YandexMap": "YandexMap",
       "LiveChat": "LiveChat",
       "YouTube": "YouTube",
@@ -126,7 +125,8 @@
       "LightBoxMap": "LightBoxMap",
       "LightBoxVideo": "LightBoxVideo",
       "SimpleTabsList": "SimpleTabsList",
-      "SimpleTabsItem": "SimpleTabsItem"
+      "SimpleTabsItem": "SimpleTabsItem",
+      "SvgShape": "SvgShape"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",

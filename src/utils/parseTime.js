@@ -1,4 +1,4 @@
-const regexMilliseconds = /^[0-9]{1,}ms$/i;
+const regexMilliseconds = /^[0-9]{1,}(ms)?$/i;
 const regexSeconds = /^(.?|[0-9]{1,}.?)[0-9]{1,}s$/i;
 
 export default function parseTime(time, defaultTime) {

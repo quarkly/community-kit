@@ -14,7 +14,6 @@ export { default as BeforeAfterImage } from './BeforeAfterImage';
 export { default as BgImageParallax } from './BgImageParallax';
 export { default as Gallery } from './Gallery';
 export { default as SoundCloud } from './SoundCloud';
-export { default as SvgShape } from './SvgShape';
 export { default as YandexMap } from './YandexMap';
 export { default as LiveChat } from './LiveChat';
 export { default as YouTube } from './YouTube';
