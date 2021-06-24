@@ -64,9 +64,11 @@ const Component = ({
                 ref={slidesRef}
                 {...override('Slides')}
                 transform={`translateX(-${position}%)`}
-                transition={`transform ${
-                    animate ? animDuration : 0
-                }ms ${animFunction}`}
+                transition={
+                    animate
+                        ? `transform ${animDuration}ms ${animFunction}`
+                        : 'none'
+                }
             >
                 {slidesList.map((numb, index) => (
                     <Slide
