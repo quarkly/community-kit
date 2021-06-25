@@ -16,7 +16,7 @@ const AccordionItem = ({
         if (open) {
             onToggleOpen({ idx: idxRef.current, open: !open, disabled });
         }
-    }, []);
+    }, [onToggleOpen, open, disabled]);
 
     return (
         <Box flex-direction="column" display="flex" {...rest}>

@@ -1,15 +1,10 @@
-import React, {
-    useState,
-    useMemo,
-    useCallback,
-    useEffect,
-    useRef,
-} from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Text, Icon } from '@quarkly/widgets';
 import { FiMenu, FiX } from 'react-icons/fi';
 
 import ComponentNotice from './ComponentNotice';
+import { isEmptyChildren } from './utils';
 
 // There are several icons in the component
 // Brought out separately, so that there is less duplication
@@ -309,12 +304,12 @@ const MobileSidePanel = ({
     const { override, children, rest } = useOverrides(props, overrides);
 
     const [isOpen, setOpen] = useState(false);
-    const [isEmpty, setEmpty] = useState(false);
-    const childrenRef = useRef(null);
 
     const onToggle = useCallback(() => setOpen((prev) => !prev), []);
     const onOpen = useCallback(() => setOpen(true), []);
     const onClose = useCallback(() => setOpen(false), []);
+
+    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
 
     const styles = useMemo(
         () =>
@@ -325,18 +320,10 @@ const MobileSidePanel = ({
     const statusOpen = isOpen || isEmpty ? ':open' : ':closed';
     const statusButtonOpen =
         menuPosition === 'near' && (isOpen || isEmpty) ? ':open' : ':closed';
-    const childrenLength = Array.isArray(children) ? children.length : 0;
 
     useEffect(() => {
-        if (!childrenRef.current) return;
-
-        const empty = childrenRef.current?.innerHTML.endsWith(
-            '<!--child placeholder-->'
-        );
-
-        setOpen(isOpen || empty);
-        setEmpty(empty);
-    }, [childrenLength]);
+        setOpen(isOpen || isEmpty);
+    }, [setOpen, isOpen, isEmpty]);
 
     return (
         <Box
@@ -390,7 +377,6 @@ const MobileSidePanel = ({
                         {...override('Cross')}
                     />
                     <Box
-                        ref={childrenRef}
                         {...styles.Children}
                         {...override('Children', `Children ${statusOpen}`)}
                         display={isEmpty ? 'none' : undefined}

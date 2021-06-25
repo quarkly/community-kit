@@ -121,21 +121,18 @@ const Gallery = ({
         imagesMinWidthProp,
     ]);
 
-    const addImageParams = useCallback(
-        (index, data) => {
-            picturesParamsRef.current[index] = {
-                src: data.srcFull,
-                srcset: data.srcSetFull,
-                sizes: data.sizesFull,
-                alt: data.altFull,
-                title: data.titleFull,
-                objectFit: data.objectFitFull,
-                objectPosition: data.objectPositionFull,
-                loading: data.loadingFull,
-            };
-        },
-        [picturesParamsRef.current]
-    );
+    const addImageParams = useCallback((index, data) => {
+        picturesParamsRef.current[index] = {
+            src: data.srcFull,
+            srcset: data.srcSetFull,
+            sizes: data.sizesFull,
+            alt: data.altFull,
+            title: data.titleFull,
+            objectFit: data.objectFitFull,
+            objectPosition: data.objectPositionFull,
+            loading: data.loadingFull,
+        };
+    }, []);
 
     const throttledEffect = useCallback((callback, delay) => {
         lastRan.current = Date.now();
@@ -152,14 +149,7 @@ const Gallery = ({
         (galleryWidth) =>
             (galleryWidth - (columnsCountProp - 1) * borderWidthProp) /
             columnsCountProp,
-        [
-            columnsCountProp,
-            borderWidthProp,
-            columnsCountProp,
-            imagesMaxWidth,
-            imagesMinWidth,
-            aspectRatioProp,
-        ]
+        [columnsCountProp, borderWidthProp]
     );
 
     const handleResize = useCallback(
@@ -170,24 +160,19 @@ const Gallery = ({
                 setGalleryItemWidth(imageWidth);
             }, 100);
         },
-        [
-            columnsCountProp,
-            borderWidthProp,
-            columnsCountProp,
-            imagesMaxWidth,
-            imagesMinWidth,
-        ]
+        [throttledEffect, getItemWidth, setGalleryItemWidth]
     );
 
     useEffect(() => {
         if (!galleryRef.current) return;
         const resizer = new ResizeObserver(handleResize);
-        resizer.observe(galleryRef.current);
+        const { current } = galleryRef;
+        resizer.observe(current);
 
         return () => {
-            resizer.unobserve(galleryRef.current);
+            resizer.unobserve(current);
         };
-    }, [galleryRef.current]);
+    }, [handleResize]);
 
     const galleryItemCountNumb = useMemo(
         () => parseInt(galleryItemNumbProp, 10),
@@ -204,16 +189,7 @@ const Gallery = ({
 
             return items > galleryItemCountNumb ? galleryItemCountNumb : items;
         },
-        [
-            galleryItemCountNumb,
-            columnsCountProp,
-            borderWidthProp,
-            loaderFormatProp,
-            aspectRatioProp,
-            autoFillInProp,
-            imagesMaxWidth,
-            imagesMinWidth,
-        ]
+        [getItemWidth, galleryItemCountNumb, columnsCountProp]
     );
 
     const loadMore = useCallback(
@@ -238,7 +214,7 @@ const Gallery = ({
                 setButtonVisible(false);
             }
         },
-        [galleryRef.current, galleryItemNumbProp]
+        [galleryItemCountNumb, getItemCountOnView, galleryItemNumbProp]
     );
 
     const loadOnClick = useCallback(() => {
@@ -248,7 +224,7 @@ const Gallery = ({
         if (galleryRect.bottom - window.innerHeight / 2 < window.innerHeight) {
             loadMore('click');
         }
-    }, [galleryRef.current]);
+    }, [loadMore]);
 
     const loadOnScroll = useCallback(() => {
         if (!galleryRect.current) return;
@@ -265,7 +241,7 @@ const Gallery = ({
                 window.removeEventListener('orientationchange', loadOnScroll);
             }
         }
-    }, [galleryRef.current, scrollLoadCountRef.current]);
+    }, [galleryItemCountNumb, getItemCountOnView, loadMore]);
 
     useEffect(() => {
         if (!galleryRef.current) return;
@@ -302,15 +278,10 @@ const Gallery = ({
             window.removeEventListener('orientationchange', loadOnScroll);
         };
     }, [
-        galleryRef.current,
-        galleryItemNumbProp,
-        columnsCountProp,
-        borderWidthProp,
+        galleryItemCountNumb,
+        getItemCountOnView,
+        loadOnScroll,
         loaderFormatProp,
-        aspectRatioProp,
-        autoFillInProp,
-        imagesMaxWidth,
-        imagesMinWidth,
     ]);
 
     const { override, rest } = useOverrides(props, overrides);

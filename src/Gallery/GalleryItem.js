@@ -91,13 +91,18 @@ const GalleryItem = ({
     useEffect(() => {
         setPreviewClicked(showFullImage);
         setSomeImageFullParams(fullImageParam);
-    }, [showFullImage]);
+    }, [
+        showFullImage,
+        fullImageParam,
+        setPreviewClicked,
+        setSomeImageFullParams,
+    ]);
 
     useEffect(() => {
         loadImage(correctSrcPreview).then(() => {
             setLoadingPreview(false);
         });
-    }, [hideLoaderPreviewImage]);
+    }, [loadImage, correctSrcPreview, setLoadingPreview]);
 
     useEffect(() => {
         addImageParams(index, {
@@ -111,6 +116,8 @@ const GalleryItem = ({
             fullLoading,
         });
     }, [
+        addImageParams,
+        index,
         fullSrc,
         fullSrcSet,
         fullSizes,
@@ -146,16 +153,7 @@ const GalleryItem = ({
         if (!boxRef.current) return;
         const itemSize = boxRef.current.getBoundingClientRect();
         changeAspectRatio(aspectRatioProp, itemSize);
-    }, [
-        boxRef.current,
-        aspectRatioProp,
-        columnsCountProp,
-        borderWidthProp,
-        autoFillInProp,
-        galleryItemWidth,
-        imagesMinWidth,
-        imagesMaxWidth,
-    ]);
+    }, [changeAspectRatio, aspectRatioProp]);
 
     const { override, rest } = useOverrides(props, overrides);
 

@@ -18,7 +18,7 @@ const throttle = (fn, wait) => {
 
 const useThrottle = (fn, wait = 100, cb) => {
     const throttled = throttle(fn, wait);
-    return useCallback(throttled, cb);
+    return useCallback(throttled, [throttled, cb]);
 };
 
 const overrides = {
@@ -95,7 +95,7 @@ const ScrollToTop = ({
                 window.removeEventListener('scroll', handleScroll);
             }
         };
-    }, [handleScroll]);
+    }, [isTargetContainer, handleScroll]);
 
     return (
         <Box mih="0" pos="relative" {...rest}>
