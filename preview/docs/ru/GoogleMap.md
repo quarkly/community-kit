@@ -40,4 +40,4 @@ If you encountered a bug, please contact us so we can fix it promptly. We’re r
 
 ## 📝 License
 
-Licensed under the [MIT License](./LICENSE).
+Licensed under the [MIT License](https://raw.githubusercontent.com/quarkly/community-kit/master/LICENSE).
