@@ -1,8 +1,14 @@
-mport React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import React, {
+    useState,
+    useEffect,
+    useRef,
+    useMemo,
+    useCallback,
+} from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Text } from '@quarkly/widgets';
 
-import ComponentNotice from './ComponentNotice';
+import ComponentNotice from '../ComponentNotice';
 
 const DEFAULT_OFFSET = 4;
 
@@ -252,7 +258,7 @@ const TooltipComponent = ({
             setTooltipDirection(tooltipPositionProp);
             return;
         }
-        
+
         if (!componentRef.current || !wrapperRef.current) return;
         const componentRect = componentRef.current.getBoundingClientRect();
         const wrapperRect = wrapperRef.current.getBoundingClientRect();
@@ -278,12 +284,12 @@ const TooltipComponent = ({
         contentOffsetNumb,
         arrowSizeNumb,
     ]);
-    
+
     useEffect(() => {
         positionTooltip();
-        
+
         const observer = new ResizeObserver(positionTooltip);
-        
+
         observer.observe(document.body);
         return () => observer.unobserve(document.body);
     }, [setTooltipDirection, tooltipPositionProp]);
