@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+mport React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Text } from '@quarkly/widgets';
 
-import ComponentNotice from '../ComponentNotice';
+import ComponentNotice from './ComponentNotice';
 
 const DEFAULT_OFFSET = 4;
 
@@ -191,8 +191,6 @@ const TooltipBlock = ({
             left="0%"
             width="100%"
             height="100%"
-            align-items="center"
-            justify-content="center"
             pointer-events="none"
             position="absolute"
             display="flex"
@@ -249,34 +247,29 @@ const TooltipComponent = ({
     const wrapperRef = useRef(null);
     const contentRef = useRef(null);
 
-    // Изменение положения тултипа при смене props
-    useEffect(() => {
-        setTooltipDirection(tooltipPositionProp);
-    }, [tooltipPositionProp]);
-
-    // Изменение положения тултипа при нехватке пространства
-    useEffect(() => {
+    const positionTooltip = useCallback(() => {
+        if (!tooltipAutoChangeProp) {
+            setTooltipDirection(tooltipPositionProp);
+            return;
+        }
+        
         if (!componentRef.current || !wrapperRef.current) return;
         const componentRect = componentRef.current.getBoundingClientRect();
         const wrapperRect = wrapperRef.current.getBoundingClientRect();
 
         const tooltipOffsetNumb = parseInt(tooltipOffsetProp, 10);
 
-        if (tooltipAutoChangeProp) {
-            setTooltipDirection(
-                orderDirections[tooltipPositionProp].find((position) =>
-                    checkDirections[position]({
-                        componentRect,
-                        wrapperRect,
-                        tooltipOffsetNumb,
-                        arrowSizeNumb,
-                        contentOffsetNumb,
-                    })
-                ) || 'top'
-            );
-        } else {
-            setTooltipDirection(tooltipPositionProp);
-        }
+        setTooltipDirection(
+            orderDirections[tooltipPositionProp].find((position) =>
+                checkDirections[position]({
+                    componentRect,
+                    wrapperRect,
+                    tooltipOffsetNumb,
+                    arrowSizeNumb,
+                    contentOffsetNumb,
+                })
+            ) || 'top'
+        );
     }, [
         tooltipPositionProp,
         tooltipOffsetProp,
@@ -285,6 +278,15 @@ const TooltipComponent = ({
         contentOffsetNumb,
         arrowSizeNumb,
     ]);
+    
+    useEffect(() => {
+        positionTooltip();
+        
+        const observer = new ResizeObserver(positionTooltip);
+        
+        observer.observe(document.body);
+        return () => observer.unobserve(document.body);
+    }, [setTooltipDirection, tooltipPositionProp]);
 
     // Если компонент пустой
     useEffect(() => {
@@ -462,6 +464,7 @@ const propInfo = {
 };
 
 const defaultProps = {
+    display: 'inline-block',
     tooltipStatusProp: 'always',
     tooltipPositionProp: 'top',
     tooltipColorProp: '#000000',
