@@ -1,24 +1,24 @@
 ## 📖 Detailed overview
 
-Виджет для таймлайна Twitter – это простой способ встроить твиты из учетной записи на ваш веб-сайт в компактном, линейном виде.
+The Twitter Timeline widget is an easy way to embed tweets from your account into your website in a compact, linear view.
 
 ## ⚙️ Usage
 
-Добавьте компонент на страницу и укажите `Имя или ссылку на страницу пользователя`.
+Add the component to the page and specify the `Name or link to the user page`.
 
 ## 🧩 Components and Props
 
-| Prop name                               |   Type    |    Default    |
-| :-------------------------------------- | :-------: | :-----------: |
-| Имя или ссылка на страницу пользователя | `string`  | `@quarklyapp` |
-| Ограничить количество твитов (1-20)     | `number`  |      `-`      |
-| Убрать шапку                            | `boolean` |    `false`    |
-| Убрать подвал                           | `boolean` |    `false`    |
-| Убрать границы виджета                  | `boolean` |    `false`    |
-| Убрать фон виджета                      | `boolean` |    `false`    |
-| Убрать полосу прокрутки                 | `boolean` |    `false`    |
-| Цвет границы твитов (только #HEX)       |  `color`  |      `-`      |
-| ARIA live politeness                    | `string`  |   `Polite`    |
+| Prop Name                         |   Type    |    Default    |
+| :-------------------------------- | :-------: | :-----------: |
+| Name or link to the user page     | `string`  | `@quarklyapp` |
+| Limit the number of tweets (1-20) | `number`  |      `-`      |
+| Hide header                       | `boolean` |    `false`    |
+| Hide footer                       | `boolean` |    `false`    |
+| Hide widget borders               | `boolean` |    `false`    |
+| Hide widget background            | `boolean` |    `false`    |
+| Hide scroll bar                   | `boolean` |    `false`    |
+| Tweet border color (#HEX only)    | `colors`  |      `-`      |
+| ARIA live politeness              | `string`  |   `Polite`    |
 
 ## 🗓 Changelog
 
@@ -27,7 +27,7 @@
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we'd **love** to see what you’re building with Quarkly!
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 

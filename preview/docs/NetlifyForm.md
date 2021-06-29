@@ -1,27 +1,27 @@
 ## 📖 Detailed overview
 
-Компонент для добавления формы Netlify и отправки её в [Netlify Forms](https://www.netlify.com/products/forms/).
+This component helps add a Netlify form and send it to [Netlify Forms](https://www.netlify.com/products/forms/).
 
-_Внимание:_
+_Important:_
 
--   Для работы этого компонента необходимо использовать структуру `Gatsby Project` и опубликовать проект на [Netlify](https://www.netlify.com/)
--   Компонент не работает в режиме предпросмотра
+-   For this component to work, use the `Gatsby Project` structure and publish the project on [Netlify](https://www.netlify.com/)
+-   The component doesn't work in preview mode
 
 ## ⚙️ Usage
 
-1. Зарегистрируйтесь в [Netlify](https://app.netlify.com/signup), если не сделали этого ранее;
-2. Добавьте компонент на страницу;
-3. Укажите `Название формы` на панели Props;
-4. В окне публикации выберите структуру `Gatsby Project` и опубликуйте проект на `Netlify`;
-5. Посмотрите как он работает на опубликованном сайте.
+1. Sign up for [Netlify](https://app.netlify.com/signup) if you haven't done it before;
+2. Add the component to the page;
+3. Specify `Form Name` on the Props panel;
+4. In the publish window, select the `Gatsby Project` structure and publish the project on `Netlify`;
+5. See how it works on the published site.
 
 ## 🧩 Components and Props
 
-| Prop name                      |   Type   |        Default         |
-| :----------------------------- | :------: | :--------------------: |
-| Название формы                 | `string` |       `my-form`        |
-| Сообщение об успешной отправке | `string` |       `Success`        |
-| Сообщение в случае ошибки      | `string` | `Something went wrong` |
+| Prop Name       |   Type   |        Default         |
+| :-------------- | :------: | :--------------------: |
+| Form name       | `string` |       `my-form`        |
+| Success message | `string` |       `Success`        |
+| Error message   | `string` | `Something went wrong` |
 
 ## 🗓 Changelog
 
@@ -30,7 +30,7 @@ _Внимание:_
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we'd **love** to see what you’re building with Quarkly!
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
