@@ -1,5 +1,6 @@
 import { parseTime } from '../../utils';
 import { defaultProps } from '../props';
+import initialState from './initial-state';
 
 export function init({
     slidesProp,
@@ -38,6 +39,9 @@ export function init({
 
         dispatch({
             type: 'SET_DATA',
+
+            ...initialState,
+
             slidesNumb,
             slidesList,
             animDuration,
@@ -246,10 +250,8 @@ export function deinit() {
 
         dispatch({
             type: 'SET_DATA',
-            animTimeoutId: null,
-            autoPlayIntervalId: null,
-            autoPlayDelayId: null,
-            autoPlayPauseId: null,
+
+            ...initialState,
         });
     };
 }

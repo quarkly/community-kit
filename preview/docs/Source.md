@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-This component helps you add multiple media sources. It's a child component of the `Audio`, `Video` фтв `Picture` components. It allows the browser to select one of the given sources depending on which codec or media it supports.
+This component helps you add multiple media sources. It's a child component of the `Audio`, `Video` and `Picture` components. It allows the browser to select one of the given sources depending on which codec or media it supports.
 
 ## ⚙️ Usage
 
@@ -10,7 +10,7 @@ This component helps you add multiple media sources. It's a child component of t
 
 ### Image sources and container size
 
-The `Image sources` and `Container size` props allow you to explicitly define the image and its size to be used depending on the `Media query for image download` conditions. You can read more about it here: [developer.mozilla.org](https://developer.mozilla.org/ru/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
+The `Image sources` and `Container size` props allow you to explicitly define the image and its size to be used depending on the `Media query for image download` conditions. You can read more about it here: [developer.mozilla.org](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
 
 ## 🧩 Components and Props
 

@@ -1,6 +1,7 @@
-import React, { useMemo, useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Image } from '@quarkly/widgets';
+import { parseTime } from '../utils';
 
 const overrides = {
     'Card Flip Content': {
@@ -88,9 +89,7 @@ const CardFlip = ({
 
     const flipTrigger = flipTriggerProp === 'click';
 
-    const flipDuration = useMemo(() => flipDurationProp.replace(/\s+/g, ''), [
-        flipDurationProp,
-    ]);
+    const flipDuration = parseTime(flipDurationProp);
 
     const onClickFlip = useCallback(() => {
         if (flipTrigger) setFlipped((prevFlipped) => !prevFlipped);

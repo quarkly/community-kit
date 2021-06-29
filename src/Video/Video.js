@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
 
-import ComponentNotice from './ComponentNotice';
+import ComponentNotice from '../ComponentNotice';
 
 const overrides = {
     'Video Tag': {
@@ -16,7 +16,6 @@ const overrides = {
 
 const Video = atomize.video();
 const Wrapper = atomize.div();
-const Content = atomize.div();
 
 const VideoComponent = ({
     src,
@@ -32,13 +31,13 @@ const VideoComponent = ({
     const { override, rest } = useOverrides(props, overrides);
 
     const [isEmpty, setEmpty] = useState(false);
-    const contentRef = useRef(null);
+    const videoRef = useRef(null);
 
-    const srcVal = useMemo(() => src?.trim() || '', [src]);
+    const srcVal = useMemo(() => src?.trim() || undefined, [src]);
     const showNotice = useMemo(() => isEmpty && !srcVal, [isEmpty, srcVal]);
 
     useEffect(() => {
-        setEmpty(contentRef.current?.innerHTML === '<!--child placeholder-->');
+        setEmpty(videoRef.current?.innerHTML === '<!--child placeholder-->');
     }, [children]);
 
     return (
@@ -54,17 +53,16 @@ const VideoComponent = ({
                 onMouseLeave={playOnHover ? (e) => e.target.pause() : undefined}
                 {...override('Video Tag')}
                 display={showNotice && 'none'}
+                ref={videoRef}
             >
-                <Content ref={contentRef}>
-                    {React.Children.map(
-                        children,
-                        (child) =>
-                            React.isValidElement(child) &&
-                            React.cloneElement(child, {
-                                container: 'video',
-                            })
-                    )}
-                </Content>
+                {React.Children.map(
+                    children,
+                    (child) =>
+                        React.isValidElement(child) &&
+                        React.cloneElement(child, {
+                            container: 'video',
+                        })
+                )}
             </Video>
             {showNotice && (
                 <ComponentNotice

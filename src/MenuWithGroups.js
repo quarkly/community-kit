@@ -356,28 +356,28 @@ const propInfo = {
         variants: [
             {
                 title: {
-                    en: 'Свернуть все группы',
+                    en: 'Collapse all groups',
                     ru: 'Свернуть все группы',
                 },
                 value: 'collapseAll',
             },
             {
                 title: {
-                    en: 'Раскрыть перед активным пунктом',
+                    en: 'Expand before the active menu item',
                     ru: 'Раскрыть перед активным пунктом',
                 },
                 value: 'expandActive',
             },
             {
                 title: {
-                    en: 'Раскрыть все группы',
+                    en: 'Expand all groups',
                     ru: 'Раскрыть все группы',
                 },
                 value: 'expandAll',
             },
             {
                 title: {
-                    en: 'Держать все вкладки раскрытыми',
+                    en: 'Keep all tabs open',
                     ru: 'Держать все вкладки раскрытыми',
                 },
                 value: 'keepExpanded',

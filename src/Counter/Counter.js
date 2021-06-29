@@ -1,13 +1,8 @@
 import React, { useEffect, useRef, useMemo, useCallback } from 'react';
 import { Box } from '@quarkly/widgets';
 import { parseTime } from '../utils';
-import { useCounter, useViewport, usePageLoad } from './hooks';
+import { useCounter, useSignal } from './hooks';
 import { propInfo, defaultProps } from './props';
-
-const startTriggerHooks = {
-    onViewport: useViewport,
-    onPageLoad: usePageLoad,
-};
 
 const Counter = ({
     startTrigger,
@@ -37,9 +32,6 @@ const Counter = ({
 
     const [curNumb, step] = useCounter(startNumb, endNumb, direction);
 
-    const useSignal =
-        startTriggerHooks[startTrigger] || startTriggerHooks.onPageLoad;
-
     const steps = useMemo(() => Math.abs(endNumb - startNumb), [
         startNumb,
         endNumb,
@@ -65,7 +57,7 @@ const Counter = ({
                 }, interval);
             }, delay);
         },
-        [steps, interval, delay]
+        [steps, interval, delay, step, stop]
     );
 
     const stop = useCallback(({ current }) => {
@@ -76,7 +68,7 @@ const Counter = ({
         current.currentStep = 0;
     }, []);
 
-    useSignal(() => start(counterRef), componentRef);
+    useSignal(startTrigger, () => start(counterRef), componentRef);
 
     useEffect(() => {
         return () => stop(counterRef);

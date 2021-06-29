@@ -11,7 +11,7 @@ This component shows a form with VK community comments.
 ### VK app
 
 For the component to work, create a comment widget on the VK site.
-To do it, follow the link [VK Comment](https://vk.com/dev/comments)
+To do it, follow the link [VK Comment](https://vk.com/dev/Comments)
 
 ## 🧩 Components and Props
 
