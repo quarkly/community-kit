@@ -75,7 +75,7 @@ const Animation = ({
 
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
 
-    const onAboveEvent = (e) => {
+    const onAboveEvent = useCallback((e) => {
         if (!wrapperRef.current) return;
 
         const { componentRect, scrollBottom } = getParams(
@@ -94,9 +94,9 @@ const Animation = ({
         }
 
         wrapperRef.current.previousTop = componentRect.top;
-    };
+    }, []);
 
-    const onBelowEvent = (e) => {
+    const onBelowEvent = useCallback((e) => {
         if (!wrapperRef.current) return;
 
         const { windowHeight, componentRect, scrollBottom } = getParams(
@@ -114,7 +114,7 @@ const Animation = ({
         }
 
         wrapperRef.current.previousTop = componentRect.top;
-    };
+    }, []);
 
     useEffect(() => {
         if (!wrapperRef.current || (trigger !== 'above' && trigger !== 'below'))
@@ -139,7 +139,7 @@ const Animation = ({
             window.removeEventListener('scroll', onAboveEvent);
             window.removeEventListener('scroll', onBelowEvent);
         };
-    }, [wrapperRef.current, trigger]);
+    }, [trigger, onAboveEvent, onBelowEvent]);
 
     useEffect(() => {
         if (!wrapperRef.current) return;
@@ -149,7 +149,7 @@ const Animation = ({
         if (isPlay !== wrapperRef.current.trigered) {
             togglePlay(wrapperRef.current.trigered);
         }
-    }, [trigger, test]);
+    }, [isPlay, trigger, test]);
 
     return (
         <Wrapper

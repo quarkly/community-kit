@@ -42,7 +42,7 @@ const useAnimationFrame = (cb) => {
     useEffect(() => {
         requestRef.current = requestAnimationFrame(animate);
         return () => cancelAnimationFrame(requestRef.current);
-    }, []);
+    }, []); // eslint-disable-line
 };
 
 const Content = atomize.div``;
@@ -76,7 +76,7 @@ const BgImageParallax = ({
         return numb > 1 ? numb : 1;
     }, [scrollInertiaProp]);
 
-    const updateParallaxTop = () => {
+    const updateParallaxTop = useCallback(() => {
         if (!wrapperRef.current) return;
         const { top, height } = wrapperRef.current.getBoundingClientRect();
         const windowHeight = window.innerHeight;
@@ -90,7 +90,7 @@ const BgImageParallax = ({
             windowHeight * (scrollSpeed > 1 ? scrollSpeed - 1 : 0);
 
         bgroundPos.current.scrollTop = scrollShift - windowShift;
-    };
+    }, [scrollSpeed]);
 
     const setParallaxHeight = useCallback(() => {
         if (!wrapperRef.current) return;
@@ -101,19 +101,19 @@ const BgImageParallax = ({
         const imageHeight = height * scrollSpeed + shiftHeight;
 
         bgroundRef.current.style.height = `${imageHeight}px`;
-    }, [wrapperRef.current]);
+    }, [wrapperRef.current, scrollSpeed]); // eslint-disable-line
 
     useEffect(() => {
         document.addEventListener('scroll', updateParallaxTop);
         return function cleanup() {
             document.removeEventListener('scroll', updateParallaxTop);
         };
-    }, [wrapperRef.current, scrollSpeed, scrollInertia]);
+    }, [updateParallaxTop]);
 
     useEffect(() => {
         updateParallaxTop();
         setParallaxHeight();
-    }, [wrapperRef.current, bgroundRef.current, scrollSpeed, scrollInertia]);
+    }, [updateParallaxTop, setParallaxHeight]);
 
     useAnimationFrame(() => {
         if (!bgroundRef.current) return;
