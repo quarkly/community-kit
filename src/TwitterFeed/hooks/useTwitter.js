@@ -20,7 +20,7 @@ const useTwitter = () => {
         } else if (scriptTag.getAttribute('data-status')) {
             setState({
                 loaded: true,
-                error: status === 'error',
+                error: window.status === 'error',
             });
         }
 

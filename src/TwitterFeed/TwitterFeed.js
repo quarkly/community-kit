@@ -1,8 +1,10 @@
 import React, { useEffect, useMemo, useRef } from 'react';
+import { Box } from '@quarkly/widgets';
 import { useDebounce, useColor } from '../utils';
 import { useTwitter } from './hooks';
 import { propInfo, defaultProps } from './props';
-import { Box } from '@quarkly/widgets';
+
+import ComponentNotice from '../ComponentNotice';
 
 const getChrome = (options) =>
     Object.keys(options)
@@ -57,11 +59,13 @@ const TwitterFeed = ({
     const borderColor = useDebounce(useColor(tweetBorder, ''), 300);
 
     useEffect(() => {
+        const refElement = ref.current;
+
         if (twitterLoad && !twitterError) {
             try {
-                twttr.widgets.createTimeline(
+                window.twttr.widgets.createTimeline(
                     getSource(dataProvider),
-                    ref.current,
+                    refElement,
                     {
                         height: '100%',
                         chrome,
@@ -71,11 +75,15 @@ const TwitterFeed = ({
                     }
                 );
             } catch (e) {
-                console.log(e);
+                <ComponentNotice
+                    message={
+                        'An unexpected error has occurred while loading the widget'
+                    }
+                />;
             }
         }
 
-        return () => removeAllChildren(ref.current);
+        return () => removeAllChildren(refElement);
     }, [
         dataProvider,
         chrome,
@@ -88,8 +96,13 @@ const TwitterFeed = ({
 
     return (
         <Box ref={ref} ov="hidden" {...props}>
-            {twitterError &&
-                'Ошибка при загрузке https://platform.twitter.com/widgets.js'}
+            {twitterError && (
+                <ComponentNotice
+                    message={
+                        'An unexpected error has occurred while loading the widget'
+                    }
+                />
+            )}
         </Box>
     );
 };

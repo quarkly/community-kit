@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import atomize from '@quarkly/atomize';
-import { overrides, propInfo, defaultProps } from './props';
 import { useOverrides } from '@quarkly/components';
 import { Input, Image } from '@quarkly/widgets';
+import { overrides, propInfo, defaultProps } from './props';
 
 const Form = atomize.form();
 

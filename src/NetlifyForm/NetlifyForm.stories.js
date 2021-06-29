@@ -1,8 +1,8 @@
 import React from 'react';
+import { Input, Button } from '@quarkly/widgets';
 import NetlifyForm from './NetlifyForm';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
-import { Input, Button } from '@quarkly/widgets';
 
 export default {
     title: 'Netlify Form',

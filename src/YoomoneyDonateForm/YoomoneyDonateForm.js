@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { propInfo, defaultProps } from './props';
 import { Box } from '@quarkly/widgets';
+import { propInfo, defaultProps } from './props';
 
 import ComponentNotice from '../ComponentNotice';
 

@@ -7,14 +7,15 @@ const testHexColor = new RegExp(/^#(?=[0-9A-F]*$)(?:.{3}|.{6})$/, 'i');
 const useColor = (rawColor, defaultColor = 'transparent') => {
     if (!rawColor) return;
 
+    // eslint-disable-next-line
     const theme = useTheme();
 
+    // eslint-disable-next-line
     return useMemo(() => {
         if (isCssVar(rawColor)) {
             return theme.color[rawColor.substring(2)] || defaultColor;
-        } else {
-            return testHexColor.test(rawColor) ? rawColor : defaultColor;
         }
+        return testHexColor.test(rawColor) ? rawColor : defaultColor;
     }, [theme, rawColor, defaultColor]);
 };
 

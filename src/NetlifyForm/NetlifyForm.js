@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { overrides, propInfo, defaultProps } from './props';
 import atomize from '@quarkly/atomize';
 import { Box, Text, Input } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
+import { overrides, propInfo, defaultProps } from './props';
 
 const Form = atomize.form();
 
@@ -45,7 +45,7 @@ const NetlifyForm = ({
     };
 
     return (
-        <Box {...props}>
+        <Box {...rest}>
             {!success ? (
                 <Form
                     data-netlify="true"
