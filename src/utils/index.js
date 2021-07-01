@@ -1,3 +1,5 @@
+export { default as getAPI } from './getAPI';
+export { default as getPagesProps } from './getPagesProps';
 export { default as isEmptyChildren } from './isEmptyChildren';
 export { default as parseTime } from './parseTime';
 export { default as waitDOMLoaded } from './waitDOMLoaded';

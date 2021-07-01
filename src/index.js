@@ -41,4 +41,5 @@ export { default as Track } from './Track';
 export { default as Source } from './Source';
 export { default as Picture } from './Picture';
 export { default as Counter } from './Counter';
+export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as Lottie } from './Lottie';
