@@ -17,7 +17,8 @@ const useSize = (target) => {
     useLayoutEffect(() => {
         if (!target.current) return;
         setSize(target.current.getBoundingClientRect());
-    }, [target.current]);
+    }, [target.current]); // eslint-disable-line
+
     useResizeObserver(target, (entry) => setSize(entry.contentRect));
     return size;
 };

@@ -106,7 +106,7 @@ const Sub = ({ common, item, other }) => {
         const subCloseForce = tabState === 'collapseAll';
 
         setSubOpen((expanded && !subCloseForce) || subOpenForce);
-    }, [tabState]);
+    }, [tabState, expanded]);
 
     return (
         <>
@@ -319,6 +319,13 @@ const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
     );
 };
 
+const pagesList = Object.values(getAPI().pages || {}).map(
+    ({ pageUrl, id }) => ({
+        title: pageUrl,
+        value: id,
+    })
+);
+
 const propInfo = {
     depth: {
         title: {
@@ -326,7 +333,7 @@ const propInfo = {
             ru: 'Максимальная вложенность',
         },
         control: 'input',
-        type: 'text',
+        type: 'number',
         category: 'Main',
         weight: 1,
     },
@@ -335,8 +342,8 @@ const propInfo = {
             en: 'Root page ID',
             ru: 'ID корневой страницы',
         },
-        control: 'input',
-        type: 'text',
+        control: 'select',
+        variants: pagesList,
         category: 'Main',
         weight: 1,
     },

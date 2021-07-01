@@ -123,7 +123,7 @@ const LightboxMap = ({
         if (!showImageProp) {
             if (offScrollProp) scroll.enable();
         }
-    }, [showImageProp]);
+    }, [showImageProp, offScrollProp]);
 
     const openLightbox = useCallback(() => {
         if (offLightboxProp) return;
