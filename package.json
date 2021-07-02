@@ -116,7 +116,9 @@
       "Counter": "Counter",
       "TwitterFeed": "TwitterFeed",
       "PayPalDonateButton": "PayPalDonateButton",
-      "NetlifyForm": "NetlifyForm"
+      "NetlifyForm": "NetlifyForm",
+      "Breadcrumbs": "Breadcrumbs",
+      "Lottie": "Lottie"
     }
   },
   "quarklyInfoDeleted": {
