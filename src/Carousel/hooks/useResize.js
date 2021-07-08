@@ -1,16 +1,5 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
-
-export function useResizeObserver(containerRef, resizeHandler) {
-    useEffect(() => {
-        if (!containerRef.current) return;
-
-        const containerEl = containerRef.current;
-        const resizer = new ResizeObserver(resizeHandler);
-        resizer.observe(containerEl);
-
-        return () => resizer.unobserve(containerEl);
-    }, [containerRef, resizeHandler]);
-}
+import { useState, useCallback, useRef } from 'react';
+import useResizeObserver from '@react-hook/resize-observer';
 
 export default function useResize(aspectRatio) {
     const containerRef = useRef(null);
@@ -21,11 +10,8 @@ export default function useResize(aspectRatio) {
     });
 
     const handleResize = useCallback(
-        (el) => {
-            const containerWidth =
-                el instanceof Element
-                    ? el.offsetWidth
-                    : el[0].contentRect.width;
+        (entry) => {
+            const containerWidth = entry.contentRect.width;
 
             if (aspectRatio === 'auto') {
                 setSize({
