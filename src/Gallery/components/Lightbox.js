@@ -3,8 +3,8 @@ import { useOverrides } from '@quarkly/components';
 import { Box, Icon, Image } from '@quarkly/widgets';
 
 import { IoMdClose } from 'react-icons/io';
-import { enableScroll, disableScroll } from './GalleryScroll';
-import GalleryLoader from './GalleryLoader';
+import { enableScroll, disableScroll } from '../utils/scroll';
+import Loader from './Loader';
 
 const overrides = {
     Overlay: {
@@ -223,7 +223,7 @@ const Lightbox = ({
                     onClick={zoomImage}
                 />
                 {!hideLoaderFullImage && (
-                    <GalleryLoader
+                    <Loader
                         {...override('Loader')}
                         isLoading={isLoadingFullImage}
                     />
