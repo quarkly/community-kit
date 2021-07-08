@@ -1,1 +1,1 @@
-export { default } from './TwitterFeed';
+export { default } from './YandexMap';

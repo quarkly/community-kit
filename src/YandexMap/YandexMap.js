@@ -2,9 +2,6 @@ import React, { useRef } from 'react';
 import useResizeObserver from '@react-hook/resize-observer';
 import { Box } from '@quarkly/widgets';
 
-import { useDebounce } from '../utils';
-import { propInfo, defaultProps } from './props';
-
 import {
     YMaps,
     Map,
@@ -16,6 +13,8 @@ import {
     GeolocationControl,
     FullscreenControl,
 } from 'react-yandex-maps';
+import { useDebounce } from '../utils';
+import { propInfo, defaultProps } from './props';
 
 const YandexMap = ({
     apikey,
