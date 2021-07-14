@@ -1,17 +1,25 @@
 ## 📖 Detailed overview
 
-Breadcrumb navigation provides links to every previous page the user has clicked on and shows the user current location on the website.
+Breadcrumb navigation provides a list of links to all previous (parent) pages that the user has visited, and shows the page of the website that is open at the moment.
 
 ## ⚙️ Usage
 
-Add the component to the page and see how it works in the builder.
+1. Create the nesting of two or more pages.
+2. Add a component to any nested page.
+3. If necessary, change the root page in the Props panel to any of the parent pages. The list of links in the component will start from the selected page.
+
+**Attention!**
+
+-   `Home • index` is the root page by default.
+-   This component should be on a nested page.
+-   Navigation will only work on the published site.
 
 ## 🧩 Components and Props
 
-| Prop names   |   Type   | Default | Example |
-| ------------ | :------: | :-----: | :-----: |
-| Root page ID | `string` | `root`  | `index` |
-| Separator    | `string` |   `/`   |   `-`   |
+| Prop names |   Type   | Default | Example |
+| ---------- | :------: | :-----: | :-----: |
+| Root page  | `string` |   `–`   | `index` |
+| Separator  | `string` |   `/`   |   `-`   |
 
 ## 🗓 Changelog
 
