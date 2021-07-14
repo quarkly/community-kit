@@ -1,7 +1,7 @@
 export default {
     dataProvider: {
         title: {
-            en: 'Имя или ссылка на страницу пользователя',
+            en: 'Name or link to the user page',
             ru: 'Имя или ссылка на страницу пользователя',
         },
         control: 'input',
@@ -11,7 +11,7 @@ export default {
     },
     tweetLimit: {
         title: {
-            en: 'Ограничить количество твитов (1-20)',
+            en: 'Limit the number of tweets (1-20)',
             ru: 'Ограничить количество твитов (1-20)',
         },
         control: 'input',
@@ -21,7 +21,7 @@ export default {
     },
     noheader: {
         title: {
-            en: 'Убрать шапку',
+            en: 'Hide header',
             ru: 'Убрать шапку',
         },
         control: 'checkbox',
@@ -30,7 +30,7 @@ export default {
     },
     nofooter: {
         title: {
-            en: 'Убрать подвал',
+            en: 'Hide footer',
             ru: 'Убрать подвал',
         },
         control: 'checkbox',
@@ -39,7 +39,7 @@ export default {
     },
     noborders: {
         title: {
-            en: 'Убрать границы виджета',
+            en: 'Hide widget borders',
             ru: 'Убрать границы виджета',
         },
         control: 'checkbox',
@@ -48,7 +48,7 @@ export default {
     },
     transparent: {
         title: {
-            en: 'Убрать фон виджета',
+            en: 'Hide widget background',
             ru: 'Убрать фон виджета',
         },
         control: 'checkbox',
@@ -57,7 +57,7 @@ export default {
     },
     noscrollbar: {
         title: {
-            en: 'Убрать полосу прокрутки',
+            en: 'Hide scroll bar',
             ru: 'Убрать полосу прокрутки',
         },
         control: 'checkbox',
@@ -66,7 +66,7 @@ export default {
     },
     tweetBorder: {
         title: {
-            ru: 'Цвет границы твитов (только #HEX)',
+            ru: 'Tweet border color (#HEX only)',
         },
         control: 'color',
         category: 'Design',
@@ -76,6 +76,7 @@ export default {
     ariaPolite: {
         title: {
             en: 'ARIA live politeness',
+            ru: 'ARIA-способ получения таймлайна',
         },
         control: 'select',
         variants: [

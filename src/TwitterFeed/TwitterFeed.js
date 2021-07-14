@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useRef } from 'react';
 import { Box } from '@quarkly/widgets';
-import { useDebounce, useColor } from '../utils';
 import { useTwitter } from './hooks';
 import { propInfo, defaultProps } from './props';
 
 import ComponentNotice from '../ComponentNotice';
+
+const testHexColor = new RegExp(/^#(?=[0-9A-F]*$)(?:.{3}|.{6})$/, 'i');
 
 const getChrome = (options) =>
     Object.keys(options)
@@ -56,7 +57,13 @@ const TwitterFeed = ({
             }),
         [noheader, nofooter, noborders, transparent, noscrollbar]
     );
-    const borderColor = useDebounce(useColor(tweetBorder, ''), 300);
+
+    const borderColor = useMemo(() => {
+        if (tweetBorder && testHexColor.test(tweetBorder)) {
+            return tweetBorder;
+        }
+        return 'transparent';
+    }, [tweetBorder]);
 
     useEffect(() => {
         const refElement = ref.current;
