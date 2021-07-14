@@ -1,7 +1,7 @@
 export default {
     newTab: {
         title: {
-            en: 'Открывать в новом окне',
+            en: 'Open in a new window',
             ru: 'Открывать в новом окне',
         },
         control: 'checkbox',
@@ -10,7 +10,7 @@ export default {
     },
     buttonImage: {
         title: {
-            en: 'Ссылка на изображение кнопки',
+            en: 'Link to the button image',
             ru: 'Ссылка на изображение кнопки',
         },
         control: 'image',
@@ -19,7 +19,7 @@ export default {
     },
     business: {
         title: {
-            en: 'Ваш PayPal ID или адрес электронной почты',
+            en: 'Your PayPal ID or or email',
             ru: 'Ваш PayPal ID или адрес электронной почты',
         },
         control: 'input',
@@ -29,7 +29,7 @@ export default {
     },
     itemName: {
         title: {
-            en: 'Описание товара',
+            en: 'Product description',
             ru: 'Описание товара',
         },
         description: {
@@ -45,7 +45,7 @@ export default {
     },
     itemNumber: {
         title: {
-            en: 'ID для отслеживания',
+            en: 'Tracking ID',
             ru: 'ID для отслеживания',
         },
         description: {
@@ -61,7 +61,7 @@ export default {
     },
     amount: {
         title: {
-            en: 'Цена или количество продукта / услуги',
+            en: 'Product / service price or number',
             ru: 'Цена или количество продукта / услуги',
         },
         description: {

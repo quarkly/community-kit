@@ -1,8 +1,9 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
 import { Input, Image } from '@quarkly/widgets';
 import { overrides, propInfo, defaultProps } from './props';
+import { getAPI } from '../utils';
 
 const Form = atomize.form();
 
@@ -30,11 +31,18 @@ const PayPalDonateButton = ({
         [business, itemName, itemNumber, amount, currencyCode]
     );
 
+    const preventSubmitForm = useCallback((e) => {
+        if (getAPI().mode === 'development') {
+            e.preventDefault();
+        }
+    }, []);
+
     return (
         <Form
             action="https://www.paypal.com/cgi-bin/webscr"
             method="post"
             target={newTab ? '_blank' : '_self'}
+            onSubmit={preventSubmitForm}
             display="inline-block"
             {...rest}
         >
