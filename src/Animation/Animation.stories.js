@@ -28,16 +28,13 @@ const textStyles = {
 export default {
     title: 'Animation',
     component: Animation,
-    args: {
-        ...defaultProps,
-        test: true,
-    },
+    args: defaultProps,
     argTypes: argTypes(propInfo, defaultProps, ['animation']),
 };
 
-const AnimationComponent = ({ preset, props }) => (
-    <Animation {...animationStyles} {...props} animation={preset}>
-        <Text {...textStyles}>{preset}</Text>
+const AnimationComponent = ({ title, props }) => (
+    <Animation {...animationStyles} {...props}>
+        <Text {...textStyles}>{title}</Text>
     </Animation>
 );
 
@@ -54,8 +51,12 @@ export const StoryAppear = (props) => (
         {presets['Appear & Disappear'].map((preset) => (
             <AnimationComponent
                 key={`a-${preset}`}
-                preset={preset}
-                props={props}
+                title={preset}
+                props={{
+                    ...props,
+                    animation: preset,
+                    test: true,
+                }}
             />
         ))}
     </Box>
@@ -65,8 +66,12 @@ export const StorySlide = (props) => (
         {presets.Slide.map((preset) => (
             <AnimationComponent
                 key={`a-${preset}`}
-                preset={preset}
-                props={props}
+                title={preset}
+                props={{
+                    ...props,
+                    animation: preset,
+                    test: true,
+                }}
             />
         ))}
     </Box>
@@ -76,8 +81,12 @@ export const StoryEmphasis = (props) => (
         {presets.Emphasis.map((preset) => (
             <AnimationComponent
                 key={`a-${preset}`}
-                preset={preset}
-                props={props}
+                title={preset}
+                props={{
+                    ...props,
+                    animation: preset,
+                    test: true,
+                }}
             />
         ))}
     </Box>
@@ -87,10 +96,64 @@ export const StoryContinuous = (props) => (
         {presets.Continuous.map((preset) => (
             <AnimationComponent
                 key={`a-${preset}`}
-                preset={preset}
-                props={props}
+                title={preset}
+                props={{
+                    ...props,
+                    animation: preset,
+                    test: true,
+                }}
             />
         ))}
+    </Box>
+);
+
+export const StoryTriggers = (props) => (
+    <Box {...wrapperStyles}>
+        <AnimationComponent
+            title="Hover"
+            props={{
+                ...props,
+                trigger: 'hover',
+                animation: 'Shake',
+                test: false,
+            }}
+        />
+        <AnimationComponent
+            title="Click"
+            props={{
+                ...props,
+                trigger: 'click',
+                animation: 'Shake',
+                test: false,
+            }}
+        />
+        <AnimationComponent
+            title="Above"
+            props={{
+                ...props,
+                trigger: 'above',
+                animation: 'Shake',
+                test: false,
+            }}
+        />
+        <AnimationComponent
+            title="Below"
+            props={{
+                ...props,
+                trigger: 'below',
+                animation: 'Shake',
+                test: false,
+            }}
+        />
+        <AnimationComponent
+            title="Onload"
+            props={{
+                ...props,
+                trigger: 'onload',
+                animation: 'Shake',
+                test: false,
+            }}
+        />
     </Box>
 );
 
@@ -98,3 +161,4 @@ StoryAppear.storyName = 'Appear & Disappear';
 StorySlide.storyName = 'Slide';
 StoryEmphasis.storyName = 'Emphasis';
 StoryContinuous.storyName = 'Continuous';
+StoryTriggers.storyName = 'Triggers';
