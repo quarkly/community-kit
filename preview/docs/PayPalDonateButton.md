@@ -7,7 +7,9 @@ A simple button to collect donations to your PayPal account.
 1.  Add the component to the page
 2.  Specify `Your PayPal ID or email`
 3.  Add the `Tracking ID` and `Product or service price`
-4.  See how it works in the preview mode
+4.  See how it works on the published site
+
+**Attention:** the form submission and redirect to PayPal are available only on the published site.
 
 ## 🧩 Components and Props
 
