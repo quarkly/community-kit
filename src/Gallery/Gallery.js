@@ -292,7 +292,9 @@ const Gallery = ({
         .fill()
         .map((item, index) => (
             <GalleryItem
-                {...override(`Item`, `Item ${index}`)}
+                {...override(`Item`, `Item ${index}`, {
+                    defaultKey: `Item ${index}`,
+                })}
                 key={`${rest['data-qid']}-item-${index}`} // eslint-disable-line
                 index={index}
                 loadImage={loadImage}

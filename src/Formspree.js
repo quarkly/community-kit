@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import atomize from '@quarkly/atomize';
 import { Text, Link, Strong } from '@quarkly/widgets';
 
@@ -11,6 +11,8 @@ const NoEndPoint = atomize.div`
 const Wrapper = atomize.div`
 	min-height: 32px;
 `;
+
+const Form = atomize.form();
 
 const url = 'https://formspree.io/';
 
@@ -25,6 +27,7 @@ const Formspree = (props) => {
 
     const [complete, setComplete] = useState(false);
     const [fetching, setFetching] = useState(false);
+    const [minHeight, setMinHeight] = useState('auto');
     const [error, setError] = useState(false);
     const action = url + endpoint.trim().replace(url, '');
 
@@ -33,6 +36,7 @@ const Formspree = (props) => {
 
         event.preventDefault();
 
+        const { offsetHeight: elMinHeight } = event.currentTarget;
         setError(false);
         setFetching(true);
 
@@ -47,6 +51,7 @@ const Formspree = (props) => {
         request.onreadystatechange = () => {
             if (request.readyState !== XMLHttpRequest.DONE) return;
             if (request.status === 200) {
+                setMinHeight(`${elMinHeight}px`);
                 setComplete(true);
             } else {
                 setError(true);
@@ -57,6 +62,10 @@ const Formspree = (props) => {
         setFetching(false);
         button && button.removeAttribute('disabled');
     };
+
+    useEffect(() => {
+        setMinHeight('auto');
+    }, [children]);
 
     if (!endpoint || typeof endpoint !== 'string') {
         return (
@@ -81,25 +90,28 @@ const Formspree = (props) => {
 
     if (!complete) {
         return (
-            <Wrapper {...rest}>
-                <form
-                    encType="multipart/form-data"
-                    method="post"
-                    onSubmit={onSubmit}
-                    action={action}
-                >
-                    {children}
-                    {error ? (
-                        <Text font="--primary" color="--red">
-                            {errorMessage}
-                        </Text>
-                    ) : null}
-                </form>
-            </Wrapper>
+            <Form
+                {...rest}
+                encType="multipart/form-data"
+                method="post"
+                onSubmit={onSubmit}
+                action={action}
+            >
+                {children}
+                {error ? (
+                    <Text font="--primary" color="--red">
+                        {errorMessage}
+                    </Text>
+                ) : null}
+            </Form>
         );
     }
 
-    return <Wrapper {...rest}>{completeText}</Wrapper>;
+    return (
+        <Wrapper {...rest} min-height={minHeight}>
+            {completeText}
+        </Wrapper>
+    );
 };
 
 const propInfo = {
