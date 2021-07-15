@@ -5,10 +5,11 @@ import React, {
     useCallback,
     useMemo,
 } from 'react';
+
 import { useOverrides } from '@quarkly/components';
 import { Box, Image } from '@quarkly/widgets';
 
-import GalleryLoader from './GalleryLoader';
+import Loader from './Loader';
 
 const overrides = {
     Loader: {
@@ -16,11 +17,12 @@ const overrides = {
     },
 };
 
-const GalleryItem = ({
+const Item = ({
     columsNumb,
     rowsNumb,
     stretchFull,
     showFullImage,
+
     previewSrc,
     previewSrcSet,
     previewSizes,
@@ -29,6 +31,7 @@ const GalleryItem = ({
     previewObjectFit,
     previewObjectPosition,
     previewLoading,
+
     fullSrc,
     fullSrcSet,
     fullSizes,
@@ -160,33 +163,48 @@ const GalleryItem = ({
     return (
         <Box
             ref={boxRef}
+            height="auto"
+            min-width="auto"
+            min-height="auto"
+            position="relative"
             display="flex"
             grid-column={`span ${columsNumb}`}
             grid-row={`span ${rowsNumb}`}
             {...rest}
         >
-            <Image
-                onClick={openGalleryItem}
-                max-width="100%"
-                max-height="100%"
-                min-width={stretchFull ? '100%' : 'auto'}
-                min-height={stretchFull ? '100%' : 'auto'}
-                object-fit={stretchFull ? 'cover' : previewObjectFit}
-                opacity={isLoadingPreview ? '0' : '1'}
-                src={!isLoadingPreview && correctSrcPreview}
-                srcset={!isLoadingPreview && previewSrcSet}
-                title={!isLoadingPreview && previewTitle}
-                alt={!isLoadingPreview && previewAlt}
-                sizes={!isLoadingPreview && previewSizes}
-                object-position={!isLoadingPreview && previewObjectPosition}
-                loading={!isLoadingPreview && previewLoading}
-                {...aspectRatioStyles}
-            />
-            {!hideLoaderPreviewImage && (
-                <GalleryLoader
-                    {...override('Loader')}
-                    isLoading={isLoadingPreview}
+            {isLoadingPreview ? (
+                <Image
+                    max-width="100%"
+                    max-height="100%"
+                    min-width={stretchFull ? '100%' : 'auto'}
+                    min-height={stretchFull ? '100%' : 'auto'}
+                    object-fit={stretchFull ? 'cover' : previewObjectFit}
+                    opacity="0"
+                    onClick={openGalleryItem}
+                    {...aspectRatioStyles}
                 />
+            ) : (
+                <Image
+                    max-width="100%"
+                    max-height="100%"
+                    min-width={stretchFull ? '100%' : 'auto'}
+                    min-height={stretchFull ? '100%' : 'auto'}
+                    object-fit={stretchFull ? 'cover' : previewObjectFit}
+                    opacity="1"
+                    src={correctSrcPreview}
+                    srcset={previewSrcSet}
+                    title={previewTitle}
+                    alt={previewAlt}
+                    sizes={previewSizes}
+                    object-position={previewObjectPosition}
+                    loading={previewLoading}
+                    onClick={openGalleryItem}
+                    {...aspectRatioStyles}
+                />
+            )}
+
+            {!hideLoaderPreviewImage && (
+                <Loader {...override('Loader')} isLoading={isLoadingPreview} />
             )}
         </Box>
     );
@@ -195,12 +213,8 @@ const GalleryItem = ({
 const propInfo = {
     columsNumb: {
         title: {
-            ru: 'Ширина в столбцах',
             en: 'Width in columns',
-        },
-        description: {
-            en: 'Number of columns an image must use',
-            ru: 'Количество столбцов, которое должно занимать изображение',
+            ru: 'Ширина в столбцах',
         },
         control: 'input',
         category: 'Main',
@@ -208,23 +222,17 @@ const propInfo = {
     },
     rowsNumb: {
         title: {
-            ru: 'Высота в колонках',
             en: 'Height in rows',
-        },
-        description: {
-            en: 'Number of rows an image must use',
-            ru: 'Количество колонок, которое должно занимать изображение',
+            ru: 'Высота в колонках',
         },
         control: 'input',
         category: 'Main',
         weight: 0.5,
     },
     stretchFull: {
-        title: 'Stretch an image to container size',
-        description: {
-            en: "Stretch images to container size if there's free space",
-            ru:
-                'Растягивать изображения на всю ширину и высоту, если есть свободное пространство',
+        title: {
+            en: 'Stretch an image to container size',
+            ru: 'Растянуть изображение до размера контейнера',
         },
         control: 'checkbox',
         category: 'images',
@@ -232,10 +240,6 @@ const propInfo = {
     },
     showFullImage: {
         title: {
-            ru: 'Показать изображение',
-            en: 'Show image',
-        },
-        description: {
             en: 'Show full image',
             ru: 'Показать полное изображение',
         },
@@ -246,8 +250,8 @@ const propInfo = {
     previewSrc: {
         title: 'Src',
         description: {
-            en: 'src — image address',
-            ru: 'src — aдрес изображения',
+            en: 'Image address',
+            ru: 'Адрес изображения',
         },
         control: 'image',
         category: 'Image preview',
@@ -257,9 +261,9 @@ const propInfo = {
         title: 'Srcset',
         description: {
             en:
-                'srcSet — a string which identifies one or more image sources with descriptors',
+                'A string which identifies one or more image sources with descriptors',
             ru:
-                'srcSet — строка, определяющая один или несколько источников изображений с дескрипторами',
+                'Строка, определяющая один или несколько источников изображений с дескрипторами',
         },
         control: 'srcSet',
         multiply: true,
@@ -269,10 +273,9 @@ const propInfo = {
     previewSizes: {
         title: 'Sizes',
         description: {
-            en:
-                'sizes — image slot sizes from srcSet for different breakpoints',
+            en: 'Image slot sizes from srcSet for different breakpoints',
             ru:
-                'sizes — размеры контейнера изображения из srcSet для различных брейкпоинтов',
+                'Размеры контейнера изображения из srcSet для различных брейкпоинтов',
         },
         control: 'sizes',
         multiply: true,
@@ -283,9 +286,9 @@ const propInfo = {
         title: 'Alt',
         description: {
             en:
-                'alt – a piece of text that appears when an image cannot be displayed',
+                'A piece of text that appears when an image cannot be displayed',
             ru:
-                'alt — текст, который будет отображаться когда изображение недоступно',
+                'Текст, который будет отображаться когда изображение недоступно',
         },
         control: 'input',
         category: 'Image preview',
@@ -295,9 +298,8 @@ const propInfo = {
         title: 'Title',
         description: {
             en:
-                'title – additional information for the element that appears as a tooltip',
-            ru:
-                'title — описывает содержимое элемента в виде всплывающей подсказки',
+                'Additional information for the element that appears as a tooltip',
+            ru: 'Описывает содержимое элемента в виде всплывающей подсказки',
         },
         control: 'input',
         category: 'Image preview',
@@ -307,9 +309,9 @@ const propInfo = {
         title: 'Object fit',
         description: {
             en:
-                'object-fit – defines how the content of the replaced element should be resized to fit its container',
+                'Defines how the content of the replaced element should be resized to fit its container',
             ru:
-                'object-fit — определяет, как содержимое заменяемого элемента должно заполнять контейнер',
+                'Определяет как содержимое заменяемого элемента должно заполнять контейнер',
         },
         control: 'select',
         variants: ['fill', 'contain', 'cover', 'none', 'scale-down'],
@@ -320,9 +322,9 @@ const propInfo = {
         title: 'Object position',
         description: {
             en:
-                'object-position – specifies the alignment of the selected replaced element contents within the element box relative to the X and Y coordinate axes',
+                'Specifies the alignment of the selected replaced element contents within the element box relative to the X and Y coordinate axes',
             ru:
-                'object-position — задаёт положение содержимого замещаемого элемента внутри контейнера относительно координатных осей X и Y',
+                'Задаёт положение содержимого замещаемого элемента внутри контейнера относительно координатных осей X и Y',
         },
         control: 'input',
         category: 'Image preview',
@@ -331,8 +333,8 @@ const propInfo = {
     previewLoading: {
         title: 'Loading',
         description: {
-            en: 'loading - indicates how the browser should load the image',
-            ru: 'loading — указывает как браузер должен загружать изображение',
+            en: 'Indicates how the browser should load the image',
+            ru: 'Указывает как браузер должен загружать изображение',
         },
         control: 'select',
         variants: ['eager', 'lazy'],
@@ -342,97 +344,95 @@ const propInfo = {
     fullSrc: {
         title: 'Src',
         description: {
-            en: 'src — image address',
-            ru: 'src — aдрес изображения',
+            en: 'Image address',
+            ru: 'Адрес изображения',
         },
         control: 'image',
-        category: 'Image Full',
+        category: ' Image Full',
         weight: 1,
     },
     fullSrcSet: {
         title: 'Srcset',
         description: {
             en:
-                'srcSet — a string which identifies one or more image sources with descriptors',
+                'A string which identifies one or more image sources with descriptors',
             ru:
-                'srcSet — строка, определяющая один или несколько источников изображений с дескрипторами',
+                'Строка, определяющая один или несколько источников изображений с дескрипторами',
         },
         control: 'srcSet',
         multiply: true,
-        category: 'Image Full',
+        category: ' Image Full',
         weight: 1,
     },
     fullSizes: {
         title: 'Sizes',
         description: {
-            en:
-                'sizes — image slot sizes from srcSet for different breakpoints',
+            en: 'Image slot sizes from srcSet for different breakpoints',
             ru:
-                'sizes — размеры контейнера изображения из srcSet для различных брейкпоинтов',
+                'Размеры контейнера изображения из srcSet для различных брейкпоинтов',
         },
         control: 'sizes',
         multiply: true,
-        category: 'Image Full',
+        category: ' Image Full',
         weight: 1,
     },
     fullAlt: {
         title: 'Alt',
         description: {
             en:
-                'alt – a piece of text that appears when an image cannot be displayed',
+                'A piece of text that appears when an image cannot be displayed',
             ru:
-                'alt — текст, который будет отображаться когда изображение недоступно',
+                'Текст, который будет отображаться когда изображение недоступно',
         },
         control: 'input',
-        category: 'Image Full',
+        category: ' Image Full',
         weight: 1,
     },
     fullTitle: {
         title: 'Title',
         description: {
             en:
-                'title – additional information for the element that appears as a tooltip',
-            ru:
-                'title — описывает содержимое элемента в виде всплывающей подсказки',
+                'Additional information for the element that appears as a tooltip',
+            ru: 'Описывает содержимое элемента в виде всплывающей подсказки',
         },
         control: 'input',
-        category: 'Image Full',
+        category: ' Image Full',
         weight: 1,
     },
     fullObjectFit: {
         title: 'Object fit',
         description: {
             en:
-                'object-fit – defines how the content of the replaced element should be resized to fit its container',
+                'Defines how the content of the replaced element should be resized to fit its container',
             ru:
-                'object-fit — определяет, как содержимое заменяемого элемента должно заполнять контейнер',
+                'Определяет, как содержимое заменяемого элемента должно заполнять контейнер',
         },
         control: 'select',
         variants: ['fill', 'contain', 'cover', 'none', 'scale-down'],
-        category: 'Image Full',
+        category: ' Image Full',
         weight: 1,
     },
     fullObjectPosition: {
         title: 'Object position',
         description: {
             en:
-                'object-position – specifies the alignment of the selected replaced element contents within the element box relative to the X and Y coordinate axes',
+                'Specifies the alignment of the selected replaced element contents within the element box relative to the X and Y coordinate axes',
             ru:
-                'object-position — задаёт положение содержимого замещаемого элемента внутри контейнера относительно координатных осей X и Y',
+                'Задаёт положение содержимого замещаемого элемента внутри контейнера относительно координатных осей X и Y',
         },
         control: 'input',
-        category: 'Image Full',
+        category: ' Image Full',
         weight: 1,
     },
     fullLoading: {
         title: 'Loading',
         description: {
-            en: 'loading - indicates how the browser should load the image',
-            ru: 'loading — указывает как браузер должен загружать изображение',
+            en: 'Indicates how the browser should load the image',
+            ru: 'Указывает как браузер должен загружать изображение',
         },
         control: 'select',
         variants: ['eager', 'lazy'],
-        category: 'Image Full',
+        category: ' Image Full',
         weight: 1,
     },
 };
@@ -442,14 +442,9 @@ const defaultProps = {
     rowsNumb: 1,
     stretchFull: true,
     showFullImage: false,
-
-    height: 'auto',
-    'min-width': 'auto',
-    'min-height': 'auto',
-    position: 'relative',
 };
 
-Object.assign(GalleryItem, {
+Object.assign(Item, {
     overrides,
     propInfo,
     defaultProps,
@@ -458,4 +453,4 @@ Object.assign(GalleryItem, {
     },
 });
 
-export default GalleryItem;
+export default Item;

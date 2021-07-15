@@ -1,8 +1,9 @@
 import React from 'react';
+import { AiOutlineLoading } from 'react-icons/ai';
+
 import atomize from '@quarkly/atomize';
 import styled, { css, keyframes } from 'styled-components';
 import { Icon } from '@quarkly/widgets';
-import { AiOutlineLoading } from 'react-icons/ai';
 
 const rotate = keyframes`
   0% {
@@ -13,7 +14,7 @@ const rotate = keyframes`
   } 
   100% {
     transform: rotate(360deg); 
-  } 
+  }
 `;
 
 const animation = () => css`

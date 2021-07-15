@@ -5,60 +5,18 @@ import React, {
     useEffect,
     useRef,
 } from 'react';
+
+import useResizeObserver from '@react-hook/resize-observer';
 import { useOverrides } from '@quarkly/components';
 import { Box, Button, Text } from '@quarkly/widgets';
 
-import GalleryItem from './GalleryItem';
-import GalleryLightbox from './GalleryLightbox';
+import { overrides, propInfo, defaultProps } from './props';
+import Item from './components/Item';
+import Lightbox from './components/Lightbox';
 
 const windowHeightVisible = 1.5;
 const defaultPreviewImageSrc = 'https://via.placeholder.com/500';
 const defaultFullImageSrc = 'https://via.placeholder.com/1200';
-
-const overrides = {
-    Wrapper: {
-        kind: 'Box',
-    },
-    Item: {
-        kind: 'GalleryItem',
-        props: {
-            cursor: 'pointer',
-        },
-    },
-    Lightbox: {
-        kind: 'GalleryLightbox',
-        props: {
-            height: 0,
-            'min-height': 0,
-        },
-    },
-    'Button More': {
-        kind: 'Button',
-        props: {
-            margin: '20px auto 0',
-            display: 'block',
-        },
-    },
-    'Button More :visible': {
-        kind: 'Button',
-        props: {
-            display: 'block',
-        },
-    },
-    'Button More :hidden': {
-        kind: 'Button',
-        props: {
-            display: 'none',
-        },
-    },
-    'Button Text': {
-        kind: 'Text',
-        props: {
-            children: 'Загрузить еще',
-            margin: 0,
-        },
-    },
-};
 
 const loadImage = (url) =>
     new Promise((resolve) => {
@@ -153,9 +111,9 @@ const Gallery = ({
     );
 
     const handleResize = useCallback(
-        (el) => {
+        (entry) => {
             throttledEffect(() => {
-                const galleryWidth = el[0].contentRect.width;
+                const galleryWidth = entry.contentRect.width;
                 const imageWidth = getItemWidth(galleryWidth);
                 setGalleryItemWidth(imageWidth);
             }, 100);
@@ -163,16 +121,7 @@ const Gallery = ({
         [throttledEffect, getItemWidth, setGalleryItemWidth]
     );
 
-    useEffect(() => {
-        if (!galleryRef.current) return;
-        const resizer = new ResizeObserver(handleResize);
-        const { current } = galleryRef;
-        resizer.observe(current);
-
-        return () => {
-            resizer.unobserve(current);
-        };
-    }, [handleResize]);
+    useResizeObserver(galleryRef, handleResize);
 
     const galleryItemCountNumb = useMemo(
         () => parseInt(galleryItemNumbProp, 10),
@@ -291,7 +240,7 @@ const Gallery = ({
     )
         .fill()
         .map((item, index) => (
-            <GalleryItem
+            <Item
                 {...override(`Item`, `Item ${index}`, {
                     defaultKey: `Item ${index}`,
                 })}
@@ -339,7 +288,7 @@ const Gallery = ({
                     {override('Button Text').children}
                 </Text>
             </Button>
-            <GalleryLightbox
+            <Lightbox
                 {...override(`Lightbox`)}
                 loadImage={loadImage}
                 someImageFullParams={someImageFullParams}
@@ -358,167 +307,6 @@ const Gallery = ({
             />
         </Box>
     );
-};
-
-const propInfo = {
-    galleryItemNumbProp: {
-        title: {
-            en: 'Number of images',
-            ru: 'Количество изображений',
-        },
-        control: 'input',
-        type: 'text',
-        category: 'Gallery',
-        weight: 1,
-    },
-    columnsCountProp: {
-        title: {
-            en: 'Number of columns',
-            ru: 'Количество столбцов',
-        },
-        control: 'input',
-        type: 'text',
-        category: 'Gallery',
-        weight: 1,
-    },
-    borderWidthProp: {
-        title: {
-            en: 'Indent width',
-            ru: 'Ширина отступов',
-        },
-        control: 'input',
-        type: 'text',
-        category: 'Gallery',
-        weight: 1,
-    },
-    autoFillInProp: {
-        title: {
-            en: 'Fill the gaps automatically',
-            ru: 'Автоматически заполнять свободные места',
-        },
-        control: 'checkbox',
-        category: 'Gallery',
-        weight: 1,
-    },
-    loaderFormatProp: {
-        title: {
-            en: 'Images loading',
-            ru: 'Загрузка изображений',
-        },
-        control: 'radio-group',
-        variants: [
-            {
-                title: {
-                    en: 'All',
-                    ru: 'Все сразу',
-                },
-                value: 'all',
-            },
-            {
-                title: {
-                    en: 'On scroll',
-                    ru: 'При прокрутке',
-                },
-                value: 'scroll',
-            },
-            {
-                title: {
-                    en: 'On click',
-                    ru: 'По кнопке',
-                },
-                value: 'click',
-            },
-        ],
-        category: 'Images',
-        weight: 1,
-    },
-    aspectRatioProp: {
-        title: {
-            en: 'Image aspect ratio',
-            ru: 'Соотношение сторон изображений',
-        },
-        control: 'select',
-        variants: [
-            {
-                title: {
-                    en: 'Auto',
-                    ru: 'Авто',
-                },
-                value: 'auto',
-            },
-            '16:9',
-            '4:3',
-            '3:2',
-            '1:1',
-            '2:3',
-            '3:4',
-            '9:16',
-        ],
-        category: 'Images',
-        weight: 1,
-    },
-    imagesMaxWidthProp: {
-        title: {
-            en: 'Minimum width of images',
-            ru: 'Максимальная ширина изображений',
-        },
-        control: 'input',
-        type: 'text',
-        category: 'Images',
-        weight: 1,
-    },
-    imagesMinWidthProp: {
-        title: {
-            en: 'Maximum width of images',
-            ru: 'Минимальная ширина изображений',
-        },
-        control: 'input',
-        type: 'text',
-        category: 'Images',
-        weight: 1,
-    },
-    hideLoaderPreviewImage: {
-        title: {
-            en: 'Disable loader for preview',
-            ru: 'Отключить лоадер для превью',
-        },
-        control: 'checkbox',
-        category: 'Images',
-        weight: 1,
-    },
-    offScrollProp: {
-        title: {
-            en: 'Disable scroll',
-            ru: 'Отключить прокрутку',
-        },
-        control: 'checkbox',
-        category: 'Lightbox',
-        weight: 1,
-    },
-    hideLoaderFullImage: {
-        title: {
-            en: 'Disable loader for lightbox',
-            ru: 'Отключить лоадер для лайтбокса',
-        },
-        control: 'checkbox',
-        category: 'Lightbox',
-        weight: 1,
-    },
-};
-
-const defaultProps = {
-    galleryItemNumbProp: 8,
-    columnsCountProp: 4,
-    aspectRatioProp: 'auto',
-    loaderFormatProp: 'all',
-    autoFillInProp: true,
-    imagesAutoResizeProp: false,
-    hideLoaderPreviewImage: false,
-    hideLoaderFullImage: false,
-    imagesMinWidthProp: '80',
-    imagesMaxWidthProp: '1fr',
-    borderWidthProp: '10',
-    offScrollProp: true,
 };
 
 Object.assign(Gallery, {
