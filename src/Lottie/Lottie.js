@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useLayoutEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import { Box } from '@quarkly/widgets';
 import { propInfo, defaultProps } from './props';
@@ -62,7 +62,7 @@ const Lottie = ({
     };
 
     // Reload animation when the route or rendering method is changed
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!path || !renderer) return;
         loadAnimation();
         // eslint-disable-next-line
@@ -73,7 +73,7 @@ const Lottie = ({
         if (renderer !== 'svg') {
             animRef.current.resize();
         }
-    }, [width, height]);
+    }, [width, height, renderer]);
 
     // Toggle animation loop
     useUpdateEffect(() => {

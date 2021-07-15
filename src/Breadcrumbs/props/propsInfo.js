@@ -1,4 +1,4 @@
-import { getPagesProps } from '../../utils';
+import { getPropsUrlPages } from '../../utils';
 
 export default {
     rootId: {
@@ -7,7 +7,7 @@ export default {
             ru: 'Корневая страница',
         },
         control: 'select',
-        variants: getPagesProps(),
+        variants: getPropsUrlPages(),
         category: 'Main',
         weight: 1,
     },

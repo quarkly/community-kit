@@ -58,6 +58,7 @@ const Animation = ({
     ...props
 }) => {
     const [isPlay, togglePlay] = useState(trigger === 'onload' || test);
+    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const wrapperRef = useRef({});
 
     const onEnterEvent = useMemo(
@@ -68,12 +69,11 @@ const Animation = ({
         () => (trigger === 'hover' ? () => togglePlay(false) : undefined),
         [trigger]
     );
-    const onClickEvent = useCallback(
-        () => trigger === 'click' && togglePlay((play) => !play),
+    const onClickEvent = useMemo(
+        () =>
+            trigger === 'click' ? () => togglePlay((play) => !play) : undefined,
         [trigger]
     );
-
-    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
 
     const onAboveEvent = useCallback((e) => {
         if (!wrapperRef.current) return;
@@ -107,7 +107,8 @@ const Animation = ({
         if (
             !wrapperRef.current.trigered &&
             scrollBottom &&
-            componentRect.top <= windowHeight
+            componentRect.top <= windowHeight &&
+            wrapperRef.current.previousTop > windowHeight
         ) {
             wrapperRef.current.trigered = true;
             togglePlay(true);
@@ -117,7 +118,11 @@ const Animation = ({
     }, []);
 
     useEffect(() => {
-        if (!wrapperRef.current || (trigger !== 'above' && trigger !== 'below'))
+        if (
+            !wrapperRef.current ||
+            (trigger !== 'above' && trigger !== 'below') ||
+            test
+        )
             return;
 
         const { windowHeight, componentRect } = getParams(
@@ -139,17 +144,7 @@ const Animation = ({
             window.removeEventListener('scroll', onAboveEvent);
             window.removeEventListener('scroll', onBelowEvent);
         };
-    }, [trigger, onAboveEvent, onBelowEvent]);
-
-    useEffect(() => {
-        if (!wrapperRef.current) return;
-
-        wrapperRef.current.trigered = trigger === 'onload' || test;
-
-        if (isPlay !== wrapperRef.current.trigered) {
-            togglePlay(wrapperRef.current.trigered);
-        }
-    }, [isPlay, trigger, test]);
+    }, [trigger, test, onAboveEvent, onBelowEvent]);
 
     return (
         <Wrapper
