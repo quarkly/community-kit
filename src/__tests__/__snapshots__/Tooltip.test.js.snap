@@ -2,12 +2,13 @@
 
 exports[`Tooltip component renders correctly without params 1`] = `
 <div
-  className="sc-eCApnc kxZwsj"
+  className="sc-eCApnc egUyxB"
+  display="inline-block"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <div
-    className="sc-eCApnc gpgqcZ"
+    className="sc-eCApnc gFrvxB"
     display="flex"
     height="100%"
     width="100%"

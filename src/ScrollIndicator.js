@@ -2,19 +2,18 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
 
+const defaultProps = {
+    width: '100%',
+    height: '5px',
+    'min-width': '0',
+    'min-height': '0',
+    background: 'rgba(179, 179, 179, .7)',
+    position: 'fixed',
+    top: '0',
+    'z-index': '1000',
+};
+
 const overrides = {
-    'Wrapper Indicator': {
-        props: {
-            width: '100%',
-            height: '5px',
-            'min-width': '0',
-            'min-height': '0',
-            background: 'rgba(179, 179, 179, .7)',
-            position: 'fixed',
-            top: '0',
-            'z-index': '1000',
-        },
-    },
     Indicator: {
         kind: 'Box',
         props: {
@@ -48,10 +47,10 @@ const ScrollIndicator = (props) => {
         return () => window.removeEventListener('scroll', onScroll);
     }, [onScroll]);
 
-    const { override, rest } = useOverrides(props, overrides);
+    const { override, rest } = useOverrides(props, overrides, defaultProps);
 
     return (
-        <Box {...rest} {...override('Wrapper Indicator')}>
+        <Box {...rest}>
             <Box {...override('Indicator')} width={`${progress}%`} />
         </Box>
     );
@@ -66,6 +65,7 @@ Object.assign(ScrollIndicator, {
             'This component is an idicator at the top of the page that shows how much of it has been already scrolled',
     },
     overrides,
+    defaultProps,
 });
 
 export default ScrollIndicator;

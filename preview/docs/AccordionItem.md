@@ -33,4 +33,4 @@ Find me on Twitter: @author
 [author@contact.mail](mailto:author@contact.mail)
 
 ## 📝 License
-Licensed under the [MIT License](./LICENSE).
+Licensed under the [MIT License](https://raw.githubusercontent.com/quarkly/community-kit/master/LICENSE).
