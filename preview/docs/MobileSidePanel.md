@@ -14,9 +14,10 @@ This component is a container for hiding the menu or any other content in the mo
 The `Panel position in mobile view` prop allows you to customize the panel position relative to the viewport or menu button. You can choose one of the following values:
 
 -   full - Fullscreen;
--   left - Align Left;
--   right - Align Right;
--   near - Near the menu button.
+-   left - To the left of the screen;
+-   right - To the right of the screen;
+-   near - To the left of the button;
+-   nearRight - To the right of the button.
 
 ## 🧩 Components and Props
 
