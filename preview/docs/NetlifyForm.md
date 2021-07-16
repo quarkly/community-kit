@@ -8,12 +8,12 @@ This component helps add a Netlify form and send it to [Netlify Forms](https://w
 2. Add the component to the page;
 3. Fill in the form. To do this, add `Button` components to it and at least one `Input`.
 4. Specify `Form Name` on the Props panel;
-5. In the publish window, select the `Gatsby Project` structure and publish the project on `Netlify`;
+5. Publish the project on `Netlify`;
 6. See how it works on the published site.
 
 **Important:**
 
--   For this component to work, use the `Gatsby Project` structure and publish the project on [Netlify](https://www.netlify.com/)
+-   For this component to work, publish the project on [Netlify](https://www.netlify.com/)
 -   Component works only on the published site.
 
 ## 🧩 Components and Props
