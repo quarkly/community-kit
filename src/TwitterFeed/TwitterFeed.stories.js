@@ -11,5 +11,9 @@ export default {
 };
 
 export const StoryDefault = (props) => <TwitterFeed {...props} />;
+export const StoryFixedHeight = (props) => (
+    <TwitterFeed {...props} tweetLimit="10" height="240px" />
+);
 
 StoryDefault.storyName = 'Default';
+StoryFixedHeight.storyName = 'Fixed height';
