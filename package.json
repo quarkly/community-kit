@@ -117,12 +117,12 @@
       "TwitterFeed": "TwitterFeed",
       "PayPalDonateButton": "PayPalDonateButton",
       "NetlifyForm": "NetlifyForm",
-      "Breadcrumbs": "Breadcrumbs",
       "Lottie": "Lottie"
     }
   },
   "quarklyInfoDeleted": {
     "components": {
+      "Breadcrumbs": "Breadcrumbs",
       "SocialMedia": "SocialMedia",
       "Accordion": "Accordion",
       "AccordionItem": "AccordionItem",
