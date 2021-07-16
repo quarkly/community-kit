@@ -146,6 +146,10 @@ const Animation = ({
         };
     }, [trigger, test, onAboveEvent, onBelowEvent]);
 
+    useEffect(() => {
+        togglePlay(trigger === 'onload' || test);
+    }, [trigger, test]);
+
     return (
         <Wrapper
             ref={wrapperRef}

@@ -46,6 +46,12 @@ const presets = propInfo.animation.variants.reduce(
     {}
 );
 
+export const StoryDefault = (props) => (
+    <Box {...wrapperStyles}>
+        <AnimationComponent title={'Default'} props={props} />
+    </Box>
+);
+
 export const StoryAppear = (props) => (
     <Box {...wrapperStyles}>
         {presets['Appear & Disappear'].map((preset) => (
@@ -157,6 +163,7 @@ export const StoryTriggers = (props) => (
     </Box>
 );
 
+StoryDefault.storyName = 'Default';
 StoryAppear.storyName = 'Appear & Disappear';
 StorySlide.storyName = 'Slide';
 StoryEmphasis.storyName = 'Emphasis';
