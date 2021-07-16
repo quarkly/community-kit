@@ -20,8 +20,6 @@ const Lottie = ({
     const ref = useRef();
     const animRef = useRef(null);
 
-    const { width, height } = props;
-
     const playFromTheBeginning = useCallback(() => {
         if (!animRef.current) return;
         if (!!firstFrame || !!lastFrame) {
@@ -65,15 +63,9 @@ const Lottie = ({
     useLayoutEffect(() => {
         if (!path || !renderer) return;
         loadAnimation();
+        return () => animRef.current?.destroy();
         // eslint-disable-next-line
     }, [path, renderer]);
-
-    // Update container size (only for html and canvas)
-    useUpdateEffect(() => {
-        if (renderer !== 'svg') {
-            animRef.current.resize();
-        }
-    }, [width, height, renderer]);
 
     // Toggle animation loop
     useUpdateEffect(() => {
@@ -96,12 +88,7 @@ const Lottie = ({
         }
     }, [isStopped, isPaused]);
 
-    // Relaunch animation when the frame range is changed
-    useUpdateEffect(() => {
-        playFromTheBeginning();
-    }, [playFromTheBeginning, firstFrame, lastFrame, forceUpdate]);
-
-    // Change animation speed
+    // // Change animation speed
     useUpdateEffect(() => {
         animRef.current?.setSpeed(speed);
     }, [speed]);

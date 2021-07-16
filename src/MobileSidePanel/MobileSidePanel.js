@@ -1,69 +1,10 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Text, Icon } from '@quarkly/widgets';
-import { FiMenu, FiX } from 'react-icons/fi';
 
-import ComponentNotice from './ComponentNotice';
-import { isEmptyChildren } from './utils';
-
-// There are several icons in the component
-// Brought out separately, so that there is less duplication
-const iconProps = {
-    normal: {
-        category: 'fi',
-        defaultIcon: FiMenu,
-        size: '24px',
-        color: '--dark',
-    },
-    closed: {
-        category: 'fi',
-        defaultIcon: FiMenu,
-    },
-    open: {
-        category: 'fi',
-        defaultIcon: FiX,
-    },
-};
-
-const overrides = {
-    Button: {
-        kind: 'Box',
-    },
-    'Button Text': {
-        kind: 'Text',
-        props: {
-            children: 'menu',
-        },
-    },
-    'Button Icon': {
-        kind: 'Icon',
-        props: iconProps.normal,
-    },
-    'Button Icon :open': {
-        kind: 'Icon',
-        props: iconProps.open,
-    },
-    'Button Icon :closed': {
-        kind: 'Icon',
-        props: iconProps.closed,
-    },
-    Wrapper: {
-        kind: 'Box',
-    },
-    Overlay: {
-        kind: 'Box',
-    },
-    Content: {
-        kind: 'Box',
-    },
-    Children: {
-        kind: 'Box',
-    },
-    Cross: {
-        kind: 'Icon',
-        props: iconProps.open,
-    },
-};
+import { propInfo, defaultProps, overrides } from './props';
+import ComponentNotice from '../ComponentNotice';
+import { isEmptyChildren } from '../utils';
 
 // Design styles differ 50/50
 // Brought out separately, so that there is less duplication
@@ -72,9 +13,10 @@ const getContentStyles = ({
     menuPosition,
     animDuration,
     animFunction,
+    isNear,
 }) => {
     const baseStyles = {
-        padding: menuPosition === 'near' ? '16px' : '48px 16px 24px',
+        padding: isNear ? '16px' : '48px 16px 24px',
         width: '100%',
 
         'align-items': 'center',
@@ -169,6 +111,18 @@ const getContentStyles = ({
                 open: animStyles.appear.open,
                 closed: animStyles.appear.closed,
             };
+        case 'nearRight':
+            return {
+                normal: {
+                    ...baseStyles,
+
+                    [`${breakpoint}-top`]: '100%',
+                    [`${breakpoint}-left`]: '0',
+                    [`${breakpoint}-position`]: 'absolute',
+                },
+                open: animStyles.appear.open,
+                closed: animStyles.appear.closed,
+            };
         default:
             return {};
     }
@@ -180,19 +134,24 @@ const getStyles = ({
     menuPosition,
     animDuration,
     animFunction,
+    isNear,
 }) => ({
     Button: {
         'padding-right': '3px',
         'min-height': '0',
         'align-items': 'center',
         'align-self': 'flex-end',
+        'flex-direction':
+            menuPosition === 'left' || menuPosition === 'nearRight'
+                ? 'row-reverse'
+                : 'row',
         position: 'relative',
         cursor: 'pointer',
 
         display: 'none',
         [`${breakpoint}-display`]: 'inline-flex',
         [`${breakpoint}-flex`]: '0 0 auto',
-        [`${breakpoint}-z-index`]: menuPosition === 'near' ? '2' : '1',
+        [`${breakpoint}-z-index`]: isNear ? '2' : '1',
     },
     'Button Text': {
         margin: '0 .35em 0 0',
@@ -208,8 +167,7 @@ const getStyles = ({
 
         [`${breakpoint}-top`]: '0',
         [`${breakpoint}-left`]: '0',
-        [`${breakpoint}-position`]:
-            menuPosition === 'near' ? 'absolute' : 'fixed',
+        [`${breakpoint}-position`]: isNear ? 'absolute' : 'fixed',
     },
     'Wrapper :open': {
         [`${breakpoint}-transition`]: `visibility ${animDuration} step-start`,
@@ -222,8 +180,7 @@ const getStyles = ({
     Overlay: {
         width: '100%',
         height: '100%',
-        'background-color':
-            menuPosition === 'near' ? 'transparent' : 'rgba(0,0,0, .5)',
+        'background-color': isNear ? 'transparent' : 'rgba(0,0,0, .5)',
         position: 'relative',
         display: 'none',
         'z-index': '1',
@@ -262,6 +219,7 @@ const getStyles = ({
             menuPosition,
             animDuration,
             animFunction,
+            isNear,
         }).normal,
     },
     'Content :open': {
@@ -270,6 +228,7 @@ const getStyles = ({
             menuPosition,
             animDuration,
             animFunction,
+            isNear,
         }).open,
     },
     'Content :closed': {
@@ -278,6 +237,7 @@ const getStyles = ({
             menuPosition,
             animDuration,
             animFunction,
+            isNear,
         }).closed,
     },
     Children: {
@@ -290,7 +250,7 @@ const getStyles = ({
         cursor: 'pointer',
         display: 'none',
 
-        [`${breakpoint}-display`]: menuPosition === 'near' ? 'none' : 'block',
+        [`${breakpoint}-display`]: isNear ? 'none' : 'block',
     },
 });
 
@@ -304,6 +264,10 @@ const MobileSidePanel = ({
     const { override, children, rest } = useOverrides(props, overrides);
 
     const [isOpen, setOpen] = useState(false);
+    const isNear = useMemo(
+        () => menuPosition === 'near' || menuPosition === 'nearRight',
+        [menuPosition]
+    );
 
     const onToggle = useCallback(() => setOpen((prev) => !prev), []);
     const onOpen = useCallback(() => setOpen(true), []);
@@ -313,13 +277,19 @@ const MobileSidePanel = ({
 
     const styles = useMemo(
         () =>
-            getStyles({ breakpoint, menuPosition, animDuration, animFunction }),
-        [breakpoint, menuPosition, animDuration, animFunction]
+            getStyles({
+                breakpoint,
+                menuPosition,
+                animDuration,
+                animFunction,
+                isNear,
+            }),
+        [breakpoint, menuPosition, animDuration, animFunction, isNear]
     );
 
     const statusOpen = isOpen || isEmpty ? ':open' : ':closed';
     const statusButtonOpen =
-        menuPosition === 'near' && (isOpen || isEmpty) ? ':open' : ':closed';
+        isNear && (isOpen || isEmpty) ? ':open' : ':closed';
 
     useEffect(() => {
         setOpen(isOpen || isEmpty);
@@ -327,17 +297,23 @@ const MobileSidePanel = ({
 
     return (
         <Box
-            min-width="100%"
-            min-height="0"
+            flex="1 1 auto"
+            width="100%"
+            min-width="0px"
+            min-height="0px"
             align-items="center"
-            justify-content="flex-end"
+            justify-content={
+                menuPosition === 'left' || menuPosition === 'nearRight'
+                    ? 'flex-start'
+                    : 'flex-end'
+            }
             position="relative"
             display="flex"
             z-index="5"
             {...rest}
         >
             <Box
-                onPointerDown={menuPosition === 'near' ? onToggle : onOpen}
+                onPointerDown={isNear ? onToggle : onOpen}
                 {...styles.Button}
                 {...override('Button', `Button ${statusButtonOpen}`)}
             >
@@ -390,97 +366,6 @@ const MobileSidePanel = ({
             </Box>
         </Box>
     );
-};
-
-const propInfo = {
-    breakpoint: {
-        title: {
-            en: 'Switch mobile view on breakpoint',
-            ru: 'Переключать мобильный вид на breakpoint',
-        },
-        control: 'input',
-        type: 'text',
-        variants: ['all', 'sm', 'md', 'lg'],
-        category: 'Position',
-        weight: 1,
-    },
-    menuPosition: {
-        title: {
-            en: 'Panel position in mobile view',
-            ru: 'Положение панели в мобильном виде',
-        },
-        control: 'select',
-        variants: [
-            {
-                title: {
-                    en: 'Fullscreen',
-                    ru: 'На весь экран',
-                },
-                value: 'full',
-            },
-            {
-                title: {
-                    en: 'Align Left',
-                    ru: 'По левому краю',
-                },
-                value: 'left',
-            },
-            {
-                title: {
-                    en: 'Align Right',
-                    ru: 'По правому краю',
-                },
-                value: 'right',
-            },
-            {
-                title: {
-                    en: 'Near the button',
-                    ru: 'Возле кнопки',
-                },
-                value: 'near',
-            },
-        ],
-        type: 'string',
-        category: 'Position',
-        weight: 1,
-    },
-    animDuration: {
-        title: {
-            en: 'Duration of show/hide',
-            ru: 'Длительность появления и скрытия',
-        },
-        control: 'input',
-        type: 'text',
-        variants: ['0s', '0.1s', '0.2s', '0.3s', '0.5s', '1s'],
-        category: 'Animation',
-        weight: 1,
-    },
-    animFunction: {
-        title: {
-            en: 'Animation timing function',
-            ru: 'Функция сглаживания анимации',
-        },
-        control: 'input',
-        variants: [
-            'linear',
-            'ease',
-            'ease-in',
-            'ease-out',
-            'ease-in-out',
-            'step-start',
-            'step-end',
-        ],
-        type: 'text',
-        category: 'Animation',
-        weight: 1,
-    },
-};
-
-const defaultProps = {
-    breakpoint: 'md',
-    menuPosition: 'near',
-    animDuration: '.3s',
-    animFunction: 'ease',
 };
 
 Object.assign(MobileSidePanel, {

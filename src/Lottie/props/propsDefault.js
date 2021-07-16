@@ -6,4 +6,5 @@ export default {
     loop: true,
     isStopped: false,
     isPaused: false,
+    height: '250px',
 };
