@@ -102,7 +102,7 @@ const TwitterFeed = ({
     ]);
 
     return (
-        <Box ref={ref} ov="hidden" {...props}>
+        <Box ref={ref} overflow-x="hidden" overflow-y="auto" {...props}>
             {twitterError && (
                 <ComponentNotice
                     message={
