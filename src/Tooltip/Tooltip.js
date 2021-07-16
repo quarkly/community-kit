@@ -280,7 +280,6 @@ const TooltipComponent = ({
         tooltipPositionProp,
         tooltipOffsetProp,
         tooltipAutoChangeProp,
-        contentOffsetProp,
         contentOffsetNumb,
         arrowSizeNumb,
     ]);
@@ -292,7 +291,7 @@ const TooltipComponent = ({
 
         observer.observe(document.body);
         return () => observer.unobserve(document.body);
-    }, [setTooltipDirection, tooltipPositionProp]);
+    }, [positionTooltip, setTooltipDirection, tooltipPositionProp]);
 
     // Если компонент пустой
     useEffect(() => {

@@ -11,23 +11,23 @@ export default {
 };
 
 export const StoryPageFull = (props) => (
-    <MobileSidePanel {...props} menuPosition="full"></MobileSidePanel>
+    <MobileSidePanel {...props} menuPosition="full" />
 );
 
 export const StoryPageLeft = (props) => (
-    <MobileSidePanel {...props} menuPosition="left"></MobileSidePanel>
+    <MobileSidePanel {...props} menuPosition="left" />
 );
 
 export const StoryPageRight = (props) => (
-    <MobileSidePanel {...props} menuPosition="right"></MobileSidePanel>
+    <MobileSidePanel {...props} menuPosition="right" />
 );
 
 export const StoryNearLeft = (props) => (
-    <MobileSidePanel {...props} menuPosition="near"></MobileSidePanel>
+    <MobileSidePanel {...props} menuPosition="near" />
 );
 
 export const StoryNearRight = (props) => (
-    <MobileSidePanel {...props} menuPosition="nearRight"></MobileSidePanel>
+    <MobileSidePanel {...props} menuPosition="nearRight" />
 );
 
 StoryPageFull.storyName = 'Page Full';

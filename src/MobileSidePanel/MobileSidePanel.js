@@ -284,7 +284,7 @@ const MobileSidePanel = ({
                 animFunction,
                 isNear,
             }),
-        [breakpoint, menuPosition, animDuration, animFunction]
+        [breakpoint, menuPosition, animDuration, animFunction, isNear]
     );
 
     const statusOpen = isOpen || isEmpty ? ':open' : ':closed';
