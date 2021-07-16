@@ -202,7 +202,10 @@ const Item = ({ path, common, item }) => {
         ...path,
         mode === 'production' && pageUrl === 'index' ? '' : pageUrl,
     ];
-    const href = `/${pagePath.join('/')}`;
+    const href =
+        pagePath[0] === '/'
+            ? `${pagePath.join('/')}`
+            : `/${pagePath.join('/')}`;
 
     let match = null;
     let expanded = false;
