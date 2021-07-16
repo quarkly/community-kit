@@ -26,28 +26,28 @@ export default {
             },
             {
                 title: {
-                    en: 'Align Left',
-                    ru: 'По левому краю',
+                    en: 'To the left of the screen',
+                    ru: 'По левому краю экрана',
                 },
                 value: 'left',
             },
             {
                 title: {
-                    en: 'Align Right',
-                    ru: 'По правому краю',
+                    en: 'To the right of the screen',
+                    ru: 'По правому краю экрана',
                 },
                 value: 'right',
             },
             {
                 title: {
-                    en: 'Near the button',
+                    en: 'To the left of the button',
                     ru: 'Слева от кнопки',
                 },
                 value: 'near',
             },
             {
                 title: {
-                    en: 'Near the button',
+                    en: 'To the right of the button',
                     ru: 'Справа от кнопки',
                 },
                 value: 'nearRight',
