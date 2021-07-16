@@ -17,9 +17,7 @@ export const decorators = [
     (Story) => (
         <MemoryRouter>
             <Theme>
-                <Wrapper>
-                    <Story />
-                </Wrapper>
+                <Wrapper>{Story()}</Wrapper>
             </Theme>
         </MemoryRouter>
     ),
