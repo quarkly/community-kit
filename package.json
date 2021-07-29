@@ -117,7 +117,8 @@
       "TwitterFeed": "TwitterFeed",
       "PayPalDonateButton": "PayPalDonateButton",
       "NetlifyForm": "NetlifyForm",
-      "Lottie": "Lottie"
+      "Lottie": "Lottie",
+      "CookieBanner": "CookieBanner"
     }
   },
   "quarklyInfoDeleted": {
