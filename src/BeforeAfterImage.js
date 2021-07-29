@@ -202,29 +202,45 @@ const BeforeAfterImage = ({
                     {...imageStyles}
                     style={{
                         clipPath: `polygon(
-              0% 0%, 
-              0% 100%, 
-              ${pos} 100%, 
-              ${pos} 0%
-            )`,
+                            0% 0%, 
+                            0% 100%, 
+                            ${pos} 100%, 
+                            ${pos} 0%
+                        )`,
                     }}
                 >
-                    <Image {...override('Image', 'Before Image')} />
-                    <Text {...override('Label', 'Before Label')} />
+                    <Image
+                        {...override('Image', 'Before Image', {
+                            defaultKey: 'Image',
+                        })}
+                    />
+                    <Text
+                        {...override('Label', 'Before Label', {
+                            defaultKey: 'Label',
+                        })}
+                    />
                 </Box>
                 <Box
                     {...imageStyles}
                     style={{
                         clipPath: `polygon(
-              100% 0%, 
-              100% 100%, 
-                ${pos} 100%, 
-                ${pos} 0%
-              )`,
+                            100% 0%, 
+                            100% 100%, 
+                            ${pos} 100%, 
+                            ${pos} 0%
+                        )`,
                     }}
                 >
-                    <Image {...override('Image', 'After Image')} />
-                    <Text {...override('Label', 'After Label')} />
+                    <Image
+                        {...override('Image', 'After Image', {
+                            defaultKey: 'Image',
+                        })}
+                    />
+                    <Text
+                        {...override('Label', 'After Label', {
+                            defaultKey: 'Label',
+                        })}
+                    />
                 </Box>
                 <Box
                     min-width="0px"
@@ -241,11 +257,15 @@ const BeforeAfterImage = ({
                     <Box {...override('Slider')} />
                     <Icon
                         left={`-${override('Arrow').size}`}
-                        {...override('Arrow', 'Before Arrow')}
+                        {...override('Arrow', 'Before Arrow', {
+                            defaultKey: 'Arrow',
+                        })}
                     />
                     <Icon
                         right={`-${override('Arrow').size}`}
-                        {...override('Arrow', 'After Arrow')}
+                        {...override('Arrow', 'After Arrow', {
+                            defaultKey: 'Arrow',
+                        })}
                     />
                 </Box>
             </AspectRatioWrapper>

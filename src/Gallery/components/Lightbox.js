@@ -198,7 +198,10 @@ const Lightbox = ({
                 onClick={closeLightbox}
                 {...override(
                     'Overlay',
-                    `Overlay ${isOpen ? ':open' : ':close'}`
+                    `Overlay ${isOpen ? ':open' : ':close'}`,
+                    {
+                        defaultKey: 'Overlay',
+                    }
                 )}
             >
                 <Icon onClick={closeLightbox} {...override('Close')} />

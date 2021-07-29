@@ -61,7 +61,9 @@ const TableComponent = ({
         >
             {showHeader && (
                 <THead {...override('THead')}>
-                    <Tr {...override('Row', `Row THead`)}>
+                    <Tr
+                        {...override('Row', `Row THead`, { defaultKey: 'Row' })}
+                    >
                         {Array(cols || 1)
                             .fill()
                             .map((_, col) => (
@@ -71,7 +73,8 @@ const TableComponent = ({
                                         'Cell',
                                         `Cell Col-${col}`,
                                         'Cell THead',
-                                        `Cell THead Col-${col}`
+                                        `Cell THead Col-${col}`,
+                                        { defaultKey: 'Cell' }
                                     )}
                                 >
                                     <Text
@@ -79,7 +82,8 @@ const TableComponent = ({
                                             'Text',
                                             `Text Col-${col}`,
                                             'Text THead',
-                                            `Text THead Col-${col}`
+                                            `Text THead Col-${col}`,
+                                            { defaultKey: 'Text' }
                                         )}
                                     >
                                         {override(`Text THead Col-${col}`)
@@ -96,7 +100,9 @@ const TableComponent = ({
                     .map((_, row) => (
                         <Tr
                             key={`row${row}`} // eslint-disable-line
-                            {...override('Row', `Row TBody-${row}`)}
+                            {...override('Row', `Row TBody-${row}`, {
+                                defaultKey: 'Row',
+                            })}
                         >
                             {Array(cols || 1)
                                 .fill()
@@ -109,7 +115,8 @@ const TableComponent = ({
                                             'Cell TBody',
                                             `Cell TBody Col-${col}`,
                                             `Cell TBody Row-${row}`,
-                                            `Cell TBody Row-${row} Col-${col}`
+                                            `Cell TBody Row-${row} Col-${col}`,
+                                            { defaultKey: 'Cell' }
                                         )}
                                     >
                                         <Text
@@ -119,7 +126,8 @@ const TableComponent = ({
                                                 'Text TBody',
                                                 `Text TBody Row-${row}`,
                                                 `Text TBody Col-${col}`,
-                                                `Text TBody Row-${row} Col-${col}`
+                                                `Text TBody Row-${row} Col-${col}`,
+                                                { defaultKey: 'Text' }
                                             )}
                                         >
                                             {override(
@@ -133,7 +141,9 @@ const TableComponent = ({
             </TBody>
             {showFooter && (
                 <TFoot {...override('TFoot')}>
-                    <Tr {...override('Row', `Row TFoot`)}>
+                    <Tr
+                        {...override('Row', `Row TFoot`, { defaultKey: 'Row' })}
+                    >
                         {Array(cols || 1)
                             .fill()
                             .map((_, col) => (
@@ -143,7 +153,8 @@ const TableComponent = ({
                                         'Cell',
                                         `Cell Col-${col}`,
                                         'Cell TFoot',
-                                        `Cell TFoot Col-${col}`
+                                        `Cell TFoot Col-${col}`,
+                                        { defaultKey: 'Cell' }
                                     )}
                                 >
                                     <Text
@@ -151,7 +162,8 @@ const TableComponent = ({
                                             'Text',
                                             `Text Col-${col}`,
                                             'Text TFoot',
-                                            `Text TFoot Col-${col}`
+                                            `Text TFoot Col-${col}`,
+                                            { defaultKey: 'Text' }
                                         )}
                                     >
                                         {override(`Text TFoot Col-${col}`)

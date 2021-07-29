@@ -120,7 +120,10 @@ const Sub = ({ common, item, other }) => {
                     'Sub Head',
                     `Sub Head-${pageUrl}`,
                     match && 'Sub Head :active',
-                    `Sub Head ${subOpenStatus}`
+                    `Sub Head ${subOpenStatus}`,
+                    {
+                        defaultKey: 'Sub Head',
+                    }
                 )}
             >
                 <Text
@@ -130,7 +133,10 @@ const Sub = ({ common, item, other }) => {
                         'Sub Head Text',
                         match && 'Sub Head Text :active',
                         `Sub Head Text ${subOpenStatus}`,
-                        `Sub Head Text-${pageUrl}`
+                        `Sub Head Text-${pageUrl}`,
+                        {
+                            defaultKey: 'Sub Head Text',
+                        }
                     )}
                 >
                     {override(`Sub Head Text-${pageUrl}`).children ||
@@ -145,7 +151,10 @@ const Sub = ({ common, item, other }) => {
                             'Sub Head Icon',
                             `Sub Head Icon-${pageUrl}`,
                             match && 'Sub Head Icon :active',
-                            `Sub Head Icon ${subOpenStatus}`
+                            `Sub Head Icon ${subOpenStatus}`,
+                            {
+                                defaultKey: 'Sub Head Icon',
+                            }
                         )}
                     />
                 )}
@@ -156,7 +165,10 @@ const Sub = ({ common, item, other }) => {
                     'Sub Body',
                     `Sub Body-${pageUrl}`,
                     match && 'Sub Body :active',
-                    `Sub Body ${subOpenStatus}`
+                    `Sub Body ${subOpenStatus}`,
+                    {
+                        defaultKey: 'Sub Body',
+                    }
                 )}
             >
                 <Link
@@ -168,7 +180,10 @@ const Sub = ({ common, item, other }) => {
                         'Link',
                         `Link-${pageUrl}`,
                         match && 'Link :active',
-                        `Link ${subOpenStatus}`
+                        `Link ${subOpenStatus}`,
+                        {
+                            defaultKey: 'Link',
+                        }
                     )}
                 >
                     {override(`Link-${pageUrl}`).children || name}
@@ -182,7 +197,10 @@ const Sub = ({ common, item, other }) => {
                         'List',
                         `List-${pageUrl}`,
                         match && 'List :active',
-                        `List ${subOpenStatus}`
+                        `List ${subOpenStatus}`,
+                        {
+                            defaultKey: 'List',
+                        }
                     )}
                 />
             </Box>
@@ -219,7 +237,11 @@ const Item = ({ path, common, item }) => {
     }
 
     return (
-        <Li {...override('Item', `Item-${pageUrl}`, match && 'Item :active')}>
+        <Li
+            {...override('Item', `Item-${pageUrl}`, match && 'Item :active', {
+                defaultKey: 'Item',
+            })}
+        >
             {hasSub ? (
                 <Sub
                     path={path}
@@ -235,7 +257,10 @@ const Item = ({ path, common, item }) => {
                     {...override(
                         'Sub',
                         `Sub-${pageUrl}`,
-                        match && 'Sub :active'
+                        match && 'Sub :active',
+                        {
+                            defaultKey: 'Sub',
+                        }
                     )}
                 />
             ) : (
@@ -247,7 +272,10 @@ const Item = ({ path, common, item }) => {
                     {...override(
                         'Link',
                         `Link-${pageUrl}`,
-                        match && 'Link :active'
+                        match && 'Link :active',
+                        {
+                            defaultKey: 'Link',
+                        }
                     )}
                 >
                     {override(`Link-${pageUrl}`).children || name}

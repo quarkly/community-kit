@@ -203,16 +203,22 @@ const TooltipBlock = ({
         >
             <Box
                 ref={wrapperRef}
-                {...override('Wrapper')}
+                {...override('Wrapper', `Wrapper :${tooltipPosition}`, {
+                    defaultKey: 'Wrapper',
+                })}
                 {...wrapperPositionStyles}
                 {...wrapperShowStyles}
             >
                 <Text
-                    {...override('Title')}
+                    {...override('Title', `Title :${tooltipPosition}`, {
+                        defaultKey: 'Title',
+                    })}
                     background-color={tooltipColorProp}
                 />
                 <Box
-                    {...override('Arrow')}
+                    {...override('Arrow', `Arrow :${tooltipPosition}`, {
+                        defaultKey: 'Arrow',
+                    })}
                     {...arrowPositionStyles}
                     {...arrowShowStyles}
                 />
@@ -333,7 +339,12 @@ const TooltipComponent = ({
                 override={override}
                 {...tooltipProps}
             />
-            <Box ref={contentRef} {...override('Content')}>
+            <Box
+                ref={contentRef}
+                {...override('Content', `Content :${tooltipPosition}`, {
+                    defaultKey: 'Content',
+                })}
+            >
                 {children}
             </Box>
             {isEmpty && <ComponentNotice message={'Drag any component here'} />}

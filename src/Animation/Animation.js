@@ -6,10 +6,11 @@ import React, {
     useRef,
 } from 'react';
 import atomize from '@quarkly/atomize';
+import { useOverrides } from '@quarkly/components';
 import styles, { css } from 'styled-components';
 
 import presets from './presets';
-import { propInfo, defaultProps } from './props';
+import { overrides, propInfo, defaultProps } from './props';
 
 import ComponentNotice from '../ComponentNotice';
 import { isEmptyChildren } from '../utils';
@@ -54,9 +55,10 @@ const Animation = ({
     duration,
     delay,
     test,
-    children,
     ...props
 }) => {
+    const { override, children, rest } = useOverrides(props, overrides);
+
     const [isPlay, togglePlay] = useState(trigger === 'onload' || test);
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const wrapperRef = useRef({});
@@ -156,9 +158,10 @@ const Animation = ({
             onMouseEnter={onEnterEvent}
             onMouseLeave={onLeaveEvent}
             onClick={onClickEvent}
-            {...props}
+            {...rest}
         >
             <Content
+                {...override('Content')}
                 animation={isPlay ? animation : 'none'}
                 iteration={iteration}
                 timingFunction={timingFunction}

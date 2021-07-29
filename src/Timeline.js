@@ -212,16 +212,32 @@ const TimelineItem = ({
         <Box
             {...desktopItemStyles}
             {...mobileItemStyles}
-            {...override('Item', `Item ${order}`, `Item ${numb}`)}
+            {...override('Item', `Item ${order}`, `Item ${numb}`, {
+                defaultKey: 'Item',
+            })}
         >
             <Icon
                 {...desktopPointStyles}
                 {...mobilePointStyles}
-                {...override('Point', `Point ${order}`, `Point ${numb}`)}
+                {...override('Point', `Point ${order}`, `Point ${numb}`, {
+                    defaultKey: 'Point',
+                })}
             />
-            <Text {...override('Dates', `Dates ${order}`, `Dates ${numb}`)} />
-            <Text {...override('Title', `Title ${order}`, `Title ${numb}`)} />
-            <Text {...override('Descr', `Descr ${order}`, `Descr ${numb}`)} />
+            <Text
+                {...override('Dates', `Dates ${order}`, `Dates ${numb}`, {
+                    defaultKey: 'Dates',
+                })}
+            />
+            <Text
+                {...override('Title', `Title ${order}`, `Title ${numb}`, {
+                    defaultKey: 'Title',
+                })}
+            />
+            <Text
+                {...override('Descr', `Descr ${order}`, `Descr ${numb}`, {
+                    defaultKey: 'Descr',
+                })}
+            />
         </Box>
     );
 };

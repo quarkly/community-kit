@@ -175,12 +175,24 @@ const TimerComponent = ({
                         item.show && (
                             <Box key={item.key} {...override('Item')}>
                                 <Text
-                                    {...override('Value', `Value ${item.name}`)}
+                                    {...override(
+                                        'Value',
+                                        `Value ${item.name}`,
+                                        {
+                                            defaultKey: 'Value',
+                                        }
+                                    )}
                                 >
                                     {dateState[item.key]}
                                 </Text>
                                 <Text
-                                    {...override('Title', `Title ${item.name}`)}
+                                    {...override(
+                                        'Title',
+                                        `Title ${item.name}`,
+                                        {
+                                            defaultKey: 'Title',
+                                        }
+                                    )}
                                 >
                                     {override(`Title ${item.name}`).children ||
                                         item.name}

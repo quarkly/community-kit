@@ -9,7 +9,10 @@ const Point = ({ numb, active, clickFunc, override }) => {
             {...override(
                 'Point',
                 `Point ${numb}`,
-                numb === active && 'Point :active'
+                numb === active && 'Point :active',
+                {
+                    defaultKey: 'Point',
+                }
             )}
             onClick={clickEvent}
         >
@@ -17,7 +20,10 @@ const Point = ({ numb, active, clickFunc, override }) => {
                 {...override(
                     'Point Icon',
                     `Point Icon ${numb}`,
-                    numb === active && 'Point Icon :active'
+                    numb === active && 'Point Icon :active',
+                    {
+                        defaultKey: 'Point Icon',
+                    }
                 )}
             />
         </Box>

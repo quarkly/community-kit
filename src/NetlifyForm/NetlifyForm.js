@@ -77,7 +77,7 @@ const NetlifyForm = ({
 Object.assign(NetlifyForm, {
     title: 'Netlify Form',
     description: {
-        en: 'Компонент для добавления формы Netlify',
+        en: 'This component helps add a Netlify form',
         ru: 'Компонент для добавления формы Netlify',
     },
     propInfo,

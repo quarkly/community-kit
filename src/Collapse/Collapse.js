@@ -95,19 +95,31 @@ opacity ${newDuration}s ${animFunction} 0s`;
             {...rest}
         >
             <Button
-                {...override('Button')}
+                {...override(
+                    'Button',
+                    `Button ${isOpen ? ':open' : ':close'}`,
+                    { defaultKey: 'Button' }
+                )}
                 onPointerDown={toggleOpen}
                 disabled={isEmpty}
             />
             <Box
                 {...override(
                     'Wrapper',
-                    `Wrapper ${isOpen ? ':open' : ':close'}`
+                    `Wrapper ${isOpen ? ':open' : ':close'}`,
+                    { defaultKey: 'Wrapper' }
                 )}
                 max-height={height}
                 transition={transition}
             >
-                <Box {...override('Content')} ref={contentRef}>
+                <Box
+                    {...override(
+                        'Content',
+                        `Content ${isOpen ? ':open' : ':close'}`,
+                        { defaultKey: 'Content' }
+                    )}
+                    ref={contentRef}
+                >
                     {children}
                 </Box>
                 {isEmpty && (

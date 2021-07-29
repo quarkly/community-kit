@@ -89,7 +89,11 @@ const Item = ({
     );
 
     return (
-        <Li {...override('item', match && 'item-active', `item-${pageUrl}`)}>
+        <Li
+            {...override('item', match && 'item-active', `item-${pageUrl}`, {
+                defaultKey: 'item',
+            })}
+        >
             <Link href={href} {...linkProps}>
                 {linkProps.children || name}
             </Link>
@@ -98,7 +102,9 @@ const Item = ({
                     rootId={id}
                     path={[...path, pageUrl]}
                     {...common}
-                    {...override('sub', `sub-${pageUrl}`)}
+                    {...override('sub', `sub-${pageUrl}`, {
+                        defaultKey: 'sub',
+                    })}
                 />
             )}
         </Li>

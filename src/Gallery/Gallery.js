@@ -281,12 +281,13 @@ const Gallery = ({
                 onClick={loadOnClick}
                 {...override(
                     `Button More`,
-                    `Button More ${isButtonVisible ? ':visible' : ':hidden'}`
+                    `Button More ${isButtonVisible ? ':visible' : ':hidden'}`,
+                    {
+                        defaultKey: 'Button More',
+                    }
                 )}
             >
-                <Text {...override('Button Text')}>
-                    {override('Button Text').children}
-                </Text>
+                <Text {...override('Button Text')} />
             </Button>
             <Lightbox
                 {...override(`Lightbox`)}

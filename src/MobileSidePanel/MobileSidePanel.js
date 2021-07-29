@@ -315,37 +315,51 @@ const MobileSidePanel = ({
             <Box
                 onPointerDown={isNear ? onToggle : onOpen}
                 {...styles.Button}
-                {...override('Button', `Button ${statusButtonOpen}`)}
+                {...override('Button', `Button ${statusButtonOpen}`, {
+                    defaultKey: 'Button',
+                })}
             >
                 <Text
                     {...styles['Button Text']}
                     {...override(
                         'Button Text',
-                        `Button Text ${statusButtonOpen}`
+                        `Button Text ${statusButtonOpen}`,
+                        {
+                            defaultKey: 'Button Text',
+                        }
                     )}
                 />
                 <Icon
                     {...override(
                         'Button Icon',
-                        `Button Icon ${statusButtonOpen}`
+                        `Button Icon ${statusButtonOpen}`,
+                        {
+                            defaultKey: 'Button Icon',
+                        }
                     )}
                 />
             </Box>
             <Box
                 {...styles.Wrapper}
                 {...styles[`Wrapper ${statusOpen}`]}
-                {...override('Wrapper', `Wrapper ${statusOpen}`)}
+                {...override('Wrapper', `Wrapper ${statusOpen}`, {
+                    defaultKey: 'Wrapper',
+                })}
             >
                 <Box
                     onPointerDown={onClose}
                     {...styles.Overlay}
                     {...styles[`Overlay ${statusOpen}`]}
-                    {...override('Overlay', `Overlay ${statusOpen}`)}
+                    {...override('Overlay', `Overlay ${statusOpen}`, {
+                        defaultKey: 'Overlay',
+                    })}
                 />
                 <Box
                     {...styles.Content}
                     {...styles[`Content ${statusOpen}`]}
-                    {...override('Content', `Content ${statusOpen}`)}
+                    {...override('Content', `Content ${statusOpen}`, {
+                        defaultKey: 'Content',
+                    })}
                 >
                     <Icon
                         onPointerDown={onClose}
@@ -354,7 +368,9 @@ const MobileSidePanel = ({
                     />
                     <Box
                         {...styles.Children}
-                        {...override('Children', `Children ${statusOpen}`)}
+                        {...override('Children', `Children ${statusOpen}`, {
+                            defaultKey: 'Children',
+                        })}
                         display={isEmpty ? 'none' : undefined}
                     >
                         {children}

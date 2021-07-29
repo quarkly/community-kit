@@ -177,7 +177,8 @@ const YouTubeComponent = ({
                         'YouTube Button Overlay',
                         `YouTube Button Overlay ${
                             videoId && !isPlay ? ':pause' : ':play'
-                        }`
+                        }`,
+                        { defaultKey: 'YouTube Button Overlay' }
                     )}
                     onClick={clickButton}
                 >

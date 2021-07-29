@@ -137,37 +137,52 @@ const PopupComponent = ({ animDuration, animFunction, ...props }) => {
 
     return (
         <Box {...rest}>
-            <Button onPointerDown={onOpen} {...override('Button Open')}>
-                {override('Button Open').children}
-            </Button>
-            <Box
+            <Button
                 {...override(
-                    'Popup',
-                    'Popup header',
-                    'Popup 10',
-                    `Popup ${isOpen ? ':open' : ':closed'}`
+                    'Button Open',
+                    `Button Open ${isOpen ? ':open' : ':closed'}`,
+                    { defaultKey: 'Button Open' }
                 )}
+                onPointerDown={onOpen}
+            />
+            <Box
+                {...override('Popup', `Popup ${isOpen ? ':open' : ':closed'}`, {
+                    defaultKey: 'Popup',
+                })}
                 transition={popupTransition}
             >
                 <Box
                     onPointerDown={onClose}
                     {...override(
                         'Overlay',
-                        `Overlay ${isOpen ? ':open' : ':closed'}`
+                        `Overlay ${isOpen ? ':open' : ':closed'}`,
+                        { defaultKey: 'Overlay' }
                     )}
                 />
                 <Box
                     {...override(
                         'Wrapper',
-                        `Wrapper ${isOpen ? ':open' : ':closed'}`
+                        `Wrapper ${isOpen ? ':open' : ':closed'}`,
+                        { defaultKey: 'Wrapper' }
                     )}
                     transition={wrapperTransition}
                 >
                     <Icon
-                        {...override('Button Close')}
+                        {...override(
+                            'Button Close',
+                            `Button Close ${isOpen ? ':open' : ':closed'}`,
+                            { defaultKey: 'Button Close' }
+                        )}
                         onPointerDown={onClose}
                     />
-                    <Box {...override('Content')} ref={contentRef}>
+                    <Box
+                        {...override(
+                            'Content',
+                            `Content ${isOpen ? ':open' : ':closed'}`,
+                            { defaultKey: 'Content' }
+                        )}
+                        ref={contentRef}
+                    >
                         {children}
                     </Box>
                     {isEmpty && (

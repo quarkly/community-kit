@@ -7,12 +7,14 @@ const overrides = {
     'Before Text': {
         kind: 'Text',
         props: {
+            children: 'The',
             display: 'inline-block',
         },
     },
     'After Text': {
         kind: 'Text',
         props: {
+            children: 'website builder!',
             display: 'inline-block',
         },
     },
@@ -48,9 +50,7 @@ const TextLoopComponent = ({
 
     return (
         <Box {...rest} padding="40px 0" font="--headline2">
-            <Text {...override('Before Text')}>
-                {override('Before Text').children || 'The'}
-            </Text>{' '}
+            <Text {...override('Before Text')} />{' '}
             <Text {...override('Looped Text')} color="--primary">
                 <Loop
                     interval={interval}
@@ -65,9 +65,7 @@ const TextLoopComponent = ({
                     ))}
                 </Loop>
             </Text>{' '}
-            <Text {...override('After Text')}>
-                {override('After Text').children || 'website builder!'}
-            </Text>
+            <Text {...override('After Text')} />
         </Box>
     );
 };
