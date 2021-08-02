@@ -2,6 +2,7 @@ const controls = {
     input: 'text',
     number: 'number',
     range: 'range',
+    href: 'text',
 
     font: 'text',
     shadow: 'text',

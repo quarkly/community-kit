@@ -322,13 +322,6 @@ const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
     );
 };
 
-const pagesList = Object.values(getAPI().pages || {}).map(
-    ({ pageUrl, id }) => ({
-        title: pageUrl,
-        value: id,
-    })
-);
-
 const propInfo = {
     depth: {
         title: {
@@ -342,11 +335,10 @@ const propInfo = {
     },
     rootId: {
         title: {
-            en: 'Root page ID',
-            ru: 'ID корневой страницы',
+            en: 'Root page',
+            ru: 'Корневая страница',
         },
-        control: 'select',
-        variants: pagesList,
+        control: 'href',
         category: 'Main',
         weight: 1,
     },

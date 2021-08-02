@@ -1,13 +1,10 @@
-import { getPropsUrlPages } from '../../utils';
-
 export default {
     rootId: {
         title: {
             en: 'Root page',
             ru: 'Корневая страница',
         },
-        control: 'select',
-        variants: getPropsUrlPages(),
+        control: 'href',
         category: 'Main',
         weight: 1,
     },
