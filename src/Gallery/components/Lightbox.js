@@ -3,7 +3,7 @@ import { useOverrides } from '@quarkly/components';
 import { Box, Icon, Image } from '@quarkly/widgets';
 
 import { IoMdClose } from 'react-icons/io';
-import { enableScroll, disableScroll } from '../utils/scroll';
+import { toggleScroll } from '../../utils';
 import Loader from './Loader';
 
 const overrides = {
@@ -127,7 +127,7 @@ const Lightbox = ({
     const [isLoadingFullImage, setLoadingFullImage] = useState(true);
 
     useEffect(() => {
-        if (!isOpen) enableScroll();
+        if (!isOpen) toggleScroll.enable();
     }, [isOpen]);
 
     const closeLightbox = useCallback(() => {
@@ -138,7 +138,7 @@ const Lightbox = ({
             setLoadingFullImage(true);
             setBigImage(false);
             setPreviewClicked(false);
-            if (offScrollProp) enableScroll();
+            if (offScrollProp) toggleScroll.enable();
         }, 300);
     }, [
         offScrollProp,
@@ -170,7 +170,7 @@ const Lightbox = ({
             loadImage(someImageFullParams.src || defaultFullImageSrc).then(
                 (img) => {
                     setLoadingFullImage(false);
-                    if (offScrollProp) disableScroll();
+                    if (offScrollProp) toggleScroll.disable();
                     if (img.width > window.innerWidth) setBigImage(true);
                 }
             );
