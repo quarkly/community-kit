@@ -12,6 +12,7 @@ const preventDefaultScroll = (e, el) => {
     }
 };
 const preventDefaultKeys = (e) => {
+    // keyCode is used to support ie and older browsers
     if (keys.indexOf(e.keyCode) !== -1) {
         e.preventDefault();
         return false;
@@ -22,13 +23,15 @@ let onScrollEvent = () => {};
 // Modern Chrome requires { passive: false } when adding event
 let supportsPassive = false;
 
-window?.addEventListener(
-    'supportsPassive',
-    null,
-    Object.defineProperty({}, 'passive', {
-        get: () => (supportsPassive = true),
-    })
-);
+if (typeof window !== 'undefined') {
+    window.addEventListener(
+        'supportsPassive',
+        null,
+        Object.defineProperty({}, 'passive', {
+            get: () => (supportsPassive = true),
+        })
+    );
+}
 
 const wheelOpts = supportsPassive ? { passive: false } : false;
 
