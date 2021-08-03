@@ -21,17 +21,14 @@ let onScrollEvent = () => {};
 
 // Modern Chrome requires { passive: false } when adding event
 let supportsPassive = false;
-try {
-    window.addEventListener(
-        'supportsPassive',
-        null,
-        Object.defineProperty({}, 'passive', {
-            get: () => {
-                supportsPassive = true;
-            },
-        })
-    );
-} catch (e) {}
+
+window?.addEventListener(
+    'supportsPassive',
+    null,
+    Object.defineProperty({}, 'passive', {
+        get: () => (supportsPassive = true),
+    })
+);
 
 const wheelOpts = supportsPassive ? { passive: false } : false;
 
@@ -44,7 +41,7 @@ const disable = (el) => {
     window.addEventListener('touchmove', onScrollEvent, wheelOpts);
     window.addEventListener('keydown', preventDefaultKeys, false);
 };
-const enable = (el) => {
+const enable = () => {
     window.removeEventListener('DOMMouseScroll', onScrollEvent, false);
     window.removeEventListener('wheel', onScrollEvent, wheelOpts);
     window.removeEventListener('mousewheel', onScrollEvent, wheelOpts);

@@ -27,6 +27,7 @@ const PopupComponent = ({ animDuration, animFunction, ...props }) => {
     );
 
     const onOpen = () => {
+        contentRef.current.scrollTo(0, 0);
         toggleScroll.disable(contentRef.current);
         setOpen(true);
     };
