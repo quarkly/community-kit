@@ -44,3 +44,4 @@ export { default as Counter } from './Counter';
 export { default as Breadcrumbs } from './Breadcrumbs';
 export { default as Lottie } from './Lottie';
 export { default as ReCaptcha } from './ReCaptcha';
+export { default as ShareButton } from './ShareButton';
