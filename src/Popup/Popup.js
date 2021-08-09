@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box, Icon, Button } from '@quarkly/widgets';
@@ -30,6 +30,8 @@ const PopupComponent = ({
         () => `transform ${animDuration} ${animFunction}`,
         [animFunction, animDuration]
     );
+
+    useEffect(() => setOpen(onloadShow), [onloadShow]);
 
     const onOpen = () => {
         contentRef.current.scrollTo(0, 0);

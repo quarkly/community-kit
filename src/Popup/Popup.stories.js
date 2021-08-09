@@ -18,6 +18,12 @@ export const StoryDefault = (props) => (
     </Popup>
 );
 
+export const StoryOnload = (props) => (
+    <Popup {...props} showOnload={true}>
+        <Text>{'Some text'}</Text>
+    </Popup>
+);
+
 export const StoryMultiple = (props) => {
     return (
         <>
@@ -98,6 +104,7 @@ export const StoryEmpty = (props) => {
 };
 
 StoryDefault.storyName = 'Default';
+StoryOnload.storyName = 'Onload';
 StoryMultiple.storyName = 'Multiple';
 StoryScroll.storyName = 'Scroll';
 StoryLarge.storyName = 'Large';
