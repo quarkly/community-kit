@@ -155,8 +155,7 @@ const YouTubeComponent = ({
                             width: '100%',
                             height: '100%',
                             playerVars: {
-                                // autoplay property is boolean but YouTube component requires number
-                                // controls property is boolean but YouTube component requires number
+                                // Some properties is boolean but YouTube component requires number
                                 autoplay: autoplay ? 1 : 0,
                                 controls: controls ? 1 : 0,
                                 disablekb: disablekb ? 1 : 0,
@@ -198,81 +197,79 @@ const propInfo = {
     url: {
         title: {
             en: 'Link to the video on YouTube',
+            ru: 'Ссылка на видео на YouTube',
         },
         control: 'input',
         type: 'text',
+        category: ' Main',
         weight: 1,
-        description: {
-            en: '',
-        },
     },
     autoplay: {
         title: {
-            en: 'autoplay',
+            en: 'Auto playback',
+            ru: 'Автоматическое воспроизведение',
+        },
+        description: {
+            en: 'Automatically plays the video when the page loads',
+            ru: 'Автоматическое воспроизведение видео при загрузке страницы',
         },
         control: 'checkbox',
-        description: {
-            en:
-                'Autoplay - specifies whether the initial video will automatically start to play when the player loads',
-        },
+        category: ' Main',
+        weight: 0.5,
     },
     controls: {
         title: {
-            en: 'controls',
+            en: 'Show controls',
+            ru: 'Показывать элементы управления',
         },
         control: 'checkbox',
-        description: {
-            en:
-                'Controls - specifies whether the video player controls are displayed',
-        },
+        category: ' Main',
+        weight: 0.5,
     },
     disablekb: {
         title: {
-            en: 'disablekb',
+            en: 'Disable keyboard controls',
+            ru: 'Отключить управление с клавиатуры',
         },
         control: 'checkbox',
-        description: {
-            en:
-                'Disablekb - specifies whether the player responds to keyboard controls',
-        },
+        category: ' Main',
+        weight: 0.5,
     },
     fs: {
         title: {
-            en: 'fs',
+            en: 'Show fullscreen button',
+            ru: 'Показывать полноэкранную кнопку',
         },
         control: 'checkbox',
-        description: {
-            en: 'fs - specifies whether the player shows fullscreen button',
-        },
+        category: ' Main',
+        weight: 0.5,
     },
     loop: {
         title: {
-            en: 'loop',
+            en: 'Loop playback',
+            ru: 'Зациклить воспроизведение',
         },
         control: 'checkbox',
-        description: {
-            en:
-                'loop - causes the player to play the initial video again and again',
-        },
+        category: ' Main',
+        weight: 0.5,
     },
     modestbranding: {
         title: {
-            en: 'modestbranding',
+            en: 'Hide YouTube logo',
+            ru: 'Скрыть логотип YouTube',
         },
         control: 'checkbox',
-        description: {
-            en:
-                'modestbranding - This parameter lets you use a YouTube player that does not show a YouTube logo',
-        },
+        category: ' Main',
+        weight: 0.5,
     },
     showOverlay: {
         title: {
-            en: 'showOverlay',
+            en: 'Show overlay with custom button',
+            ru: 'Показать оверлей с настраиваемой кнопкой',
         },
         control: 'checkbox',
-        description: {
-            en: 'showOverlay - specifies whether the player shows overlay',
-        },
+        category: 'Overlay',
+        weight: 1,
     },
 };
 
