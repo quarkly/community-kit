@@ -109,10 +109,15 @@ const overrides = {
     },
 };
 
-const PopupComponent = ({ animDuration, animFunction, ...props }) => {
+const PopupComponent = ({
+    animDuration,
+    animFunction,
+    onloadShow,
+    ...props
+}) => {
     const { override, children, rest } = useOverrides(props, overrides);
 
-    const [isOpen, setOpen] = useState(false);
+    const [isOpen, setOpen] = useState(onloadShow);
     const [isEmpty, setEmpty] = useState(false);
     const contentRef = useRef(null);
 
@@ -210,11 +215,21 @@ const propInfo = {
         category: 'Main',
         weight: 1,
     },
+    onloadShow: {
+        title: {
+            en: 'Show a pop-up when loading',
+            ru: 'Показать попап при загрузке',
+        },
+        control: 'checkbox',
+        category: 'Test',
+        weight: 1,
+    },
 };
 
 const defaultProps = {
     animDuration: '0.15s',
     animFunction: 'linear',
+    onloadShow: false,
 };
 
 Object.assign(PopupComponent, {
