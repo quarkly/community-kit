@@ -29,4 +29,13 @@ export default {
         category: 'Main',
         weight: 1,
     },
+    onloadShow: {
+        title: {
+            en: 'Show a pop-up when loading',
+            ru: 'Показать попап при загрузке',
+        },
+        control: 'checkbox',
+        category: 'Test',
+        weight: 1,
+    },
 };

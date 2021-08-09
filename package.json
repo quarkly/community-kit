@@ -10,6 +10,7 @@
     "easy-scroll": "^0.7.0",
     "lottie-web": "^5.7.11",
     "react-facebook": "^8.1.4",
+    "react-google-recaptcha": "^2.1.0",
     "react-livechat": "^1.1.1",
     "react-redux": "^7.2.4",
     "react-text-loop": "^2.3.0",
@@ -118,7 +119,8 @@
       "PayPalDonateButton": "PayPalDonateButton",
       "NetlifyForm": "NetlifyForm",
       "Lottie": "Lottie",
-      "Breadcrumbs": "Breadcrumbs"
+      "Breadcrumbs": "Breadcrumbs",
+      "ReCaptcha": "ReCaptcha"
     }
   },
   "quarklyInfoDeleted": {

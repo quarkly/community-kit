@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box, Icon, Button } from '@quarkly/widgets';
@@ -7,10 +7,15 @@ import { overrides, propInfo, defaultProps } from './props';
 import { isEmptyChildren, toggleScroll } from '../utils';
 import ComponentNotice from '../ComponentNotice';
 
-const PopupComponent = ({ animDuration, animFunction, ...props }) => {
+const PopupComponent = ({
+    animDuration,
+    animFunction,
+    onloadShow,
+    ...props
+}) => {
     const { override, children, rest } = useOverrides(props, overrides);
 
-    const [isOpen, setOpen] = useState(false);
+    const [isOpen, setOpen] = useState(onloadShow);
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const contentRef = useRef();
 
@@ -25,6 +30,8 @@ const PopupComponent = ({ animDuration, animFunction, ...props }) => {
         () => `transform ${animDuration} ${animFunction}`,
         [animFunction, animDuration]
     );
+
+    useEffect(() => setOpen(onloadShow), [onloadShow]);
 
     const onOpen = () => {
         contentRef.current.scrollTo(0, 0);

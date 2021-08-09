@@ -140,7 +140,6 @@ const getStyles = ({
         'padding-right': '3px',
         'min-height': '0',
         'align-items': 'center',
-        'align-self': 'flex-end',
         'flex-direction':
             menuPosition === 'left' || menuPosition === 'nearRight'
                 ? 'row-reverse'
