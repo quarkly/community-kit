@@ -19,7 +19,7 @@ export const StoryDefault = (props) => (
 );
 
 export const StoryOnload = (props) => (
-    <Popup {...props} showOnload={true}>
+    <Popup {...props} showOnload>
         <Text>{'Some text'}</Text>
     </Popup>
 );
