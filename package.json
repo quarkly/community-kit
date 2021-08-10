@@ -120,7 +120,8 @@
       "NetlifyForm": "NetlifyForm",
       "Lottie": "Lottie",
       "Breadcrumbs": "Breadcrumbs",
-      "ReCaptcha": "ReCaptcha"
+      "ReCaptcha": "ReCaptcha",
+      "ShareButton": "ShareButton"
     }
   },
   "quarklyInfoDeleted": {
