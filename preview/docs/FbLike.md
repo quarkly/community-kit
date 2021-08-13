@@ -26,18 +26,83 @@ The UTM tag name must:
 
 ## 🧩 Components and Props
 
-| Prop name          |   Type    |     Default     |          Example          |
-| :----------------- | :-------: | :-------------: | :-----------------------: |
-| Facebook app ID    | `number`  |       `-`       |       `1234567890`        |
-| Link to the page   | `string`  |       `-`       | `https://yourdomain.name` |
-| Component language |  `enum`   |    `English`    |         `Русский`         |
-| Color scheme       |  `enum`   |     `Light`     |          `Dark`           |
-| ´Share´ button     |  `enum`   |     `Hide`      |          `Show`           |
-| Layout             |  `enum`   | `Standard view` |      `Simple button`      |
-| Button size        |  `enum`   |     `Small`     |          `Large`          |
-| On click action    |  `enum`   |     `Like`      |        `Recommend`        |
-| Made for kids      | `boolean` |     `false`     |          `true`           |
-| UTM tag            | `string`  |       `-`       |        `utm12345`         |
+### In the interface
+
+| Prop name          |     Default     |          Example          |
+| :----------------- | :-------------: | :-----------------------: |
+| Facebook app ID    |       `-`       |         `123456`          |
+| Link to the page   |       `-`       | `https://yourdomain.name` |
+| Component language |    `English`    |         `Russian`         |
+| Color scheme       |     `Light`     |          `Dark`           |
+| ´Share´ button     |     `Hide`      |          `Show`           |
+| Layout             | `Standard view` |      `Simple button`      |
+| Button size        |     `Small`     |          `Large`          |
+| On click action    |     `Like`      |        `Recommend`        |
+| Made for kids      |     `false`     |          `true`           |
+| UTM tag            |       `-`       |        `utm12345`         |
+
+### In the code (for developers)
+
+| Prop name          | Name in the code  |   Type    |  Default   |          Example          |
+| :----------------- | :---------------: | :-------: | :--------: | :-----------------------: |
+| Facebook app ID    |      `appId`      | `string`  |    `-`     |         `123456`          |
+| Link to the page   |      `href`       | `string`  |    `-`     | `https://yourdomain.name` |
+| Component language |    `language`     |  `enum`   |  `en_US`   |          `ru_RU`          |
+| Color scheme       |   `colorScheme`   |  `enum`   |  `Light`   |          `Dark`           |
+| ´Share´ button     |    `showShare`    |  `enum`   |   `Hide`   |          `Show`           |
+| Layout             |     `layout`      |  `enum`   | `standard` |        `box_count`        |
+| Button size        |      `size`       |  `enum`   |  `Small`   |          `Large`          |
+| On click action    |     `action`      |  `enum`   |   `Like`   |        `Recommend`        |
+| Made for kids      | `kidDirectedSite` | `boolean` |  `false`   |          `true`           |
+| UTM tag            |    `referral`     | `string`  |    `-`     |        `utm12345`         |
+
+#### The 'Component language' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| English            |     `en_US`      |
+| Russian            |     `ru_RU`      |
+
+#### The 'Color scheme' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Light              |     `light`      |
+| Dark               |      `dark`      |
+
+#### The '´Share´ button' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Show               |      `show`      |
+| Hide               |      `hide`      |
+
+#### The 'Layout' property values
+
+| User-friendly name     | Name in the code |
+| :--------------------- | :--------------: |
+| Default layout         |    `standard`    |
+| Container with counter |   `box_count`    |
+| Button with counter    |  `button_count`  |
+| Simple button          |     `button`     |
+
+#### The 'Button size' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Small              |     `small`      |
+| Large              |     `large`      |
+
+#### The 'On click action' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Like               |      `like`      |
+| Recommend          |   `recommend`    |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/FbLike.js)
 
 ## 🗓 Changelog
 
