@@ -18,16 +18,53 @@ In the component props you can change the shape type:
 
 ## 🧩 Components and Props
 
-| Prop name          |   Type   |      Default      |
-| :----------------- | :------: | :---------------: |
-| Shape type         |  `enum`  |    `rectangle`    |
-| Stroke color       | `string` |     `#000000`     |
-| Stroke thickness   | `number` |        `1`        |
-| Stroke opacity     | `number` |        `1`        |
-| Stroke shape       |  `enum`  |      `butt`       |
-| Dashed stroke      | `string` |      `none`       |
-| Shape type color   | `string` | `--color-primary` |
-| Shape type opacity | `number` |        `1`        |
+### In the interface
+
+| Prop name          |      Default      |  Example  |
+| :----------------- | :---------------: | :-------: |
+| Shape type         |    `rectangle`    | `square`  |
+| Stroke color       |     `#000000`     | `#ffffff` |
+| Stroke thickness   |        `1`        |    `0`    |
+| Stroke opacity     |        `1`        |    `0`    |
+| Stroke shape       |      `round`      |  `butt`   |
+| Dashed stroke      |        `-`        |    `-`    |
+| Shape type color   | `--color-primary` |  `#000`   |
+| Shape type opacity |        `1`        |    `0`    |
+
+### In the code (for developers)
+
+| Prop name          | Name in the code  |   Type   |      Default      |  Example  |
+| :----------------- | :---------------: | :------: | :---------------: | :-------: |
+| Shape type         |      `type`       |  `enum`  |    `rectangle`    | `square`  |
+| Stroke color       |     `stroke`      | `string` |     `#000000`     | `#FFFFFF` |
+| Stroke thickness   |   `strokeWidth`   | `string` |        `1`        |    `0`    |
+| Stroke opacity     |  `strokeOpacity`  | `string` |        `1`        |    `0`    |
+| Stroke shape       |  `strokeLinecap`  |  `enum`  |      `round`      |  `butt`   |
+| Dashed stroke      | `strokeDasharray` | `string` |        `-`        |    `-`    |
+| Shape type color   |      `fill`       | `string` | `--color-primary` | `#000000` |
+| Shape type opacity |   `fillOpacity`   | `string` |        `1`        |    `0`    |
+
+#### The 'Shape type' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Line               |      `line`      |
+| Ellipse            |    `ellipse`     |
+| Circle             |     `circle`     |
+| Rectangle          |   `rectangle`    |
+| Square             |     `square`     |
+
+#### The 'Stroke shape' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Butt               |      `butt`      |
+| Round              |     `round`      |
+| Square             |     `square`     |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/SvgShape.js)
 
 ## 🗓 Changelog
 
