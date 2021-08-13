@@ -14,15 +14,46 @@ For the component to work properly in the builder, set the height limit in the p
 
 ## 🧩 Components and Props
 
-| Prop name       |   Type   |   Default   |
-| :-------------- | :------: | :---------: |
-| Image           | `number` |   `none`    |
-| Image size      | `string` |   `cover`   |
-| Image alignment |  `enum`  |   `left`    |
-| Image alignment |  `enum`  | `no-repeat` |
-| Repeat image    |  `bool`  |   `false`   |
-| Scroll speed    |  `bool`  |    `0.5`    |
-| Scroll inertia  |  `bool`  |     `1`     |
+### In the interface
+
+| Prop name       | Default  |    Example     |
+| :-------------- | :------: | :------------: |
+| Image           |   `-`    |      `-`       |
+| Image size      | `cover`  |     `100%`     |
+| Image alignment |  `Left`  |    `Center`    |
+| Repeat image    | `Repeat` | `Don't repeat` |
+| Scroll speed    |  `0.5`   |      `1`       |
+| Scroll inertia  |   `1`    |      `2`       |
+
+### In the code (for developers)
+
+| Prop name       |  Name in the code   |   Type    |   Default   | Example  |
+| :-------------- | :-----------------: | :-------: | :---------: | :------: |
+| Image           |     `imageURL`      | `string`  |     `-`     |   `-`    |
+| Image size      |     `imageSize`     | `string`  |   `cover`   |  `100%`  |
+| Image alignment |   `imagePosition`   |  `enum`   |   `left`    | `center` |
+| Repeat image    |    `imageRepeat`    |  `enum`   | `no-repeat` | `repeat` |
+| Scroll speed    |  `scrollSpeedProp`  | `boolean` |    `0.5`    |   `1`    |
+| Scroll inertia  | `scrollInertiaProp` | `boolean` |     `1`     |   `2`    |
+
+#### The 'Image alignment' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Left               |      `left`      |
+| Center             |     `center`     |
+| Right              |     `right`      |
+
+#### The 'Repeat image' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Repeat             |     `repeat`     |
+| Don't repeat       |   `no-repeat`    |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/BgImageParallax.js)
 
 ## 🗓 Changelog
 
