@@ -14,15 +14,33 @@ Please note that the slides can't be removed by default. So just replace the def
 
 ## 🧩 Components and Props
 
-| Prop name                                  |   Type   | Description                                                      | Default |      Example      |
-| :----------------------------------------- | :------: | :--------------------------------------------------------------- | :-----: | :---------------: |
-| Slider list                                | `array`  | Use the "+" and "-" buttons to add and remove slides             |  `[]`   | `[first, second]` |
-| Slideshow intervals                        | `number` | The time interval (in ms) between each slide                     | `3000`  |      `1500`       |
-| Delay before animation starts              | `number` | Delay Delay (in ms) before animation starts                      |   `0`   |      `1000`       |
-| Container change duration                  | `number` | Duration (in ms) of the container width change around each slide |  `150`  |       `50`        |
-| Hide/show animation                        |  `bool`  | Enable or disable the hide/show animation                        | `true`  |      `false`      |
-| Hide animation at the container boundaries |  `bool`  | Hide the animation if it exceeds the container boundaries        | `true`  |      `false`      |
-| Forbid line breaking                       |  `bool`  | The line can't be broken. Used to calculate the width            | `true`  |      `false`      |
+### In the interface
+
+| Prop name                                  | Default |      Example      |
+| :----------------------------------------- | :-----: | :---------------: |
+| Slider list                                |  `[]`   | `[first, second]` |
+| Slideshow intervals                        | `3000`  |      `1500`       |
+| Delay before animation starts              |   `0`   |      `1000`       |
+| Container change duration                  |  `150`  |       `50`        |
+| Hide/show animation                        | `true`  |      `false`      |
+| Hide animation at the container boundaries | `true`  |      `false`      |
+| Forbid line breaking                       | `true`  |      `false`      |
+
+### In the code (for developers)
+
+| Prop name                                  |   Name in the code   |   Type    | Default |      Example      |
+| :----------------------------------------- | :------------------: | :-------: | :-----: | :---------------: |
+| Slider list                                |       `slides`       | `string`  |  `[]`   | `[first, second]` |
+| Slideshow intervals                        |    `intervalProp`    | `string`  | `3000`  |      `1500`       |
+| Delay before animation starts              |     `delayProp`      | `string`  |   `0`   |      `1000`       |
+| Container change duration                  | `adjustingSpeedProp` | `string`  |  `150`  |       `50`        |
+| Hide/show animation                        |        `fade`        | `boolean` | `true`  |      `false`      |
+| Hide animation at the container boundaries |        `mask`        | `boolean` | `true`  |      `false`      |
+| Forbid line breaking                       |       `noWrap`       | `boolean` | `true`  |      `false`      |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/LoopText.js)
 
 ## 🗓 Changelog
 
