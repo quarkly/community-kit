@@ -8,10 +8,25 @@ Add the component to the page and check how it works in the preview mode.
 
 ## 🧩 Components and Props
 
-| Prop name                    |   Type   | Default  |
-| :--------------------------- | :------: | :------: |
-| Hide/show animation duration | `string` | `0.15s`  |
-| Smooth animation             | `number` | `linear` |
+### In the interface
+
+| Prop name                    | Default  |  Example  |
+| :--------------------------- | :------: | :-------: |
+| Hide/show animation duration | `0.15s`  |  `0.2s`   |
+| Smooth animation             | `linear` | `ease-in` |
+| Show a pop-up when loading   | `false`  |  `true`   |
+
+### In the code (for developers)
+
+| Prop name                    | Name in the code |   Type    | Default  | Example |
+| :--------------------------- | :--------------: | :-------: | :------: | :-----: |
+| Hide/show animation duration |  `animDuration`  | `string`  | `0.15s`  | `0.25s` |
+| Smooth animation             |  `animFunction`  | `string`  | `linear` |   `-`   |
+| Show a pop-up when loading   |   `onloadShow`   | `boolean` | `false`  | `true`  |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/Popup)
 
 ## 🗓 Changelog
 
