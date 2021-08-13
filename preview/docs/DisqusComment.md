@@ -16,12 +16,27 @@ You can get the comment identifier, for example, by following the `Share` link.
 
 ## 🧩 Components and Props
 
-| Prop Name            |   Type   | Default |
-| :------------------- | :------: | :-----: |
-| Comment identifier   | `string` |   `-`   |
-| Show parent comment  |  `bool`  | `false` |
-| Comment block width  | `string` | `100%`  |
-| Comment block height | `string` | `200px` |
+### In the interface
+
+| Prop Name            | Default | Example |
+| :------------------- | :-----: | :-----: |
+| Comment identifier   |   `-`   |   `-`   |
+| Show parent comment  | `false` | `true`  |
+| Comment block width  | `100%`  |  `50%`  |
+| Comment block height | `200px` | `250px` |
+
+### In the code (for developers)
+
+| Prop Name            | Name in the code |   Type    | Default | Example |
+| :------------------- | :--------------: | :-------: | :-----: | :-----: |
+| Comment identifier   | `commentIDProp`  | `string`  |   `-`   |   `-`   |
+| Show parent comment  |  `showParrent`   | `boolean` | `false` | `true`  |
+| Comment block width  |   `widthProp`    | `string`  | `100%`  |  `50%`  |
+| Comment block height |   `heightProp`   | `string`  | `200px` | `250px` |
+
+## 🗄 GitHub
+
+[Link GitHub](https://github.com/quarkly/community-kit/blob/master/src/DisqusComment.js)
 
 ## 🗓 Changelog
 
