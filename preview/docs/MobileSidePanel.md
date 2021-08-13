@@ -21,12 +21,37 @@ The `Panel position in mobile view` prop allows you to customize the panel posit
 
 ## 🧩 Components and Props
 
-| Prop name                        |   Type   | Default |  Example  |
-| :------------------------------- | :------: | :-----: | :-------: |
-| Switch mobile view on breakpoint | `string` |  `md`   |   `sm`    |
-| Panel position in mobile view    |  `enum`  | `near`  |  `left`   |
-| Smooth animation                 |  `enum`  | `ease`  | `ease-in` |
-| Hide/show animation duration     | `string` | `0.3s`  |  `0.5s`   |
+### In the interface
+
+| Prop name                        | Default |  Example  |
+| :------------------------------- | :-----: | :-------: |
+| Switch mobile view on breakpoint |  `md`   |   `sm`    |
+| Panel position in mobile view    | `near`  |  `left`   |
+| Smooth animation                 | `ease`  | `ease-in` |
+| Hide/show animation duration     | `0.3s`  |  `0.5s`   |
+
+### In the code (for developers)
+
+| Prop name                        | Name in the code |   Type   | Default |  Example  |
+| :------------------------------- | :--------------: | :------: | :-----: | :-------: |
+| Switch mobile view on breakpoint |   `breakpoint`   | `string` |  `md`   |   `sm`    |
+| Panel position in mobile view    |  `menuPosition`  |  `enum`  | `near`  |  `left`   |
+| Smooth animation                 |  `animDuration`  | `string` | `ease`  | `ease-in` |
+| Hide/show animation duration     |  `animFunction`  | `string` | `0.3s`  |  `0.5s`   |
+
+#### The 'Panel position in mobile view' property values
+
+| User-friendly name         | Name in the code |
+| :------------------------- | :--------------: |
+| Fullscreen                 |      `full`      |
+| To the left of the screen  |      `left`      |
+| To the right of the screen |     `right`      |
+| To the left of the button  |      `near`      |
+| To the right of the button |   `nearRight`    |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/MobileSidePanel)
 
 ## 🗓 Changelog
 
