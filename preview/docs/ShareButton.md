@@ -45,7 +45,7 @@ The Share button lets your site visitors quickly navigate to your account or soc
 | :----------------- | :--------------: |
 | Facebook           |    `Facebook`    |
 
-Значения свойства `Сервис` полностью совпадают с их пользовательскими названиями.
+The names of the `Service` property values fully match.
 
 ## 🗄 GitHub
 
