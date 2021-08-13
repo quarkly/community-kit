@@ -14,13 +14,13 @@ The `Short Description` prop allows you to add a short description of the table 
 
 ### In the interface
 
-| Prop name         | Default | Example |
-| :---------------- | :-----: | :-----: |
-| Number of columns |   `8`   |  `12`   |
-| Number of rows    |   `4`   |   `6`   |
-| Display header    | `false` | `true`  |
-| Display footer    | `false` | `true`  |
-| Short description |   `-`   |   `-`   |
+| Prop name         |   Default   |  Example  |
+| :---------------- | :---------: | :-------: |
+| Number of columns |     `8`     |   `12`    |
+| Number of rows    |     `4`     |    `6`    |
+| Display header    | `Unchecked` | `Checked` |
+| Display footer    | `Unchecked` | `Checked` |
+| Short description |     `-`     |    `-`    |
 
 ### In the code (for developers)
 
