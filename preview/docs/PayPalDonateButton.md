@@ -11,17 +11,37 @@ A simple button to collect donations to your PayPal account.
 
 **Attention:** the form submission and redirect to PayPal are available only on the published site.
 
+By default, the `Link to the button image` has the `https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif` value.
+
 ## 🧩 Components and Props
 
-| Prop Name                         |   Type    |                            Default                            |
-| :-------------------------------- | :-------: | :-----------------------------------------------------------: |
-| Open in a new window              | `boolean` |                            `true`                             |
-| Link to the button image          |  `image`  | `https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif` |
-| Your PayPal ID or or email        | `string`  |                              `–`                              |
-| Product description               | `string`  |                              `–`                              |
-| Tracking ID                       | `string`  |                              `–`                              |
-| Product / service price or number | `number`  |                              `–`                              |
-| Currency code                     | `string`  |                             `USD`                             |
+### In the interface
+
+| Prop Name                         | Default | Example |
+| :-------------------------------- | :-----: | :-----: |
+| Open in a new window              | `true`  | `false` |
+| Link to the button image          |   `-`   |   `-`   |
+| Your PayPal ID or or email        |   `-`   |   `-`   |
+| Product description               |   `-`   |   `-`   |
+| Tracking ID                       |   `-`   |   `-`   |
+| Product / service price or number |   `-`   |   `-`   |
+| Currency code                     |  `USD`  |  `EUR`  |
+
+### In the code (for developers)
+
+| Prop Name                         | Name in the code |   Type    | Default | Example |
+| :-------------------------------- | :--------------: | :-------: | :-----: | :-----: |
+| Open in a new window              |     `newTab`     | `boolean` | `true`  | `false` |
+| Link to the button image          |  `buttonImage`   |  `image`  |   `-`   |   `-`   |
+| Your PayPal ID or or email        |    `business`    | `string`  |   `-`   |   `-`   |
+| Product description               |    `itemName`    | `string`  |   `-`   |   `-`   |
+| Tracking ID                       |   `itemNumber`   | `string`  |   `-`   |   `-`   |
+| Product / service price or number |     `amount`     | `string`  |   `-`   |   `-`   |
+| Currency code                     |  `currencyCode`  | `string`  |  `USD`  |  `EUR`  |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/PayPalDonateButton)
 
 ## 🗓 Changelog
 
