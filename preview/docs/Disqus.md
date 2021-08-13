@@ -31,13 +31,38 @@ To get `Your feed name` (Shortname):
 
 ## 🧩 Components and Props
 
-| Prop Name             |   Type   | Default |
-| :-------------------- | :------: | :-----: |
-| Discussion identifier | `string` |   `-`   |
-| Discussion URL        | `string` |   `-`   |
-| Discussion title      | `string` |   `-`   |
-| Your feed name        | `string` |   `-`   |
-| Widget language       |  `enum`  |  `en`   |
+### In the interface
+
+| Prop Name             | Default | Example |
+| :-------------------- | :-----: | :-----: |
+| Discussion identifier |   `-`   |   `-`   |
+| Discussion URL        |   `-`   |   `-`   |
+| Discussion title      |   `-`   |   `-`   |
+| Your feed name        |   `-`   |   `-`   |
+| Widget language       |  `en`   |  `ru`   |
+
+### In the code (for developers)
+
+| Prop Name             | Name in the code |   Type   | Default | Example |
+| :-------------------- | :--------------: | :------: | :-----: | :-----: |
+| Discussion identifier | `identifierProp` | `string` |   `-`   |   `-`   |
+| Discussion URL        |    `urlProp`     | `string` |   `-`   |   `-`   |
+| Discussion title      |   `titleProp`    | `string` |   `-`   |   `-`   |
+| Your feed name        | `shortnameProp`  | `string` |   `-`   |   `-`   |
+| Widget language       |  `languageProp`  |  `enum`  |  `en`   |  `ru`   |
+
+#### The 'Widget language' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| English            |       `en`       |
+| German             |       `de`       |
+| French             |       `fr`       |
+| Russian            |       `ru`       |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Disqus.js)
 
 ## 🗓 Changelog
 
