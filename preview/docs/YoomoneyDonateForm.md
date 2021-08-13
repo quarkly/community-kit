@@ -31,22 +31,22 @@ During the transfer, you can ask the sender their full name, email, phone number
 
 ### In the interface
 
-| Prop name                         | Default  |             Example             |
-| :-------------------------------- | :------: | :-----------------------------: |
-| YooMoney wallet ID                |   `-`    |            `123456`             |
-| Who specifies the transfer reason | `seller` |             `buyer`             |
-| Transfer reason                   |   `-`    |     `For the site hosting`      |
-| Amount                            |   `-`    |              `250`              |
-| Button text                       |   `11`   |              `14`               |
-| Use credit card                   | `false`  |             `true`              |
-| Request sender's full name        | `false`  |             `true`              |
-| Request sender's email            | `false`  |             `true`              |
-| Request sender's phone number     | `false`  |             `true`              |
-| Request sender's address          | `false`  |             `true`              |
-| Request sender's comments         | `false`  |             `true`              |
-| Tip for sender                    |   `-`    | `Your comments and suggestions` |
-| Go to the page after transfer     |   `-`    |    `https://yourdomain.name`    |
-| Mobile version                    | `false`  |             `true`              |
+| Prop name                         |   Default   |             Example             |
+| :-------------------------------- | :---------: | :-----------------------------: |
+| YooMoney wallet ID                |     `-`     |            `123456`             |
+| Who specifies the transfer reason |  `seller`   |             `buyer`             |
+| Transfer reason                   |     `-`     |     `For the site hosting`      |
+| Amount                            |     `-`     |              `250`              |
+| Button text                       |    `11`     |              `14`               |
+| Use credit card                   | `Unchecked` |            `Checked`            |
+| Request sender's full name        | `Unchecked` |            `Checked`            |
+| Request sender's email            | `Unchecked` |            `Checked`            |
+| Request sender's phone number     | `Unchecked` |            `Checked`            |
+| Request sender's address          | `Unchecked` |            `Checked`            |
+| Request sender's comments         | `Unchecked` |            `Checked`            |
+| Tip for sender                    |     `-`     | `Your comments and suggestions` |
+| Go to the page after transfer     |     `-`     |    `https://yourdomain.name`    |
+| Mobile version                    | `Unchecked` |            `Checked`            |
 
 ### In the code (for developers)
 
