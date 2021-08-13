@@ -21,12 +21,43 @@ The value chosen in the `Alignment on mobile` prop will be applied for the break
 
 ## 🧩 Components and Props
 
-| Prop name                         |   Type   | Default |
-| :-------------------------------- | :------: | :-----: |
-| Number of elements                | `number` |   `4`   |
-| Alignment on desktop              |  `enum`  | `Left`  |
-| Alignment on mobile               |  `enum`  | `Right` |
-| Mobile view start with breakpoint | `string` |  `sm`   |
+### In the interface
+
+| Prop name                         | Default |         Example          |
+| :-------------------------------- | :-----: | :----------------------: |
+| Number of elements                |   `4`   |           `6`            |
+| Alignment on desktop              | `Left`  | `From right (staggered)` |
+| Alignment on mobile               | `Right` |          `Left`          |
+| Mobile view start with breakpoint |  `sm`   |           `md`           |
+
+### In the code (for developers)
+
+| Prop name                         | Name in the code |   Type   |  Default   |  Example  |
+| :-------------------------------- | :--------------: | :------: | :--------: | :-------: |
+| Number of elements                |   `itemsProp`    | `string` |    `4`     |    `6`    |
+| Alignment on desktop              |  `alignDesktop`  |  `enum`  | `fromLeft` | `toRight` |
+| Alignment on mobile               |  `alignMobile`   |  `enum`  |  `toLeft`  | `toRight` |
+| Mobile view start with breakpoint |   `breakpoint`   | `string` |    `sm`    |   `md`    |
+
+#### The 'Alignment on mobile' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Left               |     `toLeft`     |
+| Right              |    `toRight`     |
+
+#### The 'Alignment on desktop' property values
+
+| User-friendly name     | Name in the code |
+| :--------------------- | :--------------: |
+| From left (staggered)  |    `fromLeft`    |
+| From right (staggered) |   `fromRight`    |
+| Left                   |     `toLeft`     |
+| Right                  |    `toRight`     |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Timeline.js)
 
 ## 🗓 Changelog
 
