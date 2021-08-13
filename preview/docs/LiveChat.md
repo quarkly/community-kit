@@ -16,11 +16,25 @@ The `Chat sessions between groups` allows you to set one session for several cha
 
 ## 🧩 Components and Props
 
-| Prop name                    |   Type    | Default |   Example   |
-| ---------------------------- | :-------: | :-----: | :---------: |
-| License ID                   | `string`  | `none`  | `123456789` |
-| Group number                 | `string`  | `none`  |     `1`     |
-| Chat sessions between groups | `boolean` | `false` |   `true`    |
+### In the interface
+
+| Prop name                    | Default | Example  |
+| :--------------------------- | :-----: | :------: |
+| License ID                   |   `-`   | `123456` |
+| Group number                 |   `-`   |   `1`    |
+| Chat sessions between groups | `false` |  `true`  |
+
+### In the code (for developers)
+
+| Prop name                    |  Name in the code   |   Type    | Default | Example  |
+| :--------------------------- | :-----------------: | :-------: | :-----: | :------: |
+| License ID                   |      `license`      | `string`  |   `-`   | `123456` |
+| Group number                 |       `group`       | `string`  |   `-`   |   `1`    |
+| Chat sessions between groups | `chatBetweenGroups` | `boolean` | `false` |  `true`  |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/LiveChat.js)
 
 ## 🗓 Changelog
 
