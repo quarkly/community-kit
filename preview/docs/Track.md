@@ -23,7 +23,7 @@ The `Set default` prop indicates that the current track is preferred. This prope
 | Prop name       |   Default   |  Example   |
 | :-------------- | :---------: | :--------: |
 | File link       |     `-`     |    `-`     |
-| Set default     |   `false`   |   `true`   |
+| Set default     | `Unchecked` | `Checked`  |
 | Track language  |    `en`     |    `de`    |
 | Track purpose   | `subtitles` | `captions` |
 | Displayed title |     `-`     |   `text`   |
