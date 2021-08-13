@@ -18,11 +18,32 @@ If you change the component properties in the builder, you may need to update th
 
 ## 🧩 Components and Props
 
-| Prop name                     |   Type   |  Default  |
-| :---------------------------- | :------: | :-------: |
-| Facebook app ID               | `number` |    `-`    |
-| Link to comments              | `number` |    `-`    |
-| The language of the component |  `enum`  | `English` |
+### In the interface
+
+| Prop name                     |  Default  |  Example  |
+| :---------------------------- | :-------: | :-------: |
+| Facebook app ID               |    `-`    |    `-`    |
+| Link to comments              |    `-`    |    `-`    |
+| The language of the component | `English` | `Russian` |
+
+### In the code (for developers)
+
+| Prop name                     | Name in the code |   Type   | Default | Example |
+| :---------------------------- | :--------------: | :------: | :-----: | :-----: |
+| Facebook app ID               |     `appId`      | `string` |   `-`   |   `-`   |
+| Link to comments              |      `href`      | `string` |   `-`   |   `-`   |
+| The language of the component |    `language`    |  `enum`  | `en_US` | `ru_RU` |
+
+#### The 'The language of the component' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| English            |     `en_US`      |
+| Russian            |     `ru_RU`      |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/FbComment.js)
 
 ## 🗓 Changelog
 
