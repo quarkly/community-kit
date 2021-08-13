@@ -12,15 +12,58 @@ If you activate the `Force animation` prop, the animation will start automatical
 
 ## 🧩 Components and Props
 
-| Prop name                     |   Type   |  Default   |  Example  |
-| :---------------------------- | :------: | :--------: | :-------: |
-| Animation trigger             |  `enum`  |  `onload`  |  `hover`  |
-| Animation type                |  `enum`  | `Fade Out` | `Fade In` |
-| Number of iterations          |  `enum`  | `infinity` |  `once`   |
-| Smooth animation              | `string` |  `linear`  |  `ease`   |
-| Hide/show animation duration  | `string` |    `1s`    |   `3s`    |
-| Delay before animation starts | `string` |    `0s`    |   `1s`    |
-| Force animation               |  `bool`  |  `false`   |  `true`   |
+### In the interface
+
+| Prop name                     |    Default     |  Example   |
+| :---------------------------- | :------------: | :--------: |
+| Animation trigger             | `When loading` | `On click` |
+| Animation type                |   `Fade Out`   | `Fade In`  |
+| Number of iterations          |     `Loop`     |   `Once`   |
+| Animation timing function     |    `linear`    |   `ease`   |
+| Hide/show animation duration  |      `1s`      |    `3s`    |
+| Delay before animation starts |      `0s`      |    `1s`    |
+| Force animation               |  `Unchecked`   | `Checked`  |
+
+### In the code (for developers)
+
+| Prop name                     | Name in the code |   Type    |  Default   |  Example  |
+| :---------------------------- | :--------------: | :-------: | :--------: | :-------: |
+| Animation trigger             |    `trigger`     |  `enum`   |  `onload`  |  `click`  |
+| Animation type                |   `animation`    |  `enum`   | `Fade Out` | `Fade In` |
+| Number of iterations          |   `iteration`    |  `enum`   | `infinity` |  `once`   |
+| Animation timing function     | `timingFunction` | `string`  |  `linear`  |  `ease`   |
+| Hide/show animation duration  |    `duration`    | `string`  |    `1s`    |   `3s`    |
+| Delay before animation starts |     `delay`      | `string`  |    `0s`    |   `1s`    |
+| Force animation               |      `test`      | `boolean` |  `false`   |  `true`   |
+
+#### The 'Animation trigger' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| When loading       |     `onload`     |
+| On click           |     `click`      |
+| On hover           |     `hover`      |
+| From top           |     `above`      |
+| From bottom        |     `below`      |
+
+#### The 'Animation type' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Fade Out           |    `Fade Out`    |
+
+The names of the `animation` property values fully match.
+
+#### The 'Animation type' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Once               |      `once`      |
+| Loop               |    `infinite`    |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/Animation)
 
 ## 🗓 Changelog
 
