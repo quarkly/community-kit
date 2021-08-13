@@ -12,10 +12,38 @@ To add a custom image, select it in the component and set the value to the `Src`
 
 ## 🧩 Components and Props
 
-| Prop name          |  Type  |       Example        |
-| :----------------- | :----: | :------------------: |
-| Aspect ratio       | `enum` |        `4:3`         |
-| Interaction method | `enum` | `When moving around` |
+### In the interface
+
+| Prop name          |  Default  |  Example  |
+| :----------------- | :-------: | :-------: |
+| Aspect ratio       |   `4:3`   |  `16:9`   |
+| Interaction method | `On Move` | `On Drag` |
+
+### In the code (for developers)
+
+| Prop name          | Name in the code  |  Type  | Default  | Example  |
+| :----------------- | :---------------: | :----: | :------: | :------: |
+| Aspect ratio       |   `AspectRatio`   | `enum` |  `4:3`   |  `16:9`  |
+| Interaction method | `activationTypea` | `enum` | `onDrag` | `onMove` |
+
+#### The 'Aspect ratio' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| 16:9               |      `16:9`      |
+
+The names of the `Image aspect ratio` property values fully match.
+
+#### The 'Interaction method' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| On Drag            |     `onDrag`     |
+| On Move            |     `onMove`     |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/BeforeAfterImage.js)
 
 ## 🗓 Changelog
 
