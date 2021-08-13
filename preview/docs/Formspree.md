@@ -12,11 +12,25 @@ This component allows you to add a form with the Formspree widget.
 
 ## 🧩 Components and Props
 
-| Prop name       |   Type   | Default |
-| :-------------- | :------: | :-----: |
-| Endpoint        | `string` |   `-`   |
-| Success message | `string` |   `-`   |
-| Error message   | `string` |   `-`   |
+### In the interface
+
+| Prop name       |        Default         | Example |
+| :-------------- | :--------------------: | :-----: |
+| Endpoint        |          `-`           |   `-`   |
+| Success message |       `Success`        |   `-`   |
+| Error message   | `Something went wrong` |   `-`   |
+
+### In the code (for developers)
+
+| Prop name       | Name in the code |   Type   |        Default         | Example |
+| :-------------- | :--------------: | :------: | :--------------------: | :-----: |
+| Endpoint        |    `account`     | `string` |          `-`           |   `-`   |
+| Success message |     `writer`     | `string` |       `Success`        |   `-`   |
+| Error message   |    `targets`     | `string` | `Something went wrong` |   `-`   |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Formspree.js)
 
 ## 🗓 Changelog
 

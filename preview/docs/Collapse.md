@@ -14,11 +14,25 @@ The duration of the opening and closing animation depends on the height of the c
 
 ## 🧩 Components and Props
 
-| Prop name                  |   Type   | Default  |
-| :------------------------- | :------: | :------: |
-| Minimum animation duration | `string` |  `0.1s`  |
-| Maximum animation duration | `string` |   `1s`   |
-| Smooth animation           | `string` | `linear` |
+### In the interface
+
+| Prop name                  | Default  |  Example  |
+| :------------------------- | :------: | :-------: |
+| Minimum animation duration |  `0.1s`  |  `0.3s`   |
+| Maximum animation duration |   `1s`   |   `2s`    |
+| Smooth animation           | `linear` | `ease-in` |
+
+### In the code (for developers)
+
+| Prop name                  | Name in the code |   Type   | Default  |  Example  |
+| :------------------------- | :--------------: | :------: | :------: | :-------: |
+| Minimum animation duration |  `minDuration`   | `string` |  `0.1s`  |  `0.3s`   |
+| Maximum animation duration |  `maxDuration`   | `string` |   `1s`   |   `2s`    |
+| Smooth animation           |  `animFunction`  | `string` | `linear` | `ease-in` |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/Collapse)
 
 ## 🗓 Changelog
 

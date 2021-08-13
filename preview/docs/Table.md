@@ -12,13 +12,29 @@ The `Short Description` prop allows you to add a short description of the table 
 
 ## 🧩 Components and Props
 
-| Prop name         |   Type    | Default |
-| :---------------- | :-------: | :-----: |
-| Number of columns | `number`  |   `8`   |
-| Number of rows    | `number`  |   `4`   |
-| Display header    | `boolean` | `false` |
-| Display footer    | `boolean` | `false` |
-| Short description | `string`  |   `-`   |
+### In the interface
+
+| Prop name         | Default | Example |
+| :---------------- | :-----: | :-----: |
+| Number of columns |   `8`   |  `12`   |
+| Number of rows    |   `4`   |   `6`   |
+| Display header    | `false` | `true`  |
+| Display footer    | `false` | `true`  |
+| Short description |   `-`   |   `-`   |
+
+### In the code (for developers)
+
+| Prop name         | Name in the code |   Type    | Default | Example |
+| :---------------- | :--------------: | :-------: | :-----: | :-----: |
+| Number of columns |    `colsProp`    | `string`  |   `8`   |  `12`   |
+| Number of rows    |    `rowsProp`    | `string`  |   `4`   |   `6`   |
+| Display header    |   `showHeader`   | `boolean` | `false` | `true`  |
+| Display footer    |   `showFooter`   | `boolean` | `false` | `true`  |
+| Short description |    `summary`     | `string`  |   `-`   |   `-`   |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Table.js)
 
 ## 🗓 Changelog
 

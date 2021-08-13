@@ -15,19 +15,41 @@ To do it, follow the link [VK Comment](https://vk.com/dev/Comments)
 
 ## 🧩 Components and Props
 
-| Prop Name                        |   Type    | Default |  Example  |
-| :------------------------------- | :-------: | :-----: | :-------: |
-| VK app ID                        | `string`  | `none`  | `1234567` |
-| VK page ID                       | `string`  | `none`  | `some_id` |
-| Max. comments                    | `number`  |   `5`   |   `20`    |
-| Auto publishing                  | `boolean` | `false` |  `true`   |
-| Update in real time              | `boolean` | `true`  |  `false`  |
-| Link to the page with the widget | `string`  |   `-`   |    `-`    |
-| Add graffiti                     | `boolean` | `true`  |  `false`  |
-| Add photo                        | `boolean` | `true`  |  `false`  |
-| Add audio                        | `boolean` | `true`  |  `false`  |
-| Add video                        | `boolean` | `true`  |  `false`  |
-| Add link                         | `boolean` | `true`  |  `false`  |
+### In the interface
+
+| Prop Name                        | Default | Example  |
+| :------------------------------- | :-----: | :------: |
+| VK app ID                        |   `-`   | `123456` |
+| VK page ID                       |   `-`   | `123456` |
+| Max. comments                    |   `5`   |   `20`   |
+| Auto publishing                  | `false` |  `true`  |
+| Update in real time              | `false` |  `true`  |
+| Link to the page with the widget |   `-`   |   `-`    |
+| Add graffiti                     | `false` |  `true`  |
+| Add photo                        | `false` |  `true`  |
+| Add audio                        | `false` |  `true`  |
+| Add video                        | `false` |  `true`  |
+| Add link                         | `false` |  `true`  |
+
+### In the code (for developers)
+
+| Prop Name                        | Name in the code |   Type    | Default | Example  |
+| :------------------------------- | :--------------: | :-------: | :-----: | :------: |
+| VK app ID                        |     `apiId`      | `string`  |   `-`   | `123456` |
+| VK page ID                       |     `pageId`     | `string`  |   `-`   | `123456` |
+| Max. comments                    |     `limit`      | `number`  |   `5`   |   `20`   |
+| Auto publishing                  |  `autoPublish`   | `boolean` | `false` |  `true`  |
+| Update in real time              |    `realtime`    | `boolean` | `false` |  `true`  |
+| Link to the page with the widget |    `pageUrl`     | `string`  |   `-`   |   `-`    |
+| Add graffiti                     | `attachGraffiti` | `boolean` | `false` |  `true`  |
+| Add photo                        |  `attachPhoto`   | `boolean` | `false` |  `true`  |
+| Add audio                        |  `attachAudio`   | `boolean` | `false` |  `true`  |
+| Add video                        |  `attachVideo`   | `boolean` | `false` |  `true`  |
+| Add link                         |   `attachLink`   | `boolean` | `false` |  `true`  |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/VkComments.js)
 
 ## 🗓 Changelog
 

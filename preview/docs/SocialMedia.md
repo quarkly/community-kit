@@ -31,9 +31,21 @@ The following social media channels are available for the component:
 
 ## 🧩 Components and Props
 
-| Prop name         |   Type   | Default |
-| :---------------- | :------: | :-----: |
-| Links to accounts | `string` |   `-`   |
+### In the interface
+
+| Prop name         | Default | Example |
+| :---------------- | :-----: | :-----: |
+| Links to accounts |   `-`   |   `-`   |
+
+### In the code (for developers)
+
+| Prop name         | Name in the code |   Type   | Default | Example |
+| :---------------- | :--------------: | :------: | :-----: | :-----: |
+| Links to accounts |     `social`     | `string` |   `-`   |   `-`   |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/SocialMedia.js)
 
 ## 🗓 Changelog
 

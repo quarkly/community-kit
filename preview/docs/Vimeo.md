@@ -14,22 +14,47 @@ If the `Play in the background` prop is enabled, the video will be played in the
 
 ## 🧩 Components and Props
 
-| Prop name                     |   Type    |  Default   | Description                                             |
-| :---------------------------- | :-------: | :--------: | :------------------------------------------------------ |
-| Video link or ID              | `string`  | `12345678` | Video link or ID from Vimeo                             |
-| Playback start time (in sec.) | `number`  |   `none`   | Playback start time in seconds                          |
-| Auto playback                 | `boolean` |  `false`   | Automatically plays the video when the page loads       |
-| Auto pause                    | `boolean` |   `true`   | Automatically pauses the video when playing another one |
-| Show controls                 | `boolean` |   `true`   |                                                         |
-| Controls color                | `string`  | `#00ADEF`  |                                                         |
-| Loop playback                 | `boolean` |  `false`   |                                                         |
-| Show video title              | `boolean` |   `true`   |                                                         |
-| Show video preview            | `boolean` |   `true`   |                                                         |
-| Show owner name               | `boolean` |   `true`   |                                                         |
-| Sound volume (from 0 to 1)    | `number`  |    `1`     |                                                         |
-| Sound off                     | `boolean` |  `false`   |                                                         |
-| Playing in the background     | `boolean` |  `false`   |                                                         |
-| By the width of the parent    | `boolean` |   `true`   |                                                         |
+### In the interface
+
+| Prop name                     |  Default  |  Example  |
+| :---------------------------- | :-------: | :-------: |
+| Video link or ID              |    `-`    |    `-`    |
+| Playback start time (in sec.) |    `0`    |   `30`    |
+| Auto playback                 |  `false`  |  `true`   |
+| Auto pause                    |  `true`   |  `false`  |
+| Show controls                 |  `true`   |  `false`  |
+| Controls color                | `#00ADEF` | `#000000` |
+| Loop playback                 |  `false`  |  `true`   |
+| Show video title              |  `true`   |  `false`  |
+| Show video preview            |  `true`   |  `false`  |
+| Show owner name               |  `true`   |  `false`  |
+| Sound volume (from 0 to 1)    |    `1`    |    `0`    |
+| Sound off                     |  `false`  |  `true`   |
+| Playing in the background     |  `false`  |  `true`   |
+| By the width of the parent    |  `true`   |  `false`  |
+
+### In the code (for developers)
+
+| Prop name                     | Name in the code |   Type    |  Default  |  Example  |
+| :---------------------------- | :--------------: | :-------: | :-------: | :-------: |
+| Video link or ID              |     `video`      | `string`  |    `-`    |    `-`    |
+| Playback start time (in sec.) |     `start`      | `number`  |    `0`    |   `30`    |
+| Auto playback                 |    `autoplay`    | `boolean` |  `false`  |  `true`   |
+| Auto pause                    |   `autopause`    | `boolean` |  `true`   |  `false`  |
+| Show controls                 |    `controls`    | `boolean` |  `true`   |  `false`  |
+| Controls color                |     `color`      | `string`  | `#00ADEF` | `#000000` |
+| Loop playback                 |      `loop`      | `boolean` |  `false`  |  `true`   |
+| Show video title              |   `showTitle`    | `boolean` |  `true`   |  `false`  |
+| Show video preview            |  `showPortrait`  | `boolean` |  `true`   |  `false`  |
+| Show owner name               |   `showByline`   | `boolean` |  `true`   |  `false`  |
+| Sound volume (from 0 to 1)    |     `volume`     | `number`  |    `1`    |    `0`    |
+| Sound off                     |     `muted`      | `boolean` |  `false`  |  `true`   |
+| Playing in the background     | `playBackground` | `boolean` |  `false`  |  `true`   |
+| By the width of the parent    |   `responsive`   | `boolean` |  `true`   |  `false`  |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Vimeo.js)
 
 ## 🗓 Changelog
 

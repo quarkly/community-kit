@@ -30,19 +30,57 @@ In the builder:
 
 ## 🧩 Components and Props
 
-| Prop Name                   |   Type    | Default |
-| :-------------------------- | :-------: | :-----: |
-| Number of images            | `number`  |   `8`   |
-| Number of columns           | `number`  |   `4`   |
-| Indent width                | `string`  |  `10`   |
-| Fill the gaps automatically | `boolean` | `true`  |
-| Images loading              |  `enum`   |  `All`  |
-| Image aspect ratio          |  `enum`   | `auto`  |
-| Minimum width of images     | `string`  |  `80`   |
-| Maximum width of images     | `string`  |  `1fr`  |
-| Disable loader for preview  | `boolean` | `false` |
-| Disable scroll              | `string`  | `true`  |
-| Disable loader for lightbox | `boolean` | `false` |
+### In the interface
+
+| Prop Name                   | Default | Example  |
+| :-------------------------- | :-----: | :------: |
+| Number of images            |   `8`   |   `6`    |
+| Number of columns           |   `4`   |   `6`    |
+| Indent width                |  `10`   |   `5`    |
+| Fill the gaps automatically | `true`  | `false`  |
+| Images loading              |  `All`  | `Scroll` |
+| Image aspect ratio          | `auto`  |  `16:9`  |
+| Minimum width of images     |  `80`   |  `100`   |
+| Maximum width of images     |  `1fr`  |  `2fr`   |
+| Disable loader for preview  | `false` |  `true`  |
+| Disable scroll              | `true`  | `false`  |
+| Disable loader for lightbox | `false` |  `true`  |
+
+### In the code (for developers)
+
+| Prop Name                   |     Name in the code     |   Type    | Default | Example  |
+| :-------------------------- | :----------------------: | :-------: | :-----: | :------: |
+| Number of images            |  `galleryItemNumbProp`   | `string`  |   `8`   |   `6`    |
+| Number of columns           |    `columnsCountProp`    | `string`  |   `4`   |   `6`    |
+| Indent width                |    `borderWidthProp`     | `string`  |  `10`   |   `5`    |
+| Fill the gaps automatically |     `autoFillInProp`     | `boolean` | `true`  | `false`  |
+| Images loading              |    `loaderFormatProp`    |  `enum`   |  `all`  | `scroll` |
+| Image aspect ratio          |    `aspectRatioProp`     |  `enum`   | `auto`  |  `16:9`  |
+| Minimum width of images     |   `imagesMinWidthProp`   | `string`  |  `80`   |  `100`   |
+| Maximum width of images     |   `imagesMaxWidthProp`   | `string`  |  `1fr`  |  `2fr`   |
+| Disable loader for preview  | `hideLoaderPreviewImage` | `boolean` | `false` |  `true`  |
+| Disable scroll              |     `offScrollProp`      | `boolean` | `true`  | `false`  |
+| Disable loader for lightbox |  `hideLoaderFullImage`   | `boolean` | `false` |  `true`  |
+
+#### The 'Images loading' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| All                |      `all`       |
+| On scroll          |     `scroll`     |
+| On click           |     `click`      |
+
+#### The 'Image aspect ratio' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| 16:9               |      `16:9`      |
+
+The names of the `Image aspect ratio` property values fully match.
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/Gallery)
 
 ## 🗓 Changelog
 

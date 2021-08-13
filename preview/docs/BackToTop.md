@@ -12,17 +12,32 @@ The `Show Button Always` prop makes a button always visible on scroll. You may n
 
 ## 🧩 Components and Props
 
-| Prop Name               |   Type   |                                    Description                                     |     Default     | Example  |
-| ----------------------- | :------: | :--------------------------------------------------------------------------------: | :-------------: | :------: |
-| Animation duration      | `number` |                             Animation duration (in ms)                             |     `1000`      | `15000`  |
-| Animation easing preset |  `enum`  |                                Auto audio playback                                 | `easeInOutQuad` | `linear` |
-| Show button after       | `number` | Makes a button visible only after scrolling down by the specified number of pixels |      `100`      |  `200`   |
-| Always show button      |  `bool`  |                      Makes a button always visible on scroll                       |     `false`     |  `true`  |
+### In the interface
+
+| Prop Name                 |     Default     | Example  |
+| :------------------------ | :-------------: | :------: |
+| Show button after (in px) |      `100`      |  `200`   |
+| Show button always        |     `false`     |  `true`  |
+| Animation duration        |     `1000`      | `15000`  |
+| Animation easing preset   | `easeInOutQuad` | `linear` |
+
+### In the code (for developers)
+
+| Prop Name                 | Name in the code |   Type    |     Default     | Example  |
+| :------------------------ | :--------------: | :-------: | :-------------: | :------: |
+| Show button after (in px) |   `showAfter`    | `string`  |      `100`      |  `200`   |
+| Show button always        |   `showAlways`   | `boolean` |     `false`     |  `true`  |
+| Animation duration        |    `duration`    | `string`  |     `1000`      | `15000`  |
+| Animation easing preset   |  `easingPreset`  |  `enum`   | `easeInOutQuad` | `linear` |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/BackToTop.js)
 
 ## 🗓 Changelog
 
 -   16/03/2021 (v1.0)
-    -   First version
+-   First version
 
 ## 📮 Feedback
 

@@ -8,20 +8,58 @@ Add the component to the page and see how it works in preview mode.
 
 ## 🧩 Components and Props
 
-| Prop Name                          |   Type    |         Default          | Description                                 |
-| :--------------------------------- | :-------: | :----------------------: | :------------------------------------------ |
-| Number of slides                   | `number`  |           `4`            | Number of slides                            |
-| Aspect ratio                       |  `enum`   |          `16:9`          | Fix slider aspect ratio to a specific value |
-| Show arrows                        | `boolean` |          `true`          | Show arrows for slider navigation           |
-| Show dots                          | `boolean` |          `true`          | Show dots for slider navigation             |
-| Smooth animation                   | `string`  |         `linear`         | Animation smoothing function                |
-| Animation duration                 | `string`  |          `0.5s`          | Speed of slides change/rotation             |
-| Show title                         | `boolean` |          `true`          | Show component with slide title             |
-| Show description                   | `boolean` |          `true`          | Show component with slide description       |
-| Show button                        | `boolean` |          `true`          | Show component with the button link         |
-| Automatic slide transition         | `boolean` |          `true`          |                                             |
-| Type of automatic slide transition |  `enum`   | `Stop on the last slide` |                                             |
-| Slide transition interval          | `string`  |           `1s`           |                                             |
+### In the interface
+
+| Prop Name                          |         Default          |       Example        |
+| :--------------------------------- | :----------------------: | :------------------: |
+| Number of slides                   |           `4`            |         `2`          |
+| Aspect ratio                       |          `16:9`          |        `1:1`         |
+| Show arrows                        |          `true`          |       `false`        |
+| Show dots                          |          `true`          |       `false`        |
+| Smooth animation                   |         `linear`         |        `easy`        |
+| Animation duration                 |          `0.5s`          |         `1s`         |
+| Show title                         |          `true`          |       `false`        |
+| Show description                   |          `true`          |       `false`        |
+| Show button                        |          `true`          |       `false`        |
+| Automatic slide transition         |          `true`          |       `false`        |
+| Type of automatic slide transition | `Stop on the last slide` | `Endless transition` |
+| Slide transition interval          |           `1s`           |         `2s`         |
+
+### In the code (for developers)
+
+| Prop Name                          |    Name in the code    |   Type    | Default  |  Example   |
+| :--------------------------------- | :--------------------: | :-------: | :------: | :--------: |
+| Number of slides                   |      `slidesProp`      | `string`  |   `4`    |    `2`     |
+| Aspect ratio                       |     `aspectRatio`      |  `enum`   |  `16:9`  |   `1:1`    |
+| Show arrows                        |      `showArrows`      | `boolean` |  `true`  |  `false`   |
+| Show dots                          |       `showDots`       | `boolean` |  `true`  |  `false`   |
+| Smooth animation                   |     `functionProp`     | `string`  | `linear` |   `easy`   |
+| Animation duration                 |     `durationProp`     | `string`  |  `0.5s`  |    `1s`    |
+| Show title                         |       `showHead`       | `boolean` |  `true`  |  `false`   |
+| Show description                   |       `showText`       | `boolean` |  `true`  |  `false`   |
+| Show button                        |       `showLink`       | `boolean` |  `true`  |  `false`   |
+| Automatic slide transition         |       `autoPlay`       | `boolean` |  `true`  |  `false`   |
+| Type of automatic slide transition |   `autoPlayBehavior`   |  `enum`   | `range`  | `infinite` |
+| Slide transition interval          | `autoPlayIntervalProp` | `string`  |   `1s`   |    `2s`    |
+
+#### The 'Type of automatic slide transition' property values
+
+| User-friendly name     | Name in the code |
+| :--------------------- | :--------------: |
+| Endless transition     |    `infinite`    |
+| Stop on the last slide |     `range`      |
+
+#### The 'Aspect ratio' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| 16:9               |      `16:9`      |
+
+The names of the `Image aspect ratio` property values fully match.
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/Carousel)
 
 ## 🗓 Changelog
 

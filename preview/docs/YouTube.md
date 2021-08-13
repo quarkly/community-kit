@@ -6,11 +6,35 @@ This component plays videos from YouTube.
 
 Add the component to the page and specify the video URL in the `Link to the video on YouTube` prop. Link to the video on YouTube.
 
-## 🧩 Components and Props
+### In the interface
 
-| Prop name                    |   Type   | Default |
-| :--------------------------- | :------: | :-----: |
-| Link to the video on YouTube | `string` |   `-`   |
+| Prop name                    |   Default   |  Example  |
+| :--------------------------- | :---------: | :-------: |
+| Link to the video on YouTube |     `-`     |    `-`    |
+| autoplay                     | `Unchecked` | `Checked` |
+| controls                     | `Unchecked` | `Checked` |
+| disablekb                    | `Unchecked` | `Checked` |
+| fs                           | `Unchecked` | `Checked` |
+| loop                         | `Unchecked` | `Checked` |
+| modestbranding               | `Unchecked` | `Checked` |
+| showOverlay                  | `Unchecked` | `Checked` |
+
+### In the code (for developers)
+
+| Prop name                    | Name in the code |   Type    | Default | Example |
+| :--------------------------- | :--------------: | :-------: | :-----: | :-----: |
+| Link to the video on YouTube |      `url`       | `string`  |   `-`   |   `-`   |
+| autoplay                     |    `autoplay`    | `boolean` | `false` | `true`  |
+| controls                     |    `controls`    | `boolean` | `false` | `true`  |
+| disablekb                    |   `disablekb`    | `boolean` | `false` | `true`  |
+| fs                           |       `fs`       | `boolean` | `false` | `true`  |
+| loop                         |      `loop`      | `boolean` | `false` | `true`  |
+| modestbranding               | `modestbranding` | `boolean` | `false` | `true`  |
+| showOverlay                  |  `showOverlay`   | `boolean` | `false` | `true`  |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/YouTube)
 
 ## 🗓 Changelog
 

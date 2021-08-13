@@ -16,10 +16,23 @@ Breadcrumb navigation provides a list of links to all previous (parent) pages th
 
 ## 🧩 Components and Props
 
-| Prop names |   Type   | Default | Example |
-| ---------- | :------: | :-----: | :-----: |
-| Root page  | `string` |   `–`   | `index` |
-| Separator  | `string` |   `/`   |   `-`   |
+### In the interface
+
+| Prop name | Default | Example |
+| :-------- | :-----: | :-----: |
+| Root page |   `-`   | `index` |
+| Separator |   `/`   | `buyer` |
+
+### In the code (for developers)
+
+| Prop name | Name in the code |   Type   | Default | Example |
+| :-------- | :--------------: | :------: | :-----: | :-----: |
+| Root page |     `rootId`     | `string` |   `-`   | `index` |
+| Separator |   `separator`    | `string` |   `/`   |   `-`   |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/Breadcrumbs)
 
 ## 🗓 Changelog
 

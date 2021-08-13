@@ -12,19 +12,41 @@ To get the `API key`, follow the [instructions](https://yandex.ru/blog/mapsapi/n
 
 ## 🧩 Components and Props
 
-| Prop name        |   Type   | Default | Description                              |
-| :--------------- | :------: | :-----: | :--------------------------------------- |
-| API Key          | `string` |   `-`   |                                          |
-| Map scale        | `string` |   `9`   | Map scale. Available values from 0 to 19 |
-| Latitude         | `string` |   `-`   |                                          |
-| Longitude        | `string` |   `-`   |                                          |
-| Search           | `string` | `false` |                                          |
-| Full screen view | `string` | `false` |                                          |
-| Geo              | `string` | `false` |                                          |
-| Scale            | `string` | `false` |                                          |
-| Traffic          | `string` | `false` |                                          |
-| Ruler            | `string` | `false` |                                          |
-| Layers options   | `string` | `false` |                                          |
+### In the interface
+
+| Prop name        |   Default    |   Example    |
+| :--------------- | :----------: | :----------: |
+| API Key          |     `-`      |   `123456`   |
+| Map scale        |     `9`      |     `5`      |
+| Latitude         | `40.714599`  | `60.714599`  |
+| Longitude        | `-74.002791` | `-34.002791` |
+| Search           |   `false`    |    `true`    |
+| Full screen view |   `false`    |    `true`    |
+| Geo              |   `false`    |    `true`    |
+| Scale            |   `false`    |    `true`    |
+| Traffic          |   `false`    |    `true`    |
+| Ruler            |   `false`    |    `true`    |
+| Layers options   |   `false`    |    `true`    |
+
+### In the code (for developers)
+
+| Prop name        |   Название в коде    |   Type    |   Default    |   Example    |
+| :--------------- | :------------------: | :-------: | :----------: | :----------: |
+| API Key          |       `apikey`       | `string`  |     `-`      |   `123456`   |
+| Map scale        |     `zoomValue`      | `string`  |     `9`      |     `5`      |
+| Latitude         |   `latitudeCenter`   | `string`  | `40.714599`  | `60.714599`  |
+| Longitude        |  `longitudeCenter`   | `string`  | `-74.002791` | `-34.002791` |
+| Search           |   `searchControl`    | `boolean` |   `false`    |    `true`    |
+| Full screen view | `fullscreenControl`  | `boolean` |   `false`    |    `true`    |
+| Geo              | `geolocationControl` | `boolean` |   `false`    |    `true`    |
+| Scale            |    `zoomControl`     | `boolean` |   `false`    |    `true`    |
+| Traffic          |   `trafficControl`   | `boolean` |   `false`    |    `true`    |
+| Ruler            |    `rulerControl`    | `boolean` |   `false`    |    `true`    |
+| Layers options   | `typeSelectorContol` | `boolean` |   `false`    |    `true`    |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/YandexMap)
 
 ## 🗓 Changelog
 

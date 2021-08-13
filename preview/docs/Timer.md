@@ -24,15 +24,41 @@ The `When to display the message` prop allows you to choose when to display the 
 
 ## 🧩 Components and Props
 
-| Prop name                   |   Type    |   Default    | Description                                |
-| :-------------------------- | :-------: | :----------: | :----------------------------------------- |
-| End date                    | `string`  |     `-`      | Timer end date (in the DD.MM.YYYY. format) |
-| End time                    | `string`  |     `-`      | Timer end time (in the hh:mm format)       |
-| Show 'Days'                 | `boolean` |    `true`    |                                            |
-| Show 'Hours'                | `boolean` |    `true`    |                                            |
-| Show 'Minutes'              | `boolean` |    `true`    |                                            |
-| Show 'Seconds'              | `boolean` |    `true`    |                                            |
-| When to display the message |  `enum`   | `At the end` |                                            |
+### In the interface
+
+| Prop name                   | Default  | Example |
+| :-------------------------- | :------: | :-----: |
+| End date                    |   `-`    |   `-`   |
+| End time                    |   `-`    |   `-`   |
+| Show 'Days'                 |  `true`  | `false` |
+| Show 'Hours'                |  `true`  | `false` |
+| Show 'Minutes'              |  `true`  | `false` |
+| Show 'Seconds'              |  `true`  | `false` |
+| When to display the message | `Always` | `Never` |
+
+### In the code (for developers)
+
+| Prop name                   | Name in the code |   Type    | Default  | Example |
+| :-------------------------- | :--------------: | :-------: | :------: | :-----: |
+| End date                    |     `toDate`     | `string`  |   `-`    |   `-`   |
+| End time                    |     `toTime`     | `string`  |   `-`    |   `-`   |
+| Show 'Days'                 |    `showDays`    | `boolean` |  `true`  | `false` |
+| Show 'Hours'                |   `showHours`    | `boolean` |  `true`  | `false` |
+| Show 'Minutes'              |  `showMinutes`   | `boolean` |  `true`  | `false` |
+| Show 'Seconds'              |  `showSeconds`   | `boolean` |  `true`  | `false` |
+| When to display the message |  `showTextDone`  |  `enum`   | `Always` | `Never` |
+
+#### The 'When to display the message' property values
+
+| User-friendly name      | Name in the code |
+| :---------------------- | :--------------: |
+| Always                  |     `always`     |
+| At the end of the timer |    `complete`    |
+| Never                   |     `never`      |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Timer.js)
 
 ## 🗓 Changelog
 

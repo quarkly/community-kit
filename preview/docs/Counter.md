@@ -16,16 +16,49 @@ The counter will start automatically when it becomes visible in the window.
 
 ## 🧩 Components and Props
 
-| Prop name                 |   Type   |    Default     |         Example          |
-| :------------------------ | :------: | :------------: | :----------------------: |
-| Count start               |  `enum`  | `On page load` | `On screen intersection` |
-| Start value               | `number` |      `0`       |          `100`           |
-| End value                 | `number` |     `100`      |          `200`           |
-| Count direction           |  `enum`  |    `Normal`    |        `Reverse`         |
-| Count duration            | `string` |      `2s`      |          `10s`           |
-| Delay before count starts | `string` |      `0s`      |           `1s`           |
-| Text after value          | `string` |      `-`       |           `%`            |
-| Text before value         | `string` |      `-`       |           `$`            |
+### In the interface
+
+| Prop name                 |    Default     |         Example          |
+| :------------------------ | :------------: | :----------------------: |
+| Count start               | `On page load` | `On screen intersection` |
+| Start value               |      `0`       |          `100`           |
+| End value                 |     `100`      |          `200`           |
+| Count direction           |    `Normal`    |        `Reverse`         |
+| Count duration            |      `2s`      |          `10s`           |
+| Delay before count starts |      `0s`      |           `1s`           |
+| Text after value          |      `-`       |           `%`            |
+| Text before value         |      `-`       |           `$`            |
+
+### In the code (for developers)
+
+| Prop name                 | Name in the code |   Type   |   Default    |   Example    |
+| :------------------------ | :--------------: | :------: | :----------: | :----------: |
+| Count start               |  `startTrigger`  |  `enum`  | `onPageLoad` | `onViewport` |
+| Start value               |   `startProp`    | `string` |     `0`      |    `100`     |
+| End value                 |    `endProp`     | `string` |    `100`     |    `200`     |
+| Count direction           |   `direction`    |  `enum`  |   `normal`   |  `reverse`   |
+| Count duration            |  `durationProp`  | `string` |     `2s`     |    `10s`     |
+| Delay before count starts |   `delayProp`    | `string` |     `0s`     |     `1s`     |
+| Text after value          |   `textBefore`   | `string` |     `-`      |     `%`      |
+| Text before value         |   `textAfter`    | `string` |     `-`      |     `$`      |
+
+#### The 'Count start' property values
+
+| User-friendly name     | Name in the code |
+| :--------------------- | :--------------: |
+| On screen intersection |   `onViewport`   |
+| On page load           |   `onPageLoad`   |
+
+#### The 'Count direction' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Normal             |     `normal`     |
+| Reverse            |    `reverse`     |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/Counter)
 
 ## 🗓 Changelog
 

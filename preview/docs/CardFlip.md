@@ -16,14 +16,63 @@ If you choose `auto` in the `Aspect ratio` prop, the image size (height & width)
 
 ## 🧩 Components and Props
 
-| Prop name          |   Type    | Description                                         |    Default     |  Example  |
-| :----------------- | :-------: | :-------------------------------------------------- | :------------: | :-------: |
-| Flip trigger       |  `enum`   | Action that triggers flip [click, hover]            |    `click`     |  `hover`  |
-| Flip direction     |  `enum`   | Flip direction [toRight, toLeft, ToUp, toDown]      |   `toRight`    | `toDown`  |
-| Aspect ratio       |  `enum`   | Keep proportions [auto, 16:9, 4:3, 1:1, 3:4, 9:16 ] |     `auto`     |   `1:1`   |
-| Smooth animation   | `string`  | Animation smoothing function                        | `cubic-bezier` | `ease-in` |
-| Animation duration | `number`  | Animation duration                                  |     `1000`     |  `2000`   |
-| Flip card          | `boolean` | Flip a card to test it                              |    `false`     |  `true`   |
+### In the interface
+
+| Prop name          |    Default     |  Example   |
+| :----------------- | :------------: | :--------: |
+| Flip trigger       |   `On click`   | `On hover` |
+| Flip direction     |    `Right`     |   `Down`   |
+| Aspect ratio       |     `auto`     |   `1:1`    |
+| Smooth animation и | `cubic-bezier` | `ease-in`  |
+| Animation duration |     `1000`     |   `2000`   |
+| Flip card          |    `false`     |   `true`   |
+
+### In the code (for developers)
+
+| Prop name          |   Name in the code   |   Type    |    Default     |  Example  |
+| :----------------- | :------------------: | :-------: | :------------: | :-------: |
+| Flip trigger       |  `flipTriggerProp`   |  `enum`   |    `click`     |  `hover`  |
+| Flip directionа    | `flipDirectionProp`  |  `enum`   |   `toRight`    | `toDown`  |
+| Aspect ratio       |  `aspectRatioProp`   |  `enum`   |     `auto`     |   `1:1`   |
+| Smooth animation   | `timingFunctionProp` | `string`  | `cubic-bezier` | `ease-in` |
+| Animation duration |  `flipDurationProp`  | `string`  |     `1000`     |  `2000`   |
+| Flip card          |   `isFlippedProp`    | `boolean` |    `false`     |  `true`   |
+
+#### The 'Flip trigger' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| On click           |     `click`      |
+| On hover           |     `hover`      |
+
+#### The 'Flip direction' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Right              |    `toRight`     |
+| Left               |     `toLeft`     |
+| Up                 |      `toUp`      |
+| Down               |     `toDown`     |
+
+#### The 'Smooth animation' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| linear             |     `linear`     |
+
+The names of the `Smooth animation` property values fully match.
+
+#### The 'Image aspect ratio' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| 16:9               |      `16:9`      |
+
+The names of the `Image aspect ratio` property values fully match.
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/CardFlip)
 
 ## 🗓 Changelog
 

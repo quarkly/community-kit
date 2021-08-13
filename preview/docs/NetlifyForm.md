@@ -18,11 +18,25 @@ This component helps add a Netlify form and send it to [Netlify Forms](https://w
 
 ## 🧩 Components and Props
 
-| Prop Name       |   Type   |        Default         |
-| :-------------- | :------: | :--------------------: |
-| Form name       | `string` |       `my-form`        |
-| Success message | `string` |       `Success`        |
-| Error message   | `string` | `Something went wrong` |
+### In the interface
+
+| Prop Name       |        Default         | Example |
+| :-------------- | :--------------------: | :-----: |
+| Form name       |       `my-form`        |   `-`   |
+| Success message |       `Success`        |   `-`   |
+| Error message   | `Something went wrong` |   `-`   |
+
+### In the code (for developers)
+
+| Prop Name       | Name in the code |   Type   |        Default         | Example |
+| :-------------- | :--------------: | :------: | :--------------------: | :-----: |
+| Form name       |    `formName`    | `string` |       `my-form`        |   `-`   |
+| Success message | `successMessage` | `string` |       `Success`        |   `-`   |
+| Error message   |  `errorMessage`  | `string` | `Something went wrong` |   `-`   |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/NetlifyForm)
 
 ## 🗓 Changelog
 

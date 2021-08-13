@@ -12,16 +12,51 @@ If the `Auto position change` prop is enabled, the tooltip will automatically ch
 
 ## 🧩 Components and Props
 
-| Prop name                |   Type   |    Default     |
-| :----------------------- | :------: | :------------: |
-| Show Tooltip             |  `enum`  |    `Always`    |
-| Tooltip position         |  `enum`  |  `At the top`  |
-| Edges indent             | `string` |      `0`       |
-| Content indent           |  `bool`  |     `4px`      |
-| Tooltip background color | `string` | `--color-dark` |
-| Show the arrow           |  `bool`  |     `true`     |
-| Arrow size (px)          | `string` |     `8px`      |
-| Auto position change     |  `bool`  |     `true`     |
+### In the interface
+
+| Prop name                |  Default  |  Example   |
+| :----------------------- | :-------: | :--------: |
+| Show Tooltip             | `Always`  | `On hover` |
+| Tooltip position         |   `Top`   |  `Bottom`  |
+| Edges indent             |    `0`    |   `2px`    |
+| Content indent           |   `4px`   |   `8px`    |
+| Tooltip background color | `#000000` | `#ffffff`  |
+| Show the arrow           |  `true`   |  `false`   |
+| Arrow size (px)          |   `8px`   |   `12px`   |
+| Auto position change     |  `true`   |  `false`   |
+
+### In the code (for developers)
+
+| Prop name                |    Name in the code     |   Type    |  Default  |  Example  |
+| :----------------------- | :---------------------: | :-------: | :-------: | :-------: |
+| Show Tooltip             |   `tooltipStatusProp`   |  `enum`   | `always`  |  `hover`  |
+| Tooltip position         |  `tooltipPositionProp`  |  `enum`   |   `top`   | `bottom`  |
+| Edges indent             |   `tooltipOffsetProp`   | `string`  |    `0`    |   `2px`   |
+| Content indent           |   `contentOffsetProp`   | `string`  |   `4px`   |   `8px`   |
+| Tooltip background color |   `tooltipColorProp`    | `string`  | `#000000` | `#ffffff` |
+| Show the arrow           |    `arrowStatusProp`    | `boolean` |  `true`   |  `false`  |
+| Arrow size (px)          |     `arrowSizeProp`     | `string`  |   `8px`   |  `12px`   |
+| Auto position change     | `tooltipAutoChangeProp` | `boolean` |  `true`   |  `false`  |
+
+#### The 'Show Tooltip' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Always             |     `always`     |
+| On hover           |     `hover`      |
+
+#### The 'Tooltip position' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Top                |      `top`       |
+| Right              |     `right`      |
+| Bottom             |     `bottom`     |
+| Left               |      `left`      |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/Tooltip)
 
 ## 🗓 Changelog
 

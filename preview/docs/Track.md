@@ -18,13 +18,39 @@ The `Set default` prop indicates that the current track is preferred. This prope
 
 ## 🧩 Components and Props
 
-| Prop name       |   Type   |   Default   |
-| :-------------- | :------: | :---------: |
-| File link       | `string` |     `-`     |
-| Set default     |  `bool`  |   `false`   |
-| Track language  | `string` |    `en`     |
-| Track purpose   |  `enum`  | `subtitles` |
-| Displayed title | `string` |   `none`    |
+### In the interface
+
+| Prop name       |   Default   |  Example   |
+| :-------------- | :---------: | :--------: |
+| File link       |     `-`     |    `-`     |
+| Set default     |   `false`   |   `true`   |
+| Track language  |    `en`     |    `de`    |
+| Track purpose   | `subtitles` | `captions` |
+| Displayed title |     `-`     |   `text`   |
+
+### In the code (for developers)
+
+| Prop name       | Name in the code |   Type    |   Default   |  Example   |
+| :-------------- | :--------------: | :-------: | :---------: | :--------: |
+| File link       |      `src`       | `string`  |     `-`     |    `-`     |
+| Set default     |   `isDefault`    | `boolean` |   `false`   |   `true`   |
+| Track language  |    `srclang`     | `string`  |    `en`     |    `de`    |
+| Track purpose   |      `kind`      |  `enum`   | `subtitles` | `captions` |
+| Displayed title |     `label`      | `string`  |     `-`     |   `text`   |
+
+#### The 'Track purpose' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Subtitles          |   `subtitles`    |
+| Captions           |    `captions`    |
+| Descriptions       |  `descriptions`  |
+| Chapters           |    `chapters`    |
+| Metadata           |    `metadata`    |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Track.js)
 
 ## 🗓 Changelog
 

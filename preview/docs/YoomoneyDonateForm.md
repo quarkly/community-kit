@@ -29,24 +29,63 @@ During the transfer, you can ask the sender their full name, email, phone number
 
 ## 🧩 Components and Props
 
-### YooMoneyDonateForm
+### In the interface
 
-| Prop name                         |   Type    | Description                                                                  |      Default       |             Example             |
-| :-------------------------------- | :-------: | :--------------------------------------------------------------------------- | :----------------: | :-----------------------------: |
-| YooMoney wallet ID                | `string`  | YooMoney wallet ID (required field)                                          |    `undefined`     |          `1234567890`           |
-| Who specifies the transfer reason | `string`  | Who specifies the transfer reason (required field)                           |      `seller`      |             `buyer`             |
-| Transfer reason                   | `string`  | Transfer reason (required field, if `Seller` is selected)                    | `Help the project` |     `For the site hosting`      |
-| Amount                            | `string`  | Transfer amount by default                                                   |        `0`         |              `250`              |
-| Button text                       |  `enum`   | Button text { `11`: Transfer, `12`: Send, `13`: Give away, `14`: Donate}     |        `11`        |              `14`               |
-| Use credit card                   | `boolean` | Transfer funds via a credit card (extra fee may be charged)                  |      `false`       |             `true`              |
-| Request sender's full name        | `boolean` | Request sender's full name during the transfer and then email it             |      `false`       |             `true`              |
-| Request sender's email            | `boolean` | Request sender's email address during the transfer and then email it         |      `false`       |             `true`              |
-| Request sender's phone number     | `boolean` | Request sender's phone number during the transfer and then email it          |      `false`       |             `true`              |
-| Request sender's address          | `boolean` | Request sender's address during the transfer and then email it               |      `false`       |             `true`              |
-| Request sender's comments         | `boolean` | Request sender's comments during the transfer and then email it              |      `false`       |             `true`              |
-| Tip for sender                    | `string`  | Tips for the sender on what to specify in the form                           |        `-`         | `Your comments and suggestions` |
-| Go to the page after transfer     | `string`  | After transfer, go to the specified page                                     |        `-`         |    `https://yourdomain.name`    |
-| Mobile version                    | `boolean` | Check the form on a big screen: it may stretch to the full width of the page |      `false`       |             `true`              |
+| Prop name                         | Default  |             Example             |
+| :-------------------------------- | :------: | :-----------------------------: |
+| YooMoney wallet ID                |   `-`    |            `123456`             |
+| Who specifies the transfer reason | `seller` |             `buyer`             |
+| Transfer reason                   |   `-`    |     `For the site hosting`      |
+| Amount                            |   `-`    |              `250`              |
+| Button text                       |   `11`   |              `14`               |
+| Use credit card                   | `false`  |             `true`              |
+| Request sender's full name        | `false`  |             `true`              |
+| Request sender's email            | `false`  |             `true`              |
+| Request sender's phone number     | `false`  |             `true`              |
+| Request sender's address          | `false`  |             `true`              |
+| Request sender's comments         | `false`  |             `true`              |
+| Tip for sender                    |   `-`    | `Your comments and suggestions` |
+| Go to the page after transfer     |   `-`    |    `https://yourdomain.name`    |
+| Mobile version                    | `false`  |             `true`              |
+
+### In the code (for developers)
+
+| Prop name                         | Name in the code |   Type    | Default  |             Example             |
+| :-------------------------------- | :--------------: | :-------: | :------: | :-----------------------------: |
+| YooMoney wallet ID                |    `account`     | `string`  |   `-`    |            `123456`             |
+| Who specifies the transfer reason |     `writer`     |  `enum`   | `seller` |             `buyer`             |
+| Transfer reason                   |    `targets`     | `string`  |   `-`    |     `For the site hosting`      |
+| Amount                            |      `sum`       | `string`  |   `-`    |               `-`               |
+| Button text                       |   `buttonText`   |  `enum`   |   `11`   |              `14`               |
+| Use credit card                   |    `payment`     | `boolean` | `false`  |             `true`              |
+| Request sender's full name        |      `fio`       | `boolean` | `false`  |             `true`              |
+| Request sender's email            |     `email`      | `boolean` | `false`  |             `true`              |
+| Request sender's phone number     |     `phone`      | `boolean` | `false`  |             `true`              |
+| Request sender's address          |    `address`     | `boolean` | `false`  |             `true`              |
+| Request sender's comments         |    `comment`     | `boolean` | `false`  |             `true`              |
+| Tip for sender                    |      `hint`      | `string`  |   `-`    | `Your comments and suggestions` |
+| Go to the page after transfer     |   `successURL`   | `string`  |   `-`    |    `https://yourdomain.name`    |
+| Mobile version                    | `mobilePayment`  | `boolean` | `false`  |             `true`              |
+
+#### The 'Who specifies the transfer reason' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Seller             |     `seller`     |
+| Buyer              |     `buyer`      |
+
+#### The 'Button text' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Transfer           |       `11`       |
+| Send               |       `12`       |
+| Give away          |       `13`       |
+| Donate             |       `14`       |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/YoomoneyDonateForm)
 
 ## 🗓 Changelog
 

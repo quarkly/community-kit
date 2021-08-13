@@ -12,11 +12,34 @@ The `Root page ID` prop allows you to specify the page for which the menu will b
 
 ## 🧩 Components and Props
 
-| Prop name                   |   Type   |    Default     |          Example           |
-| :-------------------------- | :------: | :------------: | :------------------------: |
-| Maximum nesting             | `number` |      `10`      |            `5`             |
-| Root page ID                | `string` |     `root`     | `6050687c2b962f001e742fad` |
-| Groups condition by default |  `enum`  | `expandActive` |        `expandAll`         |
+### In the interface
+
+| Prop name                   |    Default     |   Example   |
+| :-------------------------- | :------------: | :---------: |
+| Maximum nesting             |      `10`      |     `5`     |
+| Root page ID                |     `root`     |   `67890`   |
+| Groups condition by default | `expandActive` | `expandAll` |
+
+### In the code (for developers)
+
+| Prop name                   | Name in the code |   Type   |    Default     |   Example   |
+| :-------------------------- | :--------------: | :------: | :------------: | :---------: |
+| Maximum nesting             |     `depth`      | `string` |      `10`      |     `5`     |
+| Root page ID                |     `rootId`     | `string` |     `root`     |   `67890`   |
+| Groups condition by default |    `tabState`    |  `enum`  | `expandActive` | `expandAll` |
+
+#### The 'Groups condition by default' property values
+
+| User-friendly name                 | Name in the code |
+| :--------------------------------- | :--------------: |
+| Collapse all groups                |  `collapseAll`   |
+| Expand before the active menu item |  `expandActive`  |
+| Expand all groups                  |   `expandAll`    |
+| Keep all tabs open                 |  `keepExpanded`  |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/MenuWithGroups.js)
 
 ## 🗓 Changelog
 

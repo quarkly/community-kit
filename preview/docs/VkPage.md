@@ -22,16 +22,43 @@ If you select the `Enable advanced mode` property, a 'Like' button and a communi
 
 ## 🧩 Components and Props
 
-| Prop name                               |   Type    |   Default   |   Example   |
-| :-------------------------------------- | :-------: | :---------: | :---------: |
-| VK community ID                         | `number`  |     `-`     | `123456789` |
-| Widget container ID                     | `string`  | `vk_groups` |  `some_id`  |
-| Widget background color                 | `string`  |   `#fff`    |   `blue`    |
-| Widget text color                       | `string`  |   `#000`    |   `#fff`    |
-| Widget libk color                       | `string`  |  `#5181B8`  |  `#fdfdfd`  |
-| What to display in the widget           |  `enum`   |  `Members`  | `Only name` |
-| Don't display the community cover photo | `boolean` |   `false`   |   `true`    |
-| Enable advanced mode                    | `boolean` |   `false`   |   `true`    |
+### In the interface
+
+| Prop name                               |             Default             |           Example            |
+| :-------------------------------------- | :-----------------------------: | :--------------------------: |
+| VK community ID                         |               `-`               |           `123456`           |
+| Widget container ID                     |               `-`               |           `123456`           |
+| Widget background color                 |             `#fff`              |            `blue`            |
+| Widget text color                       |             `#000`              |            `#fff`            |
+| Widget link color                       |            `#5181B8`            |          `#fdfdfd`           |
+| What to display in the widget           | `Display the community members` | `Display the community wall` |
+| Don't display the community cover photo |             `false`             |            `true`            |
+| Enable advanced mode                    |             `false`             |            `true`            |
+
+### In the code (for developers)
+
+| Prop name                                | Name in the code |   Type    |  Default  |   Example   |
+| :--------------------------------------- | :--------------: | :-------: | :-------: | :---------: |
+| VK community ID                          |    `groupId`     | `string`  |    `-`    |  `123456`   |
+| Widget container ID                      |   `elementId`    | `string`  |    `-`    |  `123456`   |
+| Widget background color                  |  `colorBground`  | `string`  |  `#fff`   |   `blue`    |
+| Widget text color                        |  `colorPrimary`  | `string`  |  `#000`   |   `#fff`    |
+| Widget link color                        |  `colorAccent`   | `string`  | `#5181B8` |  `#fdfdfd`  |
+| What to display in the widget            |      `mode`      |  `enum`   | `Members` | `Only name` |
+| НDon't display the community cover photo |    `noCover`     | `boolean` |  `false`  |   `true`    |
+| Enable advanced mode                     |      `wide`      | `boolean` |  `false`  |   `true`    |
+
+#### The 'Who specifies the transfer reason' property values
+
+| User-friendly name              | Name in the code |
+| :------------------------------ | :--------------: |
+| Display the community members   |       `3`        |
+| Display the community wall      |       `4`        |
+| Display only the community name |       `1`        |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/VkPage.js)
 
 ## 🗓 Changelog
 

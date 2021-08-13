@@ -12,10 +12,23 @@ To get the `API Key` follow the [instruction](https://developers.google.com/maps
 
 ## 🧩 Components and Props
 
-| Prop name    |   Type   |  Default   | Description                                                                       |
-| :----------- | :------: | :--------: | :-------------------------------------------------------------------------------- |
-| API Key      | `string` |    `-`     | You can get the `API key` from the link in the component description              |
-| Select place | `string` | `New York` | Name of place, address or latitude and longitude coordinates, separated by commas |
+### In the interface
+
+| Prop name    |  Default   | Example  |
+| :----------- | :--------: | :------: |
+| API Key      |    `-`     |   `-`    |
+| Select place | `New York` | `London` |
+
+### In the code (for developers)
+
+| Prop name    | Name in the code |   Type   |  Default   | Example  |
+| :----------- | :--------------: | :------: | :--------: | :------: |
+| API Key      |     `apiKey`     | `string` |    `-`     |   `-`    |
+| Select place |     `query`      | `string` | `New York` | `London` |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/GoogleMap.js)
 
 ## 🗓 Changelog
 

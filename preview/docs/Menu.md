@@ -12,11 +12,25 @@ The `Root page ID` prop allows you to specify the page for which the menu will b
 
 ## 🧩 Components and Props
 
-| Prop name                |   Type    | Default | Example |
-| :----------------------- | :-------: | :-----: | :-----: |
-| Maximum nesting          | `number`  |   `1`   |   `5`   |
-| Root page ID             | `string`  | `root`  | `67890` |
-| Mark parent active items | `boolean` | `false` | `true`  |
+### In the interface
+
+| Prop name                |   Default    |  Example  |
+| :----------------------- | :----------: | :-------: |
+| Maximum nesting          |     `1`      |    `5`    |
+| Root page ID             |    `root`    |  `67890`  |
+| Mark parent active items | `Не отмечен` | `Отмечен` |
+
+### In the code (for developers)
+
+| Prop name                |   Name in the code   |   Type    | Default | Example |
+| :----------------------- | :------------------: | :-------: | :-----: | :-----: |
+| Maximum nesting          |       `depth`        | `string`  |   `1`   |   `5`   |
+| Root page ID             |       `rootId`       | `string`  | `root`  | `67890` |
+| Mark parent active items | `exact-active-match` | `boolean` | `false` | `true`  |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Menu.js)
 
 ## 🗓 Changelog
 

@@ -8,17 +8,45 @@ Add the component to the page and specify the `Name or link to the user page`.
 
 ## 🧩 Components and Props
 
-| Prop Name                         |   Type    |    Default    |
-| :-------------------------------- | :-------: | :-----------: |
-| Name or link to the user page     | `string`  | `@quarklyapp` |
-| Limit the number of tweets (1-20) | `number`  |      `-`      |
-| Hide header                       | `boolean` |    `false`    |
-| Hide footer                       | `boolean` |    `false`    |
-| Hide widget borders               | `boolean` |    `false`    |
-| Hide widget background            | `boolean` |    `false`    |
-| Hide scroll bar                   | `boolean` |    `false`    |
-| Tweet border color (#HEX only)    | `colors`  |      `-`      |
-| ARIA live politeness              | `string`  |   `Polite`    |
+### In the interface
+
+| Prop name                         |    Default    |   Example   |
+| :-------------------------------- | :-----------: | :---------: |
+| Name or link to the user page     | `@quarklyapp` | `@username` |
+| Limit the number of tweets (1-20) |      `1`      |    `20`     |
+| Hide header                       |    `false`    |   `true`    |
+| Hide footer                       |    `false`    |   `true`    |
+| Hide widget borders               |    `false`    |   `true`    |
+| Hide widget background            |    `false`    |   `true`    |
+| Hide widget background            |    `false`    |   `true`    |
+| Tweet border color (#HEX only)    |      `-`      |   `#000`    |
+| ARIA live politeness              |   `polite`    | `assertive` |
+
+### In the code (for developers)
+
+| Prop name                         | Name in the code |   Type    |    Default    |   Example   |
+| :-------------------------------- | :--------------: | :-------: | :-----------: | :---------: |
+| Name or link to the user page     |    `account`     | `string`  | `@quarklyapp` | `@username` |
+| Limit the number of tweets (1-20) |     `writer`     | `string`  |      `1`      |    `20`     |
+| Hide header                       |    `targets`     | `boolean` |    `false`    |   `true`    |
+| Hide footer                       |      `sum`       | `boolean` |    `false`    |   `true`    |
+| Hide widget borders               |   `buttonText`   | `boolean` |    `false`    |   `true`    |
+| Hide widget background            |    `payment`     | `boolean` |    `false`    |   `true`    |
+| Hide widget background            |      `fio`       | `boolean` |    `false`    |   `true`    |
+| Tweet border color (#HEX only)    |     `email`      | `string`  |      `-`      |   `#000`    |
+| ARIA live politeness              |     `phone`      |  `enum`   |   `polite`    | `assertive` |
+
+#### The 'ARIA live politeness' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Polite             |     `polite`     |
+| Assertive          |   `assertive`    |
+| Rude               |      `rude`      |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/TwitterFeed)
 
 ## 🗓 Changelog
 

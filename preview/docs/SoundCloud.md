@@ -8,10 +8,30 @@ Add the component to the page, enter the `Link to the track`, and check how it w
 
 ## 🧩 Components and Props
 
-| Prop Name         |   Type   |  Default   |
-| :---------------- | :------: | :--------: |
-| Player type       |  `enum`  | `standart` |
-| Link to the track | `string` |    `-`     |
+### In the interface
+
+| Prop Name         |  Default   | Example  |
+| :---------------- | :--------: | :------: |
+| Player type       | `standart` | `visual` |
+| Link to the track |    `-`     |   `-`    |
+
+### In the code (for developers)
+
+| Prop Name         | Name in the code |   Type   |  Default   | Example  |
+| :---------------- | :--------------: | :------: | :--------: | :------: |
+| Player type       |    `account`     |  `enum`  | `standart` | `visual` |
+| Link to the track |     `writer`     | `string` |    `-`     |   `-`    |
+
+#### The 'Player type' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Standart           |    `standart`    |
+| Visual             |     `visual`     |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/SoundCloud.js)
 
 ## 🗓 Changelog
 
