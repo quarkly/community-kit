@@ -18,11 +18,11 @@ The `Chat sessions between groups` allows you to set one session for several cha
 
 ### In the interface
 
-| Prop name                    | Default | Example  |
-| :--------------------------- | :-----: | :------: |
-| License ID                   |   `-`   | `123456` |
-| Group number                 |   `-`   |   `1`    |
-| Chat sessions between groups | `false` |  `true`  |
+| Prop name                    |   Default   |  Example  |
+| :--------------------------- | :---------: | :-------: |
+| License ID                   |     `-`     | `123456`  |
+| Group number                 |     `-`     |    `1`    |
+| Chat sessions between groups | `Unchecked` | `Checked` |
 
 ### In the code (for developers)
 
