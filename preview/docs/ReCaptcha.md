@@ -11,11 +11,39 @@ reCAPTCHA is a free service that protects your site from spam and abuse. It uses
 
 ## 🧩 Components and Props
 
-| Prop Name |   Type   | Default  |  Example  |
-| --------- | :------: | :------: | :-------: |
-| API Key   | `string` |   `-`    | `123456`  |
-| Theme     |  `enum`  | `light`  |  `dark`   |
-| Size      |  `enum`  | `normal` | `compact` |
+### In the interface
+
+| Prop name      | Default  |  Example  |
+| :------------- | :------: | :-------: |
+| Client API key |   `-`    | `123456`  |
+| Theme          | `Light`  |  `Dark`   |
+| Size           | `Normal` | `Compact` |
+
+### In the code (for developers)
+
+| Prop name      | Name in the code |   Type   | Default  |  Example  |
+| :------------- | :--------------: | :------: | :------: | :-------: |
+| Client API key |  `animDuration`  | `string` |   `-`    | `123456`  |
+| Theme          |  `animFunction`  |  `enum`  | `light`  |  `dark`   |
+| Size           |   `onloadShow`   |  `enum`  | `normal` | `compact` |
+
+#### The 'Theme' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Light              |     `light`      |
+| Dark               |      `dark`      |
+
+#### The 'Size' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| Normal             |     `normal`     |
+| Compact            |    `compact`     |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/ReCaptcha)
 
 ## 🗓 Changelog
 
