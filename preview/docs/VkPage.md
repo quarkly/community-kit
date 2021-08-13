@@ -32,8 +32,8 @@ If you select the `Enable advanced mode` property, a 'Like' button and a communi
 | Widget text color                       |             `#000`              |            `#fff`            |
 | Widget link color                       |            `#5181B8`            |          `#fdfdfd`           |
 | What to display in the widget           | `Display the community members` | `Display the community wall` |
-| Don't display the community cover photo |             `false`             |            `true`            |
-| Enable advanced mode                    |             `false`             |            `true`            |
+| Don't display the community cover photo |           `Unchecked`           |          `Checked`           |
+| Enable advanced mode                    |           `Unchecked`           |          `Checked`           |
 
 ### In the code (for developers)
 

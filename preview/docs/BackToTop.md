@@ -14,12 +14,12 @@ The `Show Button Always` prop makes a button always visible on scroll. You may n
 
 ### In the interface
 
-| Prop Name                 |     Default     | Example  |
-| :------------------------ | :-------------: | :------: |
-| Show button after (in px) |      `100`      |  `200`   |
-| Show button always        |     `false`     |  `true`  |
-| Animation duration        |     `1000`      | `15000`  |
-| Animation easing preset   | `easeInOutQuad` | `linear` |
+| Prop Name                 |     Default     |  Example  |
+| :------------------------ | :-------------: | :-------: |
+| Show button after (in px) |      `100`      |   `200`   |
+| Show button always        |   `Unchecked`   | `Checked` |
+| Animation duration        |     `1000`      |  `15000`  |
+| Animation easing preset   | `easeInOutQuad` | `linear`  |
 
 ### In the code (for developers)
 

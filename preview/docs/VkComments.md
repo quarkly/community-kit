@@ -17,19 +17,19 @@ To do it, follow the link [VK Comment](https://vk.com/dev/Comments)
 
 ### In the interface
 
-| Prop Name                        | Default | Example  |
-| :------------------------------- | :-----: | :------: |
-| VK app ID                        |   `-`   | `123456` |
-| VK page ID                       |   `-`   | `123456` |
-| Max. comments                    |   `5`   |   `20`   |
-| Auto publishing                  | `false` |  `true`  |
-| Update in real time              | `false` |  `true`  |
-| Link to the page with the widget |   `-`   |   `-`    |
-| Add graffiti                     | `false` |  `true`  |
-| Add photo                        | `false` |  `true`  |
-| Add audio                        | `false` |  `true`  |
-| Add video                        | `false` |  `true`  |
-| Add link                         | `false` |  `true`  |
+| Prop Name                        |   Default   |  Example  |
+| :------------------------------- | :---------: | :-------: |
+| VK app ID                        |     `-`     | `123456`  |
+| VK page ID                       |     `-`     | `123456`  |
+| Max. comments                    |     `5`     |   `20`    |
+| Auto publishing                  | `Unchecked` | `Checked` |
+| Update in real time              | `Unchecked` | `Checked` |
+| Link to the page with the widget |     `-`     |    `-`    |
+| Add graffiti                     | `Unchecked` | `Checked` |
+| Add photo                        | `Unchecked` | `Checked` |
+| Add audio                        | `Unchecked` | `Checked` |
+| Add video                        | `Unchecked` | `Checked` |
+| Add link                         | `Unchecked` | `Checked` |
 
 ### In the code (for developers)
 

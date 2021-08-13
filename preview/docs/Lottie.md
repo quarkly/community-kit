@@ -12,17 +12,17 @@ By default, the `File path` property has the `https://assets2.lottiefiles.com/pa
 
 ### In the interface
 
-| Prop names      |   Default    |   Example    |
-| :-------------- | :----------: | :----------: |
-| File path       |     `-`      |     `-`      |
-| Render          |    `SVG`     |   `Canvas`   |
-| First frame     |     `-`      |     `10`     |
-| Last frame      |     `-`      |     `50`     |
-| Force update    |  `Отмечен`   | `Не отмечен` |
-| Loop animation  |  `Отмечен`   | `Не отмечен` |
-| Pause animation | `Не отмечен` |  `Отмечен`   |
-| Stop animation  | `Не отмечен` |  `Отмечен`   |
-| Animation speed |     `1`      |    `0.5`     |
+| Prop names      |   Default   |   Example   |
+| :-------------- | :---------: | :---------: |
+| File path       |     `-`     |     `-`     |
+| Render          |    `SVG`    |  `Canvas`   |
+| First frame     |     `-`     |    `10`     |
+| Last frame      |     `-`     |    `50`     |
+| Force update    |  `Checked`  | `Unchecked` |
+| Loop animation  |  `Checked`  | `Unchecked` |
+| Pause animation | `Unchecked` |  `Checked`  |
+| Stop animation  | `Unchecked` |  `Checked`  |
+| Animation speed |     `1`     |    `0.5`    |
 
 ### In the code (for developers)
 

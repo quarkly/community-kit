@@ -14,11 +14,11 @@ The `Root page ID` prop allows you to specify the page for which the menu will b
 
 ### In the interface
 
-| Prop name                |   Default    |  Example  |
-| :----------------------- | :----------: | :-------: |
-| Maximum nesting          |     `1`      |    `5`    |
-| Root page ID             |    `root`    |  `67890`  |
-| Mark parent active items | `Не отмечен` | `Отмечен` |
+| Prop name                |   Default   |  Example  |
+| :----------------------- | :---------: | :-------: |
+| Maximum nesting          |     `1`     |    `5`    |
+| Root page ID             |   `root`    |  `67890`  |
+| Mark parent active items | `Unchecked` | `Checked` |
 
 ### In the code (for developers)
 

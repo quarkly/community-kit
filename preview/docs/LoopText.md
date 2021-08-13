@@ -16,15 +16,15 @@ Please note that the slides can't be removed by default. So just replace the def
 
 ### In the interface
 
-| Prop name                                  | Default |      Example      |
-| :----------------------------------------- | :-----: | :---------------: |
-| Slider list                                |  `[]`   | `[first, second]` |
-| Slideshow intervals                        | `3000`  |      `1500`       |
-| Delay before animation starts              |   `0`   |      `1000`       |
-| Container change duration                  |  `150`  |       `50`        |
-| Hide/show animation                        | `true`  |      `false`      |
-| Hide animation at the container boundaries | `true`  |      `false`      |
-| Forbid line breaking                       | `true`  |      `false`      |
+| Prop name                                  |  Default  |      Example      |
+| :----------------------------------------- | :-------: | :---------------: |
+| Slider list                                |   `[]`    | `[first, second]` |
+| Slideshow intervals                        |  `3000`   |      `1500`       |
+| Delay before animation starts              |    `0`    |      `1000`       |
+| Container change duration                  |   `150`   |       `50`        |
+| Hide/show animation                        | `Checked` |    `Unchecked`    |
+| Hide animation at the container boundaries | `Checked` |    `Unchecked`    |
+| Forbid line breaking                       | `Checked` |    `Unchecked`    |
 
 ### In the code (for developers)
 

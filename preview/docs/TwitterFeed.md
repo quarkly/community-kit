@@ -14,11 +14,11 @@ Add the component to the page and specify the `Name or link to the user page`.
 | :-------------------------------- | :-----------: | :---------: |
 | Name or link to the user page     | `@quarklyapp` | `@username` |
 | Limit the number of tweets (1-20) |      `1`      |    `20`     |
-| Hide header                       |    `false`    |   `true`    |
-| Hide footer                       |    `false`    |   `true`    |
-| Hide widget borders               |    `false`    |   `true`    |
-| Hide widget background            |    `false`    |   `true`    |
-| Hide widget background            |    `false`    |   `true`    |
+| Hide header                       |  `Unchecked`  |  `Checked`  |
+| Hide footer                       |  `Unchecked`  |  `Checked`  |
+| Hide widget borders               |  `Unchecked`  |  `Checked`  |
+| Hide widget background            |  `Unchecked`  |  `Checked`  |
+| Hide widget background            |  `Unchecked`  |  `Checked`  |
 | Tweet border color (#HEX only)    |      `-`      |   `#000`    |
 | ARIA live politeness              |   `polite`    | `assertive` |
 

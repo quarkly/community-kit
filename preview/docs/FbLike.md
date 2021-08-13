@@ -38,7 +38,7 @@ The UTM tag name must:
 | Layout             | `Standard view` |      `Simple button`      |
 | Button size        |     `Small`     |          `Large`          |
 | On click action    |     `Like`      |        `Recommend`        |
-| Made for kids      |     `false`     |          `true`           |
+| Made for kids      |   `Unchecked`   |         `Checked`         |
 | UTM tag            |       `-`       |        `utm12345`         |
 
 ### In the code (for developers)
