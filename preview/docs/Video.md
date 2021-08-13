@@ -14,15 +14,33 @@ The Video component can contain the `Source` and `Track` components.
 
 ## 🧩 Components and Props
 
-| Prop name          |   Type   | Default |
-| :----------------- | :------: | :-----: |
-| Link to video file | `string` |   `-`   |
-| Image for preview  | `string` |   `-`   |
-| Auto playback      |  `bool`  | `false` |
-| Show controls      |  `bool`  | `true`  |
-| Sound off          |  `bool`  | `false` |
-| Loop playback      |  `bool`  | `false` |
-| Hover playback     |  `bool`  | `false` |
+### In the interface
+
+| Prop name          | Default | Example |
+| :----------------- | :-----: | :-----: |
+| Link to video file |   `-`   |   `-`   |
+| Image for preview  |   `-`   |   `-`   |
+| Auto playback      | `true`  | `false` |
+| Show controls      | `false` | `true`  |
+| Sound off          | `true`  | `false` |
+| Loop playback      | `true`  | `false` |
+| Hover playback     | `true`  | `false` |
+
+### In the code (for developers)
+
+| Prop name          | Name in the code |   Type    | Default | Example |
+| :----------------- | :--------------: | :-------: | :-----: | :-----: |
+| Link to video file |      `src`       | `string`  |   `-`   |   `-`   |
+| Image for preview  |     `poster`     | `string`  |   `-`   |   `-`   |
+| Auto playback      |    `autoPlay`    | `boolean` | `false` | `true`  |
+| Show controls      |    `controls`    | `boolean` | `true`  | `false` |
+| Sound off          |     `muted`      | `boolean` | `false` | `true`  |
+| Loop playback      |      `loop`      | `boolean` | `false` | `true`  |
+| Hover playback     |  `playOnHover`   | `boolean` | `false` | `true`  |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Video/Video.js)
 
 ## 🗓 Changelog
 
