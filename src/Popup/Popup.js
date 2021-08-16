@@ -62,7 +62,7 @@ const PopupComponent = ({
 
     return (
         <Box {...rest}>
-            <Button onPointerDown={openPopup} {...override('Button Open')}>
+            <Button onClick={openPopup} {...override('Button Open')}>
                 {override('Button Open').children}
             </Button>
             <PopupContext.Provider value={context}>
@@ -74,7 +74,7 @@ const PopupComponent = ({
                     transition={popupTransition}
                 >
                     <Box
-                        onPointerDown={closePopup}
+                        onClick={closePopup}
                         {...override(
                             'Overlay',
                             `Overlay ${isOpen ? ':open' : ':closed'}`
@@ -89,7 +89,7 @@ const PopupComponent = ({
                     >
                         <Icon
                             {...override('Button Close')}
-                            onPointerDown={closePopup}
+                            onClick={closePopup}
                         />
                         <Box {...override('Content')} ref={contentRef}>
                             {children}
