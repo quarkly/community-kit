@@ -1,10 +1,16 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, {
+    useState,
+    useMemo,
+    useCallback,
+    useEffect,
+    useRef,
+} from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Text, Icon } from '@quarkly/widgets';
 
 import { propInfo, defaultProps, overrides } from './props';
 import ComponentNotice from '../ComponentNotice';
-import { isEmptyChildren } from '../utils';
+import { isEmptyChildren, toggleScroll } from '../utils';
 import { MobileSidePanelContext } from './utils';
 
 // Design styles differ 50/50
@@ -19,6 +25,8 @@ const getContentStyles = ({
     const baseStyles = {
         padding: isNear ? '16px' : '48px 16px 24px',
         width: '100%',
+        'overflow-x': 'hidden',
+        'overflow-y': 'auto',
 
         'align-items': 'center',
         'justify-content': 'space-between',
@@ -268,10 +276,20 @@ const MobileSidePanel = ({
         () => menuPosition === 'near' || menuPosition === 'nearRight',
         [menuPosition]
     );
+    const contentRef = useRef();
 
-    const togglePanel = useCallback(() => setOpen((prev) => !prev), []);
-    const openPanel = useCallback(() => setOpen(true), []);
-    const closePanel = useCallback(() => setOpen(false), []);
+    const openPanel = useCallback(() => {
+        contentRef.current.scrollTo(0, 0);
+        toggleScroll.disable(contentRef.current);
+        setOpen(true);
+    }, []);
+    const closePanel = useCallback(() => {
+        toggleScroll.enable(contentRef.current);
+        setOpen(false);
+    }, []);
+    const togglePanel = useCallback(() => {
+        !isOpen ? openPanel() : closePanel();
+    }, [isOpen]);
 
     useEffect(() => {
         setOpen(isOpen || isEmpty);
@@ -356,6 +374,7 @@ const MobileSidePanel = ({
                     {...styles.Content}
                     {...styles[`Content ${statusOpen}`]}
                     {...override('Content', `Content ${statusOpen}`)}
+                    ref={contentRef}
                 >
                     <Icon
                         onClick={closePanel}
