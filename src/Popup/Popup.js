@@ -65,41 +65,35 @@ const PopupComponent = ({
             <Button onClick={openPopup} {...override('Button Open')}>
                 {override('Button Open').children}
             </Button>
-            <PopupContext.Provider value={context}>
+            <Box
+                {...override('Popup', `Popup ${isOpen ? ':open' : ':closed'}`)}
+                transition={popupTransition}
+            >
+                <Box
+                    onClick={closePopup}
+                    {...override(
+                        'Overlay',
+                        `Overlay ${isOpen ? ':open' : ':closed'}`
+                    )}
+                />
                 <Box
                     {...override(
-                        'Popup',
-                        `Popup ${isOpen ? ':open' : ':closed'}`
+                        'Wrapper',
+                        `Wrapper ${isOpen ? ':open' : ':closed'}`
                     )}
-                    transition={popupTransition}
+                    transition={wrapperTransition}
                 >
-                    <Box
-                        onClick={closePopup}
-                        {...override(
-                            'Overlay',
-                            `Overlay ${isOpen ? ':open' : ':closed'}`
-                        )}
-                    />
-                    <Box
-                        {...override(
-                            'Wrapper',
-                            `Wrapper ${isOpen ? ':open' : ':closed'}`
-                        )}
-                        transition={wrapperTransition}
-                    >
-                        <Icon
-                            {...override('Button Close')}
-                            onClick={closePopup}
-                        />
+                    <Icon {...override('Button Close')} onClick={closePopup} />
+                    <PopupContext.Provider value={context}>
                         <Box {...override('Content')} ref={contentRef}>
                             {children}
                         </Box>
-                        {isEmpty && (
-                            <ComponentNotice message="Drag any component here" />
-                        )}
-                    </Box>
+                    </PopupContext.Provider>
+                    {isEmpty && (
+                        <ComponentNotice message="Drag any component here" />
+                    )}
                 </Box>
-            </PopupContext.Provider>
+            </Box>
         </Box>
     );
 };
