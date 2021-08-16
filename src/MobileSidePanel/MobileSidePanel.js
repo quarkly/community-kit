@@ -5,6 +5,7 @@ import { Box, Text, Icon } from '@quarkly/widgets';
 import { propInfo, defaultProps, overrides } from './props';
 import ComponentNotice from '../ComponentNotice';
 import { isEmptyChildren } from '../utils';
+import { MobileSidePanelContext } from './utils';
 
 // Design styles differ 50/50
 // Brought out separately, so that there is less duplication
@@ -268,9 +269,13 @@ const MobileSidePanel = ({
         [menuPosition]
     );
 
-    const onToggle = useCallback(() => setOpen((prev) => !prev), []);
-    const onOpen = useCallback(() => setOpen(true), []);
-    const onClose = useCallback(() => setOpen(false), []);
+    const togglePanel = useCallback(() => setOpen((prev) => !prev), []);
+    const openPanel = useCallback(() => setOpen(true), []);
+    const closePanel = useCallback(() => setOpen(false), []);
+
+    useEffect(() => {
+        setOpen(isOpen || isEmpty);
+    }, [setOpen, isOpen, isEmpty]);
 
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
 
@@ -287,12 +292,18 @@ const MobileSidePanel = ({
     );
 
     const statusOpen = isOpen || isEmpty ? ':open' : ':closed';
-    const statusButtonOpen =
+    const statusButtopenPanel =
         isNear && (isOpen || isEmpty) ? ':open' : ':closed';
 
-    useEffect(() => {
-        setOpen(isOpen || isEmpty);
-    }, [setOpen, isOpen, isEmpty]);
+    const context = useMemo(
+        () => ({
+            isOpen,
+            togglePanel,
+            openPanel,
+            closePanel,
+        }),
+        [isOpen, togglePanel, openPanel, closePanel]
+    );
 
     return (
         <Box
@@ -312,21 +323,21 @@ const MobileSidePanel = ({
             {...rest}
         >
             <Box
-                onPointerDown={isNear ? onToggle : onOpen}
+                onClick={isNear ? togglePanel : openPanel}
                 {...styles.Button}
-                {...override('Button', `Button ${statusButtonOpen}`)}
+                {...override('Button', `Button ${statusButtopenPanel}`)}
             >
                 <Text
                     {...styles['Button Text']}
                     {...override(
                         'Button Text',
-                        `Button Text ${statusButtonOpen}`
+                        `Button Text ${statusButtopenPanel}`
                     )}
                 />
                 <Icon
                     {...override(
                         'Button Icon',
-                        `Button Icon ${statusButtonOpen}`
+                        `Button Icon ${statusButtopenPanel}`
                     )}
                 />
             </Box>
@@ -336,7 +347,7 @@ const MobileSidePanel = ({
                 {...override('Wrapper', `Wrapper ${statusOpen}`)}
             >
                 <Box
-                    onPointerDown={onClose}
+                    onClick={closePanel}
                     {...styles.Overlay}
                     {...styles[`Overlay ${statusOpen}`]}
                     {...override('Overlay', `Overlay ${statusOpen}`)}
@@ -347,17 +358,19 @@ const MobileSidePanel = ({
                     {...override('Content', `Content ${statusOpen}`)}
                 >
                     <Icon
-                        onPointerDown={onClose}
+                        onClick={closePanel}
                         {...styles.Cross}
                         {...override('Cross')}
                     />
-                    <Box
-                        {...styles.Children}
-                        {...override('Children', `Children ${statusOpen}`)}
-                        display={isEmpty ? 'none' : undefined}
-                    >
-                        {children}
-                    </Box>
+                    <MobileSidePanelContext.Provider value={context}>
+                        <Box
+                            {...styles.Children}
+                            {...override('Children', `Children ${statusOpen}`)}
+                            display={isEmpty ? 'none' : undefined}
+                        >
+                            {children}
+                        </Box>
+                    </MobileSidePanelContext.Provider>
                     {isEmpty && (
                         <ComponentNotice message="Drag any component here" />
                     )}

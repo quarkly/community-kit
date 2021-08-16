@@ -1,5 +1,7 @@
 import React from 'react';
+import { Box, Text } from '@quarkly/widgets';
 import MobileSidePanel from './MobileSidePanel';
+import { ToggleButton } from './components';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
 
@@ -10,28 +12,50 @@ export default {
     argTypes: argTypes(propInfo, defaultProps),
 };
 
-export const StoryPageFull = (props) => (
+export const StoryDefault = (props) => (
+    <MobileSidePanel {...props}>
+        <Text>{'Some text'}</Text>
+    </MobileSidePanel>
+);
+
+export const StoryToggleButton = (props) => (
+    <MobileSidePanel {...props}>
+        <Box
+            margin="0 16px 16px"
+            padding="16px"
+            border="1px solid --color-dark"
+            border-radius="2px"
+        >
+            <ToggleButton />
+        </Box>
+    </MobileSidePanel>
+);
+
+export const StoryEmptyPageFull = (props) => (
     <MobileSidePanel {...props} menuPosition="full" />
 );
 
-export const StoryPageLeft = (props) => (
+export const StoryEmptyPageLeft = (props) => (
     <MobileSidePanel {...props} menuPosition="left" />
 );
 
-export const StoryPageRight = (props) => (
+export const StoryEmptyPageRight = (props) => (
     <MobileSidePanel {...props} menuPosition="right" />
 );
 
-export const StoryNearLeft = (props) => (
+export const StoryEmptyNearLeft = (props) => (
     <MobileSidePanel {...props} menuPosition="near" />
 );
 
-export const StoryNearRight = (props) => (
+export const StoryEmptyNearRight = (props) => (
     <MobileSidePanel {...props} menuPosition="nearRight" />
 );
 
-StoryPageFull.storyName = 'Page Full';
-StoryPageLeft.storyName = 'Page Left';
-StoryPageRight.storyName = 'Page Right';
-StoryNearLeft.storyName = 'Near Left';
-StoryNearRight.storyName = 'Near Right';
+StoryDefault.storyName = 'Default';
+StoryToggleButton.storyName = 'Toggle Button';
+
+StoryEmptyPageFull.storyName = 'Empty Page Full';
+StoryEmptyPageLeft.storyName = 'Empty Page Left';
+StoryEmptyPageRight.storyName = 'Empty Page Right';
+StoryEmptyNearLeft.storyName = 'Empty Near Left';
+StoryEmptyNearRight.storyName = 'Empty Near Right';
