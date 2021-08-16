@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
-
 import { Box, Button } from '@quarkly/widgets';
-
 import { PopupContext } from '../';
 
 const ToggleButton = (props) => {

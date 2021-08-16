@@ -44,12 +44,12 @@ const PopupComponent = ({
         contentRef.current.scrollTo(0, 0);
         toggleScroll.disable(contentRef.current);
         setOpen(true);
-    }, [toggleScroll]);
+    }, []);
 
     const closePopup = useCallback(() => {
         toggleScroll.enable(contentRef.current);
         setOpen(false);
-    }, [toggleScroll]);
+    }, []);
 
     const context = useMemo(
         () => ({
@@ -57,7 +57,7 @@ const PopupComponent = ({
             openPopup,
             closePopup,
         }),
-        [openPopup, closePopup]
+        [isOpen, openPopup, closePopup]
     );
 
     return (
