@@ -1,10 +1,17 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, {
+    useState,
+    useMemo,
+    useCallback,
+    useEffect,
+    useRef,
+} from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box, Icon, Button } from '@quarkly/widgets';
 
 import { overrides, propInfo, defaultProps } from './props';
 import { isEmptyChildren, toggleScroll } from '../utils';
+import { PopupContext } from './utils';
 import ComponentNotice from '../ComponentNotice';
 
 const PopupComponent = ({
@@ -19,6 +26,8 @@ const PopupComponent = ({
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const contentRef = useRef();
 
+    useEffect(() => setOpen(onloadShow), [onloadShow]);
+
     const popupTransition = useMemo(
         () =>
             isOpen
@@ -31,53 +40,66 @@ const PopupComponent = ({
         [animFunction, animDuration]
     );
 
-    useEffect(() => setOpen(onloadShow), [onloadShow]);
-
-    const onOpen = () => {
+    const openPopup = useCallback(() => {
         contentRef.current.scrollTo(0, 0);
         toggleScroll.disable(contentRef.current);
         setOpen(true);
-    };
-    const onClose = () => {
+    }, [toggleScroll]);
+
+    const closePopup = useCallback(() => {
         toggleScroll.enable(contentRef.current);
         setOpen(false);
-    };
+    }, [toggleScroll]);
+
+    const context = useMemo(
+        () => ({
+            isOpen,
+            openPopup,
+            closePopup,
+        }),
+        [openPopup, closePopup]
+    );
 
     return (
         <Box {...rest}>
-            <Button onPointerDown={onOpen} {...override('Button Open')}>
+            <Button onPointerDown={openPopup} {...override('Button Open')}>
                 {override('Button Open').children}
             </Button>
-            <Box
-                {...override('Popup', `Popup ${isOpen ? ':open' : ':closed'}`)}
-                transition={popupTransition}
-            >
-                <Box
-                    onPointerDown={onClose}
-                    {...override(
-                        'Overlay',
-                        `Overlay ${isOpen ? ':open' : ':closed'}`
-                    )}
-                />
+            <PopupContext.Provider value={context}>
                 <Box
                     {...override(
-                        'Wrapper',
-                        `Wrapper ${isOpen ? ':open' : ':closed'}`
+                        'Popup',
+                        `Popup ${isOpen ? ':open' : ':closed'}`
                     )}
-                    transition={wrapperTransition}
+                    transition={popupTransition}
                 >
-                    <Icon
-                        {...override('Button Close')}
-                        onPointerDown={onClose}
+                    <Box
+                        onPointerDown={closePopup}
+                        {...override(
+                            'Overlay',
+                            `Overlay ${isOpen ? ':open' : ':closed'}`
+                        )}
                     />
-                    <Box {...override('Content')} ref={contentRef}>
-                        {children}
+                    <Box
+                        {...override(
+                            'Wrapper',
+                            `Wrapper ${isOpen ? ':open' : ':closed'}`
+                        )}
+                        transition={wrapperTransition}
+                    >
+                        <Icon
+                            {...override('Button Close')}
+                            onPointerDown={closePopup}
+                        />
+                        <Box {...override('Content')} ref={contentRef}>
+                            {children}
+                        </Box>
+                        {isEmpty && (
+                            <ComponentNotice message="Drag any component here" />
+                        )}
                     </Box>
-                    {isEmpty && (
-                        <ComponentNotice message="Drag any component here" />
-                    )}
                 </Box>
-            </Box>
+            </PopupContext.Provider>
         </Box>
     );
 };

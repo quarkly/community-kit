@@ -6,6 +6,26 @@ This is a pop-up window that appears when clicking on a button. Any other compon
 
 Add the component to the page and check how it works in the preview mode.
 
+### Manage state from your component
+
+You can get the state of the Popup component and methods to update it in its child component.
+
+You have access to the isOpen variable as well as to the openPopup and closePopup methods to open and close the Popup.
+
+To do this:
+
+1. import a context object from the component:
+
+    `import { PopupContext } from './QuarklycommunityKitPopup';`
+
+2. Get the value of the imported context:
+
+    `const context = useContext(PopupContext);`
+
+3. use the values and methods in your component:
+
+    `<Button onClick={context.closePopup} />`
+
 ## 🧩 Components and Props
 
 ### In the interface
