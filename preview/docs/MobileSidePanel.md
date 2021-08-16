@@ -19,6 +19,26 @@ The `Panel position in mobile view` prop allows you to customize the panel posit
 -   near - To the left of the button;
 -   nearRight - To the right of the button.
 
+### Manage state from your component
+
+You can get the state of the MobileSidePanel component and methods to update it in its child component.
+
+You have access to the `isOpen` variable as well as to the `openPanel`, `closePanel` and `togglePanel` methods to open and close the MobileSidePanel.
+
+To do this:
+
+1. import a context object from the component:
+
+    `import { MobileSidePanelContext } from './QuarklycommunityKitMobileSidePanel';`
+
+2. Get the value of the imported context:
+
+    `const context = useContext(MobileSidePanelContext);`
+
+3. use the values and methods in your component:
+
+    `<Button onClick={context.closePanel} />`
+
 ## 🧩 Components and Props
 
 ### In the interface
