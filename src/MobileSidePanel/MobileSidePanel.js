@@ -41,7 +41,7 @@ const MobileSidePanel = ({
     }, []);
     const togglePanel = useCallback(() => {
         !isOpen ? openPanel() : closePanel();
-    }, [isOpen]);
+    }, [isOpen, openPanel, closePanel]);
 
     useEffect(() => {
         setOpen(isOpen || isEmpty);
