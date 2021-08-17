@@ -63,6 +63,7 @@ export default {
         kind: 'Box',
         props: {
             'padding-top': '40px',
+            width: '100%',
             'min-width': '0px',
             'min-height': '0px',
             'max-height': '100%',

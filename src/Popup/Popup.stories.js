@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Text } from '@quarkly/widgets';
 import { Override } from '@quarkly/components';
 import Popup from './Popup';
+import { ToggleButton } from './components';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
 
@@ -99,6 +100,19 @@ evolved over the years, sometimes by accident, sometimes on purpose (injected hu
     );
 };
 
+export const StoryToggleButton = (props) => (
+    <Popup {...props}>
+        <Box
+            margin="0 16px 16px"
+            padding="16px"
+            border="1px solid --color-dark"
+            border-radius="2px"
+        >
+            <ToggleButton />
+        </Box>
+    </Popup>
+);
+
 export const StoryEmpty = (props) => {
     return <Popup {...props} />;
 };
@@ -108,4 +122,5 @@ StoryOnload.storyName = 'Onload';
 StoryMultiple.storyName = 'Multiple';
 StoryScroll.storyName = 'Scroll';
 StoryLarge.storyName = 'Large';
+StoryToggleButton.storyName = 'Toggle Button';
 StoryEmpty.storyName = 'Empty';

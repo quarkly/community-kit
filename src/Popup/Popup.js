@@ -1,10 +1,17 @@
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, {
+    useState,
+    useMemo,
+    useCallback,
+    useEffect,
+    useRef,
+} from 'react';
 
 import { useOverrides } from '@quarkly/components';
 import { Box, Icon, Button } from '@quarkly/widgets';
 
 import { overrides, propInfo, defaultProps } from './props';
 import { isEmptyChildren, toggleScroll } from '../utils';
+import { PopupContext } from './utils';
 import ComponentNotice from '../ComponentNotice';
 
 const PopupComponent = ({
@@ -19,6 +26,8 @@ const PopupComponent = ({
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const contentRef = useRef();
 
+    useEffect(() => setOpen(onloadShow), [onloadShow]);
+
     const popupTransition = useMemo(
         () =>
             isOpen
@@ -31,21 +40,29 @@ const PopupComponent = ({
         [animFunction, animDuration]
     );
 
-    useEffect(() => setOpen(onloadShow), [onloadShow]);
-
-    const onOpen = () => {
+    const openPopup = useCallback(() => {
         contentRef.current.scrollTo(0, 0);
         toggleScroll.disable(contentRef.current);
         setOpen(true);
-    };
-    const onClose = () => {
+    }, []);
+
+    const closePopup = useCallback(() => {
         toggleScroll.enable(contentRef.current);
         setOpen(false);
-    };
+    }, []);
+
+    const context = useMemo(
+        () => ({
+            isOpen,
+            openPopup,
+            closePopup,
+        }),
+        [isOpen, openPopup, closePopup]
+    );
 
     return (
         <Box {...rest}>
-            <Button onPointerDown={onOpen} {...override('Button Open')}>
+            <Button onClick={openPopup} {...override('Button Open')}>
                 {override('Button Open').children}
             </Button>
             <Box
@@ -53,7 +70,7 @@ const PopupComponent = ({
                 transition={popupTransition}
             >
                 <Box
-                    onPointerDown={onClose}
+                    onClick={closePopup}
                     {...override(
                         'Overlay',
                         `Overlay ${isOpen ? ':open' : ':closed'}`
@@ -66,13 +83,12 @@ const PopupComponent = ({
                     )}
                     transition={wrapperTransition}
                 >
-                    <Icon
-                        {...override('Button Close')}
-                        onPointerDown={onClose}
-                    />
-                    <Box {...override('Content')} ref={contentRef}>
-                        {children}
-                    </Box>
+                    <Icon {...override('Button Close')} onClick={closePopup} />
+                    <PopupContext.Provider value={context}>
+                        <Box {...override('Content')} ref={contentRef}>
+                            {children}
+                        </Box>
+                    </PopupContext.Provider>
                     {isEmpty && (
                         <ComponentNotice message="Drag any component here" />
                     )}
