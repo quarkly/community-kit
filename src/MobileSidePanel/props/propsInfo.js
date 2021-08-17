@@ -87,4 +87,13 @@ export default {
         category: 'Animation',
         weight: 1,
     },
+    onloadShow: {
+        title: {
+            en: 'Show a panel when loading',
+            ru: 'Показать панель при загрузке',
+        },
+        control: 'checkbox',
+        category: 'Test',
+        weight: 1,
+    },
 };

@@ -18,11 +18,12 @@ const MobileSidePanel = ({
     menuPosition,
     animDuration,
     animFunction,
+    onloadShow,
     ...props
 }) => {
     const { override, children, rest } = useOverrides(props, overrides);
 
-    const [isOpen, setOpen] = useState(false);
+    const [isOpen, setOpen] = useState(onloadShow);
     const isNear = useMemo(
         () => menuPosition === 'near' || menuPosition === 'nearRight',
         [menuPosition]
@@ -45,6 +46,10 @@ const MobileSidePanel = ({
     useEffect(() => {
         setOpen(isOpen || isEmpty);
     }, [setOpen, isOpen, isEmpty]);
+
+    useEffect(() => {
+        setOpen(onloadShow);
+    }, [onloadShow]);
 
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
 
