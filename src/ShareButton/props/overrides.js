@@ -4,7 +4,6 @@ import {
     FaTelegramPlane,
     FaWhatsapp,
     FaLinkedinIn,
-    FaPinterestP,
     FaVk,
     FaOdnoklassniki,
     FaRedditAlien,
