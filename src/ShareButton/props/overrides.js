@@ -52,12 +52,6 @@ export default {
             icon: 'FaLinkedinIn',
         },
     },
-    'Icon Pinterest': {
-        props: {
-            defaultIcon: FaPinterestP,
-            icon: 'FaPinterestP',
-        },
-    },
     'Icon VK': {
         props: {
             defaultIcon: FaVk,

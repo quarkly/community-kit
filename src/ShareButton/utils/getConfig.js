@@ -29,7 +29,7 @@ const getConfig = ({ windowWidth, windowHeight }) => {
 
     return Object.keys(config)
         .map((key) => `${key}=${config[key]}`)
-        .join(', ');
+        .join(',');
 };
 
 export default getConfig;
