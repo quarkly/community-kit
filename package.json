@@ -123,6 +123,7 @@
       "ReCaptcha": "ReCaptcha",
       "ShareButton": "ShareButton",
       "Form": "Form",
+      "Label": "Label",
       "Input": "Input",
       "Textarea": "Textarea"
     }
