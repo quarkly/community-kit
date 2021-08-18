@@ -7,7 +7,7 @@ export default {
         },
         control: 'input',
         type: 'text',
-        category: 'Form',
+        category: 'Main',
         weight: 1,
     },
     autocomplete: {
@@ -18,7 +18,7 @@ export default {
         },
         control: 'radio-group',
         variants: ['on', 'off'],
-        category: 'Form',
+        category: 'Main',
         weight: 1,
     },
     charset: {
@@ -30,7 +30,7 @@ export default {
         control: 'input',
         type: 'text',
         variants: ['UTF-8'],
-        category: 'Form',
+        category: 'Main',
         weight: 1,
     },
     enctype: {
@@ -45,7 +45,7 @@ export default {
             'multipart/form-data',
             'text/plain',
         ],
-        category: 'Form',
+        category: 'Main',
         weight: 1,
     },
     method: {
@@ -55,7 +55,7 @@ export default {
         },
         control: 'radio-group',
         variants: ['get', 'post'],
-        category: 'Form',
+        category: 'Main',
         weight: 1,
     },
     name: {
@@ -65,7 +65,7 @@ export default {
         },
         control: 'input',
         type: 'text',
-        category: 'Form',
+        category: 'Main',
         weight: 1,
     },
     novalidate: {
@@ -75,7 +75,7 @@ export default {
                 'Отменяет встроенную проверку данных введенных пользователем в форме на корректность.',
         },
         control: 'checkbox',
-        category: 'Form',
+        category: 'Main',
         weight: 1,
     },
     target: {
@@ -86,7 +86,7 @@ export default {
         },
         control: 'select',
         variants: ['_blank', '_self', '_parent', '_top'],
-        category: 'Form',
+        category: 'Main',
         weight: 1,
     },
 };
