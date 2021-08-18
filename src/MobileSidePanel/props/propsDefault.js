@@ -3,4 +3,5 @@ export default {
     menuPosition: 'near',
     animDuration: '.3s',
     animFunction: 'ease',
+    onloadShow: false,
 };

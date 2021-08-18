@@ -10,7 +10,7 @@ Add the component to the page and check how it works in the preview mode.
 
 You can get the state of the Popup component and methods to update it in its child component.
 
-You have access to the isOpen variable as well as to the openPopup and closePopup methods to open and close the Popup.
+You have access to the `isOpen` variable as well as to the `openPopup` and `closePopup` methods to open and close the Popup.
 
 To do this:
 
