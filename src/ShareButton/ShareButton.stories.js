@@ -24,7 +24,6 @@ export const StoryAllServices = (props) => (
         <ShareButton {...stylesButton} {...props} service="Telegram" />
         <ShareButton {...stylesButton} {...props} service="WhatsApp" />
         <ShareButton {...stylesButton} {...props} service="LinkedIn" />
-        <ShareButton {...stylesButton} {...props} service="Pinterest" />
         <ShareButton {...stylesButton} {...props} service="VK" />
         <ShareButton {...stylesButton} {...props} service="Odnoklassniki" />
         <ShareButton {...stylesButton} {...props} service="Reddit" />

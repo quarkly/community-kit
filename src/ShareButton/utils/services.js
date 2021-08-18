@@ -56,15 +56,6 @@ export default {
                 summary: description,
             }),
     },
-    Pinterest: {
-        url: 'https://pinterest.com/pin/create/button/',
-        color: '#cb2128',
-        query: ({ image, description }) =>
-            q({
-                media: image,
-                description,
-            }),
-    },
     VK: {
         url: 'https://vk.com/share.php',
         color: '#2787F5',

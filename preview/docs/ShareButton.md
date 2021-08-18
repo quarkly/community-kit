@@ -9,6 +9,24 @@ The Share button lets your site visitors quickly navigate to your account or soc
 3. Specify the `Site link`, `Site title`, and `Description`.
 4. See how it works in the preview mode.
 
+**Attention**: When opening a link in a pop-up window, you can specify it's width and height. However, some services may change the size and position of a pop-up window when loading it.
+
+### List of available services:
+
+-   Facebook
+-   Twitter
+-   Telegram
+-   WhatsApp
+-   LinkedIn
+-   VK
+-   Odnoklassniki
+-   Reddit
+-   Tumblr
+-   Viber
+-   Line
+-   Weibo
+-   Pocket
+
 ## 🧩 Components and Props
 
 ### In the interface

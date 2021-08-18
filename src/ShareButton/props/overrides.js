@@ -4,7 +4,6 @@ import {
     FaTelegramPlane,
     FaWhatsapp,
     FaLinkedinIn,
-    FaPinterestP,
     FaVk,
     FaOdnoklassniki,
     FaRedditAlien,
@@ -50,12 +49,6 @@ export default {
         props: {
             defaultIcon: FaLinkedinIn,
             icon: 'FaLinkedinIn',
-        },
-    },
-    'Icon Pinterest': {
-        props: {
-            defaultIcon: FaPinterestP,
-            icon: 'FaPinterestP',
         },
     },
     'Icon VK': {
