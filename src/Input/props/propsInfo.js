@@ -7,7 +7,7 @@ export default {
         },
         control: 'input',
         type: 'text',
-        category: 'Input',
+        category: 'Main',
         weight: 0.5,
     },
     type: {
@@ -27,7 +27,7 @@ export default {
             'file',
             'hidden',
         ],
-        category: 'Input',
+        category: 'Main',
         weight: 0.5,
     },
     placeholder: {
@@ -37,7 +37,7 @@ export default {
         },
         control: 'input',
         type: 'text',
-        category: 'Input',
+        category: 'Main',
         weight: 1,
     },
     defaultValue: {
@@ -47,7 +47,7 @@ export default {
         },
         control: 'input',
         type: 'text',
-        category: 'Input',
+        category: 'Main',
         weight: 1,
     },
     autocomplete: {
@@ -56,7 +56,7 @@ export default {
             ru: 'Включает или отключает автозаполнение.',
         },
         control: 'checkbox',
-        category: 'Input',
+        category: 'Main',
         weight: 0.5,
     },
     autofocus: {
@@ -65,7 +65,7 @@ export default {
             ru: 'Устанавливает фокус в поле формы.',
         },
         control: 'checkbox',
-        category: 'Input',
+        category: 'Main',
         weight: 0.5,
     },
     required: {
@@ -74,7 +74,7 @@ export default {
             ru: 'Обязательное для заполнения поле.',
         },
         control: 'checkbox',
-        category: 'Input',
+        category: 'Main',
         weight: 0.5,
     },
     disabled: {
@@ -83,7 +83,7 @@ export default {
             ru: 'Блокирует доступ и изменение элемента.',
         },
         control: 'checkbox',
-        category: 'Input',
+        category: 'Main',
         weight: 0.5,
     },
     list: {
