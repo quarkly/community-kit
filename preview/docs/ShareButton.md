@@ -13,19 +13,23 @@ The Share button lets your site visitors quickly navigate to your account or soc
 
 ### List of available services:
 
--   Facebook
--   Twitter
--   Telegram
--   WhatsApp
--   LinkedIn
--   VK
--   Odnoklassniki
--   Reddit
--   Tumblr
--   Viber
--   Line
--   Weibo
--   Pocket
+Below please see the table with allowed properties for each social network.
+
+| Services      | Site title | Description | Comment | Hashtag |
+| :------------ | :--------: | :---------: | :-----: | :-----: |
+| Facebook      |            |             |   `+`   |   `+`   |
+| Twitter       |            |             |   `+`   |         |
+| Telegram      |            |             |   `+`   |         |
+| WhatsApp      |            |             |   `+`   |         |
+| LinkedIn      |            |             |         |         |
+| VK            |    `+`     |             |         |         |
+| Odnoklassniki |    `+`     |     `+`     |         |         |
+| Reddit        |    `+`     |             |         |         |
+| Tumblr        |            |     `+`     |         |         |
+| Viber         |            |             |   `+`   |         |
+| Line          |    `+`     |     `+`     |   `+`   |   `+`   |
+| Weibo         |    `+`     |             |         |         |
+| Pocket        |            |             |         |         |
 
 ## 🧩 Components and Props
 
