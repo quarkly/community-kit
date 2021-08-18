@@ -2,7 +2,7 @@ import React from 'react';
 import Form from './Form';
 import { Box, Button } from '@quarkly/widgets';
 import { Override } from '@quarkly/components';
-import { Input, Textarea } from '..';
+import { Label, Input, Textarea } from '..';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
 
@@ -15,8 +15,6 @@ export default {
 
 const formStyles = {
     margin: '8px',
-    'flex-direction': 'column',
-    display: 'flex',
 };
 
 const boxStyles = {
@@ -24,6 +22,9 @@ const boxStyles = {
 };
 
 const inputStyles = {
+    width: '100%',
+};
+const labelStyles = {
     margin: '8px',
     width: 'calc(100% - 16px)',
 };
@@ -36,42 +37,57 @@ export const StoryDefault = (props) => (
     <Form {...props}>
         <Override slot="Content" {...formStyles} />
         <Box {...boxStyles}>
-            <Input
-                {...inputStyles}
-                name="name"
-                placeholder="First name"
-                type="text"
-                pattern="^[a-zA-Z]+$"
-            />
-            <Input
-                {...inputStyles}
-                name="surname"
-                placeholder="Last name"
-                type="text"
-                pattern="^[a-zA-Z]+$"
-            />
+            <Label {...labelStyles}>
+                <Override slot="Text">First name label</Override>
+                <Input
+                    {...inputStyles}
+                    name="name"
+                    placeholder="First name input"
+                    type="text"
+                    pattern="^[a-zA-Z]+$"
+                />
+            </Label>
+            <Label {...labelStyles}>
+                <Override slot="Text">Last name label</Override>
+                <Input
+                    {...inputStyles}
+                    name="surname"
+                    placeholder="Last name input"
+                    type="text"
+                    pattern="^[a-zA-Z]+$"
+                />
+            </Label>
         </Box>
-        <Input
-            {...inputStyles}
-            name="email"
-            placeholder="Email"
-            type="email"
-            required={true}
-            autofocus={true}
-        />
-        <Input
-            {...inputStyles}
-            name="password"
-            placeholder="Password"
-            type="password"
-            required={true}
-        />
-        <Textarea
-            {...inputStyles}
-            name="comment"
-            placeholder="Comment"
-            resize="none"
-        />
+        <Label {...labelStyles}>
+            <Override slot="Text">Email label</Override>
+            <Input
+                {...inputStyles}
+                name="email"
+                placeholder="Email input"
+                type="email"
+                required={true}
+                autofocus={true}
+            />
+        </Label>
+        <Label {...labelStyles}>
+            <Override slot="Text">Password label</Override>
+            <Input
+                {...inputStyles}
+                name="password"
+                placeholder="Password input"
+                type="password"
+                required={true}
+            />
+        </Label>
+        <Label {...labelStyles}>
+            <Override slot="Text">Comment label</Override>
+            <Textarea
+                {...inputStyles}
+                name="comment"
+                placeholder="Comment textarea"
+                resize="none"
+            />
+        </Label>
         <Button {...buttonStyles}>Send</Button>
     </Form>
 );

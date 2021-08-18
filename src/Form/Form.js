@@ -48,6 +48,8 @@ const FormComponent = ({
             target={target}
             onSubmit={onSubmitCb || undefined}
             onReset={onResetCb || undefined}
+            flex-direction="column"
+            display="flex"
             {...rest}
         >
             <FormContext.Provider value={context}>
