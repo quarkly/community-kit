@@ -46,3 +46,4 @@ export { default as Lottie } from './Lottie';
 export { default as ReCaptcha } from './ReCaptcha';
 export { default as ShareButton } from './ShareButton';
 export { default as Form } from './Form';
+export { default as Input } from './Input';

@@ -122,7 +122,8 @@
       "Breadcrumbs": "Breadcrumbs",
       "ReCaptcha": "ReCaptcha",
       "ShareButton": "ShareButton",
-      "Form": "Form"
+      "Form": "Form",
+      "Input": "Input"
     }
   },
   "quarklyInfoDeleted": {
