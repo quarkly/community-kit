@@ -2,7 +2,7 @@ import React from 'react';
 import Form from './Form';
 import { Box, Button } from '@quarkly/widgets';
 import { Override } from '@quarkly/components';
-import { Label, Input, Textarea } from '..';
+import { Label, Input, Textarea, Select, Option } from '..';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
 
@@ -79,6 +79,61 @@ export const StoryDefault = (props) => (
                 required={true}
             />
         </Label>
+        <Box {...boxStyles}>
+            <Label {...labelStyles}>
+                <Override slot="Text">State</Override>
+                <Select
+                    {...inputStyles}
+                    name="state"
+                    multiple={true}
+                    required={true}
+                >
+                    <Option>Select state:</Option>
+                    <Option value="CA" selected={true}>
+                        California
+                    </Option>
+                    <Option value="TX">Texas</Option>
+                    <Option value="FL">Florida</Option>
+                    <Option value="NY">New York</Option>
+                    <Option value="PA">Pennsylvania</Option>
+                    <Option value="IL">Illinois</Option>
+                    <Option value="OH">Ohio</Option>
+                    <Option value="GA">Georgia</Option>
+                    <Option value="NC" disabled={true}>
+                        North Carolina
+                    </Option>
+                    <Option value="MI" disabled={true}>
+                        Michigan
+                    </Option>
+                </Select>
+            </Label>
+            <Label {...labelStyles}>
+                <Override slot="Text">City</Override>
+                <Select {...inputStyles} name="city" required={true}>
+                    <Option>Select city:</Option>
+                    <Option value="new-york">New York</Option>
+                    <Option value="los-angeles" selected={true}>
+                        Los Angeles
+                    </Option>
+                    <Option value="chicago">Chicago</Option>
+                    <Option value="houston">Houston</Option>
+                    <Option value="phoenix">Phoenix</Option>
+                    <Option value="philadelphia">Philadelphia</Option>
+                    <Option value="san-antonio" disabled={true}>
+                        San Antonio
+                    </Option>
+                    <Option value="san-diego" disabled={true}>
+                        San Diego
+                    </Option>
+                    <Option value="dallas" disabled={true}>
+                        Dallas
+                    </Option>
+                    <Option value="san-jose" disabled={true}>
+                        San Jose
+                    </Option>
+                </Select>
+            </Label>
+        </Box>
         <Label {...labelStyles}>
             <Override slot="Text">Comment label</Override>
             <Textarea
