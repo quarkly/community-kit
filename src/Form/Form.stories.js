@@ -2,7 +2,7 @@ import React from 'react';
 import Form from './Form';
 import { Box, Button } from '@quarkly/widgets';
 import { Override } from '@quarkly/components';
-import { Label, Input, Textarea, Select, Option } from '..';
+import { Label, Input, Textarea, Select, Option, Checkbox } from '..';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
 
@@ -38,43 +38,43 @@ export const StoryDefault = (props) => (
         <Override slot="Content" {...formStyles} />
         <Box {...boxStyles}>
             <Label {...labelStyles}>
-                <Override slot="Text">First name label</Override>
+                <Override slot="Text">First name</Override>
                 <Input
                     {...inputStyles}
                     name="name"
-                    placeholder="First name input"
+                    placeholder="First name"
                     type="text"
                     pattern="^[a-zA-Z]+$"
                 />
             </Label>
             <Label {...labelStyles}>
-                <Override slot="Text">Last name label</Override>
+                <Override slot="Text">Last name</Override>
                 <Input
                     {...inputStyles}
                     name="surname"
-                    placeholder="Last name input"
+                    placeholder="Last name"
                     type="text"
                     pattern="^[a-zA-Z]+$"
                 />
             </Label>
         </Box>
         <Label {...labelStyles}>
-            <Override slot="Text">Email label</Override>
+            <Override slot="Text">Email</Override>
             <Input
                 {...inputStyles}
                 name="email"
-                placeholder="Email input"
+                placeholder="Email"
                 type="email"
                 required={true}
                 autofocus={true}
             />
         </Label>
         <Label {...labelStyles}>
-            <Override slot="Text">Password label</Override>
+            <Override slot="Text">Password</Override>
             <Input
                 {...inputStyles}
                 name="password"
-                placeholder="Password input"
+                placeholder="Password"
                 type="password"
                 required={true}
             />
@@ -135,13 +135,19 @@ export const StoryDefault = (props) => (
             </Label>
         </Box>
         <Label {...labelStyles}>
-            <Override slot="Text">Comment label</Override>
+            <Override slot="Text">Comment</Override>
             <Textarea
                 {...inputStyles}
                 name="comment"
                 placeholder="Comment textarea"
                 resize="none"
             />
+        </Label>
+        <Label {...labelStyles}>
+            <Override slot="Text">Agreement</Override>
+            <Checkbox value="agree" checked={true}>
+                I agree with sth.
+            </Checkbox>
         </Label>
         <Button {...buttonStyles}>Send</Button>
     </Form>
