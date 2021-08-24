@@ -3,20 +3,12 @@ import { propInfo, defaultProps } from './props';
 
 const Option = atomize.option();
 
-const OptionComponent = ({
-    label,
-    value,
-    selected,
-    disabled,
-    children,
-    ...props
-}) => {
+const OptionComponent = ({ label, value, disabled, children, ...props }) => {
     return (
         <Option
             label={label}
             value={value}
-            selected={selected ? 'selected' : undefined}
-            disabled={disabled ? 'disabled' : undefined}
+            disabled={disabled || undefined}
             {...props}
         >
             {children}

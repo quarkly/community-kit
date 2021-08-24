@@ -20,15 +20,6 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    selected: {
-        title: 'Selected',
-        description: {
-            ru: 'Заранее устанавливает определенный пункт списка выделенным.',
-        },
-        control: 'checkbox',
-        category: 'Main',
-        weight: 1,
-    },
     disabled: {
         title: 'Disabled',
         description: {
