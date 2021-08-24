@@ -68,10 +68,10 @@ export default {
             },
         ],
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
-    autofocus: {
-        title: 'Autofocus',
+    autoFocus: {
+        title: 'AutoFocus',
         description: {
             ru: 'Устанавливает фокус в поле формы.',
         },
