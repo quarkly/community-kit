@@ -1,6 +1,8 @@
 export default {
+    name: '',
+    defaultValue: '',
     multiple: false,
-    autofocus: false,
+    autoFocus: false,
     required: false,
     disabled: false,
 };

@@ -10,6 +10,16 @@ export default {
         category: 'Main',
         weight: 1,
     },
+    defaultValue: {
+        title: 'Default Value',
+        description: {
+            ru: 'Заранее устанавливает определенный пункт списка выделенным.',
+        },
+        control: 'input',
+        type: 'text',
+        category: 'Main',
+        weight: 1,
+    },
     multiple: {
         title: 'Multiple',
         description: {
@@ -18,10 +28,10 @@ export default {
         },
         control: 'checkbox',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
-    autofocus: {
-        title: 'Autofocus',
+    autoFocus: {
+        title: 'AutoFocus',
         description: {
             ru:
                 'Устанавливает, что список получает фокус после загрузки страницы.',

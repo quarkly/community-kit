@@ -9,8 +9,9 @@ const Select = atomize.select();
 
 const SelectComponent = ({
     name,
+    defaultValue,
     multiple,
-    autofocus,
+    autoFocus,
     required,
     disabled,
     ...props
@@ -22,10 +23,11 @@ const SelectComponent = ({
         <Wrapper position="relative">
             <Select
                 name={name}
-                multiple={multiple ? 'multiple' : undefined}
-                autofocus={autofocus ? 'autofocus' : undefined}
-                required={required ? 'required' : undefined}
-                disabled={disabled ? 'disabled' : undefined}
+                defaultValue={defaultValue || undefined}
+                multiple={multiple || undefined}
+                autoFocus={autoFocus || undefined}
+                required={required || undefined}
+                disabled={disabled || undefined}
                 appearance="none"
                 padding="6px 16px"
                 padding-right={!multiple ? '30px' : undefined}
