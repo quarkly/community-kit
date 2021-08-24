@@ -4,7 +4,6 @@ export default {
     Input: {
         kind: 'Checkbox',
         props: {
-            type: 'checkbox',
             position: 'absolute',
             opacity: '0',
             'z-index': '-1',

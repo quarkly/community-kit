@@ -10,27 +10,27 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    value: {
+    defaultChecked: {
+        title: 'Default Checked',
+        description: {
+            ru: 'Выделение элемента по умолчанию.',
+        },
+        control: 'checkbox',
+        category: 'Main',
+        weight: 1,
+    },
+    defaultValue: {
         title: 'Value',
         description: {
-            ru: 'Значение элемента.',
+            ru: 'Значение элемента по умолчанию.',
         },
         control: 'input',
         type: 'text',
         category: 'Main',
-        weight: 0.5,
+        weight: 1,
     },
-    checked: {
-        title: 'Checked',
-        description: {
-            ru: 'Значение элемента по умолчанию.',
-        },
-        control: 'checkbox',
-        category: 'Main',
-        weight: 0.5,
-    },
-    autofocus: {
-        title: 'Autofocus',
+    autoFocus: {
+        title: 'AutoFocus',
         description: {
             ru: 'Устанавливает фокус в поле формы.',
         },
