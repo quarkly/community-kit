@@ -2,7 +2,7 @@ import React from 'react';
 import Form from './Form';
 import { Box, Button } from '@quarkly/widgets';
 import { Override } from '@quarkly/components';
-import { Label, Input, Textarea, Select, Option, Checkbox } from '..';
+import { Label, Input, Textarea, Select, Option, Checkbox, Radio } from '..';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
 
@@ -66,7 +66,7 @@ export const StoryDefault = (props) => (
                 placeholder="Email"
                 type="email"
                 required={true}
-                autofocus={true}
+                autoFocus={true}
             />
         </Label>
         <Label {...labelStyles}>
@@ -85,13 +85,12 @@ export const StoryDefault = (props) => (
                 <Select
                     {...inputStyles}
                     name="state"
+                    defaultValue={['CA']}
                     multiple={true}
                     required={true}
                 >
                     <Option>Select state:</Option>
-                    <Option value="CA" selected={true}>
-                        California
-                    </Option>
+                    <Option value="CA">California</Option>
                     <Option value="TX">Texas</Option>
                     <Option value="FL">Florida</Option>
                     <Option value="NY">New York</Option>
@@ -109,12 +108,15 @@ export const StoryDefault = (props) => (
             </Label>
             <Label {...labelStyles}>
                 <Override slot="Text">City</Override>
-                <Select {...inputStyles} name="city" required={true}>
+                <Select
+                    {...inputStyles}
+                    name="city"
+                    defaultValue="los-angeles"
+                    required={true}
+                >
                     <Option>Select city:</Option>
                     <Option value="new-york">New York</Option>
-                    <Option value="los-angeles" selected={true}>
-                        Los Angeles
-                    </Option>
+                    <Option value="los-angeles">Los Angeles</Option>
                     <Option value="chicago">Chicago</Option>
                     <Option value="houston">Houston</Option>
                     <Option value="phoenix">Phoenix</Option>
@@ -143,6 +145,33 @@ export const StoryDefault = (props) => (
                 resize="none"
             />
         </Label>
+        <Box {...boxStyles}>
+            <Label {...labelStyles}>
+                <Override slot="Text">Gender</Override>
+                <Radio
+                    name="gender"
+                    defaultValue="male"
+                    defaultChecked="checked"
+                >
+                    Male
+                </Radio>
+                <Radio name="gender" defaultValue="female">
+                    Female
+                </Radio>
+                <Radio name="gender" defaultValue="other">
+                    Other
+                </Radio>
+            </Label>
+            <Label {...labelStyles}>
+                <Override slot="Text">Age</Override>
+                <Radio name="age" defaultValue="lt" defaultChecked="checked">
+                    &lt; 18
+                </Radio>
+                <Radio name="age" defaultValue="gt">
+                    &gt;= 18
+                </Radio>
+            </Label>
+        </Box>
         <Label {...labelStyles}>
             <Override slot="Text">Agreement</Override>
             <Checkbox value="agree" checked={true}>

@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useState, useCallback, useMemo, useRef } from 'react';
 import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
@@ -25,15 +25,26 @@ const FormComponent = ({
     ...props
 }) => {
     const { override, children, rest } = useOverrides(props, overrides);
+    const [radioList, setRadioList] = useState({});
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const contentRef = useRef();
 
+    const onRadioMountEvent = useCallback((name, value) => {
+        setRadioList((obj) => ({ ...obj, [name]: value }));
+    }, []);
+    const onRadioClickEvent = useCallback((name, value) => {
+        setRadioList((obj) => ({ ...obj, [name]: value }));
+    }, []);
+
     const context = useMemo(
         () => ({
+            radioList,
+            onRadioClickEvent,
+            onRadioMountEvent,
             onSubmitCb,
             onResetCb,
         }),
-        [onSubmitCb, onResetCb]
+        [radioList, onRadioMountEvent, onRadioClickEvent, onSubmitCb, onResetCb]
     );
 
     return (
