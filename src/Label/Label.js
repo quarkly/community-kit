@@ -9,7 +9,7 @@ const LabelComponent = ({ forId, ...props }) => {
     const { override, children, rest } = useOverrides(props, overrides);
 
     return (
-        <Label for={forId} width="100%" display="block" {...rest}>
+        <Label htmlFor={forId} width="100%" display="block" {...rest}>
             <Text {...override('Text')} />
             {children}
         </Label>
