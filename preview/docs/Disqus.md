@@ -23,7 +23,7 @@ To get `Your feed name` (Shortname):
 1.  Sign up for [Disqus](https://disqus.com/profile/signup/)
 2.  Go to the [Disqus comment creation page](https://disqus.com/admin/create) for your site
 
-    ![Создать Disqus для вашего сайта](https://test-upl.quarkly.io/60474504627982001eb71a51/images/1.png?v=2021-04-22T09:20:49.350Z)
+    ![Create Disqus for your website](https://test-upl.quarkly.io/60474504627982001eb71a51/images/1.png?v=2021-04-22T09:20:49.350Z)
 
 3.  Go to your profile settings where you can find `Your feed name` (Shortname) of your website.
 
@@ -33,23 +33,23 @@ To get `Your feed name` (Shortname):
 
 ### In the interface
 
-| Prop Name             | Default | Example |
-| :-------------------- | :-----: | :-----: |
-| Discussion identifier |   `-`   |   `-`   |
-| Discussion URL        |   `-`   |   `-`   |
-| Discussion title      |   `-`   |   `-`   |
-| Your feed name        |   `-`   |   `-`   |
-| Widget language       |  `en`   |  `ru`   |
+| Prop Name        | Default |         Example         |
+| :--------------- | :-----: | :---------------------: |
+| Discussion ID    |   `-`   |  `Your discussion ID`   |
+| Discussion URL   |   `-`   |  `Your discussion URL`  |
+| Discussion title |   `-`   | `Your discussion title` |
+| Your feed name   |   `-`   |    `Your feed name`     |
+| Widget language  |  `en`   |          `ru`           |
 
 ### In the code (for developers)
 
-| Prop Name             | Name in the code |   Type   | Default | Example |
-| :-------------------- | :--------------: | :------: | :-----: | :-----: |
-| Discussion identifier | `identifierProp` | `string` |   `-`   |   `-`   |
-| Discussion URL        |    `urlProp`     | `string` |   `-`   |   `-`   |
-| Discussion title      |   `titleProp`    | `string` |   `-`   |   `-`   |
-| Your feed name        | `shortnameProp`  | `string` |   `-`   |   `-`   |
-| Widget language       |  `languageProp`  |  `enum`  |  `en`   |  `ru`   |
+| Prop Name        | Name in the code |   Type   | Default |         Example         |
+| :--------------- | :--------------: | :------: | :-----: | :---------------------: |
+| Discussion ID    | `identifierProp` | `string` |   `-`   |  `Your discussion ID`   |
+| Discussion URL   |    `urlProp`     | `string` |   `-`   |  `Your discussion URL`  |
+| Discussion title |   `titleProp`    | `string` |   `-`   | `Your discussion title` |
+| Your feed name   | `shortnameProp`  | `string` |   `-`   |    `Your feed name`     |
+| Widget language  |  `languageProp`  | `string` |  `en`   |          `ru`           |
 
 #### The 'Widget language' property values
 

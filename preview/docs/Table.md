@@ -14,23 +14,23 @@ The `Short Description` prop allows you to add a short description of the table 
 
 ### In the interface
 
-| Prop name         |   Default   |  Example  |
-| :---------------- | :---------: | :-------: |
-| Number of columns |     `8`     |   `12`    |
-| Number of rows    |     `4`     |    `6`    |
-| Display header    | `Unchecked` | `Checked` |
-| Display footer    | `Unchecked` | `Checked` |
-| Short description |     `-`     |    `-`    |
+| Prop name         |   Default   |       Example       |
+| :---------------- | :---------: | :-----------------: |
+| Number of columns |     `8`     |        `12`         |
+| Number of rows    |     `4`     |         `6`         |
+| Display header    | `Unchecked` |      `Checked`      |
+| Display footer    | `Unchecked` |      `Checked`      |
+| Short description |     `-`     | `Table description` |
 
 ### In the code (for developers)
 
-| Prop name         | Name in the code |   Type    | Default | Example |
-| :---------------- | :--------------: | :-------: | :-----: | :-----: |
-| Number of columns |    `colsProp`    | `string`  |   `8`   |  `12`   |
-| Number of rows    |    `rowsProp`    | `string`  |   `4`   |   `6`   |
-| Display header    |   `showHeader`   | `boolean` | `false` | `true`  |
-| Display footer    |   `showFooter`   | `boolean` | `false` | `true`  |
-| Short description |    `summary`     | `string`  |   `-`   |   `-`   |
+| Prop name         | Name in the code |   Type    | Default |       Example       |
+| :---------------- | :--------------: | :-------: | :-----: | :-----------------: |
+| Number of columns |    `colsProp`    | `string`  |   `8`   |        `12`         |
+| Number of rows    |    `rowsProp`    | `string`  |   `4`   |         `6`         |
+| Display header    |   `showHeader`   | `boolean` | `false` |       `true`        |
+| Display footer    |   `showFooter`   | `boolean` | `false` |       `true`        |
+| Short description |    `summary`     | `string`  |   `-`   | `Table description` |
 
 ## 🗄 GitHub
 

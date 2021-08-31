@@ -27,14 +27,14 @@ For the component to work properly in the builder, set the height limit in the p
 
 ### In the code (for developers)
 
-| Prop name       |  Name in the code   |   Type    |   Default   | Example  |
-| :-------------- | :-----------------: | :-------: | :---------: | :------: |
-| Image           |     `imageURL`      | `string`  |     `-`     |   `-`    |
-| Image size      |     `imageSize`     | `string`  |   `cover`   |  `100%`  |
-| Image alignment |   `imagePosition`   |  `enum`   |   `left`    | `center` |
-| Repeat image    |    `imageRepeat`    |  `enum`   | `no-repeat` | `repeat` |
-| Scroll speed    |  `scrollSpeedProp`  | `boolean` |    `0.5`    |   `1`    |
-| Scroll inertia  | `scrollInertiaProp` | `boolean` |     `1`     |   `2`    |
+| Prop name       |  Name in the code   |   Type   |   Default   | Example  |
+| :-------------- | :-----------------: | :------: | :---------: | :------: |
+| Image           |     `imageURL`      | `string` |     `-`     |   `-`    |
+| Image size      |     `imageSize`     | `string` |   `cover`   |  `100%`  |
+| Image alignment |   `imagePosition`   |  `enum`  |   `left`    | `center` |
+| Repeat image    |    `imageRepeat`    |  `enum`  | `no-repeat` | `repeat` |
+| Scroll speed    |  `scrollSpeedProp`  | `number` |    `0.5`    |   `1`    |
+| Scroll inertia  | `scrollInertiaProp` | `number` |     `1`     |   `2`    |
 
 #### The 'Image alignment' property values
 

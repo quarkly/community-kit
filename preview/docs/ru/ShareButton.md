@@ -35,31 +35,31 @@
 
 ### В интерфейсе
 
-| Названия свойств   |                   По умолчанию                   |                 Пример                  |
-| :----------------- | :----------------------------------------------: | :-------------------------------------: |
-| Ссылка на сайт     |              `https://quarkly.io/`               |       `https://www.instagram.com`       |
-| Заголовок сайта    |                    `Quarkly`                     |               `Instagram`               |
-| Описание           | `Design tool for creating websites and web apps` | `Capture, edit & share photos & videos` |
-| Комментарий        |                       `–`                        |        `Follow me on Instagram`         |
-| Хештег             |                       `–`                        |              `#instagram`               |
-| Сервис             |                    `Facebook`                    |               `Instagram`               |
-| Ширина             |                      `640`                       |                 `1280`                  |
-| Высота             |                      `640`                       |                  `720`                  |
-| Открывать в попапе |                   `Не отмечен`                   |                `Отмечен`                |
+| Названия свойств   |                   По умолчанию                   |                    Пример                    |
+| :----------------- | :----------------------------------------------: | :------------------------------------------: |
+| Ссылка на сайт     |              `https://quarkly.io/`               |            `https://twitter.com/`            |
+| Заголовок сайта    |                    `Quarkly`                     |                  `Twitter`                   |
+| Описание           | `Design tool for creating websites and web apps` |   `Twitter is what’s happening right now`    |
+| Комментарий        |                       `–`                        | `Life’s not about a job, it’s about purpose` |
+| Хештег             |                       `–`                        |                  `#twitter`                  |
+| Сервис             |                    `Facebook`                    |                  `Twitter`                   |
+| Ширина             |                      `640`                       |                    `1280`                    |
+| Высота             |                      `640`                       |                    `720`                     |
+| Открывать в попапе |                   `Не отмечен`                   |                  `Отмечен`                   |
 
 ### В коде (для разработчиков)
 
-| Названия свойств   | Название в коде |    Тип    |                   По умолчанию                   |                 Пример                  |
-| :----------------- | :-------------: | :-------: | :----------------------------------------------: | :-------------------------------------: |
-| Ссылка на сайт     |      `url`      | `string`  |              `https://quarkly.io/`               |       `https://www.instagram.com`       |
-| Заголовок сайта    |     `title`     | `string`  |                    `Quarkly`                     |               `Instagram`               |
-| Описание           |  `description`  | `string`  | `Design tool for creating websites and web apps` | `Capture, edit & share photos & videos` |
-| Комментарий        |     `quote`     | `string`  |                       `–`                        |        `Follow me on Instagram`         |
-| Хештег             |    `hashtag`    | `string`  |                       `–`                        |              `#instagram`               |
-| Сервис             |    `service`    |  `enum`   |                     `light`                      |                 `dark`                  |
-| Ширина             |  `windowWidth`  | `number`  |                      `640`                       |                 `1280`                  |
-| Высота             | `windowHeight`  | `number`  |                      `640`                       |                  `720`                  |
-| Открывать в попапе |     `popup`     | `boolean` |                     `false`                      |                 `true`                  |
+| Названия свойств   | Название в коде |    Тип    |                   По умолчанию                   |                    Пример                    |
+| :----------------- | :-------------: | :-------: | :----------------------------------------------: | :------------------------------------------: |
+| Ссылка на сайт     |      `url`      | `string`  |              `https://quarkly.io/`               |            `https://twitter.com/`            |
+| Заголовок сайта    |     `title`     | `string`  |                    `Quarkly`                     |                  `Twitter`                   |
+| Описание           |  `description`  | `string`  | `Design tool for creating websites and web apps` |   `Twitter is what’s happening right now`    |
+| Комментарий        |     `quote`     | `string`  |                       `–`                        | `Life’s not about a job, it’s about purpose` |
+| Хештег             |    `hashtag`    | `string`  |                       `–`                        |                  `#twitter`                  |
+| Сервис             |    `service`    |  `enum`   |                     `light`                      |                  `Twitter`                   |
+| Ширина             |  `windowWidth`  | `number`  |                      `640`                       |                    `1280`                    |
+| Высота             | `windowHeight`  | `number`  |                      `640`                       |                    `720`                     |
+| Открывать в попапе |     `popup`     | `boolean` |                     `false`                      |                    `true`                    |
 
 #### Значения свойства 'Сервис'
 
@@ -71,7 +71,7 @@
 
 ## 🗄 GitHub
 
-[Ссылка на GitHub](https://github.com/quarkly/community-kit/tree/master/src/ReCaptcha)
+[Ссылка на GitHub](https://github.com/quarkly/community-kit/tree/master/src/ShareButton)
 
 ## 🗓 Changelog
 

@@ -14,35 +14,35 @@ To get the `API key`, follow the [instructions](https://yandex.ru/blog/mapsapi/n
 
 ### In the interface
 
-| Prop name        |   Default    |   Example    |
-| :--------------- | :----------: | :----------: |
-| API Key          |     `-`      |   `123456`   |
-| Map scale        |     `9`      |     `5`      |
-| Latitude         | `40.714599`  | `60.714599`  |
-| Longitude        | `-74.002791` | `-34.002791` |
-| Search           |   `false`    |    `true`    |
-| Full screen view |   `false`    |    `true`    |
-| Geo              |   `false`    |    `true`    |
-| Scale            |   `false`    |    `true`    |
-| Traffic          |   `false`    |    `true`    |
-| Ruler            |   `false`    |    `true`    |
-| Layers options   |   `false`    |    `true`    |
+| Prop name        |   Default    |                                      Example                                      |
+| :--------------- | :----------: | :-------------------------------------------------------------------------------: |
+| API Key          |     `-`      | [`Your API Key`](https://yandex.ru/blog/mapsapi/novye-pravila-dostupa-k-api-kart) |
+| Map scale        |     `9`      |                                        `5`                                        |
+| Latitude         | `40.714599`  |                                    `60.714599`                                    |
+| Longitude        | `-74.002791` |                                   `-34.002791`                                    |
+| Search           | `Unchecked`  |                                     `Checked`                                     |
+| Full screen view | `Unchecked`  |                                     `Checked`                                     |
+| Geo              | `Unchecked`  |                                     `Checked`                                     |
+| Scale            | `Unchecked`  |                                     `Checked`                                     |
+| Traffic          | `Unchecked`  |                                     `Checked`                                     |
+| Ruler            | `Unchecked`  |                                     `Checked`                                     |
+| Layers options   | `Unchecked`  |                                     `Checked`                                     |
 
 ### In the code (for developers)
 
-| Prop name        |   Название в коде    |   Type    |   Default    |   Example    |
-| :--------------- | :------------------: | :-------: | :----------: | :----------: |
-| API Key          |       `apikey`       | `string`  |     `-`      |   `123456`   |
-| Map scale        |     `zoomValue`      | `string`  |     `9`      |     `5`      |
-| Latitude         |   `latitudeCenter`   | `string`  | `40.714599`  | `60.714599`  |
-| Longitude        |  `longitudeCenter`   | `string`  | `-74.002791` | `-34.002791` |
-| Search           |   `searchControl`    | `boolean` |   `false`    |    `true`    |
-| Full screen view | `fullscreenControl`  | `boolean` |   `false`    |    `true`    |
-| Geo              | `geolocationControl` | `boolean` |   `false`    |    `true`    |
-| Scale            |    `zoomControl`     | `boolean` |   `false`    |    `true`    |
-| Traffic          |   `trafficControl`   | `boolean` |   `false`    |    `true`    |
-| Ruler            |    `rulerControl`    | `boolean` |   `false`    |    `true`    |
-| Layers options   | `typeSelectorContol` | `boolean` |   `false`    |    `true`    |
+| Prop name        |   Название в коде    |   Type    |   Default    |                                      Example                                      |
+| :--------------- | :------------------: | :-------: | :----------: | :-------------------------------------------------------------------------------: |
+| API Key          |       `apikey`       | `string`  |     `-`      | [`Your API Key`](https://yandex.ru/blog/mapsapi/novye-pravila-dostupa-k-api-kart) |
+| Map scale        |     `zoomValue`      | `string`  |     `9`      |                                        `5`                                        |
+| Latitude         |   `latitudeCenter`   | `string`  | `40.714599`  |                                    `60.714599`                                    |
+| Longitude        |  `longitudeCenter`   | `string`  | `-74.002791` |                                   `-34.002791`                                    |
+| Search           |   `searchControl`    | `boolean` |   `false`    |                                      `true`                                       |
+| Full screen view | `fullscreenControl`  | `boolean` |   `false`    |                                      `true`                                       |
+| Geo              | `geolocationControl` | `boolean` |   `false`    |                                      `true`                                       |
+| Scale            |    `zoomControl`     | `boolean` |   `false`    |                                      `true`                                       |
+| Traffic          |   `trafficControl`   | `boolean` |   `false`    |                                      `true`                                       |
+| Ruler            |    `rulerControl`    | `boolean` |   `false`    |                                      `true`                                       |
+| Layers options   | `typeSelectorContol` | `boolean` |   `false`    |                                      `true`                                       |
 
 ## 🗄 GitHub
 

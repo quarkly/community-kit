@@ -17,27 +17,27 @@ By default, the `Link to the button image` has the `https://www.paypalobjects.co
 
 ### In the interface
 
-| Prop Name                         | Default | Example |
-| :-------------------------------- | :-----: | :-----: |
-| Open in a new window              | `true`  | `false` |
-| Link to the button image          |   `-`   |   `-`   |
-| Your PayPal ID or or email        |   `-`   |   `-`   |
-| Product description               |   `-`   |   `-`   |
-| Tracking ID                       |   `-`   |   `-`   |
-| Product / service price or number |   `-`   |   `-`   |
-| Currency code                     |  `USD`  |  `EUR`  |
+| Prop Name                         |               Default               |          Example           |
+| :-------------------------------- | :---------------------------------: | :------------------------: |
+| Open in a new window              |               `true`                |          `false`           |
+| Link to the button image          | `https://www.paypalobjects.com/...` |    `Link to your image`    |
+| Your PayPal ID or email           |                 `-`                 | `Your PayPal ID or email`  |
+| Product description               |                 `-`                 | `Your product description` |
+| Tracking ID                       |                 `-`                 |     `Your tracking ID`     |
+| Product / service price or number |                 `-`                 |           `100`            |
+| Currency code                     |                `USD`                |           `EUR`            |
 
 ### In the code (for developers)
 
-| Prop Name                         | Name in the code |   Type    | Default | Example |
-| :-------------------------------- | :--------------: | :-------: | :-----: | :-----: |
-| Open in a new window              |     `newTab`     | `boolean` | `true`  | `false` |
-| Link to the button image          |  `buttonImage`   |  `image`  |   `-`   |   `-`   |
-| Your PayPal ID or or email        |    `business`    | `string`  |   `-`   |   `-`   |
-| Product description               |    `itemName`    | `string`  |   `-`   |   `-`   |
-| Tracking ID                       |   `itemNumber`   | `string`  |   `-`   |   `-`   |
-| Product / service price or number |     `amount`     | `string`  |   `-`   |   `-`   |
-| Currency code                     |  `currencyCode`  | `string`  |  `USD`  |  `EUR`  |
+| Prop Name                         | Name in the code |   Type    |               Default               |          Example           |
+| :-------------------------------- | :--------------: | :-------: | :---------------------------------: | :------------------------: |
+| Open in a new window              |     `newTab`     | `boolean` |               `true`                |          `false`           |
+| Link to the button image          |  `buttonImage`   |  `image`  | `https://www.paypalobjects.com/...` |    `Link to your image`    |
+| Your PayPal ID or email           |    `business`    | `string`  |                 `-`                 | `Your PayPal ID or email`  |
+| Product description               |    `itemName`    | `string`  |                 `-`                 | `Your product description` |
+| Tracking ID                       |   `itemNumber`   | `string`  |                 `-`                 |     `Your tracking ID`     |
+| Product / service price or number |     `amount`     | `string`  |                 `-`                 |           `100`            |
+| Currency code                     |  `currencyCode`  | `string`  |                `USD`                |           `EUR`            |
 
 ## 🗄 GitHub
 

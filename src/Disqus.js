@@ -60,8 +60,8 @@ const DisqusComponent = ({
 const propInfo = {
     identifierProp: {
         title: {
-            en: 'Discussion identifier',
-            ru: 'Идентификатор обсуждения',
+            en: 'Discussion ID',
+            ru: 'ID обсуждения',
         },
         control: 'input',
         type: 'text',
