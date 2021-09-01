@@ -25,7 +25,7 @@ If you choose `auto` in the `Aspect ratio` prop, the image size (height & width)
 | Aspect ratio       |     `auto`     |   `1:1`    |
 | Smooth animation и | `cubic-bezier` | `ease-in`  |
 | Animation duration |     `1000`     |   `2000`   |
-| Flip card          |    `false`     |   `true`   |
+| Flip card          |  `Unchecked`   | `Checked`  |
 
 ### In the code (for developers)
 
@@ -62,13 +62,13 @@ If you choose `auto` in the `Aspect ratio` prop, the image size (height & width)
 
 The names of the `Smooth animation` property values fully match.
 
-#### The 'Image aspect ratio' property values
+#### The 'Aspect ratio' property values
 
 | User-friendly name | Name in the code |
 | :----------------- | :--------------: |
 | 16:9               |      `16:9`      |
 
-The names of the `Image aspect ratio` property values fully match.
+The names of the `Aspect ratio` property values fully match.
 
 ## 🗄 GitHub
 

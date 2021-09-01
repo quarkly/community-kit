@@ -18,23 +18,23 @@ Add the component to the page and specify the `Name or link to the user page`.
 | Hide footer                       |  `Unchecked`  |  `Checked`  |
 | Hide widget borders               |  `Unchecked`  |  `Checked`  |
 | Hide widget background            |  `Unchecked`  |  `Checked`  |
-| Hide widget background            |  `Unchecked`  |  `Checked`  |
-| Tweet border color (#HEX only)    |      `-`      |   `#000`    |
+| Hide scroll bar                   |  `Unchecked`  |  `Checked`  |
+| Tweet border color (#HEX only)    |      `-`      |  `#000000`  |
 | ARIA live politeness              |   `polite`    | `assertive` |
 
 ### In the code (for developers)
 
 | Prop name                         | Name in the code |   Type    |    Default    |   Example   |
 | :-------------------------------- | :--------------: | :-------: | :-----------: | :---------: |
-| Name or link to the user page     |    `account`     | `string`  | `@quarklyapp` | `@username` |
-| Limit the number of tweets (1-20) |     `writer`     | `string`  |      `1`      |    `20`     |
-| Hide header                       |    `targets`     | `boolean` |    `false`    |   `true`    |
-| Hide footer                       |      `sum`       | `boolean` |    `false`    |   `true`    |
-| Hide widget borders               |   `buttonText`   | `boolean` |    `false`    |   `true`    |
-| Hide widget background            |    `payment`     | `boolean` |    `false`    |   `true`    |
-| Hide widget background            |      `fio`       | `boolean` |    `false`    |   `true`    |
-| Tweet border color (#HEX only)    |     `email`      | `string`  |      `-`      |   `#000`    |
-| ARIA live politeness              |     `phone`      |  `enum`   |   `polite`    | `assertive` |
+| Name or link to the user page     |  `dataProvider`  | `string`  | `@quarklyapp` | `@username` |
+| Limit the number of tweets (1-20) |   `tweetLimit`   | `string`  |      `1`      |    `20`     |
+| Hide header                       |    `noheader`    | `boolean` |    `false`    |   `true`    |
+| Hide footer                       |    `nofooter`    | `boolean` |    `false`    |   `true`    |
+| Hide widget borders               |   `noborders`    | `boolean` |    `false`    |   `true`    |
+| Hide widget background            |  `transparent`   | `boolean` |    `false`    |   `true`    |
+| Hide scroll bar                   |  `noscrollbar`   | `boolean` |    `false`    |   `true`    |
+| Tweet border color (#HEX only)    |  `tweetBorder`   | `string`  |      `-`      |  `#000000`  |
+| ARIA live politeness              |   `ariaPolite`   |  `enum`   |   `polite`    | `assertive` |
 
 #### The 'ARIA live politeness' property values
 

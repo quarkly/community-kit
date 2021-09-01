@@ -35,31 +35,31 @@ Below please see the table with allowed properties for each social network.
 
 ### In the interface
 
-| Prop name               |                     Default                      |                 Example                 |
-| :---------------------- | :----------------------------------------------: | :-------------------------------------: |
-| Site link               |              `https://quarkly.io/`               |       `https://www.instagram.com`       |
-| Site title              |                    `Quarkly`                     |               `Instagram`               |
-| Description             | `Design tool for creating websites and web apps` | `Capture, edit & share photos & videos` |
-| Comment                 |                       `–`                        |        `Follow me on Instagram`         |
-| Hashtag                 |                       `–`                        |              `#instagram`               |
-| Service                 |                    `Facebook`                    |               `Instagram`               |
-| Width                   |                      `640`                       |                 `1280`                  |
-| Высота                  |                      `640`                       |                  `720`                  |
-| Open in a pop-up window |                   `Unchecked`                    |                `Checked`                |
+| Prop name               |                     Default                      |                   Example                    |
+| :---------------------- | :----------------------------------------------: | :------------------------------------------: |
+| Site link               |              `https://quarkly.io/`               |            `https://twitter.com/`            |
+| Site title              |                    `Quarkly`                     |                  `Twitter`                   |
+| Description             | `Design tool for creating websites and web apps` |   `Twitter is what’s happening right now`    |
+| Comment                 |                       `–`                        | `Life’s not about a job, it’s about purpose` |
+| Hashtag                 |                       `–`                        |                  `#twitter`                  |
+| Service                 |                    `Facebook`                    |                  `Twitter`                   |
+| Width                   |                      `640`                       |                    `1280`                    |
+| Высота                  |                      `640`                       |                    `720`                     |
+| Open in a pop-up window |                   `Unchecked`                    |                  `Checked`                   |
 
 ### In the code (for developers)
 
-| Prop name               | Name in the code |   Type    |                     Default                      |                 Example                 |
-| :---------------------- | :--------------: | :-------: | :----------------------------------------------: | :-------------------------------------: |
-| Site link               |      `url`       | `string`  |              `https://quarkly.io/`               |       `https://www.instagram.com`       |
-| Site title              |     `title`      | `string`  |                    `Quarkly`                     |               `Instagram`               |
-| Description             |  `description`   | `string`  | `Design tool for creating websites and web apps` | `Capture, edit & share photos & videos` |
-| Comment                 |     `quote`      | `string`  |                       `–`                        |        `Follow me on Instagram`         |
-| Hashtag                 |    `hashtag`     | `string`  |                       `–`                        |              `#instagram`               |
-| Service                 |    `service`     |  `enum`   |                     `light`                      |                 `dark`                  |
-| Width                   |  `windowWidth`   | `number`  |                      `640`                       |                 `1280`                  |
-| Height                  |  `windowHeight`  | `number`  |                      `640`                       |                  `720`                  |
-| Open in a pop-up window |     `popup`      | `boolean` |                     `false`                      |                 `true`                  |
+| Prop name               | Name in the code |   Type    |                     Default                      |                    Example                    |
+| :---------------------- | :--------------: | :-------: | :----------------------------------------------: | :-------------------------------------------: |
+| Site link               |      `url`       | `string`  |              `https://quarkly.io/`               |            `https://twitter.com/`             |
+| Site title              |     `title`      | `string`  |                    `Quarkly`                     |                   `Twitter`                   |
+| Description             |  `description`   | `string`  | `Design tool for creating websites and web apps` |    `Twitter is what’s happening right now`    |
+| Comment                 |     `quote`      | `string`  |                       `–`                        | `FLife’s not about a job, it’s about purpose` |
+| Hashtag                 |    `hashtag`     | `string`  |                       `–`                        |                  `#twitter`                   |
+| Service                 |    `service`     |  `enum`   |                     `light`                      |                   `Twitter`                   |
+| Width                   |  `windowWidth`   | `number`  |                      `640`                       |                    `1280`                     |
+| Height                  |  `windowHeight`  | `number`  |                      `640`                       |                     `720`                     |
+| Open in a pop-up window |     `popup`      | `boolean` |                     `false`                      |                    `true`                     |
 
 #### The 'Service' property values
 
@@ -71,7 +71,7 @@ The names of the `Service` property values fully match.
 
 ## 🗄 GitHub
 
-[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/ReCaptcha)
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/ShareButton)
 
 ## 🗓 Changelog
 

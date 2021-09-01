@@ -13,19 +13,19 @@ reCAPTCHA is a free service that protects your site from spam and abuse. It uses
 
 ### In the interface
 
-| Prop name      | Default  |  Example  |
-| :------------- | :------: | :-------: |
-| Client API key |   `-`    | `123456`  |
-| Theme          | `Light`  |  `Dark`   |
-| Size           | `Normal` | `Compact` |
+| Prop name      | Default  |                             Example                             |
+| :------------- | :------: | :-------------------------------------------------------------: |
+| Client API key |   `-`    | [`Your API Key`](https://www.google.com/recaptcha/admin/create) |
+| Theme          | `Light`  |                             `Dark`                              |
+| Size           | `Normal` |                            `Compact`                            |
 
 ### In the code (for developers)
 
-| Prop name      | Name in the code |   Type   | Default  |  Example  |
-| :------------- | :--------------: | :------: | :------: | :-------: |
-| Client API key |  `animDuration`  | `string` |   `-`    | `123456`  |
-| Theme          |  `animFunction`  |  `enum`  | `light`  |  `dark`   |
-| Size           |   `onloadShow`   |  `enum`  | `normal` | `compact` |
+| Prop name      | Name in the code |   Type   | Default  |                             Example                             |
+| :------------- | :--------------: | :------: | :------: | :-------------------------------------------------------------: |
+| Client API key |    `sitekey`     | `string` |   `-`    | [`Your API Key`](https://www.google.com/recaptcha/admin/create) |
+| Theme          |     `theme`      |  `enum`  | `light`  |                             `dark`                              |
+| Size           |      `size`      |  `enum`  | `normal` |                            `compact`                            |
 
 #### The 'Theme' property values
 

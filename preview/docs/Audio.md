@@ -16,23 +16,23 @@ The Audio component can contain the `Source` and `Track` components.
 
 ### In the interface
 
-| Prop name          | Default | Example |
-| :----------------- | :-----: | :-----: |
-| Link to audio file |   `-`   |   `-`   |
-| Auto playback      | `false` | `true`  |
-| Show controls      | `true`  | `false` |
-| Sound off          | `false` | `true`  |
-| Loop playback      | `false` | `true`  |
+| Prop name          |   Default   |       Example       |
+| :----------------- | :---------: | :-----------------: |
+| Link to audio file |     `-`     | `Link to your file` |
+| Auto playback      | `Unchecked` |      `Checked`      |
+| Show controls      |  `Checked`  |     `Unchecked`     |
+| Sound off          | `Unchecked` |      `Checked`      |
+| Loop playback      | `Unchecked` |      `Checked`      |
 
 ### In the code (for developers)
 
-| Prop name          | Name in the code |   Type    | Default | Example |
-| :----------------- | :--------------: | :-------: | :-----: | :-----: |
-| Link to audio file |     `title`      | `string`  |   `-`   |   `-`   |
-| Auto playback      |    `autoPlay`    | `boolean` | `false` | `true`  |
-| Show controls      |    `controls`    | `boolean` | `true`  | `false` |
-| Sound off          |     `muted`      | `boolean` | `false` | `true`  |
-| Loop playback      |      `loop`      | `boolean` | `false` | `true`  |
+| Prop name          | Name in the code |   Type    | Default |       Example       |
+| :----------------- | :--------------: | :-------: | :-----: | :-----------------: |
+| Link to audio file |     `title`      | `string`  |   `-`   | `Link to your file` |
+| Auto playback      |    `autoPlay`    | `boolean` | `false` |       `true`        |
+| Show controls      |    `controls`    | `boolean` | `true`  |       `false`       |
+| Sound off          |     `muted`      | `boolean` | `false` |       `true`        |
+| Loop playback      |      `loop`      | `boolean` | `false` |       `true`        |
 
 ## 🗄 GitHub
 

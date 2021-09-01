@@ -20,19 +20,19 @@ This component helps add a Netlify form and send it to [Netlify Forms](https://w
 
 ### In the interface
 
-| Prop Name       |        Default         | Example |
-| :-------------- | :--------------------: | :-----: |
-| Form name       |       `my-form`        |   `-`   |
-| Success message |       `Success`        |   `-`   |
-| Error message   | `Something went wrong` |   `-`   |
+| Prop Name       |        Default         |        Example         |
+| :-------------- | :--------------------: | :--------------------: |
+| Form name       |       `my-form`        |    `Your form name`    |
+| Success message |       `Success`        | `Your success message` |
+| Error message   | `Something went wrong` |  `Your error message`  |
 
 ### In the code (for developers)
 
-| Prop Name       | Name in the code |   Type   |        Default         | Example |
-| :-------------- | :--------------: | :------: | :--------------------: | :-----: |
-| Form name       |    `formName`    | `string` |       `my-form`        |   `-`   |
-| Success message | `successMessage` | `string` |       `Success`        |   `-`   |
-| Error message   |  `errorMessage`  | `string` | `Something went wrong` |   `-`   |
+| Prop Name       | Name in the code |   Type   |        Default         |        Example         |
+| :-------------- | :--------------: | :------: | :--------------------: | :--------------------: |
+| Form name       |    `formName`    | `string` |       `my-form`        |    `Your form name`    |
+| Success message | `successMessage` | `string` |       `Success`        | `Your success message` |
+| Error message   |  `errorMessage`  | `string` | `Something went wrong` |  `Your error message`  |
 
 ## 🗄 GitHub
 

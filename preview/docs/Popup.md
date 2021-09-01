@@ -30,11 +30,11 @@ To do this:
 
 ### In the interface
 
-| Prop name                    | Default  |  Example  |
-| :--------------------------- | :------: | :-------: |
-| Hide/show animation duration | `0.15s`  |  `0.2s`   |
-| Smooth animation             | `linear` | `ease-in` |
-| Show a pop-up when loading   | `false`  |  `true`   |
+| Prop name                    |   Default   |  Example  |
+| :--------------------------- | :---------: | :-------: |
+| Hide/show animation duration |   `0.15s`   |  `0.2s`   |
+| Smooth animation             |  `linear`   | `ease-in` |
+| Show a pop-up when loading   | `Unchecked` | `Checked` |
 
 ### In the code (for developers)
 

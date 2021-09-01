@@ -17,35 +17,35 @@ To do it, follow the link [VK Comment](https://vk.com/dev/Comments)
 
 ### In the interface
 
-| Prop Name                        |   Default   |  Example  |
-| :------------------------------- | :---------: | :-------: |
-| VK app ID                        |     `-`     | `123456`  |
-| VK page ID                       |     `-`     | `123456`  |
-| Max. comments                    |     `5`     |   `20`    |
-| Auto publishing                  | `Unchecked` | `Checked` |
-| Update in real time              | `Unchecked` | `Checked` |
-| Link to the page with the widget |     `-`     |    `-`    |
-| Add graffiti                     | `Unchecked` | `Checked` |
-| Add photo                        | `Unchecked` | `Checked` |
-| Add audio                        | `Unchecked` | `Checked` |
-| Add video                        | `Unchecked` | `Checked` |
-| Add link                         | `Unchecked` | `Checked` |
+| Prop Name                        |   Default   |                     Example                     |
+| :------------------------------- | :---------: | :---------------------------------------------: |
+| VK app ID                        |     `-`     | [`Your VK app ID`](https://vk.com/dev/Comments) |
+| VK page ID                       |     `-`     |                `Your VK page ID`                |
+| Max. comments                    |     `5`     |                      `20`                       |
+| Auto publishing                  | `Unchecked` |                    `Checked`                    |
+| Update in real time              | `Unchecked` |                    `Checked`                    |
+| Link to the page with the widget |     `-`     |                       `-`                       |
+| Add graffiti                     | `Unchecked` |                    `Checked`                    |
+| Add photo                        | `Unchecked` |                    `Checked`                    |
+| Add audio                        | `Unchecked` |                    `Checked`                    |
+| Add video                        | `Unchecked` |                    `Checked`                    |
+| Add link                         | `Unchecked` |                    `Checked`                    |
 
 ### In the code (for developers)
 
-| Prop Name                        | Name in the code |   Type    | Default | Example  |
-| :------------------------------- | :--------------: | :-------: | :-----: | :------: |
-| VK app ID                        |     `apiId`      | `string`  |   `-`   | `123456` |
-| VK page ID                       |     `pageId`     | `string`  |   `-`   | `123456` |
-| Max. comments                    |     `limit`      | `number`  |   `5`   |   `20`   |
-| Auto publishing                  |  `autoPublish`   | `boolean` | `false` |  `true`  |
-| Update in real time              |    `realtime`    | `boolean` | `false` |  `true`  |
-| Link to the page with the widget |    `pageUrl`     | `string`  |   `-`   |   `-`    |
-| Add graffiti                     | `attachGraffiti` | `boolean` | `false` |  `true`  |
-| Add photo                        |  `attachPhoto`   | `boolean` | `false` |  `true`  |
-| Add audio                        |  `attachAudio`   | `boolean` | `false` |  `true`  |
-| Add video                        |  `attachVideo`   | `boolean` | `false` |  `true`  |
-| Add link                         |   `attachLink`   | `boolean` | `false` |  `true`  |
+| Prop Name                        | Name in the code |   Type    | Default |                     Example                     |
+| :------------------------------- | :--------------: | :-------: | :-----: | :---------------------------------------------: |
+| VK app ID                        |     `apiId`      | `string`  |   `-`   | [`Your VK app ID`](https://vk.com/dev/Comments) |
+| VK page ID                       |     `pageId`     | `string`  |   `-`   |                `Your VK page ID`                |
+| Max. comments                    |     `limit`      | `number`  |   `5`   |                      `20`                       |
+| Auto publishing                  |  `autoPublish`   | `boolean` | `false` |                     `true`                      |
+| Update in real time              |    `realtime`    | `boolean` | `false` |                     `true`                      |
+| Link to the page with the widget |    `pageUrl`     | `string`  |   `-`   |                       `-`                       |
+| Add graffiti                     | `attachGraffiti` | `boolean` | `false` |                     `true`                      |
+| Add photo                        |  `attachPhoto`   | `boolean` | `false` |                     `true`                      |
+| Add audio                        |  `attachAudio`   | `boolean` | `false` |                     `true`                      |
+| Add video                        |  `attachVideo`   | `boolean` | `false` |                     `true`                      |
+| Add link                         |   `attachLink`   | `boolean` | `false` |                     `true`                      |
 
 ## 🗄 GitHub
 

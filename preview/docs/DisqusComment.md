@@ -18,21 +18,21 @@ You can get the comment identifier, for example, by following the `Share` link.
 
 ### In the interface
 
-| Prop Name            | Default | Example |
-| :------------------- | :-----: | :-----: |
-| Comment identifier   |   `-`   |   `-`   |
-| Show parent comment  | `false` | `true`  |
-| Comment block width  | `100%`  |  `50%`  |
-| Comment block height | `200px` | `250px` |
+| Prop Name            |   Default   |      Example      |
+| :------------------- | :---------: | :---------------: |
+| Comment identifier   |     `-`     | `Your comment ID` |
+| Show parent comment  | `Unchecked` |     `Checked`     |
+| Comment block width  |   `100%`    |       `50%`       |
+| Comment block height |   `200px`   |      `250px`      |
 
 ### In the code (for developers)
 
-| Prop Name            | Name in the code |   Type    | Default | Example |
-| :------------------- | :--------------: | :-------: | :-----: | :-----: |
-| Comment identifier   | `commentIDProp`  | `string`  |   `-`   |   `-`   |
-| Show parent comment  |  `showParrent`   | `boolean` | `false` | `true`  |
-| Comment block width  |   `widthProp`    | `string`  | `100%`  |  `50%`  |
-| Comment block height |   `heightProp`   | `string`  | `200px` | `250px` |
+| Prop Name            | Name in the code |   Type    | Default |      Example      |
+| :------------------- | :--------------: | :-------: | :-----: | :---------------: |
+| Comment identifier   | `commentIDProp`  | `string`  |   `-`   | `Your comment ID` |
+| Show parent comment  |  `showParrent`   | `boolean` | `false` |      `true`       |
+| Comment block width  |   `widthProp`    | `string`  | `100%`  |       `50%`       |
+| Comment block height |   `heightProp`   | `string`  | `200px` |      `250px`      |
 
 ## 🗄 GitHub
 

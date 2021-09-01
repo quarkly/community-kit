@@ -85,7 +85,16 @@ const propInfo = {
             ru: 'Тип проигрывателя',
         },
         control: 'radio-group',
-        variants: ['standart', 'visual'],
+        variants: [
+            {
+                title: 'Standart',
+                value: 'standart',
+            },
+            {
+                title: 'Visual',
+                value: 'visual',
+            },
+        ],
         category: 'Main',
         weight: 1,
     },

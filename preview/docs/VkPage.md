@@ -5,12 +5,12 @@ This component allows you to add the VK widget.
 ## ⚙️ Usage
 
 1.  Add the component to the page
-2.  Enter your `Community identifier` and `Container identifier`
+2.  Enter your `VK community ID` and `Widget container ID`
 3.  See how it works in the preview mode
 
 ### Display modes
 
-The `View` property is responsible for the display mode of the widget contents. Three options are available:
+The `What to display in the widget` property is responsible for the display mode of the widget contents. Three options are available:
 
 -   Display the community members
 -   Display the community wall
@@ -26,10 +26,10 @@ If you select the `Enable advanced mode` property, a 'Like' button and a communi
 
 | Prop name                               |             Default             |           Example            |
 | :-------------------------------------- | :-----------------------------: | :--------------------------: |
-| VK community ID                         |               `-`               |           `123456`           |
-| Widget container ID                     |               `-`               |           `123456`           |
-| Widget background color                 |             `#fff`              |            `blue`            |
-| Widget text color                       |             `#000`              |            `#fff`            |
+| VK community ID                         |               `-`               |    `Your VK community ID`    |
+| Widget container ID                     |               `-`               |  `Your widget container ID`  |
+| Widget background color                 |            `#FFFFFF`            |          `#0000FF`           |
+| Widget text color                       |            `#000000`            |          `#FFFFFF`           |
 | Widget link color                       |            `#5181B8`            |          `#fdfdfd`           |
 | What to display in the widget           | `Display the community members` | `Display the community wall` |
 | Don't display the community cover photo |           `Unchecked`           |          `Checked`           |
@@ -37,18 +37,18 @@ If you select the `Enable advanced mode` property, a 'Like' button and a communi
 
 ### In the code (for developers)
 
-| Prop name                                | Name in the code |   Type    |  Default  |   Example   |
-| :--------------------------------------- | :--------------: | :-------: | :-------: | :---------: |
-| VK community ID                          |    `groupId`     | `string`  |    `-`    |  `123456`   |
-| Widget container ID                      |   `elementId`    | `string`  |    `-`    |  `123456`   |
-| Widget background color                  |  `colorBground`  | `string`  |  `#fff`   |   `blue`    |
-| Widget text color                        |  `colorPrimary`  | `string`  |  `#000`   |   `#fff`    |
-| Widget link color                        |  `colorAccent`   | `string`  | `#5181B8` |  `#fdfdfd`  |
-| What to display in the widget            |      `mode`      |  `enum`   | `Members` | `Only name` |
-| НDon't display the community cover photo |    `noCover`     | `boolean` |  `false`  |   `true`    |
-| Enable advanced mode                     |      `wide`      | `boolean` |  `false`  |   `true`    |
+| Prop name                                | Name in the code |   Type    |  Default  |          Example           |
+| :--------------------------------------- | :--------------: | :-------: | :-------: | :------------------------: |
+| VK community ID                          |    `groupId`     | `string`  |    `-`    |   `Your VK community ID`   |
+| Widget container ID                      |   `elementId`    | `string`  |    `-`    | `Your widget container ID` |
+| Widget background color                  |  `colorBground`  | `string`  | `#FFFFFF` |         `#0000FF`          |
+| Widget text color                        |  `colorPrimary`  | `string`  | `#000000` |         `#FFFFFF`          |
+| Widget link color                        |  `colorAccent`   | `string`  | `#5181B8` |         `#fdfdfd`          |
+| What to display in the widget            |      `mode`      |  `enum`   | `Members` |        `Only name`         |
+| НDon't display the community cover photo |    `noCover`     | `boolean` |  `false`  |           `true`           |
+| Enable advanced mode                     |      `wide`      | `boolean` |  `false`  |           `true`           |
 
-#### The 'Who specifies the transfer reason' property values
+#### The 'What to display in the widget' property values
 
 | User-friendly name              | Name in the code |
 | :------------------------------ | :--------------: |

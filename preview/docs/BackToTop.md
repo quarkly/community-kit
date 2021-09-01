@@ -30,6 +30,14 @@ The `Show Button Always` prop makes a button always visible on scroll. You may n
 | Animation duration        |    `duration`    | `string`  |     `1000`      | `15000`  |
 | Animation easing preset   |  `easingPreset`  |  `enum`   | `easeInOutQuad` | `linear` |
 
+#### The 'Animation easing preset' property values
+
+| User-friendly name | Name in the code |
+| :----------------- | :--------------: |
+| linear             |     `linear`     |
+
+The names of the `Animation easing preset` property values fully match.
+
 ## 🗄 GitHub
 
 [Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/BackToTop.js)

@@ -14,17 +14,17 @@ To get the `API Key` follow the [instruction](https://developers.google.com/maps
 
 ### In the interface
 
-| Prop name    |  Default   | Example  |
-| :----------- | :--------: | :------: |
-| API Key      |    `-`     |   `-`    |
-| Select place | `New York` | `London` |
+| Prop name    |  Default   |                                          Example                                          |
+| :----------- | :--------: | :---------------------------------------------------------------------------------------: |
+| API Key      |    `-`     | [`Your API Key`](https://developers.google.com/maps/documentation/javascript/get-api-key) |
+| Select place | `New York` |                                         `London`                                          |
 
 ### In the code (for developers)
 
-| Prop name    | Name in the code |   Type   |  Default   | Example  |
-| :----------- | :--------------: | :------: | :--------: | :------: |
-| API Key      |     `apiKey`     | `string` |    `-`     |   `-`    |
-| Select place |     `query`      | `string` | `New York` | `London` |
+| Prop name    | Name in the code |   Type   |  Default   |                                          Example                                          |
+| :----------- | :--------------: | :------: | :--------: | :---------------------------------------------------------------------------------------: |
+| API Key      |     `apiKey`     | `string` |    `-`     | [`Your API Key`](https://developers.google.com/maps/documentation/javascript/get-api-key) |
+| Select place |     `query`      | `string` | `New York` |                                         `London`                                          |
 
 ## 🗄 GitHub
 
