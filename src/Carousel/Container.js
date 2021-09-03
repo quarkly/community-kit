@@ -1,17 +1,10 @@
-import React, { useEffect, useMemo } from 'react';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-
+import React, { useEffect, useRef, useState } from 'react';
 import { propInfo, defaultProps, overrides } from './props';
-import { rootReducer, initialState, init, deinit } from './store';
 import Component from './Component';
+import { SliderContainer } from './store/store';
 
 const Container = (props) => {
-    const store = useMemo(() => {
-        return createStore(rootReducer, initialState, applyMiddleware(thunk));
-    }, []);
-
+    const [, force] = useState({});
     const {
         slidesProp,
         durationProp,
@@ -23,23 +16,22 @@ const Container = (props) => {
         autoPlayPauseProp,
     } = props;
 
-    useEffect(() => {
-        store.dispatch(
-            init({
-                slidesProp,
-                durationProp,
-                functionProp,
-                autoPlay,
-                autoPlayBehavior,
-                autoPlayIntervalProp,
-                autoPlayDelayProp,
-                autoPlayPauseProp,
-            })
-        );
+    const storeRef = useRef(null);
 
-        return () => store.dispatch(deinit());
+    useEffect(() => {
+        storeRef.current = new SliderContainer({
+            slidesProp,
+            durationProp,
+            functionProp,
+            autoPlay,
+            autoPlayBehavior,
+            autoPlayIntervalProp,
+            autoPlayDelayProp,
+            autoPlayPauseProp,
+        });
+        force({});
+        return () => storeRef.current && storeRef.current.off();
     }, [
-        store,
         slidesProp,
         durationProp,
         functionProp,
@@ -51,9 +43,7 @@ const Container = (props) => {
     ]);
 
     return (
-        <Provider store={store}>
-            <Component {...props} />
-        </Provider>
+        storeRef.current && <Component store={storeRef.current} {...props} />
     );
 };
 

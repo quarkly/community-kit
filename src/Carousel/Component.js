@@ -1,11 +1,22 @@
-import React, { useCallback, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useCallback, useRef, useState, useEffect } from 'react';
+// eslint-disable-next-line camelcase
+import { unstable_batchedUpdates } from 'react-dom';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
 import { Arrow, Point, Slide } from './components';
 import { useResize, useKeyboard } from './hooks';
 import { overrides } from './props';
-import { clickPrev, clickNext } from './store';
+
+export const useStore = (store, selector) => {
+    const [, force] = useState({});
+    useEffect(() => {
+        const cb = () => unstable_batchedUpdates(() => force({}));
+        return store._run || !store.watch
+            ? store.listen(cb)
+            : store.watch(selector, cb);
+    }, [selector, store]);
+    return store.get(selector);
+};
 
 const Component = ({
     aspectRatio,
@@ -15,12 +26,9 @@ const Component = ({
     showHead,
     showText,
     showLink,
+    store,
     ...props
 }) => {
-    const { override, rest } = useOverrides(props, overrides);
-    const [sliderRef, width, height] = useResize(aspectRatio);
-    const slidesRef = useRef(null);
-
     const {
         slidesNumb,
         slidesList,
@@ -29,26 +37,24 @@ const Component = ({
         active,
         position,
         animate,
-    } = useSelector((state) => state);
+    } = useStore(store.repository);
 
-    const dispatch = useDispatch();
+    const { override, rest } = useOverrides(props, overrides);
+    const [sliderRef, width, height] = useResize(aspectRatio);
+    const slidesRef = useRef(null);
 
     const clickNumb = useCallback(
-        (newActive) =>
-            dispatch({
-                type: 'CLICK_NUMB',
-                active: newActive,
-            }),
-        [dispatch]
+        (newActive) => store.clickNumb({ active: newActive }),
+        [store]
     );
 
     const onClickPrev = useCallback(() => {
-        dispatch(clickPrev());
-    }, [dispatch]);
+        store.clickPrev();
+    }, [store]);
 
     const onClickNext = useCallback(() => {
-        dispatch(clickNext());
-    }, [dispatch]);
+        store.clickNext();
+    }, [store]);
 
     useKeyboard(sliderRef, onClickNext, onClickPrev);
 
