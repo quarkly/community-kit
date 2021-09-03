@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect } from 'react';
 import { propInfo, defaultProps, overrides } from './props';
 import Component from './Component';
-import { SliderContainer } from './store/store';
+import { SliderContainer } from './store';
 
 const Container = (props) => {
-    const [, force] = useState({});
     const {
         slidesProp,
         durationProp,
@@ -16,22 +15,8 @@ const Container = (props) => {
         autoPlayPauseProp,
     } = props;
 
-    const storeRef = useRef(null);
-
-    useEffect(() => {
-        storeRef.current = new SliderContainer({
-            slidesProp,
-            durationProp,
-            functionProp,
-            autoPlay,
-            autoPlayBehavior,
-            autoPlayIntervalProp,
-            autoPlayDelayProp,
-            autoPlayPauseProp,
-        });
-        force({});
-        return () => storeRef.current && storeRef.current.off();
-    }, [
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const container = new SliderContainer({
         slidesProp,
         durationProp,
         functionProp,
@@ -40,11 +25,13 @@ const Container = (props) => {
         autoPlayIntervalProp,
         autoPlayDelayProp,
         autoPlayPauseProp,
-    ]);
+    });
 
-    return (
-        storeRef.current && <Component store={storeRef.current} {...props} />
-    );
+    useEffect(() => {
+        return () => container.off();
+    }, [container]);
+
+    return <Component store={container} {...props} />;
 };
 
 Object.assign(Container, {

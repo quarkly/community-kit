@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { update, createAtom } from 'dotto.x';
 import initialState from './initial-state';
 import { parseTime } from '../../utils';
@@ -15,7 +14,8 @@ export class SliderContainer {
         autoPlayDelayProp,
         autoPlayPauseProp,
     }) {
-        this.repository = createAtom();
+        this.repository = createAtom(initialState);
+
         const slidesNumb =
             parseInt(slidesProp, 10) > 0 ? parseInt(slidesProp, 10) : 1;
         const slidesList = [
@@ -43,9 +43,7 @@ export class SliderContainer {
             this.startAutoPlay();
         }
 
-        this.repository.set({
-            ...initialState,
-
+        this.update({
             slidesNumb,
             slidesList,
             animDuration,
