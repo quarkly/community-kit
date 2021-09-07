@@ -16,41 +16,41 @@ If the `Play in the background` prop is enabled, the video will be played in the
 
 ### In the interface
 
-| Prop name                     |  Default  |  Example  |
-| :---------------------------- | :-------: | :-------: |
-| Video link or ID              |    `-`    |    `-`    |
-| Playback start time (in sec.) |    `0`    |   `30`    |
-| Auto playback                 |  `false`  |  `true`   |
-| Auto pause                    |  `true`   |  `false`  |
-| Show controls                 |  `true`   |  `false`  |
-| Controls color                | `#00ADEF` | `#000000` |
-| Loop playback                 |  `false`  |  `true`   |
-| Show video title              |  `true`   |  `false`  |
-| Show video preview            |  `true`   |  `false`  |
-| Show owner name               |  `true`   |  `false`  |
-| Sound volume (from 0 to 1)    |    `1`    |    `0`    |
-| Sound off                     |  `false`  |  `true`   |
-| Playing in the background     |  `false`  |  `true`   |
-| By the width of the parent    |  `true`   |  `false`  |
+| Prop name                     |   Default   |     Example      |
+| :---------------------------- | :---------: | :--------------: |
+| Video link or ID              |     `-`     | `Your video URL` |
+| Playback start time (in sec.) |     `0`     |       `30`       |
+| Auto playback                 | `Unchecked` |    `Checked`     |
+| Auto pause                    |  `Checked`  |   `Unchecked`    |
+| Show controls                 |  `Checked`  |   `Unchecked`    |
+| Controls color                |  `#00ADEF`  |    `#000000`     |
+| Loop playback                 | `Unchecked` |    `Checked`     |
+| Show video title              |  `Checked`  |   `Unchecked`    |
+| Show video preview            |  `Checked`  |   `Unchecked`    |
+| Show owner name               |  `Checked`  |   `Unchecked`    |
+| Sound volume (from 0 to 1)    |     `1`     |       `0`        |
+| Sound off                     | `Unchecked` |    `Checked`     |
+| Play in the background        | `Unchecked` |    `Checked`     |
+| By the width of the parent    |  `Checked`  |   `Unchecked`    |
 
 ### In the code (for developers)
 
-| Prop name                     | Name in the code |   Type    |  Default  |  Example  |
-| :---------------------------- | :--------------: | :-------: | :-------: | :-------: |
-| Video link or ID              |     `video`      | `string`  |    `-`    |    `-`    |
-| Playback start time (in sec.) |     `start`      | `number`  |    `0`    |   `30`    |
-| Auto playback                 |    `autoplay`    | `boolean` |  `false`  |  `true`   |
-| Auto pause                    |   `autopause`    | `boolean` |  `true`   |  `false`  |
-| Show controls                 |    `controls`    | `boolean` |  `true`   |  `false`  |
-| Controls color                |     `color`      | `string`  | `#00ADEF` | `#000000` |
-| Loop playback                 |      `loop`      | `boolean` |  `false`  |  `true`   |
-| Show video title              |   `showTitle`    | `boolean` |  `true`   |  `false`  |
-| Show video preview            |  `showPortrait`  | `boolean` |  `true`   |  `false`  |
-| Show owner name               |   `showByline`   | `boolean` |  `true`   |  `false`  |
-| Sound volume (from 0 to 1)    |     `volume`     | `number`  |    `1`    |    `0`    |
-| Sound off                     |     `muted`      | `boolean` |  `false`  |  `true`   |
-| Playing in the background     | `playBackground` | `boolean` |  `false`  |  `true`   |
-| By the width of the parent    |   `responsive`   | `boolean` |  `true`   |  `false`  |
+| Prop name                     | Name in the code |   Type    |  Default  |     Example      |
+| :---------------------------- | :--------------: | :-------: | :-------: | :--------------: |
+| Video link or ID              |     `video`      | `string`  |    `-`    | `Your video URL` |
+| Playback start time (in sec.) |     `start`      | `number`  |    `0`    |       `30`       |
+| Auto playback                 |    `autoplay`    | `boolean` |  `false`  |      `true`      |
+| Auto pause                    |   `autopause`    | `boolean` |  `true`   |     `false`      |
+| Show controls                 |    `controls`    | `boolean` |  `true`   |     `false`      |
+| Controls color                |     `color`      | `string`  | `#00ADEF` |    `#000000`     |
+| Loop playback                 |      `loop`      | `boolean` |  `false`  |      `true`      |
+| Show video title              |   `showTitle`    | `boolean` |  `true`   |     `false`      |
+| Show video preview            |  `showPortrait`  | `boolean` |  `true`   |     `false`      |
+| Show owner name               |   `showByline`   | `boolean` |  `true`   |     `false`      |
+| Sound volume (from 0 to 1)    |     `volume`     | `number`  |    `1`    |       `0`        |
+| Sound off                     |     `muted`      | `boolean` |  `false`  |      `true`      |
+| Play in the background        | `playBackground` | `boolean` |  `false`  |      `true`      |
+| By the width of the parent    |   `responsive`   | `boolean` |  `true`   |     `false`      |
 
 ## 🗄 GitHub
 

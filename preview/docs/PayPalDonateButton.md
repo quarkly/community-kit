@@ -19,7 +19,7 @@ By default, the `Link to the button image` has the `https://www.paypalobjects.co
 
 | Prop Name                         |               Default               |          Example           |
 | :-------------------------------- | :---------------------------------: | :------------------------: |
-| Open in a new window              |               `true`                |          `false`           |
+| Open in a new window              |              `Checked`              |        `Unchecked`         |
 | Link to the button image          | `https://www.paypalobjects.com/...` |    `Link to your image`    |
 | Your PayPal ID or email           |                 `-`                 | `Your PayPal ID or email`  |
 | Product description               |                 `-`                 | `Your product description` |

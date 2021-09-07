@@ -272,7 +272,7 @@ const defaultProps = {
     flipTriggerProp: 'click',
     flipDirectionProp: 'toRight',
     aspectRatioProp: 'auto',
-    flipDurationProp: '1000',
+    flipDurationProp: '1s',
     timingFunctionProp: 'cubic-bezier(.50,-0.35,.50,1.65)',
     isFlippedProp: false,
 };

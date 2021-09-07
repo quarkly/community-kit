@@ -35,8 +35,8 @@ During the transfer, you can ask the sender their full name, email, phone number
 | :-------------------------------- | :---------: | :-------------------------------------------: |
 | YooMoney wallet ID                |     `-`     | [`Your wallet ID`](https://yoomoney.ru/start) |
 | Who specifies the transfer reason |  `Seller`   |                    `Buyer`                    |
-| Transfer reason                   |     `-`     |            `For the site hosting`             |
-| Amount                            |     `-`     |                     `250`                     |
+| Transfer reason                   |  `Donate`   |            `For the site hosting`             |
+| Transfer amount by default        |     `0`     |                     `250`                     |
 | Button text                       | `Transfer`  |                   `Donate`                    |
 | Use credit card                   | `Unchecked` |                   `Checked`                   |
 | Request sender's full name        | `Unchecked` |                   `Checked`                   |
@@ -45,7 +45,7 @@ During the transfer, you can ask the sender their full name, email, phone number
 | Request sender's address          | `Unchecked` |                   `Checked`                   |
 | Request sender's comments         | `Unchecked` |                   `Checked`                   |
 | Tip for sender                    |     `-`     |        `Your comments and suggestions`        |
-| Go to the page after transfer     |     `-`     |                `Your page URL`                |
+| Go to the URL after transfer      |     `-`     |                `Your page URL`                |
 | Mobile version                    | `Unchecked` |                   `Checked`                   |
 
 ### In the code (for developers)
@@ -54,8 +54,8 @@ During the transfer, you can ask the sender their full name, email, phone number
 | :-------------------------------- | :--------------: | :-------: | :------: | :-------------------------------------------: |
 | YooMoney wallet ID                |    `account`     | `string`  |   `-`    | [`Your wallet ID`](https://yoomoney.ru/start) |
 | Who specifies the transfer reason |     `writer`     |  `enum`   | `seller` |                    `buyer`                    |
-| Transfer reason                   |    `targets`     | `string`  |   `-`    |            `For the site hosting`             |
-| Amount                            |      `sum`       | `string`  |   `-`    |                      `-`                      |
+| Transfer reason                   |    `targets`     | `string`  | `Donate` |            `For the site hosting`             |
+| Transfer amount by default        |      `sum`       | `string`  |   `0`    |                      `-`                      |
 | Button text                       |   `buttonText`   |  `enum`   |   `11`   |                     `14`                      |
 | Use credit card                   |    `payment`     | `boolean` | `false`  |                    `true`                     |
 | Request sender's full name        |      `fio`       | `boolean` | `false`  |                    `true`                     |
@@ -64,7 +64,7 @@ During the transfer, you can ask the sender their full name, email, phone number
 | Request sender's address          |    `address`     | `boolean` | `false`  |                    `true`                     |
 | Request sender's comments         |    `comment`     | `boolean` | `false`  |                    `true`                     |
 | Tip for sender                    |      `hint`      | `string`  |   `-`    |        `Your comments and suggestions`        |
-| Go to the page after transfer     |   `successURL`   | `string`  |   `-`    |                `Your page URL`                |
+| Go to the URL after transfer      |   `successURL`   | `string`  |   `-`    |                `Your page URL`                |
 | Mobile version                    | `mobilePayment`  | `boolean` | `false`  |                    `true`                     |
 
 #### The 'Who specifies the transfer reason' property values

@@ -28,36 +28,35 @@ The UTM tag name must:
 
 ### In the interface
 
-| Prop name          |     Default     |                        Example                        |
-| :----------------- | :-------------: | :---------------------------------------------------: |
-| Facebook app ID    |       `-`       | [`Your app ID`](https://developers.facebook.com/apps) |
-|                    |
-| Link to the page   |       `-`       |                  `Link to your page`                  |
-| Component language |    `English`    |                       `Russian`                       |
-| Color scheme       |     `Light`     |                        `Dark`                         |
-| ´Share´ button     |     `Hide`      |                        `Show`                         |
-| Layout             | `Standard view` |                    `Simple button`                    |
-| Button size        |     `Small`     |                        `Large`                        |
-| On click action    |     `Like`      |                      `Recommend`                      |
-| Made for kids      |   `Unchecked`   |                       `Checked`                       |
-| UTM tag            |       `-`       |                    `Your UTM tag`                     |
+| Prop name        |     Default      |                        Example                        |
+| :--------------- | :--------------: | :---------------------------------------------------: |
+| Facebook app ID  |       `-`        | [`Your app ID`](https://developers.facebook.com/apps) |
+| Link to the page |       `-`        |                  `Link to your page`                  |
+| Widget language  |    `English`     |                       `Russian`                       |
+| Color scheme     |     `Light`      |                        `Dark`                         |
+| 'Share' button   |      `Hide`      |                        `Show`                         |
+| Layout           | `Default layout` |                    `Simple button`                    |
+| Button size      |     `Small`      |                        `Large`                        |
+| On click action  |      `Like`      |                      `Recommend`                      |
+| Site for kids    |   `Unchecked`    |                       `Checked`                       |
+| UTM tag          |       `-`        |                    `Your UTM tag`                     |
 
 ### In the code (for developers)
 
-| Prop name          | Name in the code  |   Type    |  Default   |                        Example                        |
-| :----------------- | :---------------: | :-------: | :--------: | :---------------------------------------------------: |
-| Facebook app ID    |      `appId`      | `string`  |    `-`     | [`Your app ID`](https://developers.facebook.com/apps) |
-| Link to the page   |      `href`       | `string`  |    `-`     |                  `Link to your page`                  |
-| Component language |    `language`     |  `enum`   |  `en_US`   |                        `ru_RU`                        |
-| Color scheme       |   `colorScheme`   |  `enum`   |  `light`   |                        `dark`                         |
-| ´Share´ button     |    `showShare`    |  `enum`   |   `hide`   |                        `show`                         |
-| Layout             |     `layout`      |  `enum`   | `standard` |                      `box_count`                      |
-| Button size        |      `size`       |  `enum`   |  `small`   |                        `large`                        |
-| On click action    |     `action`      |  `enum`   |   `like`   |                      `recommend`                      |
-| Made for kids      | `kidDirectedSite` | `boolean` |  `false`   |                        `true`                         |
-| UTM tag            |    `referral`     | `string`  |    `-`     |                    `Your UTM tag`                     |
+| Prop name        | Name in the code  |   Type    |  Default   |                        Example                        |
+| :--------------- | :---------------: | :-------: | :--------: | :---------------------------------------------------: |
+| Facebook app ID  |      `appId`      | `string`  |    `-`     | [`Your app ID`](https://developers.facebook.com/apps) |
+| Link to the page |      `href`       | `string`  |    `-`     |                  `Link to your page`                  |
+| Widget language  |    `language`     |  `enum`   |  `en_US`   |                        `ru_RU`                        |
+| Color scheme     |   `colorScheme`   |  `enum`   |  `light`   |                        `dark`                         |
+| 'Share' button   |    `showShare`    |  `enum`   |   `hide`   |                        `show`                         |
+| Layout           |     `layout`      |  `enum`   | `standard` |                       `button`                        |
+| Button size      |      `size`       |  `enum`   |  `small`   |                        `large`                        |
+| On click action  |     `action`      |  `enum`   |   `like`   |                      `recommend`                      |
+| Site for kids    | `kidDirectedSite` | `boolean` |  `false`   |                        `true`                         |
+| UTM tag          |    `referral`     | `string`  |    `-`     |                    `Your UTM tag`                     |
 
-#### The 'Component language' property values
+#### The 'Widget language' property values
 
 | User-friendly name | Name in the code |
 | :----------------- | :--------------: |

@@ -23,7 +23,7 @@ The `Image sources` and `Container size` props allow you to explicitly define th
 | Audio and video codecs         |   `-`   |       `vp8, vorbis`       |
 | Image sources                  |   `-`   |   `Link to your image`    |
 | Container size                 |   `-`   | `(min-width: 768px) 50vw` |
-| Device category                |  `all`  |         `screen`          |
+| Device category                |  `All`  |         `Screen`          |
 | Media query for image download |   `-`   |   `(min-width: 768px)`    |
 | MIME type image                |   `-`   |        `image/png`        |
 

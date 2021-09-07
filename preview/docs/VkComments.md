@@ -23,13 +23,13 @@ To do it, follow the link [VK Comment](https://vk.com/dev/Comments)
 | VK page ID                       |     `-`     |                `Your VK page ID`                |
 | Max. comments                    |     `5`     |                      `20`                       |
 | Auto publishing                  | `Unchecked` |                    `Checked`                    |
-| Update in real time              | `Unchecked` |                    `Checked`                    |
-| Link to the page with the widget |     `-`     |                       `-`                       |
-| Add graffiti                     | `Unchecked` |                    `Checked`                    |
-| Add photo                        | `Unchecked` |                    `Checked`                    |
-| Add audio                        | `Unchecked` |                    `Checked`                    |
-| Add video                        | `Unchecked` |                    `Checked`                    |
-| Add link                         | `Unchecked` |                    `Checked`                    |
+| Update in real time              |  `Checked`  |                   `Unchecked`                   |
+| Link to the page with the widget |     `-`     |               `Link to your page`               |
+| Add graffiti                     |  `Checked`  |                   `Unchecked`                   |
+| Add photo                        |  `Checked`  |                   `Unchecked`                   |
+| Add audio                        |  `Checked`  |                   `Unchecked`                   |
+| Add video                        |  `Checked`  |                   `Unchecked`                   |
+| Add link                         |  `Checked`  |                   `Unchecked`                   |
 
 ### In the code (for developers)
 
@@ -39,13 +39,13 @@ To do it, follow the link [VK Comment](https://vk.com/dev/Comments)
 | VK page ID                       |     `pageId`     | `string`  |   `-`   |                `Your VK page ID`                |
 | Max. comments                    |     `limit`      | `number`  |   `5`   |                      `20`                       |
 | Auto publishing                  |  `autoPublish`   | `boolean` | `false` |                     `true`                      |
-| Update in real time              |    `realtime`    | `boolean` | `false` |                     `true`                      |
-| Link to the page with the widget |    `pageUrl`     | `string`  |   `-`   |                       `-`                       |
-| Add graffiti                     | `attachGraffiti` | `boolean` | `false` |                     `true`                      |
-| Add photo                        |  `attachPhoto`   | `boolean` | `false` |                     `true`                      |
-| Add audio                        |  `attachAudio`   | `boolean` | `false` |                     `true`                      |
-| Add video                        |  `attachVideo`   | `boolean` | `false` |                     `true`                      |
-| Add link                         |   `attachLink`   | `boolean` | `false` |                     `true`                      |
+| Update in real time              |    `realtime`    | `boolean` | `true`  |                     `false`                     |
+| Link to the page with the widget |    `pageUrl`     | `string`  |   `-`   |               `Link to your page`               |
+| Add graffiti                     | `attachGraffiti` | `boolean` | `true`  |                     `false`                     |
+| Add photo                        |  `attachPhoto`   | `boolean` | `true`  |                     `false`                     |
+| Add audio                        |  `attachAudio`   | `boolean` | `true`  |                     `false`                     |
+| Add video                        |  `attachVideo`   | `boolean` | `true`  |                     `false`                     |
+| Add link                         |   `attachLink`   | `boolean` | `true`  |                     `false`                     |
 
 ## 🗄 GitHub
 

@@ -30,7 +30,7 @@ If you select the `Enable advanced mode` property, a 'Like' button and a communi
 | Widget container ID                     |               `-`               |  `Your widget container ID`  |
 | Widget background color                 |            `#FFFFFF`            |          `#0000FF`           |
 | Widget text color                       |            `#000000`            |          `#FFFFFF`           |
-| Widget link color                       |            `#5181B8`            |          `#fdfdfd`           |
+| Widget link color                       |            `#5181B8`            |          `#FDFDFD`           |
 | What to display in the widget           | `Display the community members` | `Display the community wall` |
 | Don't display the community cover photo |           `Unchecked`           |          `Checked`           |
 | Enable advanced mode                    |           `Unchecked`           |          `Checked`           |
@@ -43,8 +43,8 @@ If you select the `Enable advanced mode` property, a 'Like' button and a communi
 | Widget container ID                      |   `elementId`    | `string`  |    `-`    | `Your widget container ID` |
 | Widget background color                  |  `colorBground`  | `string`  | `#FFFFFF` |         `#0000FF`          |
 | Widget text color                        |  `colorPrimary`  | `string`  | `#000000` |         `#FFFFFF`          |
-| Widget link color                        |  `colorAccent`   | `string`  | `#5181B8` |         `#fdfdfd`          |
-| What to display in the widget            |      `mode`      |  `enum`   | `Members` |        `Only name`         |
+| Widget link color                        |  `colorAccent`   | `string`  | `#5181B8` |         `#FDFDFD`          |
+| What to display in the widget            |      `mode`      |  `enum`   |    `3`    |            `4`             |
 | НDon't display the community cover photo |    `noCover`     | `boolean` |  `false`  |           `true`           |
 | Enable advanced mode                     |      `wide`      | `boolean` |  `false`  |           `true`           |
 

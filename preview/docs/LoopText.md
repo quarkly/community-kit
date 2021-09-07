@@ -18,11 +18,11 @@ Please note that the slides can't be removed by default. So just replace the def
 
 | Prop name                                  |               Default               |      Example      |
 | :----------------------------------------- | :---------------------------------: | :---------------: |
-| Slider list                                | `['coolest', 'fastest', 'easiest']` | `[first, second]` |
-| Slideshow intervals                        |               `3000`                |      `1500`       |
+| Slide list                                 | `['coolest', 'fastest', 'easiest']` | `[first, second]` |
+| Slideshow intervals                        |               `1500`                |      `3000`       |
 | Delay before animation starts              |                 `0`                 |      `1000`       |
 | Container change duration                  |                `150`                |       `50`        |
-| Hide/show animation                        |              `Checked`              |    `Unchecked`    |
+| Show/hide animation                        |              `Checked`              |    `Unchecked`    |
 | Hide animation at the container boundaries |             `Unchecked`             |     `Checked`     |
 | Forbid line breaking                       |              `Checked`              |    `Unchecked`    |
 
@@ -30,11 +30,11 @@ Please note that the slides can't be removed by default. So just replace the def
 
 | Prop name                                  |   Name in the code   |   Type    |               Default               |      Example      |
 | :----------------------------------------- | :------------------: | :-------: | :---------------------------------: | :---------------: |
-| Slider list                                |       `slides`       | `string`  | `['coolest', 'fastest', 'easiest']` | `[first, second]` |
-| Slideshow intervals                        |    `intervalProp`    | `string`  |               `3000`                |      `1500`       |
+| Slide list                                 |       `slides`       | `string`  | `['coolest', 'fastest', 'easiest']` | `[first, second]` |
+| Slideshow intervals                        |    `intervalProp`    | `string`  |               `1500`                |      `3000`       |
 | Delay before animation starts              |     `delayProp`      | `string`  |                 `0`                 |      `1000`       |
 | Container change duration                  | `adjustingSpeedProp` | `string`  |                `150`                |       `50`        |
-| Hide/show animation                        |        `fade`        | `boolean` |               `true`                |      `false`      |
+| Show/hide animation                        |        `fade`        | `boolean` |               `true`                |      `false`      |
 | Hide animation at the container boundaries |        `mask`        | `boolean` |               `false`               |      `true`       |
 | Forbid line breaking                       |       `noWrap`       | `boolean` |               `true`                |      `false`      |
 

@@ -20,11 +20,11 @@ The Video component can contain the `Source` and `Track` components.
 | :----------------- | :---------: | :------------------: |
 | Link to video file |     `-`     | `Link to your file`  |
 | Image for preview  |     `-`     | `Link to your image` |
-| Auto playback      |  `Checked`  |     `Unchecked`      |
-| Show controls      | `Unchecked` |      `Checked`       |
-| Sound off          |  `Checked`  |     `Unchecked`      |
-| Loop playback      |  `Checked`  |     `Unchecked`      |
-| Hover playback     |  `Checked`  |     `Unchecked`      |
+| Auto playback      | `Unchecked` |      `Checked`       |
+| Show controls      |  `Checked`  |     `Unchecked`      |
+| Sound off          | `Unchecked` |      `Checked`       |
+| Loop playback      | `Unchecked` |      `Checked`       |
+| Hover playback     | `Unchecked` |      `Checked`       |
 
 ### In the code (for developers)
 
@@ -32,11 +32,11 @@ The Video component can contain the `Source` and `Track` components.
 | :----------------- | :--------------: | :-------: | :-----: | :------------------: |
 | Link to video file |      `src`       | `string`  |   `-`   | `Link to your file`  |
 | Image for preview  |     `poster`     | `string`  |   `-`   | `Link to your image` |
-| Auto playback      |    `autoPlay`    | `boolean` | `false` |        `true`        |
-| Show controls      |    `controls`    | `boolean` | `true`  |       `false`        |
-| Sound off          |     `muted`      | `boolean` | `false` |        `true`        |
-| Loop playback      |      `loop`      | `boolean` | `false` |        `true`        |
-| Hover playback     |  `playOnHover`   | `boolean` | `false` |        `true`        |
+| Auto playback      |    `autoPlay`    | `boolean` | `true`  |       `false`        |
+| Show controls      |    `controls`    | `boolean` | `false` |        `true`        |
+| Sound off          |     `muted`      | `boolean` | `true`  |       `false`        |
+| Loop playback      |      `loop`      | `boolean` | `true`  |       `false`        |
+| Hover playback     |  `playOnHover`   | `boolean` | `true`  |       `false`        |
 
 ## 🗄 GitHub
 
