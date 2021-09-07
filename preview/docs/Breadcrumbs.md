@@ -21,7 +21,7 @@ Breadcrumb navigation provides a list of links to all previous (parent) pages th
 | Prop name | Default | Example |
 | :-------- | :-----: | :-----: |
 | Root page |   `-`   | `index` |
-| Separator |   `/`   | `buyer` |
+| Separator |   `/`   |   `-`   |
 
 ### In the code (for developers)
 

@@ -18,7 +18,7 @@ By default, the `File path` property has the `https://assets2.lottiefiles.com/pa
 | Render          |    `SVG`    |      `Canvas`       |
 | First frame     |     `-`     |        `10`         |
 | Last frame      |     `-`     |        `50`         |
-| Force update    |  `Checked`  |     `Unchecked`     |
+| Force update    | `Unchecked` |      `Checked`      |
 | Loop animation  |  `Checked`  |     `Unchecked`     |
 | Pause animation | `Unchecked` |      `Checked`      |
 | Stop animation  | `Unchecked` |      `Checked`      |
@@ -32,7 +32,7 @@ By default, the `File path` property has the `https://assets2.lottiefiles.com/pa
 | Render          |    `renderer`    |  `enum`   |  `SVG`  |      `Canvas`       |
 | First frame     |   `firstFrame`   | `string`  |   `-`   |        `10`         |
 | Last frame      |   `lastFrame`    | `string`  |   `-`   |        `50`         |
-| Force update    |  `forceUpdate`   | `boolean` | `true`  |       `false`       |
+| Force update    |  `forceUpdate`   | `boolean` | `false` |       `true`        |
 | Loop animation  |      `loop`      | `boolean` | `true`  |       `false`       |
 | Pause animation |    `isPaused`    | `boolean` | `false` |       `true`        |
 | Stop animation  |   `isStopped`    | `boolean` | `false` |       `true`        |

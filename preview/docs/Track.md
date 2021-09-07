@@ -25,7 +25,7 @@ The `Set default` prop indicates that the current track is preferred. This prope
 | File link       |     `-`     | `Link to your file` |
 | Set default     | `Unchecked` |      `Checked`      |
 | Track language  |    `en`     |        `de`         |
-| Track purpose   | `subtitles` |     `captions`      |
+| Track purpose   | `Subtitles` |     `Captions`      |
 | Displayed title |     `-`     |       `text`        |
 
 ### In the code (for developers)

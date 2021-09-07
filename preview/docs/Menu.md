@@ -10,11 +10,11 @@ Add the component to the page and change the value of the `Maximum nesting` prop
 
 ### In the interface
 
-| Prop name                |   Default   |     Example      |
-| :----------------------- | :---------: | :--------------: |
-| Maximum nesting          |     `1`     |       `5`        |
-| Root page                |   `root`    | `Your page name` |
-| Mark parent active items | `Unchecked` |    `Checked`     |
+| Prop name                |  Default  |     Example      |
+| :----------------------- | :-------: | :--------------: |
+| Maximum nesting          |    `1`    |       `5`        |
+| Root page                |  `root`   | `Your page name` |
+| Mark parent active items | `Checked` |   `Unchecked`    |
 
 ### In the code (for developers)
 
@@ -22,7 +22,7 @@ Add the component to the page and change the value of the `Maximum nesting` prop
 | :----------------------- | :------------------: | :-------: | :-----: | :--------------: |
 | Maximum nesting          |       `depth`        | `string`  |   `1`   |       `5`        |
 | Root page                |       `rootId`       | `string`  | `root`  | `Your page name` |
-| Mark parent active items | `exact-active-match` | `boolean` | `false` |      `true`      |
+| Mark parent active items | `exact-active-match` | `boolean` | `true`  |     `false`      |
 
 ## 🗄 GitHub
 

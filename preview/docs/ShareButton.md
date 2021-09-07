@@ -44,7 +44,7 @@ Below please see the table with allowed properties for each social network.
 | Hashtag                 |                       `–`                        |                  `#twitter`                  |
 | Service                 |                    `Facebook`                    |                  `Twitter`                   |
 | Width                   |                      `640`                       |                    `1280`                    |
-| Высота                  |                      `640`                       |                    `720`                     |
+| Height                  |                      `640`                       |                    `720`                     |
 | Open in a pop-up window |                   `Unchecked`                    |                  `Checked`                   |
 
 ### In the code (for developers)

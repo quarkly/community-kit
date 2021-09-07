@@ -38,8 +38,8 @@ In the builder:
 | Number of columns           |     `4`     |     `6`     |
 | Indent width                |    `10`     |     `5`     |
 | Fill the gaps automatically |  `Checked`  | `Unchecked` |
-| Images loading              |    `All`    |  `Scroll`   |
-| Image aspect ratio          |   `auto`    |   `16:9`    |
+| Images loading              |    `All`    | `On scroll` |
+| Image aspect ratio          |   `Auto`    |   `16:9`    |
 | Minimum width of images     |    `80`     |    `100`    |
 | Maximum width of images     |    `1fr`    |    `2fr`    |
 | Disable loader for preview  | `Unchecked` |  `Checked`  |

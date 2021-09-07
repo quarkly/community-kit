@@ -18,7 +18,7 @@ The duration of the opening and closing animation depends on the height of the c
 
 | Prop name                  | Default  |  Example  |
 | :------------------------- | :------: | :-------: |
-| Minimum animation duration |  `0.1s`  |  `0.3s`   |
+| Minimum animation duration |  `0.5s`  |   `1s`    |
 | Maximum animation duration |   `1s`   |   `2s`    |
 | Smooth animation           | `linear` | `ease-in` |
 
@@ -26,7 +26,7 @@ The duration of the opening and closing animation depends on the height of the c
 
 | Prop name                  | Name in the code |   Type   | Default  |  Example  |
 | :------------------------- | :--------------: | :------: | :------: | :-------: |
-| Minimum animation duration |  `minDuration`   | `string` |  `0.1s`  |  `0.3s`   |
+| Minimum animation duration |  `minDuration`   | `string` |  `0.5s`  |   `1s`    |
 | Maximum animation duration |  `maxDuration`   | `string` |   `1s`   |   `2s`    |
 | Smooth animation           |  `animFunction`  | `string` | `linear` | `ease-in` |
 

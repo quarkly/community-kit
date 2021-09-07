@@ -16,7 +16,7 @@ In the `End date` prop, you can set the date in the following formats:
 
 ### Message at the end of a timer
 
-The `When to display the message` prop allows you to choose when to display the message about the end of the timer. The following options are available:
+The `When display the message` prop allows you to choose when to display the message about the end of the timer. The following options are available:
 
 -   `always` - the message is always displayed
 -   `complete` - the message will be displayed when the timer runs out
@@ -26,29 +26,29 @@ The `When to display the message` prop allows you to choose when to display the 
 
 ### In the interface
 
-| Prop name                   |          Default          |   Example    |
-| :-------------------------- | :-----------------------: | :----------: |
-| End date                    |            `-`            | `05.06.2021` |
-| End time                    |            `-`            |   `21:00`    |
-| Show 'Days'                 |         `Checked`         | `Unchecked`  |
-| Show 'Hours'                |         `Checked`         | `Unchecked`  |
-| Show 'Minutes'              |         `Checked`         | `Unchecked`  |
-| Show 'Seconds'              |         `Checked`         | `Unchecked`  |
-| When to display the message | `At the end of the timer` |   `Never`    |
+| Prop name                |          Default          |   Example    |
+| :----------------------- | :-----------------------: | :----------: |
+| End date                 |      `Current date`       | `05.06.2021` |
+| End time                 |      `Current time`       |   `21:00`    |
+| Show 'Days'              |         `Checked`         | `Unchecked`  |
+| Show 'Hours'             |         `Checked`         | `Unchecked`  |
+| Show 'Minutes'           |         `Checked`         | `Unchecked`  |
+| Show 'Seconds'           |         `Checked`         | `Unchecked`  |
+| When display the message | `At the end of the timer` |   `Never`    |
 
 ### In the code (for developers)
 
-| Prop name                   | Name in the code |   Type    |  Default   |   Example    |
-| :-------------------------- | :--------------: | :-------: | :--------: | :----------: |
-| End date                    |     `toDate`     | `string`  |    `-`     | `05.06.2021` |
-| End time                    |     `toTime`     | `string`  |    `-`     |   `21:00`    |
-| Show 'Days'                 |    `showDays`    | `boolean` |   `true`   |   `false`    |
-| Show 'Hours'                |   `showHours`    | `boolean` |   `true`   |   `false`    |
-| Show 'Minutes'              |  `showMinutes`   | `boolean` |   `true`   |   `false`    |
-| Show 'Seconds'              |  `showSeconds`   | `boolean` |   `true`   |   `false`    |
-| When to display the message |  `showTextDone`  |  `enum`   | `complete` |   `never`    |
+| Prop name                | Name in the code |   Type    |  Default   |   Example    |
+| :----------------------- | :--------------: | :-------: | :--------: | :----------: |
+| End date                 |     `toDate`     | `string`  | `Current`  | `05.06.2021` |
+| End time                 |     `toTime`     | `string`  | `Current`  |   `21:00`    |
+| Show 'Days'              |    `showDays`    | `boolean` |   `true`   |   `false`    |
+| Show 'Hours'             |   `showHours`    | `boolean` |   `true`   |   `false`    |
+| Show 'Minutes'           |  `showMinutes`   | `boolean` |   `true`   |   `false`    |
+| Show 'Seconds'           |  `showSeconds`   | `boolean` |   `true`   |   `false`    |
+| When display the message |  `showTextDone`  |  `enum`   | `complete` |   `never`    |
 
-#### The 'When to display the message' property values
+#### The 'When display the message' property values
 
 | User-friendly name      | Name in the code |
 | :---------------------- | :--------------: |

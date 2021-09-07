@@ -16,14 +16,14 @@ To add a custom image, select it in the component and set the value to the `Src`
 
 | Prop name          |  Default  |  Example  |
 | :----------------- | :-------: | :-------: |
-| Aspect ratio       |   `4:3`   |  `16:9`   |
-| Interaction method | `On Move` | `On Drag` |
+| Aspect ratio       |  `16:9`   |   `4:3`   |
+| Interaction method | `On Drag` | `On Move` |
 
 ### In the code (for developers)
 
 | Prop name          | Name in the code  |  Type  | Default  | Example  |
 | :----------------- | :---------------: | :----: | :------: | :------: |
-| Aspect ratio       |   `AspectRatio`   | `enum` |  `4:3`   |  `16:9`  |
+| Aspect ratio       |   `AspectRatio`   | `enum` |  `16:9`  |  `4:3`   |
 | Interaction method | `activationTypea` | `enum` | `onDrag` | `onMove` |
 
 #### The 'Aspect ratio' property values

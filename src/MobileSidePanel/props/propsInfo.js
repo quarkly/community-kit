@@ -59,7 +59,7 @@ export default {
     },
     animDuration: {
         title: {
-            en: 'Duration of show/hide',
+            en: 'Show/hide animation duration',
             ru: 'Длительность появления и скрытия',
         },
         control: 'input',
