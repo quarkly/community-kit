@@ -24,9 +24,9 @@ This component allows you to add a form with the Formspree widget.
 
 | Prop name       | Name in the code |   Type   |        Default         |        Example         |
 | :-------------- | :--------------: | :------: | :--------------------: | :--------------------: |
-| Endpoint        |    `account`     | `string` |          `-`           | `Your form's endpoint` |
-| Success message |     `writer`     | `string` |       `Success`        | `Your success message` |
-| Error message   |    `targets`     | `string` | `Something went wrong` |  `Your error message`  |
+| Endpoint        |    `endpoint`    | `string` |          `-`           | `Your form's endpoint` |
+| Success message |  `completeText`  | `string` |       `Success`        | `Your success message` |
+| Error message   |  `errorMessage`  | `string` | `Something went wrong` |  `Your error message`  |
 
 ## 🗄 GitHub
 

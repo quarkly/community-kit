@@ -55,7 +55,7 @@ During the transfer, you can ask the sender their full name, email, phone number
 | YooMoney wallet ID                |    `account`     | `string`  |   `-`    | [`Your wallet ID`](https://yoomoney.ru/start) |
 | Who specifies the transfer reason |     `writer`     |  `enum`   | `seller` |                    `buyer`                    |
 | Transfer reason                   |    `targets`     | `string`  | `Donate` |            `For the site hosting`             |
-| Transfer amount by default        |      `sum`       | `string`  |   `0`    |                      `-`                      |
+| Transfer amount by default        |      `sum`       | `string`  |   `0`    |                     `250`                     |
 | Button text                       |   `buttonText`   |  `enum`   |   `11`   |                     `14`                      |
 | Use credit card                   |    `payment`     | `boolean` | `false`  |                    `true`                     |
 | Request sender's full name        |      `fio`       | `boolean` | `false`  |                    `true`                     |
