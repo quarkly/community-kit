@@ -32,7 +32,7 @@ To add a custom image, select it in the component and set the value to the `Src`
 | :----------------- | :--------------: |
 | 16:9               |      `16:9`      |
 
-The names of the `Image aspect ratio` property values fully match.
+The names of the `Aspect ratio` property values fully match.
 
 #### The 'Interaction method' property values
 

@@ -32,7 +32,7 @@ To do this:
 
 | Prop name                    |   Default   |  Example  |
 | :--------------------------- | :---------: | :-------: |
-| Show/hide animation duration |   `0.15s`   |  `0.2s`   |
+| Show/hide animation duration |   `0.15s`   |  `0.3s`   |
 | Animation timing function    |  `linear`   | `ease-in` |
 | Show a pop-up when loading   | `Unchecked` | `Checked` |
 
@@ -40,7 +40,7 @@ To do this:
 
 | Prop name                    | Name in the code |   Type    | Default  | Example |
 | :--------------------------- | :--------------: | :-------: | :------: | :-----: |
-| Show/hide animation duration |  `animDuration`  | `string`  | `0.15s`  | `0.25s` |
+| Show/hide animation duration |  `animDuration`  | `string`  | `0.15s`  | `0.3s`  |
 | Animation timing function    |  `animFunction`  | `string`  | `linear` |   `-`   |
 | Show a pop-up when loading   |   `onloadShow`   | `boolean` | `false`  | `true`  |
 

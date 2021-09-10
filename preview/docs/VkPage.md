@@ -37,16 +37,16 @@ If you select the `Enable advanced mode` property, a 'Like' button and a communi
 
 ### In the code (for developers)
 
-| Prop name                                | Name in the code |   Type    |  Default  |          Example           |
-| :--------------------------------------- | :--------------: | :-------: | :-------: | :------------------------: |
-| VK community ID                          |    `groupId`     | `string`  |    `-`    |   `Your VK community ID`   |
-| Widget container ID                      |   `elementId`    | `string`  |    `-`    | `Your widget container ID` |
-| Widget background color                  |  `colorBground`  | `string`  | `#FFFFFF` |         `#0000FF`          |
-| Widget text color                        |  `colorPrimary`  | `string`  | `#000000` |         `#FFFFFF`          |
-| Widget link color                        |  `colorAccent`   | `string`  | `#5181B8` |         `#FDFDFD`          |
-| What to display in the widget            |      `mode`      |  `enum`   |    `3`    |            `4`             |
-| НDon't display the community cover photo |    `noCover`     | `boolean` |  `false`  |           `true`           |
-| Enable advanced mode                     |      `wide`      | `boolean` |  `false`  |           `true`           |
+| Prop name                               | Name in the code |   Type    |  Default  |          Example           |
+| :-------------------------------------- | :--------------: | :-------: | :-------: | :------------------------: |
+| VK community ID                         |    `groupId`     | `string`  |    `-`    |   `Your VK community ID`   |
+| Widget container ID                     |   `elementId`    | `string`  |    `-`    | `Your widget container ID` |
+| Widget background color                 |  `colorBground`  | `string`  | `#FFFFFF` |         `#0000FF`          |
+| Widget text color                       |  `colorPrimary`  | `string`  | `#000000` |         `#FFFFFF`          |
+| Widget link color                       |  `colorAccent`   | `string`  | `#5181B8` |         `#FDFDFD`          |
+| What to display in the widget           |      `mode`      |  `enum`   |    `3`    |            `4`             |
+| Don't display the community cover photo |    `noCover`     | `boolean` |  `false`  |           `true`           |
+| Enable advanced mode                    |      `wide`      | `boolean` |  `false`  |           `true`           |
 
 #### The 'What to display in the widget' property values
 
