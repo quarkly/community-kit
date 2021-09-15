@@ -55,7 +55,7 @@ export default {
             {
                 title: {
                     en: '',
-                    ru: 'Только по вертикал',
+                    ru: 'Только по вертикали',
                 },
                 value: 'vertical',
             },
