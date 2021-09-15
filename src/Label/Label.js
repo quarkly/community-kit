@@ -5,11 +5,17 @@ import { effects, overrides, propInfo, defaultProps } from './props';
 
 const Label = atomize.label();
 
-const LabelComponent = ({ forId, ...props }) => {
+const LabelComponent = ({ htmlFor, accesskey, ...props }) => {
     const { override, children, rest } = useOverrides(props, overrides);
 
     return (
-        <Label htmlFor={forId} width="100%" display="block" {...rest}>
+        <Label
+            htmlFor={htmlFor}
+            accesskey={accesskey}
+            width="100%"
+            display="block"
+            {...rest}
+        >
             <Text {...override('Text')} />
             {children}
         </Label>
