@@ -2,8 +2,10 @@ export default {
     name: {
         title: 'Name',
         description: {
+            en:
+                'The field name, used for the form handler to be able to identify it',
             ru:
-                'Имя элемента для отправки на сервер или обращения через скрипты.',
+                'Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать',
         },
         control: 'input',
         type: 'text',
@@ -13,7 +15,8 @@ export default {
     defaultValue: {
         title: 'Default Value',
         description: {
-            ru: 'Заранее устанавливает определенный пункт списка выделенным.',
+            en: 'Preset a specific list item to be selected',
+            ru: 'Заранее устанавливает определенный пункт списка выделенным',
         },
         control: 'input',
         type: 'text',
@@ -23,8 +26,9 @@ export default {
     multiple: {
         title: 'Multiple',
         description: {
+            en: 'Allows you to select several list items at once',
             ru:
-                'Позволяет одновременно выбирать сразу несколько элементов списка.',
+                'Позволяет одновременно выбирать сразу несколько элементов списка',
         },
         control: 'checkbox',
         category: 'Main',
@@ -33,8 +37,8 @@ export default {
     autoFocus: {
         title: 'AutoFocus',
         description: {
-            ru:
-                'Устанавливает, что список получает фокус после загрузки страницы.',
+            en: 'Sets the focus in the form field',
+            ru: 'Устанавливает фокус в поле формы',
         },
         control: 'checkbox',
         category: 'Main',
@@ -43,7 +47,8 @@ export default {
     required: {
         title: 'Required',
         description: {
-            ru: 'Список обязателен для выбора перед отправкой формы.',
+            en: 'A required field',
+            ru: 'Обязательное для заполнения поле',
         },
         control: 'checkbox',
         category: 'Main',
@@ -52,7 +57,8 @@ export default {
     disabled: {
         title: 'Disabled',
         description: {
-            ru: 'Блокирует доступ и изменение элемента.',
+            en: 'Blocks access and modification of an element',
+            ru: 'Блокирует доступ и изменение элемента',
         },
         control: 'checkbox',
         category: 'Main',

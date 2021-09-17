@@ -2,7 +2,9 @@ export default {
     htmlFor: {
         title: 'For',
         description: {
-            ru: 'Идентификатор элемента, с которым следует установить связь.',
+            en:
+                'The identifier of the element which you want to establish a connection with',
+            ru: 'Идентификатор элемента, с которым следует установить связь',
         },
         control: 'input',
         type: 'text',
@@ -12,7 +14,8 @@ export default {
     accesskey: {
         title: 'Access key',
         description: {
-            ru: 'Доступ к элементам формы с помощью горячих клавиш.',
+            en: 'Shortcuts access to form elements',
+            ru: 'Доступ к элементам формы с помощью горячих клавиш',
         },
         control: 'input',
         type: 'text',

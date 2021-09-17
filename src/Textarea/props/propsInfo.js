@@ -2,8 +2,10 @@ export default {
     name: {
         title: 'Name',
         description: {
+            en:
+                'The field name, used for the form handler to be able to identify it',
             ru:
-                'Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать.',
+                'Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать',
         },
         control: 'input',
         type: 'text',
@@ -13,7 +15,8 @@ export default {
     placeholder: {
         title: 'Placeholder',
         description: {
-            ru: 'Выводит подсказывающий текст.',
+            en: 'Shows a placeholder',
+            ru: 'Выводит подсказывающий текст',
         },
         control: 'input',
         type: 'text',
@@ -23,7 +26,8 @@ export default {
     defaultValue: {
         title: 'Default value',
         description: {
-            ru: 'Значение элемента по умолчанию.',
+            en: 'The element default value',
+            ru: 'Значение элемента по умолчанию',
         },
         control: 'input',
         type: 'text',
@@ -33,35 +37,37 @@ export default {
     resize: {
         title: 'Resize',
         description: {
+            en:
+                'Specifies whether the user can change the size of the text box or not',
             ru:
-                'Указывает, можно ли пользователю изменять размеры текстового поля.',
+                'Указывает, можно ли пользователю изменять размеры текстового поля',
         },
         control: 'select',
         variants: [
             {
                 title: {
-                    en: '',
+                    en: 'Horizontally and vertically',
                     ru: 'По горизонтали и вертикали',
                 },
                 value: 'both',
             },
             {
                 title: {
-                    en: '',
+                    en: 'Only horizontally',
                     ru: 'Только по горизонтали',
                 },
                 value: 'horizontal',
             },
             {
                 title: {
-                    en: '',
+                    en: 'Only vertically',
                     ru: 'Только по вертикали',
                 },
                 value: 'vertical',
             },
             {
                 title: {
-                    en: '',
+                    en: 'Don’t change',
                     ru: 'Не изменяются',
                 },
                 value: 'none',
@@ -73,7 +79,8 @@ export default {
     autoFocus: {
         title: 'AutoFocus',
         description: {
-            ru: 'Устанавливает фокус в поле формы.',
+            en: 'Sets the focus in the form field',
+            ru: 'Устанавливает фокус в поле формы',
         },
         control: 'checkbox',
         category: 'Main',
@@ -82,7 +89,8 @@ export default {
     required: {
         title: 'Required',
         description: {
-            ru: 'Обязательное для заполнения поле.',
+            en: 'A required field',
+            ru: 'Обязательное для заполнения поле',
         },
         control: 'checkbox',
         category: 'Main',
@@ -91,7 +99,8 @@ export default {
     disabled: {
         title: 'Disabled',
         description: {
-            ru: 'Блокирует доступ и изменение элемента.',
+            en: 'Blocks access and modification of an element',
+            ru: 'Блокирует доступ и изменение элемента',
         },
         control: 'checkbox',
         category: 'Main',
@@ -100,7 +109,8 @@ export default {
     maxlength: {
         title: 'Max length',
         description: {
-            ru: 'Максимальное количество символов разрешенных в тексте.',
+            en: 'The maximum number of characters allowed in the text',
+            ru: 'Максимальное количество символов разрешенных в тексте',
         },
         control: 'input',
         type: 'number',

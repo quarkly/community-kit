@@ -2,8 +2,10 @@ export default {
     name: {
         title: 'Name',
         description: {
+            en:
+                'The field name, used for the form handler to be able to identify it',
             ru:
-                'Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать.',
+                'Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать',
         },
         control: 'input',
         type: 'text',
@@ -13,7 +15,8 @@ export default {
     type: {
         title: 'Type',
         description: {
-            ru: 'Сообщает браузеру, к какому типу относится элемент формы.',
+            en: 'Tells the browser what type the form element belongs to',
+            ru: 'Сообщает браузеру, к какому типу относится элемент формы',
         },
         control: 'select',
         variants: [
@@ -33,7 +36,8 @@ export default {
     placeholder: {
         title: 'Placeholder',
         description: {
-            ru: 'Выводит подсказывающий текст.',
+            en: 'Shows a placeholder',
+            ru: 'Выводит подсказывающий текст',
         },
         control: 'input',
         type: 'text',
@@ -43,7 +47,8 @@ export default {
     defaultValue: {
         title: 'Default value',
         description: {
-            ru: 'Значение элемента по умолчанию.',
+            en: 'The element default value',
+            ru: 'Значение элемента по умолчанию',
         },
         control: 'input',
         type: 'text',
@@ -53,7 +58,8 @@ export default {
     autocomplete: {
         title: 'Autocomplete',
         description: {
-            ru: 'Включает или отключает автозаполнение.',
+            en: 'Enables or disables autofill',
+            ru: 'Включает или отключает автозаполнение',
         },
         control: 'checkbox',
         category: 'Main',
@@ -62,7 +68,8 @@ export default {
     autoFocus: {
         title: 'AutoFocus',
         description: {
-            ru: 'Устанавливает фокус в поле формы.',
+            en: 'Sets the focus in the form field',
+            ru: 'Устанавливает фокус в поле формы',
         },
         control: 'checkbox',
         category: 'Main',
@@ -71,7 +78,8 @@ export default {
     required: {
         title: 'Required',
         description: {
-            ru: 'Обязательное для заполнения поле.',
+            en: 'A required field',
+            ru: 'Обязательное для заполнения поле',
         },
         control: 'checkbox',
         category: 'Main',
@@ -80,7 +88,8 @@ export default {
     disabled: {
         title: 'Disabled',
         description: {
-            ru: 'Блокирует доступ и изменение элемента.',
+            en: 'Blocks access and modification of an element',
+            ru: 'Блокирует доступ и изменение элемента',
         },
         control: 'checkbox',
         category: 'Main',
@@ -89,8 +98,10 @@ export default {
     list: {
         title: 'List',
         description: {
+            en:
+                'Indicates a list of options that you can select when entering text',
             ru:
-                'Указывает на список вариантов, которые можно выбирать при вводе текста.',
+                'Указывает на список вариантов, которые можно выбирать при вводе текста',
         },
         control: 'input',
         type: 'text',
@@ -101,8 +112,10 @@ export default {
     pattern: {
         title: 'Pattern',
         description: {
+            en:
+                'Specifies the regular expression according to which you want to enter and check the data in the form field',
             ru:
-                'Указывает регулярное выражение, согласно которому требуется вводить и проверять данные в поле формы.',
+                'Указывает регулярное выражение, согласно которому требуется вводить и проверять данные в поле формы',
         },
         control: 'input',
         type: 'text',
@@ -120,7 +133,8 @@ export default {
     maxlength: {
         title: 'Max length',
         description: {
-            ru: 'Максимальное количество символов разрешенных в тексте.',
+            en: 'The maximum number of characters allowed in the text',
+            ru: 'Максимальное количество символов разрешенных в тексте',
         },
         control: 'input',
         type: 'number',
@@ -130,7 +144,8 @@ export default {
     min: {
         title: 'Min',
         description: {
-            ru: 'Нижнее значение для ввода числа или даты.',
+            en: 'The minimum value for entering a number or date',
+            ru: 'Нижнее значение для ввода числа или даты',
         },
         control: 'input',
         type: 'number',
@@ -140,7 +155,8 @@ export default {
     max: {
         title: 'Max',
         description: {
-            ru: 'Верхнее значение для ввода числа или даты.',
+            en: 'The maximum value for entering a number or date',
+            ru: 'Верхнее значение для ввода числа или даты',
         },
         control: 'input',
         type: 'number',

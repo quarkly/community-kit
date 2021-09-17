@@ -2,8 +2,10 @@ export default {
     action: {
         title: 'Action',
         description: {
+            en:
+                'Specifies the handler that the form data refers to when it’s sent to the server',
             ru:
-                'Указывает обработчик, к которому обращаются данные формы при их отправке на сервер.',
+                'Указывает обработчик, к которому обращаются данные формы при их отправке на сервер',
         },
         control: 'input',
         type: 'text',
@@ -13,8 +15,10 @@ export default {
     autocomplete: {
         title: 'Autocomplete',
         description: {
+            en:
+                'Controls autocompletion of form fields. The value can be overridden by the autocomplete attribute on specific form elements',
             ru:
-                'Управляет автозаполнением полей форм. Значение может быть перекрыто атрибутом autocomplete у конкретных элементов формы.',
+                'Управляет автозаполнением полей форм. Значение может быть перекрыто атрибутом autocomplete у конкретных элементов формы',
         },
         control: 'radio-group',
         variants: ['on', 'off'],
@@ -24,8 +28,10 @@ export default {
     charset: {
         title: 'Accept charset',
         description: {
+            en:
+                'Sets the encoding where the server can receive and process form data',
             ru:
-                'Устанавливает кодировку, в которой сервер может принимать и обрабатывать данные формы.',
+                'Устанавливает кодировку, в которой сервер может принимать и обрабатывать данные формы',
         },
         control: 'input',
         type: 'text',
@@ -36,8 +42,9 @@ export default {
     enctype: {
         title: 'Enctype',
         description: {
+            en: 'Defines how the form data is encoded when sent to the server',
             ru:
-                'Определяет способ кодирования данных формы при их отправке на сервер.',
+                'Определяет способ кодирования данных формы при их отправке на сервер',
         },
         control: 'select',
         variants: [
@@ -51,7 +58,8 @@ export default {
     method: {
         title: 'Method',
         description: {
-            ru: 'Cообщает серверу о методе запроса.',
+            en: 'Tells the server about the request method',
+            ru: 'Cообщает серверу о методе запроса',
         },
         control: 'radio-group',
         variants: ['get', 'post'],
@@ -61,7 +69,8 @@ export default {
     name: {
         title: 'Name',
         description: {
-            ru: 'Определяет уникальное имя формы.',
+            en: 'Defines a unique name for the form',
+            ru: 'Определяет уникальное имя формы',
         },
         control: 'input',
         type: 'text',
@@ -71,8 +80,10 @@ export default {
     novalidate: {
         title: 'Novalidate',
         description: {
+            en:
+                'Cancels built-in validation of data entered by the user in the form',
             ru:
-                'Отменяет встроенную проверку данных введенных пользователем в форме на корректность.',
+                'Отменяет встроенную проверку данных введенных пользователем в форме на корректность',
         },
         control: 'checkbox',
         category: 'Main',
@@ -81,8 +92,9 @@ export default {
     target: {
         title: 'Target',
         description: {
+            en: 'Specifies the window where the final web page will be loaded',
             ru:
-                'Определяет окно, в которое будет загружаться итоговая веб-страница.',
+                'Определяет окно, в которое будет загружаться итоговая веб-страница',
         },
         control: 'select',
         variants: ['_blank', '_self', '_parent', '_top'],

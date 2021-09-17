@@ -2,7 +2,8 @@ export default {
     label: {
         title: 'Label',
         description: {
-            ru: 'Указание метки пункта списка.',
+            en: 'Specifies the label of the list item',
+            ru: 'Указание метки пункта списка',
         },
         control: 'input',
         type: 'text',
@@ -12,8 +13,10 @@ export default {
     value: {
         title: 'Value',
         description: {
+            en:
+                'The value of the list item to be sent to the server or read by scripts',
             ru:
-                'Значение пункта списка, которое будет отправлено на сервер или прочитано с помощью скриптов.',
+                'Значение пункта списка, которое будет отправлено на сервер или прочитано с помощью скриптов',
         },
         control: 'input',
         type: 'text',
@@ -23,7 +26,8 @@ export default {
     disabled: {
         title: 'Disabled',
         description: {
-            ru: 'Заблокировать для доступа элемент списка.',
+            en: 'Block the list item for access',
+            ru: 'Заблокировать для доступа элемент списка',
         },
         control: 'checkbox',
         category: 'Main',
