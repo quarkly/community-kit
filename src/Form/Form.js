@@ -29,11 +29,11 @@ const FormComponent = ({
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const contentRef = useRef();
 
-    const onRadioMountEvent = useCallback((name, value) => {
-        setRadioList((obj) => ({ ...obj, [name]: value }));
+    const onRadioMountEvent = useCallback((nameObj, value) => {
+        setRadioList((obj) => ({ ...obj, [nameObj]: value }));
     }, []);
-    const onRadioClickEvent = useCallback((name, value) => {
-        setRadioList((obj) => ({ ...obj, [name]: value }));
+    const onRadioClickEvent = useCallback((nameObj, value) => {
+        setRadioList((obj) => ({ ...obj, [nameObj]: value }));
     }, []);
 
     const context = useMemo(

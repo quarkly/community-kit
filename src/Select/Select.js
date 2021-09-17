@@ -1,3 +1,4 @@
+import React from 'react';
 import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
 import { Icon } from '@quarkly/widgets';

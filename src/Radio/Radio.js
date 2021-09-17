@@ -31,21 +31,23 @@ const RadioComponent = ({
 
     const clickEvent = useCallback(() => {
         onRadioClickEvent(name, defaultValue);
-    });
+    }, [name, defaultValue, onRadioClickEvent]);
 
     const status = useMemo(() => (checked ? ':checked' : ':unchecked'), [
         checked,
     ]);
 
+    const radioItem = useMemo(() => radioList[name], [radioList, name]);
+
     useEffect(() => {
-        setChecked(radioList[name] === defaultValue);
-    }, [radioList[name]]);
+        setChecked(radioItem === defaultValue);
+    }, [radioItem, defaultValue]);
 
     useEffect(() => {
         if (defaultChecked) {
             onRadioMountEvent(name, defaultValue);
         }
-    }, []);
+    }, [name, defaultValue, defaultChecked, onRadioMountEvent]);
 
     return (
         <Label

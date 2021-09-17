@@ -1,7 +1,7 @@
 import React from 'react';
-import Form from './Form';
 import { Box, Button } from '@quarkly/widgets';
 import { Override } from '@quarkly/components';
+import Form from './Form';
 import { Label, Input, Textarea, Select, Option, Checkbox, Radio } from '..';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
@@ -65,8 +65,8 @@ export const StoryDefault = (props) => (
                 name="email"
                 placeholder="Email"
                 type="email"
-                required={true}
-                autoFocus={true}
+                required
+                autoFocus
             />
         </Label>
         <Label {...labelStyles}>
@@ -76,7 +76,7 @@ export const StoryDefault = (props) => (
                 name="password"
                 placeholder="Password"
                 type="password"
-                required={true}
+                required
             />
         </Label>
         <Box {...boxStyles}>
@@ -86,8 +86,8 @@ export const StoryDefault = (props) => (
                     {...inputStyles}
                     name="state"
                     defaultValue={['CA']}
-                    multiple={true}
-                    required={true}
+                    multiple
+                    required
                 >
                     <Option>Select state:</Option>
                     <Option value="CA">California</Option>
@@ -98,10 +98,10 @@ export const StoryDefault = (props) => (
                     <Option value="IL">Illinois</Option>
                     <Option value="OH">Ohio</Option>
                     <Option value="GA">Georgia</Option>
-                    <Option value="NC" disabled={true}>
+                    <Option value="NC" disabled>
                         North Carolina
                     </Option>
-                    <Option value="MI" disabled={true}>
+                    <Option value="MI" disabled>
                         Michigan
                     </Option>
                 </Select>
@@ -112,7 +112,7 @@ export const StoryDefault = (props) => (
                     {...inputStyles}
                     name="city"
                     defaultValue="los-angeles"
-                    required={true}
+                    required
                 >
                     <Option>Select city:</Option>
                     <Option value="new-york">New York</Option>
@@ -121,16 +121,16 @@ export const StoryDefault = (props) => (
                     <Option value="houston">Houston</Option>
                     <Option value="phoenix">Phoenix</Option>
                     <Option value="philadelphia">Philadelphia</Option>
-                    <Option value="san-antonio" disabled={true}>
+                    <Option value="san-antonio" disabled>
                         San Antonio
                     </Option>
-                    <Option value="san-diego" disabled={true}>
+                    <Option value="san-diego" disabled>
                         San Diego
                     </Option>
-                    <Option value="dallas" disabled={true}>
+                    <Option value="dallas" disabled>
                         Dallas
                     </Option>
-                    <Option value="san-jose" disabled={true}>
+                    <Option value="san-jose" disabled>
                         San Jose
                     </Option>
                 </Select>
@@ -174,7 +174,7 @@ export const StoryDefault = (props) => (
         </Box>
         <Label {...labelStyles}>
             <Override slot="Text">Agreement</Override>
-            <Checkbox value="agree" checked={true}>
+            <Checkbox value="agree" checked>
                 I agree with sth.
             </Checkbox>
         </Label>

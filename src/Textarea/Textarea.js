@@ -1,3 +1,4 @@
+import React from 'react';
 import atomize from '@quarkly/atomize';
 import { effects, propInfo, defaultProps } from './props';
 

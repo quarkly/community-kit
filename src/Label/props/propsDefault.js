@@ -1,4 +1,4 @@
 export default {
     htmlFor: '',
-    accesskey: ''
+    accesskey: '',
 };

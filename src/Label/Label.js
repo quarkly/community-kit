@@ -1,3 +1,4 @@
+import React from 'react';
 import atomize from '@quarkly/atomize';
 import { Text } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
@@ -9,7 +10,7 @@ const LabelComponent = ({ htmlFor, accesskey, ...props }) => {
     const { override, children, rest } = useOverrides(props, overrides);
 
     return (
-        <Label
+        <Label // eslint-disable-line jsx-a11y/no-access-key
             htmlFor={htmlFor}
             accesskey={accesskey}
             width="100%"
