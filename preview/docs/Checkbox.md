@@ -1,13 +1,13 @@
 ## 📖 Detailed overview
 
-Компонент для добавления флажка (чекбокса) в форму.
+This component helps you add a checkbox to a form.
 
 ## ⚙️ Usage
 
-1.  Добавьте компонент Form на страницу
-2.  Добавьте компонент Checkbox в компонент Form
-3.  Укажите свойство `name` и остальные, при необходимости
-4.  Посмотрите как он работает в режиме превью
+1.  Add the Form component to the page
+2.  Add the Checkbox component to the Form component
+3.  Specify the `name` and other properties if necessary
+4.  See how it works in the preview mode
 
 ## 🧩 Components and Props
 
@@ -44,7 +44,7 @@
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we'd **love** to see what you’re building with Quarkly!
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 

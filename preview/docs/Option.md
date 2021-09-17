@@ -1,14 +1,14 @@
 ## 📖 Detailed overview
 
-Компонент для добавления элемента раскрывающегося списка или списка с множественным выбором в форму.
+This component helps you add an element of a drop-down list or a multiple-selection list to a form.
 
 ## ⚙️ Usage
 
-1.  Добавьте компонент Form на страницу
-2.  Добавьте компонент Select в компонент Form
-3.  Добавьте компоненты Option в компонент Select
-4.  Укажите свойства `Label` и `Value`
-5.  Посмотрите как он работает в режиме превью
+1.  Add the Form component to the page
+2.  Add the Select component to the Form component
+3.  Add the Option components to the Select component
+4.  Specify the `Label` and `Value` properties
+5.  See how it works in the preview mode
 
 ## 🧩 Components and Props
 
@@ -39,7 +39,7 @@
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we'd **love** to see what you’re building with Quarkly!
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 

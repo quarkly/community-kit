@@ -1,30 +1,29 @@
 ## 📖 Detailed overview
 
-Компонент для добавления метки поля ввода в форме.
+This component helps you add an input field label to a form.
 
 ## ⚙️ Usage
 
-1.  Добавьте компонент Form на страницу
-2.  Добавьте компонент Label в компонент Form
-3.  Добавьте один из компонентов Input, Textarea, Checkbox или Radio в компонент Label
-    Если компонент Label должен находиться  возле добавленного компонента, укажите добавленному компоненту свойство `id`, а компоненту Label свойство `for`
-4.  Посмотрите как он работает в режиме превью
+1.  Add the Form component to the page
+2.  Add the Label component to the Form component
+3.  Add one of the following components to the Label component: Input, Textarea, Checkbox, or Radio If you want the Label component to be near the added component, specify the `id` property to the added component and the `for` property to the Label component
+4.  See how it works in the preview mode
 
 ## 🧩 Components and Props
 
 ### In the interface
 
-| Prop Name  | Default |    Example    |
-| :--------- | :-----: | :-----------: |
-| For        |   `-`   | `ID элемента` |
-| Access key |   `-`   | `ID клавиши`  |
+| Prop Name  | Default |   Example    |
+| :--------- | :-----: | :----------: |
+| For        |   `-`   | `Element ID` |
+| Access key |   `-`   |   `Key ID`   |
 
 ### In the code (for developers)
 
-| Prop Name  | Name in the code |   Type   | Default |    Example    |
-| :--------- | :--------------: | :------: | :-----: | :-----------: |
-| For        |    `htmlFor`     | `string` |   `-`   | `ID элемента` |
-| Access key |   `accesskey`    | `string` |   `-`   | `ID клавиши`  |
+| Prop Name  | Name in the code |   Type   | Default |   Example    |
+| :--------- | :--------------: | :------: | :-----: | :----------: |
+| For        |    `htmlFor`     | `string` |   `-`   | `Element ID` |
+| Access key |   `accesskey`    | `string` |   `-`   |   `Key ID`   |
 
 ## 🗄 GitHub
 
@@ -37,7 +36,7 @@
 
 ## 📮 Feedback
 
-If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we'd **love** to see what you’re building with Quarkly!
 
 [Help with components](https://community.quarkly.io/c/requests/11)
 
