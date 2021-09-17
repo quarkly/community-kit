@@ -16,25 +16,25 @@ For the component to work properly in the builder, set the height limit in the p
 
 ### In the interface
 
-| Prop name       | Default  |    Example     |
-| :-------------- | :------: | :------------: |
-| Image           |   `-`    |      `-`       |
-| Image size      | `cover`  |     `100%`     |
-| Image alignment |  `Left`  |    `Center`    |
-| Repeat image    | `Repeat` | `Don't repeat` |
-| Scroll speed    |  `0.5`   |      `1`       |
-| Scroll inertia  |   `1`    |      `2`       |
+| Prop name       |    Default     |       Example        |
+| :-------------- | :------------: | :------------------: |
+| Image           |      `-`       | `Link to your image` |
+| Image size      |    `cover`     |        `100%`        |
+| Image alignment |    `Center`    |        `Left`        |
+| Repeat image    | `Don't repeat` |       `Repeat`       |
+| Scroll speed    |     `0.5`      |         `1`          |
+| Scroll inertia  |      `1`       |         `2`          |
 
 ### In the code (for developers)
 
-| Prop name       |  Name in the code   |   Type    |   Default   | Example  |
-| :-------------- | :-----------------: | :-------: | :---------: | :------: |
-| Image           |     `imageURL`      | `string`  |     `-`     |   `-`    |
-| Image size      |     `imageSize`     | `string`  |   `cover`   |  `100%`  |
-| Image alignment |   `imagePosition`   |  `enum`   |   `left`    | `center` |
-| Repeat image    |    `imageRepeat`    |  `enum`   | `no-repeat` | `repeat` |
-| Scroll speed    |  `scrollSpeedProp`  | `boolean` |    `0.5`    |   `1`    |
-| Scroll inertia  | `scrollInertiaProp` | `boolean` |     `1`     |   `2`    |
+| Prop name       |  Name in the code   |   Type   |   Default   |       Example        |
+| :-------------- | :-----------------: | :------: | :---------: | :------------------: |
+| Image           |     `imageURL`      | `string` |     `-`     | `Link to your image` |
+| Image size      |     `imageSize`     | `string` |   `cover`   |        `100%`        |
+| Image alignment |   `imagePosition`   |  `enum`  |  `Center`   |        `Left`        |
+| Repeat image    |    `imageRepeat`    |  `enum`  | `no-repeat` |       `repeat`       |
+| Scroll speed    |  `scrollSpeedProp`  | `number` |    `0.5`    |         `1`          |
+| Scroll inertia  | `scrollInertiaProp` | `number` |     `1`     |         `2`          |
 
 #### The 'Image alignment' property values
 

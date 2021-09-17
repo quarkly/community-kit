@@ -20,23 +20,23 @@ The `Set default` prop indicates that the current track is preferred. This prope
 
 ### In the interface
 
-| Prop name       |   Default   |  Example   |
-| :-------------- | :---------: | :--------: |
-| File link       |     `-`     |    `-`     |
-| Set default     | `Unchecked` | `Checked`  |
-| Track language  |    `en`     |    `de`    |
-| Track purpose   | `subtitles` | `captions` |
-| Displayed title |     `-`     |   `text`   |
+| Prop name       |   Default   |       Example       |
+| :-------------- | :---------: | :-----------------: |
+| File link       |     `-`     | `Link to your file` |
+| Set default     | `Unchecked` |      `Checked`      |
+| Track language  |    `en`     |        `de`         |
+| Track purpose   | `Subtitles` |     `Captions`      |
+| Displayed title |     `-`     |       `text`        |
 
 ### In the code (for developers)
 
-| Prop name       | Name in the code |   Type    |   Default   |  Example   |
-| :-------------- | :--------------: | :-------: | :---------: | :--------: |
-| File link       |      `src`       | `string`  |     `-`     |    `-`     |
-| Set default     |   `isDefault`    | `boolean` |   `false`   |   `true`   |
-| Track language  |    `srclang`     | `string`  |    `en`     |    `de`    |
-| Track purpose   |      `kind`      |  `enum`   | `subtitles` | `captions` |
-| Displayed title |     `label`      | `string`  |     `-`     |   `text`   |
+| Prop name       | Name in the code |   Type    |   Default   |       Example       |
+| :-------------- | :--------------: | :-------: | :---------: | :-----------------: |
+| File link       |      `src`       | `string`  |     `-`     | `Link to your file` |
+| Set default     |   `isDefault`    | `boolean` |   `false`   |       `true`        |
+| Track language  |    `srclang`     | `string`  |    `en`     |        `de`         |
+| Track purpose   |      `kind`      |  `enum`   | `subtitles` |     `captions`      |
+| Displayed title |     `label`      | `string`  |     `-`     |       `text`        |
 
 #### The 'Track purpose' property values
 

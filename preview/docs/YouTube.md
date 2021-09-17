@@ -8,29 +8,29 @@ Add the component to the page and specify the video URL in the `Link to the vide
 
 ### In the interface
 
-| Prop name                    |   Default   |  Example  |
-| :--------------------------- | :---------: | :-------: |
-| Link to the video on YouTube |     `-`     |    `-`    |
-| autoplay                     | `Unchecked` | `Checked` |
-| controls                     | `Unchecked` | `Checked` |
-| disablekb                    | `Unchecked` | `Checked` |
-| fs                           | `Unchecked` | `Checked` |
-| loop                         | `Unchecked` | `Checked` |
-| modestbranding               | `Unchecked` | `Checked` |
-| showOverlay                  | `Unchecked` | `Checked` |
+| Prop name                    |   Default   |     Example      |
+| :--------------------------- | :---------: | :--------------: |
+| Link to the video on YouTube |     `-`     | `Your video URL` |
+| Auto playback                | `Unchecked` |    `Checked`     |
+| Show controls                | `Unchecked` |    `Checked`     |
+| Disable keyboard controls    | `Unchecked` |    `Checked`     |
+| Show fullscreen button       | `Unchecked` |    `Checked`     |
+| Loop playback                | `Unchecked` |    `Checked`     |
+| Hide YouTube logo            | `Unchecked` |    `Checked`     |
+| Show Overlay                 |  `Checked`  |   `Unchecked`    |
 
 ### In the code (for developers)
 
-| Prop name                    | Name in the code |   Type    | Default | Example |
-| :--------------------------- | :--------------: | :-------: | :-----: | :-----: |
-| Link to the video on YouTube |      `url`       | `string`  |   `-`   |   `-`   |
-| autoplay                     |    `autoplay`    | `boolean` | `false` | `true`  |
-| controls                     |    `controls`    | `boolean` | `false` | `true`  |
-| disablekb                    |   `disablekb`    | `boolean` | `false` | `true`  |
-| fs                           |       `fs`       | `boolean` | `false` | `true`  |
-| loop                         |      `loop`      | `boolean` | `false` | `true`  |
-| modestbranding               | `modestbranding` | `boolean` | `false` | `true`  |
-| showOverlay                  |  `showOverlay`   | `boolean` | `false` | `true`  |
+| Prop name                    | Name in the code |   Type    | Default |     Example      |
+| :--------------------------- | :--------------: | :-------: | :-----: | :--------------: |
+| Link to the video on YouTube |      `url`       | `string`  |   `-`   | `Your video URL` |
+| Auto playback                |    `autoplay`    | `boolean` | `false` |      `true`      |
+| Show controls                |    `controls`    | `boolean` | `false` |      `true`      |
+| Disable keyboard controls    |   `disablekb`    | `boolean` | `false` |      `true`      |
+| Show fullscreen button       |       `fs`       | `boolean` | `false` |      `true`      |
+| Loop playback                |      `loop`      | `boolean` | `false` |      `true`      |
+| Hide YouTube logo            | `modestbranding` | `boolean` | `false` |      `true`      |
+| Show Overlay                 |  `showOverlay`   | `boolean` | `true`  |     `false`      |
 
 ## 🗄 GitHub
 

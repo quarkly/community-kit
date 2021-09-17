@@ -18,25 +18,25 @@ If you choose `auto` in the `Aspect ratio` prop, the image size (height & width)
 
 ### In the interface
 
-| Prop name          |    Default     |  Example   |
-| :----------------- | :------------: | :--------: |
-| Flip trigger       |   `On click`   | `On hover` |
-| Flip direction     |    `Right`     |   `Down`   |
-| Aspect ratio       |     `auto`     |   `1:1`    |
-| Smooth animation и | `cubic-bezier` | `ease-in`  |
-| Animation duration |     `1000`     |   `2000`   |
-| Flip card          |    `false`     |   `true`   |
+| Prop name                 |              Default               |  Example   |
+| :------------------------ | :--------------------------------: | :--------: |
+| Flip trigger              |             `On click`             | `On hover` |
+| Flip direction            |              `Right`               |   `Down`   |
+| Aspect ratio              |             `Manually`             |   `1:1`    |
+| Animation timing function | `cubic-bezier(.50,-0.35,.50,1.65)` | `ease-in`  |
+| Animation duration        |                `1s`                |   `0.5s`   |
+| Flip card                 |            `Unchecked`             | `Checked`  |
 
 ### In the code (for developers)
 
-| Prop name          |   Name in the code   |   Type    |    Default     |  Example  |
-| :----------------- | :------------------: | :-------: | :------------: | :-------: |
-| Flip trigger       |  `flipTriggerProp`   |  `enum`   |    `click`     |  `hover`  |
-| Flip directionа    | `flipDirectionProp`  |  `enum`   |   `toRight`    | `toDown`  |
-| Aspect ratio       |  `aspectRatioProp`   |  `enum`   |     `auto`     |   `1:1`   |
-| Smooth animation   | `timingFunctionProp` | `string`  | `cubic-bezier` | `ease-in` |
-| Animation duration |  `flipDurationProp`  | `string`  |     `1000`     |  `2000`   |
-| Flip card          |   `isFlippedProp`    | `boolean` |    `false`     |  `true`   |
+| Prop name                 |   Name in the code   |   Type    |              Default               |  Example  |
+| :------------------------ | :------------------: | :-------: | :--------------------------------: | :-------: |
+| Flip trigger              |  `flipTriggerProp`   |  `enum`   |              `click`               |  `hover`  |
+| Flip directionа           | `flipDirectionProp`  |  `enum`   |             `toRight`              | `toDown`  |
+| Aspect ratio              |  `aspectRatioProp`   |  `enum`   |               `auto`               |   `1:1`   |
+| Animation timing function | `timingFunctionProp` | `string`  | `cubic-bezier(.50,-0.35,.50,1.65)` | `ease-in` |
+| Animation duration        |  `flipDurationProp`  | `string`  |                `1s`                |  `0.5s`   |
+| Flip card                 |   `isFlippedProp`    | `boolean` |              `false`               |  `true`   |
 
 #### The 'Flip trigger' property values
 
@@ -62,13 +62,13 @@ If you choose `auto` in the `Aspect ratio` prop, the image size (height & width)
 
 The names of the `Smooth animation` property values fully match.
 
-#### The 'Image aspect ratio' property values
+#### The 'Aspect ratio' property values
 
 | User-friendly name | Name in the code |
 | :----------------- | :--------------: |
 | 16:9               |      `16:9`      |
 
-The names of the `Image aspect ratio` property values fully match.
+The names of the `Aspect ratio` property values fully match.
 
 ## 🗄 GitHub
 

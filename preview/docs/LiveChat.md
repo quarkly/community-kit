@@ -18,19 +18,19 @@ The `Chat sessions between groups` allows you to set one session for several cha
 
 ### In the interface
 
-| Prop name                    |   Default   |  Example  |
-| :--------------------------- | :---------: | :-------: |
-| License ID                   |     `-`     | `123456`  |
-| Group number                 |     `-`     |    `1`    |
-| Chat sessions between groups | `Unchecked` | `Checked` |
+| Prop name                    |   Default   |                               Example                               |
+| :--------------------------- | :---------: | :-----------------------------------------------------------------: |
+| License ID                   |     `-`     | [`Your license ID`](https://www.livechat.com/help/install-livechat) |
+| Group number                 |     `-`     |                                 `1`                                 |
+| Chat sessions between groups | `Unchecked` |                              `Checked`                              |
 
 ### In the code (for developers)
 
-| Prop name                    |  Name in the code   |   Type    | Default | Example  |
-| :--------------------------- | :-----------------: | :-------: | :-----: | :------: |
-| License ID                   |      `license`      | `string`  |   `-`   | `123456` |
-| Group number                 |       `group`       | `string`  |   `-`   |   `1`    |
-| Chat sessions between groups | `chatBetweenGroups` | `boolean` | `false` |  `true`  |
+| Prop name                    |  Name in the code   |   Type    | Default |                               Example                               |
+| :--------------------------- | :-----------------: | :-------: | :-----: | :-----------------------------------------------------------------: |
+| License ID                   |      `license`      | `string`  |   `-`   | [`Your license ID`](https://www.livechat.com/help/install-livechat) |
+| Group number                 |       `group`       | `string`  |   `-`   |                                 `1`                                 |
+| Chat sessions between groups | `chatBetweenGroups` | `boolean` | `false` |                               `true`                                |
 
 ## 🗄 GitHub
 

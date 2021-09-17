@@ -14,16 +14,16 @@ If the `Auto position change` prop is enabled, the tooltip will automatically ch
 
 ### In the interface
 
-| Prop name                |  Default  |  Example   |
-| :----------------------- | :-------: | :--------: |
-| Show Tooltip             | `Always`  | `On hover` |
-| Tooltip position         |   `Top`   |  `Bottom`  |
-| Edges indent             |    `0`    |   `2px`    |
-| Content indent           |   `4px`   |   `8px`    |
-| Tooltip background color | `#000000` | `#ffffff`  |
-| Show the arrow           |  `true`   |  `false`   |
-| Arrow size (px)          |   `8px`   |   `12px`   |
-| Auto position change     |  `true`   |  `false`   |
+| Prop name                |  Default  |   Example   |
+| :----------------------- | :-------: | :---------: |
+| Show Tooltip             | `Always`  | `On hover`  |
+| Tooltip position         |   `Top`   |  `Bottom`   |
+| Window border indent     |    `0`    |    `2px`    |
+| Content border indent    |   `4px`   |    `8px`    |
+| Tooltip background color | `#000000` |  `#ffffff`  |
+| Show the arrow           | `Checked` | `Unchecked` |
+| Arrow size (px)          |   `8px`   |   `12px`    |
+| Auto position change     | `Checked` | `Unchecked` |
 
 ### In the code (for developers)
 
@@ -31,8 +31,8 @@ If the `Auto position change` prop is enabled, the tooltip will automatically ch
 | :----------------------- | :---------------------: | :-------: | :-------: | :-------: |
 | Show Tooltip             |   `tooltipStatusProp`   |  `enum`   | `always`  |  `hover`  |
 | Tooltip position         |  `tooltipPositionProp`  |  `enum`   |   `top`   | `bottom`  |
-| Edges indent             |   `tooltipOffsetProp`   | `string`  |    `0`    |   `2px`   |
-| Content indent           |   `contentOffsetProp`   | `string`  |   `4px`   |   `8px`   |
+| Window border indent     |   `tooltipOffsetProp`   | `string`  |    `0`    |   `2px`   |
+| Content border indent    |   `contentOffsetProp`   | `string`  |   `4px`   |   `8px`   |
 | Tooltip background color |   `tooltipColorProp`    | `string`  | `#000000` | `#ffffff` |
 | Show the arrow           |    `arrowStatusProp`    | `boolean` |  `true`   |  `false`  |
 | Arrow size (px)          |     `arrowSizeProp`     | `string`  |   `8px`   |  `12px`   |

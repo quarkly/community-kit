@@ -13,49 +13,53 @@
 
 ### Список доступных сервисов:
 
--   Facebook
--   Twitter
--   Telegram
--   WhatsApp
--   LinkedIn
--   VK
--   Odnoklassniki
--   Reddit
--   Tumblr
--   Viber
--   Line
--   Weibo
--   Pocket
+Ниже представлена таблица с допустимыми свойствами для каждой социальной сети.
+
+| Сервисы       | Заголовок сайта | Описание | Комментарий | Хештег |
+| :------------ | :-------------: | :------: | :---------: | :----: |
+| Facebook      |                 |          |     `+`     |  `+`   |
+| Twitter       |                 |          |     `+`     |        |
+| Telegram      |                 |          |     `+`     |        |
+| WhatsApp      |                 |          |     `+`     |        |
+| LinkedIn      |                 |          |             |        |
+| VK            |       `+`       |          |             |        |
+| Odnoklassniki |       `+`       |   `+`    |             |        |
+| Reddit        |       `+`       |          |             |        |
+| Tumblr        |                 |   `+`    |             |        |
+| Viber         |                 |          |     `+`     |        |
+| Line          |       `+`       |   `+`    |     `+`     |  `+`   |
+| Weibo         |       `+`       |          |             |        |
+| Pocket        |                 |          |             |        |
 
 ## 🧩 Компоненты и свойства
 
 ### В интерфейсе
 
-| Названия свойств   |                   По умолчанию                   |                 Пример                  |
-| :----------------- | :----------------------------------------------: | :-------------------------------------: |
-| Ссылка на сайт     |              `https://quarkly.io/`               |       `https://www.instagram.com`       |
-| Заголовок сайта    |                    `Quarkly`                     |               `Instagram`               |
-| Описание           | `Design tool for creating websites and web apps` | `Capture, edit & share photos & videos` |
-| Комментарий        |                       `–`                        |        `Follow me on Instagram`         |
-| Хештег             |                       `–`                        |              `#instagram`               |
-| Сервис             |                    `Facebook`                    |               `Instagram`               |
-| Ширина             |                      `640`                       |                 `1280`                  |
-| Высота             |                      `640`                       |                  `720`                  |
-| Открывать в попапе |                   `Не отмечен`                   |                `Отмечен`                |
+| Названия свойств   |                   По умолчанию                   |                    Пример                    |
+| :----------------- | :----------------------------------------------: | :------------------------------------------: |
+| Ссылка на сайт     |              `https://quarkly.io/`               |            `https://twitter.com/`            |
+| Заголовок сайта    |                    `Quarkly`                     |                  `Twitter`                   |
+| Описание           | `Design tool for creating websites and web apps` |   `Twitter is what’s happening right now`    |
+| Комментарий        |                       `–`                        | `Life’s not about a job, it’s about purpose` |
+| Хештег             |                       `–`                        |                  `#twitter`                  |
+| Сервис             |                    `Facebook`                    |                  `Twitter`                   |
+| Ширина             |                      `640`                       |                    `1280`                    |
+| Высота             |                      `640`                       |                    `720`                     |
+| Открывать в попапе |                   `Не отмечен`                   |                  `Отмечен`                   |
 
 ### В коде (для разработчиков)
 
-| Названия свойств   | Название в коде |    Тип    |                   По умолчанию                   |                 Пример                  |
-| :----------------- | :-------------: | :-------: | :----------------------------------------------: | :-------------------------------------: |
-| Ссылка на сайт     |      `url`      | `string`  |              `https://quarkly.io/`               |       `https://www.instagram.com`       |
-| Заголовок сайта    |     `title`     | `string`  |                    `Quarkly`                     |               `Instagram`               |
-| Описание           |  `description`  | `string`  | `Design tool for creating websites and web apps` | `Capture, edit & share photos & videos` |
-| Комментарий        |     `quote`     | `string`  |                       `–`                        |        `Follow me on Instagram`         |
-| Хештег             |    `hashtag`    | `string`  |                       `–`                        |              `#instagram`               |
-| Сервис             |    `service`    |  `enum`   |                     `light`                      |                 `dark`                  |
-| Ширина             |  `windowWidth`  | `number`  |                      `640`                       |                 `1280`                  |
-| Высота             | `windowHeight`  | `number`  |                      `640`                       |                  `720`                  |
-| Открывать в попапе |     `popup`     | `boolean` |                     `false`                      |                 `true`                  |
+| Названия свойств   | Название в коде |    Тип    |                   По умолчанию                   |                    Пример                    |
+| :----------------- | :-------------: | :-------: | :----------------------------------------------: | :------------------------------------------: |
+| Ссылка на сайт     |      `url`      | `string`  |              `https://quarkly.io/`               |            `https://twitter.com/`            |
+| Заголовок сайта    |     `title`     | `string`  |                    `Quarkly`                     |                  `Twitter`                   |
+| Описание           |  `description`  | `string`  | `Design tool for creating websites and web apps` |   `Twitter is what’s happening right now`    |
+| Комментарий        |     `quote`     | `string`  |                       `–`                        | `Life’s not about a job, it’s about purpose` |
+| Хештег             |    `hashtag`    | `string`  |                       `–`                        |                  `#twitter`                  |
+| Сервис             |    `service`    |  `enum`   |                     `light`                      |                  `Twitter`                   |
+| Ширина             |  `windowWidth`  | `number`  |                      `640`                       |                    `1280`                    |
+| Высота             | `windowHeight`  | `number`  |                      `640`                       |                    `720`                     |
+| Открывать в попапе |     `popup`     | `boolean` |                     `false`                      |                    `true`                    |
 
 #### Значения свойства 'Сервис'
 
@@ -67,7 +71,7 @@
 
 ## 🗄 GitHub
 
-[Ссылка на GitHub](https://github.com/quarkly/community-kit/tree/master/src/ReCaptcha)
+[Ссылка на GitHub](https://github.com/quarkly/community-kit/tree/master/src/ShareButton)
 
 ## 🗓 Changelog
 
@@ -76,11 +80,16 @@
 
 ## 📮 Feedback
 
-If you want to see some new features added or found an issue, please contact us! And, of course, we're excited to see your creations based on tis component. So, send us those, too!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-Find me on Twitter: @author
-[author@contact.mail](mailto:author@contact.mail)
+[Help with components](https://community.quarkly.io/c/requests/11)
+
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
+
+[Our Twitter](https://twitter.com/quarklyapp)
+
+[dev@quarkly.io](mailto:dev@quarkly.io)
 
 ## 📝 License
 
-Licensed under the [MIT License](./LICENSE).
+Licensed under the [MIT License](https://raw.githubusercontent.com/quarkly/community-kit/master/LICENSE).

@@ -19,7 +19,7 @@ export default {
     },
     business: {
         title: {
-            en: 'Your PayPal ID or or email',
+            en: 'Your PayPal ID or email',
             ru: 'Ваш PayPal ID или адрес электронной почты',
         },
         control: 'input',

@@ -18,12 +18,12 @@ The `Image sources` and `Container size` props allow you to explicitly define th
 
 | Prop name                      | Default |          Example          |
 | :----------------------------- | :-----: | :-----------------------: |
-| Audio or video file link       |   `-`   |            `-`            |
+| Audio or video file link       |   `-`   |    `Link to your file`    |
 | MIME type audio or video       |   `-`   |       `video/webm`        |
 | Audio and video codecs         |   `-`   |       `vp8, vorbis`       |
-| Image sources                  |   `-`   |        `image.png`        |
+| Image sources                  |   `-`   |   `Link to your image`    |
 | Container size                 |   `-`   | `(min-width: 768px) 50vw` |
-| Device category                |  `all`  |         `screen`          |
+| Device category                |  `All`  |         `Screen`          |
 | Media query for image download |   `-`   |   `(min-width: 768px)`    |
 | MIME type image                |   `-`   |        `image/png`        |
 
@@ -31,14 +31,14 @@ The `Image sources` and `Container size` props allow you to explicitly define th
 
 | Prop name                      | Name in the code |   Type   | Default |          Example          |
 | :----------------------------- | :--------------: | :------: | :-----: | :-----------------------: |
-| Audio or video file link       |      `src`       | `string` |   `-`   |            `-`            |
-| MIME type audio or video       |   `typeMedia`    |  `enum`  |   `-`   |       `video/webm`        |
+| Audio or video file link       |      `src`       | `string` |   `-`   |    `Link to your file`    |
+| MIME type audio or video       |   `typeMedia`    | `string` |   `-`   |       `video/webm`        |
 | Audio and video codecs         |     `codecs`     | `string` |   `-`   |       `vp8, vorbis`       |
-| Image sources                  |     `srcSet`     | `string` |   `-`   |        `image.png`        |
+| Image sources                  |     `srcSet`     | `string` |   `-`   |   `Link to your image`    |
 | Container size                 |     `sizes`      | `string` |   `-`   | `(min-width: 768px) 50vw` |
 | Device category                |  `mediaSelect`   |  `enum`  |  `all`  |         `screen`          |
 | Media query for image download |   `mediaInput`   | `string` |   `-`   |   `(min-width: 768px)`    |
-| MIME type image                |  `typePicture`   |  `enum`  |   `-`   |        `image/png`        |
+| MIME type image                |  `typePicture`   | `string` |   `-`   |        `image/png`        |
 
 #### The 'MIME type audio or video' property values
 

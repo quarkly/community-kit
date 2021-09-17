@@ -12,31 +12,31 @@ By default, the `File path` property has the `https://assets2.lottiefiles.com/pa
 
 ### In the interface
 
-| Prop names      |   Default   |   Example   |
-| :-------------- | :---------: | :---------: |
-| File path       |     `-`     |     `-`     |
-| Render          |    `SVG`    |  `Canvas`   |
-| First frame     |     `-`     |    `10`     |
-| Last frame      |     `-`     |    `50`     |
-| Force update    |  `Checked`  | `Unchecked` |
-| Loop animation  |  `Checked`  | `Unchecked` |
-| Pause animation | `Unchecked` |  `Checked`  |
-| Stop animation  | `Unchecked` |  `Checked`  |
-| Animation speed |     `1`     |    `0.5`    |
+| Prop names      |   Default   |       Example       |
+| :-------------- | :---------: | :-----------------: |
+| File path       |     `-`     | `Link to JSON file` |
+| Render          |    `SVG`    |      `Canvas`       |
+| First frame     |     `-`     |        `10`         |
+| Last frame      |     `-`     |        `50`         |
+| Force update    | `Unchecked` |      `Checked`      |
+| Loop animation  |  `Checked`  |     `Unchecked`     |
+| Pause animation | `Unchecked` |      `Checked`      |
+| Stop animation  | `Unchecked` |      `Checked`      |
+| Animation speed |     `1`     |        `0.5`        |
 
 ### In the code (for developers)
 
-| Prop names      | Name in the code |   Type    | Default | Example  |
-| :-------------- | :--------------: | :-------: | :-----: | :------: |
-| File path       |      `path`      | `string`  |   `-`   |   `-`    |
-| Render          |    `renderer`    |  `enum`   |  `SVG`  | `Canvas` |
-| First frame     |   `firstFrame`   | `string`  |   `-`   |   `10`   |
-| Last frame      |   `lastFrame`    | `string`  |   `-`   |   `50`   |
-| Force update    |  `forceUpdate`   | `boolean` | `true`  | `false`  |
-| Loop animation  |      `loop`      | `boolean` | `true`  | `false`  |
-| Pause animation |    `isPaused`    | `boolean` | `false` |  `true`  |
-| Stop animation  |   `isStopped`    | `boolean` | `false` |  `true`  |
-| Animation speed |     `speed`      | `string`  |   `1`   |  `0.5`   |
+| Prop names      | Name in the code |   Type    | Default |       Example       |
+| :-------------- | :--------------: | :-------: | :-----: | :-----------------: |
+| File path       |      `path`      | `string`  |   `-`   | `Link to JSON file` |
+| Render          |    `renderer`    |  `enum`   |  `SVG`  |      `Canvas`       |
+| First frame     |   `firstFrame`   | `string`  |   `-`   |        `10`         |
+| Last frame      |   `lastFrame`    | `string`  |   `-`   |        `50`         |
+| Force update    |  `forceUpdate`   | `boolean` | `false` |       `true`        |
+| Loop animation  |      `loop`      | `boolean` | `true`  |       `false`       |
+| Pause animation |    `isPaused`    | `boolean` | `false` |       `true`        |
+| Stop animation  |   `isStopped`    | `boolean` | `false` |       `true`        |
+| Animation speed |     `speed`      | `string`  |   `1`   |        `0.5`        |
 
 #### The 'Render' property values
 

@@ -1,7 +1,7 @@
 export default {
     animDuration: {
         title: {
-            en: 'Show/hide duration',
+            en: 'Show/hide animation duration',
             ru: 'Длительность появления и скрытия',
         },
         control: 'input',

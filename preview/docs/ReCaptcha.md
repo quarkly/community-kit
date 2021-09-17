@@ -13,19 +13,19 @@ reCAPTCHA is a free service that protects your site from spam and abuse. It uses
 
 ### In the interface
 
-| Prop name      | Default  |  Example  |
-| :------------- | :------: | :-------: |
-| Client API key |   `-`    | `123456`  |
-| Theme          | `Light`  |  `Dark`   |
-| Size           | `Normal` | `Compact` |
+| Prop name      | Default  |                             Example                             |
+| :------------- | :------: | :-------------------------------------------------------------: |
+| Client API key |   `-`    | [`Your API Key`](https://www.google.com/recaptcha/admin/create) |
+| Theme          | `Light`  |                             `Dark`                              |
+| Size           | `Normal` |                            `Compact`                            |
 
 ### In the code (for developers)
 
-| Prop name      | Name in the code |   Type   | Default  |  Example  |
-| :------------- | :--------------: | :------: | :------: | :-------: |
-| Client API key |  `animDuration`  | `string` |   `-`    | `123456`  |
-| Theme          |  `animFunction`  |  `enum`  | `light`  |  `dark`   |
-| Size           |   `onloadShow`   |  `enum`  | `normal` | `compact` |
+| Prop name      | Name in the code |   Type   | Default  |                             Example                             |
+| :------------- | :--------------: | :------: | :------: | :-------------------------------------------------------------: |
+| Client API key |    `sitekey`     | `string` |   `-`    | [`Your API Key`](https://www.google.com/recaptcha/admin/create) |
+| Theme          |     `theme`      |  `enum`  | `light`  |                             `dark`                              |
+| Size           |      `size`      |  `enum`  | `normal` |                            `compact`                            |
 
 #### The 'Theme' property values
 
@@ -52,10 +52,16 @@ reCAPTCHA is a free service that protects your site from spam and abuse. It uses
 
 ## 📮 Feedback
 
-If you want to see some new features added or found an issue, please contact us! And, of course, we're excited to see your creations based on this component. So, send us those, too!
+If you encountered a bug, please contact us so we can fix it promptly. We’re rapidly developing, so don’t hesitate to send us your feedback and request new features you would like to see added. Feel free to share what you’re working on - we **love** to see what you’re building with Quarkly!
 
-Find me on Twitter: @author [author@contact.mail](mailto:author@contact.mail)
+[Help with components](https://community.quarkly.io/c/requests/11)
+
+[We're on Discord](https://discord.gg/SuF9vCMJGW)
+
+[Our Twitter](https://twitter.com/quarklyapp)
+
+[dev@quarkly.io](mailto:dev@quarkly.io)
 
 ## 📝 License
 
-Licensed under the [MIT License](./LICENSE).
+Licensed under the [MIT License](https://raw.githubusercontent.com/quarkly/community-kit/master/LICENSE).

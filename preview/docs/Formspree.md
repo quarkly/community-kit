@@ -14,19 +14,19 @@ This component allows you to add a form with the Formspree widget.
 
 ### In the interface
 
-| Prop name       |        Default         | Example |
-| :-------------- | :--------------------: | :-----: |
-| Endpoint        |          `-`           |   `-`   |
-| Success message |       `Success`        |   `-`   |
-| Error message   | `Something went wrong` |   `-`   |
+| Prop name       |        Default         |        Example         |
+| :-------------- | :--------------------: | :--------------------: |
+| Endpoint        |          `-`           | `Your form's endpoint` |
+| Success message |       `Success`        | `Your success message` |
+| Error message   | `Something went wrong` |  `Your error message`  |
 
 ### In the code (for developers)
 
-| Prop name       | Name in the code |   Type   |        Default         | Example |
-| :-------------- | :--------------: | :------: | :--------------------: | :-----: |
-| Endpoint        |    `account`     | `string` |          `-`           |   `-`   |
-| Success message |     `writer`     | `string` |       `Success`        |   `-`   |
-| Error message   |    `targets`     | `string` | `Something went wrong` |   `-`   |
+| Prop name       | Name in the code |   Type   |        Default         |        Example         |
+| :-------------- | :--------------: | :------: | :--------------------: | :--------------------: |
+| Endpoint        |    `endpoint`    | `string` |          `-`           | `Your form's endpoint` |
+| Success message |  `completeText`  | `string` |       `Success`        | `Your success message` |
+| Error message   |  `errorMessage`  | `string` | `Something went wrong` |  `Your error message`  |
 
 ## 🗄 GitHub
 

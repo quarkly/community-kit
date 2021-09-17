@@ -43,21 +43,23 @@ To do this:
 
 ### In the interface
 
-| Prop name                        | Default |  Example  |
-| :------------------------------- | :-----: | :-------: |
-| Switch mobile view on breakpoint |  `md`   |   `sm`    |
-| Panel position in mobile view    | `near`  |  `left`   |
-| Smooth animation                 | `ease`  | `ease-in` |
-| Hide/show animation duration     | `0.3s`  |  `0.5s`   |
+| Prop name                        |           Default           |           Example           |
+| :------------------------------- | :-------------------------: | :-------------------------: |
+| Switch mobile view on breakpoint |            `md`             |            `sm`             |
+| Panel position in mobile view    | `To the left of the button` | `To the left of the screen` |
+| Animation timing function        |           `ease`            |          `ease-in`          |
+| Show/hide animation duration     |           `0.3s`            |           `0.5s`            |
+| Show a panel when loading        |         `Unchecked`         |          `Checked`          |
 
 ### In the code (for developers)
 
-| Prop name                        | Name in the code |   Type   | Default |  Example  |
-| :------------------------------- | :--------------: | :------: | :-----: | :-------: |
-| Switch mobile view on breakpoint |   `breakpoint`   | `string` |  `md`   |   `sm`    |
-| Panel position in mobile view    |  `menuPosition`  |  `enum`  | `near`  |  `left`   |
-| Smooth animation                 |  `animDuration`  | `string` | `ease`  | `ease-in` |
-| Hide/show animation duration     |  `animFunction`  | `string` | `0.3s`  |  `0.5s`   |
+| Prop name                        | Name in the code |   Type    | Default |  Example  |
+| :------------------------------- | :--------------: | :-------: | :-----: | :-------: |
+| Switch mobile view on breakpoint |   `breakpoint`   | `string`  |  `md`   |   `sm`    |
+| Panel position in mobile view    |  `menuPosition`  |  `enum`   | `near`  |  `left`   |
+| Animation timing function        |  `animFunction`  | `string`  | `ease`  | `ease-in` |
+| Show/hide animation duration     |  `animDuration`  | `string`  | `0.3s`  |  `0.5s`   |
+| Show a panel when loading        |   `onloadShow`   | `boolean` | `false` |  `true`   |
 
 #### The 'Panel position in mobile view' property values
 

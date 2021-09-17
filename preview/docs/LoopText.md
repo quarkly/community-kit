@@ -16,27 +16,27 @@ Please note that the slides can't be removed by default. So just replace the def
 
 ### In the interface
 
-| Prop name                                  |  Default  |      Example      |
-| :----------------------------------------- | :-------: | :---------------: |
-| Slider list                                |   `[]`    | `[first, second]` |
-| Slideshow intervals                        |  `3000`   |      `1500`       |
-| Delay before animation starts              |    `0`    |      `1000`       |
-| Container change duration                  |   `150`   |       `50`        |
-| Hide/show animation                        | `Checked` |    `Unchecked`    |
-| Hide animation at the container boundaries | `Checked` |    `Unchecked`    |
-| Forbid line breaking                       | `Checked` |    `Unchecked`    |
+| Prop name                                  |               Default               |      Example      |
+| :----------------------------------------- | :---------------------------------: | :---------------: |
+| Slide list                                 | `['coolest', 'fastest', 'easiest']` | `[first, second]` |
+| Slideshow intervals                        |               `1500`                |      `3000`       |
+| Delay before animation starts              |                 `0`                 |      `1000`       |
+| Container change duration                  |                `150`                |       `50`        |
+| Show/hide animation                        |              `Checked`              |    `Unchecked`    |
+| Hide animation at the container boundaries |             `Unchecked`             |     `Checked`     |
+| Forbid line breaking                       |              `Checked`              |    `Unchecked`    |
 
 ### In the code (for developers)
 
-| Prop name                                  |   Name in the code   |   Type    | Default |      Example      |
-| :----------------------------------------- | :------------------: | :-------: | :-----: | :---------------: |
-| Slider list                                |       `slides`       | `string`  |  `[]`   | `[first, second]` |
-| Slideshow intervals                        |    `intervalProp`    | `string`  | `3000`  |      `1500`       |
-| Delay before animation starts              |     `delayProp`      | `string`  |   `0`   |      `1000`       |
-| Container change duration                  | `adjustingSpeedProp` | `string`  |  `150`  |       `50`        |
-| Hide/show animation                        |        `fade`        | `boolean` | `true`  |      `false`      |
-| Hide animation at the container boundaries |        `mask`        | `boolean` | `true`  |      `false`      |
-| Forbid line breaking                       |       `noWrap`       | `boolean` | `true`  |      `false`      |
+| Prop name                                  |   Name in the code   |   Type    |               Default               |      Example      |
+| :----------------------------------------- | :------------------: | :-------: | :---------------------------------: | :---------------: |
+| Slide list                                 |       `slides`       | `string`  | `['coolest', 'fastest', 'easiest']` | `[first, second]` |
+| Slideshow intervals                        |    `intervalProp`    | `string`  |               `1500`                |      `3000`       |
+| Delay before animation starts              |     `delayProp`      | `string`  |                 `0`                 |      `1000`       |
+| Container change duration                  | `adjustingSpeedProp` | `string`  |                `150`                |       `50`        |
+| Show/hide animation                        |        `fade`        | `boolean` |               `true`                |      `false`      |
+| Hide animation at the container boundaries |        `mask`        | `boolean` |               `false`               |      `true`       |
+| Forbid line breaking                       |       `noWrap`       | `boolean` |               `true`                |      `false`      |
 
 ## 🗄 GitHub
 

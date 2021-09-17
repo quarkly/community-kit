@@ -20,21 +20,21 @@ If you change the component properties in the builder, you may need to update th
 
 ### In the interface
 
-| Prop name                     |  Default  |  Example  |
-| :---------------------------- | :-------: | :-------: |
-| Facebook app ID               |    `-`    |    `-`    |
-| Link to comments              |    `-`    |    `-`    |
-| The language of the component | `English` | `Russian` |
+| Prop name                  |  Default  |                        Example                        |
+| :------------------------- | :-------: | :---------------------------------------------------: |
+| Facebook app ID            |    `-`    | [`Your app ID`](https://developers.facebook.com/apps) |
+| Link to comments           |    `-`    |                  `Link to comments`                   |
+| The language of the widget | `English` |                       `Russian`                       |
 
 ### In the code (for developers)
 
-| Prop name                     | Name in the code |   Type   | Default | Example |
-| :---------------------------- | :--------------: | :------: | :-----: | :-----: |
-| Facebook app ID               |     `appId`      | `string` |   `-`   |   `-`   |
-| Link to comments              |      `href`      | `string` |   `-`   |   `-`   |
-| The language of the component |    `language`    |  `enum`  | `en_US` | `ru_RU` |
+| Prop name                  | Name in the code |   Type   | Default |                        Example                        |
+| :------------------------- | :--------------: | :------: | :-----: | :---------------------------------------------------: |
+| Facebook app ID            |     `appId`      | `string` |   `-`   | [`Your app ID`](https://developers.facebook.com/apps) |
+| Link to comments           |      `href`      | `string` |   `-`   |                  `Link to comments`                   |
+| The language of the widget |    `language`    |  `enum`  | `en_US` |                        `ru_RU`                        |
 
-#### The 'The language of the component' property values
+#### The 'The language of the widget' property values
 
 | User-friendly name | Name in the code |
 | :----------------- | :--------------: |

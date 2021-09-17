@@ -10,17 +10,17 @@ Add the component to the page, enter the `Link to the track`, and check how it w
 
 ### In the interface
 
-| Prop Name         |  Default   | Example  |
-| :---------------- | :--------: | :------: |
-| Player type       | `standart` | `visual` |
-| Link to the track |    `-`     |   `-`    |
+| Prop Name         |  Default   |     Example      |
+| :---------------- | :--------: | :--------------: |
+| Player type       | `Standart` |     `Visual`     |
+| Link to the track |    `-`     | `Your track URL` |
 
 ### In the code (for developers)
 
-| Prop Name         | Name in the code |   Type   |  Default   | Example  |
-| :---------------- | :--------------: | :------: | :--------: | :------: |
-| Player type       |    `account`     |  `enum`  | `standart` | `visual` |
-| Link to the track |     `writer`     | `string` |    `-`     |   `-`    |
+| Prop Name         | Name in the code |   Type   |  Default   |     Example      |
+| :---------------- | :--------------: | :------: | :--------: | :--------------: |
+| Player type       |    `account`     |  `enum`  | `standart` |     `visual`     |
+| Link to the track |     `writer`     | `string` |    `-`     | `Your track URL` |
 
 #### The 'Player type' property values
 

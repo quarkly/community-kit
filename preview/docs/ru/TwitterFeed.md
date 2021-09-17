@@ -19,22 +19,22 @@
 | Убрать границы виджета                  | `Не отмечен`  |  `Отмечен`  |
 | Убрать фон виджета                      | `Не отмечен`  |  `Отмечен`  |
 | Убрать полосу прокрутки                 | `Не отмечен`  |  `Отмечен`  |
-| Цвет границы твитов (только #HEX)       |      `-`      |   `#000`    |
+| Цвет границы твитов (только #HEX)       |      `-`      |  `#000000`  |
 | ARIA live politeness                    |   `polite`    | `assertive` |
 
 ### В коде (для разработчиков)
 
 | Названия свойств                        | Название в коде |    Тип    | По умолчанию  |   Пример    |
 | :-------------------------------------- | :-------------: | :-------: | :-----------: | :---------: |
-| Имя или ссылка на страницу пользователя |    `account`    | `string`  | `@quarklyapp` | `@username` |
-| Ограничить количество твитов (1-20)     |    `writer`     | `string`  |      `1`      |    `20`     |
-| Убрать шапку                            |    `targets`    | `boolean` |    `false`    |   `true`    |
-| Убрать подвал                           |      `sum`      | `boolean` |    `false`    |   `true`    |
-| Убрать границы виджета                  |  `buttonText`   | `boolean` |    `false`    |   `true`    |
-| Убрать фон виджета                      |    `payment`    | `boolean` |    `false`    |   `true`    |
-| Убрать полосу прокрутки                 |      `fio`      | `boolean` |    `false`    |   `true`    |
-| Цвет границы твитов (только #HEX)       |     `email`     | `string`  |      `-`      |   `#000`    |
-| ARIA live politeness                    |     `phone`     |  `enum`   |   `polite`    | `assertive` |
+| Имя или ссылка на страницу пользователя | `dataProvider`  | `string`  | `@quarklyapp` | `@username` |
+| Ограничить количество твитов (1-20)     |  `tweetLimit`   | `string`  |      `1`      |    `20`     |
+| Убрать шапку                            |   `noheader`    | `boolean` |    `false`    |   `true`    |
+| Убрать подвал                           |   `nofooter`    | `boolean` |    `false`    |   `true`    |
+| Убрать границы виджета                  |   `noborders`   | `boolean` |    `false`    |   `true`    |
+| Убрать фон виджета                      |  `transparent`  | `boolean` |    `false`    |   `true`    |
+| Убрать полосу прокрутки                 |  `noscrollbar`  | `boolean` |    `false`    |   `true`    |
+| Цвет границы твитов (только #HEX)       |  `tweetBorder`  | `string`  |      `-`      |  `#000000`  |
+| ARIA live politeness                    |  `ariaPolite`   |  `enum`   |   `polite`    | `assertive` |
 
 #### Значения свойства 'ARIA live politeness'
 

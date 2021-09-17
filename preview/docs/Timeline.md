@@ -23,12 +23,12 @@ The value chosen in the `Alignment on mobile` prop will be applied for the break
 
 ### In the interface
 
-| Prop name                         | Default |         Example          |
-| :-------------------------------- | :-----: | :----------------------: |
-| Number of elements                |   `4`   |           `6`            |
-| Alignment on desktop              | `Left`  | `From right (staggered)` |
-| Alignment on mobile               | `Right` |          `Left`          |
-| Mobile view start with breakpoint |  `sm`   |           `md`           |
+| Prop name                         |         Default         | Example |
+| :-------------------------------- | :---------------------: | :-----: |
+| Number of elements                |           `4`           |   `6`   |
+| Alignment on desktop              | `From left (staggered)` | `Right` |
+| Alignment on mobile               |         `Left`          | `Right` |
+| Mobile view start with breakpoint |          `sm`           |  `md`   |
 
 ### In the code (for developers)
 
