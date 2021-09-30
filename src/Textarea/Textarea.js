@@ -18,11 +18,11 @@ const TextareaComponent = ({
     return (
         <Textarea
             name={name}
-            placeholder={placeholder || undefined}
-            defaultValue={defaultValue || undefined}
-            autoFocus={autoFocus || undefined}
-            required={required || undefined}
-            disabled={disabled || undefined}
+            placeholder={placeholder}
+            defaultValue={defaultValue}
+            autoFocus={autoFocus}
+            required={required}
+            disabled={disabled}
             maxlength={maxlength > 0 ? maxlength : undefined}
             padding="6px 16px"
             font="--base"

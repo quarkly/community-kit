@@ -61,10 +61,10 @@ const RadioComponent = ({
             <Input
                 name={name}
                 defaultValue={defaultValue}
-                defaultChecked={defaultChecked || undefined}
-                autoFocus={autoFocus || undefined}
-                required={required || undefined}
-                disabled={disabled || undefined}
+                defaultChecked={defaultChecked}
+                autoFocus={autoFocus}
+                required={required}
+                disabled={disabled}
                 onClick={clickEvent}
                 {...override('Input', `Input ${status}`)}
                 type="radio"

@@ -24,11 +24,11 @@ const SelectComponent = ({
         <Wrapper position="relative">
             <Select
                 name={name}
-                defaultValue={defaultValue || undefined}
-                multiple={multiple || undefined}
-                autoFocus={autoFocus || undefined}
-                required={required || undefined}
-                disabled={disabled || undefined}
+                defaultValue={defaultValue}
+                multiple={multiple}
+                autoFocus={autoFocus}
+                required={required}
+                disabled={disabled}
                 appearance="none"
                 padding="6px 16px"
                 padding-right={!multiple ? '30px' : undefined}

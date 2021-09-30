@@ -57,8 +57,8 @@ const FormComponent = ({
             name={name}
             novalidate={novalidate}
             target={target}
-            onSubmit={onSubmitCb || undefined}
-            onReset={onResetCb || undefined}
+            onSubmit={onSubmitCb}
+            onReset={onResetCb}
             flex-direction="column"
             display="flex"
             {...rest}

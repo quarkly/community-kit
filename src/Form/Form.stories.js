@@ -13,6 +13,8 @@ export default {
     argTypes: argTypes(propInfo, defaultProps),
 };
 
+const defaultState = ['CA'];
+
 const formStyles = {
     margin: '8px',
 };
@@ -85,7 +87,7 @@ export const StoryDefault = (props) => (
                 <Select
                     {...inputStyles}
                     name="state"
-                    defaultValue={['CA']}
+                    defaultValue={defaultState}
                     multiple
                     required
                 >

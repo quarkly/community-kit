@@ -36,10 +36,10 @@ const CheckboxComponent = ({
             <Input
                 name={name}
                 defaultValue={defaultValue}
-                defaultChecked={defaultChecked || undefined}
-                autoFocus={autoFocus || undefined}
-                required={required || undefined}
-                disabled={disabled || undefined}
+                defaultChecked={defaultChecked}
+                autoFocus={autoFocus}
+                required={required}
+                disabled={disabled}
                 onChange={onChangeEvent}
                 {...override('Input', `Input ${status}`)}
                 type="checkbox"
