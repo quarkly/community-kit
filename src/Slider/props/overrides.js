@@ -6,7 +6,7 @@ export default {
             'min-height': 0,
             'min-width': 0,
             height: 8,
-            width: 400,
+            width: '100%',
             background: '--color-lightD2',
             'border-radius': 50,
         },
@@ -18,7 +18,7 @@ export default {
     'Slider Rail Vertical': {
         kind: 'Box',
         props: {
-            height: 400,
+            height: '100%',
             width: 8,
         },
     },
@@ -62,7 +62,12 @@ export default {
             height: 16,
             width: 16,
             'border-radius': 3,
-
+            'z-index': 100,
+        },
+    },
+    'Slider Handle Horizontal': {
+        kind: 'Box',
+        props: {
             top: '50%',
             transform: 'translateY(-50%);',
         },
@@ -79,17 +84,27 @@ export default {
         props: {
             position: 'relative',
             'text-align': 'center',
+        },
+    },
+    'Labels Horizontal': {
+        kind: 'Box',
+        props: {
             margin: '10px 0',
         },
     },
     'Labels Vertical': {
         kind: 'Box',
         props: {
-            'flex-direction': 'column-reverse',
             margin: '0 10px',
         },
     },
     Label: {
+        kind: 'Box',
+        props: {
+            position: 'absolute',
+        },
+    },
+    'Label Horizontal': {
         kind: 'Box',
         props: {
             transform: 'translateX(-50%)',
@@ -99,6 +114,32 @@ export default {
         kind: 'Box',
         props: {
             transform: 'translateY(50%)',
+        },
+    },
+    'Handle Label': {
+        kind: 'Box',
+        props: {
+            position: 'absolute',
+            background: 'black',
+            color: 'white',
+            padding: '2px 10px',
+            'text-align': 'center',
+            'font-size': '10pt',
+            'border-radius': 5,
+        },
+    },
+    'Handle Label Horizontal': {
+        kind: 'Box',
+        props: {
+            left: '50%',
+            transform: 'translate(-50%, 10%)',
+        },
+    },
+    'Handle Label Vertical': {
+        kind: 'Box',
+        props: {
+            top: '50%',
+            transform: 'translate(50%, -50%)',
         },
     },
 };

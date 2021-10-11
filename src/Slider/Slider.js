@@ -1,13 +1,27 @@
 import React, { useState, useRef, useLayoutEffect } from 'react';
 import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
-import { clamp, approxEqual } from './utils';
+import { clamp, formatPercentage } from './utils';
 import { useForceUpdate } from './hooks';
 import { propInfo, defaultProps, overrides } from './props';
+import Handle from './components/Handle';
+import Labels from './components/Labels';
 
-const Slider = ({ min, max, stepSize, vertical, labelStepSize, ...props }) => {
+const Slider = ({
+    min,
+    max,
+    stepSize,
+    vertical,
+    labelStepSize,
+    labelPrecision,
+    labelValues,
+    defaultValue,
+    value: valueFromProps,
+    onChange: onChangeFromProps,
+    ...props
+}) => {
     const { override, rest } = useOverrides(props, overrides);
-    const [value, setValue] = useState(10);
+    const [internalValue, setInternalValue] = useState(defaultValue);
     const ref = useRef();
     const railRef = useRef();
 
@@ -19,6 +33,11 @@ const Slider = ({ min, max, stepSize, vertical, labelStepSize, ...props }) => {
             resetListeners();
         };
     }, []);
+
+    // eslint-disable-next-line eqeqeq
+    const isControlled = typeof valueFromProps != 'undefined';
+
+    const value = isControlled ? valueFromProps : internalValue;
 
     const tickSizeRatio = 1 / (max - min);
 
@@ -39,7 +58,16 @@ const Slider = ({ min, max, stepSize, vertical, labelStepSize, ...props }) => {
             min,
             max
         );
-        setValue(nextValue);
+
+        onChange(nextValue);
+    };
+
+    const onChange = (val) => {
+        onChangeFromProps?.(val);
+
+        if (!isControlled) {
+            setInternalValue(val);
+        }
     };
 
     const getTickSize = (rect) => {
@@ -51,15 +79,6 @@ const Slider = ({ min, max, stepSize, vertical, labelStepSize, ...props }) => {
             return rect.bottom - pixel;
         }
         return pixel - rect.left;
-    };
-
-    const getLabelValues = () => {
-        const values = [];
-        for (let i = min; i < max || approxEqual(i, max); i += labelStepSize) {
-            values.push(i);
-        }
-
-        return values;
     };
 
     const handleMouseEventOffset = (e) => {
@@ -95,52 +114,41 @@ const Slider = ({ min, max, stepSize, vertical, labelStepSize, ...props }) => {
         touchMove(e);
     };
 
-    const getStyle = () => {
-        if (!ref.current) return {};
-
-        const rect = ref.current.getBoundingClientRect();
-        const offsetRatio = (value - min) * tickSizeRatio;
-        const offsetPercent = `${(offsetRatio * 100).toFixed(2)}%`;
-
-        if (vertical) {
-            return {
-                top: `calc(100% - ${offsetPercent} - ${rect.height / 2}px)`,
-            };
-        }
-
-        return {
-            left: `calc(${offsetPercent} - ${rect.width / 2}px)`,
-        };
-    };
-
     const getRailFillStyle = () => {
         if (!ref.current) return {};
 
         const offsetRatio = (value - min) * tickSizeRatio;
-        const offsetPercent = `${(offsetRatio * 100).toFixed(2)}%`;
+        const offsetPercent = formatPercentage(offsetRatio);
 
-        if (vertical) {
-            return {
-                top: `calc(100% - ${offsetPercent})`,
-            };
-        }
+        const side = vertical ? 'top' : 'right';
 
         return {
-            right: `calc(100% - ${offsetPercent})`,
+            style: {
+                [side]: `calc(100% - ${offsetPercent})`,
+            },
         };
     };
 
-    const getLabelStyle = (step) => {
-        const offset = (step - min) / (max - min);
-        const percentOffset = `${(offset * 100).toFixed(2)}%`;
+    const mainStyle = () => {
+        const base = {
+            display: 'inline-flex',
+            margin: 15,
+            'min-width': 0,
+            'min-height': 0,
+        };
 
         if (vertical) {
             return {
-                bottom: percentOffset,
+                ...base,
+                'flex-direction': 'row',
+                height: 200,
             };
         }
+
         return {
-            left: percentOffset,
+            ...base,
+            'flex-direction': 'column',
+            width: 200,
         };
     };
 
@@ -148,11 +156,9 @@ const Slider = ({ min, max, stepSize, vertical, labelStepSize, ...props }) => {
         <Box
             display="inline-flex"
             flex-direction={vertical ? 'row' : 'column'}
-            margin="15px"
-            min-width={0}
-            min-height={0}
             onMouseDown={onMouseDown}
             onTouchStart={onTouchStart}
+            {...mainStyle()}
             {...rest}
         >
             <Box
@@ -160,7 +166,7 @@ const Slider = ({ min, max, stepSize, vertical, labelStepSize, ...props }) => {
                 {...override('Slider Rail', vertical && 'Slider Rail Vertical')}
             >
                 <Box
-                    style={getRailFillStyle()}
+                    {...getRailFillStyle()}
                     {...override(
                         'Slider Rail Fill',
                         vertical
@@ -168,38 +174,28 @@ const Slider = ({ min, max, stepSize, vertical, labelStepSize, ...props }) => {
                             : 'Slider Rail Fill Horizontal'
                     )}
                 />
-                <Box
-                    tabindex={0}
+                <Handle
                     ref={ref}
-                    style={getStyle()}
-                    {...override(
-                        'Slider Handle',
-                        vertical && 'Slider Handle Vertical'
-                    )}
-                >
-                    <Box>{value}</Box>
-                </Box>
+                    value={value}
+                    min={min}
+                    max={max}
+                    vertical={vertical}
+                    stepSize={stepSize}
+                    labelPrecision={labelPrecision}
+                    onChange={onChange}
+                    override={override}
+                />
             </Box>
-            <Box
-                {...override(
-                    'Labels',
-                    vertical ? 'Labels Vertical' : 'Labels Horizontal'
-                )}
-            >
-                {getLabelValues().map((step) => {
-                    return (
-                        <Box
-                            key={step}
-                            position="absolute"
-                            transform="translate(-50%)"
-                            style={getLabelStyle(step)}
-                            {...override('Label', vertical && 'Label Vertical')}
-                        >
-                            {step}
-                        </Box>
-                    );
-                })}
-            </Box>
+            <Labels
+                labelValues={labelValues}
+                min={min}
+                max={max}
+                labelStepSize={labelStepSize}
+                stepSize={stepSize}
+                labelPrecision={labelPrecision}
+                vertical={vertical}
+                override={override}
+            />
         </Box>
     );
 };

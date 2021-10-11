@@ -31,5 +31,13 @@ export default {
             en: 'Label step size',
         },
         control: 'input',
+        type: 'number',
+    },
+    defaultValue: {
+        title: {
+            en: 'Default value',
+        },
+        control: 'input',
+        type: 'number',
     },
 };
