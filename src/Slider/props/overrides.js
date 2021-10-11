@@ -3,17 +3,18 @@ export default {
         kind: 'Box',
         props: {
             position: 'relative',
+            background: '--color-lightD2',
             'min-height': 0,
             'min-width': 0,
-            height: 8,
-            width: '100%',
-            background: '--color-lightD2',
             'border-radius': 50,
         },
     },
     'Slider Rail Horizontal': {
         kind: 'Box',
-        props: {},
+        props: {
+            height: 8,
+            width: '100%',
+        },
     },
     'Slider Rail Vertical': {
         kind: 'Box',

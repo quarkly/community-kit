@@ -163,7 +163,10 @@ const Slider = ({
         >
             <Box
                 ref={railRef}
-                {...override('Slider Rail', vertical && 'Slider Rail Vertical')}
+                {...override(
+                    'Slider Rail',
+                    vertical ? 'Slider Rail Vertical' : 'Slider Rail Horizontal'
+                )}
             >
                 <Box
                     {...getRailFillStyle()}
