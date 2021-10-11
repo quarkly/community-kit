@@ -8,6 +8,7 @@ import Handle from './components/Handle';
 import Labels from './components/Labels';
 
 const Slider = ({
+    name,
     min,
     max,
     stepSize,
@@ -16,6 +17,7 @@ const Slider = ({
     labelPrecision,
     labelValues,
     defaultValue,
+    labelRenderer,
     value: valueFromProps,
     onChange: onChangeFromProps,
     ...props
@@ -179,24 +181,28 @@ const Slider = ({
                 />
                 <Handle
                     ref={ref}
-                    value={value}
+                    name={name}
+                    vertical={vertical}
                     min={min}
                     max={max}
-                    vertical={vertical}
                     stepSize={stepSize}
+                    tickSizeRatio={tickSizeRatio}
                     labelPrecision={labelPrecision}
+                    labelRenderer={labelRenderer}
+                    value={value}
                     onChange={onChange}
                     override={override}
                 />
             </Box>
             <Labels
-                labelValues={labelValues}
+                vertical={vertical}
                 min={min}
                 max={max}
-                labelStepSize={labelStepSize}
                 stepSize={stepSize}
+                labelValues={labelValues}
+                labelStepSize={labelStepSize}
                 labelPrecision={labelPrecision}
-                vertical={vertical}
+                labelRenderer={labelRenderer}
                 override={override}
             />
         </Box>

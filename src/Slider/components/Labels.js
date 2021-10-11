@@ -10,6 +10,7 @@ const Labels = ({
     labelValues,
     labelStepSize,
     labelPrecision,
+    labelRenderer,
     stepSize,
     override,
 }) => {
@@ -54,7 +55,12 @@ const Labels = ({
                             vertical ? 'Label Vertical' : 'Label Horizontal'
                         )}
                     >
-                        {formatLabel(step, { labelPrecision, stepSize })}
+                        {formatLabel(step, {
+                            labelPrecision,
+                            stepSize,
+                            labelRenderer,
+                            isHandleTooltip: false,
+                        })}
                     </Box>
                 );
             })}

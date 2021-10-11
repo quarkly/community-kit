@@ -1,4 +1,11 @@
 export default {
+    name: {
+        title: {
+            en: 'Input name',
+        },
+        control: 'input',
+        type: 'string',
+    },
     min: {
         title: {
             en: 'Min',

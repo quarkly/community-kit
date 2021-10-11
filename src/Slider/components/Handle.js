@@ -8,20 +8,21 @@ const Input = atomize.input();
 const Handle = React.forwardRef(
     (
         {
+            name,
             value,
             onChange,
             min,
             max,
             vertical,
+            tickSizeRatio,
             stepSize,
             labelPrecision,
+            labelRenderer,
             override,
             ...props
         },
         ref
     ) => {
-        const tickSizeRatio = 1 / (max - min);
-
         const getStyle = () => {
             if (!ref.current) return {};
 
@@ -65,11 +66,12 @@ const Handle = React.forwardRef(
                 {...props}
             >
                 <Input
-                    type="range"
-                    readOnly
                     width="0"
                     height="0"
                     overflow="hidden"
+                    readOnly
+                    type="range"
+                    name={name}
                     aria-orientation={vertical ? 'vertical' : 'horizontal'}
                     aria-valuemin={min}
                     aria-valuemax={max}
@@ -84,7 +86,12 @@ const Handle = React.forwardRef(
                             : 'Handle Label Horizontal'
                     )}
                 >
-                    {formatLabel(value, { labelPrecision, stepSize })}
+                    {formatLabel(value, {
+                        labelPrecision,
+                        stepSize,
+                        labelRenderer,
+                        isHandleTooltip: true,
+                    })}
                 </Box>
             </Box>
         );

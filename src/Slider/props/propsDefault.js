@@ -1,4 +1,5 @@
 export default {
+    name: 'range',
     defaultValue: 5,
     min: 0,
     max: 10,
