@@ -45,7 +45,7 @@ const Handle = React.forwardRef(
         const handleKeyDown = (event) => {
             if (['ArrowLeft', 'ArrowDown'].includes(event.key)) {
                 onChange(clamp(value - stepSize, min, max));
-            } else if (['ArrowRight', 'ArrowTop'].includes(event.key)) {
+            } else if (['ArrowRight', 'ArrowUp'].includes(event.key)) {
                 onChange(clamp(value + stepSize, min, max));
             }
         };
