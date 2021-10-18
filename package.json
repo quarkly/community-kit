@@ -122,7 +122,12 @@
       "Lottie": "Lottie",
       "Breadcrumbs": "Breadcrumbs",
       "ReCaptcha": "ReCaptcha",
-      "ShareButton": "ShareButton"
+      "ShareButton": "ShareButton",
+      "DatePicker": "DatePicker",
+      "DateSinglePicker": "DateSinglePicker",
+      "DateSingleInput": "DateSingleInput",
+      "DateRangePicker": "DateRangePicker",
+      "DateRangeInput": "DateRangeInput"
     }
   },
   "quarklyInfoDeleted": {
