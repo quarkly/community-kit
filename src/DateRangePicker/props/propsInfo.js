@@ -5,7 +5,8 @@ export default {
     ...pick(propInfo, 'locale', 'minDate', 'maxDate', 'initialMonth'),
     singleMonthOnly: {
         title: {
-            en: 'Single month only',
+            en: 'Display only one month',
+            ru: 'Отображать только один месяц',
         },
         control: 'checkbox',
     },
