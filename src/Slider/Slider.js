@@ -1,4 +1,10 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
+import React, {
+    useState,
+    useRef,
+    useMemo,
+    useCallback,
+    useLayoutEffect,
+} from 'react';
 import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { clamp, formatPercentage } from './utils';
@@ -27,14 +33,15 @@ const Slider = ({
     const ref = useRef();
     const railRef = useRef();
 
-    const forceUpdate = useForceUpdate();
+    const [forceUpdate, updated] = useForceUpdate();
 
     useLayoutEffect(() => {
         forceUpdate();
         return () => {
             resetListeners();
         };
-    }, []);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [resetListeners]);
 
     // eslint-disable-next-line eqeqeq
     const isControlled = typeof valueFromProps != 'undefined';
@@ -43,81 +50,97 @@ const Slider = ({
 
     const tickSizeRatio = 1 / (max - min);
 
-    const resetListeners = () => {
+    const resetListeners = useCallback(() => {
         document.removeEventListener('mousemove', mouseMove);
         document.removeEventListener('touchmove', touchMove);
-        document.removeEventListener('mouseup', mouseUp);
-    };
+        document.removeEventListener('mouseup', mouseOrTouchUp);
+        document.removeEventListener('touchend', mouseOrTouchUp);
+    }, [mouseMove, touchMove, mouseOrTouchUp]);
 
-    const changeValue = (pixel) => {
-        const rect = railRef.current.getBoundingClientRect();
+    const changeValue = useCallback(
+        (pixel) => {
+            const rect = railRef.current.getBoundingClientRect();
 
-        const tickSize = getTickSize(rect);
-        const pixelData = getPixelNormalized(rect, pixel);
+            const tickSize =
+                (vertical ? rect.height : rect.width) * tickSizeRatio;
 
-        const nextValue = clamp(
-            Math.round(pixelData / (tickSize * stepSize)) * stepSize + min,
-            min,
-            max
-        );
+            const pixelData = vertical
+                ? rect.bottom - pixel
+                : pixel - rect.left;
 
-        onChange(nextValue);
-    };
+            const nextValue = clamp(
+                Math.round(pixelData / (tickSize * stepSize)) * stepSize + min,
+                min,
+                max
+            );
 
-    const onChange = (val) => {
-        onChangeFromProps?.(val);
+            onChange(nextValue);
+        },
+        [max, min, onChange, stepSize, tickSizeRatio, vertical]
+    );
 
-        if (!isControlled) {
-            setInternalValue(val);
-        }
-    };
+    const onChange = useCallback(
+        (val) => {
+            onChangeFromProps?.(val);
 
-    const getTickSize = (rect) => {
-        return (vertical ? rect.height : rect.width) * tickSizeRatio;
-    };
+            if (!isControlled) {
+                setInternalValue(val);
+            }
+        },
+        [isControlled, onChangeFromProps]
+    );
 
-    const getPixelNormalized = (rect, pixel) => {
-        if (vertical) {
-            return rect.bottom - pixel;
-        }
-        return pixel - rect.left;
-    };
+    const handleMouseEventOffset = useCallback(
+        (e) => (vertical ? e.clientY : e.clientX),
+        [vertical]
+    );
 
-    const handleMouseEventOffset = (e) => {
-        return vertical ? e.clientY : e.clientX;
-    };
+    const handleTouchEventOffset = useCallback(
+        (e) => {
+            const touch = e.changedTouches[0];
+            return vertical ? touch.clientY : touch.clientX;
+        },
+        [vertical]
+    );
 
-    const handleTouchEventOffset = (e) => {
-        const touch = e.changedTouches[0];
-        return vertical ? touch.clientY : touch.clientX;
-    };
+    const touchMove = useCallback(
+        (e) => {
+            changeValue(handleTouchEventOffset(e));
+        },
+        [changeValue, handleTouchEventOffset]
+    );
 
-    const touchMove = (e) => {
-        changeValue(handleTouchEventOffset(e));
-    };
+    const mouseMove = useCallback(
+        (e) => {
+            changeValue(handleMouseEventOffset(e));
+        },
+        [changeValue, handleMouseEventOffset]
+    );
 
-    const mouseMove = (e) => {
-        changeValue(handleMouseEventOffset(e));
-    };
-
-    const mouseUp = () => {
+    const mouseOrTouchUp = useCallback(() => {
         resetListeners();
-    };
+    }, [resetListeners]);
 
-    const onMouseDown = (e) => {
-        document.addEventListener('mousemove', mouseMove);
-        document.addEventListener('mouseup', mouseUp);
-        mouseMove(e);
-    };
+    const onMouseDown = useCallback(
+        (e) => {
+            document.addEventListener('mousemove', mouseMove);
+            document.addEventListener('mouseup', mouseOrTouchUp);
+            mouseMove(e);
+        },
+        [mouseMove, mouseOrTouchUp]
+    );
 
-    const onTouchStart = (e) => {
-        document.addEventListener('touchmove', touchMove);
-        document.addEventListener('mouseup', mouseUp);
-        touchMove(e);
-    };
+    const onTouchStart = useCallback(
+        (e) => {
+            document.addEventListener('touchmove', touchMove);
+            document.addEventListener('touchend', mouseOrTouchUp);
+            touchMove(e);
+        },
+        [touchMove, mouseOrTouchUp]
+    );
 
-    const getRailFillStyle = () => {
-        if (!ref.current) return {};
+    const railFillStyle = useMemo(() => {
+        if (!updated) return {};
 
         const offsetRatio = (value - min) * tickSizeRatio;
         const offsetPercent = formatPercentage(offsetRatio);
@@ -129,9 +152,9 @@ const Slider = ({
                 [side]: `calc(100% - ${offsetPercent})`,
             },
         };
-    };
+    }, [updated, value, min, tickSizeRatio, vertical]);
 
-    const mainStyle = () => {
+    const mainStyle = useMemo(() => {
         const base = {
             display: 'inline-flex',
             margin: 15,
@@ -152,15 +175,14 @@ const Slider = ({
             'flex-direction': 'column',
             width: 200,
         };
-    };
+    }, [vertical]);
 
     return (
         <Box
             display="inline-flex"
-            flex-direction={vertical ? 'row' : 'column'}
             onMouseDown={onMouseDown}
             onTouchStart={onTouchStart}
-            {...mainStyle()}
+            {...mainStyle}
             {...rest}
         >
             <Box
@@ -171,7 +193,7 @@ const Slider = ({
                 )}
             >
                 <Box
-                    {...getRailFillStyle()}
+                    {...railFillStyle}
                     {...override(
                         'Slider Rail Fill',
                         vertical
@@ -192,6 +214,7 @@ const Slider = ({
                     value={value}
                     onChange={onChange}
                     override={override}
+                    updated={updated}
                 />
             </Box>
             <Labels

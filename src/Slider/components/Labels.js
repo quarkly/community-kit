@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Box } from '@quarkly/widgets';
 import { approxEqual, formatLabel } from '../utils';
 import formatPercentage from '../utils/formatPercentage';
@@ -14,29 +14,58 @@ const Labels = ({
     stepSize,
     override,
 }) => {
-    const getLabelValues = () => {
-        if (typeof labelValues !== 'undefined') {
-            return labelValues;
-        }
+    const labels = useMemo(() => {
+        const getLabelStyle = (step) => {
+            const offset = (step - min) / (max - min);
+            const side = vertical ? 'bottom' : 'left';
 
-        const values = [];
-        for (let i = min; i < max || approxEqual(i, max); i += labelStepSize) {
-            values.push(i);
-        }
-
-        return values;
-    };
-
-    const getLabelStyle = (step) => {
-        const offset = (step - min) / (max - min);
-        const side = vertical ? 'bottom' : 'left';
-
-        return {
-            style: {
-                [side]: formatPercentage(offset),
-            },
+            return {
+                style: {
+                    [side]: formatPercentage(offset),
+                },
+            };
         };
-    };
+
+        let values = [];
+        if (typeof labelValues !== 'undefined') {
+            values = labelValues;
+        } else {
+            for (
+                let i = min;
+                i < max || approxEqual(i, max);
+                i += labelStepSize
+            ) {
+                values.push(i);
+            }
+        }
+
+        return values.map((value) => ({
+            step: value,
+            props: getLabelStyle(value),
+        }));
+    }, [labelStepSize, labelValues, max, min, vertical]);
+
+    const memoLabels = useMemo(
+        () =>
+            labels.map(({ step, props }) => (
+                <Box
+                    key={step}
+                    {...props}
+                    {...override(
+                        'Label',
+                        vertical ? 'Label Vertical' : 'Label Horizontal'
+                    )}
+                >
+                    {formatLabel(step, {
+                        labelPrecision,
+                        stepSize,
+                        labelRenderer,
+                        isHandleTooltip: false,
+                    })}
+                </Box>
+            )),
+        [labels, labelPrecision, labelRenderer, override, stepSize, vertical]
+    );
 
     return (
         <Box
@@ -45,25 +74,7 @@ const Labels = ({
                 vertical ? 'Labels Vertical' : 'Labels Horizontal'
             )}
         >
-            {getLabelValues().map((step) => {
-                return (
-                    <Box
-                        key={step}
-                        {...getLabelStyle(step)}
-                        {...override(
-                            'Label',
-                            vertical ? 'Label Vertical' : 'Label Horizontal'
-                        )}
-                    >
-                        {formatLabel(step, {
-                            labelPrecision,
-                            stepSize,
-                            labelRenderer,
-                            isHandleTooltip: false,
-                        })}
-                    </Box>
-                );
-            })}
+            {memoLabels}
         </Box>
     );
 };

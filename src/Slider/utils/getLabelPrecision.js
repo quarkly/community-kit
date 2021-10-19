@@ -2,13 +2,13 @@ const countDecimalPlaces = (num) => {
     if (!Number.isFinite(num)) {
         return 0;
     }
-    let e = 1;
-    let p = 0;
-    while (Math.round(num * e) / e !== num) {
-        e *= 10;
-        p += 1;
+    let epsilon = 1;
+    let precision = 0;
+    while (Math.round(num * epsilon) / epsilon !== num) {
+        epsilon *= 10;
+        precision += 1;
     }
-    return p;
+    return precision;
 };
 
 const getLabelPrecision = ({ labelPrecision, stepSize }) => {

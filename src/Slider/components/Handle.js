@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Box } from '@quarkly/widgets';
 import atomize from '@quarkly/atomize';
 import { clamp, formatLabel, formatPercentage } from '../utils';
@@ -19,12 +19,13 @@ const Handle = React.forwardRef(
             labelPrecision,
             labelRenderer,
             override,
+            updated,
             ...props
         },
         ref
     ) => {
-        const getStyle = () => {
-            if (!ref.current) return {};
+        const mainStyle = useMemo(() => {
+            if (!updated) return {};
 
             const rect = ref.current.getBoundingClientRect();
             const offsetRatio = (value - min) * tickSizeRatio;
@@ -40,7 +41,7 @@ const Handle = React.forwardRef(
                     [side]: `calc(${offset} - ${handleOffset}px)`,
                 },
             };
-        };
+        }, [min, ref, updated, tickSizeRatio, value, vertical]);
 
         const handleKeyDown = (event) => {
             if (['ArrowLeft', 'ArrowDown'].includes(event.key)) {
@@ -56,7 +57,7 @@ const Handle = React.forwardRef(
                 role="slider"
                 ref={ref}
                 onKeyDown={handleKeyDown}
-                {...getStyle()}
+                {...mainStyle}
                 {...override(
                     'Slider Handle',
                     vertical
