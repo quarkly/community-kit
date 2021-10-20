@@ -6,7 +6,7 @@ import { clamp, formatLabel, formatPercentage } from '../utils';
 const Input = atomize.input();
 
 const FORWARD_KEYS = ['ArrowRight', 'ArrowUp'];
-const BACKWARD_KEYS = ['ArrowRight', 'ArrowUp'];
+const BACKWARD_KEYS = ['ArrowLeft', 'ArrowDown'];
 
 const Handle = React.forwardRef(
     (
@@ -48,9 +48,9 @@ const Handle = React.forwardRef(
 
         const handleKeyDown = (event) => {
             if (FORWARD_KEYS.includes(event.key)) {
-                onChange(clamp(value - stepSize, min, max));
-            } else if (BACKWARD_KEYS.includes(event.key)) {
                 onChange(clamp(value + stepSize, min, max));
+            } else if (BACKWARD_KEYS.includes(event.key)) {
+                onChange(clamp(value - stepSize, min, max));
             }
         };
 
