@@ -1,8 +1,13 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 const useForceUpdate = () => {
-    const [updated, setValue] = useState(0);
-    return [() => setValue((x) => x + 1), updated];
+    const [count, updateCount] = useState(0);
+
+    const memoizedUpdate = useCallback(() => {
+        updateCount((prev) => prev + 1);
+    }, []);
+
+    return [memoizedUpdate, count];
 };
 
 export default useForceUpdate;

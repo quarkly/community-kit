@@ -8,7 +8,7 @@ import React, {
 import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { clamp, formatPercentage } from './utils';
-import { useForceUpdate } from './hooks';
+import useForceUpdate from './hooks/useForceUpdate';
 import { propInfo, defaultProps, overrides } from './props';
 import Handle from './components/Handle';
 import Labels from './components/Labels';
@@ -40,11 +40,9 @@ const Slider = ({
         return () => {
             resetListeners();
         };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [resetListeners]);
+    }, [forceUpdate, resetListeners]);
 
-    // eslint-disable-next-line eqeqeq
-    const isControlled = typeof valueFromProps != 'undefined';
+    const isControlled = typeof valueFromProps === 'number';
 
     const value = isControlled ? valueFromProps : internalValue;
 
