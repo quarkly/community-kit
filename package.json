@@ -30,7 +30,7 @@
     "@quarkly/components": "^0.2.50",
     "@quarkly/sdk": "^0.5.4",
     "@quarkly/theme": "^0.1.3",
-    "@quarkly/widgets": "^0.2.50",
+    "@quarkly/widgets": "^0.2.60",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-knobs": "^6.2.9",
