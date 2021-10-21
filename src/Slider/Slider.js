@@ -7,21 +7,21 @@ import React, {
 } from 'react';
 import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
-import { clamp, formatPercentage } from './utils';
+import { clamp, formatPercentage, validateProps } from './utils';
 import useForceUpdate from './hooks/useForceUpdate';
 import { propInfo, defaultProps, overrides } from './props';
-import Handle from './components/Handle';
-import Labels from './components/Labels';
+import { Handle, Labels } from './components';
+import { isNumber } from './utils/validateProps';
 
 const Slider = ({
     name,
-    min,
-    max,
-    stepSize,
     vertical,
-    labelStepSize,
-    labelPrecision,
-    labelValues,
+    min: minFromProps,
+    max: maxFromProps,
+    stepSize: stepSizeFromProps,
+    labelStepSize: labelStepSizeFromProps,
+    labelPrecision: labelPrecisionFromProps,
+    labelValues: labelValuesFromProps,
     defaultValue,
     labelRenderer,
     value: valueFromProps,
@@ -40,20 +40,38 @@ const Slider = ({
         return () => {
             resetListeners();
         };
-    }, [forceUpdate, resetListeners]);
+    }, [forceUpdate, resetListeners, vertical]);
 
-    const isControlled = typeof valueFromProps === 'number';
+    const {
+        min,
+        max,
+        stepSize,
+        labelStepSize,
+        labelPrecision,
+        labelValues,
+    } = useMemo(
+        () =>
+            validateProps({
+                minFromProps,
+                maxFromProps,
+                stepSizeFromProps,
+                labelStepSizeFromProps,
+                labelPrecisionFromProps,
+                labelValuesFromProps,
+            }),
+        [
+            minFromProps,
+            maxFromProps,
+            stepSizeFromProps,
+            labelStepSizeFromProps,
+            labelPrecisionFromProps,
+            labelValuesFromProps,
+        ]
+    );
 
+    const isControlled = isNumber(valueFromProps);
     const value = isControlled ? valueFromProps : internalValue;
-
     const tickSizeRatio = 1 / (max - min);
-
-    const resetListeners = useCallback(() => {
-        document.removeEventListener('mousemove', mouseMove);
-        document.removeEventListener('touchmove', touchMove);
-        document.removeEventListener('mouseup', mouseOrTouchUp);
-        document.removeEventListener('touchend', mouseOrTouchUp);
-    }, [mouseMove, touchMove, mouseOrTouchUp]);
 
     const changeValue = useCallback(
         (pixel) => {
@@ -115,6 +133,13 @@ const Slider = ({
         [changeValue, handleMouseEventOffset]
     );
 
+    const resetListeners = useCallback(() => {
+        document.removeEventListener('mousemove', mouseMove);
+        document.removeEventListener('touchmove', touchMove);
+        document.removeEventListener('mouseup', mouseOrTouchUp);
+        document.removeEventListener('touchend', mouseOrTouchUp);
+    }, [mouseMove, touchMove, mouseOrTouchUp]);
+
     const mouseOrTouchUp = useCallback(() => {
         resetListeners();
     }, [resetListeners]);
@@ -155,6 +180,7 @@ const Slider = ({
     const mainStyle = useMemo(() => {
         const base = {
             display: 'inline-flex',
+            'user-select': 'none',
             margin: 15,
             'min-width': 0,
             'min-height': 0,
@@ -177,7 +203,6 @@ const Slider = ({
 
     return (
         <Box
-            display="inline-flex"
             onMouseDown={onMouseDown}
             onTouchStart={onTouchStart}
             {...mainStyle}

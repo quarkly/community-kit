@@ -50,6 +50,23 @@ export default {
         control: 'input',
         type: 'number',
     },
+    labelPrecision: {
+        title: {
+            en: 'Label precision',
+            ru: 'Точность отображения надписи',
+        },
+        control: 'input',
+        type: 'number',
+    },
+    labelValues: {
+        title: {
+            en: 'Label values',
+            ru: 'Значения надписей',
+        },
+        control: 'input',
+        type: 'string',
+        multiply: true,
+    },
     defaultValue: {
         title: {
             en: 'Default value',

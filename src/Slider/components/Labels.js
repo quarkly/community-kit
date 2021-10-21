@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { Box } from '@quarkly/widgets';
-import { approxEqual, formatLabel } from '../utils';
-import formatPercentage from '../utils/formatPercentage';
+import { approxEqual, formatLabel, formatPercentage } from '../utils';
 
 const Labels = ({
     vertical,
@@ -27,8 +26,10 @@ const Labels = ({
         };
 
         let values = [];
-        if (typeof labelValues !== 'undefined') {
+        if (Array.isArray(labelValues)) {
             values = labelValues;
+        } else if (typeof labelValues === 'string' && labelValues.length > 0) {
+            values = labelValues.split(',').map(Number);
         } else {
             for (
                 let i = min;
