@@ -26,10 +26,8 @@ const Labels = ({
         };
 
         let values = [];
-        if (Array.isArray(labelValues)) {
+        if (typeof labelValues !== 'undefined') {
             values = labelValues;
-        } else if (typeof labelValues === 'string' && labelValues.length > 0) {
-            values = labelValues.split(',').map(Number);
         } else {
             for (
                 let i = min;
