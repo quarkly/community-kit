@@ -257,8 +257,11 @@ const Slider = ({
 
 Object.assign(Slider, {
     title: 'Slider',
-    desciption: {
-        en: 'A Slider',
+    description: {
+        en:
+            'Slider for choosing a number from the interval between the lower and upper boundaries.',
+        ru:
+            'Ползунок для выбора числа из промежутка между нижней и верхней границами.',
     },
     propInfo,
     defaultProps,
