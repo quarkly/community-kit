@@ -34,7 +34,7 @@ Use this component to animate one or several elements on page scroll.
 | Start           |     `-`      |        `blur(5px)`         |
 | End             |     `-`      |     `brightness(0.4)`      |
 |                 |  Background  |                            |
-| Enable          |   `Enable`   |            `ON`            |
+| Enable          |    `OFF`     |            `ON`            |
 | Start           |     `-`      |          `green`           |
 | End             |     `-`      |           `red`            |
 |                 | Border Color |                            |
@@ -48,39 +48,39 @@ Use this component to animate one or several elements on page scroll.
 
 ### In the code (for developers)
 
-| Названия свойств |   Название в коде    |   Тип    | По умолчанию |           Пример           |
-| :--------------- | :------------------: | :------: | :----------: | :------------------------: |
-| Timing function  |       `easing`       | `string` |   `linear`   |           `ease`           |
-| Start            |       `start`        | `string` |     `0`      |            `50`            |
-| End              |        `end`         | `string` |    `100`     |            `90`            |
-|                  |      Transform       |          |              |                            |
-| Enable           |  `transformEnabled`  |  `enum`  |    `off`     |            `on`            |
-| Start            |   `transformStart`   | `string` |     `-`      |     `rotate(0.5turn)`      |
-| End              |    `transformEnd`    | `string` |     `-`      |      `scale(2, 0.5)`       |
-|                  |       Opacity        |          |              |                            |
-| Enable           |   `opacityEnabled`   |  `enum`  |    `off`     |            `on`            |
-| Start            |    `opacityStart`    | `string` |     `-`      |           `0.5`            |
-| End              |     `opacityEnd`     | `string` |     `-`      |            `1`             |
-|                  |        Color         |          |              |                            |
-| Enable           |    `colorEnabled`    |  `enum`  |    `off`     |            `on`            |
-| Start            |     `colorStart`     | `string` |     `-`      |           `#fff`           |
-| End              |      `colorEnd`      | `string` |     `-`      |           `#000`           |
-|                  |        Filter        |          |              |                            |
-| Enable           |   `filterEnabled`    |  `enum`  |    `off`     |            `on`            |
-| Start            |    `filterStart`     | `string` |     `-`      |        `blur(5px)`         |
-| End              |     `filterEnd`      | `string` |     `-`      |     `brightness(0.4)`      |
-|                  |   Background Color   |          |              |                            |
-| Enable           | `backgroundEnabled`  |  `enum`  |    `off`     |            `on`            |
-| Start            |  `backgroundStart`   | `string` |     `-`      |          `green`           |
-| End              |   `backgroundEnd`    | `string` |     `-`      |           `red`            |
-|                  |     Border Color     |          |              |                            |
-| Enabled          | `borderColorEnabled` |  `enum`  |    `off`     |            `on`            |
-| Start            |  `borderColorStart`  | `string` |     `-`      | `rgba(117, 190, 218, 0.0)` |
-| End              |   `borderColorEnd`   | `string` |     `-`      | `hsla(50, 33%, 25%, 0.75)` |
-|                  |      Box Shadow      |          |              |                            |
-| Enabled          |  `boxShadowEnabled`  |  `enum`  |    `off`     |            `on`            |
-| Start            |   `boxShadowStart`   | `string` |     `-`      |     `10px 5px 5px red`     |
-| End              |    `boxShadowEnd`    | `string` |     `-`      |     `60px -16px teal`      |
+| Prop name       |   Name in the code   |   Type   | Default  |          Example           |
+| :-------------- | :------------------: | :------: | :------: | :------------------------: |
+| Timing function |       `easing`       | `string` | `linear` |           `ease`           |
+| Start           |       `start`        | `string` |   `0`    |            `50`            |
+| End             |        `end`         | `string` |  `100`   |            `90`            |
+|                 |      Transform       |          |          |                            |
+| Enable          |  `transformEnabled`  |  `enum`  |  `off`   |            `on`            |
+| Start           |   `transformStart`   | `string` |   `-`    |     `rotate(0.5turn)`      |
+| End             |    `transformEnd`    | `string` |   `-`    |      `scale(2, 0.5)`       |
+|                 |       Opacity        |          |          |                            |
+| Enable          |   `opacityEnabled`   |  `enum`  |  `off`   |            `on`            |
+| Start           |    `opacityStart`    | `string` |   `-`    |           `0.5`            |
+| End             |     `opacityEnd`     | `string` |   `-`    |            `1`             |
+|                 |        Color         |          |          |                            |
+| Enable          |    `colorEnabled`    |  `enum`  |  `off`   |            `on`            |
+| Start           |     `colorStart`     | `string` |   `-`    |           `#fff`           |
+| End             |      `colorEnd`      | `string` |   `-`    |           `#000`           |
+|                 |        Filter        |          |          |                            |
+| Enable          |   `filterEnabled`    |  `enum`  |  `off`   |            `on`            |
+| Start           |    `filterStart`     | `string` |   `-`    |        `blur(5px)`         |
+| End             |     `filterEnd`      | `string` |   `-`    |     `brightness(0.4)`      |
+|                 |   Background Color   |          |          |                            |
+| Enable          | `backgroundEnabled`  |  `enum`  |  `off`   |            `on`            |
+| Start           |  `backgroundStart`   | `string` |   `-`    |          `green`           |
+| End             |   `backgroundEnd`    | `string` |   `-`    |           `red`            |
+|                 |     Border Color     |          |          |                            |
+| Enabled         | `borderColorEnabled` |  `enum`  |  `off`   |            `on`            |
+| Start           |  `borderColorStart`  | `string` |   `-`    | `rgba(117, 190, 218, 0.0)` |
+| End             |   `borderColorEnd`   | `string` |   `-`    | `hsla(50, 33%, 25%, 0.75)` |
+|                 |      Box Shadow      |          |          |                            |
+| Enabled         |  `boxShadowEnabled`  |  `enum`  |  `off`   |            `on`            |
+| Start           |   `boxShadowStart`   | `string` |   `-`    |     `10px 5px 5px red`     |
+| End             |    `boxShadowEnd`    | `string` |   `-`    |     `60px -16px teal`      |
 
 #### The 'Enable' property values
 
@@ -91,12 +91,12 @@ Use this component to animate one or several elements on page scroll.
 
 ## 🗄 GitHub
 
-[Ссылка на GitHub](https://github.com/quarkly/community-kit/tree/master/src/ScrollAnimation)
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/ScrollAnimation)
 
 ## 🗓 Changelog
 
 -   21/04/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
