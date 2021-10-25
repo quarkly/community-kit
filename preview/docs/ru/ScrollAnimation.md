@@ -48,46 +48,46 @@
 
 ### В коде (для разработчиков)
 
-| Prop Name           |   Name in the code   |   Type   | Default  |          Example           |
-| :------------------ | :------------------: | :------: | :------: | :------------------------: |
-| Функция сглаживания |       `easing`       | `string` | `linear` |           `ease`           |
-| Начало              |       `start`        | `string` |   `0`    |            `50`            |
-| Конец               |        `end`         | `string` |  `100`   |            `90`            |
-|                     |      Transform       |          |          |                            |
-| Включить            |  `transformEnabled`  |  `enum`  |  `off`   |            `on`            |
-| Начало              |   `transformStart`   | `string` |   `-`    |     `rotate(0.5turn)`      |
-| Конец               |    `transformEnd`    | `string` |   `-`    |      `scale(2, 0.5)`       |
-|                     |       Opacity        |          |          |                            |
-| Включить            |   `opacityEnabled`   |  `enum`  |  `off`   |            `on`            |
-| Начало              |    `opacityStart`    | `string` |   `-`    |           `0.5`            |
-| Конец               |     `opacityEnd`     | `string` |   `-`    |            `1`             |
-|                     |        Color         |          |          |                            |
-| Включить            |    `colorEnabled`    |  `enum`  |  `off`   |            `on`            |
-| Начало              |     `colorStart`     | `string` |   `-`    |           `#fff`           |
-| Конец               |      `colorEnd`      | `string` |   `-`    |           `#000`           |
-|                     |        Filter        |          |          |                            |
-| Включить            |   `filterEnabled`    |  `enum`  |  `off`   |            `on`            |
-| Начало              |    `filterStart`     | `string` |   `-`    |        `blur(5px)`         |
-| Конец               |     `filterEnd`      | `string` |   `-`    |     `brightness(0.4)`      |
-|                     |   Background Color   |          |          |                            |
-| Включить            | `backgroundEnabled`  |  `enum`  |  `off`   |            `on`            |
-| Начало              |  `backgroundStart`   | `string` |   `-`    |          `green`           |
-| Конец               |   `backgroundEnd`    | `string` |   `-`    |           `red`            |
-|                     |     Border Color     |          |          |                            |
-| Включить            | `borderColorEnabled` |  `enum`  |  `off`   |            `on`            |
-| Начало              |  `borderColorStart`  | `string` |   `-`    | `rgba(117, 190, 218, 0.0)` |
-| Конец               |   `borderColorEnd`   | `string` |   `-`    | `hsla(50, 33%, 25%, 0.75)` |
-|                     |      Box Shadow      |          |          |                            |
-| Включить            |  `boxShadowEnabled`  |  `enum`  |  `off`   |            `on`            |
-| Начало              |   `boxShadowStart`   | `string` |   `-`    |     `10px 5px 5px red`     |
-| Конец               |    `boxShadowEnd`    | `string` |   `-`    |     `60px -16px teal`      |
+| Названия свойств    |   Название в коде    |   Тип    | По умолчанию |           Пример           |
+| :------------------ | :------------------: | :------: | :----------: | :------------------------: |
+| Функция сглаживания |       `easing`       | `string` |   `linear`   |           `ease`           |
+| Начало              |       `start`        | `string` |     `0`      |            `50`            |
+| Конец               |        `end`         | `string` |    `100`     |            `90`            |
+|                     |      Transform       |          |              |                            |
+| Включить            |  `transformEnabled`  |  `enum`  |    `off`     |            `on`            |
+| Начало              |   `transformStart`   | `string` |     `-`      |     `rotate(0.5turn)`      |
+| Конец               |    `transformEnd`    | `string` |     `-`      |      `scale(2, 0.5)`       |
+|                     |       Opacity        |          |              |                            |
+| Включить            |   `opacityEnabled`   |  `enum`  |    `off`     |            `on`            |
+| Начало              |    `opacityStart`    | `string` |     `-`      |           `0.5`            |
+| Конец               |     `opacityEnd`     | `string` |     `-`      |            `1`             |
+|                     |        Color         |          |              |                            |
+| Включить            |    `colorEnabled`    |  `enum`  |    `off`     |            `on`            |
+| Начало              |     `colorStart`     | `string` |     `-`      |           `#fff`           |
+| Конец               |      `colorEnd`      | `string` |     `-`      |           `#000`           |
+|                     |        Filter        |          |              |                            |
+| Включить            |   `filterEnabled`    |  `enum`  |    `off`     |            `on`            |
+| Начало              |    `filterStart`     | `string` |     `-`      |        `blur(5px)`         |
+| Конец               |     `filterEnd`      | `string` |     `-`      |     `brightness(0.4)`      |
+|                     |   Background Color   |          |              |                            |
+| Включить            | `backgroundEnabled`  |  `enum`  |    `off`     |            `on`            |
+| Начало              |  `backgroundStart`   | `string` |     `-`      |          `green`           |
+| Конец               |   `backgroundEnd`    | `string` |     `-`      |           `red`            |
+|                     |     Border Color     |          |              |                            |
+| Включить            | `borderColorEnabled` |  `enum`  |    `off`     |            `on`            |
+| Начало              |  `borderColorStart`  | `string` |     `-`      | `rgba(117, 190, 218, 0.0)` |
+| Конец               |   `borderColorEnd`   | `string` |     `-`      | `hsla(50, 33%, 25%, 0.75)` |
+|                     |      Box Shadow      |          |              |                            |
+| Включить            |  `boxShadowEnabled`  |  `enum`  |    `off`     |            `on`            |
+| Начало              |   `boxShadowStart`   | `string` |     `-`      |     `10px 5px 5px red`     |
+| Конец               |    `boxShadowEnd`    | `string` |     `-`      |     `60px -16px teal`      |
 
 #### Значения свойства 'Включить'
 
-| User-friendly name | Name in the code |
-| :----------------- | :--------------: |
-| ВКЛ                |       `on`       |
-| ВЫКЛ               |      `off`       |
+| Пользовательское название | Название в коде |
+| :------------------------ | :-------------: |
+| ВКЛ                       |      `on`       |
+| ВЫКЛ                      |      `off`      |
 
 ## 🗄 GitHub
 
