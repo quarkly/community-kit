@@ -19,7 +19,7 @@ const CookieUsed = ({ variant, ...props }) => {
     return (
         <Box
             display={show ? 'flex' : 'none'}
-            flex-direction={variant === 'Vertical' ? 'column' : 'row'}
+            flex-direction={variant === 'horizontal' ? 'row' : 'column'}
             justify-content="center"
             align-items="center"
             position="fixed"
@@ -31,7 +31,7 @@ const CookieUsed = ({ variant, ...props }) => {
         >
             <Text {...override('Text')} />
             <Button
-                margin-left={variant === 'Horizontal' && '10px'}
+                margin-left={variant === 'horizontal' && '10px'}
                 onClick={handleClick}
                 {...override('Button')}
             />

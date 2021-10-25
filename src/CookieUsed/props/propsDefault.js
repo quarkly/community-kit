@@ -1,3 +1,3 @@
 export default {
-    variant: 'Vertical',
+    variant: 'vertical',
 };
