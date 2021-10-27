@@ -17,7 +17,7 @@ const CSVToTable = ({ data, csvDelimiter, hasHeader, ...props }) => {
     const { override, rest } = useOverrides(props, overrides);
 
     const rowsWithColumns = useMemo(
-        () => parseCSV(data?.trim() || '', csvDelimiter),
+        () => parseCSV(data?.trim?.() || '', csvDelimiter),
         [data, csvDelimiter]
     );
 
@@ -29,11 +29,11 @@ const CSVToTable = ({ data, csvDelimiter, hasHeader, ...props }) => {
         [hasHeader, rowsWithColumns]
     );
 
-    const isEmpty = data === '';
+    const isNotEmpty = (data?.trim?.() || '') !== '';
 
     return (
         <Table border-collapse="collapse" {...rest}>
-            {!isEmpty ? (
+            {isNotEmpty ? (
                 <>
                     {header && (
                         <THead {...override('THead')}>
