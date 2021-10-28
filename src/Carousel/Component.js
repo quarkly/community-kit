@@ -1,14 +1,19 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
+import styled from 'styled-components';
 import { Arrow, Point, Slide } from './components';
-import { useResize, useKeyboard } from './hooks';
+import useKeyboard from './hooks/useKeyboard';
 import { overrides } from './props';
 import { clickPrev, clickNext } from './store';
 
+const AspectRatioBox = styled(Box)`
+    aspect-ratio: ${(props) => props.aspectRatio};
+`;
+
 const Component = ({
-    aspectRatio,
+    aspectRatio: aspectRatioFromProps,
     slidesWrapper,
     showArrows,
     showDots,
@@ -18,7 +23,7 @@ const Component = ({
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
-    const [sliderRef, width, height] = useResize(aspectRatio);
+    const sliderRef = useRef(null);
     const slidesRef = useRef(null);
 
     const {
@@ -52,6 +57,12 @@ const Component = ({
 
     useKeyboard(sliderRef, onClickNext, onClickPrev);
 
+    const aspectRatio = useMemo(() => {
+        aspectRatioFromProps !== 'auto'
+            ? aspectRatioFromProps.replace(':', '/')
+            : aspectRatioFromProps;
+    }, [aspectRatioFromProps]);
+
     return (
         <Box
             ref={sliderRef}
@@ -60,7 +71,7 @@ const Component = ({
             overflow="hidden"
             {...rest}
         >
-            <Box
+            <AspectRatioBox
                 ref={slidesRef}
                 {...override('Slides')}
                 transform={`translateX(-${position}%)`}
@@ -69,6 +80,7 @@ const Component = ({
                         ? `transform ${animDuration}ms ${animFunction}`
                         : 'none'
                 }
+                aspectRatio={aspectRatio}
             >
                 {slidesList.map((numb, index) => (
                     <Slide
@@ -77,15 +89,13 @@ const Component = ({
                         slides={slidesNumb}
                         slidesWrapper={slidesWrapper}
                         numb={numb}
-                        width={width}
-                        height={height}
                         showHead={showHead}
                         showText={showText}
                         showLink={showLink}
                         override={override}
                     />
                 ))}
-            </Box>
+            </AspectRatioBox>
             {showArrows && (
                 <Box {...override('Arrows')}>
                     <Arrow

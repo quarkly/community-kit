@@ -17,10 +17,11 @@ export default {
         kind: 'Box',
         props: {
             flex: '0 0 100%',
-            height: '100px',
             'box-sizing': 'border-box',
             position: 'relative',
             display: 'block',
+            width: '100%',
+            height: '100%',
         },
     },
     'Slide Image': {
@@ -197,6 +198,8 @@ export default {
 
             opacity: '0.67',
             'hover-opacity': '1',
+            // this fix flicker on opacity change
+            transform: 'translateZ(0);',
         },
     },
     'Point Icon': {
