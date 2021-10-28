@@ -57,11 +57,13 @@ const Component = ({
 
     useKeyboard(sliderRef, onClickNext, onClickPrev);
 
-    const aspectRatio = useMemo(() => {
-        aspectRatioFromProps !== 'auto'
-            ? aspectRatioFromProps.replace(':', '/')
-            : aspectRatioFromProps;
-    }, [aspectRatioFromProps]);
+    const aspectRatio = useMemo(
+        () =>
+            aspectRatioFromProps !== 'auto'
+                ? aspectRatioFromProps.replace(':', '/')
+                : aspectRatioFromProps,
+        [aspectRatioFromProps]
+    );
 
     return (
         <Box
