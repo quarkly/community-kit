@@ -1,1 +1,1 @@
-export { default } from './TabsFull';
+export { default, useTabs } from './TabsFull';
