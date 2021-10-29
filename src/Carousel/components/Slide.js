@@ -11,8 +11,6 @@ const Slide = ({
     slides,
     slidesWrapper,
     numb,
-    width,
-    height,
     showHead,
     showText,
     showLink,
@@ -38,30 +36,8 @@ const Slide = ({
         [numb, clearOverride, override]
     );
 
-    const widthStyles = useMemo(
-        () => ({
-            width,
-            'min-width': width,
-            'max-width': width,
-        }),
-        [width]
-    );
-    const heightStyles = useMemo(
-        () =>
-            height !== 'auto' && {
-                height,
-                'min-height': height,
-                'max-height': height,
-            },
-        [height]
-    );
-
     return (
-        <SlideWrapper
-            {...getOverride('Slide')}
-            {...widthStyles}
-            {...heightStyles}
-        >
+        <SlideWrapper {...getOverride('Slide')}>
             <Image {...getOverride('Slide Image')} />
             {(showHead || showText || showLink) && (
                 <Box {...getOverride('Slide Content')}>
