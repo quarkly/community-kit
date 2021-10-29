@@ -136,7 +136,12 @@
             "DateSinglePicker": "DateSinglePicker",
             "DateSingleInput": "DateSingleInput",
             "DateRangePicker": "DateRangePicker",
-            "DateRangeInput": "DateRangeInput"
+            "DateRangeInput": "DateRangeInput",
+            "CookieUsed": "CookieUsed",
+            "CSVToTable": "CSVToTable",
+            "Slider": "Slider",
+            "MailChimp": "MailChimp",
+            "ScrollAnimation": "ScrollAnimation"
         }
     },
     "quarklyInfoDeleted": {
