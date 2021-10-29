@@ -58,3 +58,8 @@ export { default as DateSinglePicker } from './DateSinglePicker';
 export { default as DateSingleInput } from './DateSingleInput';
 export { default as DateRangePicker } from './DateRangePicker';
 export { default as DateRangeInput } from './DateRangeInput';
+export { default as CookieUsed } from './CookieUsed';
+export { default as CSVToTable } from './CSVToTable';
+export { default as Slider } from './Slider';
+export { default as MailChimp } from './MailChimp';
+export { default as ScrollAnimation } from './ScrollAnimation';
