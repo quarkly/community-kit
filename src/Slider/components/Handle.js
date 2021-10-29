@@ -28,7 +28,7 @@ const Handle = React.forwardRef(
         ref
     ) => {
         const mainStyle = useMemo(() => {
-            if (!updated) return {};
+            if (!updated || !ref.current) return {};
 
             const rect = ref.current.getBoundingClientRect();
             const offsetRatio = (value - min) * tickSizeRatio;
