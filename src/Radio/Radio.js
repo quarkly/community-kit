@@ -1,10 +1,4 @@
-import React, {
-    useState,
-    useEffect,
-    useMemo,
-    useContext,
-    useCallback,
-} from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import atomize from '@quarkly/atomize';
 import { Text, Icon } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
@@ -33,11 +27,8 @@ const RadioComponent = ({
         onRadioClickEvent(name, defaultValue);
     }, [name, defaultValue, onRadioClickEvent]);
 
-    const status = useMemo(() => (checked ? ':checked' : ':unchecked'), [
-        checked,
-    ]);
-
-    const radioItem = useMemo(() => radioList[name], [radioList, name]);
+    const status = checked ? ':checked' : ':unchecked';
+    const radioItem = radioList[name];
 
     useEffect(() => {
         setChecked(radioItem === defaultValue);

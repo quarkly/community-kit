@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback } from 'react';
 import atomize from '@quarkly/atomize';
 import { Text, Icon } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
@@ -20,9 +20,7 @@ const CheckboxComponent = ({
     const [checked, setChecked] = useState(defaultChecked);
 
     const onChangeEvent = useCallback(() => setChecked((old) => !old), []);
-    const status = useMemo(() => (checked ? ':checked' : ':unchecked'), [
-        checked,
-    ]);
+    const status = checked ? ':checked' : ':unchecked';
 
     return (
         <Label
