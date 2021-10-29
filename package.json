@@ -8,6 +8,7 @@
     "@u-wave/react-vimeo": "^0.9.4",
     "disqus-react": "^1.0.11",
     "easy-scroll": "^0.7.0",
+    "jsonp": "^0.2.1",
     "lottie-web": "^5.7.11",
     "react-facebook": "^8.1.4",
     "react-google-recaptcha": "^2.1.0",
