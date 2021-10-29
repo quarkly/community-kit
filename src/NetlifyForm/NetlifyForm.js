@@ -6,14 +6,8 @@ import { overrides, propInfo, defaultProps } from './props';
 
 const Form = atomize.form();
 
-const NetlifyForm = ({
-    children,
-    formName,
-    successMessage,
-    errorMessage,
-    ...props
-}) => {
-    const { override, rest } = useOverrides(props, overrides);
+const NetlifyForm = ({ formName, successMessage, errorMessage, ...props }) => {
+    const { override, children, rest } = useOverrides(props, overrides);
 
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
@@ -77,11 +71,12 @@ const NetlifyForm = ({
 Object.assign(NetlifyForm, {
     title: 'Netlify Form',
     description: {
-        en: 'Компонент для добавления формы Netlify',
+        en: 'Component for adding a Netlify form',
         ru: 'Компонент для добавления формы Netlify',
     },
     propInfo,
     defaultProps,
+    overrides,
 });
 
 export default NetlifyForm;
