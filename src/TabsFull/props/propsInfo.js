@@ -1,13 +1,17 @@
 export default {
     defaultTab: {
-        title: 'Default Tab',
+        title: {
+            en: 'Default Tab',
+        },
         description: {
             en: 'The tabId of the initially selected tab when uncontrolled.',
         },
         control: 'input',
     },
     align: {
-        title: 'Align',
+        title: {
+            en: 'Align',
+        },
         description: {
             en: 'The alignment of the tabs',
         },
@@ -15,7 +19,10 @@ export default {
         variants: ['start', 'center', 'end', 'full width'],
     },
     orientation: {
-        title: 'Orientation',
+        title: {
+            en: 'Orientation',
+            ru: 'Отображение',
+        },
         description: {
             en: 'Orientation of tabs',
         },

@@ -1,9 +1,27 @@
 import React from 'react';
-import { Box } from '@quarkly/widgets';
+import { Box, Placeholder } from '@quarkly/widgets';
+import { useTabs } from '../TabsFull';
+import ComponentNotice from '../ComponentNotice';
+import { isEmptyChildren } from '../utils';
 
-const TabsFullBody = ({ children, ...props }) => (
-    <Box {...props}>{children}</Box>
-);
+const TabsFullBody = ({ children, ...props }) => {
+    const context = useTabs();
+
+    return (
+        <Box display="contents">
+            {context ? (
+                <Box {...props}>
+                    {children}
+                    {isEmptyChildren(children) && (
+                        <Placeholder message="Drop TabsFullContent here" />
+                    )}
+                </Box>
+            ) : (
+                <ComponentNotice message="Place this component inside TabsFull" />
+            )}
+        </Box>
+    );
+};
 
 Object.assign(TabsFullBody, {
     title: 'TabsFullBody',

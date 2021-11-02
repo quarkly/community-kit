@@ -1,4 +1,4 @@
 export default {
     align: 'start',
-    orientation: 'Horizontal',
+    orientation: 'horizontal',
 };

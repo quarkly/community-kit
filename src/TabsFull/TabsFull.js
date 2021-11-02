@@ -1,17 +1,10 @@
-import React, { useState, createContext, useContext, useEffect } from 'react';
-import { Box } from '@quarkly/widgets';
+import React, { useState, useEffect } from 'react';
+import { Box, Placeholder } from '@quarkly/widgets';
 import { propInfo, defaultProps } from './props';
+import { TabsContext } from './utils/context';
+import { isEmptyChildren } from '../utils';
 
-const TabsContext = createContext({
-    currentTabId: '',
-    setTabId: () => {},
-    align: 'start',
-    orientation: 'horizontal',
-});
-
-export const useTabs = () => useContext(TabsContext);
-
-const Tabs = ({ defaultTab, orientation, align, children, ...props }) => {
+const TabsFull = ({ defaultTab, orientation, align, children, ...props }) => {
     const [currentTabId, setTabId] = useState(defaultTab);
 
     useEffect(() => {
@@ -28,13 +21,16 @@ const Tabs = ({ defaultTab, orientation, align, children, ...props }) => {
                 {...props}
             >
                 {children}
+                {isEmptyChildren(children) && (
+                    <Placeholder message="Drop TabsFullHead and TabsFullBody here" />
+                )}
             </Box>
         </TabsContext.Provider>
     );
 };
 
-Object.assign(Tabs, {
-    name: 'Tabs',
+Object.assign(TabsFull, {
+    title: 'TabsFull',
     description: {
         en: 'Tabs make it easy to explore and switch between different views.',
     },
@@ -42,4 +38,4 @@ Object.assign(Tabs, {
     defaultProps,
 });
 
-export default Tabs;
+export default TabsFull;

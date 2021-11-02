@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { Box } from '@quarkly/widgets';
+import { useOverrides } from '@quarkly/components';
+import { Placeholder } from '@quarkly/widgets/build/cjs/prod';
 import { useTabs } from '../TabsFull';
-import TabsFullHead from '.';
+import ComponentNotice from '../ComponentNotice';
+import { isEmptyChildren } from '../utils';
+import { getHumanReadable } from '../TabsFull/utils';
+import overrides from './props/overrides';
 
 const NoScroll = styled(Box)`
     -ms-overflow-style: none;
@@ -12,36 +17,53 @@ const NoScroll = styled(Box)`
     }
 `;
 
-const alignConvert = {
-    start: 'flex-start',
-    end: 'flex-end',
-    center: 'center',
-    'full width': 'center',
-};
+const TabsFullHead = (props) => {
+    const { override, children, rest } = useOverrides(props, overrides);
+    const context = useTabs();
+    const { align, orientation } = context || {};
 
-const TabFullHead = ({ children, ...props }) => {
-    const { align, orientation } = useTabs();
+    const boxStyles = useMemo(() => {
+        if (!align || !orientation) return {};
+
+        const {
+            orientation: orientationOverride,
+            align: alignOverride,
+        } = getHumanReadable({
+            orientation,
+            align,
+        });
+
+        return override(
+            'TabsFullHead',
+            `TabsFullHead ${alignOverride}`,
+            `TabsFullHead ${orientationOverride}`,
+            `TabsFullHead ${orientationOverride} ${alignOverride}`
+        );
+    }, [align, orientation, override]);
+
     return (
-        <NoScroll overflow="auto" {...props}>
-            <Box
-                display="flex"
-                role="tablist"
-                white-space="nowrap"
-                flex-direction={orientation === 'Horizontal' ? 'row' : 'column'}
-                justify-content={alignConvert[align]}
-            >
-                {children}
-            </Box>
+        <NoScroll display="contents" overflow="auto" {...rest}>
+            {context ? (
+                <Box role="tablist" {...boxStyles}>
+                    {children}
+                    {isEmptyChildren(children) && (
+                        <Placeholder message="Drop TabsFullButton here" />
+                    )}
+                </Box>
+            ) : (
+                <ComponentNotice message="Place this component inside TabsFull" />
+            )}
         </NoScroll>
     );
 };
 
-Object.assign(TabFullHead, {
-    title: 'TabFullHead',
+Object.assign(TabsFullHead, {
+    title: 'TabsFullHead',
     description: {
         ru:
             'Список компонентов Tab, которые являются ссылками на TabPanel. Этот компонент должен располагаться внутри Tabs',
     },
+    overrides,
 });
 
 export default TabsFullHead;

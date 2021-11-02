@@ -1,14 +1,25 @@
 import React from 'react';
-import { Box } from '@quarkly/widgets';
-import { useTabs } from '../TabsFull';
+import { Box, Placeholder } from '@quarkly/widgets';
+import { useTabs } from '../TabsFull/utils';
+import ComponentNotice from '../ComponentNotice';
+import { isEmptyChildren } from '../utils';
 
 const TabsFullContent = ({ children, tabId, ...props }) => {
-    const { currentTabId } = useTabs();
-    const isHidden = currentTabId !== tabId;
+    const context = useTabs();
+    const isHidden = context?.currentTabId !== tabId;
 
     return (
-        <Box role="tabpanel" hidden={isHidden} {...props}>
-            {children}
+        <Box display="contents">
+            {context ? (
+                <Box role="tabpanel" hidden={isHidden} {...props}>
+                    {children}
+                    {isEmptyChildren(children) && (
+                        <Placeholder message="Drop content here" />
+                    )}
+                </Box>
+            ) : (
+                <ComponentNotice message="Place this component inside TabFullBody" />
+            )}
         </Box>
     );
 };
