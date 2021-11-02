@@ -61,7 +61,7 @@ Object.assign(TabsFullHead, {
     title: 'TabsFullHead',
     description: {
         ru:
-            'Список компонентов Tab, которые являются ссылками на TabPanel. Этот компонент должен располагаться внутри Tabs',
+            'Контейнер для TabsFullButton, которые являются ссылками на TabsFullContent. Этот компонент должен располагаться внутри TabsFull',
     },
     overrides,
 });
