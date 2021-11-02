@@ -2,6 +2,7 @@ export default {
     defaultTab: {
         title: {
             en: 'Default Tab',
+            ru: 'Вкладка по умолчанию',
         },
         description: {
             en: 'The tabId of the initially selected tab when uncontrolled.',
@@ -11,12 +12,42 @@ export default {
     align: {
         title: {
             en: 'Align',
+            ru: 'Выравнивание вкладок',
         },
         description: {
             en: 'The alignment of the tabs',
         },
         control: 'select',
-        variants: ['start', 'center', 'end', 'full width'],
+        variants: [
+            {
+                title: {
+                    en: 'Start',
+                    ru: 'В начале',
+                },
+                value: 'start',
+            },
+            {
+                title: {
+                    en: 'Center',
+                    ru: 'По центру',
+                },
+                value: 'center',
+            },
+            {
+                title: {
+                    en: 'End',
+                    ru: 'В конец',
+                },
+                value: 'end',
+            },
+            {
+                title: {
+                    en: 'Full width',
+                    ru: 'На всю ширину',
+                },
+                value: 'full width',
+            },
+        ],
     },
     orientation: {
         title: {

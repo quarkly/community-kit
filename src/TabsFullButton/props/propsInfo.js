@@ -1,6 +1,9 @@
 export default {
     tabId: {
-        title: 'Tab ID',
+        title: {
+            en: 'Tab ID',
+            ru: 'ID Вкладки',
+        },
         description: {
             en: 'The ID of the TabPanel to show when clicked.',
         },
