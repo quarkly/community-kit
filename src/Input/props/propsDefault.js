@@ -1,0 +1,15 @@
+export default {
+    name: '',
+    type: 'text',
+    placeholder: '',
+    defaultValue: '',
+    autocomplete: false,
+    autoFocus: false,
+    required: false,
+    disabled: false,
+    list: '',
+    pattern: '',
+    maxlength: '',
+    min: '',
+    max: '',
+};

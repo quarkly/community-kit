@@ -1,9 +1,16 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import ComponentNotice from './ComponentNotice';
 
+const Wrapper = styled.div`
+    width: 100%;
+    height: 100%;
+    position: relative;
+`;
+
 const GoogleMap = ({ query = 'New York', apiKey, ...props }) => (
-    <div width="100%" height="450px" position="relative" {...props}>
+    <Wrapper {...props}>
         {apiKey ? (
             <iframe
                 title={`community-kit-google-map-${query}`}
@@ -21,7 +28,7 @@ const GoogleMap = ({ query = 'New York', apiKey, ...props }) => (
         ) : (
             <ComponentNotice message="Add API key in Props panel" />
         )}
-    </div>
+    </Wrapper>
 );
 
 const propInfo = {

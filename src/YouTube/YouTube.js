@@ -1,8 +1,15 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, {
+    useState,
+    useCallback,
+    useRef,
+    useContext,
+    useEffect,
+} from 'react';
 import YouTube from 'react-youtube';
 import { useOverrides } from '@quarkly/components';
 import { Box, Icon } from '@quarkly/widgets';
 import { FaPlay } from 'react-icons/fa';
+import { PopupContext } from '../Popup';
 
 import ComponentNotice from '../ComponentNotice';
 
@@ -90,6 +97,20 @@ export function youtubeLinkParser(url) {
     return match && match[7].length === 11 ? match[7] : false;
 }
 
+const useHandlePopup = ({ isPlay, pauseVideo }) => {
+    const context = useContext(PopupContext);
+
+    useEffect(() => {
+        if (!context) return;
+
+        const { isOpen } = context;
+
+        if (!isOpen && isPlay) {
+            pauseVideo();
+        }
+    }, [isPlay, pauseVideo, context]);
+};
+
 const YouTubeComponent = ({
     url,
     autoplay,
@@ -121,19 +142,21 @@ const YouTubeComponent = ({
         setReady(true);
     };
 
-    const clickButton = useCallback(() => {
+    const playVideo = useCallback(() => {
         if (!playerRef.current) return;
 
         playerRef.current.internalPlayer.playVideo();
         setPlay(true);
     }, []);
 
-    const playVideo = useCallback(() => {
-        setPlay(true);
-    }, []);
     const pauseVideo = useCallback(() => {
+        if (!playerRef.current) return;
+
+        playerRef.current.internalPlayer.pauseVideo();
         setPlay(false);
     }, []);
+
+    useHandlePopup({ isPlay, pauseVideo });
 
     return (
         <Box
@@ -178,7 +201,7 @@ const YouTubeComponent = ({
                             videoId && !isPlay ? ':pause' : ':play'
                         }`
                     )}
-                    onClick={clickButton}
+                    onClick={playVideo}
                 >
                     <Box {...override('YouTube Button')}>
                         <Icon {...override('YouTube Button Icon')} />

@@ -1,9 +1,5 @@
 import { createContext } from 'react';
 
-const PopupContext = createContext({
-    isOpen: false,
-    openPopup: () => {},
-    closePopup: () => {},
-});
+const PopupContext = createContext(undefined);
 
 export default PopupContext;
