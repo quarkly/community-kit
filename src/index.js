@@ -64,3 +64,7 @@ export { default as Slider } from './Slider';
 export { default as MailChimp } from './MailChimp';
 export { default as ScrollAnimation } from './ScrollAnimation';
 export { default as TabsFull } from './TabsFull';
+export { default as TabsFullBody } from './TabsFullBody';
+export { default as TabsFullButton } from './TabsFullButton';
+export { default as TabsFullContent } from './TabsFullContent';
+export { default as TabsFullHead } from './TabsFullHead';

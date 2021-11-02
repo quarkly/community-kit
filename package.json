@@ -142,7 +142,11 @@
             "Slider": "Slider",
             "MailChimp": "MailChimp",
             "ScrollAnimation": "ScrollAnimation",
-            "TabsFull": "TabsFull"
+            "TabsFull": "TabsFull",
+            "TabsFullBody": "TabsFullBody",
+            "TabsFullButton": "TabsFullButton",
+            "TabsFullContent": "TabsFullContent",
+            "TabsFullHead": "TabsFullHead"
         }
     },
     "quarklyInfoDeleted": {
