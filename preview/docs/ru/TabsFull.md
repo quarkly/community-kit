@@ -8,7 +8,7 @@
 2. Добавьте `TabsFullHead` и `TabsFullBody` внутрь компонента
 3. Добавьте `TabsFullButton` внутрь `TabsFullHead`
 4. Добавьте `TabsFullContent` внутрь `TabsFullBody`
-5. Укажите соответствующие `Идентификатор вкладки` у `TabsFullButton` и `TabsFullContent`, чтобы связать кнопки вкладок с их контентом.
+5. Укажите соответствующие `ID Вкладки` у `TabsFullButton` и `TabsFullContent`, чтобы связать кнопки вкладок с их контентом.
 6. Добавьте компоненты внутрь `TabsFullButton` и `TabsFullContent`
 7. Посмотрите как он работает в режиме превью
 

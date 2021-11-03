@@ -26,11 +26,18 @@ const TabsFullContent = ({ children, tabId, ...props }) => {
 
 const propInfo = {
     tabId: {
-        title: 'Tab ID',
-        description: {
-            en: 'The ID of the TabPanel to show when clicked.',
+        tabId: {
+            title: {
+                en: 'Tab ID',
+                ru: 'ID Вкладки',
+            },
+            description: {
+                en:
+                    'ID of the tab that is displayed when this button is clicked',
+                ru: 'ID вкладки, которая отображается при нажатии этой кнопки',
+            },
+            control: 'input',
         },
-        control: 'input',
     },
 };
 
@@ -38,7 +45,7 @@ Object.assign(TabsFullContent, {
     title: 'TabsFullContent',
     description: {
         ru:
-            'Контейнер для контента, который будет показываться при клике на нужную вкладку. Должен располагаться внутри TabFullBody. Не забудьте указать TabIndex такой же как и TabsFullButton, на который надо будет кликать чтобы показать контент',
+            'Контейнер для контента, который будет показываться при клике на нужную вкладку. Должен располагаться внутри TabFullBody.',
     },
     propInfo,
 });
