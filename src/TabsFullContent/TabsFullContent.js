@@ -45,7 +45,7 @@ Object.assign(TabsFullContent, {
     title: 'TabsFullContent',
     description: {
         en:
-            'A container for content that will be displayed when the desired tab is clicked. This component must be located inside',
+            'A container for content that will be displayed when the desired tab is clicked. This component must be located inside TabFullBody.',
         ru:
             'Контейнер для контента, который будет показываться при клике на нужную вкладку. Этот компонент должен располагаться внутри TabFullBody.',
     },
