@@ -1,55 +1,19 @@
-const keys = [37, 38, 39, 40, 32, 9];
+const disable = () => {
+    const { body } = window.document;
+    const scrollWidth =
+        window.innerWidth - document.documentElement.clientWidth;
 
-const preventDefaultScroll = (e, el) => {
-    if (
-        !el ||
-        !e.path.includes(el) ||
-        (el.scrollTop === el.scrollHeight - el.offsetHeight && e.deltaY > 0) ||
-        (el.scrollTop === 0 && e.deltaY < 0)
-    ) {
-        e.preventDefault();
-        return false;
-    }
-};
-const preventDefaultKeys = (e) => {
-    // keyCode is used to support ie and older browsers
-    if (keys.indexOf(e.keyCode) !== -1) {
-        e.preventDefault();
-        return false;
-    }
-};
-let onScrollEvent = () => {};
-
-// Modern Chrome requires { passive: false } when adding event
-let supportsPassive = false;
-
-if (typeof window !== 'undefined') {
-    window.addEventListener(
-        'supportsPassive',
-        null,
-        Object.defineProperty({}, 'passive', {
-            get: () => (supportsPassive = true),
-        })
+    body.setAttribute(
+        'style',
+        `position: fixed; top: -${window.scrollY}px; left: 0; right: ${scrollWidth}px;`
     );
-}
-
-const wheelOpts = supportsPassive ? { passive: false } : false;
-
-const disable = (el) => {
-    onScrollEvent = (e) => preventDefaultScroll(e, el);
-
-    window.addEventListener('DOMMouseScroll', onScrollEvent, false);
-    window.addEventListener('wheel', onScrollEvent, wheelOpts);
-    window.addEventListener('mousewheel', onScrollEvent, wheelOpts);
-    window.addEventListener('touchmove', onScrollEvent, wheelOpts);
-    window.addEventListener('keydown', preventDefaultKeys, false);
 };
 const enable = () => {
-    window.removeEventListener('DOMMouseScroll', onScrollEvent, false);
-    window.removeEventListener('wheel', onScrollEvent, wheelOpts);
-    window.removeEventListener('mousewheel', onScrollEvent, wheelOpts);
-    window.removeEventListener('touchmove', onScrollEvent, wheelOpts);
-    window.removeEventListener('keydown', preventDefaultKeys, false);
+    const { body } = window.document;
+    const scrollY = body.style.top;
+
+    body.setAttribute('style', '');
+    window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
 };
 
 export default { disable, enable };
