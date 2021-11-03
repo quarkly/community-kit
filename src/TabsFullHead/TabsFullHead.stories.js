@@ -1,22 +1,22 @@
 import React from 'react';
 import { Box } from '@quarkly/widgets';
-import TabsFullContent from './TabsFullContent';
 import { argTypes } from '../modules';
+import TabsFullHead from './TabsFullHead';
 
 export default {
-    title: 'TabsFullContent',
-    component: TabsFullContent,
-    args: TabsFullContent.defaultProps || {},
+    title: 'TabsFullHead',
+    component: TabsFullHead,
+    args: TabsFullHead.defaultProps || {},
     argTypes: argTypes(
-        TabsFullContent.propInfo || {},
-        TabsFullContent.defaultProps || {}
+        TabsFullHead.propInfo || {},
+        TabsFullHead.defaultProps || {}
     ),
 };
 
-export const StoryDefault = (props) => <TabsFullContent {...props} />;
+export const StoryDefault = (props) => <TabsFullHead {...props} />;
 export const StoryPreview = (props) => (
     <Box p={50} h="100vh" display="flex" align-items="center">
-        <TabsFullContent {...props} />
+        <TabsFullHead {...props} />
     </Box>
 );
 
