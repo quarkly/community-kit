@@ -61,7 +61,7 @@ Object.assign(TabsFullHead, {
     title: 'TabsFullHead',
     description: {
         en:
-            'Container for TabsFullButton, which are references to TabsFullContent. This component must be located inside Tabs Full',
+            'Container for TabsFullButton, which are references to TabsFullContent. This component must be located inside TabsFull',
         ru:
             'Контейнер для TabsFullButton, которые являются ссылками на TabsFullContent. Этот компонент должен располагаться внутри TabsFull',
     },

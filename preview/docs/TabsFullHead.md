@@ -1,19 +1,19 @@
-## 📖 Подробный обзор
+## 📖 Detailed overview
 
-Контейнер для `TabsFullButton`, которые являются ссылками на TabsFullContent. Этот компонент должен располагаться внутри `TabsFull`.
+Container for `TabsFullButton`, which are references to `TabsFullContent`. This component must be located inside `TabsFull`.
 
-## ⚙️ Использование
+## ⚙️ Usage
 
-Посмотрите использование `TabsFull`, для того чтобы узнать, как пользоваться компонентом.
+See the usage of `TabsFull` to learn how to use the component.
 
 ## 🗄 GitHub
 
-[Ссылка на GitHub](https://github.com/quarkly/community-kit/blob/master/src/TabsFullHead)
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/TabsFullHead)
 
 ## 🗓 Changelog
 
 -   02/11/2021 (v1.0)
--   Первая версия
+-   First version
 
 ## 📮 Feedback
 
