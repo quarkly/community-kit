@@ -32,7 +32,10 @@ const TabsFull = ({ defaultTab, orientation, align, children, ...props }) => {
 Object.assign(TabsFull, {
     title: 'TabsFull',
     description: {
-        en: 'Tabs make it easy to explore and switch between different views.',
+        en:
+            'Tabs allow you to easily switch between content divided into several specific parts.',
+        ru:
+            'Вкладки позволяют легко переключаться между между контентом, разбитым на несколько определённых частей.',
     },
     propInfo,
     defaultProps,

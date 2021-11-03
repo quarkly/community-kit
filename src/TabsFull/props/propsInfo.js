@@ -5,7 +5,8 @@ export default {
             ru: 'Вкладка по умолчанию',
         },
         description: {
-            en: 'The tabId of the initially selected tab when uncontrolled.',
+            en: 'Tab ID of the initially selected tab',
+            ru: 'ID Вкладки, которая изначально выбрана',
         },
         control: 'input',
     },
@@ -16,6 +17,7 @@ export default {
         },
         description: {
             en: 'The alignment of the tabs',
+            ru: 'Выравнивание вкладок',
         },
         control: 'select',
         variants: [
@@ -56,20 +58,21 @@ export default {
         },
         description: {
             en: 'Orientation of tabs',
+            ru: 'Отображение (ориентация) вкладок',
         },
         control: 'radio-group',
         variants: [
             {
                 title: {
                     en: 'Vertical',
-                    ru: 'Вертикальная',
+                    ru: 'Вертикальное',
                 },
                 value: 'vertical',
             },
             {
                 title: {
                     en: 'Horizontal',
-                    ru: 'Горизонтальная',
+                    ru: 'Горизонтальное',
                 },
                 value: 'horizontal',
             },

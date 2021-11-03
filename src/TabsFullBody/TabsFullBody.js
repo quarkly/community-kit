@@ -26,6 +26,8 @@ const TabsFullBody = ({ children, ...props }) => {
 Object.assign(TabsFullBody, {
     title: 'TabsFullBody',
     description: {
+        en:
+            'Container for TabsFullContent. This component must be located inside TabsFull',
         ru:
             'Контейнер для TabsFullContent. Этот компонент должен располагаться внутри TabsFull',
     },

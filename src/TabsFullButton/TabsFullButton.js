@@ -83,9 +83,11 @@ const TabsFullButton = ({ tabId, ...props }) => {
 
 Object.assign(TabsFullButton, {
     title: 'TabsFullButton',
-    descrition: {
+    description: {
+        en:
+            'A tab (button) that displays the desired content when clicked. This component must be located inside the TabFullHead',
         ru:
-            'Вкладка (кнопка), при клике на которую показывается нужный контент. Этот компонент должен располагаться внутри TabFullHead. Не забудьте указать TabIndex такой же как и TabsFullContent который будет показываться при клике',
+            'Вкладка (кнопка), при клике на которую показывается нужный контент. Этот компонент должен располагаться внутри TabFullHead',
     },
     propInfo,
     overrides,
