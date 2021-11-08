@@ -3,6 +3,8 @@ export { default as parseTime } from './parseTime';
 export { default as toggleScroll } from './toggleScroll';
 export { default as waitDOMLoaded } from './waitDOMLoaded';
 
+export { default as pick } from './pick';
+
 export { default as getAPI } from './getAPI';
 
 export { default as useColor } from './useColor';

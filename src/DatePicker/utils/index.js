@@ -13,4 +13,3 @@ export { default as dateParse } from './dateParse';
 export { default as locales } from './locales';
 
 export { default as throttle } from './throttle';
-export { default as pick } from './pick';
