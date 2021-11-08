@@ -1,5 +1,5 @@
 import { defaultProps } from '../../DatePicker/props';
-import { pick } from '../../DatePicker/utils';
+import { pick } from '../../utils';
 
 export default {
     ...pick(
