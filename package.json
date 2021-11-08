@@ -141,7 +141,12 @@
             "CSVToTable": "CSVToTable",
             "Slider": "Slider",
             "MailChimp": "MailChimp",
-            "ScrollAnimation": "ScrollAnimation"
+            "ScrollAnimation": "ScrollAnimation",
+            "TabsFull": "TabsFull",
+            "TabsFullBody": "TabsFullBody",
+            "TabsFullButton": "TabsFullButton",
+            "TabsFullContent": "TabsFullContent",
+            "TabsFullHead": "TabsFullHead"
         }
     },
     "quarklyInfoDeleted": {
