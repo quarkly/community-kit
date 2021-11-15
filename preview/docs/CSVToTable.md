@@ -12,11 +12,11 @@ This component helps display a table from a CSV file.
 
 ### In the interface
 
-| Prop name  |  Default  |            Example             |
-| :--------- | :-------: | :----------------------------: |
-| CSV Data   |    `-`    | Name,Age<br>Bob,25<br>Alice,20 |
-| Delimiter  |    `,`    |              `\t`              |
-| Has header | `Checked` |          `Unchecked`           |
+| Prop name  |  Default  |                   Example                   |
+| :--------- | :-------: | :-----------------------------------------: |
+| CSV Data   |    `-`    | <code>Name,Age<br>Bob,25<br>Alice,20</code> |
+| Delimiter  |    `,`    |                    `\t`                     |
+| Has header | `Checked` |                 `Unchecked`                 |
 
 ### In the code (for developers)
 
