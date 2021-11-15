@@ -13,7 +13,7 @@ export default {
 };
 
 export const StoryDefault = (props) => <DatePicker {...props} />;
-export const StorydisabledDaysOfWeek = (props) => <DatePicker {...props} />;
+export const StoryDisabledDaysOfWeek = (props) => <DatePicker {...props} />;
 
 export const StoryControlled = (props) => {
     const [value, setValue] = useState(new Date());
@@ -76,22 +76,19 @@ export const StoryControlled = (props) => {
 };
 
 StoryDefault.storyName = 'Default';
-StorydisabledDaysOfWeek.storyName = 'Disabled days';
-StorydisabledDaysOfWeek.args = {
+StoryDisabledDaysOfWeek.storyName = 'Disabled days';
+StoryDisabledDaysOfWeek.args = {
     locale: 'ru',
-    disabledDaysOfWeek: ['0', '6'],
-    disabledDates: ['2025-05-01', '20.05.2025', '09/05/2021'],
+    disabledDaysOfWeek: '0,6',
+    disabledDates: '2025-05-01,20.05.2025,09/05/2021',
     initialMonth: '2025/05',
     minDate: '2025-03-05',
     maxDate: '01.01.2026',
 };
 
-StorydisabledDaysOfWeek.argTypes = {
-    disabledDates: {
-        control: 'object',
-    },
+StoryDisabledDaysOfWeek.argTypes = {
     disabledDaysOfWeek: {
-        control: 'object',
+        control: 'text',
     },
 };
 

@@ -4,7 +4,7 @@ import { useOverrides } from '@quarkly/components';
 import { DatePickerProvider } from './contexts/DatePicker';
 import { OverrideProvider } from './contexts/Override';
 import { Calendar } from './components';
-import { dateParse, locales } from './utils';
+import { dateParse, isString, locales } from './utils';
 import { propInfo, defaultProps, overrides } from './props';
 import { SelectSingleProvider } from './contexts/SelectSingle';
 import { SelectRangeProvider } from './contexts/SelectRange';
@@ -13,35 +13,69 @@ const DatePicker = ({
     mode,
     value,
     onChange,
-    numberOfMonths,
     showOutsideDays,
-    locale: localeCode,
-    minDate: minDateStr,
-    maxDate: maxDateStr,
-    initialMonth: initialMonthStr,
-    disabledDates,
-    disabledDaysOfWeek,
+    numberOfMonths: numberOfMonthsFromProps,
+    locale: localeFromProps,
+    minDate: minDateFromProps,
+    maxDate: maxDateFromProps,
+    initialMonth: initialMonthFromProps,
+    disabledDates: disabledDatesFromProps,
+    disabledDaysOfWeek: disabledDaysOfWeekFromProps,
     ...props
 }) => {
     const [locale, setLocale] = useState(locales.enUS);
     const { override, rest } = useOverrides(props, overrides);
 
     useEffect(() => {
-        if (locales[localeCode]) setLocale(locales[localeCode]);
-    }, [localeCode]);
+        if (locales[localeFromProps]) setLocale(locales[localeFromProps]);
+    }, [localeFromProps]);
 
-    const minDate = useMemo(() => dateParse(minDateStr?.toString()), [
-        minDateStr,
+    const minDate = useMemo(() => dateParse(minDateFromProps?.toString()), [
+        minDateFromProps,
     ]);
 
-    const maxDate = useMemo(() => dateParse(maxDateStr?.toString()), [
-        maxDateStr,
+    const maxDate = useMemo(() => dateParse(maxDateFromProps?.toString()), [
+        maxDateFromProps,
     ]);
+
+    const numberOfMonths = useMemo(() => {
+        const parsedValue = Number.parseInt(numberOfMonthsFromProps, 10);
+
+        if (Number.isNaN(parsedValue) || parsedValue <= 0) return 1;
+
+        return parsedValue;
+    }, [numberOfMonthsFromProps]);
 
     const initialMonth = useMemo(
-        () => dateParse(initialMonthStr?.toString(), true),
-        [initialMonthStr]
+        () => dateParse(initialMonthFromProps?.toString(), true),
+        [initialMonthFromProps]
     );
+
+    const disabledDates = useMemo(() => {
+        if (
+            !isString(disabledDatesFromProps) ||
+            disabledDatesFromProps.length === 0
+        )
+            return [];
+
+        return disabledDatesFromProps
+            .split(',')
+            .map((x) => dateParse(x))
+            .filter((x) => x !== undefined);
+    }, [disabledDatesFromProps]);
+
+    const disabledDaysOfWeek = useMemo(() => {
+        if (
+            !isString(disabledDaysOfWeekFromProps) ||
+            disabledDaysOfWeekFromProps.length === 0
+        )
+            return [];
+
+        return disabledDaysOfWeekFromProps
+            .split(',')
+            .map((x) => Number.parseInt(x, 10))
+            .filter((x) => x >= 0 && x <= 6);
+    }, [disabledDaysOfWeekFromProps]);
 
     const providerProps = {
         mode,
