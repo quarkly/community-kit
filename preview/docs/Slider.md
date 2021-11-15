@@ -33,17 +33,17 @@ return <Slider labelRenderer={myLabelRenderer}>
 
 ### In the interface
 
-| Prop Name            |   Default    |  Example  |
-| :------------------- | :----------: | :-------: |
-| Input name           |   `range`    |  `count`  |
-| Minimum value        |     `0`      |  `-100`   |
-| Maximum value        |     `10`     |  `50.55`  |
-| Vertical orientation | `Не отмечен` | `Отмечен` |
-| Step size            |    `0.1`     |  `0.01`   |
-| Label step size      |     `5`      |    `3`    |
-| Label precision      |     `1`      |    `0`    |
-| Label values         |     `-`      |  `1,2,3`  |
-| Default value        |     `5`      |    `0`    |
+| Prop Name            |   Default   |  Example  |
+| :------------------- | :---------: | :-------: |
+| Input name           |   `range`   |  `count`  |
+| Minimum value        |     `0`     |  `-100`   |
+| Maximum value        |    `10`     |  `50.55`  |
+| Vertical orientation | `Unchecked` | `Checked` |
+| Step size            |    `0.1`    |  `0.01`   |
+| Label step size      |     `5`     |    `3`    |
+| Label precision      |     `1`     |    `0`    |
+| Label values         |     `-`     |  `1,2,3`  |
+| Default value        |     `5`     |    `0`    |
 
 ### In the code (for developers)
 
