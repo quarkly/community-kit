@@ -4,9 +4,48 @@ This is a calendar component that is the basis for the `DateSinglePicker` and `D
 
 If you need a text field with date selection (for a form), use `DateSingleInput` or `DateRangeInput`.
 
-## 🧩 Components and Props
+## 🧩 Components and properties
 
-Use `onChange` and `value` to control the component.
+Use `onChange` and `value` to manage the component.
+
+There two modes of the component's work that influence the data types in `onChange` and `value` properties.
+
+### Single
+
+The `value` property accepts `Date` or `null` object.
+The `onChange` property accepts the function — when it's called the `Date` or `null` object will be passed, if the user removed the selection.
+
+Example:
+```jsx
+const [value, setValue] = useState(null);
+
+const onChange = (value) => {
+    // Some actions or checks...
+    // ...
+    setValue(value)
+}
+
+return <DateRange mode="single" value={value} onChange={onChange}>
+```
+
+### Range
+
+The `value` property accepts the array of two elements (`Date` or `null` object). The first element indicates the range start, while the second indicates the range end.
+The `onChange` property accepts the function — when it's called the array consisting of two elements (`Date` or `null` object) will be passed, if the user removed the selection.
+
+Example:
+```jsx
+const [value, setValue] = useState([null, null]);
+
+const onChange = (value) => {
+    // Some actions or checks...
+    // const [from, to] = value
+    // ...
+    setValue(value)
+}
+
+return <DateRange mode="range" value={value} onChange={onChange}>
+```
 
 ### Date formats
 
