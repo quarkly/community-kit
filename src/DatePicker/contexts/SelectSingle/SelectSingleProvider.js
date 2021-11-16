@@ -4,7 +4,7 @@ import SelectSingleContext from './SelectSingleContext';
 
 const SelectSingleProvider = ({ children, value, onChange }) => {
     const { setMonthDate } = useDatePicker();
-    const [selected, setSelected] = useState([null, null]);
+    const [selected, setSelected] = useState(null);
 
     useEffect(() => {
         setSelected(value);
@@ -15,6 +15,7 @@ const SelectSingleProvider = ({ children, value, onChange }) => {
             if (isDisabled) return;
 
             if (isSelected) {
+                onChange?.(null);
                 setSelected(null);
                 return;
             }

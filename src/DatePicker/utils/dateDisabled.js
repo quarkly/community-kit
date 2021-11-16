@@ -1,5 +1,4 @@
 import { startOfDay, isAfter, isBefore, isSameDay } from 'date-fns';
-import dateParse from './dateParse';
 
 const dateDisabled = (
     date,
@@ -11,15 +10,8 @@ const dateDisabled = (
 
         const dayOfWeek = date.getDay();
 
-        if (
-            disabledDaysOfWeek.some(
-                (day) => Number.parseInt(day, 10) === dayOfWeek
-            )
-        )
-            return true;
-
-        if (disabledDates.some((val) => isSameDay(dateParse(val), date)))
-            return true;
+        if (disabledDaysOfWeek.some((day) => day === dayOfWeek)) return true;
+        if (disabledDates.some((val) => isSameDay(val, date))) return true;
 
         return false;
     }
