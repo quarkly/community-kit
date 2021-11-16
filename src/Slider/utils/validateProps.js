@@ -1,7 +1,32 @@
 import { defaultProps } from '../props';
 
+const getNumber = (value, defaultValue) => {
+    const parsed = Number.parseFloat(value);
+    return !Number.isNaN(parsed) ? parsed : defaultValue;
+};
+
+const getPositiveNumber = (value, defaultValue) => {
+    const parsed = getNumber(value, defaultValue);
+    return parsed > 0 ? parsed : defaultValue;
+};
+
+const getPositiveOrZeroNumber = (value, defaultValue) => {
+    const parsed = getNumber(value, defaultValue);
+    return parsed > 0 ? parsed : defaultValue;
+};
+
+const getArrayOfNumber = (value, defaultValue) => {
+    if (Array.isArray(value)) {
+        return value.map(Number);
+    }
+    if (typeof value === 'string' && value.length > 0) {
+        return value.split(',').map(Number);
+    }
+
+    return defaultValue;
+};
+
 export const isNumber = (x) => typeof x === 'number';
-export const isPositiveNumber = (x) => isNumber(x) && x > 0;
 
 const validateProps = ({
     minFromProps,
@@ -12,26 +37,19 @@ const validateProps = ({
     labelPrecisionFromProps,
 }) => {
     let { min, max, stepSize, labelStepSize, labelPrecision } = defaultProps;
-    let labelValues;
 
-    if (isNumber(minFromProps)) min = minFromProps;
-    if (isNumber(maxFromProps)) max = maxFromProps;
+    min = getNumber(minFromProps, min);
+    max = getNumber(maxFromProps, max);
 
-    if (isPositiveNumber(stepSizeFromProps)) stepSize = stepSizeFromProps;
-    if (isPositiveNumber(labelStepSizeFromProps))
-        labelStepSize = labelStepSizeFromProps;
+    stepSize = getPositiveNumber(stepSizeFromProps, stepSize);
+    labelStepSize = getPositiveNumber(labelStepSizeFromProps, labelStepSize);
 
-    if (isNumber(labelPrecisionFromProps) || labelPrecisionFromProps >= 0)
-        labelPrecision = labelPrecisionFromProps;
+    labelPrecision = getPositiveOrZeroNumber(
+        labelPrecisionFromProps,
+        labelPrecision
+    );
 
-    if (Array.isArray(labelValuesFromProps)) {
-        labelValues = labelValuesFromProps;
-    } else if (
-        typeof labelValuesFromProps === 'string' &&
-        labelValuesFromProps.length > 0
-    ) {
-        labelValues = labelValuesFromProps.split(',').map(Number);
-    }
+    const labelValues = getArrayOfNumber(labelValuesFromProps, undefined);
 
     return {
         min,
