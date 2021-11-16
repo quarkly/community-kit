@@ -1,8 +1,8 @@
-## 📖 Подробный обзор
+## 📖 Detailed overview
 
 Tabs allow you to easily switch between content divided into several specific parts.
 
-## ⚙️ Использование
+## ⚙️ Usage
 
 1. Add the component to the page
 2. Add the `TabsFullHead` component and the `TabsFullBody` component inside `TabsFull` component

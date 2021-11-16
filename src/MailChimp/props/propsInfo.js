@@ -2,7 +2,7 @@ export default {
     url: {
         title: {
             en: 'Form URL',
-            ru: 'Ссылка на форму',
+            ru: 'URL формы',
         },
         category: 'Main',
         control: 'input',
