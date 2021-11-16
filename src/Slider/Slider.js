@@ -4,14 +4,22 @@ import React, {
     useMemo,
     useCallback,
     useLayoutEffect,
+    useEffect,
 } from 'react';
 import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
-import { clamp, formatPercentage, validateProps } from './utils';
+import {
+    clamp,
+    formatPercentage,
+    validateProps,
+    countDecimalPlaces,
+    roundValue,
+} from './utils';
 import useForceUpdate from './hooks/useForceUpdate';
 import { propInfo, defaultProps, overrides } from './props';
 import { Handle, Labels } from './components';
 import { isNumber } from './utils/validateProps';
+import { getAPI } from '../utils';
 
 const Slider = ({
     name,
@@ -73,6 +81,28 @@ const Slider = ({
     const value = isControlled ? valueFromProps : internalValue;
     const tickSizeRatio = 1 / (max - min);
 
+    const isDev = getAPI()?.mode === 'development';
+
+    useEffect(() => {
+        if (isDev) {
+            setInternalValue(defaultValue);
+        }
+    }, [defaultValue, isDev]);
+
+    useEffect(() => {
+        if (value > max) {
+            setInternalValue(max);
+        }
+        if (value < min) {
+            setInternalValue(min);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [max, min]);
+
+    const valuePrecision = useMemo(() => countDecimalPlaces(stepSize), [
+        stepSize,
+    ]);
+
     const changeValue = useCallback(
         (pixel) => {
             const rect = railRef.current.getBoundingClientRect();
@@ -84,15 +114,16 @@ const Slider = ({
                 ? rect.bottom - pixel
                 : pixel - rect.left;
 
-            const nextValue = clamp(
+            const rounded = roundValue(
                 Math.round(pixelData / (tickSize * stepSize)) * stepSize + min,
-                min,
-                max
+                valuePrecision
             );
+
+            const nextValue = clamp(rounded, min, max);
 
             onChange(nextValue);
         },
-        [max, min, onChange, stepSize, tickSizeRatio, vertical]
+        [max, min, onChange, stepSize, tickSizeRatio, valuePrecision, vertical]
     );
 
     const onChange = useCallback(
@@ -238,6 +269,7 @@ const Slider = ({
                     onChange={onChange}
                     override={override}
                     updated={updated}
+                    valuePrecision={valuePrecision}
                 />
             </Box>
             <Labels
