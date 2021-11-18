@@ -173,6 +173,14 @@ export const StoryDefault = (props) => (
                     &gt;= 18
                 </Radio>
             </Label>
+            <Label {...labelStyles}>
+                <Override slot="Text">Autocomplete</Override>
+                <Input type="email" name="email" autoComplete />
+            </Label>
+            <Label {...labelStyles}>
+                <Override slot="Text">List</Override>
+                <Input list="a,b,c" />
+            </Label>
         </Box>
         <Label {...labelStyles}>
             <Override slot="Text">Agreement</Override>
@@ -181,6 +189,9 @@ export const StoryDefault = (props) => (
             </Checkbox>
         </Label>
         <Button {...buttonStyles}>Send</Button>
+        <Button type="reset" {...buttonStyles}>
+            Reset
+        </Button>
     </Form>
 );
 export const StoryEmpty = (props) => <Form {...props} />;

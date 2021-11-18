@@ -1,13 +1,12 @@
 import React, { useState, useCallback, useMemo, useRef } from 'react';
 import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
-import { Box } from '@quarkly/widgets';
+import { Box, Placeholder } from '@quarkly/widgets';
 
 import { FormContext } from './utils';
 import { overrides, propInfo, defaultProps } from './props';
 
 import { isEmptyChildren } from '../utils';
-import ComponentNotice from '../ComponentNotice';
 
 const Form = atomize.form();
 
@@ -66,9 +65,11 @@ const FormComponent = ({
             <FormContext.Provider value={context}>
                 <Box {...override('Content')} ref={contentRef}>
                     {children}
+                    {isEmpty && (
+                        <Placeholder message="Drag Input, Textarea, Checkbox, Radio, or Select component here" />
+                    )}
                 </Box>
             </FormContext.Provider>
-            {isEmpty && <ComponentNotice message="Drag any component here" />}
         </Form>
     );
 };
