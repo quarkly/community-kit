@@ -1,6 +1,8 @@
 export default {
     name: {
-        title: 'Name',
+        title: {
+            en: 'Name',
+        },
         description: {
             en:
                 'The field name, used for the form handler to be able to identify it',
@@ -13,7 +15,9 @@ export default {
         weight: 0.5,
     },
     type: {
-        title: 'Type',
+        title: {
+            en: 'Type',
+        },
         description: {
             en: 'Tells the browser what type the form element belongs to',
             ru: 'Сообщает браузеру, к какому типу относится элемент формы',
@@ -34,7 +38,9 @@ export default {
         weight: 0.5,
     },
     placeholder: {
-        title: 'Placeholder',
+        title: {
+            en: 'Placeholder',
+        },
         description: {
             en: 'Shows a placeholder',
             ru: 'Выводит подсказывающий текст',
@@ -45,7 +51,9 @@ export default {
         weight: 1,
     },
     defaultValue: {
-        title: 'Default value',
+        title: {
+            en: 'Default value',
+        },
         description: {
             en: 'The element default value',
             ru: 'Значение элемента по умолчанию',
@@ -55,8 +63,10 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    autocomplete: {
-        title: 'Autocomplete',
+    autoComplete: {
+        title: {
+            en: 'Autocomplete',
+        },
         description: {
             en: 'Enables or disables autofill',
             ru: 'Включает или отключает автозаполнение',
@@ -66,7 +76,9 @@ export default {
         weight: 1,
     },
     autoFocus: {
-        title: 'AutoFocus',
+        title: {
+            en: 'AutoFocus',
+        },
         description: {
             en: 'Sets the focus in the form field',
             ru: 'Устанавливает фокус в поле формы',
@@ -76,7 +88,9 @@ export default {
         weight: 0.5,
     },
     required: {
-        title: 'Required',
+        title: {
+            en: 'Required',
+        },
         description: {
             en: 'A required field',
             ru: 'Обязательное для заполнения поле',
@@ -86,7 +100,10 @@ export default {
         weight: 0.5,
     },
     disabled: {
-        title: 'Disabled',
+        title: {
+            en: 'Disabled',
+            ru: 'Отключено',
+        },
         description: {
             en: 'Blocks access and modification of an element',
             ru: 'Блокирует доступ и изменение элемента',
@@ -96,7 +113,10 @@ export default {
         weight: 0.5,
     },
     list: {
-        title: 'List',
+        title: {
+            en: 'List',
+            ru: 'Список',
+        },
         description: {
             en:
                 'Indicates a list of options that you can select when entering text',
@@ -110,7 +130,10 @@ export default {
         weight: 1,
     },
     pattern: {
-        title: 'Pattern',
+        title: {
+            en: 'Pattern',
+            ru: 'Шаблон',
+        },
         description: {
             en:
                 'Specifies the regular expression according to which you want to enter and check the data in the form field',
@@ -131,7 +154,10 @@ export default {
         weight: 0.5,
     },
     maxlength: {
-        title: 'Max length',
+        title: {
+            en: 'Max length',
+            ru: 'Максимальная длина',
+        },
         description: {
             en: 'The maximum number of characters allowed in the text',
             ru: 'Максимальное количество символов разрешенных в тексте',
@@ -142,7 +168,10 @@ export default {
         weight: 0.5,
     },
     min: {
-        title: 'Min',
+        title: {
+            en: 'Min',
+            ru: 'Минимум',
+        },
         description: {
             en: 'The minimum value for entering a number or date',
             ru: 'Нижнее значение для ввода числа или даты',
@@ -153,7 +182,10 @@ export default {
         weight: 0.5,
     },
     max: {
-        title: 'Max',
+        title: {
+            en: 'Max',
+            ru: 'Максимум',
+        },
         description: {
             en: 'The maximum value for entering a number or date',
             ru: 'Верхнее значение для ввода числа или даты',

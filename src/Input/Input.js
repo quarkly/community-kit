@@ -1,50 +1,66 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import atomize from '@quarkly/atomize';
-import { effects, propInfo, defaultProps } from './props';
+import { Box } from '@quarkly/widgets';
+import { useOverrides } from '@quarkly/components';
+import { effects, propInfo, defaultProps, overrides } from './props';
+import { useUniqueId } from '../utils';
 
-const Input = atomize.input();
+const Input = atomize.input({
+    effects,
+});
 
 const InputComponent = ({
     name,
     type,
     placeholder,
     defaultValue,
-    autocomplete,
+    autoComplete,
     autoFocus,
     required,
     disabled,
-    list,
+    list: listFromProps,
+    maxlength: maxlengthFromProps,
     pattern,
-    maxlength,
     min,
     max,
     ...props
 }) => {
+    const { override, rest } = useOverrides(props, overrides);
+    const id = useUniqueId();
+
+    const maxlength = parseInt(maxlengthFromProps, 10);
+
+    const list = useMemo(() => {
+        return listFromProps.length > 0 ? listFromProps.split(',') : [];
+    }, [listFromProps]);
+
     return (
-        <Input
-            name={name}
-            type={type}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-            autocomplete={autocomplete ? 'on' : 'off'}
-            autoFocus={autoFocus}
-            required={required}
-            disabled={disabled}
-            list={list}
-            pattern={pattern}
-            maxlength={maxlength > 0 ? maxlength : undefined}
-            min={min}
-            max={max}
-            padding="6px 16px"
-            font="--base"
-            color="--dark"
-            border="2px solid --color-lightD2"
-            border-radius="2px"
-            outline="none"
-            box-sizing="border-box"
-            focus-border-color="--color-lightD1"
-            {...props}
-        />
+        <Box display="inline-block" {...rest}>
+            <Input
+                name={name}
+                type={type}
+                placeholder={placeholder}
+                defaultValue={defaultValue}
+                required={required}
+                disabled={disabled}
+                pattern={pattern}
+                min={min}
+                max={max}
+                autoFocus={autoFocus}
+                autoComplete={autoComplete ? 'on' : 'off'}
+                list={list.length > 0 && `datalist-for-input-${id}`}
+                maxlength={maxlength > 0 ? maxlength : undefined}
+                {...override('Input')}
+            />
+            {list.length > 0 && (
+                <datalist id={`datalist-for-input-${id}`}>
+                    {list.map((text) => (
+                        // eslint-disable-next-line jsx-a11y/control-has-associated-label
+                        <option key={text} value={text} />
+                    ))}
+                </datalist>
+            )}
+        </Box>
     );
 };
 
@@ -57,6 +73,7 @@ Object.assign(InputComponent, {
     effects,
     propInfo,
     defaultProps,
+    overrides,
 });
 
 export default InputComponent;
