@@ -150,27 +150,23 @@ export const StoryDefault = (props) => (
         <Box {...boxStyles}>
             <Label {...labelStyles}>
                 <Override slot="Text">Gender</Override>
-                <Radio
-                    name="gender"
-                    defaultValue="male"
-                    defaultChecked="checked"
-                >
-                    Male
+                <Radio name="gender" value="male" defaultChecked="checked">
+                    <Override slot="Text">Male</Override>
                 </Radio>
-                <Radio name="gender" defaultValue="female">
-                    Female
+                <Radio name="gender" value="female">
+                    <Override slot="Text">Female</Override>
                 </Radio>
-                <Radio name="gender" defaultValue="other">
-                    Other
+                <Radio name="gender" value="other">
+                    <Override slot="Text">Other</Override>
                 </Radio>
             </Label>
             <Label {...labelStyles}>
                 <Override slot="Text">Age</Override>
-                <Radio name="age" defaultValue="lt" defaultChecked="checked">
-                    &lt; 18
+                <Radio name="age" value="lt" defaultChecked="checked">
+                    <Override slot="Text">&lt; 18</Override>
                 </Radio>
-                <Radio name="age" defaultValue="gt">
-                    &gt;= 18
+                <Radio name="age" value="gt">
+                    <Override slot="Text">&gt;= 18</Override>
                 </Radio>
             </Label>
             <Label {...labelStyles}>

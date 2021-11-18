@@ -40,9 +40,10 @@ export default {
     Text: {
         kind: 'Text',
         props: {
-            margin: '0',
+            margin: '0 0 0 5px',
             font: '--base',
             color: '--dark',
+            children: 'Radio',
         },
     },
 };

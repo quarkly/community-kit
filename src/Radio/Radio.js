@@ -10,35 +10,35 @@ const Input = atomize.input();
 
 const RadioComponent = ({
     name,
-    defaultValue,
+    value,
     defaultChecked,
     autoFocus,
     required,
     disabled,
     ...props
 }) => {
-    const { override, children, rest } = useOverrides(props, overrides);
+    const { override, rest } = useOverrides(props, overrides);
     const [checked, setChecked] = useState(defaultChecked);
     const { radioList, onRadioMountEvent, onRadioClickEvent } = useContext(
         FormContext
     );
 
     const clickEvent = useCallback(() => {
-        onRadioClickEvent(name, defaultValue);
-    }, [name, defaultValue, onRadioClickEvent]);
+        onRadioClickEvent(name, value);
+    }, [name, value, onRadioClickEvent]);
 
     const status = checked ? ':checked' : ':unchecked';
     const radioItem = radioList[name];
 
     useEffect(() => {
-        setChecked(radioItem === defaultValue);
-    }, [radioItem, defaultValue]);
+        setChecked(radioItem?.value === value);
+    }, [radioItem, value]);
 
     useEffect(() => {
         if (defaultChecked) {
-            onRadioMountEvent(name, defaultValue);
+            onRadioMountEvent(name, value);
         }
-    }, [name, defaultValue, defaultChecked, onRadioMountEvent]);
+    }, [name, value, defaultChecked, onRadioMountEvent]);
 
     return (
         <Label
@@ -51,7 +51,7 @@ const RadioComponent = ({
         >
             <Input
                 name={name}
-                defaultValue={defaultValue}
+                value={value}
                 defaultChecked={defaultChecked}
                 autoFocus={autoFocus}
                 required={required}
@@ -62,7 +62,6 @@ const RadioComponent = ({
             />
             <Icon {...override('Icon', `Icon ${status}`)} />
             <Text {...override('Text', `Text ${status}`)} />
-            {children}
         </Label>
     );
 };

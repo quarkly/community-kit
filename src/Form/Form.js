@@ -12,7 +12,7 @@ const Form = atomize.form();
 
 const FormComponent = ({
     action,
-    autocomplete,
+    autoComplete,
     charset,
     enctype,
     method,
@@ -29,10 +29,23 @@ const FormComponent = ({
     const contentRef = useRef();
 
     const onRadioMountEvent = useCallback((nameObj, value) => {
-        setRadioList((obj) => ({ ...obj, [nameObj]: value }));
+        setRadioList((obj) => ({
+            ...obj,
+            [nameObj]: {
+                defaultValue: value,
+                value,
+            },
+        }));
     }, []);
+
     const onRadioClickEvent = useCallback((nameObj, value) => {
-        setRadioList((obj) => ({ ...obj, [nameObj]: value }));
+        setRadioList((obj) => ({
+            ...obj,
+            [nameObj]: {
+                ...obj[nameObj],
+                value,
+            },
+        }));
     }, []);
 
     const context = useMemo(
@@ -46,10 +59,26 @@ const FormComponent = ({
         [radioList, onRadioMountEvent, onRadioClickEvent, onSubmitCb, onResetCb]
     );
 
+    const onReset = () => {
+        setRadioList((obj) =>
+            Object.assign(
+                {},
+                ...Object.keys(obj).map((key) => ({
+                    [key]: {
+                        ...obj[key],
+                        value: obj[key].defaultValue,
+                    },
+                }))
+            )
+        );
+
+        onResetCb?.();
+    };
+
     return (
         <Form
             action={action}
-            autocomplete={autocomplete}
+            autoComplete={autoComplete}
             accept-charset={charset}
             enctype={enctype}
             method={method}
@@ -57,7 +86,7 @@ const FormComponent = ({
             novalidate={novalidate}
             target={target}
             onSubmit={onSubmitCb}
-            onReset={onResetCb}
+            onReset={onReset}
             flex-direction="column"
             display="flex"
             {...rest}

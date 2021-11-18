@@ -1,6 +1,8 @@
 export default {
     name: {
-        title: 'Name',
+        title: {
+            en: 'Name',
+        },
         description: {
             en:
                 'The field name, used for the form handler to be able to identify it',
@@ -13,7 +15,9 @@ export default {
         weight: 1,
     },
     defaultChecked: {
-        title: 'Default Checked',
+        title: {
+            en: 'Default Checked',
+        },
         description: {
             en: 'Selecting an element by default',
             ru: 'Выделение элемента по умолчанию',
@@ -22,11 +26,13 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    defaultValue: {
-        title: 'Default Value',
+    value: {
+        title: {
+            en: 'Value',
+        },
         description: {
-            en: 'The element default value',
-            ru: 'Значение элемента по умолчанию',
+            en: 'The element value',
+            ru: 'Значение элемента',
         },
         control: 'input',
         type: 'text',
@@ -34,7 +40,9 @@ export default {
         weight: 1,
     },
     autoFocus: {
-        title: 'AutoFocus',
+        title: {
+            en: 'AutoFocus',
+        },
         description: {
             en: 'Sets the focus in the form field',
             ru: 'Устанавливает фокус в поле формы',
@@ -44,7 +52,9 @@ export default {
         weight: 0.5,
     },
     required: {
-        title: 'Required',
+        title: {
+            en: 'Required',
+        },
         description: {
             en: 'A required field',
             ru: 'Обязательное для заполнения поле',
@@ -54,7 +64,9 @@ export default {
         weight: 0.5,
     },
     disabled: {
-        title: 'Disabled',
+        title: {
+            en: 'Disabled',
+        },
         description: {
             en: 'Blocks access and modification of an element',
             ru: 'Блокирует доступ и изменение элемента',
