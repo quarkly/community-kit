@@ -3,10 +3,11 @@ import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
 import { Box, Placeholder } from '@quarkly/widgets';
 
-import { FormContext } from './utils';
 import { overrides, propInfo, defaultProps } from './props';
 
 import { isEmptyChildren } from '../utils';
+import ComponentNotice from '../ComponentNotice';
+import { FormProvider, useForm } from './context';
 
 const Form = atomize.form();
 
@@ -23,54 +24,14 @@ const FormComponent = ({
     onResetCb,
     ...props
 }) => {
-    const { override, children, rest } = useOverrides(props, overrides);
-    const [radioList, setRadioList] = useState({});
-    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const contentRef = useRef();
+    const { override, children, rest } = useOverrides(props, overrides);
+    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
+    const { reset } = useForm();
 
-    const onRadioMountEvent = useCallback((nameObj, value) => {
-        setRadioList((obj) => ({
-            ...obj,
-            [nameObj]: {
-                defaultValue: value,
-                value,
-            },
-        }));
-    }, []);
-
-    const onRadioClickEvent = useCallback((nameObj, value) => {
-        setRadioList((obj) => ({
-            ...obj,
-            [nameObj]: {
-                ...obj[nameObj],
-                value,
-            },
-        }));
-    }, []);
-
-    const context = useMemo(
-        () => ({
-            radioList,
-            onRadioClickEvent,
-            onRadioMountEvent,
-            onSubmitCb,
-            onResetCb,
-        }),
-        [radioList, onRadioMountEvent, onRadioClickEvent, onSubmitCb, onResetCb]
-    );
-
-    const onReset = () => {
-        setRadioList((obj) =>
-            Object.assign(
-                {},
-                ...Object.keys(obj).map((key) => ({
-                    [key]: {
-                        ...obj[key],
-                        value: obj[key].defaultValue,
-                    },
-                }))
-            )
-        );
+    const onReset = (e) => {
+        e.preventDefault();
+        reset();
 
         onResetCb?.();
     };
@@ -91,19 +52,23 @@ const FormComponent = ({
             display="flex"
             {...rest}
         >
-            <FormContext.Provider value={context}>
-                <Box {...override('Content')} ref={contentRef}>
-                    {children}
-                    {isEmpty && (
-                        <Placeholder message="Drag Input, Textarea, Checkbox, Radio, or Select component here" />
-                    )}
-                </Box>
-            </FormContext.Provider>
+            <Box {...override('Content')} ref={contentRef}>
+                {children}
+            </Box>
+            {isEmpty && <ComponentNotice message="Drag any component here" />}
         </Form>
     );
 };
 
-Object.assign(FormComponent, {
+const FormComponentWrapped = (props) => {
+    return (
+        <FormProvider>
+            <FormComponent {...props} />
+        </FormProvider>
+    );
+};
+
+Object.assign(FormComponentWrapped, {
     title: 'Form',
     description: {
         ru: 'Простая форма на странице',
@@ -112,4 +77,4 @@ Object.assign(FormComponent, {
     defaultProps,
 });
 
-export default FormComponent;
+export default FormComponentWrapped;

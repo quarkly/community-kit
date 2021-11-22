@@ -190,7 +190,13 @@ export const StoryDefault = (props) => (
         </Button>
     </Form>
 );
-export const StoryEmpty = (props) => <Form {...props} />;
+
+export const StoryEmpty = (props) => (
+    <Form {...props}>
+        <Checkbox name="a" defaultChecked />
+        <Button type="reset">RESET</Button>
+    </Form>
+);
 
 StoryDefault.storyName = 'Default';
 StoryEmpty.storyName = 'Empty';
