@@ -1,13 +1,13 @@
-import React, { useState, useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
-import { Box, Placeholder } from '@quarkly/widgets';
+import { Box } from '@quarkly/widgets';
 
 import { overrides, propInfo, defaultProps } from './props';
 
 import { isEmptyChildren } from '../utils';
 import ComponentNotice from '../ComponentNotice';
-import { FormProvider, useForm } from './context';
+import { withForm, useForm } from './context';
 
 const Form = atomize.form();
 
@@ -29,12 +29,15 @@ const FormComponent = ({
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const { reset } = useForm();
 
-    const onReset = (e) => {
-        e.preventDefault();
-        reset();
+    const onReset = useCallback(
+        (e) => {
+            e.preventDefault();
+            reset();
 
-        onResetCb?.();
-    };
+            onResetCb?.();
+        },
+        [reset]
+    );
 
     return (
         <Form
@@ -60,13 +63,7 @@ const FormComponent = ({
     );
 };
 
-const FormComponentWrapped = (props) => {
-    return (
-        <FormProvider>
-            <FormComponent {...props} />
-        </FormProvider>
-    );
-};
+const FormComponentWrapped = withForm(FormComponent);
 
 Object.assign(FormComponentWrapped, {
     title: 'Form',
