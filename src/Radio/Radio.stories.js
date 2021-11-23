@@ -7,7 +7,7 @@ import { argTypes } from '../modules';
 import Form from '../Form';
 
 export default {
-    title: 'Form Components/Radio',
+    title: 'Forms/Radio',
     component: Radio,
     args: Radio.defaultProps,
     argTypes: argTypes(Radio.propInfo, Radio.defaultProps),

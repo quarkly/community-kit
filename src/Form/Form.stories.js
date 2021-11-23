@@ -7,7 +7,7 @@ import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
 
 export default {
-    title: 'Form',
+    title: 'Forms/Form',
     component: Form,
     args: defaultProps,
     argTypes: argTypes(propInfo, defaultProps),
@@ -180,7 +180,7 @@ export const StoryDefault = (props) => (
         </Box>
         <Label {...labelStyles}>
             <Override slot="Text">Agreement</Override>
-            <Checkbox value="agree" checked>
+            <Checkbox value="agree" defaultChecked>
                 I agree with sth.
             </Checkbox>
         </Label>

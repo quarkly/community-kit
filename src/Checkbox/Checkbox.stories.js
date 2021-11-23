@@ -7,7 +7,7 @@ import { argTypes } from '../modules';
 import Form from '../Form';
 
 export default {
-    title: 'Form Components/Checkbox',
+    title: 'Forms/Checkbox',
     component: Checkbox,
     args: Checkbox.defaultProps,
     argTypes: argTypes(Checkbox.propInfo, Checkbox.defaultProps),

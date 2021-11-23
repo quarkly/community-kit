@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
 import { Button } from '@quarkly/widgets';
-import Input from './Input';
+import Textarea from './Textarea';
 import { argTypes } from '../modules';
 import { Form } from '..';
 
 export default {
-    title: 'Forms/Input',
-    component: Input,
-    args: Input.defaultProps,
-    argTypes: argTypes(Input.propInfo, Input.defaultProps),
+    title: 'Forms/Textarea',
+    component: Textarea,
+    args: Textarea.defaultProps,
+    argTypes: argTypes(Textarea.propInfo, Textarea.defaultProps),
 };
 
-export const StoryDefault = (props) => <Input {...props} />;
+export const StoryDefault = (props) => <Textarea {...props} />;
 
-export const StoryInForm = () => (
+export const StoryInForm = (props) => (
     <Form>
-        <Input name="name" defaultValue="John" />
+        <Textarea {...props} />
         <Button type="reset">Reset</Button>
     </Form>
 );
 
-export const StoryControlled = () => {
+StoryInForm.args = {
+    name: 'name',
+    defaultValue: 'John',
+};
+
+export const StoryControlled = (props) => {
     const [value, setValue] = useState('Default');
 
     const onClick = () => {
@@ -29,10 +34,11 @@ export const StoryControlled = () => {
 
     return (
         <>
-            <Input
+            <Textarea
                 name="name"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
+                {...props}
             />
             <Button onClick={onClick}>Reset</Button>
         </>
