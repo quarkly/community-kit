@@ -19,7 +19,7 @@ const RadioComponent = ({
     onChange: onChangeFromProps,
     ...props
 }) => {
-    const { override, children, rest } = useOverrides(props, overrides);
+    const { override, rest } = useOverrides(props, overrides);
     const [innerChecked, setInnerChecked] = useState(defaultChecked ?? false);
 
     const { value: valueFromContext, changeValue, isInForm } = useFormField(

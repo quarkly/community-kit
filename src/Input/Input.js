@@ -1,9 +1,10 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import atomize from '@quarkly/atomize';
 import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { effects, propInfo, defaultProps, overrides } from './props';
 import { useUniqueId } from '../utils';
+import useFormField from '../Form/hooks/useFormField';
 
 const Input = atomize.input({
     effects,
@@ -23,6 +24,8 @@ const InputComponent = ({
     pattern,
     min,
     max,
+    value: valueFromProps,
+    onChange: onChangeFromProps,
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
@@ -34,13 +37,41 @@ const InputComponent = ({
         return listFromProps.length > 0 ? listFromProps.split(',') : [];
     }, [listFromProps]);
 
+    const [innerValue, setInnerValue] = useState(defaultValue ?? '');
+
+    const { value: valueFromContext, changeValue, isInForm } = useFormField(
+        name,
+        {
+            defaultValue,
+        }
+    );
+
+    const innerOnChange = useCallback(
+        (e) => {
+            setInnerValue(e.target.value);
+            changeValue?.(e.target.value);
+        },
+        [changeValue]
+    );
+
+    useEffect(() => {
+        if (isInForm) {
+            setInnerValue(valueFromContext);
+        }
+    }, [valueFromContext, isInForm]);
+
+    const isControlled = valueFromProps !== undefined;
+    const value = isControlled ? valueFromProps : innerValue;
+    const onChange = isControlled ? onChangeFromProps : innerOnChange;
+
     return (
         <Box display="inline-block" {...rest}>
             <Input
                 name={name}
                 type={type}
                 placeholder={placeholder}
-                defaultValue={defaultValue}
+                value={value}
+                onChange={onChange}
                 required={required}
                 disabled={disabled}
                 pattern={pattern}
