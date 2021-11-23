@@ -4,10 +4,11 @@ import { useOverrides } from '@quarkly/components';
 import { DatePickerProvider } from './contexts/DatePicker';
 import { OverrideProvider } from './contexts/Override';
 import { Calendar } from './components';
-import { dateParse, isString, locales } from './utils';
+import { dateParse, locales } from './utils';
 import { propInfo, defaultProps, overrides } from './props';
 import { SelectSingleProvider } from './contexts/SelectSingle';
 import { SelectRangeProvider } from './contexts/SelectRange';
+import { isString } from '../utils';
 
 const DatePicker = ({
     mode,
