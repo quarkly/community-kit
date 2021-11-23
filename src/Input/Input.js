@@ -31,7 +31,9 @@ const InputComponent = ({
     const { override, rest } = useOverrides(props, overrides);
     const id = useUniqueId();
 
-    const maxlength = parseInt(maxlengthFromProps, 10);
+    const maxlength = useMemo(() => {
+        return parseInt(maxlengthFromProps, 10);
+    }, [maxlengthFromProps]);
 
     const list = useMemo(() => {
         return listFromProps.length > 0 ? listFromProps.split(',') : [];
@@ -79,7 +81,7 @@ const InputComponent = ({
                 max={max}
                 autoFocus={autoFocus}
                 autoComplete={autoComplete ? 'on' : 'off'}
-                list={list.length > 0 && `datalist-for-input-${id}`}
+                list={list.length > 0 ? `datalist-for-input-${id}` : undefined}
                 maxlength={maxlength > 0 ? maxlength : undefined}
                 {...override('Input')}
             />
