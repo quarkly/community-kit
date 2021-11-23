@@ -36,7 +36,7 @@ const FormComponent = ({
 
             onResetCb?.();
         },
-        [reset]
+        [reset, onResetCb]
     );
 
     return (
