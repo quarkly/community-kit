@@ -13,25 +13,25 @@ This component helps you add a checkbox to a form.
 
 ### In the interface
 
-| Prop Name       |   Default   |  Example  |
-| :-------------- | :---------: | :-------: |
-| Name            |     `-`     |  `name`   |
-| Default checked | `Unchecked` | `Checked` |
-| Default value   |     `-`     |  `John`   |
-| AutoFocus       | `Unchecked` | `Checked` |
-| Required        | `Unchecked` | `Checked` |
-| Disabled        | `Unchecked` | `Checked` |
+| Prop Name       |   Default   |   Example    |
+| :-------------- | :---------: | :----------: |
+| Name            |     `-`     | `subscribe`  |
+| Default checked | `Unchecked` |  `Checked`   |
+| Value           |     `-`     | `newsletter` |
+| AutoFocus       | `Unchecked` |  `Checked`   |
+| Required        | `Unchecked` |  `Checked`   |
+| Disabled        | `Unchecked` |  `Checked`   |
 
 ### In the code (for developers)
 
-| Prop Name       | Name in the code |   Type    | Default | Example |
-| :-------------- | :--------------: | :-------: | :-----: | :-----: |
-| Name            |     `title`      | `string`  |   `-`   | `name`  |
-| Default checked | `defaultChecked` | `boolean` | `false` | `true`  |
-| Default value   |  `defaultValue`  | `string`  |   `-`   | `John`  |
-| AutoFocus       |   `autoFocus`    | `boolean` | `false` | `true`  |
-| Required        |    `required`    | `boolean` | `false` | `true`  |
-| Disabled        |    `disabled`    | `boolean` | `false` | `true`  |
+| Prop Name       | Name in the code |   Type    | Default |   Example    |
+| :-------------- | :--------------: | :-------: | :-----: | :----------: |
+| Name            |     `title`      | `string`  |   `-`   | `subscribe`  |
+| Default checked | `defaultChecked` | `boolean` | `false` |    `true`    |
+| Value           |     `value`      | `string`  |   `-`   | `newsletter` |
+| AutoFocus       |   `autoFocus`    | `boolean` | `false` |    `true`    |
+| Required        |    `required`    | `boolean` | `false` |    `true`    |
+| Disabled        |    `disabled`    | `boolean` | `false` |    `true`    |
 
 ## 🗄 GitHub
 

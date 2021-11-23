@@ -17,7 +17,7 @@
 | :--------------- | :----------: | :-------: |
 | Name             |     `-`      |  `name`   |
 | Default checked  | `Не отмечен` | `Отмечен` |
-| Default value    |     `-`      |  `Джон`   |
+| Value            |     `-`      |  `Джон`   |
 | AutoFocus        | `Не отмечен` | `Отмечен` |
 | Required         | `Не отмечен` | `Отмечен` |
 | Disabled         | `Не отмечен` | `Отмечен` |
@@ -28,7 +28,7 @@
 | :--------------- | :--------------: | :-------: | :----------: | :----: |
 | Name             |     `title`      | `string`  |     `-`      | `name` |
 | Default checked  | `defaultChecked` | `boolean` |   `false`    | `true` |
-| Default value    |  `defaultValue`  | `string`  |     `-`      | `Джон` |
+| Value            |     `value`      | `string`  |     `-`      | `Джон` |
 | AutoFocus        |   `autoFocus`    | `boolean` |   `false`    | `true` |
 | Required         |    `required`    | `boolean` |   `false`    | `true` |
 | Disabled         |    `disabled`    | `boolean` |   `false`    | `true` |

@@ -13,39 +13,39 @@
 
 ### В интерфейсе
 
-| Названия свойств | По умолчанию |          Пример          |
-| :--------------- | :----------: | :----------------------: |
-| Name             |     `-`      |          `name`          |
-| Type             |    `text`    |         `number`         |
-| Placeholder      |     `-`      |        `Ваше имя`        |
-| Default value    |     `-`      |          `Джон`          |
-| Autocomplete     | `Не отмечен` |        `Отмечен`         |
-| AutoFocus        | `Не отмечен` |        `Отмечен`         |
-| Required         | `Не отмечен` |        `Отмечен`         |
-| Disabled         | `Не отмечен` |        `Отмечен`         |
-| List             |     `-`      | `ID элемента <datalist>` |
-| Pattern          |     `-`      |       `[0-9]{10}`        |
-| Max length       |     `-`      |           `10`           |
-| Min              |     `-`      |           `0`            |
-| Max              |     `-`      |          `100`           |
+| Названия свойств | По умолчанию |                  Пример                  |
+| :--------------- | :----------: | :--------------------------------------: |
+| Name             |     `-`      |                  `name`                  |
+| Type             |    `text`    |                 `number`                 |
+| Placeholder      |     `-`      |           `Любимое мороженое`            |
+| Default value    |     `-`      |               `Ванильное`                |
+| Autocomplete     | `Не отмечен` |                `Отмечен`                 |
+| AutoFocus        | `Не отмечен` |                `Отмечен`                 |
+| Required         | `Не отмечен` |                `Отмечен`                 |
+| Disabled         | `Не отмечен` |                `Отмечен`                 |
+| List             |     `-`      | `['Шоколадное', 'Мятное', 'Клубничное']` |
+| Pattern          |     `-`      |               `[0-9]{10}`                |
+| Max length       |     `-`      |                   `10`                   |
+| Min              |     `-`      |                   `0`                    |
+| Max              |     `-`      |                  `100`                   |
 
 ### В коде (для разработчиков)
 
-| Названия свойств | Название в коде |    Тип    | По умолчанию |          Пример          |
-| :--------------- | :-------------: | :-------: | :----------: | :----------------------: |
-| Name             |     `title`     | `string`  |     `-`      |          `name`          |
-| Type             |     `type`      |  `enum`   |    `text`    |         `number`         |
-| Placeholder      |  `placeholder`  | `string`  |     `-`      |        `Ваше имя`        |
-| Default value    | `defaultValue`  | `string`  |     `-`      |          `Джон`          |
-| Autocomplete     | `autocomplete`  | `boolean` |   `false`    |          `true`          |
-| AutoFocus        |   `autoFocus`   | `boolean` |   `false`    |          `true`          |
-| Required         |   `required`    | `boolean` |   `false`    |          `true`          |
-| Disabled         |   `disabled`    | `boolean` |   `false`    |          `true`          |
-| List             |     `list`      | `string`  |     `-`      | `ID элемента <datalist>` |
-| Pattern          |    `pattern`    | `string`  |     `-`      |       `[0-9]{10}`        |
-| Max length       |   `maxlength`   | `number`  |     `-`      |           `10`           |
-| Min              |      `min`      | `number`  |     `-`      |           `0`            |
-| Max              |      `max`      | `number`  |     `-`      |          `100`           |
+| Названия свойств | Название в коде |    Тип    | По умолчанию |                  Пример                  |
+| :--------------- | :-------------: | :-------: | :----------: | :--------------------------------------: |
+| Name             |     `title`     | `string`  |     `-`      |            `ice-cream-choice`            |
+| Type             |     `type`      |  `enum`   |    `text`    |                 `number`                 |
+| Placeholder      |  `placeholder`  | `string`  |     `-`      |           `Любимое мороженое`            |
+| Default value    | `defaultValue`  | `string`  |     `-`      |               `Ванильное`                |
+| Autocomplete     | `autocomplete`  | `boolean` |   `false`    |                  `true`                  |
+| AutoFocus        |   `autoFocus`   | `boolean` |   `false`    |                  `true`                  |
+| Required         |   `required`    | `boolean` |   `false`    |                  `true`                  |
+| Disabled         |   `disabled`    | `boolean` |   `false`    |                  `true`                  |
+| List             |     `list`      | `string`  |     `-`      | `['Шоколадное', 'Мятное', 'Клубничное']` |
+| Pattern          |    `pattern`    | `string`  |     `-`      |               `[0-9]{10}`                |
+| Max length       |   `maxlength`   | `number`  |     `-`      |                   `10`                   |
+| Min              |      `min`      | `number`  |     `-`      |                   `0`                    |
+| Max              |      `max`      | `number`  |     `-`      |                  `100`                   |
 
 #### Значения свойства 'Type'
 

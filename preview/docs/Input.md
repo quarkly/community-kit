@@ -13,39 +13,39 @@ This component helps you add an input field to a form.
 
 ### In the interface
 
-| Prop Name     |   Default   |            Example             |
-| :------------ | :---------: | :----------------------------: |
-| Name          |     `-`     |             `name`             |
-| Type          |   `text`    |            `number`            |
-| Placeholder   |     `-`     |          `Your name`           |
-| Default value |     `-`     |             `John`             |
-| Autocomplete  | `Unchecked` |           `Checked`            |
-| AutoFocus     | `Unchecked` |           `Checked`            |
-| Required      | `Unchecked` |           `Checked`            |
-| Disabled      | `Unchecked` |           `Checked`            |
-| List          |     `-`     | `ID of the <datalist> element` |
-| Pattern       |     `-`     |          `[0-9]{10}`           |
-| Max length    |     `-`     |              `10`              |
-| Min           |     `-`     |              `0`               |
-| Max           |     `-`     |             `100`              |
+| Prop Name     |   Default   |                Example                |
+| :------------ | :---------: | :-----------------------------------: |
+| Name          |     `-`     |                `name`                 |
+| Type          |   `text`    |               `number`                |
+| Placeholder   |     `-`     |          `Favorite flavor`          |
+| Default value |     `-`     |               `Vanilla`               |
+| Autocomplete  | `Unchecked` |               `Checked`               |
+| AutoFocus     | `Unchecked` |               `Checked`               |
+| Required      | `Unchecked` |               `Checked`               |
+| Disabled      | `Unchecked` |               `Checked`               |
+| List          |     `-`     | `['Chocolate', 'Mint', 'Strawberry']` |
+| Pattern       |     `-`     |              `[0-9]{10}`              |
+| Max length    |     `-`     |                 `10`                  |
+| Min           |     `-`     |                  `0`                  |
+| Max           |     `-`     |                 `100`                 |
 
 ### In the code (for developers)
 
-| Prop Name     | Name in the code |   Type    | Default |            Example             |
-| :------------ | :--------------: | :-------: | :-----: | :----------------------------: |
-| Name          |     `title`      | `string`  |   `-`   |             `name`             |
-| Type          |      `type`      |  `enum`   | `text`  |            `number`            |
-| Placeholder   |  `placeholder`   | `string`  |   `-`   |          `Your name`           |
-| Default value |  `defaultValue`  | `string`  |   `-`   |             `John`             |
-| Autocomplete  |  `autocomplete`  | `boolean` | `false` |             `true`             |
-| AutoFocus     |   `autoFocus`    | `boolean` | `false` |             `true`             |
-| Required      |    `required`    | `boolean` | `false` |             `true`             |
-| Disabled      |    `disabled`    | `boolean` | `false` |             `true`             |
-| List          |      `list`      | `string`  |   `-`   | `ID of the <datalist> element` |
-| Pattern       |    `pattern`     | `string`  |   `-`   |          `[0-9]{10}`           |
-| Max length    |   `maxlength`    | `number`  |   `-`   |              `10`              |
-| Min           |      `min`       | `number`  |   `-`   |              `0`               |
-| Max           |      `max`       | `number`  |   `-`   |             `100`              |
+| Prop Name     | Name in the code |   Type    | Default |                Example                |
+| :------------ | :--------------: | :-------: | :-----: | :-----------------------------------: |
+| Name          |     `title`      | `string`  |   `-`   |                `name`                 |
+| Type          |      `type`      |  `enum`   | `text`  |               `number`                |
+| Placeholder   |  `placeholder`   | `string`  |   `-`   |          `Favorite flavor`          |
+| Default value |  `defaultValue`  | `string`  |   `-`   |               `Vanilla`               |
+| Autocomplete  |  `autocomplete`  | `boolean` | `false` |                `true`                 |
+| AutoFocus     |   `autoFocus`    | `boolean` | `false` |                `true`                 |
+| Required      |    `required`    | `boolean` | `false` |                `true`                 |
+| Disabled      |    `disabled`    | `boolean` | `false` |                `true`                 |
+| List          |      `list`      | `string`  |   `-`   | `['Chocolate', 'Mint', 'Strawberry']` |
+| Pattern       |    `pattern`     | `string`  |   `-`   |              `[0-9]{10}`              |
+| Max length    |   `maxlength`    | `number`  |   `-`   |                 `10`                  |
+| Min           |      `min`       | `number`  |   `-`   |                  `0`                  |
+| Max           |      `max`       | `number`  |   `-`   |                 `100`                 |
 
 #### The 'Type' property values
 
