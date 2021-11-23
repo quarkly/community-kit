@@ -1,15 +1,17 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import atomize from '@quarkly/atomize';
 import { Text, Icon } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { overrides, effects, propInfo, defaultProps } from './props';
 import useFormField from '../Form/hooks/useFormField';
+import { isString } from '../utils';
 
 const Label = atomize.label();
 const Input = atomize.input();
 
 const CheckboxComponent = ({
     name,
+    value: valueFromProps,
     defaultChecked,
     autoFocus,
     required,
@@ -21,9 +23,12 @@ const CheckboxComponent = ({
     const { override, children, rest } = useOverrides(props, overrides);
     const [innerChecked, setInnerChecked] = useState(defaultChecked ?? false);
 
-    const { value: formField, changeValue, isInForm } = useFormField(name, {
-        defaultValue: defaultChecked,
-    });
+    const { value: valueFromContext, changeValue, isInForm } = useFormField(
+        name,
+        {
+            defaultValue: defaultChecked,
+        }
+    );
 
     const innerOnChange = useCallback(
         (e) => {
@@ -34,16 +39,22 @@ const CheckboxComponent = ({
     );
 
     useEffect(() => {
-        if (isInForm && formField !== undefined) {
-            setInnerChecked(formField);
+        if (isInForm && valueFromContext !== undefined) {
+            setInnerChecked(valueFromContext);
         }
-    }, [formField, isInForm]);
+    }, [valueFromContext, isInForm]);
 
     const isControlled = checkedFromProps !== undefined;
     const checked = isControlled ? checkedFromProps : innerChecked;
     const onChange = isControlled ? onChangeFromProps : innerOnChange;
 
     const status = checked ? ':checked' : ':unchecked';
+
+    const value = useMemo(() => {
+        return isString(valueFromProps) && valueFromProps.length > 0
+            ? value
+            : undefined;
+    }, [valueFromProps]);
 
     return (
         <Label
@@ -56,6 +67,7 @@ const CheckboxComponent = ({
         >
             <Input
                 name={name}
+                value={value}
                 checked={checked}
                 onChange={onChange}
                 autoFocus={autoFocus}
