@@ -71,7 +71,8 @@ const Collapse = ({
             });
         });
 
-        const handle = () => {
+        const handle = (e) => {
+            e.stopPropagation();
             dispatch({
                 type: 'COLLAPSE_END',
             });
