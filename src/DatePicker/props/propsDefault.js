@@ -5,6 +5,6 @@ export default {
     maxDate: '2100-01-01',
     showOutsideDays: true,
     numberOfMonths: 1,
-    disabledDates: [],
-    disabledDaysOfWeek: [],
+    disabledDates: '',
+    disabledDaysOfWeek: '',
 };

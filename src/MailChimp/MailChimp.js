@@ -1,15 +1,16 @@
 import React, { useCallback, useState } from 'react';
 import atomize from '@quarkly/atomize';
-import { Box } from '@quarkly/widgets';
+import { Box, Placeholder } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import jsonp from 'jsonp';
 import { propInfo, defaultProps, overrides } from './props';
 import ComponentNotice from '../ComponentNotice';
+import { isEmptyChildren } from '../utils';
 
 const Form = atomize.form();
 
-const MailChimp = ({ children, url, ...props }) => {
-    const { override, rest } = useOverrides(props, overrides);
+const MailChimp = ({ url, ...props }) => {
+    const { override, rest, children } = useOverrides(props, overrides);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
 
@@ -52,6 +53,9 @@ const MailChimp = ({ children, url, ...props }) => {
                     {!success && (
                         <Form {...override('Form')} onSubmit={handleSubmit}>
                             {children}
+                            {isEmptyChildren(children) && (
+                                <Placeholder message="Drop form components here" />
+                            )}
                         </Form>
                     )}
                     {error && (
