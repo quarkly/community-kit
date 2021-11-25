@@ -1,14 +1,12 @@
 // Design styles differ 50/50
 // Brought out separately, so that there is less duplication
 const getContentStyles = ({
-    breakpoint,
+    breakpointModifier,
     menuPosition,
     animDuration,
     animFunction,
     isNear,
 }) => {
-    const breakpointModifier = breakpoint !== 'all' ? `${breakpoint}-` : '';
-
     const baseStyles = {
         padding: isNear ? '16px' : '48px 16px 24px',
         width: '100%',
