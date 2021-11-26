@@ -22,7 +22,8 @@ const reducer = (state, action) => {
                 destination: 'none',
             };
         default:
-            throw new Error('Unexpected action in Collapse reducer!');
+            console.warn('Unexpected action in Collapse reducer!');
+            return state;
     }
 };
 
