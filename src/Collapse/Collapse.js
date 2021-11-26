@@ -1,91 +1,87 @@
-import React, {
-    useState,
-    useEffect,
-    useCallback,
-    useRef,
-    useMemo,
-} from 'react';
-
-import { useOverrides } from '@quarkly/components';
+import React, { useEffect, useRef, useReducer, useCallback } from 'react';
 import { Box, Button } from '@quarkly/widgets';
-import useResizeObserver from '@react-hook/resize-observer';
-
+import { useOverrides } from '@quarkly/components';
+import { getTransformer } from '@quarkly/atomize';
 import { overrides, propInfo, defaultProps } from './props';
-import { isEmptyChildren } from '../utils';
-import ComponentNotice from '../ComponentNotice';
+import { pick } from '../utils';
+import reducer from './reducer';
 
-const Collapse = ({ minDuration, maxDuration, animFunction, ...props }) => {
+const pixelTransformer = getTransformer('pixel');
+
+const Collapse = ({
+    minDuration,
+    maxDuration,
+    duration,
+    animFunction,
+    ...props
+}) => {
+    const ref = useRef();
     const { override, children, rest } = useOverrides(props, overrides);
-
-    const contentRef = useRef(null);
-    const timerRef = useRef(null);
-    const [{ isOpen, isLock, realHeight }, setParams] = useState({
-        isOpen: false,
-        isLock: false,
-        realHeight: 0,
-    });
-
-    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
-
-    useEffect(() => {
-        setParams((state) => ({ ...state, isLock: false }));
-    }, [isEmpty]);
-
-    useResizeObserver(contentRef, (entry) => {
-        clearTimeout(timerRef.current);
-        setParams((state) => ({
-            ...state,
-            realHeight: entry?.borderBoxSize[0]?.blockSize,
-        }));
-    });
-
-    const [height, transition, duration] = useMemo(() => {
-        let newDuration = parseFloat(minDuration) + realHeight / 4000;
-        let newHeight = isOpen && !isEmpty ? realHeight : 0;
-
-        if (newDuration > maxDuration) {
-            newDuration = maxDuration;
+    const [{ destination, isOpen, isCollapsing }, dispatch] = useReducer(
+        reducer,
+        {
+            destination: 'none',
+            isOpen: false,
+            isCollapsing: false,
         }
-
-        if (isEmpty) {
-            newHeight = 'auto';
-        }
-
-        const newTransition = isOpen
-            ? `max-height ${newDuration}s ${animFunction} 0s,
-visibility 0s ${animFunction} 0s,
-opacity ${newDuration}s ${animFunction} 0s`
-            : `max-height ${newDuration}s ${animFunction} 0s,
-visibility 0s ${animFunction} ${newDuration}s,
-opacity ${newDuration}s ${animFunction} 0s`;
-
-        return [newHeight, newTransition, newDuration];
-    }, [minDuration, realHeight, animFunction, isOpen, isEmpty, maxDuration]);
-
-    const updateParams = useCallback(
-        ({ open }) => {
-            if (isLock) return;
-
-            setParams((state) => ({
-                ...state,
-                isOpen: open,
-                isLock: true,
-            }));
-
-            clearTimeout(timerRef.current);
-            timerRef.current = setTimeout(() => {
-                setParams((state) => ({
-                    ...state,
-                    isLock: false,
-                }));
-            }, duration * 1000);
-        },
-        [isLock, duration]
     );
 
     const toggleOpen = useCallback(() => {
-        updateParams({ open: !isOpen });
-    }, [isOpen, updateParams]);
+        dispatch({
+            type: 'TOGGLE',
+        });
+    }, []);
+
+    const collapsedHeight =
+        pixelTransformer(override('Wrapper :close').height) ?? 0;
+
+    useEffect(() => {
+        if (destination === 'none' || !ref.current) return;
+
+        const transition = `height ${duration} ${animFunction}`;
+        const expandedHeight = `${ref.current.scrollHeight}px`;
+
+        const [fromHeight, toHeight] =
+            destination === 'open'
+                ? [collapsedHeight, expandedHeight]
+                : [expandedHeight, collapsedHeight];
+
+        const { style } = ref.current;
+
+        const backupStyles = pick(
+            style,
+            'willChange',
+            'overflow',
+            'height',
+            'transition'
+        );
+
+        dispatch({
+            type: 'COLLAPSING',
+        });
+
+        requestAnimationFrame(() => {
+            style.willChange = 'height';
+            style.overflow = 'hidden';
+            style.height = fromHeight;
+            requestAnimationFrame(() => {
+                ref.current.style.transition = transition;
+                ref.current.style.height = toHeight;
+            });
+        });
+
+        const handle = (e) => {
+            e.stopPropagation();
+            dispatch({
+                type: 'COLLAPSE_END',
+            });
+            Object.assign(style, backupStyles);
+            ref.current.removeEventListener('transitionend', handle);
+        };
+
+        ref.current.removeEventListener('transitionend', handle);
+        ref.current.addEventListener('transitionend', handle);
+    }, [animFunction, collapsedHeight, destination, duration]);
 
     return (
         <Box
@@ -94,25 +90,15 @@ opacity ${newDuration}s ${animFunction} 0s`;
             border-radius="4px"
             {...rest}
         >
-            <Button
-                {...override('Button')}
-                onPointerDown={toggleOpen}
-                disabled={isEmpty}
-            />
+            <Button {...override('Button')} onClick={toggleOpen} />
             <Box
+                ref={ref}
                 {...override(
                     'Wrapper',
-                    `Wrapper ${isOpen ? ':open' : ':close'}`
+                    !isCollapsing && `Wrapper ${isOpen ? ':open' : ':close'}`
                 )}
-                max-height={height}
-                transition={transition}
             >
-                <Box {...override('Content')} ref={contentRef}>
-                    {children}
-                </Box>
-                {isEmpty && (
-                    <ComponentNotice message="Drag any component here" />
-                )}
+                <Box {...override('Content')}>{children}</Box>
             </Box>
         </Box>
     );
