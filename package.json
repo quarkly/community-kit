@@ -1,6 +1,6 @@
 {
   "name": "@quarkly/community-kit",
-  "version": "0.0.67",
+  "version": "0.0.68",
   "author": "quarkly-team",
   "dependencies": {
     "@reach/router": "^1.3.4",
