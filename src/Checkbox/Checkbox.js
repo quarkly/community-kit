@@ -52,7 +52,7 @@ const CheckboxComponent = ({
 
     const value = useMemo(() => {
         return isString(valueFromProps) && valueFromProps.length > 0
-            ? value
+            ? valueFromProps
             : undefined;
     }, [valueFromProps]);
 
