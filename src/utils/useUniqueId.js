@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 
 let ID = 0;
 
@@ -7,9 +7,9 @@ const genId = () => {
 };
 
 const useUniqueId = () => {
-    const [id] = useState(genId());
+    const id = useRef(genId());
 
-    return id;
+    return id.current;
 };
 
 export default useUniqueId;
