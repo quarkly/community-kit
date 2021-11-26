@@ -12,7 +12,7 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    autocomplete: {
+    autoComplete: {
         title: 'Autocomplete',
         description: {
             en:

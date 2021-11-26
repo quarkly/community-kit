@@ -5,7 +5,6 @@ export { default as getButtonOverrides } from './getButtonOverrides';
 
 export { default as isAfterMY } from './isAfterMY';
 export { default as isBeforeMY } from './isBeforeMY';
-export { default as isString } from './isString';
 
 export { default as dateDisabled } from './dateDisabled';
 export { default as dateSelected } from './dateSelected';

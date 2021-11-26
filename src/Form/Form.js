@@ -1,19 +1,19 @@
-import React, { useState, useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useMemo, useRef } from 'react';
 import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
 
-import { FormContext } from './utils';
 import { overrides, propInfo, defaultProps } from './props';
 
 import { isEmptyChildren } from '../utils';
 import ComponentNotice from '../ComponentNotice';
+import { withForm, useForm } from './context';
 
 const Form = atomize.form();
 
 const FormComponent = ({
     action,
-    autocomplete,
+    autoComplete,
     charset,
     enctype,
     method,
@@ -24,33 +24,25 @@ const FormComponent = ({
     onResetCb,
     ...props
 }) => {
-    const { override, children, rest } = useOverrides(props, overrides);
-    const [radioList, setRadioList] = useState({});
-    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const contentRef = useRef();
+    const { override, children, rest } = useOverrides(props, overrides);
+    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
+    const { reset } = useForm();
 
-    const onRadioMountEvent = useCallback((nameObj, value) => {
-        setRadioList((obj) => ({ ...obj, [nameObj]: value }));
-    }, []);
-    const onRadioClickEvent = useCallback((nameObj, value) => {
-        setRadioList((obj) => ({ ...obj, [nameObj]: value }));
-    }, []);
+    const onReset = useCallback(
+        (e) => {
+            e.preventDefault();
+            reset();
 
-    const context = useMemo(
-        () => ({
-            radioList,
-            onRadioClickEvent,
-            onRadioMountEvent,
-            onSubmitCb,
-            onResetCb,
-        }),
-        [radioList, onRadioMountEvent, onRadioClickEvent, onSubmitCb, onResetCb]
+            onResetCb?.();
+        },
+        [reset, onResetCb]
     );
 
     return (
         <Form
             action={action}
-            autocomplete={autocomplete}
+            autoComplete={autoComplete}
             accept-charset={charset}
             enctype={enctype}
             method={method}
@@ -58,22 +50,22 @@ const FormComponent = ({
             novalidate={novalidate}
             target={target}
             onSubmit={onSubmitCb}
-            onReset={onResetCb}
+            onReset={onReset}
             flex-direction="column"
             display="flex"
             {...rest}
         >
-            <FormContext.Provider value={context}>
-                <Box {...override('Content')} ref={contentRef}>
-                    {children}
-                </Box>
-            </FormContext.Provider>
+            <Box {...override('Content')} ref={contentRef}>
+                {children}
+            </Box>
             {isEmpty && <ComponentNotice message="Drag any component here" />}
         </Form>
     );
 };
 
-Object.assign(FormComponent, {
+const FormComponentWrapped = withForm(FormComponent);
+
+Object.assign(FormComponentWrapped, {
     title: 'Form',
     description: {
         ru: 'Простая форма на странице',
@@ -82,4 +74,4 @@ Object.assign(FormComponent, {
     defaultProps,
 });
 
-export default FormComponent;
+export default FormComponentWrapped;

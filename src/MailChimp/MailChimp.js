@@ -6,6 +6,7 @@ import jsonp from 'jsonp';
 import { propInfo, defaultProps, overrides } from './props';
 import ComponentNotice from '../ComponentNotice';
 import { isEmptyChildren } from '../utils';
+import { useForm, withForm } from '../Form/context';
 
 const Form = atomize.form();
 
@@ -13,6 +14,17 @@ const MailChimp = ({ url, ...props }) => {
     const { override, rest, children } = useOverrides(props, overrides);
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
+
+    const { reset } = useForm();
+
+    const onReset = useCallback(
+        (e) => {
+            e.preventDefault();
+            reset();
+            setError('');
+        },
+        [reset]
+    );
 
     const handleSubmit = useCallback(
         (e) => {
@@ -51,7 +63,11 @@ const MailChimp = ({ url, ...props }) => {
             ) : (
                 <>
                     {!success && (
-                        <Form {...override('Form')} onSubmit={handleSubmit}>
+                        <Form
+                            {...override('Form')}
+                            onSubmit={handleSubmit}
+                            onReset={onReset}
+                        >
                             {children}
                             {isEmptyChildren(children) && (
                                 <Placeholder message="Drop form components here" />
@@ -71,7 +87,9 @@ const MailChimp = ({ url, ...props }) => {
     );
 };
 
-Object.assign(MailChimp, {
+const MailChimpWrapped = withForm(MailChimp);
+
+Object.assign(MailChimpWrapped, {
     title: 'MailChimp',
     description: {
         en: 'This component will help you send form data to Mailchimp',
@@ -81,4 +99,4 @@ Object.assign(MailChimp, {
     defaultProps,
 });
 
-export default MailChimp;
+export default MailChimpWrapped;

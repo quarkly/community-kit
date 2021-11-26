@@ -17,7 +17,7 @@ This component helps you add radio buttons to a form.
 | :-------------- | :---------: | :-------: |
 | Name            |     `-`     |  `name`   |
 | Default checked | `Unchecked` | `Checked` |
-| Default value   |     `-`     |  `John`   |
+| Value           |     `-`     |  `John`   |
 | AutoFocus       | `Unchecked` | `Checked` |
 | Required        | `Unchecked` | `Checked` |
 | Disabled        | `Unchecked` | `Checked` |
@@ -28,7 +28,7 @@ This component helps you add radio buttons to a form.
 | :-------------- | :--------------: | :-------: | :-----: | :-----: |
 | Name            |     `title`      | `string`  |   `-`   | `name`  |
 | Default checked | `defaultChecked` | `boolean` | `false` | `true`  |
-| Default value   |  `defaultValue`  | `string`  |   `-`   | `John`  |
+| Value           |     `value`      | `string`  |   `-`   | `John`  |
 | AutoFocus       |   `autoFocus`    | `boolean` | `false` | `true`  |
 | Required        |    `required`    | `boolean` | `false` | `true`  |
 | Disabled        |    `disabled`    | `boolean` | `false` | `true`  |

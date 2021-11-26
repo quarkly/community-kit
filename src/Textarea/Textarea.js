@@ -1,25 +1,60 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import atomize from '@quarkly/atomize';
 import { effects, propInfo, defaultProps } from './props';
+import useFormField from '../Form/hooks/useFormField';
 
 const Textarea = atomize.textarea();
 
 const TextareaComponent = ({
     name,
     placeholder,
+    value: valueFromProps,
+    onChange: onChangeFromProps,
     defaultValue,
     resize,
     autoFocus,
     required,
     disabled,
-    maxlength,
+    children,
+    maxlength: maxlengthFromProps,
     ...props
 }) => {
+    const maxlength = parseInt(maxlengthFromProps, 10);
+
+    const [innerValue, setInnerValue] = useState(defaultValue ?? '');
+
+    const { value: valueFromContext, changeValue, isInForm } = useFormField(
+        name,
+        {
+            defaultValue,
+        }
+    );
+
+    const innerOnChange = useCallback(
+        (e) => {
+            setInnerValue(e.target.value);
+            changeValue?.(e.target.value);
+        },
+        [changeValue]
+    );
+
+    useEffect(() => {
+        if (isInForm) {
+            setInnerValue(valueFromContext);
+        }
+    }, [valueFromContext, isInForm]);
+
+    const isControlled = valueFromProps !== undefined;
+    const value = isControlled ? valueFromProps : innerValue;
+    const onChange = isControlled ? onChangeFromProps : innerOnChange;
+
     return (
         <Textarea
             name={name}
             placeholder={placeholder}
-            defaultValue={defaultValue}
+            value={value}
+            onChange={onChange}
+            resize={resize}
             autoFocus={autoFocus}
             required={required}
             disabled={disabled}
