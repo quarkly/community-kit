@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Box } from '@quarkly/widgets';
 import atomize from '@quarkly/atomize';
-import { clamp, formatLabel, formatPercentage } from '../utils';
+import { clamp, formatLabel, formatPercentage, roundValue } from '../utils';
 
 const Input = atomize.input();
 
@@ -23,6 +23,7 @@ const Handle = React.forwardRef(
             labelRenderer,
             override,
             updated,
+            valuePrecision,
             ...props
         },
         ref
@@ -48,9 +49,21 @@ const Handle = React.forwardRef(
 
         const handleKeyDown = (event) => {
             if (FORWARD_KEYS.includes(event.key)) {
-                onChange(clamp(value + stepSize, min, max));
+                onChange(
+                    clamp(
+                        roundValue(value + stepSize, valuePrecision),
+                        min,
+                        max
+                    )
+                );
             } else if (BACKWARD_KEYS.includes(event.key)) {
-                onChange(clamp(value - stepSize, min, max));
+                onChange(
+                    clamp(
+                        roundValue(value - stepSize, valuePrecision),
+                        min,
+                        max
+                    )
+                );
             }
         };
 
