@@ -22,6 +22,7 @@ const reducer = (state, action) => {
                 destination: 'none',
             };
         default:
+            // eslint-disable-next-line no-console
             console.warn('Unexpected action in Collapse reducer!');
             return state;
     }
