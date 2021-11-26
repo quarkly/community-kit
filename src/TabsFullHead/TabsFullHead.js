@@ -42,7 +42,7 @@ const TabsFullHead = (props) => {
     }, [align, orientation, override]);
 
     return (
-        <NoScroll display="contents" overflow="auto" {...rest}>
+        <NoScroll overflow="auto" {...rest}>
             {context ? (
                 <Box role="tablist" {...boxStyles}>
                     {children}

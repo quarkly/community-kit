@@ -1,17 +1,21 @@
 import React from 'react';
 import { Box, Placeholder } from '@quarkly/widgets';
+import { useOverrides } from '@quarkly/components';
 import { useTabs } from '../TabsFull/utils';
 import ComponentNotice from '../ComponentNotice';
 import { isEmptyChildren } from '../utils';
+import { overrides, propInfo } from './props';
 
-const TabsFullContent = ({ children, tabId, ...props }) => {
+const TabsFullContent = ({ tabId, ...props }) => {
+    const { override, children, rest } = useOverrides(props, overrides);
+
     const context = useTabs();
     const isHidden = context?.currentTabId !== tabId;
 
     return (
-        <Box display="contents">
+        <Box role="tabpanel" hidden={isHidden} {...rest}>
             {context ? (
-                <Box role="tabpanel" hidden={isHidden} {...props}>
+                <Box {...override('Wrapper')}>
                     {children}
                     {isEmptyChildren(children) && (
                         <Placeholder message="Drop content here" />
@@ -24,20 +28,6 @@ const TabsFullContent = ({ children, tabId, ...props }) => {
     );
 };
 
-const propInfo = {
-    tabId: {
-        title: {
-            en: 'Tab ID',
-            ru: 'ID Вкладки',
-        },
-        description: {
-            en: 'ID of the tab that is displayed when this button is clicked',
-            ru: 'ID вкладки, которая отображается при нажатии этой кнопки',
-        },
-        control: 'input',
-    },
-};
-
 Object.assign(TabsFullContent, {
     title: 'TabsFullContent',
     description: {
@@ -47,6 +37,7 @@ Object.assign(TabsFullContent, {
             'Контейнер для контента, который будет показываться при клике на нужную вкладку. Этот компонент должен располагаться внутри TabFullBody.',
     },
     propInfo,
+    overrides,
 });
 
 export default TabsFullContent;
