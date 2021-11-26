@@ -6,7 +6,7 @@ import ComponentNotice from '../ComponentNotice';
 import { isEmptyChildren } from '../utils';
 import overrides from './props/overrides';
 
-const TabsFullBody = ({ ...props }) => {
+const TabsFullBody = (props) => {
     const { override, children, rest } = useOverrides(props, overrides);
     const context = useTabs();
 
