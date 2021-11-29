@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Box, Button, Text } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { getAPI } from '../utils';
 import { getDefaultState, storage } from './utils';
 import { overrides, propInfo, defaultProps } from './props';
 
-const CookieUsed = ({ variant, ...props }) => {
+const CookieUsed = ({ variant, show: showFromProps, ...props }) => {
     const isDev = getAPI().mode === 'development';
-    const [show, setShow] = useState(getDefaultState(isDev));
+    const [show, setShow] = useState(getDefaultState(isDev, showFromProps));
     const { override, rest } = useOverrides(props, overrides);
 
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         if (isDev) return;
         storage.set(true);
         setShow(false);
-    };
+    }, [isDev]);
+
+    useEffect(() => {
+        if (!isDev) return;
+        setShow(showFromProps);
+    }, [showFromProps, isDev]);
 
     return (
         <Box

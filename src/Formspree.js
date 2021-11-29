@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import atomize from '@quarkly/atomize';
 import { Text, Link, Strong } from '@quarkly/widgets';
+import { useForm, withForm } from './Form/context';
 
 const NoEndPoint = atomize.div`
 	padding: 16px 32px;
@@ -63,6 +64,17 @@ const Formspree = (props) => {
         button && button.removeAttribute('disabled');
     };
 
+    const { reset } = useForm();
+
+    const onReset = useCallback(
+        (e) => {
+            e.preventDefault();
+            reset();
+            setError(false);
+        },
+        [reset]
+    );
+
     useEffect(() => {
         setMinHeight('auto');
     }, [children]);
@@ -95,6 +107,7 @@ const Formspree = (props) => {
                 encType="multipart/form-data"
                 method="post"
                 onSubmit={onSubmit}
+                onReset={onReset}
                 action={action}
             >
                 {children}
@@ -153,7 +166,9 @@ const defaultProps = {
     completeText: 'Success',
 };
 
-Object.assign(Formspree, {
+const FormspreeWrapped = withForm(Formspree);
+
+Object.assign(FormspreeWrapped, {
     title: 'Formspree',
     description: {
         en: 'This component allows you to add a form with the Formspree widget',
@@ -163,4 +178,4 @@ Object.assign(Formspree, {
     defaultProps,
 });
 
-export default Formspree;
+export default FormspreeWrapped;

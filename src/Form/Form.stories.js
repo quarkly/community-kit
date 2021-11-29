@@ -7,7 +7,7 @@ import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
 
 export default {
-    title: 'Form',
+    title: 'Forms/Form',
     component: Form,
     args: defaultProps,
     argTypes: argTypes(propInfo, defaultProps),
@@ -150,40 +150,53 @@ export const StoryDefault = (props) => (
         <Box {...boxStyles}>
             <Label {...labelStyles}>
                 <Override slot="Text">Gender</Override>
-                <Radio
-                    name="gender"
-                    defaultValue="male"
-                    defaultChecked="checked"
-                >
-                    Male
+                <Radio name="gender" value="male" defaultChecked="checked">
+                    <Override slot="Text">Male</Override>
                 </Radio>
-                <Radio name="gender" defaultValue="female">
-                    Female
+                <Radio name="gender" value="female">
+                    <Override slot="Text">Female</Override>
                 </Radio>
-                <Radio name="gender" defaultValue="other">
-                    Other
+                <Radio name="gender" value="other">
+                    <Override slot="Text">Other</Override>
                 </Radio>
             </Label>
             <Label {...labelStyles}>
                 <Override slot="Text">Age</Override>
-                <Radio name="age" defaultValue="lt" defaultChecked="checked">
-                    &lt; 18
+                <Radio name="age" value="lt" defaultChecked="checked">
+                    <Override slot="Text">&lt; 18</Override>
                 </Radio>
-                <Radio name="age" defaultValue="gt">
-                    &gt;= 18
+                <Radio name="age" value="gt">
+                    <Override slot="Text">&gt;= 18</Override>
                 </Radio>
+            </Label>
+            <Label {...labelStyles}>
+                <Override slot="Text">Autocomplete</Override>
+                <Input type="email" name="email" autoComplete />
+            </Label>
+            <Label {...labelStyles}>
+                <Override slot="Text">List</Override>
+                <Input list="a,b,c" />
             </Label>
         </Box>
         <Label {...labelStyles}>
             <Override slot="Text">Agreement</Override>
-            <Checkbox value="agree" checked>
+            <Checkbox value="agree" defaultChecked>
                 I agree with sth.
             </Checkbox>
         </Label>
         <Button {...buttonStyles}>Send</Button>
+        <Button type="reset" {...buttonStyles}>
+            Reset
+        </Button>
     </Form>
 );
-export const StoryEmpty = (props) => <Form {...props} />;
+
+export const StoryEmpty = (props) => (
+    <Form {...props}>
+        <Checkbox name="a" defaultChecked />
+        <Button type="reset">RESET</Button>
+    </Form>
+);
 
 StoryDefault.storyName = 'Default';
 StoryEmpty.storyName = 'Empty';

@@ -12,6 +12,7 @@ export default {
         props: {
             'padding-top': '8px',
             'min-height': '0',
+            overflow: 'hidden',
         },
     },
     Wrapper: {
@@ -26,15 +27,20 @@ export default {
         props: {
             'pointer-events': 'all',
             visibility: 'visible',
-            opacity: '1',
         },
     },
-    'Wrapper :closed': {
+    'Wrapper :close': {
         kind: 'Box',
         props: {
             'pointer-events': 'none',
             visibility: 'hidden',
-            opacity: '0',
+            height: 0,
+        },
+    },
+    'Wrapper :collapsing': {
+        kind: 'Box',
+        props: {
+            height: '0',
         },
     },
 };

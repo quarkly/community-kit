@@ -56,15 +56,24 @@ const TabsFullButton = ({ tabId, ...props }) => {
         );
     }, [selected, orientation, align, childrenIsEmpty, override]);
 
+    const mainStyles = useMemo(() => {
+        return {
+            flex: align === 'full width' && '0 1 100%',
+            'align-items': align === 'full width' && 'center',
+            margin: orientation === 'Vertical' ? '0 0 5px 0' : '0 5px 0 0',
+        };
+    }, [align, orientation]);
+
     return (
         <Box
             ref={ref}
-            display="contents"
             role="tab"
             tabIndex="-1"
             cursor="pointer"
+            display="flex"
             aria-selected={selected}
             onClick={onClick}
+            {...mainStyles}
             {...rest}
         >
             {context ? (

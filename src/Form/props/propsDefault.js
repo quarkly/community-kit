@@ -1,6 +1,6 @@
 export default {
     action: '',
-    autocomplete: 'on',
+    autoComplete: 'on',
     charset: 'UTF-8',
     enctype: 'application/x-www-form-urlencoded',
     method: 'get',

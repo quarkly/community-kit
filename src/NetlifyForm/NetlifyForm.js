@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import atomize from '@quarkly/atomize';
 import { Box, Text, Input } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { overrides, propInfo, defaultProps } from './props';
+import { useForm, withForm } from '../Form/context';
 
 const Form = atomize.form();
 
@@ -11,6 +12,8 @@ const NetlifyForm = ({ formName, successMessage, errorMessage, ...props }) => {
 
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState(false);
+
+    const { reset } = useForm();
 
     const onSubmitEvent = (e) => {
         e.preventDefault();
@@ -38,6 +41,15 @@ const NetlifyForm = ({ formName, successMessage, errorMessage, ...props }) => {
             });
     };
 
+    const onReset = useCallback(
+        (e) => {
+            e.preventDefault();
+            reset();
+            setError(false);
+        },
+        [reset]
+    );
+
     return (
         <Box {...rest}>
             {!success ? (
@@ -46,6 +58,7 @@ const NetlifyForm = ({ formName, successMessage, errorMessage, ...props }) => {
                     name={formName}
                     {...override('Form')}
                     onSubmit={onSubmitEvent}
+                    onReset={onReset}
                 >
                     <Input
                         type="hidden"
@@ -68,7 +81,9 @@ const NetlifyForm = ({ formName, successMessage, errorMessage, ...props }) => {
     );
 };
 
-Object.assign(NetlifyForm, {
+const NetlifyFormWrapped = withForm(NetlifyForm);
+
+Object.assign(NetlifyFormWrapped, {
     title: 'Netlify Form',
     description: {
         en: 'Component for adding a Netlify form',
@@ -79,4 +94,4 @@ Object.assign(NetlifyForm, {
     overrides,
 });
 
-export default NetlifyForm;
+export default NetlifyFormWrapped;

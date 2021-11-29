@@ -8,27 +8,21 @@ This component allows you to collapse the content smoothly. You can drag and dro
 2.  Drag and drop any component into it
 3.  See how it works in the preview mode
 
-### Animation duration
-
-The duration of the opening and closing animation depends on the height of the content. You can set the limits in the `Minimum animation duration` and `Maximum animation duration` props.
-
 ## 🧩 Components and Props
 
 ### In the interface
 
-| Prop name                  | Default  |  Example  |
-| :------------------------- | :------: | :-------: |
-| Minimum animation duration |  `0.5s`  |   `1s`    |
-| Maximum animation duration |   `1s`   |   `2s`    |
-| Smooth animation           | `linear` | `ease-in` |
+| Prop name          | Default  |  Example  |
+| :----------------- | :------: | :-------: |
+| Animation duration |   `1s`   |   `2s`    |
+| Smooth animation   | `linear` | `ease-in` |
 
 ### In the code (for developers)
 
-| Prop name                  | Name in the code |   Type   | Default  |  Example  |
-| :------------------------- | :--------------: | :------: | :------: | :-------: |
-| Minimum animation duration |  `minDuration`   | `string` |  `0.5s`  |   `1s`    |
-| Maximum animation duration |  `maxDuration`   | `string` |   `1s`   |   `2s`    |
-| Smooth animation           |  `animFunction`  | `string` | `linear` | `ease-in` |
+| Prop name          | Name in the code |   Type   | Default  |  Example  |
+| :----------------- | :--------------: | :------: | :------: | :-------: |
+| Animation duration |    `duration`    | `string` |   `1s`   |   `2s`    |
+| Smooth animation   |  `animFunction`  | `string` | `linear` | `ease-in` |
 
 ## 🗄 GitHub
 

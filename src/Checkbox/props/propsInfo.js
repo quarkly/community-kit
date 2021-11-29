@@ -22,11 +22,11 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    defaultValue: {
+    value: {
         title: 'Value',
         description: {
-            en: 'The element default value',
-            ru: 'Значение элемента по умолчанию',
+            en: 'The element value',
+            ru: 'Значение элемента',
         },
         control: 'input',
         type: 'text',

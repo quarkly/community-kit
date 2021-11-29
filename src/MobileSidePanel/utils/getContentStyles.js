@@ -1,7 +1,7 @@
 // Design styles differ 50/50
 // Brought out separately, so that there is less duplication
 const getContentStyles = ({
-    breakpoint,
+    breakpointModifier,
     menuPosition,
     animDuration,
     animFunction,
@@ -17,35 +17,35 @@ const getContentStyles = ({
         'justify-content': 'space-between',
         'flex-direction': 'row',
 
-        [`${breakpoint}-width`]: 'initial',
-        [`${breakpoint}-min-width`]: '280px',
-        [`${breakpoint}-min-height`]: '32px',
-        [`${breakpoint}-align-items`]: 'flex-start',
-        [`${breakpoint}-flex-direction`]: 'column',
-        [`${breakpoint}-box-shadow`]: '--xxl',
+        [`${breakpointModifier}width`]: 'initial',
+        [`${breakpointModifier}min-width`]: '280px',
+        [`${breakpointModifier}min-height`]: '32px',
+        [`${breakpointModifier}align-items`]: 'flex-start',
+        [`${breakpointModifier}flex-direction`]: 'column',
+        [`${breakpointModifier}box-shadow`]: '--xxl',
     };
     const animStyles = {
         appear: {
             open: {
-                [`${breakpoint}-transition`]: `
+                [`${breakpointModifier}transition`]: `
 					visibility ${animDuration} step-start,
 					opacity ${animDuration} ${animFunction}
 				`,
-                [`${breakpoint}-visibility`]: 'visible',
-                [`${breakpoint}-opacity`]: '1',
+                [`${breakpointModifier}visibility`]: 'visible',
+                [`${breakpointModifier}opacity`]: '1',
             },
             closed: {
-                [`${breakpoint}-transition`]: `
+                [`${breakpointModifier}transition`]: `
 					visibility ${animDuration} step-end,
 					opacity ${animDuration} ${animFunction}
 				`,
-                [`${breakpoint}-visibility`]: 'hidden',
-                [`${breakpoint}-opacity`]: '0',
+                [`${breakpointModifier}visibility`]: 'hidden',
+                [`${breakpointModifier}opacity`]: '0',
             },
         },
         shift: {
             base: {
-                [`${breakpoint}-transition`]: `
+                [`${breakpointModifier}transition`]: `
 					transform ${animDuration} ${animFunction}
 				`,
             },
@@ -58,11 +58,11 @@ const getContentStyles = ({
                 normal: {
                     ...baseStyles,
 
-                    [`${breakpoint}-top`]: '0',
-                    [`${breakpoint}-left`]: '0',
-                    [`${breakpoint}-width`]: '100%',
-                    [`${breakpoint}-height`]: '100%',
-                    [`${breakpoint}-position`]: 'fixed',
+                    [`${breakpointModifier}top`]: '0',
+                    [`${breakpointModifier}left`]: '0',
+                    [`${breakpointModifier}width`]: '100%',
+                    [`${breakpointModifier}height`]: '100%',
+                    [`${breakpointModifier}position`]: 'fixed',
                 },
                 open: animStyles.appear.open,
                 closed: animStyles.appear.closed,
@@ -73,22 +73,22 @@ const getContentStyles = ({
                 normal: {
                     ...baseStyles,
 
-                    [`${breakpoint}-top`]: '0',
-                    [`${breakpoint}-${
+                    [`${breakpointModifier}top`]: '0',
+                    [`${breakpointModifier}${
                         menuPosition === 'left' ? 'right' : 'left'
                     }`]: '100%',
-                    [`${breakpoint}-padding-top`]: '38px',
-                    [`${breakpoint}-width`]: '280px',
-                    [`${breakpoint}-height`]: '100%',
-                    [`${breakpoint}-position`]: 'fixed',
+                    [`${breakpointModifier}padding-top`]: '38px',
+                    [`${breakpointModifier}width`]: '280px',
+                    [`${breakpointModifier}height`]: '100%',
+                    [`${breakpointModifier}position`]: 'fixed',
                 },
                 closed: {
                     ...animStyles.shift.base,
-                    [`${breakpoint}-transform`]: 'translateX(0)',
+                    [`${breakpointModifier}transform`]: 'translateX(0)',
                 },
                 open: {
                     ...animStyles.shift.base,
-                    [`${breakpoint}-transform`]: `translateX(${
+                    [`${breakpointModifier}transform`]: `translateX(${
                         menuPosition === 'left' ? '100%' : '-100%'
                     })`,
                 },
@@ -98,9 +98,9 @@ const getContentStyles = ({
                 normal: {
                     ...baseStyles,
 
-                    [`${breakpoint}-top`]: '100%',
-                    [`${breakpoint}-right`]: '0',
-                    [`${breakpoint}-position`]: 'absolute',
+                    [`${breakpointModifier}top`]: '100%',
+                    [`${breakpointModifier}right`]: '0',
+                    [`${breakpointModifier}position`]: 'absolute',
                 },
                 open: animStyles.appear.open,
                 closed: animStyles.appear.closed,
@@ -110,9 +110,9 @@ const getContentStyles = ({
                 normal: {
                     ...baseStyles,
 
-                    [`${breakpoint}-top`]: '100%',
-                    [`${breakpoint}-left`]: '0',
-                    [`${breakpoint}-position`]: 'absolute',
+                    [`${breakpointModifier}top`]: '100%',
+                    [`${breakpointModifier}left`]: '0',
+                    [`${breakpointModifier}position`]: 'absolute',
                 },
                 open: animStyles.appear.open,
                 closed: animStyles.appear.closed,

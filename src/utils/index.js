@@ -10,3 +10,6 @@ export { default as getAPI } from './getAPI';
 export { default as useColor } from './useColor';
 export { default as useDebounce } from './useDebounce';
 export { default as useUpdateEffect } from './useUpdateEffect';
+export { default as useUniqueId } from './useUniqueId';
+
+export { default as isString } from './isString';
