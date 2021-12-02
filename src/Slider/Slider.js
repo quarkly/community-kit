@@ -20,6 +20,7 @@ import { propInfo, defaultProps, overrides } from './props';
 import { Handle, Labels } from './components';
 import { isNumber } from './utils/validateProps';
 import { getAPI } from '../utils';
+import useFormField from '../Form/hooks/useFormField';
 
 const Slider = ({
     name,
@@ -37,9 +38,37 @@ const Slider = ({
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
-    const [internalValue, setInternalValue] = useState(defaultValue);
+    const [innerValue, setInnerValue] = useState(() =>
+        parseFloat(defaultValue)
+    );
     const ref = useRef();
     const railRef = useRef();
+
+    const {
+        value: valueFromContext,
+        changeValue: changeValueFromContext,
+        isInForm,
+    } = useFormField(name, {
+        defaultValue: parseFloat(defaultValue),
+    });
+
+    const innerOnChange = useCallback(
+        (value) => {
+            setInnerValue(value);
+            changeValueFromContext?.(value);
+        },
+        [changeValueFromContext]
+    );
+
+    useEffect(() => {
+        if (isInForm) {
+            setInnerValue(valueFromContext);
+        }
+    }, [valueFromContext, isInForm]);
+
+    const isControlled = valueFromProps !== undefined;
+    const value = isControlled ? valueFromProps : innerValue;
+    const onChange = isControlled ? onChangeFromProps : innerOnChange;
 
     const [forceUpdate, updated] = useForceUpdate();
 
@@ -77,24 +106,22 @@ const Slider = ({
         ]
     );
 
-    const isControlled = isNumber(valueFromProps);
-    const value = isControlled ? valueFromProps : internalValue;
     const tickSizeRatio = 1 / (max - min);
 
     const isDev = getAPI()?.mode === 'development';
 
     useEffect(() => {
         if (isDev) {
-            setInternalValue(defaultValue);
+            setInnerValue(parseFloat(defaultValue));
         }
     }, [defaultValue, isDev]);
 
     useEffect(() => {
         if (value > max) {
-            setInternalValue(max);
+            setInnerValue(max);
         }
         if (value < min) {
-            setInternalValue(min);
+            setInnerValue(min);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [max, min]);
@@ -124,17 +151,6 @@ const Slider = ({
             onChange(nextValue);
         },
         [max, min, onChange, stepSize, tickSizeRatio, valuePrecision, vertical]
-    );
-
-    const onChange = useCallback(
-        (val) => {
-            onChangeFromProps?.(val);
-
-            if (!isControlled) {
-                setInternalValue(val);
-            }
-        },
-        [isControlled, onChangeFromProps]
     );
 
     const handleMouseEventOffset = useCallback(
