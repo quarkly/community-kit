@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useReducer, useCallback } from 'react';
 import { Box, Button } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
-import { getTransformer } from '@quarkly/atomize';
 import { overrides, propInfo, defaultProps } from './props';
 import { pick } from '../utils';
 import reducer from './reducer';
 
-const pixelTransformer = getTransformer('pixel');
+const pixelTransformer = (n) =>
+    typeof n === 'number' && n !== 0 ? `${n}px` : n;
 
 const Collapse = ({
     minDuration,

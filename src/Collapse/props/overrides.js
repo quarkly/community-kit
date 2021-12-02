@@ -25,14 +25,12 @@ export default {
     'Wrapper :open': {
         kind: 'Box',
         props: {
-            'pointer-events': 'all',
             visibility: 'visible',
         },
     },
     'Wrapper :close': {
         kind: 'Box',
         props: {
-            'pointer-events': 'none',
             visibility: 'hidden',
             height: 0,
         },
