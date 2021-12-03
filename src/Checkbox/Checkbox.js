@@ -4,7 +4,7 @@ import { Text, Icon } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { overrides, effects, propInfo, defaultProps } from './props';
 import useFormField from '../Form/hooks/useFormField';
-import { isString } from '../utils';
+import { getAPI, isString } from '../utils';
 
 const Label = atomize.label();
 const Input = atomize.input();
@@ -30,12 +30,26 @@ const CheckboxComponent = ({
         }
     );
 
-    const innerOnChange = useCallback(
-        (e) => {
-            setInnerChecked(e.target.checked);
-            changeValue?.(e.target.checked);
+    const isDev = getAPI().mode === 'development';
+
+    const updateValue = useCallback(
+        (value) => {
+            setInnerChecked(value);
+            changeValue?.(value);
         },
         [changeValue]
+    );
+
+    useEffect(() => {
+        if (!isDev) return;
+        updateValue(defaultChecked);
+    }, [defaultChecked, isDev, updateValue]);
+
+    const innerOnChange = useCallback(
+        (e) => {
+            updateValue(e.target.checked);
+        },
+        [updateValue]
     );
 
     useEffect(() => {
