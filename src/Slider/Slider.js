@@ -18,7 +18,6 @@ import {
 import useForceUpdate from './hooks/useForceUpdate';
 import { propInfo, defaultProps, overrides } from './props';
 import { Handle, Labels } from './components';
-import { isNumber } from './utils/validateProps';
 import { getAPI } from '../utils';
 import useFormField from '../Form/hooks/useFormField';
 
@@ -112,8 +111,10 @@ const Slider = ({
 
     useEffect(() => {
         if (isDev) {
-            setInnerValue(parseFloat(defaultValue));
+            const parsedValue = parseFloat(defaultValue);
+            setInnerValue(clamp(parsedValue, min, max));
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [defaultValue, isDev]);
 
     useEffect(() => {
