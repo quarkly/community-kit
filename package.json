@@ -71,10 +71,10 @@
   "license": "MIT",
   "main": "./index.js",
   "peerDependencies": {
-    "@quarkly/atomize": "^1.0.8",
-    "@quarkly/components": "^0.2.52",
-    "@quarkly/widgets": "^0.2.50",
-    "react": "^16.13.0",
+    "@quarkly/atomize": ">=1.0.8",
+    "@quarkly/components": ">=0.2.52",
+    "@quarkly/widgets": ">=0.2.50",
+    "react": "16.x || 17.x",
     "styled-components": "^5.0.1"
   },
   "quarklyInfo": {
