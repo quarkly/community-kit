@@ -32,6 +32,7 @@ const CookieUsed = ({ variant, show: showFromProps, ...props }) => {
             background="--color-primary"
             padding="10px 0"
             bottom="0"
+            z-index="1000"
             {...rest}
         >
             <Text {...override('Text')} />

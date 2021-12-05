@@ -57,8 +57,10 @@ const FormComponent = ({
         >
             <Box {...override('Content')} ref={contentRef}>
                 {children}
+                {isEmpty && (
+                    <ComponentNotice message="Drag Input, Textarea, Checkbox or Radio component here" />
+                )}
             </Box>
-            {isEmpty && <ComponentNotice message="Drag any component here" />}
         </Form>
     );
 };
