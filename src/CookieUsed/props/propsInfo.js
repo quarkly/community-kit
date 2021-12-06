@@ -22,4 +22,12 @@ export default {
             },
         ],
     },
+    show: {
+        title: {
+            en: 'Show',
+            ru: 'Показать',
+        },
+        category: 'Test',
+        control: 'checkbox',
+    },
 };

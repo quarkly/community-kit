@@ -1,7 +1,7 @@
 import storage from './storage';
 
-const getDefaultState = (isDev) => {
-    return !storage.get() || isDev;
+const getDefaultState = (isDev, show) => {
+    return isDev ? show : !storage.get();
 };
 
 export default getDefaultState;

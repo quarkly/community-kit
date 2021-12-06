@@ -5,20 +5,23 @@ export default {
             transition: 'all 0.125s ease-out',
             'border-style': 'solid',
             padding: '0 5px',
+            display: 'flex',
+            width: '100%',
+            height: '100%',
+            'align-items': 'center',
+            'justify-content': 'center',
         },
     },
     'Tab Horizontal': {
         kind: 'Box',
         props: {
             'border-width': '0 0 5px 0',
-            margin: '0 5px 0 0',
         },
     },
     'Tab Vertical': {
         kind: 'Box',
         props: {
             'border-width': '0 5px 0 0',
-            margin: '0 0 5px 0',
         },
     },
     'Tab :unselected': {
@@ -34,26 +37,6 @@ export default {
             color: '--color-primary',
             'border-color': '--color-primary',
             'border-style': 'solid',
-        },
-    },
-    'Tab Align Full-width': {
-        kind: 'Box',
-        props: {
-            display: 'flex',
-            flex: '0 1 100%',
-        },
-    },
-    'Tab Horizontal Align Full-width': {
-        kind: 'Box',
-        props: {
-            'align-items': 'center',
-            'justify-content': 'center',
-        },
-    },
-    'Tab Vertical Align Full-width': {
-        kind: 'Box',
-        props: {
-            'align-items': 'center',
         },
     },
 };

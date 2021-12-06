@@ -2,17 +2,17 @@ import { defaultProps } from '../props';
 
 const getNumber = (value, defaultValue) => {
     const parsed = Number.parseFloat(value);
-    return !Number.isNaN(parsed) ? parsed : defaultValue;
+    return !Number.isNaN(parsed) ? parsed : Number.parseFloat(defaultValue);
 };
 
 const getPositiveNumber = (value, defaultValue) => {
     const parsed = getNumber(value, defaultValue);
-    return parsed > 0 ? parsed : defaultValue;
+    return parsed > 0 ? parsed : Number.parseFloat(defaultValue);
 };
 
 const getPositiveOrZeroNumber = (value, defaultValue) => {
     const parsed = getNumber(value, defaultValue);
-    return parsed > 0 ? parsed : defaultValue;
+    return parsed >= 0 ? parsed : Number.parseFloat(defaultValue);
 };
 
 const getArrayOfNumber = (value, defaultValue) => {

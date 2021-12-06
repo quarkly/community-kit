@@ -39,9 +39,10 @@ export default {
     Text: {
         kind: 'Text',
         props: {
-            margin: '0',
+            margin: '16px 0px 16px 5px',
             font: '--base',
             color: '--dark',
+            children: 'Checkbox',
         },
     },
 };

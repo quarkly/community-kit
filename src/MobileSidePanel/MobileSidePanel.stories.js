@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Text } from '@quarkly/widgets';
+import { Override } from '@quarkly/components';
 import MobileSidePanel from './MobileSidePanel';
 import { ToggleButton } from './components';
 import { propInfo, defaultProps } from './props';
@@ -78,6 +79,13 @@ export const StoryEmptyNearLeft = (props) => (
 
 export const StoryEmptyNearRight = (props) => (
     <MobileSidePanel {...props} menuPosition="nearRight" />
+);
+
+export const StoryWithOverrides = (props) => (
+    <MobileSidePanel {...props} breakpoint="all">
+        <Override slot="Content" width="100%" />
+        <Text>{'Some text'}</Text>
+    </MobileSidePanel>
 );
 
 StoryDefault.storyName = 'Default';
