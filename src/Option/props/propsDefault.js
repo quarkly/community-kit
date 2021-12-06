@@ -1,5 +1,5 @@
 export default {
-    label: undefined,
-    value: undefined,
+    label: 'Option',
+    value: 'option',
     disabled: false,
 };
