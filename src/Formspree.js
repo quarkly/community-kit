@@ -13,7 +13,9 @@ const Wrapper = atomize.div`
 	min-height: 32px;
 `;
 
-const Form = atomize.form();
+const Form = atomize.form`
+    min-height: 32px;
+`;
 
 const url = 'https://formspree.io/';
 
