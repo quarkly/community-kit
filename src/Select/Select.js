@@ -2,7 +2,9 @@ import React from 'react';
 import atomize from '@quarkly/atomize';
 import { effects, propInfo, defaultProps } from './props';
 
-const Select = atomize.select();
+const Select = atomize.select({
+    effects,
+});
 
 const SelectComponent = ({
     name,
