@@ -4,6 +4,7 @@ import { Text, Icon } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { overrides, effects, propInfo, defaultProps } from './props';
 import useFormField from '../Form/hooks/useFormField';
+import { getAPI } from '../utils';
 
 const Label = atomize.label();
 const Input = atomize.input();
@@ -35,11 +36,26 @@ const RadioComponent = ({
         [changeValue]
     );
 
+    const updateValue = useCallback(
+        (v) => {
+            setInnerChecked(v);
+            changeValue?.(v);
+        },
+        [changeValue]
+    );
+
     useEffect(() => {
         if (isInForm) {
             setInnerChecked(valueFromContext === value);
         }
     }, [valueFromContext, value, isInForm]);
+
+    const isDev = getAPI().mode === 'development';
+
+    useEffect(() => {
+        if (!isDev) return;
+        updateValue(defaultChecked);
+    }, [defaultChecked, isDev, updateValue]);
 
     const isControlled = checkedFromProps !== undefined;
     const checked = isControlled ? checkedFromProps : innerChecked;
