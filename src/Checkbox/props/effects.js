@@ -3,6 +3,7 @@ export default {
     focus: ':focus',
     required: ':required',
     placeholder: '::placeholder',
+    checked: ':checked',
     invalid: ':invalid',
     disabled: ':disabled',
     firstChild: ':first-child',
@@ -11,4 +12,6 @@ export default {
     firstOfType: ':first-of-type',
     lastOfType: ':last-of-type',
     onlyOfType: ':only-of-type',
+
+    checkedAndDisabled: ':checked:disabled',
 };

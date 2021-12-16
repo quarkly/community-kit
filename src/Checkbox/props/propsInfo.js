@@ -63,4 +63,12 @@ export default {
         category: 'Main',
         weight: 0.5,
     },
+    statusOverridesEnabled: {
+        title: {
+            en: 'Enable status for overrides',
+        },
+        category: 'Test',
+        weight: 1,
+        control: 'checkbox',
+    },
 };

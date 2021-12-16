@@ -50,13 +50,13 @@ export const StoryControlled = () => {
     return (
         <Box>
             <Checkbox name="A" checked={state.A} onChange={onChange}>
-                <Override slot="Text">Value = 1</Override>
+                <Override slot="Text :checked">Checked</Override>
             </Checkbox>
             <Checkbox name="B" checked={state.B} onChange={onChange}>
-                <Override slot="Text">Value = 2</Override>
+                <Override slot="Text :checked">Checked</Override>
             </Checkbox>
             <Checkbox name="C" checked={state.C} onChange={onChange}>
-                <Override slot="Text">Value = 3</Override>
+                <Override slot="Text :checked">Checked</Override>
             </Checkbox>
             <Button onClick={onButtonClick}>RESET</Button>
         </Box>
