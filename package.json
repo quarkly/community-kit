@@ -141,6 +141,7 @@
       "CSVToTable": "CSVToTable",
       "Slider": "Slider",
       "MailChimp": "MailChimp",
+      "RadioGroup": "RadioGroup",
       "ScrollAnimation": "ScrollAnimation",
       "TabsFull": "TabsFull",
       "TabsFullBody": "TabsFullBody",

@@ -1,13 +1,29 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import atomize from '@quarkly/atomize';
-import { Text, Icon } from '@quarkly/widgets';
+import { Text } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { overrides, effects, propInfo, defaultProps } from './props';
-import useFormField from '../Form/hooks/useFormField';
-import { getAPI } from '../utils';
+import { useRadioGroup } from '../RadioGroup/context/RadioContext';
+import ComponentNotice from '../ComponentNotice';
 
 const Label = atomize.label();
-const Input = atomize.input();
+const Input = atomize.input({
+    effects,
+});
+
+const useRadio = (valueFromProps) => {
+    const radioContext = useRadioGroup();
+
+    if (!radioContext) return;
+
+    const { name, value, onRadioChange } = radioContext;
+
+    return {
+        name,
+        checked: valueFromProps === value,
+        onChange: onRadioChange,
+    };
+};
 
 const RadioComponent = ({
     name,
@@ -21,70 +37,38 @@ const RadioComponent = ({
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
-    const [innerChecked, setInnerChecked] = useState(defaultChecked ?? false);
+    const radioProps = useRadio(value);
 
-    const { value: valueFromContext, changeValue, isInForm } = useFormField(
-        name,
-        defaultChecked ? { defaultValue: value } : false
-    );
+    if (!radioProps) {
+        return (
+            <ComponentNotice
+                message="Place this component inside RadioGroup"
+                {...rest}
+            />
+        );
+    }
 
-    const innerOnChange = useCallback(
-        (e) => {
-            setInnerChecked(e.target.checked);
-            changeValue?.(e.target.value);
-        },
-        [changeValue]
-    );
-
-    const updateValue = useCallback(
-        (v) => {
-            setInnerChecked(v);
-            changeValue?.(v);
-        },
-        [changeValue]
-    );
-
-    useEffect(() => {
-        if (isInForm) {
-            setInnerChecked(valueFromContext === value);
-        }
-    }, [valueFromContext, value, isInForm]);
-
-    const isDev = getAPI().mode === 'development';
-
-    useEffect(() => {
-        if (!isDev) return;
-        updateValue(defaultChecked);
-    }, [defaultChecked, isDev, updateValue]);
-
-    const isControlled = checkedFromProps !== undefined;
-    const checked = isControlled ? checkedFromProps : innerChecked;
-    const onChange = isControlled ? onChangeFromProps : innerOnChange;
-
-    const status = checked ? ':checked' : ':unchecked';
+    const status = radioProps.checked ? ':checked' : ':unchecked';
 
     return (
         <Label
-            margin-bottom="6px"
+            padding="6px"
             font="--base"
             color="--dark"
             align-items="center"
-            display="flex"
+            display="inline-flex"
             {...rest}
         >
             <Input
-                name={name}
                 value={value}
-                checked={checked}
                 autoFocus={autoFocus}
                 required={required}
                 disabled={disabled}
-                onChange={onChange}
+                {...radioProps}
                 {...override('Input', `Input ${status}`)}
                 type="radio"
             />
-            <Icon {...override('Icon', `Icon ${status}`)} />
-            <Text {...override('Text', `Text ${status}`)} />
+            <Text as="span" {...override('Text', `Text ${status}`)} />
         </Label>
     );
 };
