@@ -65,9 +65,10 @@ export default {
     },
     statusOverridesEnabled: {
         title: {
-            en: 'Enable status for overrides',
+            en: 'Enable status overrides',
+            ru: 'Включить оверрайды для статуса',
         },
-        category: 'Test',
+        category: 'Overrides',
         weight: 1,
         control: 'checkbox',
     },

@@ -11,6 +11,7 @@ const RadioGroup = ({
     value: valueFromProps,
     onChange: onChangeFromProps,
     defaultValue,
+    required,
     ...props
 }) => {
     const [innerValue, setValue] = useState(defaultValue);
@@ -24,10 +25,17 @@ const RadioGroup = ({
         setValue(e.target.value);
     }, []);
 
+    const { value: fieldValue, onChange: fieldOnChange } = fieldProps;
+
     const context = useMemo(() => {
+        const baseContext = {
+            name,
+            required,
+        };
+
         if (isControlled) {
             return {
-                name,
+                ...baseContext,
                 value: valueFromProps,
                 onRadioChange: onChangeFromProps,
             };
@@ -35,27 +43,28 @@ const RadioGroup = ({
 
         if (isInForm) {
             return {
-                name,
-                value: fieldProps.value,
-                onRadioChange: fieldProps.onChange,
+                ...baseContext,
+                value: fieldValue,
+                onRadioChange: fieldOnChange,
             };
         }
 
         return {
-            name,
+            ...baseContext,
             value: innerValue,
             onRadioChange: onInnerChange,
         };
     }, [
+        name,
+        required,
         isControlled,
         isInForm,
-        name,
         innerValue,
         onInnerChange,
         valueFromProps,
         onChangeFromProps,
-        fieldProps.value,
-        fieldProps.onChange,
+        fieldValue,
+        fieldOnChange,
     ]);
 
     return (

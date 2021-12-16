@@ -43,16 +43,6 @@ export default {
         category: 'Main',
         weight: 0.5,
     },
-    required: {
-        title: 'Required',
-        description: {
-            en: 'A required field',
-            ru: 'Обязательное для заполнения поле',
-        },
-        control: 'checkbox',
-        category: 'Main',
-        weight: 0.5,
-    },
     disabled: {
         title: 'Disabled',
         description: {
@@ -62,5 +52,14 @@ export default {
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
+    },
+    statusOverridesEnabled: {
+        title: {
+            en: 'Enable status overrides',
+            ru: 'Включить оверрайды для статуса',
+        },
+        category: 'Overrides',
+        weight: 1,
+        control: 'checkbox',
     },
 };

@@ -151,7 +151,7 @@ export const StoryDefault = (props) => (
         <Box {...boxStyles}>
             <Label {...labelStyles}>
                 <Override slot="Text">Gender</Override>
-                <RadioGroup name="gender" defaultValue="male">
+                <RadioGroup name="gender" required>
                     <Radio value="male">
                         <Override slot="Text">Male</Override>
                     </Radio>

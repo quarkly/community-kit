@@ -16,12 +16,13 @@ const useRadio = (valueFromProps) => {
 
     if (!radioContext) return;
 
-    const { name, value, onRadioChange } = radioContext;
+    const { name, value, required, onRadioChange } = radioContext;
 
     return {
         name,
         checked: valueFromProps === value,
         onChange: onRadioChange,
+        required,
     };
 };
 
@@ -30,10 +31,10 @@ const RadioComponent = ({
     value,
     defaultChecked,
     autoFocus,
-    required,
     disabled,
     checked: checkedFromProps,
     onChange: onChangeFromProps,
+    statusOverridesEnabled,
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
@@ -62,13 +63,21 @@ const RadioComponent = ({
             <Input
                 value={value}
                 autoFocus={autoFocus}
-                required={required}
                 disabled={disabled}
                 {...radioProps}
-                {...override('Input', `Input ${status}`)}
+                {...override(
+                    'Input',
+                    statusOverridesEnabled && `Input ${status}`
+                )}
                 type="radio"
             />
-            <Text as="span" {...override('Text', `Text ${status}`)} />
+            <Text
+                as="span"
+                {...override(
+                    'Text',
+                    statusOverridesEnabled && `Text ${status}`
+                )}
+            />
         </Label>
     );
 };
