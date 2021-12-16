@@ -23,6 +23,8 @@ export default {
 
             'focus-box-shadow': '0 0 0 2px --color-primary',
             'focus-outline': 'none',
+
+            'active-background-color': '--color-lightD2',
             'checkedAndDisabled-background-color': '--color-grey',
         },
     },

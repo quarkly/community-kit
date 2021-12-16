@@ -1,6 +1,7 @@
 import React from 'react';
 import Radio from './Radio';
 import { argTypes } from '../modules';
+import { RadioGroup } from '..';
 
 export default {
     title: 'Forms/Radio',
@@ -9,6 +10,10 @@ export default {
     argTypes: argTypes(Radio.propInfo, Radio.defaultProps),
 };
 
-export const StoryDefault = (props) => <Radio {...props} />;
+export const StoryDefault = (props) => (
+    <RadioGroup>
+        <Radio {...props} />
+    </RadioGroup>
+);
 
 StoryDefault.storyName = 'Default';

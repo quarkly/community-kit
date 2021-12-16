@@ -13,5 +13,6 @@ export default {
     lastOfType: ':last-of-type',
     onlyOfType: ':only-of-type',
 
+    active: ':active',
     checkedAndDisabled: ':checked:disabled',
 };
