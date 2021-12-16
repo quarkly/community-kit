@@ -15,18 +15,18 @@ const getButtonOverrides = ({
     const overrides = [...getCellOverrides('DateButton', cell)];
 
     if (isDisabled) {
-        overrides.push(...getCellOverrides('DateButton Disabled', cell));
+        overrides.push('DateButton Disabled');
 
         return overrides;
     }
 
     if (isOutside) {
-        overrides.push(...getCellOverrides('DateButton Outside', cell));
+        overrides.push('DateButton Outside');
     }
 
     if (mode === 'single') {
         if (isSelected) {
-            overrides.push(...getCellOverrides('DateButton Selected', cell));
+            overrides.push('DateButton Selected');
         }
 
         return overrides;
@@ -70,21 +70,14 @@ const getButtonOverrides = ({
         const isSingleRange = isFrom && isTo;
 
         if (isInRange || isFrom || isTo) {
-            overrides.push(...getCellOverrides('DateButton Range', cell));
+            overrides.push('DateButton Range');
             if (isInRange) return overrides;
         }
 
         if (isSingleRange) {
             overrides.push(
-                ...getCellOverrides('DateButton OneDay Range', cell),
-                ...(isToHovered
-                    ? [
-                          ...getCellOverrides(
-                              'DateButton OneDay Range Hovered',
-                              cell
-                          ),
-                      ]
-                    : [])
+                'DateButton OneDay Range',
+                ...(isToHovered ? ['DateButton OneDay Range Hovered'] : [])
             );
             return overrides;
         }
@@ -94,18 +87,12 @@ const getButtonOverrides = ({
             const isHovered = isFrom ? isFromHovered : isToHovered;
 
             overrides.push(
-                ...getCellOverrides('DateButton End Range', cell),
-                ...getCellOverrides(`DateButton ${endType} Range`, cell),
+                'DateButton End Range',
+                `DateButton ${endType} Range`,
                 ...(isHovered
                     ? [
-                          ...getCellOverrides(
-                              'DateButton End Range Hovered',
-                              cell
-                          ),
-                          ...getCellOverrides(
-                              `DateButton ${endType} Range Hovered`,
-                              cell
-                          ),
+                          'DateButton End Range Hovered',
+                          `DateButton ${endType} Range Hovered`,
                       ]
                     : [])
             );
