@@ -64,9 +64,10 @@ export default {
         weight: 0.5,
     },
     statusOverridesEnabled: {
-        title: {
-            en: 'Enable status overrides',
-            ru: 'Включить оверрайды для статуса',
+        title: 'Status overrides',
+        description: {
+            ru:
+                'Позволяет устанавливать разный текст для разных состояний Radio',
         },
         category: 'Overrides',
         weight: 1,

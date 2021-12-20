@@ -1,27 +1,4 @@
 export default {
-    name: {
-        title: 'Name',
-        description: {
-            en:
-                'The field name, used for the form handler to be able to identify it',
-            ru:
-                'Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать',
-        },
-        control: 'input',
-        type: 'text',
-        category: 'Main',
-        weight: 1,
-    },
-    defaultChecked: {
-        title: 'Default Checked',
-        description: {
-            en: 'Selecting an element by default',
-            ru: 'Выделение элемента по умолчанию',
-        },
-        control: 'checkbox',
-        category: 'Main',
-        weight: 1,
-    },
     value: {
         title: 'Value',
         description: {
@@ -54,9 +31,10 @@ export default {
         weight: 0.5,
     },
     statusOverridesEnabled: {
-        title: {
-            en: 'Enable status overrides',
-            ru: 'Включить оверрайды для статуса',
+        title: 'Status overrides',
+        description: {
+            ru:
+                'Позволяет устанавливать разный текст для разных состояний Radio',
         },
         category: 'Overrides',
         weight: 1,
