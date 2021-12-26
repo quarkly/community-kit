@@ -63,14 +63,4 @@ export default {
         category: 'Main',
         weight: 0.5,
     },
-    statusOverridesEnabled: {
-        title: 'Status overrides',
-        description: {
-            ru:
-                'Позволяет устанавливать разный текст для разных состояний Radio',
-        },
-        category: 'Overrides',
-        weight: 1,
-        control: 'checkbox',
-    },
 };

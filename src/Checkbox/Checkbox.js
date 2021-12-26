@@ -20,7 +20,6 @@ const CheckboxComponent = ({
     disabled,
     checked: checkedFromProps,
     onChange: onChangeFromProps,
-    statusOverridesEnabled,
     ...props
 }) => {
     const { override, rest } = useOverrides(props, overrides);
@@ -81,18 +80,10 @@ const CheckboxComponent = ({
                 required={required}
                 disabled={disabled}
                 {...inputProps}
-                {...override(
-                    'Input',
-                    statusOverridesEnabled && `Input ${status}`
-                )}
+                {...override('Input', `Input ${status}`)}
                 type="checkbox"
             />
-            <Text
-                {...override(
-                    'Text',
-                    statusOverridesEnabled && `Text ${status}`
-                )}
-            />
+            <Text {...override('Text', `Text ${status}`)} />
         </Label>
     );
 };

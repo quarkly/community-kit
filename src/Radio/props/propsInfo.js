@@ -1,6 +1,9 @@
 export default {
     value: {
-        title: 'Value',
+        title: {
+            en: 'Value',
+            ru: 'Значение',
+        },
         description: {
             en: 'The element value',
             ru: 'Значение элемента',
@@ -11,7 +14,10 @@ export default {
         weight: 1,
     },
     autoFocus: {
-        title: 'AutoFocus',
+        title: {
+            en: 'AutoFocus',
+            ru: 'Автофокус',
+        },
         description: {
             en: 'Sets the focus in the form field',
             ru: 'Устанавливает фокус в поле формы',
@@ -21,7 +27,10 @@ export default {
         weight: 0.5,
     },
     disabled: {
-        title: 'Disabled',
+        title: {
+            en: 'Disabled',
+            ru: 'Отключен',
+        },
         description: {
             en: 'Blocks access and modification of an element',
             ru: 'Блокирует доступ и изменение элемента',
@@ -29,15 +38,5 @@ export default {
         control: 'checkbox',
         category: 'Main',
         weight: 0.5,
-    },
-    statusOverridesEnabled: {
-        title: 'Status overrides',
-        description: {
-            ru:
-                'Позволяет устанавливать разный текст для разных состояний Radio',
-        },
-        category: 'Overrides',
-        weight: 1,
-        control: 'checkbox',
     },
 };
