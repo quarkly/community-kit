@@ -14,6 +14,13 @@ const duration = 1000; // Totally arbitrary!
 const ScrollAnimation = ({
     start,
     end,
+
+    startTrigger,
+    startOffset,
+
+    endTrigger,
+    endOffset,
+
     easing,
 
     transformEnabled,
@@ -59,8 +66,8 @@ const ScrollAnimation = ({
     useEffect(() => {
         if (!ready) return;
 
-        const endMargin = `${-1 * (100 - (parseFloat(end) || 0))}%`;
-        const startMargin = `${-1 * (parseFloat(start) || 0)}%`;
+        const endMargin = `${-1 * (parseFloat(startOffset) || 0)}%`;
+        const startMargin = `${-1 * (parseFloat(endOffset) || 0)}%`;
 
         animationRef.current?.cancel();
 
@@ -95,23 +102,23 @@ const ScrollAnimation = ({
             easing,
         };
 
+        const scrollOffsets = [
+            {
+                target: wrapperRef.current,
+                edge: 'end',
+                rootMargin: `0% 0% ${startMargin} 0%`,
+                threshold: startTrigger === 'top' ? 1 : 0,
+            },
+            {
+                target: wrapperRef.current,
+                edge: 'start',
+                rootMargin: `${endMargin} 0% 0% 0%`,
+                threshold: endTrigger === 'bottom' ? 1 : 0,
+            },
+        ];
+
         const scrollTimeline = new ScrollTimeline({
-            scrollOffsets: [
-                {
-                    target: wrapperRef.current,
-                    edge: 'end',
-                    rootMargin: `0% 0% ${startMargin} 0%`,
-                    threshold: 0,
-                    clamp: true,
-                },
-                {
-                    target: wrapperRef.current,
-                    edge: 'start',
-                    rootMargin: `${endMargin} 0% 0% 0%`,
-                    threshold: 0,
-                    clamp: true,
-                },
-            ],
+            scrollOffsets,
             fill: 'both',
         });
 
@@ -122,6 +129,11 @@ const ScrollAnimation = ({
         });
     }, [
         ready,
+
+        startTrigger,
+        startOffset,
+        endTrigger,
+        endOffset,
 
         start,
         end,

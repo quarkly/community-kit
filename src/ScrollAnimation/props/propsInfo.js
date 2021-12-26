@@ -9,22 +9,66 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    start: {
+    startTrigger: {
         title: {
             en: 'Start',
             ru: 'Начало',
         },
-        control: 'input',
-        category: 'Main',
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Top Edge',
+                },
+                value: 'top',
+            },
+            {
+                title: {
+                    en: 'Bottom Edge',
+                },
+                value: 'bottom',
+            },
+        ],
+        category: 'Start',
         weight: 1,
     },
-    end: {
+    startOffset: {
+        title: {
+            en: 'Offset',
+        },
+        control: 'input',
+        category: 'Start',
+        weight: 1,
+    },
+    endTrigger: {
         title: {
             en: 'End',
             ru: 'Конец',
         },
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Top Edge',
+                },
+                value: 'top',
+            },
+            {
+                title: {
+                    en: 'Bottom Edge',
+                },
+                value: 'bottom',
+            },
+        ],
+        category: 'End',
+        weight: 1,
+    },
+    endOffset: {
+        title: {
+            en: 'Offset',
+        },
         control: 'input',
-        category: 'Main',
+        category: 'End',
         weight: 1,
     },
     transformEnabled: {

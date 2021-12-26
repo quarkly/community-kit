@@ -63,4 +63,18 @@ export const StoryDefault = (props) => (
     </Box>
 );
 
+export const StoryExample1 = (props) => (
+    <Box h="400vh" {...wrapperStyles}>
+        <Box h="120vh" />
+        <AnimationComponent title={'Default'} props={props} />
+        <Box h="120vh" />
+    </Box>
+);
+
 StoryDefault.storyName = 'Default';
+StoryExample1.storyName = 'Example 1';
+StoryExample1.args = {
+    backgroundStart: 'red',
+    backgroundEnd: 'black',
+    backgroundEnabled: 'on',
+};
