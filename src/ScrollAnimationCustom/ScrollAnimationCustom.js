@@ -11,7 +11,7 @@ const duration = 1000; // Totally arbitrary!
 
 /* global ScrollTimeline */
 
-const ScrollAnimation = ({
+const ScrollAnimationCustom = ({
     start,
     end,
 
@@ -180,8 +180,8 @@ const ScrollAnimation = ({
     );
 };
 
-Object.assign(ScrollAnimation, {
-    title: 'ScrollAnimation',
+Object.assign(ScrollAnimationCustom, {
+    title: 'ScrollAnimationCustom',
     description: {
         ru:
             'Компонент для анимации одного или нескольких элементов во время прокрутки страницы.',
@@ -192,4 +192,4 @@ Object.assign(ScrollAnimation, {
     defaultProps,
 });
 
-export default ScrollAnimation;
+export default ScrollAnimationCustom;

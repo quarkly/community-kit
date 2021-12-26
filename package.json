@@ -141,7 +141,7 @@
       "CSVToTable": "CSVToTable",
       "Slider": "Slider",
       "MailChimp": "MailChimp",
-      "ScrollAnimation": "ScrollAnimation",
+      "ScrollAnimationCustom": "ScrollAnimationCustom",
       "TabsFull": "TabsFull",
       "TabsFullBody": "TabsFullBody",
       "TabsFullButton": "TabsFullButton",
@@ -161,7 +161,8 @@
       "LightBoxVideo": "LightBoxVideo",
       "SimpleTabsList": "SimpleTabsList",
       "SimpleTabsItem": "SimpleTabsItem",
-      "SvgShape": "SvgShape"
+      "SvgShape": "SvgShape",
+      "ScrollAnimation": "ScrollAnimation"
     }
   },
   "repository": "https://github.com/quarkly/community-kit",

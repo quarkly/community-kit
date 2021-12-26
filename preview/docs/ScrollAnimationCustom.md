@@ -91,7 +91,7 @@ Use this component to animate one or several elements on page scroll.
 
 ## 🗄 GitHub
 
-[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/ScrollAnimation)
+[Link to GitHub](https://github.com/quarkly/community-kit/tree/master/src/ScrollAnimationCustom)
 
 ## 🗓 Changelog
 

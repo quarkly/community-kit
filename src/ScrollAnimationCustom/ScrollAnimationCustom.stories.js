@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Text, Image } from '@quarkly/widgets';
-import ScrollAnimation from './ScrollAnimation';
+import ScrollAnimationCustom from './ScrollAnimationCustom';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
 
@@ -24,14 +24,14 @@ const textStyles = {
 };
 
 export default {
-    title: 'ScrollAnimation',
-    component: ScrollAnimation,
+    title: 'ScrollAnimationCustom',
+    component: ScrollAnimationCustom,
     args: defaultProps,
     argTypes: argTypes(propInfo, defaultProps),
 };
 
 const AnimationComponent = ({ title, props }) => (
-    <ScrollAnimation
+    <ScrollAnimationCustom
         display="flex"
         justify-content="center"
         flex-direction="column"
@@ -52,7 +52,7 @@ const AnimationComponent = ({ title, props }) => (
             border-color="#ff0000"
             margin="0px 0px 50px 0px"
         />
-    </ScrollAnimation>
+    </ScrollAnimationCustom>
 );
 
 export const StoryDefault = (props) => (

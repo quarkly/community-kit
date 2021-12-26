@@ -62,7 +62,7 @@ export { default as CookieUsed } from './CookieUsed';
 export { default as CSVToTable } from './CSVToTable';
 export { default as Slider } from './Slider';
 export { default as MailChimp } from './MailChimp';
-export { default as ScrollAnimation } from './ScrollAnimation';
+export { default as ScrollAnimationCustom } from './ScrollAnimationCustom';
 export { default as TabsFull } from './TabsFull';
 export { default as TabsFullBody } from './TabsFullBody';
 export { default as TabsFullButton } from './TabsFullButton';
