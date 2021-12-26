@@ -22,15 +22,15 @@ export default {
         variants: [
             {
                 title: {
-                    en: 'Top Edge',
-                    ru: 'Верхняя граница',
+                    en: 'Top edge',
+                    ru: 'Верхний край',
                 },
                 value: 'top',
             },
             {
                 title: {
-                    en: 'Bottom Edge',
-                    ru: 'Нижняя граница',
+                    en: 'Bottom edge',
+                    ru: 'Нижний край',
                 },
                 value: 'bottom',
             },
@@ -66,15 +66,15 @@ export default {
         variants: [
             {
                 title: {
-                    en: 'Top Edge',
-                    ru: 'Верхняя граница',
+                    en: 'Top edge',
+                    ru: 'Верхний край',
                 },
                 value: 'top',
             },
             {
                 title: {
-                    en: 'Bottom Edge',
-                    ru: 'Нижняя граница',
+                    en: 'Bottom edge',
+                    ru: 'Нижний край',
                 },
                 value: 'bottom',
             },
