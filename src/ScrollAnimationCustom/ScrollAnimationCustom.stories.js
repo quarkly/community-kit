@@ -38,6 +38,7 @@ const AnimationComponent = ({ title, props }) => (
         align-items="center"
         width="50%"
         margin="0px auto 0px auto"
+        border="2px solid black"
         {...animationStyles}
         {...props}
     >
@@ -59,22 +60,66 @@ export const StoryDefault = (props) => (
     <Box h="400vh" {...wrapperStyles}>
         <Box h="120vh" />
         <AnimationComponent title={'Default'} props={props} />
-        <Box h="120vh" />
-    </Box>
-);
-
-export const StoryExample1 = (props) => (
-    <Box h="400vh" {...wrapperStyles}>
-        <Box h="120vh" />
-        <AnimationComponent title={'Default'} props={props} />
+        <Box
+            position="fixed"
+            top="50%"
+            width="100%"
+            background="red"
+            min-height="5px"
+        />
         <Box h="120vh" />
     </Box>
 );
 
 StoryDefault.storyName = 'Default';
+
+const StoryExampleTemplate = (props) => {
+    const { startBorder, endBorder } = props;
+
+    return (
+        <Box h="400vh" {...wrapperStyles}>
+            <Box h="120vh" />
+            <AnimationComponent title={'Default'} props={props} />
+            <Box
+                position="fixed"
+                top={`${startBorder}%`}
+                width="100%"
+                background="red"
+                min-height="5px"
+            />
+            <Box
+                position="fixed"
+                top={`${endBorder}%`}
+                width="100%"
+                background="blue"
+                min-height="5px"
+            />
+            <Box h="120vh" />
+        </Box>
+    );
+};
+
+const animProps = {
+    colorStart: 'red',
+    colorEnd: 'blue',
+    colorEnabled: 'on',
+    opacityStart: 1,
+    opacityEnd: 0,
+    opacityEnabled: 'on',
+};
+
+export const StoryExample1 = StoryExampleTemplate.bind({});
 StoryExample1.storyName = 'Example 1';
 StoryExample1.args = {
-    backgroundStart: 'red',
-    backgroundEnd: 'black',
-    backgroundEnabled: 'on',
+    ...animProps,
+    startBorder: '100',
+    endBorder: '50',
+};
+
+export const StoryExample2 = StoryExampleTemplate.bind({});
+StoryExample2.storyName = 'Example 2';
+StoryExample2.args = {
+    ...animProps,
+    startBorder: '75',
+    endBorder: '25',
 };

@@ -11,20 +11,26 @@ export default {
     },
     startTrigger: {
         title: {
-            en: 'Start',
-            ru: 'Начало',
+            en: 'Start point',
+            ru: 'Начальная точка',
+        },
+        description: {
+            en: 'Start point of animation',
+            ru: 'Точка начала анимации',
         },
         control: 'radio-group',
         variants: [
             {
                 title: {
                     en: 'Top Edge',
+                    ru: 'Верхняя граница',
                 },
                 value: 'top',
             },
             {
                 title: {
                     en: 'Bottom Edge',
+                    ru: 'Нижняя граница',
                 },
                 value: 'bottom',
             },
@@ -32,9 +38,16 @@ export default {
         category: 'Start',
         weight: 1,
     },
-    startOffset: {
+    startBorder: {
         title: {
-            en: 'Offset',
+            en: 'Border of the animation area',
+            ru: 'Граница области анимации',
+        },
+        description: {
+            ru:
+                'Процент видимой области веб-страницы. 0 - верхняя граница, 100 — нижняя.',
+            en:
+                'Percentage of the browser viewport. 0 - top border, 100 - bottom border',
         },
         control: 'input',
         category: 'Start',
@@ -42,20 +55,26 @@ export default {
     },
     endTrigger: {
         title: {
-            en: 'End',
-            ru: 'Конец',
+            en: 'End point',
+            ru: 'Конечная точка',
+        },
+        description: {
+            en: 'End point of the animation',
+            ru: 'Точка конца анимации',
         },
         control: 'radio-group',
         variants: [
             {
                 title: {
                     en: 'Top Edge',
+                    ru: 'Верхняя граница',
                 },
                 value: 'top',
             },
             {
                 title: {
                     en: 'Bottom Edge',
+                    ru: 'Нижняя граница',
                 },
                 value: 'bottom',
             },
@@ -63,9 +82,16 @@ export default {
         category: 'End',
         weight: 1,
     },
-    endOffset: {
+    endBorder: {
         title: {
-            en: 'Offset',
+            en: 'Border of the animation area',
+            ru: 'Граница области анимации',
+        },
+        description: {
+            ru:
+                'Процент видимой области веб-страницы. 0 - верхняя граница, 100 — нижняя.',
+            en:
+                'Percentage of the browser viewport. 0 - top border, 100 - bottom border.',
         },
         control: 'input',
         category: 'End',

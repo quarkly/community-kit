@@ -1,9 +1,9 @@
 export default {
     startTrigger: 'top',
-    startOffset: '0',
+    startBorder: '100',
 
     endTrigger: 'bottom',
-    endOffset: '100',
+    endBorder: '50',
 
     easing: 'linear',
     transformEnabled: 'off',
