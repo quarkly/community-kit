@@ -6,8 +6,9 @@ This component helps you add radio buttons to a form.
 
 1.  Add the Form component to the page
 2.  Add the Radio component to the Form component
-3.  Specify the `name` and other properties if necessary
-4.  See how it works in the preview mode
+3.  Specify the `name` and `value` properties
+4.  Specify other properties if necessary
+5.  See how it works in the preview mode
 
 ## 🧩 Components and Props
 
