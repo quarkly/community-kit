@@ -17,21 +17,21 @@ export default {
 export const StoryDefault = (props) => (
     <TabsFull {...props}>
         <TabsFullHead>
-            <TabsFullButton tabId="1">
+            <TabsFullButton tabId="first">
                 <Text>First tab</Text>
             </TabsFullButton>
-            <TabsFullButton tabId="2">
+            <TabsFullButton tabId="second">
                 <Text>Second tab</Text>
             </TabsFullButton>
         </TabsFullHead>
         <TabsFullBody>
-            <TabsFullContent tabId="1">
+            <TabsFullContent tabId="first">
                 <Text font="--headline2">First tab content</Text>
                 <Text font="--headline2">First tab content</Text>
                 <Text font="--headline2">First tab content</Text>
                 <Text font="--headline2">First tab content</Text>
             </TabsFullContent>
-            <TabsFullContent tabId="2">
+            <TabsFullContent tabId="second">
                 <Text font="--headline2">Second tab content</Text>
                 <Text font="--headline2">Second tab content</Text>
                 <Text font="--headline2">Second tab content</Text>

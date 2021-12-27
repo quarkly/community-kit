@@ -4,30 +4,14 @@ export default {
         props: {
             transition: 'all 0.125s ease-out',
             'border-style': 'solid',
-            padding: '0 5px',
+            padding: '0px 5px',
+            'border-width': '0px 0px 5px 0px',
+            'border-color': 'rgba(0,0,0,0)',
             display: 'flex',
             width: '100%',
             height: '100%',
             'align-items': 'center',
             'justify-content': 'center',
-        },
-    },
-    'Tab Horizontal': {
-        kind: 'Box',
-        props: {
-            'border-width': '0 0 5px 0',
-        },
-    },
-    'Tab Vertical': {
-        kind: 'Box',
-        props: {
-            'border-width': '0 5px 0 0',
-        },
-    },
-    'Tab :unselected': {
-        kind: 'Box',
-        props: {
-            'border-color': 'rgba(0,0,0,0)',
         },
     },
     'Tab :selected': {
