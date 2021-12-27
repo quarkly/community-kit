@@ -5,6 +5,7 @@ import Form from './Form';
 import { Label, Input, Textarea, Select, Option, Checkbox, Radio } from '..';
 import { propInfo, defaultProps } from './props';
 import { argTypes } from '../modules';
+import RadioGroup from '../RadioGroup';
 
 export default {
     title: 'Forms/Form',
@@ -150,24 +151,28 @@ export const StoryDefault = (props) => (
         <Box {...boxStyles}>
             <Label {...labelStyles}>
                 <Override slot="Text">Gender</Override>
-                <Radio name="gender" value="male" defaultChecked="checked">
-                    <Override slot="Text">Male</Override>
-                </Radio>
-                <Radio name="gender" value="female">
-                    <Override slot="Text">Female</Override>
-                </Radio>
-                <Radio name="gender" value="other">
-                    <Override slot="Text">Other</Override>
-                </Radio>
+                <RadioGroup name="gender" required>
+                    <Radio value="male">
+                        <Override slot="Text">Male</Override>
+                    </Radio>
+                    <Radio value="female">
+                        <Override slot="Text">Female</Override>
+                    </Radio>
+                    <Radio value="other">
+                        <Override slot="Text">Other</Override>
+                    </Radio>
+                </RadioGroup>
             </Label>
             <Label {...labelStyles}>
                 <Override slot="Text">Age</Override>
-                <Radio name="age" value="lt" defaultChecked="checked">
-                    <Override slot="Text">&lt; 18</Override>
-                </Radio>
-                <Radio name="age" value="gt">
-                    <Override slot="Text">&gt;= 18</Override>
-                </Radio>
+                <RadioGroup name="age" defaultValue="lt">
+                    <Radio value="lt">
+                        <Override slot="Text">&lt; 18</Override>
+                    </Radio>
+                    <Radio value="gt">
+                        <Override slot="Text">&gt;= 18</Override>
+                    </Radio>
+                </RadioGroup>
             </Label>
             <Label {...labelStyles}>
                 <Override slot="Text">Autocomplete</Override>

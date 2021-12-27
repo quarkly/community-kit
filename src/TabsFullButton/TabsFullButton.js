@@ -1,7 +1,7 @@
 import React, { useRef, useCallback, useMemo } from 'react';
 import { Box, Placeholder } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
-import { useTabs, getHumanReadable } from '../TabsFull/utils';
+import { useTabs } from '../TabsFull/utils';
 import { propInfo, overrides } from './props';
 import ComponentNotice from '../ComponentNotice';
 import { isEmptyChildren } from '../utils';
@@ -25,37 +25,6 @@ const TabsFullButton = ({ tabId, ...props }) => {
 
     const childrenIsEmpty = isEmptyChildren(children);
 
-    const buttonStyles = useMemo(() => {
-        if (
-            typeof align === 'undefined' ||
-            typeof orientation === 'undefined' ||
-            typeof selected === 'undefined' ||
-            childrenIsEmpty
-        )
-            return {};
-
-        const {
-            selected: selectedOverride,
-            orientation: orientationOverride,
-            align: alignOverride,
-        } = getHumanReadable({
-            selected,
-            orientation,
-            align,
-        });
-
-        return override(
-            'Tab',
-            `Tab ${orientationOverride}`,
-            `Tab ${alignOverride}`,
-            `Tab ${selectedOverride}`,
-            `Tab ${orientationOverride} ${alignOverride}`,
-            `Tab ${alignOverride} ${selectedOverride}`,
-            `Tab ${orientationOverride} ${selectedOverride}`,
-            `Tab ${orientationOverride} ${alignOverride} ${selectedOverride}`
-        );
-    }, [selected, orientation, align, childrenIsEmpty, override]);
-
     const mainStyles = useMemo(() => {
         return {
             flex: align === 'full width' && '0 1 100%',
@@ -77,7 +46,7 @@ const TabsFullButton = ({ tabId, ...props }) => {
             {...rest}
         >
             {context ? (
-                <Box {...buttonStyles}>
+                <Box {...override('Tab', selected && `Tab :selected`)}>
                     {children}
                     {childrenIsEmpty && (
                         <Placeholder message="Drop content here" />

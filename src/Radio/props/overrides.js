@@ -1,40 +1,30 @@
-import { FaCircle } from 'react-icons/fa';
-
 export default {
     Input: {
         kind: 'Checkbox',
         props: {
-            position: 'absolute',
-            opacity: '0',
-            'pointer-events': 'none',
-            'z-index': '-1',
-        },
-    },
-    Icon: {
-        kind: 'Icon',
-        props: {
-            category: 'fa',
-            icon: 'FaCircle',
-            defaultIcon: FaCircle,
-            size: '10px',
+            margin: '0 0 0 0',
+            appearance: 'none',
+            width: '1.5em',
+            height: '1.5em',
+            'border-radius': '100%',
+            'border-color': '--color-lightD2',
+            'border-style': 'solid',
+            'border-width': '1px',
+            'background-size': '100% 100%',
 
-            padding: '6px',
-            width: '28px',
-            height: '28px',
-            border: '2px solid --color-lightD2',
-            'border-radius': '50%',
-            outline: 'none',
-            'box-sizing': 'border-box',
-        },
-    },
-    'Icon :checked': {
-        props: {
-            color: '--dark',
-        },
-    },
-    'Icon :unchecked': {
-        props: {
-            color: 'transparent',
+            'checked-background-color': '--color-primary',
+            'checked-background-image': `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");`,
+            'checked-transition':
+                'background-color --transitionDuration-fast --transitionTimingFunction-sharp 0s',
+
+            'disabled-border-color': '--color-grey',
+
+            'focus-box-shadow': '0 0 0 2px --color-primary',
+            'focus-outline': 'none',
+
+            'active-background-color': '--color-lightD2',
+
+            'checkedAndDisabled-background-color': '--color-grey',
         },
     },
     Text: {

@@ -14,6 +14,7 @@ export default {
         },
         control: 'input',
         type: 'number',
+        step: 'any',
     },
     max: {
         title: {
@@ -22,6 +23,7 @@ export default {
         },
         control: 'input',
         type: 'number',
+        step: 'any',
     },
     stepSize: {
         title: {
@@ -34,6 +36,7 @@ export default {
         },
         control: 'input',
         type: 'number',
+        step: 'any',
     },
     vertical: {
         title: {
@@ -49,6 +52,7 @@ export default {
         },
         control: 'input',
         type: 'number',
+        step: 'any',
     },
     labelPrecision: {
         title: {
@@ -57,6 +61,7 @@ export default {
         },
         control: 'input',
         type: 'number',
+        step: 'any',
     },
     labelValues: {
         title: {
@@ -74,5 +79,6 @@ export default {
         },
         control: 'input',
         type: 'number',
+        step: 'any',
     },
 };

@@ -68,3 +68,4 @@ export { default as TabsFullBody } from './TabsFullBody';
 export { default as TabsFullButton } from './TabsFullButton';
 export { default as TabsFullContent } from './TabsFullContent';
 export { default as TabsFullHead } from './TabsFullHead';
+export { default as RadioGroup } from './RadioGroup';
