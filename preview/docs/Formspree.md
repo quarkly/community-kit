@@ -10,6 +10,10 @@ This component allows you to add a form with the Formspree widget.
 4. Paste the copied `Endpoint` on the Props panel
 5. See how it works in the preview mode
 
+**Attention:**
+
+-   For this component to work, specify `Endpoint`
+
 ## 🧩 Components and Props
 
 ### In the interface
