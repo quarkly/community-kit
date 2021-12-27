@@ -9,22 +9,92 @@ export default {
         category: 'Main',
         weight: 1,
     },
-    start: {
+    startTrigger: {
         title: {
-            en: 'Start',
-            ru: 'Начало',
+            en: 'Start point',
+            ru: 'Начальная точка',
         },
-        control: 'input',
-        category: 'Main',
+        description: {
+            en: 'Start point of animation',
+            ru: 'Точка начала анимации',
+        },
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Top edge',
+                    ru: 'Верхний край',
+                },
+                value: 'top',
+            },
+            {
+                title: {
+                    en: 'Bottom edge',
+                    ru: 'Нижний край',
+                },
+                value: 'bottom',
+            },
+        ],
+        category: 'Start',
         weight: 1,
     },
-    end: {
+    startBorder: {
         title: {
-            en: 'End',
-            ru: 'Конец',
+            en: 'Border of the animation area',
+            ru: 'Граница области анимации',
+        },
+        description: {
+            ru:
+                'Процент видимой области веб-страницы. 0 - верхняя граница, 100 — нижняя.',
+            en:
+                'Percentage of the browser viewport. 0 - top border, 100 - bottom border',
         },
         control: 'input',
-        category: 'Main',
+        category: 'Start',
+        weight: 1,
+    },
+    endTrigger: {
+        title: {
+            en: 'End point',
+            ru: 'Конечная точка',
+        },
+        description: {
+            en: 'End point of the animation',
+            ru: 'Точка конца анимации',
+        },
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Top edge',
+                    ru: 'Верхний край',
+                },
+                value: 'top',
+            },
+            {
+                title: {
+                    en: 'Bottom edge',
+                    ru: 'Нижний край',
+                },
+                value: 'bottom',
+            },
+        ],
+        category: 'End',
+        weight: 1,
+    },
+    endBorder: {
+        title: {
+            en: 'Border of the animation area',
+            ru: 'Граница области анимации',
+        },
+        description: {
+            ru:
+                'Процент видимой области веб-страницы. 0 - верхняя граница, 100 — нижняя.',
+            en:
+                'Percentage of the browser viewport. 0 - top border, 100 - bottom border.',
+        },
+        control: 'input',
+        category: 'End',
         weight: 1,
     },
     transformEnabled: {

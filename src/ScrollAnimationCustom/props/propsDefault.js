@@ -1,6 +1,10 @@
 export default {
-    start: '0',
-    end: '100',
+    startTrigger: 'top',
+    startBorder: '100',
+
+    endTrigger: 'bottom',
+    endBorder: '50',
+
     easing: 'linear',
     transformEnabled: 'off',
     opacityEnabled: 'off',

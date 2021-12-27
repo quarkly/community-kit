@@ -11,9 +11,13 @@ const duration = 1000; // Totally arbitrary!
 
 /* global ScrollTimeline */
 
-const ScrollAnimation = ({
-    start,
-    end,
+const ScrollAnimationCustom = ({
+    startTrigger,
+    startBorder,
+
+    endTrigger,
+    endBorder,
+
     easing,
 
     transformEnabled,
@@ -59,8 +63,8 @@ const ScrollAnimation = ({
     useEffect(() => {
         if (!ready) return;
 
-        const endMargin = `${-1 * (100 - (parseFloat(end) || 0))}%`;
-        const startMargin = `${-1 * (parseFloat(start) || 0)}%`;
+        const endMargin = `${-1 * (parseFloat(endBorder) || 0)}%`;
+        const startMargin = `${-1 * (100 - (parseFloat(startBorder) || 0))}%`;
 
         animationRef.current?.cancel();
 
@@ -95,23 +99,25 @@ const ScrollAnimation = ({
             easing,
         };
 
+        const scrollOffsets = [
+            {
+                target: wrapperRef.current,
+                edge: 'end',
+                rootMargin: `0% 0% ${startMargin} 0%`,
+                threshold: startTrigger === 'bottom' ? 1 : 0,
+                clamp: true,
+            },
+            {
+                target: wrapperRef.current,
+                edge: 'start',
+                rootMargin: `${endMargin} 0% 0% 0%`,
+                threshold: endTrigger === 'top' ? 1 : 0,
+                clamp: true,
+            },
+        ];
+
         const scrollTimeline = new ScrollTimeline({
-            scrollOffsets: [
-                {
-                    target: wrapperRef.current,
-                    edge: 'end',
-                    rootMargin: `0% 0% ${startMargin} 0%`,
-                    threshold: 0,
-                    clamp: true,
-                },
-                {
-                    target: wrapperRef.current,
-                    edge: 'start',
-                    rootMargin: `${endMargin} 0% 0% 0%`,
-                    threshold: 0,
-                    clamp: true,
-                },
-            ],
+            scrollOffsets,
             fill: 'both',
         });
 
@@ -123,8 +129,11 @@ const ScrollAnimation = ({
     }, [
         ready,
 
-        start,
-        end,
+        startTrigger,
+        startBorder,
+        endTrigger,
+        endBorder,
+
         easing,
 
         transformEnabled,
@@ -168,8 +177,8 @@ const ScrollAnimation = ({
     );
 };
 
-Object.assign(ScrollAnimation, {
-    title: 'ScrollAnimation',
+Object.assign(ScrollAnimationCustom, {
+    title: 'ScrollAnimationCustom',
     description: {
         ru:
             'Компонент для анимации одного или нескольких элементов во время прокрутки страницы.',
@@ -180,4 +189,4 @@ Object.assign(ScrollAnimation, {
     defaultProps,
 });
 
-export default ScrollAnimation;
+export default ScrollAnimationCustom;
