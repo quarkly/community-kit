@@ -1,13 +1,15 @@
-import React, { useState, useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useState } from 'react';
 import atomize from '@quarkly/atomize';
-import { Text, Icon } from '@quarkly/widgets';
+import { Text } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { overrides, effects, propInfo, defaultProps } from './props';
 import useFormField from '../Form/hooks/useFormField';
-import { getAPI, isString } from '../utils';
+import { isString } from '../utils';
 
 const Label = atomize.label();
-const Input = atomize.input();
+const Input = atomize.input({
+    effects,
+});
 
 const CheckboxComponent = ({
     name,
@@ -20,79 +22,68 @@ const CheckboxComponent = ({
     onChange: onChangeFromProps,
     ...props
 }) => {
-    const { override, children, rest } = useOverrides(props, overrides);
-    const [innerChecked, setInnerChecked] = useState(defaultChecked ?? false);
+    const { override, rest } = useOverrides(props, overrides);
+    const [innerValue, setInnerValue] = useState(defaultChecked);
 
-    const { value: valueFromContext, changeValue, isInForm } = useFormField(
-        name,
-        {
-            defaultValue: defaultChecked,
-        }
-    );
-
-    const isDev = getAPI().mode === 'development';
-
-    const updateValue = useCallback(
-        (value) => {
-            setInnerChecked(value);
-            changeValue?.(value);
-        },
-        [changeValue]
-    );
-
-    useEffect(() => {
-        if (!isDev) return;
-        updateValue(defaultChecked);
-    }, [defaultChecked, isDev, updateValue]);
-
-    const innerOnChange = useCallback(
-        (e) => {
-            updateValue(e.target.checked);
-        },
-        [updateValue]
-    );
-
-    useEffect(() => {
-        if (isInForm && valueFromContext !== undefined) {
-            setInnerChecked(valueFromContext);
-        }
-    }, [valueFromContext, isInForm]);
+    const { isInForm, fieldProps } = useFormField(name, {
+        defaultValue: defaultChecked,
+    });
 
     const isControlled = checkedFromProps !== undefined;
-    const checked = isControlled ? checkedFromProps : innerChecked;
-    const onChange = isControlled ? onChangeFromProps : innerOnChange;
 
-    const status = checked ? ':checked' : ':unchecked';
+    const onInnerChange = useCallback((e) => {
+        e.persist();
+        setInnerValue(e.target.checked);
+    }, []);
 
-    const value = useMemo(() => {
-        return isString(valueFromProps) && valueFromProps.length > 0
+    const inputProps = (() => {
+        if (isControlled) {
+            return {
+                checked: checkedFromProps,
+                onChange: onChangeFromProps,
+            };
+        }
+
+        if (isInForm) {
+            return {
+                checked: fieldProps.value,
+                onChange: fieldProps.onChange,
+            };
+        }
+
+        return {
+            checked: innerValue,
+            onChange: onInnerChange,
+        };
+    })();
+
+    const value =
+        isString(valueFromProps) && valueFromProps.length > 0
             ? valueFromProps
             : undefined;
-    }, [valueFromProps]);
+
+    const status = inputProps?.checked ? ':checked' : ':unchecked';
 
     return (
         <Label
-            margin-bottom="6px"
+            padding="6px"
             font="--base"
             color="--dark"
             align-items="center"
-            display="flex"
+            display="inline-flex"
             {...rest}
         >
             <Input
                 name={name}
                 value={value}
-                checked={checked}
-                onChange={onChange}
                 autoFocus={autoFocus}
                 required={required}
                 disabled={disabled}
+                {...inputProps}
                 {...override('Input', `Input ${status}`)}
                 type="checkbox"
             />
-            <Icon {...override('Icon', `Icon ${status}`)} />
             <Text {...override('Text', `Text ${status}`)} />
-            {children}
         </Label>
     );
 };

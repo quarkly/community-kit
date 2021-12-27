@@ -5,4 +5,5 @@ export default {
     autoFocus: false,
     required: false,
     disabled: false,
+    statusOverridesEnabled: false,
 };

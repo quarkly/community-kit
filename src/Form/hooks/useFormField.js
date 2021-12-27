@@ -1,50 +1,57 @@
 import { useCallback, useLayoutEffect, useRef } from 'react';
+import { useForm } from '../context';
 import { getAPI } from '../../utils';
 import usePrevious from '../../utils/usePrevious';
-import { useForm } from '../context';
 
-const useFormField = (name, { defaultValue }) => {
+const useFormRadioProps = (name, { defaultValue }) => {
     const formContext = useForm();
-
+    const isInForm = formContext !== undefined;
     const { values, handleChange, setDefault, updateName } = formContext ?? {};
-
-    const value = values?.[name];
-
-    const isDev = getAPI().mode === 'development';
 
     const prevName = usePrevious(name);
     const isFirst = useRef(true);
+    const isDev = getAPI().mode === 'development';
 
     useLayoutEffect(() => {
-        if (
-            setDefault &&
-            (isDev || isFirst.current) &&
-            defaultValue !== undefined
-        ) {
-            handleChange(name, defaultValue);
-            setDefault(name, defaultValue);
-            isFirst.current = false;
-        }
-    }, [defaultValue, handleChange, isDev, name, setDefault]);
+        if (!isInForm) return;
 
-    useLayoutEffect(() => {
-        if (updateName && prevName !== undefined && prevName !== name) {
+        if (prevName !== undefined && prevName !== name) {
             updateName(prevName, name);
         }
-    }, [name, prevName, updateName]);
+    }, [name, isInForm, prevName, updateName]);
 
-    const changeValue = useCallback(
-        (val) => {
-            handleChange?.(name, val);
+    useLayoutEffect(() => {
+        if (!isInForm) return;
+
+        if (isDev || isFirst.current) {
+            handleChange?.(name, defaultValue);
+            setDefault?.(name, defaultValue);
+        }
+
+        isFirst.current = false;
+    }, [isInForm, name, defaultValue, isDev, handleChange, setDefault]);
+
+    const onChange = useCallback(
+        (e) => {
+            e.persist();
+
+            if (e.target.type === 'checkbox') {
+                handleChange?.(name, e.target.checked);
+                return;
+            }
+
+            handleChange?.(name, e.target.value);
         },
         [handleChange, name]
     );
 
     return {
-        value,
-        changeValue,
-        isInForm: !!formContext,
+        isInForm,
+        fieldProps: {
+            value: values?.[name],
+            onChange,
+        },
     };
 };
 
-export default useFormField;
+export default useFormRadioProps;
