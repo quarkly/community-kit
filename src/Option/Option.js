@@ -6,9 +6,7 @@ const Option = atomize.option();
 
 const OptionComponent = ({ label, value, disabled, children, ...props }) => {
     return (
-        <Option label={label} value={value} disabled={disabled} {...props}>
-            {children}
-        </Option>
+        <Option label={label} value={value} disabled={disabled} {...props} />
     );
 };
 

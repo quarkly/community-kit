@@ -14,10 +14,10 @@ export default {
 export const StoryDefault = (props) => <Option {...props} />;
 
 export const StorySelect = () => (
-    <Select>
-        <Option />
-        <Option />
-        <Option />
+    <Select defaultValue="b">
+        <Option value="a" label="A" />
+        <Option value="b" label="B" />
+        <Option value="c" label="C" />
     </Select>
 );
 
