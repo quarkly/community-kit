@@ -92,21 +92,17 @@ export const StoryDefault = (props) => (
                     multiple
                     required
                 >
-                    <Option>Select state:</Option>
-                    <Option value="CA">California</Option>
-                    <Option value="TX">Texas</Option>
-                    <Option value="FL">Florida</Option>
-                    <Option value="NY">New York</Option>
-                    <Option value="PA">Pennsylvania</Option>
-                    <Option value="IL">Illinois</Option>
-                    <Option value="OH">Ohio</Option>
-                    <Option value="GA">Georgia</Option>
-                    <Option value="NC" disabled>
-                        North Carolina
-                    </Option>
-                    <Option value="MI" disabled>
-                        Michigan
-                    </Option>
+                    <Option label="Select state:" />
+                    <Option value="CA" label="California" />
+                    <Option value="TX" label="Texas" />
+                    <Option value="FL" label="Florida" />
+                    <Option value="NY" label="New York" />
+                    <Option value="PA" label="Pennsylvania" />
+                    <Option value="IL" label="Illinois" />
+                    <Option value="OH" label="Ohio" />
+                    <Option value="GA" label="Georgia" />
+                    <Option value="NC" disabled label="North Carolina" />
+                    <Option value="MI" disabled label="Michigan" />
                 </Select>
             </Label>
             <Label {...labelStyles}>
@@ -117,25 +113,17 @@ export const StoryDefault = (props) => (
                     defaultValue="los-angeles"
                     required
                 >
-                    <Option>Select city:</Option>
-                    <Option value="new-york">New York</Option>
-                    <Option value="los-angeles">Los Angeles</Option>
-                    <Option value="chicago">Chicago</Option>
-                    <Option value="houston">Houston</Option>
-                    <Option value="phoenix">Phoenix</Option>
-                    <Option value="philadelphia">Philadelphia</Option>
-                    <Option value="san-antonio" disabled>
-                        San Antonio
-                    </Option>
-                    <Option value="san-diego" disabled>
-                        San Diego
-                    </Option>
-                    <Option value="dallas" disabled>
-                        Dallas
-                    </Option>
-                    <Option value="san-jose" disabled>
-                        San Jose
-                    </Option>
+                    <Option label="Select city:" />
+                    <Option value="new-york" label="New York" />
+                    <Option value="los-angeles" label="Los Angeles" />
+                    <Option value="chicago" label="Chicago" />
+                    <Option value="houston" label="Houston" />
+                    <Option value="phoenix" label="Phoenix" />
+                    <Option value="philadelphia" label="Philadelphia" />
+                    <Option value="san-antonio" disabled label="San Antonio" />
+                    <Option value="san-diego" disabled label="San Diego" />
+                    <Option value="dallas" disabled label="Dallas" />
+                    <Option value="san-jose" disabled label="San Jose" />
                 </Select>
             </Label>
         </Box>

@@ -3,7 +3,7 @@ import { useForm } from '../context';
 import { getAPI } from '../../utils';
 import usePrevious from '../../utils/usePrevious';
 
-const useFormRadioProps = (name, { defaultValue }) => {
+const useFormField = (name, { defaultValue }) => {
     const formContext = useForm();
     const isInForm = formContext !== undefined;
     const { values, handleChange, setDefault, updateName } = formContext ?? {};
@@ -40,6 +40,16 @@ const useFormRadioProps = (name, { defaultValue }) => {
                 return;
             }
 
+            if (e.target.type === 'select-multiple') {
+                const value = Array.from(
+                    e.target.selectedOptions,
+                    (option) => option.value
+                );
+
+                handleChange?.(name, value);
+                return;
+            }
+
             handleChange?.(name, e.target.value);
         },
         [handleChange, name]
@@ -54,4 +64,4 @@ const useFormRadioProps = (name, { defaultValue }) => {
     };
 };
 
-export default useFormRadioProps;
+export default useFormField;

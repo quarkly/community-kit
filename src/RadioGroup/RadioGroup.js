@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Box, Placeholder } from '@quarkly/widgets';
 import { propInfo, defaultProps } from './props';
 import RadioContext from './context/RadioContext';
@@ -26,6 +26,8 @@ const RadioGroup = ({
     }, []);
 
     const { value: fieldValue, onChange: fieldOnChange } = fieldProps;
+
+    useEffect(() => {}, []);
 
     const context = useMemo(() => {
         const baseContext = {
