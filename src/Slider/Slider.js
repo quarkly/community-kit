@@ -222,31 +222,51 @@ const Slider = ({
             style: {
                 [side]: `calc(100% - ${offsetPercent})`,
             },
+            ...(vertical
+                ? {
+                      height: 'auto',
+                      width: '100%',
+                      top: 0,
+                      bottom: 0,
+                  }
+                : {
+                      width: 'auto',
+                      height: '100%',
+                      left: 0,
+                      right: 0,
+                  }),
         };
     }, [updated, value, min, tickSizeRatio, vertical]);
 
     const mainStyle = useMemo(() => {
-        const base = {
+        return {
             display: 'inline-flex',
             'user-select': 'none',
             margin: 15,
             'min-width': 0,
             'min-height': 0,
+            ...(vertical
+                ? {
+                      'flex-direction': 'row',
+                      height: 200,
+                  }
+                : {
+                      'flex-direction': 'column',
+                      width: 200,
+                  }),
         };
+    }, [vertical]);
 
-        if (vertical) {
-            return {
-                ...base,
-                'flex-direction': 'row',
-                height: 200,
-            };
-        }
-
-        return {
-            ...base,
-            'flex-direction': 'column',
-            width: 200,
-        };
+    const railStyle = useMemo(() => {
+        return vertical
+            ? {
+                  height: '100%',
+                  width: 8,
+              }
+            : {
+                  height: 8,
+                  width: '100%',
+              };
     }, [vertical]);
 
     return (
@@ -256,22 +276,8 @@ const Slider = ({
             {...mainStyle}
             {...rest}
         >
-            <Box
-                ref={railRef}
-                {...override(
-                    'Slider Rail',
-                    vertical ? 'Slider Rail Vertical' : 'Slider Rail Horizontal'
-                )}
-            >
-                <Box
-                    {...railFillStyle}
-                    {...override(
-                        'Slider Rail Fill',
-                        vertical
-                            ? 'Slider Rail Fill Vertical'
-                            : 'Slider Rail Fill Horizontal'
-                    )}
-                />
+            <Box ref={railRef} {...railStyle} {...override('Slider Rail')}>
+                <Box {...railFillStyle} {...override('Slider Rail Fill')} />
                 <Handle
                     ref={ref}
                     name={name}

@@ -29,26 +29,8 @@ export default {
             position: 'absolute',
             'min-height': 0,
             'min-width': 0,
-            height: '100%',
-            width: '100%',
             background: '--color-primary',
             'border-radius': 50,
-        },
-    },
-    'Slider Rail Fill Horizontal': {
-        kind: 'Box',
-        props: {
-            width: 'auto',
-            left: 0,
-            right: 0,
-        },
-    },
-    'Slider Rail Fill Vertical': {
-        kind: 'Box',
-        props: {
-            height: 'auto',
-            top: 0,
-            bottom: 0,
         },
     },
     'Slider Handle': {
@@ -66,20 +48,6 @@ export default {
             'z-index': 100,
         },
     },
-    'Slider Handle Horizontal': {
-        kind: 'Box',
-        props: {
-            top: '50%',
-            transform: 'translateY(-50%);',
-        },
-    },
-    'Slider Handle Vertical': {
-        kind: 'Box',
-        props: {
-            left: '50%',
-            transform: 'translateX(-50%);',
-        },
-    },
     Labels: {
         kind: 'Box',
         props: {
@@ -87,34 +55,10 @@ export default {
             'text-align': 'center',
         },
     },
-    'Labels Horizontal': {
-        kind: 'Box',
-        props: {
-            margin: '10px 0',
-        },
-    },
-    'Labels Vertical': {
-        kind: 'Box',
-        props: {
-            margin: '0 10px',
-        },
-    },
     Label: {
         kind: 'Box',
         props: {
             position: 'absolute',
-        },
-    },
-    'Label Horizontal': {
-        kind: 'Box',
-        props: {
-            transform: 'translateX(-50%)',
-        },
-    },
-    'Label Vertical': {
-        kind: 'Box',
-        props: {
-            transform: 'translateY(50%)',
         },
     },
     'Handle Label': {
