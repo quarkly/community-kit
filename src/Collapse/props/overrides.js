@@ -10,7 +10,6 @@ export default {
     Content: {
         kind: 'Box',
         props: {
-            'padding-top': '8px',
             'min-height': '0',
             overflow: 'hidden',
         },
@@ -18,6 +17,7 @@ export default {
     Wrapper: {
         kind: 'Box',
         props: {
+            'margin-top': '8px',
             'min-height': '0',
             overflow: 'hidden',
         },
