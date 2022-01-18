@@ -7,10 +7,10 @@ import React, {
 } from 'react';
 
 import { useOverrides } from '@quarkly/components';
-import { Box, Icon, Button } from '@quarkly/widgets';
+import { Box, Icon, Button, useConstructorMode } from '@quarkly/widgets';
 
 import { overrides, propInfo, defaultProps } from './props';
-import { isEmptyChildren, toggleScroll } from '../utils';
+import { getAPI, isEmptyChildren, toggleScroll } from '../utils';
 import { PopupContext } from './utils';
 import ComponentNotice from '../ComponentNotice';
 
@@ -25,6 +25,7 @@ const PopupComponent = ({
     const [isOpen, setOpen] = useState(onloadShow);
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
     const contentRef = useRef();
+    const mode = useConstructorMode();
 
     useEffect(() => setOpen(onloadShow), [onloadShow]);
 
@@ -41,15 +42,21 @@ const PopupComponent = ({
     );
 
     const openPopup = useCallback(() => {
+        const isDev = getAPI().mode === 'development';
+        if (isDev && mode === 'constructor') return;
+
         contentRef.current.scrollTo(0, 0);
         toggleScroll.disable(contentRef.current);
         setOpen(true);
-    }, []);
+    }, [mode]);
 
     const closePopup = useCallback(() => {
+        const isDev = getAPI().mode === 'development';
+        if (isDev && mode === 'constructor') return;
+
         toggleScroll.enable(contentRef.current);
         setOpen(false);
-    }, []);
+    }, [mode]);
 
     const context = useMemo(
         () => ({
