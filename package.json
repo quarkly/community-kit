@@ -11,8 +11,6 @@
     "easy-scroll": "^0.7.0",
     "jsonp": "^0.2.1",
     "lottie-web": "^5.7.11",
-    "mobx": "^6.3.12",
-    "mobx-react": "^7.2.1",
     "react-facebook": "^8.1.4",
     "react-google-recaptcha": "^2.1.0",
     "react-livechat": "^1.1.1",
