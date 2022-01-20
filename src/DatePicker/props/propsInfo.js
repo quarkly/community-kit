@@ -61,49 +61,49 @@ export default {
                     en: 'Sunday',
                     ru: 'Воскресенье',
                 },
-                value: 0,
+                value: '0',
             },
             {
                 title: {
                     en: 'Monday',
                     ru: 'Понедельник',
                 },
-                value: 1,
+                value: '1',
             },
             {
                 title: {
                     en: 'Tuesday',
                     ru: 'Вторник',
                 },
-                value: 2,
+                value: '2',
             },
             {
                 title: {
                     en: 'Wednesday',
                     ru: 'Среда',
                 },
-                value: 3,
+                value: '3',
             },
             {
                 title: {
                     en: 'Thursday',
                     ru: 'Четверг',
                 },
-                value: 4,
+                value: '4',
             },
             {
                 title: {
                     en: 'Friday',
                     ru: 'Пятница',
                 },
-                value: 5,
+                value: '5',
             },
             {
                 title: {
                     en: 'Saturday',
                     ru: 'Суббота',
                 },
-                value: 6,
+                value: '6',
             },
         ],
         multiply: true,

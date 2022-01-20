@@ -1,6 +1,6 @@
 const getRowOverrides = (base, { rowIdx }) => [
     base,
-    `${base} Row ${rowIdx % 2 ? 'Odd' : 'Even'}`,
+    `${base} ${(rowIdx + 1) % 2 ? 'Odd' : 'Even'} Row`,
 ];
 
 export default getRowOverrides;

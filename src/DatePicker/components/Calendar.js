@@ -48,7 +48,10 @@ const Calendar = () => {
                                                 ...getCellOverrides('Cell', {
                                                     colIdx,
                                                     rowIdx,
-                                                })
+                                                }),
+                                                `Cell ${
+                                                    rowIdx * 10 + colIdx + 1
+                                                }`
                                             )}
                                         >
                                             <DateButton
