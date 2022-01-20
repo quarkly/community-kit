@@ -27,8 +27,6 @@ const RadioGroup = ({
 
     const { value: fieldValue, onChange: fieldOnChange } = fieldProps;
 
-    useEffect(() => {}, []);
-
     const context = useMemo(() => {
         const baseContext = {
             name,
