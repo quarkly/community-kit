@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { Box, Placeholder } from '@quarkly/widgets';
 import { propInfo, defaultProps } from './props';
 import RadioContext from './context/RadioContext';
