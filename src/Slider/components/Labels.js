@@ -27,7 +27,7 @@ const Labels = ({
 
         let values = [];
         if (typeof labelValues !== 'undefined') {
-            values = labelValues;
+            values = labelValues.filter((x) => x >= min && x <= max);
         } else {
             for (
                 let i = min;
@@ -50,10 +50,16 @@ const Labels = ({
                 <Box
                     key={step}
                     {...props}
-                    {...override(
-                        'Label',
-                        vertical ? 'Label Vertical' : 'Label Horizontal'
-                    )}
+                    {...(vertical
+                        ? {
+                              transform: 'translateY(50%)',
+                          }
+                        : {
+                              transform: 'translateX(-50%)',
+                          })}
+                    {...override('Label', `Label ${step}`, {
+                        defaultKey: `Label ${step}`,
+                    })}
                 >
                     {formatLabel(step, {
                         labelPrecision,
@@ -66,13 +72,14 @@ const Labels = ({
         [labels, labelPrecision, labelRenderer, override, stepSize, vertical]
     );
 
+    const labelsStyles = useMemo(() => {
+        return {
+            margin: vertical ? '0 10px' : '10px 0',
+        };
+    }, [vertical]);
+
     return (
-        <Box
-            {...override(
-                'Labels',
-                vertical ? 'Labels Vertical' : 'Labels Horizontal'
-            )}
-        >
+        <Box {...labelsStyles} {...override('Labels')}>
             {memoLabels}
         </Box>
     );
