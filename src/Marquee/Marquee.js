@@ -5,22 +5,27 @@ import React, {
     useCallback,
     useMemo,
 } from 'react';
-import { useConstructorMode } from '@quarkly/widgets';
+import { useConstructorMode, Placeholder } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import styled from 'styled-components';
 import atomize from '@quarkly/atomize';
 import useResizeObserver from '@react-hook/resize-observer';
 import { propInfo, defaultProps, overrides } from './props';
-import { useDebouncedCallback } from '../utils';
+import { isEmptyChildren, useDebouncedCallback } from '../utils';
 
 const MarqueeContainer = atomize(styled.div`
-    &:hover div {
-        animation-play-state: ${(props) => props.pauseOnHover} !important;
-    }
-
-    &:active div {
-        animation-play-state: ${(props) => props.pauseOnClick} !important;
-    }
+    ${({ pauseOnHover }) =>
+        pauseOnHover &&
+        `&:hover div {
+            animation-play-state: paused !important;
+        }
+    `}
+    ${({ pauseOnClick }) =>
+        pauseOnClick &&
+        `&:active div {
+            animation-play-state: paused !important;
+        }
+    `}
 `)();
 
 const MarqueeAnimation = atomize(styled.div`
@@ -85,13 +90,6 @@ const Marquee = ({
 
     useLayoutEffect(() => {
         if (mode === 'constructor') {
-            if (marqueeRef?.current) {
-                const { animation } = marqueeRef.current.style;
-
-                marqueeRef.current.style.animation = 'none';
-                marqueeRef.current.offsetHeight; // trigger reflow
-                marqueeRef.current.style.animation = animation;
-            }
             setIsResized(false);
             calculateWidthCounter.current = 0;
         }
@@ -143,6 +141,9 @@ const Marquee = ({
                 {...override('Container')}
             >
                 {children}
+                {isEmptyChildren(children) && (
+                    <Placeholder message="Drop content here" />
+                )}
             </MarqueeAnimation>
             {[...Array(count).keys()].map((x) => {
                 return (
