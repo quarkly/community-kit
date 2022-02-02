@@ -8,6 +8,10 @@ Use this component to create a marquee.
 2.  Drag and drop any component into it
 3.  See how it works in the preview mode
 
+### Distance between components
+
+The distance between components is adjusted by changing the width and indentation of the Container.
+
 ## 🧩 Components and Props
 
 ### In the interface
