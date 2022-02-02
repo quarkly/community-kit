@@ -1,6 +1,6 @@
 ## 📖 Detailed overview
 
-Компонент для создания на странице бегущей строки.
+Use this component to create a marquee.
 
 ## ⚙️ Usage
 
@@ -12,13 +12,13 @@
 
 ### In the interface
 
-| Prop name      |   Default    |  Example  |
-| :------------- | :----------: | :-------: |
-| Delay          |     `0s`     |   `1s`    |
-| Speed          |     `50`     |   `300`   |
-| Direction      |    `Left`    |  `Right`  |
-| Pause on hover | `Не отмечен` | `Отмечен` |
-| Pause on click | `Не отмечен` | `Отмечен` |
+| Prop name      |   Default   |  Example  |
+| :------------- | :---------: | :-------: |
+| Delay          |    `0s`     |   `1s`    |
+| Speed          |    `50`     |   `300`   |
+| Direction      |   `Left`    |  `Right`  |
+| Pause on hover | `Unchecked` | `Checked` |
+| Pause on click | `Unchecked` | `Checked` |
 
 ### In the code (for developers)
 
