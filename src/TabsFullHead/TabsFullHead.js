@@ -66,6 +66,7 @@ Object.assign(TabsFullHead, {
         ru:
             'Контейнер для TabsFullButton, которые являются ссылками на TabsFullContent. Этот компонент должен располагаться внутри TabsFull',
     },
+    propInfo: {},
 });
 
 export default TabsFullHead;

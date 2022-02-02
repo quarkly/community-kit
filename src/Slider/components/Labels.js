@@ -46,29 +46,33 @@ const Labels = ({
 
     const memoLabels = useMemo(
         () =>
-            labels.map(({ step, props }) => (
-                <Box
-                    key={step}
-                    {...props}
-                    {...(vertical
-                        ? {
-                              transform: 'translateY(50%)',
-                          }
-                        : {
-                              transform: 'translateX(-50%)',
-                          })}
-                    {...override('Label', `Label ${step}`, {
-                        defaultKey: `Label ${step}`,
-                    })}
-                >
-                    {formatLabel(step, {
-                        labelPrecision,
-                        stepSize,
-                        labelRenderer,
-                        isHandleTooltip: false,
-                    })}
-                </Box>
-            )),
+            labels.map(({ step, props }) => {
+                const overrideKey = `Label ${`${step}`.replace('.', ',')}`;
+
+                return (
+                    <Box
+                        key={step}
+                        {...props}
+                        {...(vertical
+                            ? {
+                                  transform: 'translateY(50%)',
+                              }
+                            : {
+                                  transform: 'translateX(-50%)',
+                              })}
+                        {...override('Label', overrideKey, {
+                            defaultKey: overrideKey,
+                        })}
+                    >
+                        {formatLabel(step, {
+                            labelPrecision,
+                            stepSize,
+                            labelRenderer,
+                            isHandleTooltip: false,
+                        })}
+                    </Box>
+                );
+            }),
         [labels, labelPrecision, labelRenderer, override, stepSize, vertical]
     );
 

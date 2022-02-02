@@ -1,19 +1,5 @@
+import { getNumber } from '../../utils';
 import { defaultProps } from '../props';
-
-const getNumber = (value, defaultValue) => {
-    const parsed = Number.parseFloat(value);
-    return !Number.isNaN(parsed) ? parsed : Number.parseFloat(defaultValue);
-};
-
-const getPositiveNumber = (value, defaultValue) => {
-    const parsed = getNumber(value, defaultValue);
-    return parsed > 0 ? parsed : Number.parseFloat(defaultValue);
-};
-
-const getPositiveOrZeroNumber = (value, defaultValue) => {
-    const parsed = getNumber(value, defaultValue);
-    return parsed >= 0 ? parsed : Number.parseFloat(defaultValue);
-};
 
 const getArrayOfNumber = (value, defaultValue) => {
     if (Array.isArray(value)) {
@@ -41,12 +27,17 @@ const validateProps = ({
     min = getNumber(minFromProps, min);
     max = getNumber(maxFromProps, max);
 
-    stepSize = getPositiveNumber(stepSizeFromProps, stepSize);
-    labelStepSize = getPositiveNumber(labelStepSizeFromProps, labelStepSize);
+    stepSize = getNumber(stepSizeFromProps, stepSize, (val) => val > 0);
+    labelStepSize = getNumber(
+        labelStepSizeFromProps,
+        labelStepSize,
+        (val) => val > 0
+    );
 
-    labelPrecision = getPositiveOrZeroNumber(
+    labelPrecision = getNumber(
         labelPrecisionFromProps,
-        labelPrecision
+        labelPrecision,
+        (val) => val >= 0
     );
 
     const labelValues = getArrayOfNumber(labelValuesFromProps, undefined);
