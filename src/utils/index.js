@@ -13,3 +13,5 @@ export { default as useUpdateEffect } from './useUpdateEffect';
 export { default as useUniqueId } from './useUniqueId';
 
 export { default as isString } from './isString';
+
+export { default as getNumber } from './getNumber';
