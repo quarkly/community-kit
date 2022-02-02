@@ -245,6 +245,7 @@ const Slider = ({
             margin: 15,
             'min-width': 0,
             'min-height': 0,
+            padding: '20px 30px 15px 30px',
             ...(vertical
                 ? {
                       'flex-direction': 'row',
