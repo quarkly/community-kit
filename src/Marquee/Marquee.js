@@ -163,6 +163,9 @@ const Marquee = ({
 };
 
 Object.assign(Marquee, {
+    description: {
+        ru: 'Компонент для создания на странице бегущей строки.',
+    },
     propInfo,
     defaultProps,
     overrides,
