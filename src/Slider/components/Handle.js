@@ -102,6 +102,7 @@ const Handle = React.forwardRef(
                     width="0"
                     height="0"
                     overflow="hidden"
+                    appearance="none"
                     readOnly
                     type="range"
                     name={name}
