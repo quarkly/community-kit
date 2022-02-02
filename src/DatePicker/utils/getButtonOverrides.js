@@ -1,22 +1,18 @@
 import { isAfter, isSameDay, isBefore } from 'date-fns';
 import getCellOverrides from './getCellOverrides';
 
-const getButtonOverrides = ({
+const buttonModifiers = ({
     date,
-    colIdx,
-    rowIdx,
     mode,
     isDisabled,
     isOutside,
     isSelected,
     range,
 }) => {
-    const cell = { colIdx, rowIdx };
-    const overrides = [...getCellOverrides('DateButton', cell)];
+    const overrides = [];
 
     if (isDisabled) {
         overrides.push('DateButton Disabled');
-
         return overrides;
     }
 
@@ -100,6 +96,33 @@ const getButtonOverrides = ({
 
         return overrides;
     }
+};
+
+const getButtonOverrides = ({
+    date,
+    colIdx,
+    rowIdx,
+    mode,
+    isDisabled,
+    isOutside,
+    isSelected,
+    range,
+}) => {
+    const cell = { colIdx, rowIdx };
+    const overrides = [
+        ...getCellOverrides('DateButton', cell),
+        ...buttonModifiers({
+            date,
+            mode,
+            isDisabled,
+            isOutside,
+            isSelected,
+            range,
+        }),
+        `DateButton ${rowIdx * 10 + colIdx + 1}`,
+    ];
+
+    return overrides;
 };
 
 export default getButtonOverrides;

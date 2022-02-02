@@ -1,15 +1,15 @@
 ## 📖 Detailed overview
 
-This component helps you add radio buttons to a form.
+A Radio button helps select one value from a suggested list. Radio buttons are combined into a group with the RadioGroup component.
 
 ## ⚙️ Usage
 
 1.  Add the Form component to the page
-2.  Add the Radio component to the Form component
-3.  Specify the `name` and `value` properties
-4.  Specify other properties if necessary
-5.  See how it works in the preview mode
-
+2.  Add the RadioGroup component to the Form component
+3.  Add the Radio components to the RadioGroup component
+4.  Specify the `Field name` and others if necessary for the RadioGroup component
+5.  Specify the `Value` property for each Radio component
+6.  See how it works in the preview mode
 ## 🧩 Components and Props
 
 ### In the interface
@@ -36,7 +36,7 @@ This component helps you add radio buttons to a form.
 
 ## 🗄 GitHub
 
-[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Radio/Radio.js)
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Radio)
 
 ## 🗓 Changelog
 

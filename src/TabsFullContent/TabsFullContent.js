@@ -16,7 +16,7 @@ const TabsFullContent = ({ tabId, ...props }) => {
         <Box role="tabpanel" hidden={isHidden} {...rest}>
             {context ? (
                 <Box {...override('Wrapper')}>
-                    {children}
+                    {!isHidden && children}
                     {isEmptyChildren(children) && (
                         <Placeholder message="Drop content here" />
                     )}

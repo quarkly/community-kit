@@ -44,8 +44,29 @@ const Handle = React.forwardRef(
                 style: {
                     [side]: `calc(${offset} - ${handleOffset}px)`,
                 },
+                ...(vertical
+                    ? {
+                          left: '50%',
+                          transform: 'translateX(-50%);',
+                      }
+                    : {
+                          top: '50%',
+                          transform: 'translateY(-50%);',
+                      }),
             };
         }, [min, ref, updated, tickSizeRatio, value, vertical]);
+
+        const handleLabelStyles = useMemo(() => {
+            return vertical
+                ? {
+                      top: '50%',
+                      transform: 'translate(20px, -50%)',
+                  }
+                : {
+                      left: '50%',
+                      transform: 'translate(-50%, 2px)',
+                  };
+        }, [vertical]);
 
         const handleKeyDown = (event) => {
             if (FORWARD_KEYS.includes(event.key)) {
@@ -74,12 +95,7 @@ const Handle = React.forwardRef(
                 ref={ref}
                 onKeyDown={handleKeyDown}
                 {...mainStyle}
-                {...override(
-                    'Slider Handle',
-                    vertical
-                        ? 'Slider Handle Vertical'
-                        : 'Slider Handle Horizontal'
-                )}
+                {...override('Slider Handle')}
                 {...props}
             >
                 <Input
@@ -95,14 +111,7 @@ const Handle = React.forwardRef(
                     aria-valuenow={value}
                     value={value}
                 />
-                <Box
-                    {...override(
-                        'Handle Label',
-                        vertical
-                            ? 'Handle Label Vertical'
-                            : 'Handle Label Horizontal'
-                    )}
-                >
+                <Box {...handleLabelStyles} {...override('Handle Label')}>
                     {formatLabel(value, {
                         labelPrecision,
                         stepSize,
