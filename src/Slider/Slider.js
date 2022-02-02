@@ -242,10 +242,9 @@ const Slider = ({
         return {
             display: 'inline-flex',
             'user-select': 'none',
-            margin: 15,
             'min-width': 0,
             'min-height': 0,
-            padding: '20px 30px 15px 30px',
+            padding: '20px 30px 15px',
             ...(vertical
                 ? {
                       'flex-direction': 'row',
