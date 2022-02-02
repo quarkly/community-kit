@@ -11,7 +11,7 @@ import styled from 'styled-components';
 import atomize from '@quarkly/atomize';
 import useResizeObserver from '@react-hook/resize-observer';
 import { propInfo, defaultProps, overrides } from './props';
-import { isEmptyChildren, useDebouncedCallback } from '../utils';
+import { getNumber, isEmptyChildren, useDebouncedCallback } from '../utils';
 
 const MarqueeContainer = atomize(styled.div`
     ${({ pauseOnHover }) =>
@@ -39,11 +39,6 @@ const MarqueeAnimation = atomize(styled.div`
     }
 `)();
 
-function getNumber(value, defaultValue) {
-    const num = parseInt(value, 10);
-    return Number.isNaN(num) ? defaultValue : num;
-}
-
 const Marquee = ({
     delay,
     speed: speedFromProps,
@@ -65,7 +60,10 @@ const Marquee = ({
 
     const { override, children, rest } = useOverrides(props, overrides);
 
-    const speed = getNumber(speedFromProps, 100);
+    const speed = useMemo(
+        () => getNumber(speedFromProps, defaultProps.speed, (val) => val >= 0),
+        [speedFromProps]
+    );
 
     const calculateWidth = useCallback(() => {
         if (!marqueeRef.current || !containerRef.current) {
