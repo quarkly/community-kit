@@ -101,6 +101,8 @@ const Marquee = ({
 
     useResizeObserver(containerRef, handleResize);
 
+    const isEmpty = isEmptyChildren(children);
+
     const marqueeProps = useMemo(() => {
         const animationDuration = `${duration}s`;
         const animationDirection = direction === 'left' ? 'normal' : 'reverse';
@@ -110,16 +112,17 @@ const Marquee = ({
         const animationDelay = !isResized ? delay : '0s';
 
         const animation =
-            mode !== 'constructor'
+            !isEmpty && mode !== 'constructor'
                 ? `${animationDuration} linear ${animationDelay} infinite ${animationDirection} ${animationPlaystate} scroll`
                 : '';
 
         return {
             style: {
                 animation,
+                ...(isEmpty && { flex: 1 }),
             },
         };
-    }, [delay, direction, duration, mode, isResized]);
+    }, [duration, direction, mode, isResized, delay, isEmpty]);
 
     return (
         <MarqueeContainer
@@ -135,27 +138,28 @@ const Marquee = ({
             <MarqueeAnimation
                 key={`${-1}_${count}`}
                 ref={marqueeRef}
-                {...marqueeProps}
                 {...override('Container')}
+                {...marqueeProps}
             >
                 {children}
                 {isEmptyChildren(children) && (
-                    <Placeholder message="Drop content here" />
+                    <Placeholder message="Drop content here" width="100%" />
                 )}
             </MarqueeAnimation>
-            {[...Array(count).keys()].map((x) => {
-                return (
-                    <MarqueeAnimation
-                        key={`${x}_${count}`}
-                        {...marqueeProps}
-                        {...override('Container')}
-                        data-qoverride={undefined}
-                        data-key={`${x}_${count}`}
-                    >
-                        {mode !== 'constructor' && children}
-                    </MarqueeAnimation>
-                );
-            })}
+            {!isEmpty &&
+                [...Array(count).keys()].map((x) => {
+                    return (
+                        <MarqueeAnimation
+                            key={`${x}_${count}`}
+                            {...marqueeProps}
+                            {...override('Container')}
+                            data-qoverride={undefined}
+                            data-key={`${x}_${count}`}
+                        >
+                            {mode !== 'constructor' && children}
+                        </MarqueeAnimation>
+                    );
+                })}
         </MarqueeContainer>
     );
 };
