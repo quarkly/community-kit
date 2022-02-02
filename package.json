@@ -147,7 +147,8 @@
       "TabsFullBody": "TabsFullBody",
       "TabsFullButton": "TabsFullButton",
       "TabsFullContent": "TabsFullContent",
-      "TabsFullHead": "TabsFullHead"
+      "TabsFullHead": "TabsFullHead",
+      "Marquee": "Marquee"
     }
   },
   "quarklyInfoDeleted": {
