@@ -1,14 +1,10 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import atomize from '@quarkly/atomize';
 import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
-import { effects, propInfo, defaultProps, overrides } from './props';
+import { propInfo, defaultProps, overrides } from './props';
 import { useUniqueId } from '../utils';
+import InnerInput from './components/InnerInput';
 import useFormField from '../Form/hooks/useFormField';
-
-const Input = atomize.input({
-    effects,
-});
 
 const InputComponent = ({
     name,
@@ -20,7 +16,7 @@ const InputComponent = ({
     required,
     disabled,
     list: listFromProps,
-    maxlength: maxlengthFromProps,
+    maxLength: maxLengthFromProps,
     pattern,
     min,
     max,
@@ -31,9 +27,9 @@ const InputComponent = ({
     const { override, rest } = useOverrides(props, overrides);
     const id = useUniqueId();
 
-    const maxlength = useMemo(() => {
-        return parseInt(maxlengthFromProps, 10);
-    }, [maxlengthFromProps]);
+    const maxLength = useMemo(() => {
+        return parseInt(maxLengthFromProps, 10);
+    }, [maxLengthFromProps]);
 
     const list = useMemo(() => {
         return listFromProps.length > 0 ? listFromProps.split(',') : [];
@@ -68,7 +64,7 @@ const InputComponent = ({
 
     return (
         <Box display="inline-block" {...rest}>
-            <Input
+            <InnerInput
                 name={name}
                 type={type}
                 placeholder={placeholder}
@@ -82,8 +78,8 @@ const InputComponent = ({
                 autoFocus={autoFocus}
                 autoComplete={autoComplete ? 'on' : 'off'}
                 list={list.length > 0 ? `datalist-for-input-${id}` : undefined}
-                maxlength={maxlength > 0 ? maxlength : undefined}
-                {...override('Input')}
+                maxLength={maxLength > 0 ? maxLength : undefined}
+                {...override('InnerInput')}
             />
             {list.length > 0 && (
                 <datalist id={`datalist-for-input-${id}`}>
@@ -103,7 +99,6 @@ Object.assign(InputComponent, {
         en: 'Input element',
         ru: 'Элемент Input',
     },
-    effects,
     propInfo,
     defaultProps,
     overrides,

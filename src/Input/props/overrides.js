@@ -1,6 +1,6 @@
 export default {
-    Input: {
-        kind: 'Input',
+    InnerInput: {
+        kind: 'InnerInput',
         props: {
             width: '100%',
             padding: '6px 16px',
