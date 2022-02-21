@@ -130,7 +130,7 @@ export default {
         category: 'Text',
         weight: 0.5,
     },
-    maxlength: {
+    maxLength: {
         title: 'Max length',
         description: {
             en: 'The maximum number of characters allowed in the text',
