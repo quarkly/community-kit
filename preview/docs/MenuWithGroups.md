@@ -17,7 +17,7 @@ The `Root page ID` prop allows you to specify the page for which the menu will b
 | Prop name                   |               Default                |       Example       |
 | :-------------------------- | :----------------------------------: | :-----------------: |
 | Maximum nesting             |                 `10`                 |         `5`         |
-| Root page                   |                 `-`                  |       `index`       |
+| Root page                   |                 `-`                  |       `/foo`        |
 | Groups condition by default | `Expand before the active menu item` | `Expand all groups` |
 
 ### In the code (for developers)
@@ -25,7 +25,7 @@ The `Root page ID` prop allows you to specify the page for which the menu will b
 | Prop name                   | Name in the code |   Type   |    Default     |   Example   |
 | :-------------------------- | :--------------: | :------: | :------------: | :---------: |
 | Maximum nesting             |     `depth`      | `string` |      `10`      |     `5`     |
-| Root page                   |      `root`      | `string` |      `-`       |   `index`   |
+| Root page                   |      `root`      | `string` |      `-`       |   `/foo`    |
 | Groups condition by default |    `tabState`    |  `enum`  | `expandActive` | `expandAll` |
 
 #### The 'Groups condition by default' property values

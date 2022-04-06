@@ -6,17 +6,17 @@ import { getItems } from './utils';
 
 const isBrowser = typeof window !== 'undefined';
 
-const Breadcrumbs = ({ separator, rootId, ...props }) => {
+const Breadcrumbs = ({ separator, rootPath, ...props }) => {
     const { override, rest } = useOverrides(props, overrides);
 
     const items = useMemo(
         () =>
             getItems({
-                rootId,
+                rootPath,
                 separator,
                 override,
             }),
-        [rootId, separator, override]
+        [rootPath, separator, override]
     );
 
     return (

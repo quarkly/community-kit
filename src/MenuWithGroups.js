@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
 import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
@@ -7,6 +7,7 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { useRouteMatch } from 'react-router-dom';
 import { useMatch } from '@reach/router';
+import { getPagesIdsByPath, getAPI } from './utils';
 
 const overrides = {
     List: {
@@ -58,25 +59,6 @@ const overrides = {
             color: '--secondary',
         },
     },
-};
-
-const getAPI = () => {
-    if (typeof window !== 'undefined') {
-        return window.QAPI || {};
-    }
-    if (typeof global !== 'undefined') {
-        return global.QAPI || {};
-    }
-    return {};
-};
-
-const getParent = (pages, pageId) => {
-    if (!pageId || !pages[pageId]) return null;
-
-    return Object.values(pages).find(
-        ({ children = [] }) =>
-            children && Array.isArray(children) && children.includes(pageId)
-    );
 };
 
 const Ul = atomize.ul();
@@ -288,20 +270,15 @@ const List = ({
     );
 };
 
-const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
+const MenuWithGroups = ({ depth, rootPath, expand, tabState, ...props }) => {
     const { override, rest } = useOverrides(props, overrides, defaultProps);
     const pages = getAPI().pages || {};
 
-    let path = [];
+    const [rootId, path] = useMemo(() => {
+        const p = rootPath ? getPagesIdsByPath(rootPath) : [];
 
-    if (rootId !== 'root') {
-        let parent = pages[rootId];
-
-        while (parent && parent.id !== 'root') {
-            path = [parent.pageUrl, ...path];
-            parent = getParent(pages, parent?.id);
-        }
-    }
+        return [p[p.length - 1] ?? 'root', p.map((id) => pages[id]?.pageUrl)];
+    }, [rootPath, pages]);
 
     return (
         <List
@@ -333,7 +310,7 @@ const propInfo = {
         category: 'Main',
         weight: 1,
     },
-    rootId: {
+    rootPath: {
         title: {
             en: 'Root page',
             ru: 'Корневая страница',
@@ -383,7 +360,6 @@ const propInfo = {
 };
 
 const defaultProps = {
-    rootId: 'root',
     depth: 10,
     tabState: 'expandActive',
 };

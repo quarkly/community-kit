@@ -10,7 +10,6 @@ Breadcrumb navigation provides a list of links to all previous (parent) pages th
 
 **Attention!**
 
--   `Home • index` is the root page by default.
 -   This component should be on a nested page.
 -   Navigation will only work on the published site.
 
@@ -18,17 +17,17 @@ Breadcrumb navigation provides a list of links to all previous (parent) pages th
 
 ### In the interface
 
-| Prop name | Default | Example |
-| :-------- | :-----: | :-----: |
-| Root page |   `-`   | `index` |
-| Separator |   `/`   |   `-`   |
+| Prop name | Default |  Example   |
+| :-------- | :-----: | :--------: |
+| Root page |   `-`   | `/foo/bar` |
+| Separator |   `/`   |    `-`     |
 
 ### In the code (for developers)
 
-| Prop name | Name in the code |   Type   | Default | Example |
-| :-------- | :--------------: | :------: | :-----: | :-----: |
-| Root page |     `rootId`     | `string` |   `-`   | `index` |
-| Separator |   `separator`    | `string` |   `/`   |   `-`   |
+| Prop name | Name in the code |   Type   | Default |  Example   |
+| :-------- | :--------------: | :------: | :-----: | :--------: |
+| Root page |    `rootPath`    | `string` |   `-`   | `/foo/bar` |
+| Separator |   `separator`    | `string` |   `/`   |    `-`     |
 
 ## 🗄 GitHub
 

@@ -1,8 +1,8 @@
-import { getAPI } from '../../utils';
+import { getAPI, getPagesIdsByPath } from '../../utils';
 
 const isBrowser = typeof window !== 'undefined';
 
-const getLinks = ({ rootId }) => {
+const getLinks = (path) => {
     const { pages, mode } = getAPI();
 
     if (!isBrowser || !pages)
@@ -11,7 +11,12 @@ const getLinks = ({ rootId }) => {
             url: [],
         };
 
-    const rootPage = pages[rootId];
+    const ids = getPagesIdsByPath(path);
+    const lastId = ids.pop();
+
+    if (!lastId) return { links: [], url: [] };
+
+    const rootPage = pages[lastId];
 
     const names = Object.values(pages).reduce(
         (prev, curr) => ({
