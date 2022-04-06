@@ -20,7 +20,7 @@ const SourceComponent = ({
 }) => {
     let type = '';
 
-    if (container !== 'picture') {
+    if (container === 'picture') {
         type = `${typeMedia || ''}${
             typeMedia && codecs ? `; codecs='${codecs}'` : ''
         }`;
@@ -34,8 +34,8 @@ const SourceComponent = ({
             src={src}
             srcSet={srcSet}
             type={type}
-            media={container !== 'picture' ? mediaInput || mediaSelect : ''}
-            sizes={container !== 'picture' ? sizes : ''}
+            media={container === 'picture' ? mediaInput || mediaSelect : ''}
+            sizes={container === 'picture' ? sizes : ''}
         />
     ) : (
         <ComponentNotice

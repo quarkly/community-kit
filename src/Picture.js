@@ -28,7 +28,6 @@ const PictureComponent = (props) => {
     return (
         <Wrapper display="inline-block" font-size="0" {...rest}>
             <Picture {...override('Picture Tag')}>
-                <Image {...override('Image')} />
                 {React.Children.map(
                     children,
                     (child) =>
@@ -37,6 +36,7 @@ const PictureComponent = (props) => {
                             container: 'picture',
                         })
                 )}
+                <Image {...override('Image')} />
             </Picture>
         </Wrapper>
     );
