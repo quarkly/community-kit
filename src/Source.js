@@ -20,7 +20,7 @@ const SourceComponent = ({
 }) => {
     let type = '';
 
-    if (container === 'picture') {
+    if (container !== 'picture') {
         type = `${typeMedia || ''}${
             typeMedia && codecs ? `; codecs='${codecs}'` : ''
         }`;
