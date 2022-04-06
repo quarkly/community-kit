@@ -1,7 +1,7 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
 import { useOverrides } from '@quarkly/components';
-import { Box, Image } from '@quarkly/widgets';
-import { parseTime } from '../utils';
+import { Box, Placeholder } from '@quarkly/widgets';
+import { isEmptyChildren, parseTime } from '../utils';
 
 const overrides = {
     'Card Flip Content': {
@@ -35,17 +35,6 @@ const overrides = {
             height: '100%',
             'backface-visibility': 'hidden',
             position: 'absolute',
-        },
-    },
-    'Card Flip Item Face': {
-        kind: 'Box',
-    },
-    'Card Flip Item Back': {
-        kind: 'Box',
-        props: {
-            padding: '24px 16px',
-            background: '--color-lightD2',
-            'box-sizing': 'border-box',
         },
     },
 };
@@ -83,25 +72,49 @@ const CardFlip = ({
     isFlippedProp,
     ...props
 }) => {
-    const { override, children, rest } = useOverrides(props, overrides);
+    const { override, ChildPlaceholder, rest } = useOverrides(props, overrides);
 
     const [isFlipped, setFlipped] = useState(isFlippedProp);
+    const [isFlipEnd, setFlipEnd] = useState(true);
 
     const flipTrigger = flipTriggerProp === 'click';
 
     const flipDuration = parseTime(flipDurationProp);
 
     const onClickFlip = useCallback(() => {
-        if (flipTrigger) setFlipped((prevFlipped) => !prevFlipped);
+        if (flipTrigger) {
+            setFlipped((prevFlipped) => !prevFlipped);
+            setFlipEnd(false);
+        }
     }, [flipTrigger]);
 
     const onHoverFlip = useCallback(() => {
-        if (!flipTrigger) setFlipped((prevFlipped) => !prevFlipped);
+        if (!flipTrigger) {
+            setFlipped((prevFlipped) => !prevFlipped);
+            setFlipEnd(false);
+        }
     }, [flipTrigger]);
 
     useEffect(() => {
         setFlipped(isFlippedProp);
     }, [isFlippedProp]);
+
+    const boxRef = useRef();
+
+    useEffect(() => {
+        if (!boxRef.current) return;
+        const box = boxRef.current;
+
+        const handle = () => {
+            setFlipEnd(true);
+        };
+
+        box.addEventListener('transitionend', handle);
+
+        return () => {
+            box.removeEventListener('transitionend', handle);
+        };
+    }, []);
 
     return (
         <Box
@@ -116,6 +129,7 @@ const CardFlip = ({
             {...rest}
         >
             <Box
+                ref={boxRef}
                 transition={`transform ${flipDuration}ms ${timingFunctionProp}`}
                 {...override('Card Flip Content')}
                 {...(isFlipped && flipStyles[flipDirectionProp])}
@@ -126,14 +140,24 @@ const CardFlip = ({
                 }
                 height={aspectRatioProp !== 'auto' ? '0' : '100%'}
             >
-                <Box {...override(`Card Flip Item`, `Card Flip Item Face`)}>
-                    <Image {...override('Card Flip Image')} />
+                <Box
+                    display={isFlipped && isFlipEnd && 'none'}
+                    {...override(`Card Flip Item`, `Card Flip Item Face`)}
+                >
+                    <ChildPlaceholder slot={'Card Flip Item Face'} />
+                    {isEmptyChildren(
+                        override('Card Flip Item Face').children
+                    ) && <Placeholder message="Drop content here" />}
                 </Box>
                 <Box
+                    display={!isFlipped && isFlipEnd && 'none'}
                     {...override(`Card Flip Item`, `Card Flip Item Back`)}
                     {...flipStyles[flipDirectionProp]}
                 >
-                    {children}
+                    <ChildPlaceholder slot={'Card Flip Item Back'} />
+                    {isEmptyChildren(
+                        override('Card Flip Item Back').children
+                    ) && <Placeholder message="Drop content here" />}
                 </Box>
             </Box>
         </Box>

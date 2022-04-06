@@ -8,6 +8,12 @@ Use this component to add the Vimeo video player.
 2.  Specify the `Video link or ID` on the Props panel
 3.  See how it works in the preview mode
 
+### Setting up the video player
+
+Some video player settings are supported for Plus or PRO accounts.
+
+Learn more: [Supported Player Parameters](https://help.vimeo.com/hc/en-us/articles/360001494447-Using-Player-Parameters#h_01FNYA7F7GKWE17XDQJPMBC058)
+
 ### Playing in the background
 
 If the `Play in the background` prop is enabled, the video will be played in the background. In this case, all the controls are hidden, automatic playback is enabled, and the video loops.

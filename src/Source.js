@@ -34,8 +34,8 @@ const SourceComponent = ({
             src={src}
             srcSet={srcSet}
             type={type}
-            media={container !== 'picture' ? mediaInput || mediaSelect : ''}
-            sizes={container !== 'picture' ? sizes : ''}
+            media={container === 'picture' ? mediaInput || mediaSelect : ''}
+            sizes={container === 'picture' ? sizes : ''}
         />
     ) : (
         <ComponentNotice

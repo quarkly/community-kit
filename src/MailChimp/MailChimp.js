@@ -57,7 +57,7 @@ const MailChimp = ({ url, ...props }) => {
     );
 
     return (
-        <Box width={400} {...rest}>
+        <Box {...rest}>
             {!url ? (
                 <ComponentNotice message="Add your Form URL in the Props panel" />
             ) : (
@@ -70,7 +70,10 @@ const MailChimp = ({ url, ...props }) => {
                         >
                             {children}
                             {isEmptyChildren(children) && (
-                                <Placeholder message="Drop form components here" />
+                                <Placeholder
+                                    message="Drop form components here"
+                                    width="100%"
+                                />
                             )}
                         </Form>
                     )}
