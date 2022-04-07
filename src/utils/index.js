@@ -6,6 +6,7 @@ export { default as waitDOMLoaded } from './waitDOMLoaded';
 export { default as pick } from './pick';
 
 export { default as getAPI } from './getAPI';
+export { default as getPagesIdsByPath } from './getPagesIdsByPath';
 
 export { default as useColor } from './useColor';
 export { default as useDebounce } from './useDebounce';
