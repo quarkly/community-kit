@@ -1,13 +1,18 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import atomize from '@quarkly/atomize';
-import { Box, Image, Text, Icon } from '@quarkly/widgets';
+import { Box, Image, Text, Icon, Button } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import styled from 'styled-components';
 import { propInfo, defaultProps, overrides } from './props';
 
 const Figure = atomize.figure();
 const Figcaption = atomize.figcaption();
-const IconOpen = atomize.div();
+const IconOpen = atomize.div({
+    effects: {
+        hover: ':hover',
+    },
+});
+
 const Overlay = atomize(styled.div`
     &:hover div {
         opacity: 1;
@@ -43,62 +48,151 @@ const useIsTransitioning = (ref) => {
         }
     }, [ref]);
 
-    return isTransitioning;
+    return [isTransitioning, setIsTransitioning];
 };
 
 const ImageViewer = ({ src, transition, ...props }) => {
     const [isOpen, setOpen] = useState(false);
     const [scale, setScale] = useState(1);
     const [translateXY, setTranslateXY] = useState([0, 0]);
+    const [boxStyles, setBoxStyles] = useState({
+        top: 0,
+        left: 0,
+    });
 
     const imageRef = useRef();
     const transitioningRef = useRef();
-    const isTransitioning = useIsTransitioning(transitioningRef);
+    const boxxRef = useRef();
+    const [isTransitioning, setIsTransitioning] = useIsTransitioning(
+        transitioningRef
+    );
 
     const { override, rest } = useOverrides(props, overrides);
 
-    const onOverlayClick = () => {
-        setOpen(!isOpen);
+    const calculateScaleAndXY = () => {
+        let newScale = Math.min(
+            window.innerHeight / imageRef.current.offsetHeight,
+            window.innerWidth / imageRef.current.offsetWidth
+        );
 
-        if (!isOpen) {
-            const newScale = Math.min(
-                (window.innerHeight - 150) / imageRef.current.height,
-                (window.innerWidth - 150) / imageRef.current.width
+        const rect = imageRef.current.getBoundingClientRect();
+
+        const scrollbarWidth = window.innerWidth - document.body.offsetWidth;
+
+        let diff = Math.min(
+            window.innerWidth / 2 -
+                (rect.width * newScale) / 2 -
+                boxxRef.current.getBoundingClientRect().width -
+                scrollbarWidth,
+            0
+        );
+
+        let X =
+            window.innerWidth / 2 -
+            rect.left -
+            (rect.width * newScale) / 2 +
+            diff;
+
+        let Y =
+            window.innerHeight / 2 -
+            rect.top -
+            (rect.height * newScale) / 2 -
+            1;
+
+        if (X + rect.left < 0) {
+            newScale =
+                Math.min(
+                    (window.innerWidth -
+                        boxxRef.current.getBoundingClientRect().width -
+                        scrollbarWidth) /
+                        (rect.width * newScale),
+                    (window.innerHeight - scrollbarWidth) /
+                        (rect.height * newScale)
+                ) * newScale;
+
+            diff = Math.min(
+                window.innerWidth / 2 -
+                    (rect.width * newScale) / 2 -
+                    boxxRef.current.getBoundingClientRect().width -
+                    scrollbarWidth,
+                0
             );
 
-            const rect = imageRef.current.getBoundingClientRect();
-
-            setTranslateXY([
-                window.innerWidth / 2 - rect.left - (rect.width * newScale) / 2,
+            X =
+                window.innerWidth / 2 -
+                rect.left -
+                (rect.width * newScale) / 2 +
+                diff;
+            Y =
                 window.innerHeight / 2 -
-                    rect.top -
-                    (rect.height * newScale) / 2,
-            ]);
-            setScale(newScale);
+                rect.top -
+                (rect.height * newScale) / 2;
         }
+
+        setBoxStyles({
+            top: '0',
+            bottom: '0',
+            right: '0',
+            'z-index': '9999',
+            'pointer-events': !isOpen && 'none',
+        });
+
+        setTranslateXY([X, Y]);
+        setScale(newScale);
+    };
+
+    const onImageOverlayClick = () => {
+        setOpen(true);
+        calculateScaleAndXY();
+    };
+
+    const onOutsideOverlayClick = (e) => {
+        console.log(e.target);
+        setOpen(false);
+        setIsTransitioning(true);
     };
 
     const scrollHandler = useCallback(() => {
+        if (isOpen) {
+            setIsTransitioning(true);
+        }
         setOpen(false);
-    }, []);
+    }, [isOpen]);
+
+    const resizeHandler = useCallback(() => {
+        if (isOpen) {
+            calculateScaleAndXY();
+        }
+    }, [isOpen]);
 
     useEffect(() => {
         window.addEventListener('scroll', scrollHandler);
+        window.addEventListener('resize', resizeHandler);
 
         return () => {
             window.removeEventListener('scroll', scrollHandler);
+            window.removeEventListener('resize', resizeHandler);
         };
-    }, [scrollHandler]);
+    }, [scrollHandler, resizeHandler]);
+
+    const isRealOpened = isOpen || isTransitioning;
 
     return (
         <Box width="600px" {...rest}>
             <Box position="relative">
                 <Figure margin="none">
-                    <Box position="relative" z={'1000'}>
+                    <Box
+                        ref={imageRef}
+                        position="relative"
+                        style={{
+                            'z-index': isRealOpened ? '100' : '40',
+                            'pointer-events': isRealOpened ? 'none' : '',
+                        }}
+                    >
                         <Overlay
                             {...override('Overlay')}
-                            display={(isOpen || isTransitioning) && 'none'}
-                            onClick={onOverlayClick}
+                            display={isRealOpened && 'none'}
+                            onClick={onImageOverlayClick}
                             z="10"
                         >
                             <IconOpen
@@ -125,11 +219,11 @@ const ImageViewer = ({ src, transition, ...props }) => {
                                     : '',
                             }}
                             transition={transition}
-                            z="100"
                             ref={transitioningRef}
+                            font-size="0"
+                            line-height="0"
                         >
                             <Image
-                                ref={imageRef}
                                 transform-origin="0 0"
                                 transition={transition}
                                 {...override('Image')}
@@ -137,6 +231,7 @@ const ImageViewer = ({ src, transition, ...props }) => {
                                 style={{
                                     transform: `scale(${isOpen ? scale : 1})`,
                                     'z-index': isOpen ? '200' : '',
+                                    'pointer-events': isRealOpened ? 'all' : '',
                                 }}
                             />
                         </Box>
@@ -156,24 +251,59 @@ const ImageViewer = ({ src, transition, ...props }) => {
                 right="0"
                 background="white"
                 transition={transition}
-                z={isOpen ? 100 : 0}
-                onClick={() => setOpen(false)}
+                z={60}
+                style={{
+                    'pointer-events': !isOpen && 'none',
+                }}
+                onClick={onOutsideOverlayClick}
+            />
+            <Button
+                position="fixed"
+                transition="100ms"
+                right="10px"
+                top="10px"
+                padding="16px"
+                border-radius="50%"
+                border="1px solid transparent"
+                hover-border="1px solid #F0EFEF"
+                background="rgba(255, 255, 255, 0.6);"
+                hover-background="rgba(248, 248, 248, 0.96)"
+                box-sizing="border-box"
+                opacity={isOpen ? 1 : 0}
+                style={{
+                    'pointer-events': !isOpen && 'none',
+                }}
+                z="10000"
+                focus-box-shadow="none"
+                active-box-shadow="none"
+                box-shadow="none"
+                onClick={onOutsideOverlayClick}
             >
-                <IconOpen
-                    position="absolute"
-                    transition="100ms"
-                    right="10px"
-                    top="10px"
-                    background="rgba(255, 255, 255, 0.6);"
-                    padding="16px"
-                    border-radius="50%"
-                >
-                    <Icon
-                        {...override('Icon', 'Icon :close', {
-                            defaultKey: 'Icon :open',
-                        })}
-                    />
-                </IconOpen>
+                <Icon
+                    {...override('Icon', 'Icon :close', {
+                        defaultKey: 'Icon :open',
+                    })}
+                />
+            </Button>
+            <Box
+                ref={boxxRef}
+                position="fixed"
+                opacity={isOpen ? 1 : 0}
+                transition="opacity 400ms"
+                style={boxStyles}
+                display="flex"
+                justify-content="center"
+                align-items="center"
+                width="200px"
+                padding="25px"
+                bg="rgba(100,100,100,0.1)"
+            >
+                {isOpen && (
+                    <Box>
+                        <Text {...override('Text')} />
+                        <Text {...override('Sign')} />
+                    </Box>
+                )}
             </Box>
         </Box>
     );
