@@ -77,15 +77,32 @@ const ImageViewer = ({ src, transition, ...props }) => {
 
         const rect = imageRef.current.getBoundingClientRect();
 
-        const scrollbarWidth = window.innerWidth - document.body.offsetWidth;
+        let scrollbar = window.innerWidth - document.body.offsetWidth;
+
+        const bottomText = window.innerWidth / window.innerHeight <= 1.5;
+
+        if (bottomText) {
+            scrollbar =
+                window.innerHeight - document.documentElement.clientHeight;
+        }
 
         let diff = Math.min(
             window.innerWidth / 2 -
                 (rect.width * newScale) / 2 -
                 boxxRef.current.getBoundingClientRect().width -
-                scrollbarWidth,
+                scrollbar,
             0
         );
+
+        if (bottomText) {
+            diff = Math.min(
+                window.innerHeight / 2 -
+                    (rect.height * newScale) / 2 -
+                    boxxRef.current.getBoundingClientRect().height -
+                    scrollbar,
+                0
+            );
+        }
 
         let X =
             window.innerWidth / 2 -
@@ -99,24 +116,83 @@ const ImageViewer = ({ src, transition, ...props }) => {
             (rect.height * newScale) / 2 -
             1;
 
-        if (X + rect.left < 0) {
-            newScale =
-                Math.min(
-                    (window.innerWidth -
-                        boxxRef.current.getBoundingClientRect().width -
-                        scrollbarWidth) /
-                        (rect.width * newScale),
-                    (window.innerHeight - scrollbarWidth) /
-                        (rect.height * newScale)
-                ) * newScale;
+        if (bottomText) {
+            X = window.innerWidth / 2 - rect.left - (rect.width * newScale) / 2;
+
+            Y =
+                window.innerHeight / 2 -
+                rect.top -
+                (rect.height * newScale) / 2 +
+                diff;
+        }
+
+        if (
+            bottomText &&
+            window.innerHeight -
+                (window.innerHeight / 2 + (rect.height * newScale) / 2) <=
+                boxxRef.current.getBoundingClientRect().width
+        ) {
+            newScale *= Math.min(
+                (window.innerHeight -
+                    boxxRef.current.getBoundingClientRect().height -
+                    scrollbar) /
+                    (rect.height * newScale),
+                (window.innerWidth - scrollbar) / (rect.width * newScale)
+            );
+
+            console.log(
+                window.innerHeight -
+                    boxxRef.current.getBoundingClientRect().height -
+                    scrollbar,
+                window.innerHeight
+            );
+
+            diff = Math.min(
+                window.innerHeight / 2 -
+                    (rect.height * newScale) / 2 -
+                    boxxRef.current.getBoundingClientRect().height -
+                    scrollbar,
+                0
+            );
+
+            X =
+                window.innerWidth / 2 -
+                rect.left -
+                (rect.width * newScale) / 2 -
+                (window.innerWidth - document.documentElement.clientWidth) -
+                1;
+
+            Y =
+                window.innerHeight / 2 -
+                rect.top -
+                (rect.height * newScale) / 2 +
+                diff;
+        } else if (X + rect.left < 0) {
+            newScale *= Math.min(
+                (window.innerWidth -
+                    boxxRef.current.getBoundingClientRect().width -
+                    scrollbar) /
+                    (rect.width * newScale),
+                (window.innerHeight - scrollbar) / (rect.height * newScale)
+            );
 
             diff = Math.min(
                 window.innerWidth / 2 -
                     (rect.width * newScale) / 2 -
                     boxxRef.current.getBoundingClientRect().width -
-                    scrollbarWidth,
+                    scrollbar,
                 0
             );
+
+            if (bottomText) {
+                diff = Math.min(
+                    window.innerHeight / 2 -
+                        (rect.height * newScale) / 2 -
+                        boxxRef.current.getBoundingClientRect().height -
+                        scrollbar,
+                    0
+                );
+            }
 
             X =
                 window.innerWidth / 2 -
@@ -137,6 +213,18 @@ const ImageViewer = ({ src, transition, ...props }) => {
             'pointer-events': !isOpen && 'none',
         });
 
+        if (bottomText) {
+            setBoxStyles({
+                left: '0',
+                bottom: '0',
+                right: '0',
+                'z-index': '9999',
+                'pointer-events': !isOpen && 'none',
+                height: '50px',
+                width: 'auto',
+            });
+        }
+
         setTranslateXY([X, Y]);
         setScale(newScale);
     };
@@ -147,16 +235,15 @@ const ImageViewer = ({ src, transition, ...props }) => {
     };
 
     const onOutsideOverlayClick = (e) => {
-        console.log(e.target);
         setOpen(false);
         setIsTransitioning(true);
     };
 
     const scrollHandler = useCallback(() => {
-        if (isOpen) {
-            setIsTransitioning(true);
-        }
-        setOpen(false);
+        // if (isOpen) {
+        //     setIsTransitioning(true);
+        // }
+        // setOpen(false);
     }, [isOpen]);
 
     const resizeHandler = useCallback(() => {
@@ -178,7 +265,7 @@ const ImageViewer = ({ src, transition, ...props }) => {
     const isRealOpened = isOpen || isTransitioning;
 
     return (
-        <Box width="600px" {...rest}>
+        <Box max-width="600px" {...rest}>
             <Box position="relative">
                 <Figure margin="none">
                     <Box
