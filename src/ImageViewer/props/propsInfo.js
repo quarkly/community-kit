@@ -5,6 +5,18 @@ export default {
         },
         category: 'Image',
         control: 'image',
+        weight: 1,
+    },
+    size: {
+        title: {
+            en: 'Size',
+        },
+        category: 'Size',
+        control: 'radio-group',
+        variants: [
+            { title: 'Scale', value: 'scale' },
+            { title: 'Real size', value: 'real' },
+        ],
     },
     duration: {
         title: {

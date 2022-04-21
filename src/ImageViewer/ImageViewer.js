@@ -32,6 +32,7 @@ const ImageViewer = ({
     timingFunction,
     showCaption,
     showLightbox,
+    size,
     ...props
 }) => {
     const [isOpen, setOpen] = useState(showLightbox);
@@ -62,7 +63,7 @@ const ImageViewer = ({
         setOpen(showLightbox);
     }, [showLightbox]);
 
-    const calculateScaleAndXY = () => {
+    const calculateScaleAndXY = useCallback(() => {
         const isTextBottom = window.innerWidth / window.innerHeight <= 1.5;
 
         setTimeout(() => {
@@ -99,7 +100,7 @@ const ImageViewer = ({
         }, 10);
 
         setCaptionContainerMode(isTextBottom ? ':horizontal' : ':vertical');
-    };
+    }, [size]);
 
     useEffect(() => {
         calculateScaleAndXY();
@@ -120,19 +121,17 @@ const ImageViewer = ({
     }, [mode, startTransition]);
 
     const scrollHandler = useCallback(() => {
-        if (mode !== 'constructor') {
-            if (isOpen) {
-                startTransition(true);
-            }
-            setOpen(false);
+        if (isOpen) {
+            startTransition(true);
         }
-    }, [isOpen, mode, startTransition]);
+        setOpen(false);
+    }, [isOpen, startTransition]);
 
     const resizeHandler = useCallback(() => {
         if (isOpen) {
             calculateScaleAndXY();
         }
-    }, [isOpen]);
+    }, [calculateScaleAndXY, isOpen]);
 
     useEffect(() => {
         window.addEventListener('scroll', scrollHandler);
@@ -147,12 +146,13 @@ const ImageViewer = ({
     const isRealOpened = isOpen || isTransitioning;
 
     return (
-        <Box max-width="600px" padding="20px" {...rest}>
+        <Box padding="20px" {...rest}>
             <Box position="relative">
                 <Figure margin="none" {...override('Figure')}>
                     <Box
                         ref={imageContainerRef}
                         position="relative"
+                        width={size === 'scale' ? '100%' : 'fit-content'}
                         style={{
                             'z-index': isRealOpened ? '100' : '40',
                             'pointer-events': isRealOpened && 'none',
@@ -177,34 +177,30 @@ const ImageViewer = ({
                                 />
                             </Button>
                         </Overlay>
-                        <Box
-                            style={{
-                                transform: isOpen
-                                    ? `translate(${translateXY[0]}px, ${translateXY[1]}px)`
-                                    : '',
-                            }}
-                            transition-duration={duration}
-                            transition-timing-function={timingFunction}
-                            ref={transitioningRef}
-                            font-size="0"
-                            line-height="0"
-                        >
+                        <Box font-size="0" line-height="0">
                             <Image
+                                width={
+                                    size === 'scale' ? '100%' : 'fit-content'
+                                }
                                 {...override('Image')}
                                 transition-duration={duration}
                                 transition-timing-function={timingFunction}
+                                ref={transitioningRef}
                                 src={src}
                                 style={{
-                                    transform: `scale(${isOpen ? scale : 1})`,
+                                    transform:
+                                        isOpen &&
+                                        `translate(${translateXY[0]}px, ${translateXY[1]}px) scale(${scale})`,
                                     'z-index': isOpen ? '200' : '',
                                     'pointer-events': isRealOpened ? 'all' : '',
+                                    width: isOpen && '100%',
                                 }}
                             />
                         </Box>
                     </Box>
                     <Figcaption {...override('Figcaption')}>
                         <Text {...override('Text')} />
-                        <Text {...override('Sign')} />
+                        <Text {...override('Authorship')} />
                     </Figcaption>
                 </Figure>
             </Box>
@@ -254,7 +250,7 @@ const ImageViewer = ({
                     {isRealOpened && (
                         <Box>
                             <Text {...override('Text')} />
-                            <Text {...override('Sign')} />
+                            <Text {...override('Authorship')} />
                         </Box>
                     )}
                 </Box>
