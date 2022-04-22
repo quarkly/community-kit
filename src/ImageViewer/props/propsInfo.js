@@ -2,6 +2,7 @@ export default {
     src: {
         title: {
             en: 'Image src',
+            ru: 'Ссылка на изображение',
         },
         category: 'Image',
         control: 'image',
@@ -10,8 +11,9 @@ export default {
     size: {
         title: {
             en: 'Size',
+            ru: 'Размер',
         },
-        category: 'Size',
+        category: 'Image',
         control: 'radio-group',
         variants: [
             { title: 'Scale', value: 'scale' },
@@ -21,6 +23,7 @@ export default {
     duration: {
         title: {
             en: 'Duration',
+            ru: 'Длительность',
         },
         category: 'Animation',
         control: 'input',
@@ -29,6 +32,7 @@ export default {
     timingFunction: {
         title: {
             en: 'Timing function',
+            ru: 'Функция сглаживания',
         },
         category: 'Animation',
         control: 'input',
@@ -37,6 +41,7 @@ export default {
     showCaption: {
         title: {
             en: 'Show caption',
+            ru: 'Показывать подпись',
         },
         category: 'Caption',
         control: 'checkbox',
@@ -44,6 +49,7 @@ export default {
     showLightbox: {
         title: {
             en: 'Show lightbox',
+            ru: 'Показать lightbox',
         },
         control: 'checkbox',
     },

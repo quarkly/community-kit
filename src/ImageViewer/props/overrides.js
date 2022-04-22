@@ -101,7 +101,7 @@ export default {
         props: {
             position: 'fixed',
             transition: '100ms',
-            z: '1000',
+            z: '10000',
             right: '10px',
             top: '10px',
             padding: '16px',

@@ -61,7 +61,7 @@ const ImageViewer = ({
         }
 
         setOpen(showLightbox);
-    }, [showLightbox]);
+    }, [calculateScaleAndXY, showLightbox]);
 
     const calculateScaleAndXY = useCallback(() => {
         const isTextBottom = window.innerWidth / window.innerHeight <= 1.5;
@@ -100,18 +100,18 @@ const ImageViewer = ({
         }, 10);
 
         setCaptionContainerMode(isTextBottom ? ':horizontal' : ':vertical');
-    }, [size]);
+    }, []);
 
     useEffect(() => {
         calculateScaleAndXY();
-    }, [showCaption]);
+    }, [calculateScaleAndXY, showCaption]);
 
     const onImageOverlayClick = useCallback(() => {
         if (mode !== 'constructor') {
             calculateScaleAndXY();
             setOpen(true);
         }
-    }, [mode]);
+    }, [calculateScaleAndXY, mode]);
 
     const onOutsideOverlayClick = useCallback(() => {
         if (mode !== 'constructor') {
@@ -262,8 +262,10 @@ const ImageViewer = ({
 Object.assign(ImageViewer, {
     title: 'ImageViewer',
     description: {
-        en: 'ImageViewer',
-        ru: 'ImageViewer',
+        en:
+            'The component is a picture with a caption. When you click on the picture, it opens to full screen.',
+        ru:
+            'Компонент является картинкой с подписью. При клике на картинку она открывается на полный экран.',
     },
     propInfo,
     defaultProps,
