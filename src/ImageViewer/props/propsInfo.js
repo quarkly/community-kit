@@ -40,16 +40,16 @@ export default {
     },
     showCaption: {
         title: {
-            en: 'Show caption',
-            ru: 'Показывать подпись',
+            en: 'Show Caption',
+            ru: 'Показывать Подпись',
         },
         category: 'Caption',
         control: 'checkbox',
     },
     showLightbox: {
         title: {
-            en: 'Show lightbox',
-            ru: 'Показать lightbox',
+            en: 'Show Lightbox',
+            ru: 'Показать Lightbox',
         },
         control: 'checkbox',
     },
