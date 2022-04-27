@@ -53,4 +53,11 @@ export default {
         },
         control: 'checkbox',
     },
+    showButtonOpen: {
+        title: {
+            en: 'Show Button :open',
+            ru: 'Показать Button :open',
+        },
+        control: 'checkbox',
+    },
 };

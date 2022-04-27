@@ -32,6 +32,7 @@ const ImageViewer = ({
     timingFunction,
     showCaption,
     showLightbox,
+    showButtonOpen,
     size,
     ...props
 }) => {
@@ -169,6 +170,7 @@ const ImageViewer = ({
                                 {...override('Button', 'Button :open', {
                                     defaultKey: 'Button :open',
                                 })}
+                                opacity={showButtonOpen ? '1' : '0'}
                             >
                                 <Icon
                                     {...override('Icon', 'Icon :open', {
