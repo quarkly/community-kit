@@ -57,7 +57,7 @@ const ScrollAnimationCustom = ({
     const animationRef = useRef();
 
     const { ready } = useScript(
-        'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js'
+        'https://rawcdn.githack.com/flackr/scroll-timeline/dbae321ec0130a6ce19c8fe9c428755cfc15049c/dist/scroll-timeline.js'
     );
 
     useEffect(() => {
