@@ -29,6 +29,9 @@ const overrides = {
         kind: 'Link',
         props: {
             color: '--primary',
+            'min-height': '20px',
+            'min-width': '20px',
+            display: 'block',
         },
     },
     'link-active': {
@@ -85,11 +88,16 @@ const Item = ({
     const linkProps = override(
         'link',
         match && 'link-active',
-        `link-${pageUrl}`
+        `link-${pageUrl}`,
+        { defaultKey: `link-${pageUrl}` }
     );
 
     return (
-        <Li {...override('item', match && 'item-active', `item-${pageUrl}`)}>
+        <Li
+            {...override('item', match && 'item-active', `item-${pageUrl}`, {
+                defaultKey: `item-${pageUrl}`,
+            })}
+        >
             <Link href={href} {...linkProps}>
                 {linkProps.children || name}
             </Link>
