@@ -155,8 +155,8 @@ const ImageViewer = ({
                         position="relative"
                         width={size === 'scale' ? '100%' : 'fit-content'}
                         style={{
-                            'z-index': isRealOpened ? '100' : '40',
-                            'pointer-events': isRealOpened && 'none',
+                            zIndex: isRealOpened ? '100' : '40',
+                            pointerEvents: isRealOpened && 'none',
                         }}
                     >
                         <Overlay
@@ -193,8 +193,8 @@ const ImageViewer = ({
                                     transform:
                                         isOpen &&
                                         `translate(${translateXY[0]}px, ${translateXY[1]}px) scale(${scale})`,
-                                    'z-index': isOpen ? '200' : '',
-                                    'pointer-events': isRealOpened ? 'all' : '',
+                                    zIndex: isOpen ? '200' : '',
+                                    pointerEvents: isRealOpened ? 'all' : '',
                                     width: isOpen && '100%',
                                 }}
                             />
@@ -212,7 +212,7 @@ const ImageViewer = ({
                 transition-timing-function={timingFunction}
                 style={{
                     opacity: isOpen ? 1 : 0,
-                    'pointer-events': !isOpen && 'none',
+                    pointerEvents: !isOpen && 'none',
                 }}
                 onClick={onOutsideOverlayClick}
             />
@@ -222,7 +222,7 @@ const ImageViewer = ({
                 })}
                 style={{
                     opacity: isOpen ? 1 : 0,
-                    'pointer-events': !isOpen && 'none',
+                    pointerEvents: !isOpen && 'none',
                 }}
                 onClick={onOutsideOverlayClick}
             >
@@ -246,7 +246,7 @@ const ImageViewer = ({
                     transition-timing-function={timingFunction}
                     style={{
                         opacity: isOpen ? 1 : 0,
-                        'pointer-events': 'none',
+                        pointerEvents: 'none',
                     }}
                 >
                     {isRealOpened && (
