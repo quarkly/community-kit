@@ -53,9 +53,9 @@ const MobileSidePanel = ({
 
     useEffect(() => {
         return () => {
-            closePanel()
-        }
-    }, [])
+            closePanel();
+        };
+    }, [closePanel]);
 
     const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
 
