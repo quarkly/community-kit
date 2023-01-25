@@ -79,7 +79,8 @@ const TableComponent = ({
                                             'Text',
                                             `Text Col-${col}`,
                                             'Text THead',
-                                            `Text THead Col-${col}`
+                                            `Text THead Col-${col}`,
+                                            { defaultKey: `Text THead Col-${col}` }
                                         )}
                                     >
                                         {override(`Text THead Col-${col}`)
@@ -119,7 +120,8 @@ const TableComponent = ({
                                                 'Text TBody',
                                                 `Text TBody Row-${row}`,
                                                 `Text TBody Col-${col}`,
-                                                `Text TBody Row-${row} Col-${col}`
+                                                `Text TBody Row-${row} Col-${col}`,
+                                                { defaultKey: `Text TBody Row-${row} Col-${col}` }
                                             )}
                                         >
                                             {override(
@@ -151,7 +153,8 @@ const TableComponent = ({
                                             'Text',
                                             `Text Col-${col}`,
                                             'Text TFoot',
-                                            `Text TFoot Col-${col}`
+                                            `Text TFoot Col-${col}`,
+                                            { defaultKey: `Text TFoot Col-${col}` }
                                         )}
                                     >
                                         {override(`Text TFoot Col-${col}`)
