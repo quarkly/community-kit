@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import atomize from '@quarkly/atomize';
 import { useRouteMatch } from 'react-router-dom';
 import { useMatch } from '@reach/router';
 import { Link } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
+import { getPagesIdsByPath, getAPI } from './utils';
 
 const overrides = {
     item: {
@@ -41,15 +42,6 @@ const overrides = {
 
 const Ul = atomize.ul();
 const Li = atomize.li();
-const getAPI = () => {
-    if (typeof window !== 'undefined') {
-        return window.QAPI || {};
-    }
-    if (typeof global !== 'undefined') {
-        return global.QAPI || {};
-    }
-    return {};
-};
 
 const Item = ({
     id,
@@ -128,27 +120,15 @@ const Wrapper = ({
     );
 };
 
-const getParent = (pages, pageId) => {
-    if (!pageId || !pages[pageId]) return null;
-
-    return Object.values(pages).find(({ children = [] }) => {
-        return children && Array.isArray(children) && children.includes(pageId);
-    });
-};
-
-const Menu = ({ rootId, depth, 'exact-active-match': exact, ...props }) => {
+const Menu = ({ rootPath, depth, 'exact-active-match': exact, ...props }) => {
     const { override, rest } = useOverrides(props, overrides, defaultProps);
     const pages = getAPI().pages || {};
-    let path = [];
 
-    if (rootId !== 'root') {
-        let parent = pages[rootId];
+    const [rootId, path] = useMemo(() => {
+        const p = rootPath ? getPagesIdsByPath(rootPath) : [];
 
-        while (parent && parent.id !== 'root') {
-            path = [parent.pageUrl, ...path];
-            parent = getParent(pages, parent?.id);
-        }
-    }
+        return [p[p.length - 1] ?? 'root', p.map((id) => pages[id]?.pageUrl)];
+    }, [rootPath, pages]);
 
     return (
         <Wrapper
@@ -177,7 +157,7 @@ const propInfo = {
         category: 'Main',
         weight: 1,
     },
-    rootId: {
+    rootPath: {
         title: {
             en: 'Root page',
             ru: 'Корневая страница',
@@ -199,7 +179,6 @@ const propInfo = {
 
 const defaultProps = {
     depth: 1,
-    rootId: 'root',
     'exact-active-match': true,
 };
 

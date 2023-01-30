@@ -1,5 +1,5 @@
 export default {
-    rootId: {
+    rootPath: {
         title: {
             en: 'Root page',
             ru: 'Корневая страница',

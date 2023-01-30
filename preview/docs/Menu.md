@@ -10,19 +10,19 @@ Add the component to the page and change the value of the `Maximum nesting` prop
 
 ### In the interface
 
-| Prop name                |  Default  |     Example      |
-| :----------------------- | :-------: | :--------------: |
-| Maximum nesting          |    `1`    |       `5`        |
-| Root page                |  `root`   | `Your page name` |
-| Mark parent active items | `Checked` |   `Unchecked`    |
+| Prop name                |  Default   |   Example   |
+| :----------------------- | :--------: | :---------: |
+| Maximum nesting          |    `1`     |     `5`     |
+| Root page                | `rootPath` |   `/foo`    |
+| Mark parent active items | `Checked`  | `Unchecked` |
 
 ### In the code (for developers)
 
-| Prop name                |   Name in the code   |   Type    | Default |     Example      |
-| :----------------------- | :------------------: | :-------: | :-----: | :--------------: |
-| Maximum nesting          |       `depth`        | `string`  |   `1`   |       `5`        |
-| Root page                |       `rootId`       | `string`  | `root`  | `Your page name` |
-| Mark parent active items | `exact-active-match` | `boolean` | `true`  |     `false`      |
+| Prop name                |   Name in the code   |   Type    | Default | Example |
+| :----------------------- | :------------------: | :-------: | :-----: | :-----: |
+| Maximum nesting          |       `depth`        | `string`  |   `1`   |   `5`   |
+| Root page                |      `rootPath`      | `string`  | `root`  | `/foo`  |
+| Mark parent active items | `exact-active-match` | `boolean` | `true`  | `false` |
 
 ## 🗄 GitHub
 

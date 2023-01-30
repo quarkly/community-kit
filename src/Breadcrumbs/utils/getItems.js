@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, Text } from '@quarkly/widgets';
 import getLinks from './getLinks';
 
-const getItems = ({ rootId, separator, override }) => {
-    const { links, url } = getLinks({ rootId });
+const getItems = ({ rootPath, separator, override }) => {
+    const { links, url } = getLinks(rootPath);
 
     return links.map((link, i) => {
         if (i !== links.length - 1) {
