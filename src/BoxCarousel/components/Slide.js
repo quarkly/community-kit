@@ -75,6 +75,7 @@ const Slide = ({ index, swiper, slidesAs, className, ...props }) => {
             {isEmptyChildren(override(uniqueOverride).children) && (
                 <Placeholder message="Drop content here" />
             )}
+            {!hideSlide && <ChildPlaceholder slot={uniqueOverride} />}
         </ContainerComponent>
     );
 };
