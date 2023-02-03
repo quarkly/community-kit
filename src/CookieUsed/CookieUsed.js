@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Box, Button, Text } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { getAPI } from '../utils';
-import { storage } from './utils';
+import storage from './utils/storage';
 import { overrides, propInfo, defaultProps } from './props';
 
 const CookieUsed = ({ variant, show: showFromProps, display, ...props }) => {
@@ -11,8 +11,8 @@ const CookieUsed = ({ variant, show: showFromProps, display, ...props }) => {
     const { override, rest } = useOverrides(props, overrides);
 
     useEffect(() => {
-        setShow(!storage.get())
-    }, [])
+        setShow(!storage.get());
+    }, []);
 
     const handleClick = useCallback(() => {
         if (isDev) return;
