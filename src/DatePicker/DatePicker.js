@@ -9,6 +9,7 @@ import { propInfo, defaultProps, overrides } from './props';
 import { SelectSingleProvider } from './contexts/SelectSingle';
 import { SelectRangeProvider } from './contexts/SelectRange';
 import { isString } from '../utils';
+import lastDefaultOverride from '../utils/lastDefaultOverride';
 
 const DatePicker = ({
     mode,
@@ -25,7 +26,8 @@ const DatePicker = ({
     ...props
 }) => {
     const [locale, setLocale] = useState(locales.enUS);
-    const { override, rest } = useOverrides(props, overrides);
+    const { override: origOverride, rest } = useOverrides(props, overrides);
+    const override = lastDefaultOverride(origOverride);
 
     useEffect(() => {
         if (locales[localeFromProps]) setLocale(locales[localeFromProps]);

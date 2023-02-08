@@ -3,6 +3,7 @@ import { useOverrides } from '@quarkly/components';
 import { Box, Text } from '@quarkly/widgets';
 
 import ComponentNotice from './ComponentNotice';
+import lastDefaultOverride from './utils/lastDefaultOverride';
 
 const overrides = {
     Item: {
@@ -79,7 +80,8 @@ const TimerComponent = ({
     showTextDone,
     ...props
 }) => {
-    const { override, rest } = useOverrides(props, overrides);
+    const { override: origOverride, rest } = useOverrides(props, overrides);
+    const override = lastDefaultOverride(origOverride);
 
     const [isDone, setDone] = useState(false);
     const [dateState, setDate] = useState(defaultDate);

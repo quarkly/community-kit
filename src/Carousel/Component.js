@@ -7,6 +7,7 @@ import { Arrow, Point, Slide } from './components';
 import useKeyboard from './hooks/useKeyboard';
 import { overrides } from './props';
 import { clickPrev, clickNext } from './store';
+import lastDefaultOverride from '../utils/lastDefaultOverride';
 
 const AspectRatioBox = styled(Box)`
     aspect-ratio: ${(props) => props.aspectRatio};
@@ -22,7 +23,8 @@ const Component = ({
     showLink,
     ...props
 }) => {
-    const { override, rest } = useOverrides(props, overrides);
+    const { override: origOverride, rest } = useOverrides(props, overrides);
+    const override = lastDefaultOverride(origOverride);
     const sliderRef = useRef(null);
     const slidesRef = useRef(null);
 

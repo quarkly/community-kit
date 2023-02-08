@@ -2,6 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Image } from '@quarkly/widgets';
 import { parseTime } from '../utils';
+import lastDefaultOverride from '../utils/lastDefaultOverride';
 
 const overrides = {
     'Card Flip Content': {
@@ -83,7 +84,11 @@ const CardFlip = ({
     isFlippedProp,
     ...props
 }) => {
-    const { override, children, rest } = useOverrides(props, overrides);
+    const { override: origOverride, children, rest } = useOverrides(
+        props,
+        overrides
+    );
+    const override = lastDefaultOverride(origOverride);
 
     const [isFlipped, setFlipped] = useState(isFlippedProp);
 

@@ -3,6 +3,7 @@ import React, { useMemo } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Text, Icon } from '@quarkly/widgets';
 import { BsDot } from 'react-icons/bs';
+import lastDefaultOverride from './utils/lastDefaultOverride';
 
 const overrides = {
     Line: {
@@ -233,7 +234,8 @@ const Timeline = ({
     breakpoint,
     ...props
 }) => {
-    const { override, rest } = useOverrides(props, overrides);
+    const { override: origOverride, rest } = useOverrides(props, overrides);
+    const override = lastDefaultOverride(origOverride);
 
     const items = useMemo(
         () => (parseInt(itemsProp, 10) > 1 ? parseInt(itemsProp, 10) : 1),

@@ -5,6 +5,7 @@ import { format, isValid } from 'date-fns';
 import DatePicker from '../DatePicker';
 import useInput from './hooks/useInput';
 import { overrides, propInfo, defaultProps } from './props';
+import lastDefaultOverride from '../utils/lastDefaultOverride';
 
 const DateSingleInput = ({
     formatString,
@@ -12,7 +13,8 @@ const DateSingleInput = ({
     closeOnSelection,
     ...props
 }) => {
-    const { override, rest } = useOverrides(props, overrides);
+    const { override: origOverride, rest } = useOverrides(props, overrides);
+    const override = lastDefaultOverride(origOverride);
     const [value, setValue] = useState(null);
     const [isOpen, setOpen] = useState(false);
 

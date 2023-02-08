@@ -2,6 +2,7 @@ import React, { useState, useCallback, useMemo } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box, Text, Icon, Image } from '@quarkly/widgets';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import lastDefaultOverride from './utils/lastDefaultOverride';
 
 const overrides = {
     Label: {
@@ -141,7 +142,8 @@ const BeforeAfterImage = ({
     activationType,
     ...props
 }) => {
-    const { override, rest } = useOverrides(props, overrides);
+    const { override: origOverride, rest } = useOverrides(props, overrides);
+    const override = lastDefaultOverride(origOverride);
     const [isDrag, setDrag] = useState(activationType !== 'onDrag');
     const [pos, setPos] = useState('50%');
 
