@@ -1,6 +1,6 @@
 const lastDefaultOverride = (override) => {
     return (...args) => {
-        return override(...args, { defaultKey: args.at(-1) });
+        return override(...args, { defaultKey: args[args.length - 1] });
     };
 };
 
