@@ -4,52 +4,11 @@ import { useRouteMatch } from 'react-router-dom';
 import { useMatch } from '@reach/router';
 import { Link } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
-
-const overrides = {
-    item: {
-        props: {
-            padding: '6px 12px',
-            margin: '0px 0px',
-        },
-    },
-    sub: {
-        props: {
-            padding: '6px 6px',
-            margin: '0px 0px',
-            'list-style': 'none',
-        },
-    },
-    'item-404': {
-        props: {
-            display: 'none',
-        },
-    },
-    'item-active': {},
-    link: {
-        kind: 'Link',
-        props: {
-            color: '--primary',
-        },
-    },
-    'link-active': {
-        kind: 'Link',
-        props: {
-            color: '--dark',
-        },
-    },
-};
+import { defaultProps, propInfo, overrides } from './props';
+import { getAPI } from '../utils';
 
 const Ul = atomize.ul();
 const Li = atomize.li();
-const getAPI = () => {
-    if (typeof window !== 'undefined') {
-        return window.QAPI || {};
-    }
-    if (typeof global !== 'undefined') {
-        return global.QAPI || {};
-    }
-    return {};
-};
 
 const Item = ({
     id,
@@ -166,45 +125,8 @@ const Menu = ({ rootId, depth, 'exact-active-match': exact, ...props }) => {
     );
 };
 
-const propInfo = {
-    depth: {
-        title: {
-            en: 'Maximum nesting',
-            ru: 'Максимальная вложенность',
-        },
-        control: 'input',
-        type: 'number',
-        category: 'Main',
-        weight: 1,
-    },
-    rootId: {
-        title: {
-            en: 'Root page',
-            ru: 'Корневая страница',
-        },
-        control: 'href',
-        category: 'Main',
-        weight: 1,
-    },
-    'exact-active-match': {
-        title: {
-            en: 'Mark parent active items',
-            ru: 'Выделять родительские активные пункты',
-        },
-        control: 'checkbox',
-        category: 'Main',
-        weight: 1,
-    },
-};
-
-const defaultProps = {
-    depth: 1,
-    rootId: 'root',
-    'exact-active-match': true,
-};
-
 Object.assign(Menu, {
-    title: '',
+    title: 'Menu',
     description: {
         en: 'Use this component to add a simple menu to your website',
         ru: 'Простое меню для вашего сайта',
