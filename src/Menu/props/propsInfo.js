@@ -20,11 +20,45 @@ export default {
     },
     'exact-active-match': {
         title: {
-            en: 'Mark parent active items',
-            ru: 'Выделять родительские активные пункты',
+            en: "Don't mark parent active items",
+            ru: 'Не выделять родительские активные пункты',
         },
         control: 'checkbox',
         category: 'Main',
+        weight: 1,
+    },
+    filterMode: {
+        title: {
+            en: 'Filter mode',
+            ru: 'Режим фильтрации',
+        },
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Hide pages',
+                    ru: 'Скрыть страницы',
+                },
+                value: 'exclude',
+            },
+            {
+                title: {
+                    en: 'Show only pages',
+                    ru: 'Показать страницы',
+                },
+                value: 'include',
+            },
+        ],
+        category: 'Pages',
+        weight: 1,
+    },
+    filterPages: {
+        title: {
+            en: 'Filter pages',
+        },
+        control: 'href',
+        multiply: true,
+        category: 'Pages',
         weight: 1,
     },
 };

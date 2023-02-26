@@ -1,5 +1,5 @@
 export default {
     depth: 1,
-    rootId: 'root',
+    rootId: '',
     'exact-active-match': true,
 };
