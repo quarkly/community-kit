@@ -6,38 +6,22 @@ import { Link } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { defaultProps, propInfo, overrides } from './props';
 import { getAPI } from '../utils';
+import PageTreeNode from './utils';
 
 const Ul = atomize.ul();
 const Li = atomize.li();
 
-const Item = ({
-    id,
-    pages,
-    exact = false,
-    depth = 0,
-    level = 0,
-    override,
-    filterPages,
-    filterMode,
-
-    item,
-}) => {
-    const hasSub = !!(item?.children?.length && level < depth);
+const Item = ({ exact = false, override, item }) => {
+    const hasSub = !!item?.children?.length;
     const common = {
-        pages,
         exact,
-        depth,
-        level,
         override,
-        filterPages,
-        filterMode,
-
         item,
     };
 
     const { projectType } = getAPI() || {};
 
-    const href = item.absoluteUrl; // `/${pagePath.join('/')}`;
+    const href = item.absoluteUrl;
 
     let match = null;
 
@@ -62,7 +46,6 @@ const Item = ({
             </Link>
             {hasSub && (
                 <Wrapper
-                    rootId={id}
                     tree={item}
                     {...common}
                     {...override('sub', `sub-${pageUrl}`)}
@@ -72,27 +55,10 @@ const Item = ({
     );
 };
 
-const Wrapper = ({
-    pages,
-    rootId,
-    override,
-    depth,
-    level = 0,
-    exact,
-    filterMode,
-    filterPages,
-
-    tree,
-    ...rest
-}) => {
-    // const rootPage = pages?.[rootId];
+const Wrapper = ({ override, exact, tree, ...rest }) => {
     const common = {
-        pages,
         override,
-        depth,
         exact,
-        filterMode,
-        filterPages,
         tree,
     };
     const list = tree?.children ?? [];
@@ -100,80 +66,14 @@ const Wrapper = ({
     return (
         <Ul {...rest}>
             {list.map((item) => (
-                <Item key={item.id} item={item} {...common} level={level + 1} />
+                <Item key={item.id} item={item} {...common} />
             ))}
         </Ul>
     );
 };
 
-const getPagesTree = (pages, rootID = 'root', baseURL = '') => {
-    const node = pages[rootID];
-
-    const childNodes = node.children;
-
-    const result = {
-        id: node.id,
-        name: node.name,
-        pageUrl: node.pageUrl,
-        absoluteUrl: rootID !== 'root' ? `${baseURL}/${node.pageUrl}` : '',
-    };
-
-    if (childNodes) {
-        result.children = childNodes.map((el) =>
-            getPagesTree(pages, el, result.absoluteUrl)
-        );
-    }
-
-    return result;
-};
-
-const findSubtree = (tree, url) => {
-    if (tree.absoluteUrl === url) {
-        return tree;
-    }
-    if (tree.children) {
-        let result = null;
-        tree.children.some((el) => {
-            result = findSubtree(el, url);
-            return result;
-        });
-        return result;
-    }
-    return null;
-};
-
-const filterSubtree = (tree, mode, pages) => {
-    if (mode === 'exclude') {
-        tree.children = tree.children.reduce((result, el) => {
-            if (pages.includes(el.absoluteUrl)) {
-                return result;
-            }
-            if (el.children) {
-                el = filterSubtree(el, mode, pages);
-            }
-            result.push(el);
-            return result;
-        }, []);
-
-        return tree;
-    }
-    if (mode === 'include') {
-        tree.children = tree.children.reduce((result, el) => {
-            if (el.children) {
-                el = filterSubtree(el, mode, pages);
-            }
-            if (pages.includes(el.absoluteUrl) || el?.children?.length > 0) {
-                result.push(el);
-            }
-            return result;
-        }, []);
-
-        return tree;
-    }
-};
-
 const Menu = ({
-    rootId = '',
+    rootId: rootUrl = '',
     depth,
     filterMode,
     filterPages: origFilterPages,
@@ -184,23 +84,19 @@ const Menu = ({
 
     const pages = getAPI().pages || {};
 
-    const tree = getPagesTree(pages);
-    const subtree = findSubtree(tree, rootId);
-
     const filterPages =
         origFilterPages?.length > 0 ? origFilterPages.split(',') : [];
 
-    const filteredSubtree = filterSubtree(subtree, filterMode, filterPages);
+    const tree = PageTreeNode.fromPages(pages)
+        .findSubtreeByUrl(rootUrl)
+        .filterByPages(filterMode, filterPages)
+        .truncate(depth);
 
     return (
         <Wrapper
-            tree={filteredSubtree}
-            rootId={rootId}
-            pages={pages}
+            tree={tree}
             depth={depth}
             exact={exact}
-            filterMode={filterMode}
-            filterPages={filterPages}
             override={override}
             padding="6px"
             margin="0px"
