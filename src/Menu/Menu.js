@@ -6,7 +6,7 @@ import { Link } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { defaultProps, propInfo, overrides } from './props';
 import { getAPI } from '../utils';
-import PageTreeNode from './utils';
+import { PageTreeNode } from './utils';
 
 const Ul = atomize.ul();
 const Li = atomize.li();

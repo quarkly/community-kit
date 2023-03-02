@@ -1,4 +1,9 @@
-export default class PageTreeNode {
+export const FILTER_MODES = Object.freeze({
+    exclude: 'exclude',
+    include: 'include',
+});
+
+export class PageTreeNode {
     static fromPages(pages) {
         return this._fromPages(pages);
     }
@@ -26,13 +31,22 @@ export default class PageTreeNode {
     }
 
     findSubtreeByUrl(url) {
+        const result = this._findSubtreeByUrl(url);
+        if (!result) {
+            console.warn(`Unexpected! Url ${url} not found!`);
+            return this;
+        }
+        return result;
+    }
+
+    _findSubtreeByUrl(url) {
         if (this.absoluteUrl === url) {
             return this;
         }
         if (this.children) {
             let result = null;
             this.children.some((el) => {
-                result = el.findSubtreeByUrl(url);
+                result = el._findSubtreeByUrl(url);
                 return result;
             });
             return result;
@@ -42,31 +56,35 @@ export default class PageTreeNode {
 
     filterByPages(mode, pages) {
         switch (mode) {
-            case 'exclude':
-                this.children = this.children.flatMap((el) => {
-                    if (pages.includes(el.absoluteUrl)) {
-                        return [];
-                    }
-                    if (el.children) {
-                        el = el.filterByPages(mode, pages);
-                    }
+            case FILTER_MODES.exclude:
+                if (this.children) {
+                    this.children = this.children.flatMap((el) => {
+                        if (pages.includes(el.absoluteUrl)) {
+                            return [];
+                        }
+                        if (el.children) {
+                            el = el.filterByPages(mode, pages);
+                        }
 
-                    return [el];
-                });
-                return this;
-            case 'include':
-                this.children = this.children.flatMap((el) => {
-                    if (el.children) {
-                        el = el.filterByPages(mode, pages);
-                    }
-                    if (
-                        pages.includes(el.absoluteUrl) ||
-                        el?.children?.length > 0
-                    ) {
                         return [el];
-                    }
-                    return [];
-                });
+                    });
+                }
+                return this;
+            case FILTER_MODES.include:
+                if (this.children) {
+                    this.children = this.children.flatMap((el) => {
+                        if (el.children) {
+                            el = el.filterByPages(mode, pages);
+                        }
+                        if (
+                            pages.includes(el.absoluteUrl) ||
+                            el?.children?.length > 0
+                        ) {
+                            return [el];
+                        }
+                        return [];
+                    });
+                }
                 return this;
             default:
                 console.warn('Unexpected mode');

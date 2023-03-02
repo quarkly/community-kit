@@ -1,3 +1,5 @@
+import { FILTER_MODES } from '../utils';
+
 export default {
     depth: {
         title: {
@@ -14,7 +16,7 @@ export default {
             en: 'Root page',
             ru: 'Корневая страница',
         },
-        control: 'href',
+        control: 'page',
         category: 'Main',
         weight: 1,
     },
@@ -39,14 +41,14 @@ export default {
                     en: 'Hide pages',
                     ru: 'Скрыть страницы',
                 },
-                value: 'exclude',
+                value: FILTER_MODES.exclude,
             },
             {
                 title: {
                     en: 'Show only pages',
                     ru: 'Показать страницы',
                 },
-                value: 'include',
+                value: FILTER_MODES.include,
             },
         ],
         category: 'Pages',
@@ -55,8 +57,9 @@ export default {
     filterPages: {
         title: {
             en: 'Filter pages',
+            ru: 'Список страниц',
         },
-        control: 'href',
+        control: 'page',
         multiply: true,
         category: 'Pages',
         weight: 1,
