@@ -7,6 +7,7 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { useRouteMatch } from 'react-router-dom';
 import { useMatch } from '@reach/router';
+import lastDefaultOverride from './utils/lastDefaultOverride';
 
 const overrides = {
     List: {
@@ -289,7 +290,12 @@ const List = ({
 };
 
 const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
-    const { override, rest } = useOverrides(props, overrides, defaultProps);
+    const { override: origOverride, rest } = useOverrides(
+        props,
+        overrides,
+        defaultProps
+    );
+    const override = lastDefaultOverride(origOverride);
     const pages = getAPI().pages || {};
 
     let path = [];

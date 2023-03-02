@@ -5,6 +5,7 @@ import { useOverrides } from '@quarkly/components';
 import { overrides, propInfo, defaultProps } from './props';
 import parseCSV from './utils/parseCSV';
 import ComponentNotice from '../ComponentNotice';
+import lastDefaultOverride from '../utils/lastDefaultOverride';
 
 const Table = atomize.table();
 const THead = atomize.thead();
@@ -14,7 +15,8 @@ const Th = atomize.th();
 const Td = atomize.td();
 
 const CSVToTable = ({ data, csvDelimiter, hasHeader, ...props }) => {
-    const { override, rest } = useOverrides(props, overrides);
+    const { override: origOverride, rest } = useOverrides(props, overrides);
+    const override = lastDefaultOverride(origOverride);
 
     const rowsWithColumns = useMemo(
         () => parseCSV(data?.trim?.() || '', csvDelimiter),

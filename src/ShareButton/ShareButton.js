@@ -3,6 +3,7 @@ import { Button, Icon } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { overrides, propInfo, defaultProps } from './props';
 import { getConfig, services } from './utils';
+import lastDefaultOverride from '../utils/lastDefaultOverride';
 
 const ShareButton = ({
     service,
@@ -16,7 +17,8 @@ const ShareButton = ({
     windowWidth,
     ...props
 }) => {
-    const { override, rest } = useOverrides(props, overrides);
+    const { override: origOverride, rest } = useOverrides(props, overrides);
+    const override = lastDefaultOverride(origOverride);
 
     const config = useMemo(
         () => (popup ? getConfig({ windowWidth, windowHeight }) : undefined),

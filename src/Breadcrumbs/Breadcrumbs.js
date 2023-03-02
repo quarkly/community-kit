@@ -3,11 +3,13 @@ import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
 import { overrides, propInfo, defaultProps } from './props';
 import { getItems } from './utils';
+import lastDefaultOverride from '../utils/lastDefaultOverride';
 
 const isBrowser = typeof window !== 'undefined';
 
 const Breadcrumbs = ({ separator, rootId, ...props }) => {
-    const { override, rest } = useOverrides(props, overrides);
+    const { override: origOverride, rest } = useOverrides(props, overrides);
+    const override = lastDefaultOverride(origOverride);
 
     const items = useMemo(
         () =>
