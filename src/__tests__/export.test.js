@@ -14,6 +14,28 @@ describe('package export', () => {
         );
     });
 
+    // For Menu component
+    global.QAPI = {
+        pages: {
+            root: {
+                id: 'root',
+                pageUrl: 'root',
+                name: 'root',
+                children: ['404id', 'indexid'],
+            },
+            '404id': {
+                id: '404id',
+                name: '404',
+                pageUrl: '404',
+            },
+            indexid: {
+                id: 'indexid',
+                name: 'index',
+                pageUrl: 'index',
+            },
+        },
+    };
+
     test.each(
         Object.keys(quarklyInfo.components).map((compName) => [compName])
     )('%s component renders correctly', (componentName) => {
