@@ -45,7 +45,7 @@ export default {
             },
             {
                 title: {
-                    en: 'Show only pages',
+                    en: 'Show only selected pages',
                     ru: 'Показать страницы',
                 },
                 value: FILTER_MODES.include,
