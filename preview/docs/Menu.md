@@ -10,23 +10,27 @@ Add the component to the page and change the value of the `Maximum nesting` prop
 
 ### In the interface
 
-| Prop name                |  Default  |     Example      |
-| :----------------------- | :-------: | :--------------: |
-| Maximum nesting          |    `1`    |       `5`        |
-| Root page                |  `root`   | `Your page name` |
-| Mark parent active items | `Checked` |   `Unchecked`    |
+| Prop name                      |   Default    |          Example           |
+| :----------------------------- | :----------: | :------------------------: |
+| Maximum nesting                |     `1`      |            `5`             |
+| Root page                      |    `root`    |      `Your page name`      |
+| Don't mark parent active items |  `Checked`   |        `Unchecked`         |
+| Filter mode                    | `Hide pages` | `Show only selected pages` |
+| Filter pages                   |     `[]`     |   `['/index', '/page']`    |
 
 ### In the code (for developers)
 
-| Prop name                |   Name in the code   |   Type    | Default |     Example      |
-| :----------------------- | :------------------: | :-------: | :-----: | :--------------: |
-| Maximum nesting          |       `depth`        | `string`  |   `1`   |       `5`        |
-| Root page                |       `rootId`       | `string`  | `root`  | `Your page name` |
-| Mark parent active items | `exact-active-match` | `boolean` | `true`  |     `false`      |
+| Prop name                      |   Name in the code   |   Type    |  Default  |     Example      |
+| :----------------------------- | :------------------: | :-------: | :-------: | :--------------: |
+| Maximum nesting                |       `depth`        | `string`  |    `1`    |       `5`        |
+| Root page                      |       `rootId`       | `string`  |  `root`   | `Your page name` |
+| Don't mark parent active items | `exact-active-match` | `boolean` |  `true`   |     `false`      |
+| Filter mode                    |     `filterMode`     |  `enum`   | `exclude` |    `include`     |
+| Filter pages                   |    `filterPages`     | `string`  |           |  `/index,/page`  |
 
 ## 🗄 GitHub
 
-[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Menu.js)
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Menu)
 
 ## 🗓 Changelog
 
