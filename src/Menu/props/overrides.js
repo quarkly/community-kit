@@ -22,9 +22,6 @@ export default {
         kind: 'Link',
         props: {
             color: '--primary',
-            'min-height': '20px',
-            'min-width': '20px',
-            display: 'block',
         },
     },
     'link-active': {
