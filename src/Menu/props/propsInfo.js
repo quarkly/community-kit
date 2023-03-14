@@ -38,7 +38,7 @@ export default {
         variants: [
             {
                 title: {
-                    en: 'Hide pages',
+                    en: 'Hide selected pages',
                     ru: 'Скрыть страницы',
                 },
                 value: FILTER_MODES.exclude,

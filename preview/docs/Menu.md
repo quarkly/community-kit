@@ -10,13 +10,13 @@ Add the component to the page and change the value of the `Maximum nesting` prop
 
 ### In the interface
 
-| Prop name                      |   Default    |          Example           |
-| :----------------------------- | :----------: | :------------------------: |
-| Maximum nesting                |     `1`      |            `5`             |
-| Root page                      |    `root`    |      `Your page name`      |
-| Don't mark parent active items |  `Checked`   |        `Unchecked`         |
-| Filter mode                    | `Hide pages` | `Show only selected pages` |
-| Filter pages                   |     `[]`     |   `['/index', '/page']`    |
+| Prop name                      |        Default        |          Example           |
+| :----------------------------- | :-------------------: | :------------------------: |
+| Maximum nesting                |          `1`          |            `5`             |
+| Root page                      |        `root`         |      `Your page name`      |
+| Don't mark parent active items |       `Checked`       |        `Unchecked`         |
+| Filter mode                    | `Hide selected pages` | `Show only selected pages` |
+| Filter pages                   |         `[]`          |   `['/index', '/page']`    |
 
 ### In the code (for developers)
 

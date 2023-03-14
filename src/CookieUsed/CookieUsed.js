@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Box, Button, Text } from '@quarkly/widgets';
+import { Box, Button, Text, useConstructorMode } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { getAPI } from '../utils';
 import storage from './utils/storage';
 import { overrides, propInfo, defaultProps } from './props';
 
 const CookieUsed = ({ variant, show: showFromProps, display, ...props }) => {
+    const mode = useConstructorMode();
     const isDev = getAPI().mode === 'development';
     const [show, setShow] = useState(false);
     const { override, rest } = useOverrides(props, overrides);
@@ -15,15 +16,17 @@ const CookieUsed = ({ variant, show: showFromProps, display, ...props }) => {
     }, []);
 
     const handleClick = useCallback(() => {
-        if (isDev) return;
-        storage.set(true);
+        if (mode === 'constructor') return;
         setShow(false);
-    }, [isDev]);
+        if (!isDev) {
+            storage.set(true);
+        }
+    }, [mode, isDev]);
 
     useEffect(() => {
         if (!isDev) return;
         setShow(showFromProps);
-    }, [showFromProps, isDev]);
+    }, [showFromProps, isDev, mode]);
 
     return (
         <Box
