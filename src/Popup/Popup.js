@@ -27,7 +27,11 @@ const PopupComponent = ({
     const contentRef = useRef();
     const mode = useConstructorMode();
 
-    useEffect(() => setOpen(onloadShow), [onloadShow]);
+    useEffect(() => {
+        setOpen(onloadShow);
+        const node = contentRef.current;
+        return () => toggleScroll.enable(node);
+    }, [onloadShow]);
 
     const popupTransition = useMemo(
         () =>
