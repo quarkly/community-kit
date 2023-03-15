@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export const FILTER_MODES = Object.freeze({
     exclude: 'exclude',
     include: 'include',
