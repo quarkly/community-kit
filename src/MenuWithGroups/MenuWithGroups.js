@@ -7,68 +7,8 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { useRouteMatch } from 'react-router-dom';
 import { useMatch } from '@reach/router';
-
-const overrides = {
-    List: {
-        kind: 'Ul',
-    },
-    Item: {
-        kind: 'Li',
-    },
-    'Sub Head': {
-        kind: 'Box',
-    },
-    'Sub Head Text': {
-        kind: 'Text',
-    },
-    'Sub Head Icon': {
-        kind: 'Icon',
-    },
-    'Sub Head Icon :open': {
-        props: {
-            transform: 'rotate(0deg)',
-        },
-    },
-    'Sub Head Icon :closed': {
-        props: {
-            transform: 'rotate(-90deg)',
-        },
-    },
-    'Sub Body': {
-        kind: 'Box',
-    },
-    'Sub Body :open': {
-        props: {
-            display: 'block',
-        },
-    },
-    'Sub Body :closed': {
-        props: {
-            display: 'none',
-        },
-    },
-    Link: {
-        kind: 'Link',
-        props: {
-            color: '--primary',
-        },
-    },
-    'Link :active': {
-        props: {
-            color: '--secondary',
-        },
-    },
-};
-
-const getAPI = () => {
-    if (typeof window !== 'undefined') {
-        return window.QAPI || {};
-    }
-    if (typeof global !== 'undefined') {
-        return global.QAPI || {};
-    }
-    return {};
-};
+import { getAPI } from '../utils';
+import { overrides, defaultProps } from './props';
 
 const getParent = (pages, pageId) => {
     if (!pageId || !pages[pageId]) return null;
@@ -380,12 +320,6 @@ const propInfo = {
         ],
         weight: 1,
     },
-};
-
-const defaultProps = {
-    rootId: 'root',
-    depth: 10,
-    tabState: 'expandActive',
 };
 
 Object.assign(MenuWithGroups, {
