@@ -11,15 +11,6 @@ import { getAPI } from '../utils';
 import { overrides, propInfo, defaultProps } from './props';
 import { PageTreeNode } from '../Menu/utils';
 
-const getParent = (pages, pageId) => {
-    if (!pageId || !pages[pageId]) return null;
-
-    return Object.values(pages).find(
-        ({ children = [] }) =>
-            children && Array.isArray(children) && children.includes(pageId)
-    );
-};
-
 const Ul = atomize.ul();
 const Li = atomize.li();
 
@@ -189,24 +180,8 @@ const Item = ({ common, item }) => {
     );
 };
 
-const List = ({
-    rootId,
-    path,
-    pages,
-    depth,
-    expand,
-    level = 0,
-    tabState,
-    tree,
-    override,
-    ...rest
-}) => {
-    // const rootPage = pages?.[rootId];
+const List = ({ rootId, tabState, tree, override, ...rest }) => {
     const common = {
-        pages,
-        depth,
-        expand,
-        level: level + 1,
         tabState,
         override,
     };
@@ -215,7 +190,7 @@ const List = ({
     return (
         <Ul padding="0" list-style="none" {...rest}>
             {list.map((item) => (
-                <Item key={item.id} path={path} common={common} item={item} />
+                <Item key={item.id} common={common} item={item} />
             ))}
         </Ul>
     );
@@ -224,7 +199,6 @@ const List = ({
 const MenuWithGroups = ({
     depth,
     rootId,
-    expand,
     tabState,
     filterMode,
     filterPages: origFilterPages,
@@ -233,17 +207,6 @@ const MenuWithGroups = ({
     const { override, rest } = useOverrides(props, overrides, defaultProps);
     const pages = getAPI().pages || {};
 
-    let path = [];
-
-    if (rootId !== 'root') {
-        let parent = pages[rootId];
-
-        while (parent && parent.id !== 'root') {
-            path = [parent.pageUrl, ...path];
-            parent = getParent(pages, parent?.id);
-        }
-    }
-
     const filterPages =
         origFilterPages?.length > 0 ? origFilterPages.split(',') : [];
 
@@ -251,8 +214,6 @@ const MenuWithGroups = ({
         .findSubtreeByUrl(rootId)
         .filterByPages(filterMode, filterPages)
         .truncate(depth);
-
-    console.log(tree, pages);
 
     return (
         <List
@@ -263,10 +224,6 @@ const MenuWithGroups = ({
             z-index="10"
             tree={tree}
             rootId={rootId}
-            path={path}
-            pages={pages}
-            depth={depth}
-            expand={expand}
             tabState={tabState}
             override={override}
             {...rest}
