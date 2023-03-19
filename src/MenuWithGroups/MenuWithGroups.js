@@ -62,7 +62,8 @@ const Sub = ({ common, item, other }) => {
                         'Sub Head Text',
                         match && 'Sub Head Text :active',
                         `Sub Head Text ${subOpenStatus}`,
-                        `Sub Head Text-${pageUrl}`
+                        `Sub Head Text-${pageUrl}`,
+                        { defaultKey: `Sub Head Text-${pageUrl}` }
                     )}
                 >
                     {override(`Sub Head Text-${pageUrl}`).children ||
@@ -100,7 +101,8 @@ const Sub = ({ common, item, other }) => {
                         'Link',
                         `Link-${pageUrl}`,
                         match && 'Link :active',
-                        `Link ${subOpenStatus}`
+                        `Link ${subOpenStatus}`,
+                        { defaultKey: `Link-${pageUrl}` }
                     )}
                 >
                     {override(`Link-${pageUrl}`).children || name}
@@ -170,7 +172,8 @@ const Item = ({ common, item }) => {
                     {...override(
                         'Link',
                         `Link-${pageUrl}`,
-                        match && 'Link :active'
+                        match && 'Link :active',
+                        { defaultKey: `Link-${pageUrl}` }
                     )}
                 >
                     {override(`Link-${pageUrl}`).children || name}
