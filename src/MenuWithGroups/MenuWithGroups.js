@@ -9,6 +9,7 @@ import { useRouteMatch } from 'react-router-dom';
 import { useMatch } from '@reach/router';
 import { getAPI } from '../utils';
 import { overrides, propInfo, defaultProps } from './props';
+import { PageTreeNode } from '../Menu/utils';
 
 const getParent = (pages, pageId) => {
     if (!pageId || !pages[pageId]) return null;
@@ -25,7 +26,7 @@ const Li = atomize.li();
 const Sub = ({ common, item, other }) => {
     const { tabState, override } = common;
     const { id, name, pageUrl } = item;
-    const { pagePath, href, match, expanded } = other;
+    const { href, match, expanded } = other;
 
     const isClickable = tabState !== 'keepExpanded';
     const isSubOpenForce =
@@ -116,8 +117,8 @@ const Sub = ({ common, item, other }) => {
                 <List
                     list-style="none"
                     rootId={id}
-                    path={pagePath}
                     {...common}
+                    tree={item}
                     {...override(
                         'List',
                         `List-${pageUrl}`,
@@ -130,22 +131,15 @@ const Sub = ({ common, item, other }) => {
     );
 };
 
-const Item = ({ path, common, item }) => {
-    const { mode, projectType } = getAPI();
-    const { depth, level, tabState, override } = common;
-    const { name, pageUrl, children } = item;
+const Item = ({ common, item }) => {
+    const { projectType } = getAPI();
+    const { tabState, override } = common;
+    const { name, pageUrl } = item;
 
-    const hasSub = !!(children && children.length && level < depth);
+    const hasSub = !!item?.children?.length;
     const expand = tabState === 'expandActive';
 
-    const pagePath = [
-        ...path,
-        mode === 'production' && pageUrl === 'index' ? '' : pageUrl,
-    ];
-    const href =
-        pagePath[0] === '/'
-            ? `${pagePath.join('/')}`
-            : `/${pagePath.join('/')}`;
+    const href = item.absoluteUrl;
 
     let match = null;
     let expanded = false;
@@ -162,12 +156,10 @@ const Item = ({ path, common, item }) => {
         <Li {...override('Item', `Item-${pageUrl}`, match && 'Item :active')}>
             {hasSub ? (
                 <Sub
-                    path={path}
                     common={common}
                     item={item}
                     other={{
                         projectType,
-                        pagePath,
                         href,
                         match,
                         expanded,
@@ -205,10 +197,11 @@ const List = ({
     expand,
     level = 0,
     tabState,
+    tree,
     override,
     ...rest
 }) => {
-    const rootPage = pages?.[rootId];
+    // const rootPage = pages?.[rootId];
     const common = {
         pages,
         depth,
@@ -217,7 +210,7 @@ const List = ({
         tabState,
         override,
     };
-    const list = rootPage?.children?.map((id) => pages[id]) ?? [];
+    const list = tree?.children ?? [];
 
     return (
         <Ul padding="0" list-style="none" {...rest}>
@@ -228,7 +221,15 @@ const List = ({
     );
 };
 
-const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
+const MenuWithGroups = ({
+    depth,
+    rootId,
+    expand,
+    tabState,
+    filterMode,
+    filterPages: origFilterPages,
+    ...props
+}) => {
     const { override, rest } = useOverrides(props, overrides, defaultProps);
     const pages = getAPI().pages || {};
 
@@ -243,6 +244,16 @@ const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
         }
     }
 
+    const filterPages =
+        origFilterPages?.length > 0 ? origFilterPages.split(',') : [];
+
+    const tree = PageTreeNode.fromPages(pages)
+        .findSubtreeByUrl(rootId)
+        .filterByPages(filterMode, filterPages)
+        .truncate(depth);
+
+    console.log(tree, pages);
+
     return (
         <List
             user-select="none"
@@ -250,6 +261,7 @@ const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
             display="flex"
             position="relative"
             z-index="10"
+            tree={tree}
             rootId={rootId}
             path={path}
             pages={pages}

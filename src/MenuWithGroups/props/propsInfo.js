@@ -1,3 +1,5 @@
+import { FILTER_MODES } from '../../Menu/utils';
+
 export default {
     depth: {
         title: {
@@ -14,7 +16,7 @@ export default {
             en: 'Root page',
             ru: 'Корневая страница',
         },
-        control: 'href',
+        control: 'page',
         category: 'Main',
         weight: 1,
     },
@@ -54,6 +56,41 @@ export default {
                 value: 'keepExpanded',
             },
         ],
+        weight: 1,
+    },
+    filterMode: {
+        title: {
+            en: 'Filter mode',
+            ru: 'Режим фильтрации',
+        },
+        control: 'radio-group',
+        variants: [
+            {
+                title: {
+                    en: 'Hide selected pages',
+                    ru: 'Скрыть страницы',
+                },
+                value: FILTER_MODES.exclude,
+            },
+            {
+                title: {
+                    en: 'Show only selected pages',
+                    ru: 'Показать страницы',
+                },
+                value: FILTER_MODES.include,
+            },
+        ],
+        category: 'Pages',
+        weight: 1,
+    },
+    filterPages: {
+        title: {
+            en: 'Filter pages',
+            ru: 'Список страниц',
+        },
+        control: 'page',
+        multiply: true,
+        category: 'Pages',
         weight: 1,
     },
 };

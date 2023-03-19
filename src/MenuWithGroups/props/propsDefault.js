@@ -1,5 +1,8 @@
+import { FILTER_MODES } from '../../Menu/utils';
+
 export default {
-    rootId: 'root',
+    rootId: '',
     depth: 10,
     tabState: 'expandActive',
+    filterMode: FILTER_MODES.exclude,
 };

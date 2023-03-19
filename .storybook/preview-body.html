@@ -1,0 +1,38 @@
+<script>
+    window.QAPI = {
+        pages: {
+            root: {
+                id: 'root',
+                pageUrl: 'root',
+                name: 'root',
+                children: ['404id', 'indexid', 'test'],
+            },
+            '404id': {
+                id: '404id',
+                name: '404',
+                pageUrl: '404',
+            },
+            indexid: {
+                id: 'indexid',
+                name: 'index',
+                pageUrl: 'index',
+            },
+            test: {
+                id: 'test',
+                name: 'test',
+                pageUrl: 'test',
+                children: ['a', 'b']
+            },
+            a: {
+                id: 'a',
+                name: 'a',
+                pageUrl: 'a',
+            },
+            b: {
+                id: 'b',
+                name: 'b',
+                pageUrl: 'b',
+            }
+        },
+    }
+</script>
