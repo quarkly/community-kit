@@ -52,7 +52,10 @@ const Sub = ({ common, item, other }) => {
                     'Sub Head',
                     `Sub Head-${pageUrl}`,
                     match && 'Sub Head :active',
-                    `Sub Head ${subOpenStatus}`
+                    `Sub Head ${subOpenStatus}`,
+                    {
+                        defaultKey: `Sub Head-${pageUrl}`,
+                    }
                 )}
             >
                 <Text
@@ -78,7 +81,10 @@ const Sub = ({ common, item, other }) => {
                             'Sub Head Icon',
                             `Sub Head Icon-${pageUrl}`,
                             match && 'Sub Head Icon :active',
-                            `Sub Head Icon ${subOpenStatus}`
+                            `Sub Head Icon ${subOpenStatus}`,
+                            {
+                                defaultKey: `Sub Head Icon-${pageUrl}`,
+                            }
                         )}
                     />
                 )}
@@ -89,7 +95,10 @@ const Sub = ({ common, item, other }) => {
                     'Sub Body',
                     `Sub Body-${pageUrl}`,
                     match && 'Sub Body :active',
-                    `Sub Body ${subOpenStatus}`
+                    `Sub Body ${subOpenStatus}`,
+                    {
+                        defaultKey: `Sub Body-${pageUrl}`,
+                    }
                 )}
             >
                 <Link
@@ -116,7 +125,10 @@ const Sub = ({ common, item, other }) => {
                         'List',
                         `List-${pageUrl}`,
                         match && 'List :active',
-                        `List ${subOpenStatus}`
+                        `List ${subOpenStatus}`,
+                        {
+                            defaultKey: `List-${pageUrl}`,
+                        }
                     )}
                 />
             </Box>
@@ -146,7 +158,11 @@ const Item = ({ common, item }) => {
     }
 
     return (
-        <Li {...override('Item', `Item-${pageUrl}`, match && 'Item :active')}>
+        <Li
+            {...override('Item', `Item-${pageUrl}`, match && 'Item :active', {
+                defaultKey: `Item-${pageUrl}`,
+            })}
+        >
             {hasSub ? (
                 <Sub
                     common={common}
@@ -160,7 +176,8 @@ const Item = ({ common, item }) => {
                     {...override(
                         'Sub',
                         `Sub-${pageUrl}`,
-                        match && 'Sub :active'
+                        match && 'Sub :active',
+                        { defaultKey: `Sub-${pageUrl}` }
                     )}
                 />
             ) : (
