@@ -19,6 +19,7 @@ export default {
             { title: 'Scale', value: 'scale' },
             { title: 'Real size', value: 'real' },
         ],
+        weight: 1,
     },
     duration: {
         title: {

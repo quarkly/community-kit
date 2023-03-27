@@ -230,6 +230,10 @@ const ImageViewer = ({
                     {...override('Icon', 'Icon :close', {
                         defaultKey: 'Icon :close',
                     })}
+                    style={{
+                        opacity: isOpen ? 1 : 0,
+                        pointerEvents: !isOpen && 'none',
+                    }}
                 />
             </Button>
             {showCaption && (
