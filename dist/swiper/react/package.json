@@ -1,0 +1,7 @@
+{
+  "name": "swiper/react",
+  "private": true,
+  "main": "../cjs/react/swiper-react.js",
+  "typings": "./swiper-react.d.ts",
+  "sideEffects": false
+}

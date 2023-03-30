@@ -1,0 +1,7 @@
+{
+  "name": "swiper/grid",
+  "private": true,
+  "sideEffects": false,
+  "main": "../../cjs/modules/grid/grid.js",
+  "module": "../../esm/modules/grid/grid.js"
+}

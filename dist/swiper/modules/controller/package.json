@@ -1,0 +1,7 @@
+{
+  "name": "swiper/controller",
+  "private": true,
+  "sideEffects": false,
+  "main": "../../cjs/modules/controller/controller.js",
+  "module": "../../esm/modules/controller/controller.js"
+}

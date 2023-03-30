@@ -1,0 +1,7 @@
+{
+  "name": "swiper/effect-fade",
+  "private": true,
+  "sideEffects": false,
+  "main": "../../cjs/modules/effect-fade/effect-fade.js",
+  "module": "../../esm/modules/effect-fade/effect-fade.js"
+}

@@ -51,4 +51,9 @@ module.exports = {
         'consistent-return': 0,
         'react/jsx-props-no-spreading': 0,
     },
+    settings: {
+        'import/resolver': {
+            'babel-module': {},
+        },
+    },
 };

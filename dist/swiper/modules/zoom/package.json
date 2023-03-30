@@ -1,0 +1,7 @@
+{
+  "name": "swiper/zoom",
+  "private": true,
+  "sideEffects": false,
+  "main": "../../cjs/modules/zoom/zoom.js",
+  "module": "../../esm/modules/zoom/zoom.js"
+}

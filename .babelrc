@@ -1,1 +1,16 @@
-{"presets":["@babel/preset-env","@babel/preset-react"]}
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "ignore": [
+    "dist/**"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "swiper": "./dist/swiper"
+        }
+      }
+    ]
+  ]
+}

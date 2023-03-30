@@ -1,0 +1,7 @@
+{
+  "name": "swiper/lazy",
+  "private": true,
+  "sideEffects": false,
+  "main": "../../cjs/modules/lazy/lazy.js",
+  "module": "../../esm/modules/lazy/lazy.js"
+}

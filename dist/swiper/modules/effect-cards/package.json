@@ -1,0 +1,7 @@
+{
+  "name": "swiper/effect-cards",
+  "private": true,
+  "sideEffects": false,
+  "main": "../../cjs/modules/effect-cards/effect-cards.js",
+  "module": "../../esm/modules/effect-cards/effect-cards.js"
+}

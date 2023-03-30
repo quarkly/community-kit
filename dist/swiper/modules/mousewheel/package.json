@@ -1,0 +1,7 @@
+{
+  "name": "swiper/mousewheel",
+  "private": true,
+  "sideEffects": false,
+  "main": "../../cjs/modules/mousewheel/mousewheel.js",
+  "module": "../../esm/modules/mousewheel/mousewheel.js"
+}

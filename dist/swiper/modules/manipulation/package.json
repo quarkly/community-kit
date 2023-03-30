@@ -1,0 +1,7 @@
+{
+  "name": "swiper/manipulation",
+  "private": true,
+  "sideEffects": false,
+  "main": "../../cjs/modules/manipulation/manipulation.js",
+  "module": "../../esm/modules/manipulation/manipulation.js"
+}

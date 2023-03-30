@@ -1,0 +1,7 @@
+{
+  "name": "swiper/effect-creative",
+  "private": true,
+  "sideEffects": false,
+  "main": "../../cjs/modules/effect-creative/effect-creative.js",
+  "module": "../../esm/modules/effect-creative/effect-creative.js"
+}
