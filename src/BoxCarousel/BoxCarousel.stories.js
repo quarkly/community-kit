@@ -69,7 +69,7 @@ export const StoryWithContent = (props) => (
                         lobortis nibh lacinia at
                     </Text>
                     <Button grid-column="1" grid-row="2">
-                        Let's go!
+                        Let&apos;s go!
                     </Button>
                     <Button grid-column="2" grid-row="2">
                         Read about

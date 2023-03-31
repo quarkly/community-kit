@@ -1,10 +1,10 @@
 import { Icon, Button } from '@quarkly/widgets';
 import React, { forwardRef, useCallback, useRef } from 'react';
 import { useBoxCarouselData } from '../../contexts/BoxCarouselData';
-import { useSubscribe } from '../../hooks';
+import useSubscribe from '../../hooks/useSubscribe';
 
 // eslint-disable-next-line react/display-name
-const Arrow = forwardRef(({ direction, ...props }, r) => {
+const Arrow = forwardRef(({ direction, ...props }) => {
     const ref = useRef();
 
     const { override, swiper } = useBoxCarouselData();
@@ -17,7 +17,7 @@ const Arrow = forwardRef(({ direction, ...props }, r) => {
         if (arrow) {
             arrow.disabled = false;
         }
-    }, []);
+    }, [direction]);
 
     useSubscribe(swiper, 'destroy', onDestroy);
 
