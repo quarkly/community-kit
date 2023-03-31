@@ -14,7 +14,7 @@ const useCSS = () => {
 
             Object.assign(styleTag, {
                 rel: 'stylesheet',
-                href: 'https://unpkg.com/swiper@8.1.4/swiper-bundle.min.css',
+                href: 'https://unpkg.com/swiper@8.4.7/swiper-bundle.min.css',
             });
         } else if (styleTag.getAttribute('data-status')) {
             setState({
