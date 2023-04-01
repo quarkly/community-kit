@@ -7,77 +7,9 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 import { useRouteMatch } from 'react-router-dom';
 import { useMatch } from '@reach/router';
-
-const overrides = {
-    List: {
-        kind: 'Ul',
-    },
-    Item: {
-        kind: 'Li',
-    },
-    'Sub Head': {
-        kind: 'Box',
-    },
-    'Sub Head Text': {
-        kind: 'Text',
-    },
-    'Sub Head Icon': {
-        kind: 'Icon',
-    },
-    'Sub Head Icon :open': {
-        props: {
-            transform: 'rotate(0deg)',
-        },
-    },
-    'Sub Head Icon :closed': {
-        props: {
-            transform: 'rotate(-90deg)',
-        },
-    },
-    'Sub Body': {
-        kind: 'Box',
-    },
-    'Sub Body :open': {
-        props: {
-            display: 'block',
-        },
-    },
-    'Sub Body :closed': {
-        props: {
-            display: 'none',
-        },
-    },
-    Link: {
-        kind: 'Link',
-        props: {
-            color: '--primary',
-        },
-    },
-    'Link :active': {
-        props: {
-            color: '--secondary',
-        },
-    },
-};
-
-const getAPI = () => {
-    if (typeof window !== 'undefined') {
-        return window.QAPI || {};
-    }
-    if (typeof global !== 'undefined') {
-        return global.QAPI || {};
-    }
-    return {};
-};
-
-const getParent = (pages, pageId) => {
-    if (!pageId || !pages[pageId]) return null;
-
-    return Object.values(pages).find(
-        ({ children = [] }) =>
-            children && Array.isArray(children) && children.includes(pageId)
-    );
-};
+import { getAPI } from '../utils';
+import { overrides, propInfo, defaultProps } from './props';
+import { PageTreeNode } from '../Menu/utils';
 
 const Ul = atomize.ul();
 const Li = atomize.li();
@@ -85,7 +17,7 @@ const Li = atomize.li();
 const Sub = ({ common, item, other }) => {
     const { tabState, override } = common;
     const { id, name, pageUrl } = item;
-    const { pagePath, href, match, expanded } = other;
+    const { href, match, expanded } = other;
 
     const isClickable = tabState !== 'keepExpanded';
     const isSubOpenForce =
@@ -120,7 +52,10 @@ const Sub = ({ common, item, other }) => {
                     'Sub Head',
                     `Sub Head-${pageUrl}`,
                     match && 'Sub Head :active',
-                    `Sub Head ${subOpenStatus}`
+                    `Sub Head ${subOpenStatus}`,
+                    {
+                        defaultKey: `Sub Head-${pageUrl}`,
+                    }
                 )}
             >
                 <Text
@@ -130,7 +65,8 @@ const Sub = ({ common, item, other }) => {
                         'Sub Head Text',
                         match && 'Sub Head Text :active',
                         `Sub Head Text ${subOpenStatus}`,
-                        `Sub Head Text-${pageUrl}`
+                        `Sub Head Text-${pageUrl}`,
+                        { defaultKey: `Sub Head Text-${pageUrl}` }
                     )}
                 >
                     {override(`Sub Head Text-${pageUrl}`).children ||
@@ -145,7 +81,10 @@ const Sub = ({ common, item, other }) => {
                             'Sub Head Icon',
                             `Sub Head Icon-${pageUrl}`,
                             match && 'Sub Head Icon :active',
-                            `Sub Head Icon ${subOpenStatus}`
+                            `Sub Head Icon ${subOpenStatus}`,
+                            {
+                                defaultKey: `Sub Head Icon-${pageUrl}`,
+                            }
                         )}
                     />
                 )}
@@ -156,7 +95,10 @@ const Sub = ({ common, item, other }) => {
                     'Sub Body',
                     `Sub Body-${pageUrl}`,
                     match && 'Sub Body :active',
-                    `Sub Body ${subOpenStatus}`
+                    `Sub Body ${subOpenStatus}`,
+                    {
+                        defaultKey: `Sub Body-${pageUrl}`,
+                    }
                 )}
             >
                 <Link
@@ -168,7 +110,8 @@ const Sub = ({ common, item, other }) => {
                         'Link',
                         `Link-${pageUrl}`,
                         match && 'Link :active',
-                        `Link ${subOpenStatus}`
+                        `Link ${subOpenStatus}`,
+                        { defaultKey: `Link-${pageUrl}` }
                     )}
                 >
                     {override(`Link-${pageUrl}`).children || name}
@@ -176,13 +119,16 @@ const Sub = ({ common, item, other }) => {
                 <List
                     list-style="none"
                     rootId={id}
-                    path={pagePath}
                     {...common}
+                    tree={item}
                     {...override(
                         'List',
                         `List-${pageUrl}`,
                         match && 'List :active',
-                        `List ${subOpenStatus}`
+                        `List ${subOpenStatus}`,
+                        {
+                            defaultKey: `List-${pageUrl}`,
+                        }
                     )}
                 />
             </Box>
@@ -190,22 +136,15 @@ const Sub = ({ common, item, other }) => {
     );
 };
 
-const Item = ({ path, common, item }) => {
-    const { mode, projectType } = getAPI();
-    const { depth, level, tabState, override } = common;
-    const { name, pageUrl, children } = item;
+const Item = ({ common, item }) => {
+    const { projectType } = getAPI();
+    const { tabState, override } = common;
+    const { name, pageUrl } = item;
 
-    const hasSub = !!(children && children.length && level < depth);
+    const hasSub = !!item?.children?.length;
     const expand = tabState === 'expandActive';
 
-    const pagePath = [
-        ...path,
-        mode === 'production' && pageUrl === 'index' ? '' : pageUrl,
-    ];
-    const href =
-        pagePath[0] === '/'
-            ? `${pagePath.join('/')}`
-            : `/${pagePath.join('/')}`;
+    const href = item.absoluteUrl;
 
     let match = null;
     let expanded = false;
@@ -219,15 +158,17 @@ const Item = ({ path, common, item }) => {
     }
 
     return (
-        <Li {...override('Item', `Item-${pageUrl}`, match && 'Item :active')}>
+        <Li
+            {...override('Item', `Item-${pageUrl}`, match && 'Item :active', {
+                defaultKey: `Item-${pageUrl}`,
+            })}
+        >
             {hasSub ? (
                 <Sub
-                    path={path}
                     common={common}
                     item={item}
                     other={{
                         projectType,
-                        pagePath,
                         href,
                         match,
                         expanded,
@@ -235,7 +176,8 @@ const Item = ({ path, common, item }) => {
                     {...override(
                         'Sub',
                         `Sub-${pageUrl}`,
-                        match && 'Sub :active'
+                        match && 'Sub :active',
+                        { defaultKey: `Sub-${pageUrl}` }
                     )}
                 />
             ) : (
@@ -247,7 +189,8 @@ const Item = ({ path, common, item }) => {
                     {...override(
                         'Link',
                         `Link-${pageUrl}`,
-                        match && 'Link :active'
+                        match && 'Link :active',
+                        { defaultKey: `Link-${pageUrl}` }
                     )}
                 >
                     {override(`Link-${pageUrl}`).children || name}
@@ -257,51 +200,40 @@ const Item = ({ path, common, item }) => {
     );
 };
 
-const List = ({
-    rootId,
-    path,
-    pages,
-    depth,
-    expand,
-    level = 0,
-    tabState,
-    override,
-    ...rest
-}) => {
-    const rootPage = pages?.[rootId];
+const List = ({ rootId, tabState, tree, override, ...rest }) => {
     const common = {
-        pages,
-        depth,
-        expand,
-        level: level + 1,
         tabState,
         override,
     };
-    const list = rootPage?.children?.map((id) => pages[id]) ?? [];
+    const list = tree?.children ?? [];
 
     return (
         <Ul padding="0" list-style="none" {...rest}>
             {list.map((item) => (
-                <Item key={item.id} path={path} common={common} item={item} />
+                <Item key={item.id} common={common} item={item} />
             ))}
         </Ul>
     );
 };
 
-const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
+const MenuWithGroups = ({
+    depth,
+    rootId,
+    tabState,
+    filterMode,
+    filterPages: origFilterPages,
+    ...props
+}) => {
     const { override, rest } = useOverrides(props, overrides, defaultProps);
     const pages = getAPI().pages || {};
 
-    let path = [];
+    const filterPages =
+        origFilterPages?.length > 0 ? origFilterPages.split(',') : [];
 
-    if (rootId !== 'root') {
-        let parent = pages[rootId];
-
-        while (parent && parent.id !== 'root') {
-            path = [parent.pageUrl, ...path];
-            parent = getParent(pages, parent?.id);
-        }
-    }
+    const tree = PageTreeNode.fromPages(pages)
+        .findSubtreeByUrl(rootId)
+        .filterByPages(filterMode, filterPages)
+        .truncate(depth);
 
     return (
         <List
@@ -310,82 +242,13 @@ const MenuWithGroups = ({ depth, rootId, expand, tabState, ...props }) => {
             display="flex"
             position="relative"
             z-index="10"
+            tree={tree}
             rootId={rootId}
-            path={path}
-            pages={pages}
-            depth={depth}
-            expand={expand}
             tabState={tabState}
             override={override}
             {...rest}
         />
     );
-};
-
-const propInfo = {
-    depth: {
-        title: {
-            en: 'Maximum nesting',
-            ru: 'Максимальная вложенность',
-        },
-        control: 'input',
-        type: 'number',
-        category: 'Main',
-        weight: 1,
-    },
-    rootId: {
-        title: {
-            en: 'Root page',
-            ru: 'Корневая страница',
-        },
-        control: 'href',
-        category: 'Main',
-        weight: 1,
-    },
-    tabState: {
-        title: {
-            en: 'Condition of groups by default',
-            ru: 'Состояние групп по умолчанию',
-        },
-        control: 'select',
-        variants: [
-            {
-                title: {
-                    en: 'Collapse all groups',
-                    ru: 'Свернуть все группы',
-                },
-                value: 'collapseAll',
-            },
-            {
-                title: {
-                    en: 'Expand before the active menu item',
-                    ru: 'Раскрыть перед активным пунктом',
-                },
-                value: 'expandActive',
-            },
-            {
-                title: {
-                    en: 'Expand all groups',
-                    ru: 'Раскрыть все группы',
-                },
-                value: 'expandAll',
-            },
-            {
-                title: {
-                    en: 'Keep all tabs open',
-                    ru: 'Держать все вкладки раскрытыми',
-                },
-                value: 'keepExpanded',
-            },
-        ],
-        weight: 1,
-    },
-};
-
-const defaultProps = {
-    rootId: 'root',
-    depth: 10,
-    tabState: 'expandActive',
 };
 
 Object.assign(MenuWithGroups, {
