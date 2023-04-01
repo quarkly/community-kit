@@ -160,7 +160,8 @@
       "TabsFullButton": "TabsFullButton",
       "TabsFullContent": "TabsFullContent",
       "TabsFullHead": "TabsFullHead",
-      "Marquee": "Marquee"
+      "Marquee": "Marquee",
+      "ImageViewer": "ImageViewer"
     }
   },
   "quarklyInfoDeleted": {
