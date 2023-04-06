@@ -62,11 +62,23 @@ const BoxCarousel = ({
     const key = `${infinityMode}${showArrows}${draggable}${keyboardControl}${effect}`;
 
     return (
-        <Box position="relative" {...rest}>
+        <Box
+            position="relative"
+            display="flex"
+            flex-direction="column"
+            height="500px"
+            min-height="200px"
+            {...rest}
+        >
             <BoxCarouselDataProvider
                 value={{ ChildPlaceholder, override, swiper, slidesCount }}
             >
-                <Box position="relative" display="flex" {...hoverCallbacks}>
+                <Box
+                    position="relative"
+                    display="flex"
+                    flex-grow="1"
+                    {...hoverCallbacks}
+                >
                     {showArrows !== navigationType.none && (
                         <Box
                             {...override(
@@ -97,7 +109,6 @@ const BoxCarousel = ({
                         allowTouchMove={draggable}
                         loop={infinityMode}
                         keyboard={keyboardControl}
-                        height="400px"
                     >
                         {[...Array(slidesCount)].map((_, index) => (
                             <Slide
