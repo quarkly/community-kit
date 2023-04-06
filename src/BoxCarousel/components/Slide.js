@@ -45,7 +45,7 @@ const Slide = ({ index, swiper, slidesAs, className, ...props }) => {
     const isActive = slideClasses.includes('swiper-slide-active');
     const isDuplicate = slideClasses.includes('swiper-slide-duplicate');
 
-    const uniqueOverride = `Slide ${props['data-swiper-slide-index']}`;
+    const uniqueOverride = `Slide ${index}`;
 
     const mode = useConstructorMode();
 
@@ -80,17 +80,9 @@ const Slide = ({ index, swiper, slidesAs, className, ...props }) => {
     );
 };
 
-// {!hideSlide && <ChildPlaceholder slot={uniqueOverride} />}
-
 Object.assign(Slide, {
     displayName: 'SwiperSlide',
-    title: 'BoxCarousel',
-    description: {
-        en:
-            'This component is a counter that increases or decreases to a certain value',
-        ru:
-            'Компонент представляет из себя счетчик, который увеличивается или уменьшается до определенного значения',
-    },
+    title: 'Slide',
     propInfo: {},
     defaultProps: {},
 });
