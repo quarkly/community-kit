@@ -1,4 +1,5 @@
 import { Navigation, Pagination, Keyboard, EffectFade, Autoplay } from 'swiper';
+import { paginationType } from '../components/pagination/constants';
 
 const getModules = ({
     effect,
@@ -12,7 +13,7 @@ const getModules = ({
         modules.push(Navigation);
     }
 
-    if (showPagination) {
+    if (showPagination && showPagination !== paginationType.none) {
         modules.push(Pagination);
     }
 

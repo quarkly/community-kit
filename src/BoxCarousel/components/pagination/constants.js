@@ -23,9 +23,10 @@ const inTypes = [
 ];
 
 export const isPaginationIn = (type) => {
-    if (inTypes.includes(type)) {
+    if (type === paginationType.none || inTypes.includes(type)) {
         return true;
     }
+    return false;
 };
 
 export const isProgress = (type) => {
