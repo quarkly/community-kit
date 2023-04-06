@@ -109,6 +109,7 @@ const BoxCarousel = ({
                         allowTouchMove={draggable}
                         loop={infinityMode}
                         keyboard={keyboardControl}
+                        fadeEffect={{ crossFade: true }}
                     >
                         {[...Array(slidesCount)].map((_, index) => (
                             <Slide
