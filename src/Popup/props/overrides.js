@@ -94,6 +94,7 @@ export default {
             top: '0',
             right: '0',
             padding: '8px',
+            'box-sizing': 'content-box',
             background: 'none',
             'user-select': 'none',
             cursor: 'pointer',
