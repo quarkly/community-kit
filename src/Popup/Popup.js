@@ -98,11 +98,11 @@ const PopupComponent = ({
                     <PopupContext.Provider value={context}>
                         <Box {...override('Content')} ref={contentRef}>
                             {children}
+                            {isEmpty && (
+                                <ComponentNotice message="Drag any component here" />
+                            )}
                         </Box>
                     </PopupContext.Provider>
-                    {isEmpty && (
-                        <ComponentNotice message="Drag any component here" />
-                    )}
                 </Box>
             </Box>
         </Box>
