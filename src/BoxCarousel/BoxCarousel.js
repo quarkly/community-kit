@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
 
+import styled from 'styled-components';
 import Swiper from './components/Swiper';
 import Slide from './components/Slide';
 import { BoxCarouselDataProvider } from './contexts/BoxCarouselData';
@@ -19,10 +20,18 @@ import { navigationType } from './components/navigation/constants';
 
 import { getModules, convertCssTimingToMs } from './utils';
 import { propInfo, defaultProps, overrides } from './props';
+import { getNumber } from '../utils';
+
+const SwiperBox = styled(Box)`
+    & .swiper-wrapper {
+        transition-timing-function: ${(props) =>
+            props.swiperTransitionTimingFunction};
+    }
+`;
 
 const BoxCarousel = ({
     effect,
-    slidesProp,
+    slidesCount: slidesProp,
     slidesAs,
     showArrows,
     showPagination,
@@ -33,6 +42,8 @@ const BoxCarousel = ({
     autoPlay: autoPlayEnabled,
     autoPlaySpeed,
     autoPlayHoverPause,
+    animDuration: animDurationProp,
+    animFunction,
     ...props
 }) => {
     useCSS();
@@ -44,7 +55,13 @@ const BoxCarousel = ({
 
     const [swiper, setSwiper] = useState(null);
 
-    const slidesCount = parseInt(slidesProp, 10);
+    const slidesCount = getNumber(
+        slidesProp,
+        defaultProps.slidesCount,
+        (x) => x > 0
+    );
+
+    const animDuration = convertCssTimingToMs(animDurationProp);
 
     const [navigation, Navigation] = useNavigationModule(showArrows);
     const [Pagination] = usePaginationModule(showPagination);
@@ -62,12 +79,13 @@ const BoxCarousel = ({
     const key = `${infinityMode}${showArrows}${draggable}${keyboardControl}${effect}`;
 
     return (
-        <Box
+        <SwiperBox
             position="relative"
             display="flex"
             flex-direction="column"
             height="500px"
             min-height="200px"
+            swiperTransitionTimingFunction={animFunction}
             {...rest}
         >
             <BoxCarouselDataProvider
@@ -109,6 +127,7 @@ const BoxCarousel = ({
                         allowTouchMove={draggable}
                         loop={infinityMode}
                         keyboard={keyboardControl}
+                        speed={animDuration}
                         fadeEffect={{ crossFade: true }}
                     >
                         {[...Array(slidesCount)].map((_, index) => (
@@ -155,7 +174,7 @@ const BoxCarousel = ({
                     />
                 </Box>
             </BoxCarouselDataProvider>
-        </Box>
+        </SwiperBox>
     );
 };
 

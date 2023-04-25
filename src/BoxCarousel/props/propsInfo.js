@@ -2,7 +2,7 @@ import { paginationType } from '../components/pagination/constants';
 import { navigationType } from '../components/navigation/constants';
 
 export default {
-    slidesProp: {
+    slidesCount: {
         title: {
             en: 'Number of slides',
             ru: 'Количество слайдов',
@@ -126,6 +126,7 @@ export default {
             en: 'Show arrow for slider navigation',
             ru: 'Отображать стрелки навигации по слайдам',
         },
+        category: 'Navigation',
         control: 'checkbox',
         weight: 0.5,
     },
@@ -198,5 +199,34 @@ export default {
         ],
         category: 'Animation',
         weight: 0.5,
+    },
+    animDuration: {
+        title: {
+            en: 'Duration',
+            ru: 'Длительность',
+        },
+        control: 'input',
+        category: 'Animation',
+        type: 'string',
+        weight: 0.5,
+    },
+    animFunction: {
+        title: {
+            en: 'Function',
+            ru: 'Функция',
+        },
+        control: 'input',
+        variants: [
+            'linear',
+            'ease',
+            'ease-in',
+            'ease-out',
+            'ease-in-out',
+            'step-start',
+            'step-end',
+        ],
+        type: 'text',
+        category: 'Animation',
+        weight: 1,
     },
 };

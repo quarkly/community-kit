@@ -2,7 +2,7 @@ import { navigationType } from '../components/navigation/constants';
 import { paginationType } from '../components/pagination/constants';
 
 export default {
-    slidesProp: '3',
+    slidesCount: '3',
     slidesAs: 'box',
 
     showArrows: navigationType.arrowsin,
@@ -17,4 +17,6 @@ export default {
     showAutoPlayButton: false,
 
     effect: 'slide',
+    animDuration: '300ms',
+    animFunction: 'ease',
 };
