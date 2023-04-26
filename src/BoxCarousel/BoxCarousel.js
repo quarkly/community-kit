@@ -76,7 +76,7 @@ const BoxCarousel = ({
     );
 
     // HACK: for update swiper on props change
-    const key = `${infinityMode}${showArrows}${draggable}${keyboardControl}${effect}`;
+    const key = `${infinityMode}${showArrows}${draggable}${keyboardControl}${effect}${animDuration}`;
 
     return (
         <SwiperBox

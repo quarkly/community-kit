@@ -9,7 +9,12 @@ const Bullet = ({ index, ...props }) => {
 
     return (
         <Button
-            {...override('Bullet Button', isCurrent && 'Bullet Button :active')}
+            {...override(
+                'Bullet Button',
+                `Bullet Button ${index + 1}`,
+                isCurrent && 'Bullet Button :active',
+                { defaultKey: `Bullet Button ${index + 1}` }
+            )}
             onClick={clickHandler}
             {...props}
         />

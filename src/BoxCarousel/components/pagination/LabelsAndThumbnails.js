@@ -9,15 +9,15 @@ export const Item = ({ index, labels, thumbnails }) => {
     const { isCurrent, clickHandler } = usePageButtonProps(index);
 
     return (
-        <Box {...override('Pagination Item', `Pagination Item ${index}`)}>
+        <Box {...override('Pagination Item', `Pagination Item ${index + 1}`)}>
             {thumbnails && (
                 <Image
                     {...override(
                         'Thumbnail',
-                        `Thumbnail ${index}`,
+                        `Thumbnail ${index + 1}`,
                         isCurrent && 'Thumbnail :active',
                         {
-                            defaultKey: `Thumbnail ${index}`,
+                            defaultKey: `Thumbnail ${index + 1}`,
                         }
                     )}
                     onClick={clickHandler}
@@ -27,10 +27,10 @@ export const Item = ({ index, labels, thumbnails }) => {
                 <Text
                     {...override(
                         'Label',
-                        `Label ${index}`,
+                        `Label ${index + 1}`,
                         isCurrent && 'Label :active',
                         {
-                            defaultKey: `Label ${index}`,
+                            defaultKey: `Label ${index + 1}`,
                         }
                     )}
                     onClick={clickHandler}
@@ -39,8 +39,11 @@ export const Item = ({ index, labels, thumbnails }) => {
             <Box
                 {...override(
                     'Pagination Underline',
-                    `Pagination Underline ${index}`,
-                    isCurrent && 'Pagination Underline :active'
+                    `Pagination Underline ${index + 1}`,
+                    isCurrent && 'Pagination Underline :active',
+                    {
+                        defaultKey: `Pagination Underline ${index + 1}`,
+                    }
                 )}
             />
         </Box>
