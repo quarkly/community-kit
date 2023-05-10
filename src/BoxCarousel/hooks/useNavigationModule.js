@@ -1,34 +1,37 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import Arrow from '../components/navigation/Arrow';
 
-const navigation = {
-    prevEl: '[data-swiper-arrow=Prev]',
-    nextEl: '[data-swiper-arrow=Next]',
-};
-
 const useNavigationModule = (showArrows) => {
-    const LeftArrow = useMemo(() => {
-        const LeftArrowComponent = (props) => {
-            return <Arrow direction={'Prev'} {...props} />;
-        };
+    const prev = useRef();
+    const next = useRef();
 
-        return LeftArrowComponent;
-    }, []);
+    const LeftArrow = useMemo(
+        () =>
+            function PrevArrow(props) {
+                return <Arrow ref={prev} direction={'Prev'} {...props} />;
+            },
+        []
+    );
 
-    const RightArrow = useMemo(() => {
-        const RightArrowComponent = (props) => {
-            return <Arrow direction={'Next'} {...props} />;
-        };
-
-        return RightArrowComponent;
-    }, []);
+    const RightArrow = useMemo(
+        () =>
+            function NextArrow(props) {
+                return <Arrow ref={next} direction={'Next'} {...props} />;
+            },
+        []
+    );
 
     const navigationButtons = {
         LeftArrow: showArrows ? LeftArrow : () => null,
         RightArrow: showArrows ? RightArrow : () => null,
     };
 
-    return [showArrows && navigation, navigationButtons];
+    const navigation = {
+        prevEl: prev.current,
+        nextEl: next.current,
+    };
+
+    return [showArrows ? navigation : null, navigationButtons];
 };
 
 export default useNavigationModule;

@@ -129,6 +129,9 @@ const BoxCarousel = ({
                         keyboard={keyboardControl}
                         speed={animDuration}
                         fadeEffect={{ crossFade: true }}
+                        onBeforeInit={(sw) => {
+                            Object.assign(sw.params.navigation, navigation);
+                        }}
                     >
                         {[...Array(slidesCount)].map((_, index) => (
                             <Slide

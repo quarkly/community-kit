@@ -1,30 +1,30 @@
-import { Icon, Button } from '@quarkly/widgets';
-import React, { forwardRef, useCallback, useRef } from 'react';
+import atomize from '@quarkly/atomize';
+import { Icon, Button as QButton } from '@quarkly/widgets';
+import React, { forwardRef, useCallback } from 'react';
 import { useBoxCarouselData } from '../../contexts/BoxCarouselData';
 import useSubscribe from '../../hooks/useSubscribe';
+import { pick } from '../../../utils';
 
-// eslint-disable-next-line react/display-name
-const Arrow = forwardRef(({ direction, ...props }) => {
-    const ref = useRef();
+// TODO: Replace with @quarkly/widgets button
+const Button = atomize.button(
+    pick(QButton, 'name', 'effects', 'description', 'propInfo'),
+    QButton.defaultProps
+);
 
+const Arrow = forwardRef(({ direction, ...props }, ref) => {
     const { override, swiper } = useBoxCarouselData();
 
     const onDestroy = useCallback(() => {
-        const arrow = document.querySelector(
-            `[data-swiper-arrow="${direction}"]`
-        );
-
-        if (arrow) {
-            arrow.disabled = false;
+        if (ref.current) {
+            ref.current.disabled = false;
         }
-    }, [direction]);
+    }, [ref]);
 
     useSubscribe(swiper, 'destroy', onDestroy);
 
     return (
         <Button
             ref={ref}
-            data-swiper-arrow={direction}
             {...override('Arrow', `Arrow ${direction}`, {
                 defaultKey: `Arrow ${direction}`,
             })}
