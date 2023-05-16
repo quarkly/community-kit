@@ -41,14 +41,14 @@ Add the component to the page and see how it works in preview mode.
 |                      |                      | **Navigation** |             |             |
 | Show arrows          |     `showArrows`     |     `enum`     | `arrowsin`  | `arrowsout` |
 | Show pagination      |   `showPagination`   |     `enum`     | `Labels In` |  `Dots in`  |
-| Draggable            |     `draggable`      |   `boolean`    |  `Сhecked`  | `Unchecked` |
-| Infinity mode        |    `infinityMode`    |   `boolean`    |  `Сhecked`  | `Unchecked` |
-| Keyboard control     |  `keyboardControl`   |   `boolean`    |  `Сhecked`  | `Unchecked` |
+| Draggable            |     `draggable`      |   `boolean`    |   `true`    |   `false`   |
+| Infinity mode        |    `infinityMode`    |   `boolean`    |   `true`    |   `false`   |
+| Keyboard control     |  `keyboardControl`   |   `boolean`    |   `true`    |   `false`   |
 |                      |                      |  **Autoplay**  |             |             |
 | Autoplay             |      `autoPlay`      |                |             |             |
 | Autoplay speed       |   `autoPlaySpeed`    |    `string`    |  `1500ms`   |    `5s`     |
-| Pause on hover       | `autoPlayHoverPause` |   `boolean`    |  `Сhecked`  | `Unchecked` |
-| Show autoplay button | `showAutoPlayButton` |   `boolean`    | `Unchecked` |  `Сhecked`  |
+| Pause on hover       | `autoPlayHoverPause` |   `boolean`    |   `true`    |   `false`   |
+| Show autoplay button | `showAutoPlayButton` |   `boolean`    |   `false`   |   `true`    |
 |                      |                      | **Animation**  |             |             |
 | Effect               |       `effect`       |     `enum`     |   `Slide`   |   `Fade`    |
 | Duration             |    `animDuration`    |    `string`    |   `0.5s`    |    `1s`     |
