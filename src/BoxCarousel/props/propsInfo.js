@@ -61,7 +61,7 @@ export default {
     showPagination: {
         title: {
             en: 'Show pagination',
-            ru: 'Показывать pagination',
+            ru: 'Показывать пагинацию',
         },
         control: 'select',
         category: 'Navigation',
@@ -120,11 +120,7 @@ export default {
     draggable: {
         title: {
             en: 'Draggable',
-            ru: 'Показывать стрелки',
-        },
-        description: {
-            en: 'Show arrow for slider navigation',
-            ru: 'Отображать стрелки навигации по слайдам',
+            ru: 'Перетаскиваемый',
         },
         category: 'Navigation',
         control: 'checkbox',
@@ -133,7 +129,7 @@ export default {
     infinityMode: {
         title: {
             en: 'Infinity mode',
-            ru: 'Показывать стрелки',
+            ru: 'Бесконечный режим',
         },
         control: 'checkbox',
         category: 'Navigation',
@@ -142,7 +138,7 @@ export default {
     keyboardControl: {
         title: {
             en: 'Keyboard control',
-            ru: 'Показывать стрелки',
+            ru: 'Управление клавиатурой',
         },
         control: 'checkbox',
         category: 'Navigation',
@@ -151,6 +147,7 @@ export default {
     autoPlay: {
         title: {
             en: 'Autoplay',
+            ru: 'Автоматическая прокрутка',
         },
         control: 'checkbox',
         category: 'Autoplay',
@@ -159,6 +156,7 @@ export default {
     autoPlaySpeed: {
         title: {
             en: 'Autoplay speed',
+            ru: 'Скорость',
         },
         control: 'input',
         category: 'Autoplay',
@@ -168,6 +166,7 @@ export default {
     autoPlayHoverPause: {
         title: {
             en: 'Pause on hover',
+            ru: 'Пауза при наведении',
         },
         control: 'checkbox',
         category: 'Autoplay',
@@ -176,6 +175,7 @@ export default {
     showAutoPlayButton: {
         title: {
             en: 'Show autoplay button',
+            ru: 'Показывать кнопку',
         },
         control: 'checkbox',
         category: 'Autoplay',
