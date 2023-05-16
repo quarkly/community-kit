@@ -1,13 +1,14 @@
 import React, { useRef, useCallback, useState, useEffect } from 'react';
 import { Box, Button, Icon } from '@quarkly/widgets';
-import atomized from '@quarkly/atomize';
+import atomize from '@quarkly/atomize';
 import { useBoxCarouselData } from '../../contexts/BoxCarouselData';
 import useSubscribe from '../../hooks/useSubscribe';
 
-const Svg = atomized.svg({
+const Svg = atomize.svg({
     useAliases: false,
 });
-const Circle = atomized.circle({
+
+const Circle = atomize.circle({
     useAliases: false,
 });
 

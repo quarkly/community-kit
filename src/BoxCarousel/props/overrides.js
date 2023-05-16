@@ -43,6 +43,8 @@ export default {
         props: {
             left: '0',
             padding: '0 18px 0 25px',
+
+            'sm-display': 'none',
         },
     },
     'Navigation Container Right': {
@@ -50,6 +52,9 @@ export default {
         props: {
             right: '0',
             padding: '0 25px 0 18px',
+
+            'sm-padding': '0px',
+            'sm-position': 'static',
         },
     },
     Arrow: {
@@ -198,6 +203,11 @@ export default {
             width: '100%',
             'justify-content': 'center',
             padding: '20px 0',
+
+            'sm-justify-content': 'space-between',
+            'sm-align-items': 'center',
+            'sm-padding-left': '24px',
+            'sm-padding-right': '24px',
         },
     },
     'Pagination Container Inside': {

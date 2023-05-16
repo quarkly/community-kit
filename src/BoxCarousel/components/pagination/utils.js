@@ -3,7 +3,7 @@ import { useCallback, useLayoutEffect, useState } from 'react';
 import { useBoxCarouselData } from '../../contexts/BoxCarouselData';
 
 export const getCurrent = (swiper) => {
-    if (!swiper) return 0;
+    if (!swiper || swiper?.destroyed) return 0;
 
     let current;
     const slidesLength = swiper.slides.length;
@@ -84,9 +84,14 @@ export const useCurrentSlide = (swiper) => {
 
         updateCurrent();
 
-        swiper.on('init', updateCurrent);
-        swiper.on('activeIndexChange', updateCurrent);
-        swiper.on('slidesLengthChange', updateCurrent);
+        swiper.on('init activeIndexChange slidesLengthChange', updateCurrent);
+
+        return () => {
+            swiper.off(
+                'init activeIndexChange slidesLengthChange',
+                updateCurrent
+            );
+        };
     }, [swiper]);
 
     return current;

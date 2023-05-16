@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
 
@@ -21,6 +21,7 @@ import { navigationType } from './components/navigation/constants';
 import { getModules, convertCssTimingToMs } from './utils';
 import { propInfo, defaultProps, overrides } from './props';
 import { getNumber } from '../utils';
+import useBreakpoint from '../utils/useBreakpoint';
 
 const SwiperBox = styled(Box)`
     & .swiper-wrapper {
@@ -28,6 +29,8 @@ const SwiperBox = styled(Box)`
             props.swiperTransitionTimingFunction};
     }
 `;
+
+const breakpoints = ['sm'];
 
 const BoxCarousel = ({
     effect,
@@ -47,11 +50,7 @@ const BoxCarousel = ({
     ...props
 }) => {
     useCSS();
-    const { override, ChildPlaceholder, rest } = useOverrides(
-        props,
-        overrides,
-        {}
-    );
+    const { override, ChildPlaceholder, rest } = useOverrides(props, overrides);
 
     const [swiper, setSwiper] = useState(null);
 
@@ -75,8 +74,20 @@ const BoxCarousel = ({
         autoPlayHoverPause
     );
 
+    const breakpoint = useBreakpoint(breakpoints);
+
     // HACK: for update swiper on props change
     const key = `${infinityMode}${showArrows}${draggable}${keyboardControl}${effect}${animDuration}`;
+
+    useEffect(() => {
+        if (swiper && !swiper.destroyed) {
+            Object.assign(swiper.params.navigation, navigation);
+            swiper.navigation.destroy();
+            swiper.navigation.init();
+            swiper.navigation.update();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [navigation]);
 
     return (
         <SwiperBox
@@ -117,7 +128,9 @@ const BoxCarousel = ({
                         effect={effect}
                         spaceBetween={50}
                         slidesPerView={1}
-                        onInit={(sw) => setSwiper(sw)}
+                        onInit={(sw) => {
+                            setSwiper(sw);
+                        }}
                         navigation={navigation}
                         modules={getModules({
                             effect,
@@ -142,7 +155,7 @@ const BoxCarousel = ({
                             />
                         ))}
                     </Swiper>
-                    {showArrows !== navigationType.none && (
+                    {showArrows !== navigationType.none && breakpoint !== 'sm' && (
                         <Box
                             {...override(
                                 'Navigation Container',
@@ -175,6 +188,21 @@ const BoxCarousel = ({
                         autoPlayEnabled={autoPlayEnabled}
                         autoplay={autoplay}
                     />
+                    {showArrows !== navigationType.none && breakpoint === 'sm' && (
+                        <Box
+                            {...override(
+                                'Navigation Container',
+                                `Navigation Container ${
+                                    showArrows === navigationType.arrowsin
+                                        ? 'Inside'
+                                        : 'Outside'
+                                }`,
+                                'Navigation Container Right'
+                            )}
+                        >
+                            <Navigation.RightArrow />
+                        </Box>
+                    )}
                 </Box>
             </BoxCarouselDataProvider>
         </SwiperBox>
@@ -189,6 +217,7 @@ Object.assign(BoxCarousel, {
         ru:
             'Компонент представляет из себя счетчик, который увеличивается или уменьшается до определенного значения',
     },
+    overrides,
     propInfo,
     defaultProps,
 });

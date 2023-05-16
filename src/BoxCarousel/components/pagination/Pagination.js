@@ -1,52 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { useTheme } from 'styled-components';
 import Bullets from './Bullets';
 import LabelsAndThumbnails from './LabelsAndThumbnails';
 import Fraction from './Fraction';
 import { isPaginationIn, paginationType } from './constants';
 import Progress from './Progress';
-import { useDebouncedCallback } from '../../../utils';
+import useBreakpoint from '../../../utils/useBreakpoint';
 
-const createBreakpointRule = (point) =>
-    point
-        .map(({ type, value }) =>
-            value === true ? `(${type})` : `(${type}: ${value}px)`
-        )
-        .join(' and ');
+const breakpoints = ['sm'];
 
 const Pagination = ({ showPagination }) => {
-    const theme = useTheme();
     const [pagination, setPagination] = useState(showPagination);
+    const breakpoint = useBreakpoint(breakpoints);
 
-    const handleResize = useDebouncedCallback(() => {
-        const rule = createBreakpointRule(theme.breakpoints.sm);
-        const matched = window.matchMedia(rule).matches;
-        if (matched) {
+    useEffect(() => {
+        if (breakpoint === 'sm') {
             if (isPaginationIn(showPagination)) {
-                setPagination(paginationType.dotsin);
+                setPagination(paginationType.dynamicdotsin);
             } else {
-                setPagination(paginationType.dotsout);
+                setPagination(paginationType.dynamicdotsout);
             }
         } else {
             setPagination(showPagination);
         }
-    }, 50);
-
-    useEffect(() => {
-        if (
-            showPagination === paginationType.none ||
-            showPagination === paginationType.dotsin ||
-            showPagination === pagination.dotsout
-        ) {
-            return;
-        }
-        handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [theme.breakpoints.sm, showPagination]);
+    }, [breakpoint, showPagination]);
 
     switch (pagination) {
         case paginationType.labelsin:
