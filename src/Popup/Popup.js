@@ -27,7 +27,11 @@ const PopupComponent = ({
     const contentRef = useRef();
     const mode = useConstructorMode();
 
-    useEffect(() => setOpen(onloadShow), [onloadShow]);
+    useEffect(() => {
+        setOpen(onloadShow);
+        const node = contentRef.current;
+        return () => toggleScroll.enable(node);
+    }, [onloadShow]);
 
     const popupTransition = useMemo(
         () =>
@@ -94,11 +98,11 @@ const PopupComponent = ({
                     <PopupContext.Provider value={context}>
                         <Box {...override('Content')} ref={contentRef}>
                             {children}
+                            {isEmpty && (
+                                <ComponentNotice message="Drag any component here" />
+                            )}
                         </Box>
                     </PopupContext.Provider>
-                    {isEmpty && (
-                        <ComponentNotice message="Drag any component here" />
-                    )}
                 </Box>
             </Box>
         </Box>
