@@ -32,12 +32,14 @@ export class PageTreeNode {
     }
 
     findSubtreeByUrl(url) {
-        const result = this._findSubtreeByUrl(url);
-        if (!result) {
-            console.warn(`Unexpected! Url ${url} not found!`);
-            return this;
-        }
-        return result;
+        let result = this._findSubtreeByUrl(url);
+        if (result) return result;
+
+        result = this._findSubtreeById(url);
+        if (result) return result;
+
+        console.warn(`Unexpected! Url ${url} not found!`);
+        return this;
     }
 
     _findSubtreeByUrl(url) {
@@ -48,6 +50,21 @@ export class PageTreeNode {
             let result = null;
             this.children.some((el) => {
                 result = el._findSubtreeByUrl(url);
+                return result;
+            });
+            return result;
+        }
+        return null;
+    }
+
+    _findSubtreeById(id) {
+        if (this.id === id) {
+            return this;
+        }
+        if (this.children) {
+            let result = null;
+            this.children.some((el) => {
+                result = el._findSubtreeById(id);
                 return result;
             });
             return result;
