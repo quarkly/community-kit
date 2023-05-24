@@ -1,7 +1,0 @@
-{
-  "name": "swiper/parallax",
-  "private": true,
-  "sideEffects": false,
-  "main": "../../cjs/modules/parallax/parallax.js",
-  "module": "../../esm/modules/parallax/parallax.js"
-}

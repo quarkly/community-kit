@@ -1,7 +1,0 @@
-{
-  "name": "swiper/free-mode",
-  "private": true,
-  "sideEffects": false,
-  "main": "../../cjs/modules/free-mode/free-mode.js",
-  "module": "../../esm/modules/free-mode/free-mode.js"
-}

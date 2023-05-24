@@ -1,7 +1,0 @@
-{
-  "name": "swiper/scrollbar",
-  "private": true,
-  "sideEffects": false,
-  "main": "../../cjs/modules/scrollbar/scrollbar.js",
-  "module": "../../esm/modules/scrollbar/scrollbar.js"
-}

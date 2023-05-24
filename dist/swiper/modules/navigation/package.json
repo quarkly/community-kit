@@ -1,7 +1,0 @@
-{
-  "name": "swiper/navigation",
-  "private": true,
-  "sideEffects": false,
-  "main": "../../cjs/modules/navigation/navigation.js",
-  "module": "../../esm/modules/navigation/navigation.js"
-}

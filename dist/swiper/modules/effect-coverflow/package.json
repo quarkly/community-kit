@@ -1,7 +1,0 @@
-{
-  "name": "swiper/effect-coverflow",
-  "private": true,
-  "sideEffects": false,
-  "main": "../../cjs/modules/effect-coverflow/effect-coverflow.js",
-  "module": "../../esm/modules/effect-coverflow/effect-coverflow.js"
-}

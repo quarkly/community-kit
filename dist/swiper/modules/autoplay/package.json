@@ -1,7 +1,0 @@
-{
-  "name": "swiper/autoplay",
-  "private": true,
-  "sideEffects": false,
-  "main": "../../cjs/modules/autoplay/autoplay.js",
-  "module": "../../esm/modules/autoplay/autoplay.js"
-}
