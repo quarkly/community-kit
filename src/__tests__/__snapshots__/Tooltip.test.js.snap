@@ -23,7 +23,7 @@ exports[`Tooltip component renders correctly without params 1`] = `
       width="max-content"
     >
       <div
-        className="sc-cxNHIi bjlJDh"
+        className="sc-cxNHIi jVnjbD"
         color="white"
         data-qkind="Text"
         data-qoverride="Title"
