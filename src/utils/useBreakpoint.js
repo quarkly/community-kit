@@ -36,12 +36,15 @@ const useBreakpoint = (breakpoints) => {
 
     const [matches, setMatches] = useState(getMatches(queries));
 
-    const handleChange = () => {
-        setMatches(getMatches(queries));
-    };
-
     useEffect(() => {
-        const medias = Object.values(queries).map((q) => window.matchMedia(q));
+        const medias =
+            typeof window !== 'undefined'
+                ? Object.values(queries).map((q) => window.matchMedia(q))
+                : [];
+
+        const handleChange = () => {
+            setMatches(getMatches(queries));
+        };
 
         handleChange();
 
