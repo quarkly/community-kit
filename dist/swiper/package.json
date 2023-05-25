@@ -3,7 +3,7 @@
   "version": "8.4.7",
   "description": "Most modern mobile touch slider and framework with hardware accelerated transitions",
   "main": "swiper-bundle-quarkly.min.js",
-  "typings": "swiper.d.ts",
+  "typings": "swiper-types-quarkly.d.ts",
   "scripts": {
     "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\""
   },
