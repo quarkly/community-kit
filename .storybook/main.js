@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require('webpack');
 
 module.exports = {
     stories: [
@@ -13,6 +14,14 @@ module.exports = {
 
     webpackFinal: async (config) => {
         config.resolve.alias['swiper'] = path.resolve(__dirname, '../dist/swiper');
+
+        config.module.rules.unshift({
+            test: /\.js$/,
+            enforce: "pre",
+            use: ["source-map-loader"],
+            include: [path.resolve(__dirname, '../dist/swiper')]
+        })
+
         return config;
     }
 };
