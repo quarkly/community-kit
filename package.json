@@ -8,7 +8,6 @@
     "@u-wave/react-vimeo": "^0.9.4",
     "date-fns": "^2.24.0",
     "disqus-react": "^1.0.11",
-    "dom7": "^4.0.6",
     "easy-scroll": "^0.7.0",
     "jsonp": "^0.2.1",
     "lottie-web": "^5.7.11",
@@ -22,7 +21,6 @@
     "react-youtube": "^7.13.1",
     "redux": "^4.1.0",
     "redux-thunk": "^2.3.0",
-    "ssr-window": "^4.0.2",
     "use-deep-compare-effect": "^1.6.1"
   },
   "devDependencies": {
@@ -88,8 +86,8 @@
   "main": "./index.js",
   "peerDependencies": {
     "@quarkly/atomize": ">=1.0.8",
-    "@quarkly/components": ">=0.2.56",
-    "@quarkly/widgets": ">=0.2.50",
+    "@quarkly/components": ">=0.2.73",
+    "@quarkly/widgets": ">=0.2.75",
     "react": "16.x || 17.x",
     "styled-components": "^5.0.1"
   },
