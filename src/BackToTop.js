@@ -24,12 +24,37 @@ const useThrottle = (fn, wait = 100, cb) => {
 const overrides = {
     Wrapper: {
         kind: 'Box',
+        props: {
+            'min-height': '0',
+            'max-height': '100vh',
+            'overflow-y': 'auto',
+        },
     },
     Button: {
         kind: 'Button',
+        props: {
+            bottom: '15px',
+            right: '15px',
+            padding: '0',
+            width: '40px',
+            height: '40px',
+            color: '--dark',
+            background: '--color-lightD2',
+            'focus-box-shadow': 'none',
+            'border-radius': '50%',
+            'justify-content': 'center',
+            'align-items': 'center',
+            display: 'flex',
+            'z-index': '1000',
+            type: 'button',
+        },
     },
     Icon: {
         kind: 'Icon',
+        props: {
+            size: '32px',
+            category: 'md',
+        },
     },
 };
 
@@ -98,11 +123,8 @@ const ScrollToTop = ({
     }, [isTargetContainer, handleScroll]);
 
     return (
-        <Box mih="0" pos="relative" {...rest}>
+        <Box {...rest}>
             <Box
-                mih="0"
-                mah="100vh"
-                ovy="auto"
                 d={isTargetContainer ? 'block' : 'none'}
                 onScroll={handleScroll}
                 ref={containerRef}
@@ -111,32 +133,13 @@ const ScrollToTop = ({
                 {children}
             </Box>
             <Button
-                b="15px"
-                r="15px"
-                p="0"
-                w="40px"
-                h="40px"
-                c="--dark"
-                bgc="--lightD2"
-                focus-bxsh="none"
-                bdrs="50%"
-                jc="center"
-                ai="center"
                 pos={isTargetContainer ? 'absolute' : 'fixed'}
                 v={isShowButton || showAlways ? 'visible' : 'hidden'}
-                d="flex"
-                z="1000"
-                type="button"
                 onClick={handleClick}
                 ref={buttonRef}
                 {...override('Button')}
             >
-                <Icon
-                    size="32px"
-                    defaultIcon={MdKeyboardArrowUp}
-                    category="md"
-                    {...override('Icon')}
-                />
+                <Icon defaultIcon={MdKeyboardArrowUp} {...override('Icon')} />
             </Button>
         </Box>
     );
@@ -201,6 +204,8 @@ const defaultProps = {
     showAlways: false,
     duration: 1000,
     easingPreset: 'easeInOutQuad',
+    'min-height': '0',
+    position: 'relative',
 };
 
 export default Object.assign(ScrollToTop, {
