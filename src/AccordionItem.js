@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Box } from '@quarkly/widgets';
 
 const AccordionItem = ({
-    open,
+    isOpen: open,
     disabled,
     openItems = [],
     onToggleOpen = () => {},
