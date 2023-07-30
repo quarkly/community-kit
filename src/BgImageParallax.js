@@ -3,6 +3,7 @@ import React, { useCallback, useMemo, useEffect, useRef } from 'react';
 import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
+import ComponentNotice from './ComponentNotice';
 
 const overrides = {
     Bground: {
@@ -132,13 +133,24 @@ const BgImageParallax = ({
     });
 
     return (
-        <Box position="relative" overflow="hidden" {...rest} ref={wrapperRef}>
+        <Box
+            position="relative"
+            overflow="hidden"
+            min-height="32px"
+            {...rest}
+            ref={wrapperRef}
+        >
             <Bground
                 ref={bgroundRef}
                 background={`transparent url(${imageURL}) ${imagePosition} top/${imageSize} ${imageRepeat}`}
                 {...override('Bground')}
             />
-            <Content {...override('Content')}>{children}</Content>
+            <Content {...override('Content')}>
+                {children}
+                {!imageURL && (
+                    <ComponentNotice message="Add Image in the Props panel" />
+                )}
+            </Content>
         </Box>
     );
 };

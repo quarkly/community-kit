@@ -58,7 +58,7 @@ const VimeoComponent = ({
 
     const dStart = useDebounce(parseFloat(start), 1000);
 
-    const key = `vimeo-${video}${muted}${controls}${playBackground}${showByline}${dStart}${autoplay}${showTitle}${responsive}`;
+    const key = `vimeo-${video}${muted}${controls}${playBackground}${showByline}${dStart}${autoplay}${showPortrait}${showTitle}${responsive}`;
 
     return (
         <Wrapper
