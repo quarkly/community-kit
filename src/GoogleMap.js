@@ -59,10 +59,10 @@ const propInfo = {
 };
 
 const defaultProps = {
-  width: '100%',
-  height: '100%',
-  position: 'relative',
-  'min-height': '300px',
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+    'min-height': '300px',
 };
 
 Object.assign(GoogleMap, {
