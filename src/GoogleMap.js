@@ -1,16 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Box } from '@quarkly/widgets';
 
 import ComponentNotice from './ComponentNotice';
 
-const Wrapper = styled.div`
-    width: 100%;
-    height: 100%;
-    position: relative;
-`;
-
 const GoogleMap = ({ query = 'New York', apiKey, ...props }) => (
-    <Wrapper {...props}>
+    <Box {...props}>
         {apiKey ? (
             <iframe
                 title={`community-kit-google-map-${query}`}
@@ -28,7 +22,7 @@ const GoogleMap = ({ query = 'New York', apiKey, ...props }) => (
         ) : (
             <ComponentNotice message="Add API key in Props panel" />
         )}
-    </Wrapper>
+    </Box>
 );
 
 const propInfo = {
@@ -64,7 +58,12 @@ const propInfo = {
     },
 };
 
-const defaultProps = {};
+const defaultProps = {
+    width: '100%',
+    height: '100%',
+    position: 'relative',
+    'min-height': '300px',
+};
 
 Object.assign(GoogleMap, {
     title: 'Google Map',
