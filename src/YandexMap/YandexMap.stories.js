@@ -12,4 +12,16 @@ export default {
 
 export const StoryDefault = (props) => <YandexMap {...props} />;
 
+export const StoryMultiple = (props) => (
+    <>
+        <YandexMap {...props} />
+        <YandexMap {...props} />
+        <YandexMap {...props} />
+        <YandexMap {...props} />
+        <YandexMap {...props} />
+        <YandexMap {...props} />
+        <YandexMap {...props} />
+    </>
+);
+
 StoryDefault.storyName = 'Default';

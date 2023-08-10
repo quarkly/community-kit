@@ -12,6 +12,7 @@ export { default as useDebounce } from './useDebounce';
 export { default as useDebouncedCallback } from './useDebouncedCallback';
 export { default as useUpdateEffect } from './useUpdateEffect';
 export { default as useUniqueId } from './useUniqueId';
+export { default as useScript } from './useScript';
 
 export { default as isString } from './isString';
 
