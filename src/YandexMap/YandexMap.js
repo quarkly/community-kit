@@ -31,6 +31,16 @@ const YandexMap = ({
         `https://api-maps.yandex.ru/2.1?apikey=${dapiKey}&lang=ru_RU&ns=${ns}`
     );
 
+    const controls = {
+        trafficControl,
+        rulerControl,
+        typeSelector,
+        searchControl,
+        geolocationControl,
+        fullscreenControl,
+        zoomControl,
+    };
+
     useEffect(() => {
         if (ready) {
             window[ns].ready(() => {
@@ -40,15 +50,7 @@ const YandexMap = ({
                     map.current = new ymaps.Map(mapRef.current, {
                         center: [latitudeCenter, longitudeCenter],
                         zoom: zoomValue,
-                        controls: getInitialControls({
-                            trafficControl,
-                            rulerControl,
-                            typeSelector,
-                            searchControl,
-                            geolocationControl,
-                            fullscreenControl,
-                            zoomControl,
-                        }),
+                        controls: getInitialControls(controls),
                     });
                 }
             });
@@ -59,16 +61,6 @@ const YandexMap = ({
     useEffect(() => {
         map.current?.setCenter([latitudeCenter, longitudeCenter], zoomValue);
     }, [latitudeCenter, longitudeCenter, zoomValue]);
-
-    const controls = {
-        trafficControl,
-        rulerControl,
-        typeSelector,
-        searchControl,
-        geolocationControl,
-        fullscreenControl,
-        zoomControl,
-    };
 
     return (
         <Box height="250px" display="block" {...props}>
