@@ -2,19 +2,19 @@
 
 exports[`Tooltip component renders correctly without params 1`] = `
 <div
-  className="sc-gKAaRy hToMlh"
+  className="sc-bYwzuL fmGcYd"
   display="inline-block"
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
 >
   <div
-    className="sc-gKAaRy ijHOqZ"
+    className="sc-bYwzuL gOuAQZ"
     display="flex"
     height="100%"
     width="100%"
   >
     <div
-      className="sc-gKAaRy VIptf"
+      className="sc-bYwzuL jYpDIb"
       data-qkind="Box"
       data-qoverride="Wrapper"
       display="flex"
@@ -23,7 +23,7 @@ exports[`Tooltip component renders correctly without params 1`] = `
       width="max-content"
     >
       <div
-        className="sc-gtsrHT bzpXsq"
+        className="sc-cxNHIi jVnjbD"
         color="white"
         data-qkind="Text"
         data-qoverride="Title"
@@ -31,7 +31,7 @@ exports[`Tooltip component renders correctly without params 1`] = `
         Some text
       </div>
       <div
-        className="sc-gKAaRy bUXSgk"
+        className="sc-bYwzuL fLaRcs"
         data-qkind="Box"
         data-qoverride="Arrow"
         opacity={1}
@@ -40,7 +40,7 @@ exports[`Tooltip component renders correctly without params 1`] = `
     </div>
   </div>
   <div
-    className="sc-gKAaRy czplxV"
+    className="sc-bYwzuL cUSOLF"
     data-qkind="Box"
     data-qoverride="Content"
     width="100%"

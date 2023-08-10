@@ -70,4 +70,5 @@ export { default as TabsFullContent } from './TabsFullContent';
 export { default as TabsFullHead } from './TabsFullHead';
 export { default as RadioGroup } from './RadioGroup';
 export { default as Marquee } from './Marquee';
+export { default as BoxCarousel } from './BoxCarousel';
 export { default as ImageViewer } from './ImageViewer';

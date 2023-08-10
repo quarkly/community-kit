@@ -1,0 +1,59 @@
+{
+  "name": "swiper",
+  "version": "8.4.7",
+  "description": "Most modern mobile touch slider and framework with hardware accelerated transitions",
+  "main": "swiper-bundle-quarkly.min.js",
+  "typings": "swiper-types-quarkly.d.ts",
+  "scripts": {
+    "postinstall": "node -e \"try{require('./postinstall')}catch(e){}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nolimits4web/Swiper.git"
+  },
+  "keywords": [
+    "swiper",
+    "swipe",
+    "slider",
+    "touch",
+    "ios",
+    "mobile",
+    "cordova",
+    "phonegap",
+    "app",
+    "framework",
+    "framework7",
+    "carousel",
+    "gallery",
+    "plugin",
+    "react",
+    "solid-js",
+    "vue",
+    "angular",
+    "svelte",
+    "slideshow"
+  ],
+  "author": "Vladimir Kharlampidi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nolimits4web/swiper/issues"
+  },
+  "homepage": "https://swiperjs.com",
+  "funding": [
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/swiperjs"
+    },
+    {
+      "type": "open_collective",
+      "url": "http://opencollective.com/swiper"
+    }
+  ],
+  "engines": {
+    "node": ">= 4.7.0"
+  },
+  "dependencies": {
+    "dom7": "^4.0.4",
+    "ssr-window": "^4.0.2"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "swiper/react",
+  "private": true,
+  "main": "../swiper-react-quarkly.min.js",
+  "typings": "./swiper-react.d.ts",
+  "sideEffects": false
+}

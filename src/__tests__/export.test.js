@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Theme from '@quarkly/theme';
 import * as exported from '../index';
 
 const { quarklyInfo } = require('../../package.json');
@@ -42,7 +43,9 @@ describe('package export', () => {
         const Component = exported[componentName];
         renderer.create(
             <Router>
-                <Component />
+                <Theme>
+                    <Component />
+                </Theme>
             </Router>
         );
     });
