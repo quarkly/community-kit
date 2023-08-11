@@ -161,7 +161,8 @@
       "TabsFullContent": "TabsFullContent",
       "TabsFullHead": "TabsFullHead",
       "Marquee": "Marquee",
-      "ImageViewer": "ImageViewer"
+      "ImageViewer": "ImageViewer",
+      "Redirect": "Redirect"
     }
   },
   "quarklyInfoDeleted": {
