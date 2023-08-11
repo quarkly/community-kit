@@ -11,7 +11,7 @@ const RedirectByLanguage = ({
     const navigate = useNavigate();
 
     const languages = useMemo(() => {
-        return languagesFromProps.length > 0
+        return languagesFromProps?.length > 0
             ? languagesFromProps.split(',')
             : [];
     }, [languagesFromProps]);
@@ -21,7 +21,7 @@ const RedirectByLanguage = ({
         const language =
             new Intl.Locale(navigatorLanguage)?.language || navigatorLanguage;
 
-        if (languages.find(language)) {
+        if (languages.includes(language)) {
             navigate(destination);
         }
     }, [languages, navigate, destination]);
