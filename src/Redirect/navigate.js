@@ -62,7 +62,16 @@ const useGatsbyNavigate = () => {
     }, []);
 };
 
+const isBrowser = typeof window !== 'undefined';
+
 const getCurrentLocation = () => {
+    if (!isBrowser)
+        return {
+            pathname: '',
+            hash: '',
+            search: '',
+        };
+
     const pathname = window.location.hash.slice(1);
     const possibleHash = pathname.split('#')[1] ?? '';
     return {
