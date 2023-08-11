@@ -8,6 +8,27 @@ Add the component to the page, set `Destination` and check how it works in the p
 
 > Redirect to external destination will work only on published site
 
+### Redirect from your component
+
+Use hook `useNavigate`:
+
+```jsx
+...
+import { useNavigate } from './QuarklycommunityKitRedirect';
+
+const Component = () => {
+    const navigate = useNavigate();
+
+    const onClick = () => {
+        navigate('/foo')
+        // OR
+        navigate('https://example.com')
+    }
+
+    ...
+}
+```
+
 ## 🧩 Components and Props
 
 ### In the interface
@@ -21,6 +42,10 @@ Add the component to the page, set `Destination` and check how it works in the p
 | Prop name   | Name in the code |   Type   | Default |        Example        |
 | :---------- | :--------------: | :------: | :-----: | :-------------------: |
 | Destination |  `destination`   | `string` |   `-`   | `https://example.com` |
+
+## 🗄 GitHub
+
+[Link to GitHub](https://github.com/quarkly/community-kit/blob/master/src/Redirect)
 
 ## 🗓 Changelog
 
