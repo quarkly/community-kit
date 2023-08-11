@@ -162,7 +162,8 @@
       "TabsFullHead": "TabsFullHead",
       "Marquee": "Marquee",
       "ImageViewer": "ImageViewer",
-      "Redirect": "Redirect"
+      "Redirect": "Redirect",
+      "RedirectByLanguage": "RedirectByLanguage"
     }
   },
   "quarklyInfoDeleted": {

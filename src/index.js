@@ -72,3 +72,4 @@ export { default as TabsFullHead } from './TabsFullHead';
 export { default as Marquee } from './Marquee';
 export { default as ImageViewer } from './ImageViewer';
 export { default as Redirect } from './Redirect';
+export { default as RedirectByLanguage } from './RedirectByLanguage';
