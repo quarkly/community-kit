@@ -18,6 +18,7 @@ const YandexMap = ({
     searchControl,
     geolocationControl,
     fullscreenControl,
+    lang,
     ...props
 }) => {
     const map = useRef(null);
@@ -25,10 +26,10 @@ const YandexMap = ({
     const mapRef = useRef(null);
     const dapiKey = useDebounce(apikey, 2000);
 
-    const ns = `ymaps_${dapiKey}`;
+    const ns = `ymaps_${dapiKey}_${lang}`;
 
     const { ready } = useScript(
-        `https://api-maps.yandex.ru/2.1?apikey=${dapiKey}&lang=ru_RU&ns=${ns}`
+        `https://api-maps.yandex.ru/2.1?apikey=${dapiKey}&lang=${lang}&ns=${ns}`
     );
 
     const controls = {
@@ -55,6 +56,10 @@ const YandexMap = ({
                 }
             });
         }
+
+        return () => {
+            map.current?.destroy();
+        };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ready]);
 
@@ -63,7 +68,7 @@ const YandexMap = ({
     }, [latitudeCenter, longitudeCenter, zoomValue]);
 
     return (
-        <Box height="250px" display="block" {...props}>
+        <Box {...props}>
             <Box height="100%" ref={mapRef} />
             {Object.entries(controls).map(([key, value]) => (
                 <Control key={key} map={map} control={key} enabled={value} />

@@ -105,4 +105,14 @@ export default {
         category: 'Controls',
         weight: 0.5,
     },
+    lang: {
+        title: {
+            en: 'Localization',
+            ru: 'Локализация',
+        },
+        control: 'input',
+        type: 'text',
+        variants: ['ru-RU', 'en_US', 'en_RU', 'ru_UA', 'uk_UA', 'tr_TR'],
+        weight: 0.5,
+    },
 };

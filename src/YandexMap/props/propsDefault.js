@@ -9,4 +9,8 @@ export default {
     trafficControl: false,
     rulerControl: false,
     typeSelectorContol: false,
+    lang: 'ru_RU',
+    // Style
+    height: '250px',
+    display: 'block',
 };
