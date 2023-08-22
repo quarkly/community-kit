@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 
+const initialValue = {
+    ready: false,
+    error: false,
+};
+
 export default function useScript(src) {
-    const [state, setState] = useState({
-        ready: false,
-        loaded: false,
-        error: false,
-    });
+    const [state, setState] = useState(initialValue);
+    const [prevSrc, setPrevSrc] = useState(src);
 
     useEffect(
         () => {
@@ -31,7 +33,6 @@ export default function useScript(src) {
                 const status = script.getAttribute('data-status');
 
                 setState({
-                    loading: status === 'loading',
                     ready: status === 'ready',
                     error: status === 'error',
                 });
@@ -56,5 +57,12 @@ export default function useScript(src) {
         },
         [src] // Only re-run effect if script src changes
     );
+
+    // Reset state immediately if src is changed
+    if (src !== prevSrc) {
+        setPrevSrc(src);
+        setState(initialValue);
+    }
+
     return state;
 }

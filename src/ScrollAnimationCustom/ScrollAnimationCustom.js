@@ -2,9 +2,8 @@ import React, { useMemo, useEffect, useRef } from 'react';
 import { Box } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import ComponentNotice from '../ComponentNotice';
-import { isEmptyChildren } from '../utils';
+import { isEmptyChildren, useScript } from '../utils';
 import { propInfo, defaultProps, overrides } from './props';
-import useScript from './hooks/useScript';
 import makeAnim from './utils/makeAnim';
 
 const duration = 1000; // Totally arbitrary!

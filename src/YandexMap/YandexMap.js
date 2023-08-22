@@ -1,20 +1,10 @@
-import React, { useRef } from 'react';
-import useResizeObserver from '@react-hook/resize-observer';
+import React, { useEffect, useRef } from 'react';
 import { Box } from '@quarkly/widgets';
-
-import {
-    YMaps,
-    Map,
-    ZoomControl,
-    RulerControl,
-    TrafficControl,
-    TypeSelector,
-    SearchControl,
-    GeolocationControl,
-    FullscreenControl,
-} from 'react-yandex-maps';
-import { useDebounce } from '../utils';
+import { useDebounce, useScript } from '../utils';
 import { propInfo, defaultProps } from './props';
+import withPropsTransformer from '../utils/withPropsTransformer';
+import { getInitialControls } from './utils';
+import Control from './Control';
 
 const YandexMap = ({
     apikey,
@@ -24,59 +14,65 @@ const YandexMap = ({
     longitudeCenter,
     trafficControl,
     rulerControl,
-    typeSelectorContol,
+    typeSelectorContol: typeSelector,
     searchControl,
     geolocationControl,
     fullscreenControl,
+    lang,
     ...props
 }) => {
-    const ymapRef = useRef({});
-    const containerRef = useRef(null);
+    const map = useRef(null);
+
+    const mapRef = useRef(null);
     const dapiKey = useDebounce(apikey, 2000);
-    const key = useDebounce(
-        `yandexmap${zoomValue}${latitudeCenter}${longitudeCenter}`,
-        2000
+
+    const ns = `ymaps_${dapiKey}_${lang}`;
+
+    const { ready } = useScript(
+        `https://api-maps.yandex.ru/2.1?apikey=${dapiKey}&lang=${lang}&ns=${ns}`
     );
 
-    useResizeObserver(containerRef, () =>
-        ymapRef.current?.container?.fitToViewport()
-    );
+    const controls = {
+        trafficControl,
+        rulerControl,
+        typeSelector,
+        searchControl,
+        geolocationControl,
+        fullscreenControl,
+        zoomControl,
+    };
+
+    useEffect(() => {
+        if (ready) {
+            window[ns].ready(() => {
+                const ymaps = window[ns];
+
+                if (!map.current) {
+                    map.current = new ymaps.Map(mapRef.current, {
+                        center: [latitudeCenter, longitudeCenter],
+                        zoom: zoomValue,
+                        controls: getInitialControls(controls),
+                    });
+                }
+            });
+        }
+
+        return () => {
+            map.current?.destroy();
+            map.current = null;
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ready, lang]);
+
+    useEffect(() => {
+        map.current?.setCenter([latitudeCenter, longitudeCenter], zoomValue);
+    }, [latitudeCenter, longitudeCenter, zoomValue]);
 
     return (
-        <Box ref={containerRef} height="250px" display="block" {...props}>
-            <YMaps key={dapiKey} query={{ apikey: dapiKey }}>
-                <Map
-                    key={key}
-                    height="100%"
-                    width="100%"
-                    defaultState={{
-                        center: [
-                            parseFloat(latitudeCenter),
-                            parseFloat(longitudeCenter),
-                        ],
-                        zoom: parseInt(zoomValue, 10),
-                    }}
-                    options={{
-                        autoFitToViewport: 'allways',
-                    }}
-                    defaultOptions={{
-                        autoFitToViewport: 'allways',
-                    }}
-                    instanceRef={ymapRef}
-                >
-                    {fullscreenControl && <FullscreenControl />}
-                    {geolocationControl && <GeolocationControl />}
-                    {zoomControl && <ZoomControl />}
-                    {trafficControl && <TrafficControl />}
-                    {rulerControl && <RulerControl />}
-                    {typeSelectorContol && <TypeSelector />}
-                    {searchControl && (
-                        <SearchControl
-                            options={{ provider: 'yandex#search' }}
-                        />
-                    )}
-                </Map>
-            </YMaps>
+        <Box {...props} ref={mapRef}>
+            {Object.entries(controls).map(([key, value]) => (
+                <Control key={key} map={map} control={key} enabled={value} />
+            ))}
         </Box>
     );
 };
@@ -91,4 +87,4 @@ Object.assign(YandexMap, {
     defaultProps,
 });
 
-export default YandexMap;
+export default withPropsTransformer(YandexMap);
