@@ -59,9 +59,10 @@ const YandexMap = ({
 
         return () => {
             map.current?.destroy();
+            map.current = null;
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [ready]);
+    }, [ready, lang]);
 
     useEffect(() => {
         map.current?.setCenter([latitudeCenter, longitudeCenter], zoomValue);

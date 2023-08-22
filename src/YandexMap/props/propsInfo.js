@@ -112,7 +112,7 @@ export default {
         },
         control: 'input',
         type: 'text',
-        variants: ['ru-RU', 'en_US', 'en_RU', 'ru_UA', 'uk_UA', 'tr_TR'],
+        variants: ['ru_RU', 'en_US', 'en_RU', 'ru_UA', 'uk_UA', 'tr_TR'],
         weight: 0.5,
     },
 };
