@@ -69,8 +69,7 @@ const YandexMap = ({
     }, [latitudeCenter, longitudeCenter, zoomValue]);
 
     return (
-        <Box {...props}>
-            <Box height="100%" ref={mapRef} />
+        <Box {...props} ref={mapRef}>
             {Object.entries(controls).map(([key, value]) => (
                 <Control key={key} map={map} control={key} enabled={value} />
             ))}
