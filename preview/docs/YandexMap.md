@@ -27,10 +27,11 @@ To get the `API key`, follow the [instructions](https://yandex.ru/blog/mapsapi/n
 | Traffic          | `Unchecked`  |                                     `Checked`                                     |
 | Ruler            | `Unchecked`  |                                     `Checked`                                     |
 | Layers options   | `Unchecked`  |                                     `Checked`                                     |
+| Localization     |   `ru_RU`    |                                      `en_US`                                      |
 
 ### In the code (for developers)
 
-| Prop name        |   Название в коде    |   Type    |   Default    |                                      Example                                      |
+| Prop name        |   Name in the code   |   Type    |   Default    |                                      Example                                      |
 | :--------------- | :------------------: | :-------: | :----------: | :-------------------------------------------------------------------------------: |
 | API Key          |       `apikey`       | `string`  |     `-`      | [`Your API Key`](https://yandex.ru/blog/mapsapi/novye-pravila-dostupa-k-api-kart) |
 | Map scale        |     `zoomValue`      | `string`  |     `9`      |                                        `5`                                        |
@@ -43,6 +44,7 @@ To get the `API key`, follow the [instructions](https://yandex.ru/blog/mapsapi/n
 | Traffic          |   `trafficControl`   | `boolean` |   `false`    |                                      `true`                                       |
 | Ruler            |    `rulerControl`    | `boolean` |   `false`    |                                      `true`                                       |
 | Layers options   | `typeSelectorContol` | `boolean` |   `false`    |                                      `true`                                       |
+| Localization     |        `lang`        | `string`  |   `ru_RU`    |                                      `en_US`                                      |
 
 ## 🗄 GitHub
 
