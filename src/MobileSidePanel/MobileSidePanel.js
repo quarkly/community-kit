@@ -29,6 +29,7 @@ const MobileSidePanel = ({
         [menuPosition]
     );
     const contentRef = useRef();
+    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
 
     const openPanel = useCallback(() => {
         contentRef.current.scrollTo(0, 0);
@@ -57,8 +58,6 @@ const MobileSidePanel = ({
         };
     }, [closePanel]);
 
-    const isEmpty = useMemo(() => isEmptyChildren(children), [children]);
-
     const styles = useMemo(
         () =>
             getStyles({
@@ -84,6 +83,21 @@ const MobileSidePanel = ({
         }),
         [isOpen, togglePanel, openPanel, closePanel]
     );
+
+    const handleClosePopup = useCallback((e) => {
+        if (e.target.closest('a')) {
+            const a = e.target;
+            const { pathname, protocol, host } = window.location;
+            const isSame =
+                a.pathname === pathname &&
+                a.protocol === protocol &&
+                a.host === host;
+
+            if (isSame) {
+                closePanel();
+            }
+        }
+    }, []);
 
     return (
         <Box
@@ -148,6 +162,7 @@ const MobileSidePanel = ({
                             {...styles.Children}
                             {...override('Children', `Children ${statusOpen}`)}
                             display={isEmpty ? 'none' : undefined}
+                            onClick={handleClosePopup}
                         >
                             {children}
                         </Box>
