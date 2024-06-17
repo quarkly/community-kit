@@ -23,7 +23,11 @@ const enable = () => {
 
     Object.assign(body.style, prevBodyStyles);
 
-    window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+    window.scrollTo({
+        left: 0,
+        top: parseInt(scrollY || '0', 10) * -1,
+        behavior: 'instant',
+    });
 };
 
 export default { disable, enable };
