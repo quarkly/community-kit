@@ -4,6 +4,8 @@ import { Box, Text, Input } from '@quarkly/widgets';
 import { useOverrides } from '@quarkly/components';
 import { overrides, propInfo, defaultProps } from './props';
 import { useForm, withForm } from '../Form/context';
+import ComponentNotice from '../ComponentNotice';
+import { isEmptyChildren } from '../utils';
 
 const Form = atomize.form();
 
@@ -66,6 +68,9 @@ const NetlifyForm = ({ formName, successMessage, errorMessage, ...props }) => {
                         defaultValue={formName}
                     />
                     {children}
+                    {isEmptyChildren(children) && (
+                        <ComponentNotice message="Drag Input, Textarea, Checkbox or RadioGroup component here" />
+                    )}
                     {error && (
                         <Text {...override('Text', 'Error Text')}>
                             {errorMessage}

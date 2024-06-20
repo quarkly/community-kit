@@ -1,55 +1,43 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import atomize from '@quarkly/atomize';
 import { useOverrides } from '@quarkly/components';
-
-import ComponentNotice from './ComponentNotice';
+import { Image } from '@quarkly/widgets';
 
 const overrides = {
     'Picture Tag': {
         kind: 'Picture Tag',
         props: {
-            width: '100%',
-            height: 'auto',
+            display: 'inline-block',
+        },
+    },
+    Image: {
+        kind: 'Image',
+        props: {
+            src:
+                'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&w=200',
         },
     },
 };
 
 const Picture = atomize.picture();
 const Wrapper = atomize.div();
-const Content = atomize.div();
 
-const PictureComponent = ({ children, ...props }) => {
-    const { override, rest } = useOverrides(props, overrides);
-
-    const [isEmpty, setEmpty] = useState(false);
-    const contentRef = useRef(null);
-
-    useEffect(() => {
-        setEmpty(contentRef.current?.innerHTML === '<!--child placeholder-->');
-    }, [children]);
+const PictureComponent = (props) => {
+    const { override, children, rest } = useOverrides(props, overrides);
 
     return (
-        <Wrapper {...rest}>
-            <Picture {...override('Picture Tag')} display={isEmpty && 'none'}>
-                <Content ref={contentRef}>
-                    {React.Children.map(
-                        children,
-                        (child) =>
-                            React.isValidElement(child) &&
-                            React.cloneElement(child, {
-                                container: 'picture',
-                            })
-                    )}
-                </Content>
+        <Wrapper display="inline-block" font-size="0" {...rest}>
+            <Picture {...override('Picture Tag')}>
+                {React.Children.map(
+                    children,
+                    (child) =>
+                        React.isValidElement(child) &&
+                        React.cloneElement(child, {
+                            container: 'picture',
+                        })
+                )}
+                <Image {...override('Image')} />
             </Picture>
-
-            {isEmpty && (
-                <ComponentNotice
-                    message={
-                        'Drag the Image and Source components here (optional)'
-                    }
-                />
-            )}
         </Wrapper>
     );
 };
@@ -62,4 +50,5 @@ export default atomize(PictureComponent)({
         ru:
             'Контейнер для обеспечения оптимальной версии изображения для различных размеров экрана',
     },
+    overrides,
 });

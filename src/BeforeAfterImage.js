@@ -210,7 +210,11 @@ const BeforeAfterImage = ({
                     }}
                 >
                     <Image {...override('Image', 'Before Image')} />
-                    <Text {...override('Label', 'Before Label')} />
+                    <Text
+                        {...override('Label', 'Before Label', {
+                            defaultKey: 'Before Label',
+                        })}
+                    />
                 </Box>
                 <Box
                     {...imageStyles}
@@ -224,7 +228,11 @@ const BeforeAfterImage = ({
                     }}
                 >
                     <Image {...override('Image', 'After Image')} />
-                    <Text {...override('Label', 'After Label')} />
+                    <Text
+                        {...override('Label', 'After Label', {
+                            defaultKey: 'After Label',
+                        })}
+                    />
                 </Box>
                 <Box
                     min-width="0px"

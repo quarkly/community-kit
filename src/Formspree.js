@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import atomize from '@quarkly/atomize';
-import { Text, Link, Strong } from '@quarkly/widgets';
+import { Text, Strong } from '@quarkly/widgets';
 import { useForm, withForm } from './Form/context';
+
+const AbsoluteLink = atomize.a();
 
 const NoEndPoint = atomize.div`
 	padding: 16px 32px;
@@ -86,7 +88,7 @@ const Formspree = (props) => {
             <Wrapper {...rest}>
                 <NoEndPoint>
                     Create a form on{' '}
-                    <Link
+                    <AbsoluteLink
                         color="currentColor"
                         text-decoration="underline"
                         target="_blank"
@@ -94,7 +96,7 @@ const Formspree = (props) => {
                         href="https://formspree.io/"
                     >
                         formspree.io
-                    </Link>{' '}
+                    </AbsoluteLink>{' '}
                     and fill in the <Strong>endpoint</Strong> field on the{' '}
                     <Strong>props panel</Strong>
                 </NoEndPoint>

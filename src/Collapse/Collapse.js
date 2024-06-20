@@ -96,6 +96,10 @@ const Collapse = ({
         ref.current.addEventListener('transitionend', handle);
     }, [animFunction, collapsedHeight, destination, duration, handle, mode]);
 
+    const buttonOveride = `Button ${
+        isOpen !== isCollapsing ? ':open' : ':close'
+    }`;
+
     return (
         <Box
             padding="8px"
@@ -103,7 +107,12 @@ const Collapse = ({
             border-radius="4px"
             {...rest}
         >
-            <Button {...override('Button')} onClick={toggleOpen} />
+            <Button
+                {...override('Button', buttonOveride, {
+                    defaultKey: buttonOveride,
+                })}
+                onClick={toggleOpen}
+            />
             <Box
                 ref={ref}
                 {...override(

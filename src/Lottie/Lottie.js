@@ -96,7 +96,6 @@ const Lottie = ({
     return (
         <Box
             ref={ref}
-            margin="0 auto"
             outline="none"
             overflow="hidden"
             position={renderer === 'html' && 'relative'}
